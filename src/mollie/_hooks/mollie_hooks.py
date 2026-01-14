@@ -30,6 +30,9 @@ class MollieHooks(BeforeRequestHook):
         :param request: The HTTP request to modify.
         :return: The modified request or an exception.
         """
+        # Validate path parameters
+        self._validate_path_parameters(request)
+        
         # Create a copy of the headers
         headers = dict(request.headers or {})
 
@@ -53,6 +56,19 @@ class MollieHooks(BeforeRequestHook):
             request = self._populate_profile_id_and_testmode(request, hook_ctx)
 
         return request
+
+    def _validate_path_parameters(self, request: Request) -> None:
+        path = request.url.path
+        path_segments = path.split('/')
+        
+        for i, segment in enumerate(path_segments):
+            if i == 0 and segment == '':
+                continue
+            
+            if segment == '' or segment.strip() == '':
+                raise ValueError(
+                    f"Invalid request: empty path parameter detected in [{request.method}] '{path}'"
+                )
 
     def _is_oauth_request(self, headers: dict, hook_ctx: BeforeRequestContext) -> bool:
         security = hook_ctx.config.security
