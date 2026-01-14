@@ -449,7 +449,7 @@ class BalanceTransfers(BaseSDK):
     def get(
         self,
         *,
-        id: str,
+        balance_transfer_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -461,7 +461,7 @@ class BalanceTransfers(BaseSDK):
 
         Retrieve a single Connect balance transfer object by its ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param balance_transfer_id: Provide the ID of the related balance transfer.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -480,14 +480,14 @@ class BalanceTransfers(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetConnectBalanceTransferRequest(
-            id=id,
+            balance_transfer_id=balance_transfer_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
             method="GET",
-            path="/connect/balance-transfers/{id}",
+            path="/connect/balance-transfers/{balanceTransferId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -551,7 +551,7 @@ class BalanceTransfers(BaseSDK):
     async def get_async(
         self,
         *,
-        id: str,
+        balance_transfer_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -563,7 +563,7 @@ class BalanceTransfers(BaseSDK):
 
         Retrieve a single Connect balance transfer object by its ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param balance_transfer_id: Provide the ID of the related balance transfer.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -582,14 +582,14 @@ class BalanceTransfers(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetConnectBalanceTransferRequest(
-            id=id,
+            balance_transfer_id=balance_transfer_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/connect/balance-transfers/{id}",
+            path="/connect/balance-transfers/{balanceTransferId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

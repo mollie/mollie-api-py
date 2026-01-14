@@ -3,7 +3,7 @@
 from .basesdk import BaseSDK
 from mollie import models, utils
 from mollie._hooks import HookContext
-from mollie.types import OptionalNullable, UNSET
+from mollie.types import Nullable, OptionalNullable, UNSET
 from mollie.utils import get_security_from_env
 from mollie.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Any, Mapping, Optional, Union
@@ -537,7 +537,7 @@ class Methods(BaseSDK):
     def get(
         self,
         *,
-        id: str,
+        method_id: Nullable[models.MethodID],
         locale: OptionalNullable[models.Locale] = UNSET,
         currency: Optional[str] = None,
         profile_id: Optional[str] = None,
@@ -565,7 +565,7 @@ class Methods(BaseSDK):
         Additionally, it is possible to check if wallet methods such as Apple Pay
         are enabled by passing the wallet ID (`applepay`) as the method ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param method_id: Provide the ID of the related payment method.
         :param locale: Response language
         :param currency: If provided, the `minimumAmount` and `maximumAmount` will be converted to the given currency. An error is returned if the currency is not supported by the payment method.
         :param profile_id: The identifier referring to the [profile](get-profile) you wish to retrieve the resources for.  Most API credentials are linked to a single profile. In these cases the `profileId` can be omitted. For organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
@@ -589,7 +589,7 @@ class Methods(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetMethodRequest(
-            id=id,
+            method_id=method_id,
             locale=locale,
             currency=currency,
             profile_id=profile_id,
@@ -601,7 +601,7 @@ class Methods(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/methods/{id}",
+            path="/methods/{methodId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -664,7 +664,7 @@ class Methods(BaseSDK):
     async def get_async(
         self,
         *,
-        id: str,
+        method_id: Nullable[models.MethodID],
         locale: OptionalNullable[models.Locale] = UNSET,
         currency: Optional[str] = None,
         profile_id: Optional[str] = None,
@@ -692,7 +692,7 @@ class Methods(BaseSDK):
         Additionally, it is possible to check if wallet methods such as Apple Pay
         are enabled by passing the wallet ID (`applepay`) as the method ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param method_id: Provide the ID of the related payment method.
         :param locale: Response language
         :param currency: If provided, the `minimumAmount` and `maximumAmount` will be converted to the given currency. An error is returned if the currency is not supported by the payment method.
         :param profile_id: The identifier referring to the [profile](get-profile) you wish to retrieve the resources for.  Most API credentials are linked to a single profile. In these cases the `profileId` can be omitted. For organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
@@ -716,7 +716,7 @@ class Methods(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetMethodRequest(
-            id=id,
+            method_id=method_id,
             locale=locale,
             currency=currency,
             profile_id=profile_id,
@@ -728,7 +728,7 @@ class Methods(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/methods/{id}",
+            path="/methods/{methodId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

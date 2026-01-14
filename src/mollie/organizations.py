@@ -13,7 +13,7 @@ class Organizations(BaseSDK):
     def get(
         self,
         *,
-        id: str,
+        organization_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -30,7 +30,7 @@ class Organizations(BaseSDK):
 
         If you have a *partner account*', you can retrieve organization details of connected organizations.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param organization_id: Provide the ID of the related organization.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -49,14 +49,14 @@ class Organizations(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetOrganizationRequest(
-            id=id,
+            organization_id=organization_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
             method="GET",
-            path="/organizations/{id}",
+            path="/organizations/{organizationId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -118,7 +118,7 @@ class Organizations(BaseSDK):
     async def get_async(
         self,
         *,
-        id: str,
+        organization_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -135,7 +135,7 @@ class Organizations(BaseSDK):
 
         If you have a *partner account*', you can retrieve organization details of connected organizations.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param organization_id: Provide the ID of the related organization.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -154,14 +154,14 @@ class Organizations(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetOrganizationRequest(
-            id=id,
+            organization_id=organization_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/organizations/{id}",
+            path="/organizations/{organizationId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

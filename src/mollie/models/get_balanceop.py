@@ -37,8 +37,8 @@ class GetBalanceGlobals(BaseModel):
 
 
 class GetBalanceRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    balance_id: str
+    r"""Provide the ID of the related balance."""
     testmode: NotRequired[bool]
     r"""You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -49,10 +49,12 @@ class GetBalanceRequestTypedDict(TypedDict):
 
 
 class GetBalanceRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    balance_id: Annotated[
+        str,
+        pydantic.Field(alias="balanceId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related balance."""
 
     testmode: Annotated[
         Optional[bool],

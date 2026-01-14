@@ -37,8 +37,8 @@ class GetConnectBalanceTransferGlobals(BaseModel):
 
 
 class GetConnectBalanceTransferRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    balance_transfer_id: str
+    r"""Provide the ID of the related balance transfer."""
     testmode: NotRequired[bool]
     r"""You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -49,10 +49,12 @@ class GetConnectBalanceTransferRequestTypedDict(TypedDict):
 
 
 class GetConnectBalanceTransferRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    balance_transfer_id: Annotated[
+        str,
+        pydantic.Field(alias="balanceTransferId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related balance transfer."""
 
     testmode: Annotated[
         Optional[bool],

@@ -63,7 +63,7 @@ Retrieve a single client by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/clients/{id}" -->
+<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/clients/{organizationId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -76,7 +76,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.clients.get(id="org_12345678", embed="organization", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.clients.get(organization_id="org_1234567", embed="organization", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -87,7 +87,7 @@ with ClientSDK(
 
 | Parameter                                                                                                                  | Type                                                                                                                       | Required                                                                                                                   | Description                                                                                                                | Example                                                                                                                    |
 | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                       | *str*                                                                                                                      | :heavy_check_mark:                                                                                                         | Provide the ID of the item you want to perform this operation on.                                                          |                                                                                                                            |
+| `organization_id`                                                                                                          | *str*                                                                                                                      | :heavy_check_mark:                                                                                                         | Provide the ID of the related organization.                                                                                | org_1234567                                                                                                                |
 | `embed`                                                                                                                    | *OptionalNullable[str]*                                                                                                    | :heavy_minus_sign:                                                                                                         | This endpoint allows embedding related API items by appending the following values via the `embed` query string<br/>parameter. |                                                                                                                            |
 | `idempotency_key`                                                                                                          | *Optional[str]*                                                                                                            | :heavy_minus_sign:                                                                                                         | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                                           | 123e4567-e89b-12d3-a456-426                                                                                                |
 | `retries`                                                                                                                  | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                           | :heavy_minus_sign:                                                                                                         | Configuration to override the default retry behavior of the client.                                                        |                                                                                                                            |

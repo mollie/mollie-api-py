@@ -118,7 +118,7 @@ Updates the webhook. You may edit the name, url and the list of subscribed event
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/webhooks/{id}" -->
+<!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/webhooks/{webhookId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -131,7 +131,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.webhooks.update(id="hook_B2EyhTH5N4KWUnoYPcgiH", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    res = client_sdk.webhooks.update(webhook_id="hook_1234567890", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "name": "Webhook #1",
         "url": "https://mollie.com/",
         "event_types": mollie.WebhookEventTypes.PAYMENT_LINK_PAID,
@@ -147,7 +147,7 @@ with ClientSDK(
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `id`                                                                                  | *str*                                                                                 | :heavy_check_mark:                                                                    | Provide the ID of the item you want to perform this operation on.                     |                                                                                       |
+| `webhook_id`                                                                          | *str*                                                                                 | :heavy_check_mark:                                                                    | Provide the ID of the related webhook.                                                | hook_1234567890                                                                       |
 | `idempotency_key`                                                                     | *Optional[str]*                                                                       | :heavy_minus_sign:                                                                    | A unique key to ensure idempotent requests. This key should be a UUID v4 string.      | 123e4567-e89b-12d3-a456-426                                                           |
 | `request_body`                                                                        | [Optional[models.UpdateWebhookRequestBody]](../../models/updatewebhookrequestbody.md) | :heavy_minus_sign:                                                                    | N/A                                                                                   |                                                                                       |
 | `retries`                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                      | :heavy_minus_sign:                                                                    | Configuration to override the default retry behavior of the client.                   |                                                                                       |
@@ -169,7 +169,7 @@ Retrieve a single webhook object by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/webhooks/{id}" -->
+<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/webhooks/{webhookId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -183,7 +183,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.webhooks.get(id="hook_B2EyhTH5N4KWUnoYPcgiH", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.webhooks.get(webhook_id="hook_1234567890", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -194,7 +194,7 @@ with ClientSDK(
 
 | Parameter                                                                                                                                                               | Type                                                                                                                                                                    | Required                                                                                                                                                                | Description                                                                                                                                                             | Example                                                                                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                                                                    | *str*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                      | Provide the ID of the item you want to perform this operation on.                                                                                                       |                                                                                                                                                                         |
+| `webhook_id`                                                                                                                                                            | *str*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                      | Provide the ID of the related webhook.                                                                                                                                  | hook_1234567890                                                                                                                                                         |
 | `testmode`                                                                                                                                                              | *Optional[bool]*                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                      | You can enable test mode by setting the `testmode` query parameter to `true`.<br/><br/>Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa. |                                                                                                                                                                         |
 | `idempotency_key`                                                                                                                                                       | *Optional[str]*                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                      | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                                                                                        | 123e4567-e89b-12d3-a456-426                                                                                                                                             |
 | `retries`                                                                                                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                        | :heavy_minus_sign:                                                                                                                                                      | Configuration to override the default retry behavior of the client.                                                                                                     |                                                                                                                                                                         |
@@ -216,7 +216,7 @@ Delete a single webhook object by its webhook ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="delete-webhook" method="delete" path="/webhooks/{id}" -->
+<!-- UsageSnippet language="python" operationID="delete-webhook" method="delete" path="/webhooks/{webhookId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -229,7 +229,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    client_sdk.webhooks.delete(id="hook_B2EyhTH5N4KWUnoYPcgiH", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    client_sdk.webhooks.delete(webhook_id="hook_1234567890", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "testmode": False,
     })
 
@@ -241,7 +241,7 @@ with ClientSDK(
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           | Example                                                                               |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `id`                                                                                  | *str*                                                                                 | :heavy_check_mark:                                                                    | Provide the ID of the item you want to perform this operation on.                     |                                                                                       |
+| `webhook_id`                                                                          | *str*                                                                                 | :heavy_check_mark:                                                                    | Provide the ID of the related webhook.                                                | hook_1234567890                                                                       |
 | `idempotency_key`                                                                     | *Optional[str]*                                                                       | :heavy_minus_sign:                                                                    | A unique key to ensure idempotent requests. This key should be a UUID v4 string.      | 123e4567-e89b-12d3-a456-426                                                           |
 | `request_body`                                                                        | [Optional[models.DeleteWebhookRequestBody]](../../models/deletewebhookrequestbody.md) | :heavy_minus_sign:                                                                    | N/A                                                                                   |                                                                                       |
 | `retries`                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                      | :heavy_minus_sign:                                                                    | Configuration to override the default retry behavior of the client.                   |                                                                                       |
@@ -259,7 +259,7 @@ Sends a test event to the webhook to verify the endpoint is working as expected.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="test-webhook" method="post" path="/webhooks/{id}/ping" -->
+<!-- UsageSnippet language="python" operationID="test-webhook" method="post" path="/webhooks/{webhookId}/ping" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -272,7 +272,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    client_sdk.webhooks.test(id="hook_B2EyhTH5N4KWUnoYPcgiH", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    client_sdk.webhooks.test(webhook_id="hook_1234567890", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "testmode": False,
     })
 
@@ -284,7 +284,7 @@ with ClientSDK(
 
 | Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       | Example                                                                           |
 | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `id`                                                                              | *str*                                                                             | :heavy_check_mark:                                                                | Provide the ID of the item you want to perform this operation on.                 |                                                                                   |
+| `webhook_id`                                                                      | *str*                                                                             | :heavy_check_mark:                                                                | Provide the ID of the related webhook.                                            | hook_1234567890                                                                   |
 | `idempotency_key`                                                                 | *Optional[str]*                                                                   | :heavy_minus_sign:                                                                | A unique key to ensure idempotent requests. This key should be a UUID v4 string.  | 123e4567-e89b-12d3-a456-426                                                       |
 | `request_body`                                                                    | [Optional[models.TestWebhookRequestBody]](../../models/testwebhookrequestbody.md) | :heavy_minus_sign:                                                                | N/A                                                                               |                                                                                   |
 | `retries`                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                  | :heavy_minus_sign:                                                                | Configuration to override the default retry behavior of the client.               |                                                                                   |

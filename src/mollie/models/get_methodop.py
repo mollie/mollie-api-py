@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .locale import Locale
+from .method_id import MethodID
 from .sequence_type import SequenceType
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import (
@@ -9,9 +10,11 @@ from mollie.utils import (
     HeaderMetadata,
     PathParamMetadata,
     QueryParamMetadata,
+    validate_open_enum,
 )
 import pydantic
 from pydantic import model_serializer
+from pydantic.functional_validators import PlainValidator
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -59,8 +62,8 @@ class GetMethodGlobals(BaseModel):
 
 
 class GetMethodRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    method_id: Nullable[MethodID]
+    r"""Provide the ID of the related payment method."""
     locale: NotRequired[Nullable[Locale]]
     r"""Response language"""
     currency: NotRequired[str]
@@ -94,10 +97,12 @@ class GetMethodRequestTypedDict(TypedDict):
 
 
 class GetMethodRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    method_id: Annotated[
+        Annotated[Nullable[MethodID], PlainValidator(validate_open_enum(False))],
+        pydantic.Field(alias="methodId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related payment method."""
 
     locale: Annotated[
         OptionalNullable[Locale],
@@ -171,7 +176,7 @@ class GetMethodRequest(BaseModel):
             "testmode",
             "idempotency-key",
         ]
-        nullable_fields = ["locale", "include"]
+        nullable_fields = ["methodId", "locale", "include"]
         null_default_fields = []
 
         serialized = handler(self)

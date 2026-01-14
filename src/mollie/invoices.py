@@ -237,7 +237,7 @@ class Invoices(BaseSDK):
     def get(
         self,
         *,
-        id: str,
+        invoice_id: str,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -251,7 +251,7 @@ class Invoices(BaseSDK):
         If you want to retrieve the details of an invoice by its invoice number,
         call the [List invoices](list-invoices) endpoint with the `reference` parameter.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param invoice_id: Provide the ID of the related invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -269,13 +269,13 @@ class Invoices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetInvoiceRequest(
-            id=id,
+            invoice_id=invoice_id,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
             method="GET",
-            path="/invoices/{id}",
+            path="/invoices/{invoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -334,7 +334,7 @@ class Invoices(BaseSDK):
     async def get_async(
         self,
         *,
-        id: str,
+        invoice_id: str,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -348,7 +348,7 @@ class Invoices(BaseSDK):
         If you want to retrieve the details of an invoice by its invoice number,
         call the [List invoices](list-invoices) endpoint with the `reference` parameter.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param invoice_id: Provide the ID of the related invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -366,13 +366,13 @@ class Invoices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetInvoiceRequest(
-            id=id,
+            invoice_id=invoice_id,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/invoices/{id}",
+            path="/invoices/{invoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

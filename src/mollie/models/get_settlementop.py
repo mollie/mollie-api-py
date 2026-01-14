@@ -9,17 +9,19 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class GetSettlementRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    settlement_id: str
+    r"""Provide the ID of the related settlement."""
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
 
 class GetSettlementRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    settlement_id: Annotated[
+        str,
+        pydantic.Field(alias="settlementId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related settlement."""
 
     idempotency_key: Annotated[
         Optional[str],

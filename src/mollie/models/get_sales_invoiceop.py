@@ -37,8 +37,8 @@ class GetSalesInvoiceGlobals(BaseModel):
 
 
 class GetSalesInvoiceRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    sales_invoice_id: str
+    r"""Provide the ID of the related sales invoice."""
     testmode: NotRequired[bool]
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
     parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -51,10 +51,12 @@ class GetSalesInvoiceRequestTypedDict(TypedDict):
 
 
 class GetSalesInvoiceRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    sales_invoice_id: Annotated[
+        str,
+        pydantic.Field(alias="salesInvoiceId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related sales invoice."""
 
     testmode: Annotated[
         Optional[bool],

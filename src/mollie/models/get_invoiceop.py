@@ -9,17 +9,19 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class GetInvoiceRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    invoice_id: str
+    r"""Provide the ID of the related invoice."""
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
 
 class GetInvoiceRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    invoice_id: Annotated[
+        str,
+        pydantic.Field(alias="invoiceId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related invoice."""
 
     idempotency_key: Annotated[
         Optional[str],

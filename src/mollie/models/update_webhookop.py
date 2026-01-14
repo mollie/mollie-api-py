@@ -57,18 +57,20 @@ class UpdateWebhookRequestBody(BaseModel):
 
 
 class UpdateWebhookRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    webhook_id: str
+    r"""Provide the ID of the related webhook."""
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
     request_body: NotRequired[UpdateWebhookRequestBodyTypedDict]
 
 
 class UpdateWebhookRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    webhook_id: Annotated[
+        str,
+        pydantic.Field(alias="webhookId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related webhook."""
 
     idempotency_key: Annotated[
         Optional[str],

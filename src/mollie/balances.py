@@ -229,7 +229,7 @@ class Balances(BaseSDK):
     def get(
         self,
         *,
-        id: str,
+        balance_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -255,7 +255,7 @@ class Balances(BaseSDK):
         balance instantly. With slower payment methods, like credit card for example, it can take a few days before the
         funds are available on your balance. These funds will be shown under the *pending amount* in the meanwhile.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param balance_id: Provide the ID of the related balance.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -274,14 +274,14 @@ class Balances(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetBalanceRequest(
-            id=id,
+            balance_id=balance_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
             method="GET",
-            path="/balances/{id}",
+            path="/balances/{balanceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -343,7 +343,7 @@ class Balances(BaseSDK):
     async def get_async(
         self,
         *,
-        id: str,
+        balance_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -369,7 +369,7 @@ class Balances(BaseSDK):
         balance instantly. With slower payment methods, like credit card for example, it can take a few days before the
         funds are available on your balance. These funds will be shown under the *pending amount* in the meanwhile.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param balance_id: Provide the ID of the related balance.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -388,14 +388,14 @@ class Balances(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetBalanceRequest(
-            id=id,
+            balance_id=balance_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/balances/{id}",
+            path="/balances/{balanceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

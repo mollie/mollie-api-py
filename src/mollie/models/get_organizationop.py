@@ -37,8 +37,8 @@ class GetOrganizationGlobals(BaseModel):
 
 
 class GetOrganizationRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    organization_id: str
+    r"""Provide the ID of the related organization."""
     testmode: NotRequired[bool]
     r"""You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -49,10 +49,12 @@ class GetOrganizationRequestTypedDict(TypedDict):
 
 
 class GetOrganizationRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    organization_id: Annotated[
+        str,
+        pydantic.Field(alias="organizationId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related organization."""
 
     testmode: Annotated[
         Optional[bool],

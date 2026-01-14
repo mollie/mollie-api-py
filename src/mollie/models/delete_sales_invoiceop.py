@@ -18,18 +18,20 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class DeleteSalesInvoiceRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    sales_invoice_id: str
+    r"""Provide the ID of the related sales invoice."""
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
     delete_values_sales_invoice: NotRequired[DeleteValuesSalesInvoiceTypedDict]
 
 
 class DeleteSalesInvoiceRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    sales_invoice_id: Annotated[
+        str,
+        pydantic.Field(alias="salesInvoiceId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related sales invoice."""
 
     idempotency_key: Annotated[
         Optional[str],

@@ -3,15 +3,15 @@
 
 ## Supported Types
 
-### `models.PaymentRequestMethodEnum`
+### `models.MethodEnum`
 
 ```python
-value: models.PaymentRequestMethodEnum = /* values here */
+value: models.MethodEnum = /* values here */
 ```
 
-### `List[Any]`
+### `List[Nullable[models.MethodEnum]]`
 
 ```python
-value: List[Any] = /* values here */
+value: List[Nullable[models.MethodEnum]] = /* values here */
 ```
 

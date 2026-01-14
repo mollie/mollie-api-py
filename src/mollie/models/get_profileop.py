@@ -37,8 +37,8 @@ class GetProfileGlobals(BaseModel):
 
 
 class GetProfileRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    profile_id: str
+    r"""Provide the ID of the related profile."""
     testmode: NotRequired[bool]
     r"""You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -49,10 +49,12 @@ class GetProfileRequestTypedDict(TypedDict):
 
 
 class GetProfileRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    profile_id: Annotated[
+        str,
+        pydantic.Field(alias="profileId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related profile."""
 
     testmode: Annotated[
         Optional[bool],

@@ -37,8 +37,8 @@ class GetWebhookEventGlobals(BaseModel):
 
 
 class GetWebhookEventRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    webhook_event_id: str
+    r"""Provide the ID of the related webhook event."""
     testmode: NotRequired[bool]
     r"""You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -49,10 +49,12 @@ class GetWebhookEventRequestTypedDict(TypedDict):
 
 
 class GetWebhookEventRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    webhook_event_id: Annotated[
+        str,
+        pydantic.Field(alias="webhookEventId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related webhook event."""
 
     testmode: Annotated[
         Optional[bool],

@@ -121,18 +121,20 @@ class UpdateProfileRequestBody(BaseModel):
 
 
 class UpdateProfileRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    profile_id: str
+    r"""Provide the ID of the related profile."""
     request_body: UpdateProfileRequestBodyTypedDict
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
 
 class UpdateProfileRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    profile_id: Annotated[
+        str,
+        pydantic.Field(alias="profileId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related profile."""
 
     request_body: Annotated[
         UpdateProfileRequestBody,

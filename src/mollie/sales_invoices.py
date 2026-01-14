@@ -449,7 +449,7 @@ class SalesInvoices(BaseSDK):
     def get(
         self,
         *,
-        id: str,
+        sales_invoice_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -465,7 +465,7 @@ class SalesInvoices(BaseSDK):
 
         Retrieve a single sales invoice by its ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -484,14 +484,14 @@ class SalesInvoices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetSalesInvoiceRequest(
-            id=id,
+            sales_invoice_id=sales_invoice_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
             method="GET",
-            path="/sales-invoices/{id}",
+            path="/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -553,7 +553,7 @@ class SalesInvoices(BaseSDK):
     async def get_async(
         self,
         *,
-        id: str,
+        sales_invoice_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -569,7 +569,7 @@ class SalesInvoices(BaseSDK):
 
         Retrieve a single sales invoice by its ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -588,14 +588,14 @@ class SalesInvoices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetSalesInvoiceRequest(
-            id=id,
+            sales_invoice_id=sales_invoice_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/sales-invoices/{id}",
+            path="/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -657,7 +657,7 @@ class SalesInvoices(BaseSDK):
     def update(
         self,
         *,
-        id: str,
+        sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
         update_values_sales_invoice: Optional[
             Union[
@@ -680,7 +680,7 @@ class SalesInvoices(BaseSDK):
         statuses `paid` and `issued` there are certain additional requirements (`paymentDetails` and `emailDetails`,
         respectively).
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param update_values_sales_invoice:
         :param retries: Override the default retry configuration for this method
@@ -699,7 +699,7 @@ class SalesInvoices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.UpdateSalesInvoiceRequest(
-            id=id,
+            sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
             update_values_sales_invoice=utils.get_pydantic_model(
                 update_values_sales_invoice, Optional[models.UpdateValuesSalesInvoice]
@@ -708,7 +708,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request(
             method="PATCH",
-            path="/sales-invoices/{id}",
+            path="/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -774,7 +774,7 @@ class SalesInvoices(BaseSDK):
     async def update_async(
         self,
         *,
-        id: str,
+        sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
         update_values_sales_invoice: Optional[
             Union[
@@ -797,7 +797,7 @@ class SalesInvoices(BaseSDK):
         statuses `paid` and `issued` there are certain additional requirements (`paymentDetails` and `emailDetails`,
         respectively).
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param update_values_sales_invoice:
         :param retries: Override the default retry configuration for this method
@@ -816,7 +816,7 @@ class SalesInvoices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.UpdateSalesInvoiceRequest(
-            id=id,
+            sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
             update_values_sales_invoice=utils.get_pydantic_model(
                 update_values_sales_invoice, Optional[models.UpdateValuesSalesInvoice]
@@ -825,7 +825,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request_async(
             method="PATCH",
-            path="/sales-invoices/{id}",
+            path="/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -891,7 +891,7 @@ class SalesInvoices(BaseSDK):
     def delete(
         self,
         *,
-        id: str,
+        sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
         delete_values_sales_invoice: Optional[
             Union[
@@ -913,7 +913,7 @@ class SalesInvoices(BaseSDK):
         Sales invoices which are in status `draft` can be deleted. For all other statuses, please use the
         [Update sales invoice](update-sales-invoice) endpoint instead.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param delete_values_sales_invoice:
         :param retries: Override the default retry configuration for this method
@@ -932,7 +932,7 @@ class SalesInvoices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.DeleteSalesInvoiceRequest(
-            id=id,
+            sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
             delete_values_sales_invoice=utils.get_pydantic_model(
                 delete_values_sales_invoice, Optional[models.DeleteValuesSalesInvoice]
@@ -941,7 +941,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/sales-invoices/{id}",
+            path="/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1007,7 +1007,7 @@ class SalesInvoices(BaseSDK):
     async def delete_async(
         self,
         *,
-        id: str,
+        sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
         delete_values_sales_invoice: Optional[
             Union[
@@ -1029,7 +1029,7 @@ class SalesInvoices(BaseSDK):
         Sales invoices which are in status `draft` can be deleted. For all other statuses, please use the
         [Update sales invoice](update-sales-invoice) endpoint instead.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param delete_values_sales_invoice:
         :param retries: Override the default retry configuration for this method
@@ -1048,7 +1048,7 @@ class SalesInvoices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.DeleteSalesInvoiceRequest(
-            id=id,
+            sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
             delete_values_sales_invoice=utils.get_pydantic_model(
                 delete_values_sales_invoice, Optional[models.DeleteValuesSalesInvoice]
@@ -1057,7 +1057,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/sales-invoices/{id}",
+            path="/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

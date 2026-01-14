@@ -22,8 +22,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class GetClientRequestTypedDict(TypedDict):
-    id: str
-    r"""Provide the ID of the item you want to perform this operation on."""
+    organization_id: str
+    r"""Provide the ID of the related organization."""
     embed: NotRequired[Nullable[str]]
     r"""This endpoint allows embedding related API items by appending the following values via the `embed` query string
     parameter.
@@ -33,10 +33,12 @@ class GetClientRequestTypedDict(TypedDict):
 
 
 class GetClientRequest(BaseModel):
-    id: Annotated[
-        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    organization_id: Annotated[
+        str,
+        pydantic.Field(alias="organizationId"),
+        FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the item you want to perform this operation on."""
+    r"""Provide the ID of the related organization."""
 
     embed: Annotated[
         OptionalNullable[str],

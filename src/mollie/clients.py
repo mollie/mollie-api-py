@@ -217,7 +217,7 @@ class Clients(BaseSDK):
     def get(
         self,
         *,
-        id: str,
+        organization_id: str,
         embed: OptionalNullable[str] = UNSET,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -229,7 +229,7 @@ class Clients(BaseSDK):
 
         Retrieve a single client by its ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param organization_id: Provide the ID of the related organization.
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string parameter.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -248,14 +248,14 @@ class Clients(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetClientRequest(
-            id=id,
+            organization_id=organization_id,
             embed=embed,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
             method="GET",
-            path="/clients/{id}",
+            path="/clients/{organizationId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -314,7 +314,7 @@ class Clients(BaseSDK):
     async def get_async(
         self,
         *,
-        id: str,
+        organization_id: str,
         embed: OptionalNullable[str] = UNSET,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -326,7 +326,7 @@ class Clients(BaseSDK):
 
         Retrieve a single client by its ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param organization_id: Provide the ID of the related organization.
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string parameter.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -345,14 +345,14 @@ class Clients(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetClientRequest(
-            id=id,
+            organization_id=organization_id,
             embed=embed,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/clients/{id}",
+            path="/clients/{organizationId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

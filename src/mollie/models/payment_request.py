@@ -7,12 +7,12 @@ from .entity_payment_route import EntityPaymentRoute, EntityPaymentRouteTypedDic
 from .line_categories import LineCategories
 from .locale import Locale
 from .metadata import Metadata, MetadataTypedDict
+from .method_enum import MethodEnum
 from .payment_address import PaymentAddress, PaymentAddressTypedDict
 from .payment_line_type import PaymentLineType
 from .recurring_line_item import RecurringLineItem, RecurringLineItemTypedDict
 from .sequence_type import SequenceType
 from datetime import date
-from enum import Enum
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
@@ -256,49 +256,12 @@ class PaymentRequestBillingAddress(BaseModel):
     """
 
 
-class PaymentRequestMethodEnum(str, Enum):
-    ALMA = "alma"
-    APPLEPAY = "applepay"
-    BACS = "bacs"
-    BANCOMATPAY = "bancomatpay"
-    BANCONTACT = "bancontact"
-    BANKTRANSFER = "banktransfer"
-    BELFIUS = "belfius"
-    BILLIE = "billie"
-    BIZUM = "bizum"
-    BLIK = "blik"
-    CREDITCARD = "creditcard"
-    DIRECTDEBIT = "directdebit"
-    EPS = "eps"
-    GIFTCARD = "giftcard"
-    IDEAL = "ideal"
-    IN3 = "in3"
-    KBC = "kbc"
-    KLARNA = "klarna"
-    MBWAY = "mbway"
-    MOBILEPAY = "mobilepay"
-    MULTIBANCO = "multibanco"
-    MYBANK = "mybank"
-    PAYBYBANK = "paybybank"
-    PAYPAL = "paypal"
-    PAYSAFECARD = "paysafecard"
-    POINTOFSALE = "pointofsale"
-    PRZELEWY24 = "przelewy24"
-    RIVERTY = "riverty"
-    SATISPAY = "satispay"
-    SWISH = "swish"
-    TRUSTLY = "trustly"
-    TWINT = "twint"
-    VIPPS = "vipps"
-    VOUCHER = "voucher"
-
-
 MethodTypedDict = TypeAliasType(
-    "MethodTypedDict", Union[PaymentRequestMethodEnum, List[Any]]
+    "MethodTypedDict", Union[MethodEnum, List[Nullable[MethodEnum]]]
 )
 
 
-Method = TypeAliasType("Method", Union[PaymentRequestMethodEnum, List[Any]])
+Method = TypeAliasType("Method", Union[MethodEnum, List[Nullable[MethodEnum]]])
 
 
 class PaymentRequestApplicationFeeTypedDict(TypedDict):

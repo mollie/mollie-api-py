@@ -125,7 +125,7 @@ Retrieve a single profile by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-profile" method="get" path="/profiles/{id}" -->
+<!-- UsageSnippet language="python" operationID="get-profile" method="get" path="/profiles/{profileId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -139,7 +139,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.profiles.get(id="pfl_QkEhN94Ba", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.profiles.get(profile_id="pfl_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -150,7 +150,7 @@ with ClientSDK(
 
 | Parameter                                                                                                                                                               | Type                                                                                                                                                                    | Required                                                                                                                                                                | Description                                                                                                                                                             | Example                                                                                                                                                                 |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`                                                                                                                                                                    | *str*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                      | Provide the ID of the item you want to perform this operation on.                                                                                                       |                                                                                                                                                                         |
+| `profile_id`                                                                                                                                                            | *str*                                                                                                                                                                   | :heavy_check_mark:                                                                                                                                                      | Provide the ID of the related profile.                                                                                                                                  | pfl_5B8cwPMGnU                                                                                                                                                          |
 | `testmode`                                                                                                                                                              | *Optional[bool]*                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                      | You can enable test mode by setting the `testmode` query parameter to `true`.<br/><br/>Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa. |                                                                                                                                                                         |
 | `idempotency_key`                                                                                                                                                       | *Optional[str]*                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                      | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                                                                                        | 123e4567-e89b-12d3-a456-426                                                                                                                                             |
 | `retries`                                                                                                                                                               | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                        | :heavy_minus_sign:                                                                                                                                                      | Configuration to override the default retry behavior of the client.                                                                                                     |                                                                                                                                                                         |
@@ -175,7 +175,7 @@ Alternatively, you can use this endpoint to automate profile management.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="update-profile" method="patch" path="/profiles/{id}" -->
+<!-- UsageSnippet language="python" operationID="update-profile" method="patch" path="/profiles/{profileId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -188,7 +188,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.profiles.update(id="pfl_QkEhN94Ba", request_body={
+    res = client_sdk.profiles.update(profile_id="pfl_5B8cwPMGnU", request_body={
         "name": "My new website name",
         "website": "https://example.com",
         "email": "test@mollie.com",
@@ -210,7 +210,7 @@ with ClientSDK(
 
 | Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `id`                                                                             | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the item you want to perform this operation on.                |                                                                                  |
+| `profile_id`                                                                     | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the related profile.                                           | pfl_5B8cwPMGnU                                                                   |
 | `request_body`                                                                   | [models.UpdateProfileRequestBody](../../models/updateprofilerequestbody.md)      | :heavy_check_mark:                                                               | N/A                                                                              |                                                                                  |
 | `idempotency_key`                                                                | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | A unique key to ensure idempotent requests. This key should be a UUID v4 string. | 123e4567-e89b-12d3-a456-426                                                      |
 | `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
@@ -232,7 +232,7 @@ Delete a profile. A deleted profile and its related credentials can no longer be
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="delete-profile" method="delete" path="/profiles/{id}" -->
+<!-- UsageSnippet language="python" operationID="delete-profile" method="delete" path="/profiles/{profileId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -245,7 +245,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    client_sdk.profiles.delete(id="pfl_QkEhN94Ba", idempotency_key="123e4567-e89b-12d3-a456-426")
+    client_sdk.profiles.delete(profile_id="pfl_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Use the SDK ...
 
@@ -255,7 +255,7 @@ with ClientSDK(
 
 | Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `id`                                                                             | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the item you want to perform this operation on.                |                                                                                  |
+| `profile_id`                                                                     | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the related profile.                                           | pfl_5B8cwPMGnU                                                                   |
 | `idempotency_key`                                                                | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | A unique key to ensure idempotent requests. This key should be a UUID v4 string. | 123e4567-e89b-12d3-a456-426                                                      |
 | `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
 

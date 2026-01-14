@@ -415,7 +415,7 @@ class Profiles(BaseSDK):
     def get(
         self,
         *,
-        id: str,
+        profile_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -427,7 +427,7 @@ class Profiles(BaseSDK):
 
         Retrieve a single profile by its ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param profile_id: Provide the ID of the related profile.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -446,14 +446,14 @@ class Profiles(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetProfileRequest(
-            id=id,
+            profile_id=profile_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
             method="GET",
-            path="/profiles/{id}",
+            path="/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -515,7 +515,7 @@ class Profiles(BaseSDK):
     async def get_async(
         self,
         *,
-        id: str,
+        profile_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -527,7 +527,7 @@ class Profiles(BaseSDK):
 
         Retrieve a single profile by its ID.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param profile_id: Provide the ID of the related profile.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.  Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -546,14 +546,14 @@ class Profiles(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.GetProfileRequest(
-            id=id,
+            profile_id=profile_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/profiles/{id}",
+            path="/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -615,7 +615,7 @@ class Profiles(BaseSDK):
     def update(
         self,
         *,
-        id: str,
+        profile_id: str,
         request_body: Union[
             models.UpdateProfileRequestBody, models.UpdateProfileRequestBodyTypedDict
         ],
@@ -632,7 +632,7 @@ class Profiles(BaseSDK):
         Profiles are required for payment processing. Normally they are created and updated via the Mollie dashboard.
         Alternatively, you can use this endpoint to automate profile management.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param profile_id: Provide the ID of the related profile.
         :param request_body:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -651,7 +651,7 @@ class Profiles(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.UpdateProfileRequest(
-            id=id,
+            profile_id=profile_id,
             idempotency_key=idempotency_key,
             request_body=utils.get_pydantic_model(
                 request_body, models.UpdateProfileRequestBody
@@ -660,7 +660,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request(
             method="PATCH",
-            path="/profiles/{id}",
+            path="/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -728,7 +728,7 @@ class Profiles(BaseSDK):
     async def update_async(
         self,
         *,
-        id: str,
+        profile_id: str,
         request_body: Union[
             models.UpdateProfileRequestBody, models.UpdateProfileRequestBodyTypedDict
         ],
@@ -745,7 +745,7 @@ class Profiles(BaseSDK):
         Profiles are required for payment processing. Normally they are created and updated via the Mollie dashboard.
         Alternatively, you can use this endpoint to automate profile management.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param profile_id: Provide the ID of the related profile.
         :param request_body:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -764,7 +764,7 @@ class Profiles(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.UpdateProfileRequest(
-            id=id,
+            profile_id=profile_id,
             idempotency_key=idempotency_key,
             request_body=utils.get_pydantic_model(
                 request_body, models.UpdateProfileRequestBody
@@ -773,7 +773,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request_async(
             method="PATCH",
-            path="/profiles/{id}",
+            path="/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -841,7 +841,7 @@ class Profiles(BaseSDK):
     def delete(
         self,
         *,
-        id: str,
+        profile_id: str,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -852,7 +852,7 @@ class Profiles(BaseSDK):
 
         Delete a profile. A deleted profile and its related credentials can no longer be used for accepting payments.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param profile_id: Provide the ID of the related profile.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -870,13 +870,13 @@ class Profiles(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.DeleteProfileRequest(
-            id=id,
+            profile_id=profile_id,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
             method="DELETE",
-            path="/profiles/{id}",
+            path="/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -935,7 +935,7 @@ class Profiles(BaseSDK):
     async def delete_async(
         self,
         *,
-        id: str,
+        profile_id: str,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -946,7 +946,7 @@ class Profiles(BaseSDK):
 
         Delete a profile. A deleted profile and its related credentials can no longer be used for accepting payments.
 
-        :param id: Provide the ID of the item you want to perform this operation on.
+        :param profile_id: Provide the ID of the related profile.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -964,13 +964,13 @@ class Profiles(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.DeleteProfileRequest(
-            id=id,
+            profile_id=profile_id,
             idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
             method="DELETE",
-            path="/profiles/{id}",
+            path="/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

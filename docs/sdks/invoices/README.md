@@ -70,7 +70,7 @@ call the [List invoices](list-invoices) endpoint with the `reference` parameter.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-invoice" method="get" path="/invoices/{id}" -->
+<!-- UsageSnippet language="python" operationID="get-invoice" method="get" path="/invoices/{invoiceId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -83,7 +83,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.invoices.get(id="inv_FrvewDA3Pr", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.invoices.get(invoice_id="inv_aHbjjdrUdm", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -94,7 +94,7 @@ with ClientSDK(
 
 | Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
 | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `id`                                                                             | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the item you want to perform this operation on.                |                                                                                  |
+| `invoice_id`                                                                     | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the related invoice.                                           | inv_aHbjjdrUdm                                                                   |
 | `idempotency_key`                                                                | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | A unique key to ensure idempotent requests. This key should be a UUID v4 string. | 123e4567-e89b-12d3-a456-426                                                      |
 | `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
 
