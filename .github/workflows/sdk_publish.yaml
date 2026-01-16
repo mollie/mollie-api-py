@@ -13,6 +13,34 @@ permissions:
       - .speakeasy/gen.lock
   workflow_dispatch: {}
 jobs:
+  update-readme:
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Update package name in README
+        run: |
+          sed -i 's/uv add mollie$/uv add mollie-api-py/g' README.md
+          sed -i 's/pip install mollie$/pip install mollie-api-py/g' README.md
+          sed -i 's/poetry add mollie$/poetry add mollie-api-py/g' README.md
+          sed -i 's/uvx --from mollie python/uvx --from mollie-api-py python/g' README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: update package name to mollie-api-py in README"
+            git push
+          fi
+
   publish:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
     with:
