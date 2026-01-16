@@ -14,7 +14,6 @@ permissions:
   workflow_dispatch: {}
 jobs:
   update-readme:
-    needs: generate
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -42,6 +41,7 @@ jobs:
           fi
 
   publish:
+    needs: update-readme
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
     with:
       target: client
