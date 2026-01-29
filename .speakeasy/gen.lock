@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3f63a12a-c4cd-4e2e-98dc-9d5c6f5180ec
 management:
-  docChecksum: 379c86399fe10e2bde2608a21b4df9f0
+  docChecksum: 2dd6bbe6c8e37f09e44e3a6a74949722
   docVersion: 1.0.0
   speakeasyVersion: 1.640.0
   generationVersion: 2.730.5
-  releaseVersion: 1.0.2
-  configChecksum: 6483eeed87c79294179fc64ddc6166ac
+  releaseVersion: 1.0.3
+  configChecksum: 69fad51b636816aa9ac5abec24d682e0
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
@@ -5558,7 +5558,6 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `client.balances.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.settlements.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.invoices.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.organizations.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.profiles.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.profiles.update()`:  `request` **Changed** **Breaking** :warning:\n* `client.profiles.delete()`:  `request` **Changed** **Breaking** :warning:\n* `client.clients.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.webhooks.update()`:  `request` **Changed** **Breaking** :warning:\n* `client.webhooks.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.webhooks.delete()`:  `request` **Changed** **Breaking** :warning:\n* `client.webhooks.test()`:  `request` **Changed** **Breaking** :warning:\n* `client.webhook-events.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.balance-transfers.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.payments.create()`: \n  *  `request.payment-request.method` **Changed** **Breaking** :warning:\n* `client.methods.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.customers.create-payment()`: \n  *  `request.payment-request.method` **Changed** **Breaking** :warning:\n* `client.sales-invoices.get()`:  `request` **Changed** **Breaking** :warning:\n* `client.sales-invoices.update()`:  `request` **Changed** **Breaking** :warning:\n* `client.sales-invoices.delete()`:  `request` **Changed** **Breaking** :warning:\n"
 persistentEdits:
   generation_id: b447ae8a-9f05-460c-a7cd-f421087b632c
   pristine_commit_hash: 353ee42295bde549cfa3a77070e603993577e347
