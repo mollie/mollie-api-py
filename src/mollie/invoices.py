@@ -15,7 +15,6 @@ class Invoices(BaseSDK):
         *,
         reference: OptionalNullable[str] = UNSET,
         year: OptionalNullable[str] = UNSET,
-        month: OptionalNullable[str] = UNSET,
         from_: OptionalNullable[str] = UNSET,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
@@ -34,7 +33,6 @@ class Invoices(BaseSDK):
 
         :param reference: Filter for an invoice with a specific invoice reference, for example `2024.10000`.
         :param year: Filter for invoices of a specific year, for example `2024`.
-        :param month: Filter for invoices of a specific month, for example `01`.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param sort: Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from newest to oldest.
@@ -57,7 +55,6 @@ class Invoices(BaseSDK):
         request = models.ListInvoicesRequest(
             reference=reference,
             year=year,
-            month=month,
             from_=from_,
             limit=limit,
             sort=sort,
@@ -127,7 +124,6 @@ class Invoices(BaseSDK):
         *,
         reference: OptionalNullable[str] = UNSET,
         year: OptionalNullable[str] = UNSET,
-        month: OptionalNullable[str] = UNSET,
         from_: OptionalNullable[str] = UNSET,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
@@ -146,7 +142,6 @@ class Invoices(BaseSDK):
 
         :param reference: Filter for an invoice with a specific invoice reference, for example `2024.10000`.
         :param year: Filter for invoices of a specific year, for example `2024`.
-        :param month: Filter for invoices of a specific month, for example `01`.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param sort: Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from newest to oldest.
@@ -169,7 +164,6 @@ class Invoices(BaseSDK):
         request = models.ListInvoicesRequest(
             reference=reference,
             year=year,
-            month=month,
             from_=from_,
             limit=limit,
             sort=sort,

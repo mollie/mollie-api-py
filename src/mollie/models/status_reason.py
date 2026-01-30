@@ -139,6 +139,7 @@ class Code(str, Enum):
     LOGIN_FAILED_UNKNOWN_USER = "login_failed_unknown_user"
     LOGIN_FAILED_INVALID_PASSWORD = "login_failed_invalid_password"
     INVALID_EAN_CODE = "invalid_ean_code"
+    CARD_ERROR = "card_error"
 
 
 class StatusReasonTypedDict(TypedDict):

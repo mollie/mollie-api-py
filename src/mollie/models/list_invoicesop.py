@@ -19,8 +19,6 @@ class ListInvoicesRequestTypedDict(TypedDict):
     """
     year: NotRequired[Nullable[str]]
     r"""Filter for invoices of a specific year, for example `2024`."""
-    month: NotRequired[Nullable[str]]
-    r"""Filter for invoices of a specific month, for example `01`."""
     from_: NotRequired[Nullable[str]]
     r"""Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
     result set.
@@ -49,12 +47,6 @@ class ListInvoicesRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Filter for invoices of a specific year, for example `2024`."""
-
-    month: Annotated[
-        OptionalNullable[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = UNSET
-    r"""Filter for invoices of a specific month, for example `01`."""
 
     from_: Annotated[
         OptionalNullable[str],
@@ -91,13 +83,12 @@ class ListInvoicesRequest(BaseModel):
         optional_fields = [
             "reference",
             "year",
-            "month",
             "from",
             "limit",
             "sort",
             "idempotency-key",
         ]
-        nullable_fields = ["reference", "year", "month", "from", "limit"]
+        nullable_fields = ["reference", "year", "from", "limit"]
         null_default_fields = []
 
         serialized = handler(self)
