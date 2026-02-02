@@ -1,18 +1,19 @@
 lockVersion: 2.0.0
 id: 3f63a12a-c4cd-4e2e-98dc-9d5c6f5180ec
 management:
-  docChecksum: 6c3e2fac7288f1a292fc3e02b30fe61a
+  docChecksum: 1bb1837f225747691408f6e7e251deeb
   docVersion: 1.0.0
   speakeasyVersion: 1.640.0
   generationVersion: 2.730.5
-  releaseVersion: 1.0.5
-  configChecksum: 20385caa82065e3ce58d0c87d99ae14a
+  releaseVersion: 1.1.0
+  configChecksum: 39ab59d80d5870c24936efed8fa5732e
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 features:
   python:
     additionalDependencies: 1.0.0
+    configurableModuleName: 0.2.0
     core: 5.23.0
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
@@ -44,6 +45,7 @@ generatedFiles:
   - docs/models/address.md
   - docs/models/amount.md
   - docs/models/amountnullable.md
+  - docs/models/at.md
   - docs/models/availablebalance.md
   - docs/models/balancecardaudience.md
   - docs/models/balancecardissuer.md
@@ -59,6 +61,7 @@ generatedFiles:
   - docs/models/balancetransferpartytyperesponse.md
   - docs/models/balancetransferstatus.md
   - docs/models/balancetransferstatusreasonresponse.md
+  - docs/models/be.md
   - docs/models/billingaddress.md
   - docs/models/canceledoutgoingtransfer.md
   - docs/models/cancelpaymentrequest.md
@@ -80,6 +83,7 @@ generatedFiles:
   - docs/models/captureresponsesettlementamount.md
   - docs/models/captureresponsestatus.md
   - docs/models/capturerollingreserverelease.md
+  - docs/models/ch.md
   - docs/models/chargeback.md
   - docs/models/chargebackcompensation.md
   - docs/models/chargebackreversal.md
@@ -117,6 +121,7 @@ generatedFiles:
   - docs/models/currencies.md
   - docs/models/customerresponse.md
   - docs/models/customerresponselinks.md
+  - docs/models/de.md
   - docs/models/deletecustomerrequest.md
   - docs/models/deletecustomerrequestbody.md
   - docs/models/deletepaymentlinkrequest.md
@@ -126,6 +131,7 @@ generatedFiles:
   - docs/models/deletevaluessalesinvoice.md
   - docs/models/deletewebhookrequest.md
   - docs/models/deletewebhookrequestbody.md
+  - docs/models/dk.md
   - docs/models/documentation.md
   - docs/models/embedded.md
   - docs/models/entity.md
@@ -214,9 +220,13 @@ generatedFiles:
   - docs/models/entitywebhooklinks.md
   - docs/models/errorresponse.md
   - docs/models/errorslinks.md
+  - docs/models/es.md
   - docs/models/failedpayment.md
   - docs/models/failedpaymentfee.md
   - docs/models/feeprepayments.md
+  - docs/models/fi.md
+  - docs/models/fr.md
+  - docs/models/gb.md
   - docs/models/getbalanceglobals.md
   - docs/models/getbalancereportglobals.md
   - docs/models/getbalancereportrequest.md
@@ -279,6 +289,8 @@ generatedFiles:
   - docs/models/getwebhookrequest.md
   - docs/models/internal/globals.md
   - docs/models/invoicecompensation.md
+  - docs/models/it.md
+  - docs/models/legalentity.md
   - docs/models/linecategories.md
   - docs/models/linecategoriesresponse.md
   - docs/models/listallchargebacksembedded.md
@@ -510,6 +522,7 @@ generatedFiles:
   - docs/models/listwebhooksresponse.md
   - docs/models/locale.md
   - docs/models/localeresponse.md
+  - docs/models/lu.md
   - docs/models/managedfee.md
   - docs/models/mandatedetailscardlabelresponse.md
   - docs/models/mandatemethod.md
@@ -528,10 +541,13 @@ generatedFiles:
   - docs/models/methodresponse.md
   - docs/models/methodstatus.md
   - docs/models/mode.md
+  - docs/models/nl.md
+  - docs/models/no.md
   - docs/models/onboardingvatregulation.md
   - docs/models/open.md
   - docs/models/organization.md
   - docs/models/organizationvatregulation.md
+  - docs/models/other.md
   - docs/models/outgoingtransfer.md
   - docs/models/owner.md
   - docs/models/partnertype.md
@@ -598,6 +614,7 @@ generatedFiles:
   - docs/models/profileresponsereview.md
   - docs/models/profileresponsestatus.md
   - docs/models/profilereviewstatusresponse.md
+  - docs/models/pt.md
   - docs/models/recurringlineitem.md
   - docs/models/refund.md
   - docs/models/refundcompensation.md
@@ -662,6 +679,7 @@ generatedFiles:
   - docs/models/salesinvoicevatmoderesponse.md
   - docs/models/salesinvoicevatscheme.md
   - docs/models/salesinvoicevatschemeresponse.md
+  - docs/models/se.md
   - docs/models/security.md
   - docs/models/sequencetype.md
   - docs/models/sequencetyperesponse.md
@@ -4207,7 +4225,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"owner": {"email": "john@example.org", "givenName": "John", "familyName": "Doe", "locale": "en_US"}, "name": "Acme Corporation", "address": {"streetAndNumber": "Main Street 123", "postalCode": "1234AB", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "vatNumber": "123456789B01"}
+        application/json: {"owner": {"email": "john@example.org", "givenName": "John", "familyName": "Doe", "locale": "en_US"}, "name": "Acme Corporation", "address": {"streetAndNumber": "Main Street 123", "postalCode": "1234AB", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "legalEntity": "nl-bv"}
       responses:
         "201":
           application/hal+json: {"resource": "client-link", "id": "cl_vZCnNQsV2UtfXxYifWKWH", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "clientLink": {"href": "https://my.mollie.com/dashboard/client-link/cl_vZCnNQsV2UtfXxYifWKWH", "type": "text/html"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -4216,7 +4234,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"owner": {"email": "john@example.org", "givenName": "John", "familyName": "Doe", "locale": "en_US"}, "name": "Acme Corporation", "address": {"streetAndNumber": "Main Street 123", "postalCode": "1234AB", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "vatNumber": "123456789B01"}
+        application/json: {"owner": {"email": "john@example.org", "givenName": "John", "familyName": "Doe", "locale": "en_US"}, "name": "Acme Corporation", "address": {"streetAndNumber": "Main Street 123", "postalCode": "1234AB", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "legalEntity": "nl-bv"}
       responses:
         "201":
           application/hal+json: {"resource": "client-link", "id": "csr_ayCz46QLwCbxpTaSYQQZH", "_links": {"clientLink": {"href": "https://my.mollie.com/dashboard/client-link/csr_ayCz46QLwCbxpTaSYQQZH", "type": "text/html"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -4225,7 +4243,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"owner": {"email": "john@example.org", "givenName": "John", "familyName": "Doe", "locale": "en_US"}, "name": "Acme Corporation", "address": {"streetAndNumber": "Main Street 123", "postalCode": "1234AB", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "vatNumber": "123456789B01"}
+        application/json: {"owner": {"email": "john@example.org", "givenName": "John", "familyName": "Doe", "locale": "en_US"}, "name": "Acme Corporation", "address": {"streetAndNumber": "Main Street 123", "postalCode": "1234AB", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "legalEntity": "nl-bv"}
       responses:
         "201":
           application/hal+json: {"resource": "client-link", "id": "csr_ayCz46QLwCbxpTaSYQQZH", "_links": {"clientLink": {"href": "https://my.mollie.com/dashboard/client-link/csr_ayCz46QLwCbxpTaSYQQZH", "type": "text/html"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -4242,7 +4260,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"owner": {"email": "john@example.org", "givenName": "John", "familyName": "Doe", "locale": "en_US"}, "name": "Acme Corporation", "address": {"streetAndNumber": "Main Street 123", "postalCode": "1234AB", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "vatNumber": "123456789B01"}
+        application/json: {"owner": {"email": "john@example.org", "givenName": "John", "familyName": "Doe", "locale": "en_US"}, "name": "Acme Corporation", "address": {"streetAndNumber": "Main Street 123", "postalCode": "1234AB", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "legalEntity": "nl-bv"}
       responses:
         "201":
           application/hal+json: {"resource": "client-link", "id": "cl_vZCnNQsV2UtfXxYifWKWH", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "clientLink": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
@@ -5558,6 +5576,7 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes Detected:\n* `client.client-links.create()`: \n  *  `request.client-link-request.legal_entity` **Added**\n"
 persistentEdits:
   generation_id: b447ae8a-9f05-460c-a7cd-f421087b632c
   pristine_commit_hash: 353ee42295bde549cfa3a77070e603993577e347

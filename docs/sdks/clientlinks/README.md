@@ -93,7 +93,7 @@ with ClientSDK(
             "country": "NL",
         },
         "registration_number": "12345678",
-        "vat_number": "123456789B01",
+        "legal_entity": mollie.Nl.NL_BV,
     })
 
     # Handle response
