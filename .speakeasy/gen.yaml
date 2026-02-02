@@ -66,11 +66,11 @@ python:
   license: ""
   maxMethodParams: 999
   methodArguments: infer-optional-args
-  moduleName: ""
+  moduleName: mollie
   multipartArrayFormat: legacy
   outputModelSuffix: output
   packageManager: poetry
-  packageName: mollie
+  packageName: "mollie-api-py"
   preApplyUnionDiscriminators: false
   pytestFilterWarnings: []
   pytestTimeout: 0
