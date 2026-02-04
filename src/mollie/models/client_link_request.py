@@ -2,14 +2,13 @@
 
 from __future__ import annotations
 from .locale_response import LocaleResponse
-from enum import Enum
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import validate_open_enum
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import PlainValidator
-from typing import Optional, Union
-from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class OwnerTypedDict(TypedDict):
@@ -144,560 +143,6 @@ class ClientLinkRequestAddress(BaseModel):
         return m
 
 
-class Other(str, Enum):
-    r"""Other business entity."""
-
-    OTHER = "other"
-
-
-class Gb(str, Enum):
-    r"""**Great Britain legal entities types.**
-
-    * `gb-llp` - Limited Liability Partnership (LLP)
-    * `gb-lp` - Limited Partnership (LP)
-    * `gb-ltd` - Private Limited Company (Ltd.)
-    * `gb-plc` - Public Limited Company (PLC)
-    * `gb-charitable-company` - Charitable Company
-    * `gb-general-partnership` - General Partnership (GP)
-    * `gb-sole-trader` - Sole trader
-    * `gb-trust` - Trust
-
-    """
-
-    GB_LLP = "gb-llp"
-    GB_LP = "gb-lp"
-    GB_LTD = "gb-ltd"
-    GB_PLC = "gb-plc"
-    GB_CHARITABLE_COMPANY = "gb-charitable-company"
-    GB_GENERAL_PARTNERSHIP = "gb-general-partnership"
-    GB_SOLE_TRADER = "gb-sole-trader"
-    GB_TRUST = "gb-trust"
-
-
-class It(str, Enum):
-    r"""**Italy legal entities types.**
-
-    * `it-associazione-non-riconosciuta` - Associazione non riconosciuta
-    * `it-associazione-riconosciuta` - Associazione riconosciuta
-    * `it-ditta-individuale` - Ditta Individuale
-    * `it-fondazione` - Fondazione
-    * `it-fondo-fiduciario` - Fondo Fiduciario
-    * `it-sapa` - Società in accomandita per azioni (S.a.p.a.)
-    * `it-sas` - Società in accomandita semplice (S.a.s.)
-    * `it-snc` - Società in nome collettivo (S.n.c)
-    * `it-societa-cooperativa` - Società cooperativa
-    * `it-spa` - Società per azioni (S.p.A.)
-    * `it-srl` - Società a responsabilità limitata (S.r.l.)
-    * `it-ss` - Società semplice (S.s.)
-
-    """
-
-    IT_ASSOCIAZIONE_NON_RICONOSCIUTA = "it-associazione-non-riconosciuta"
-    IT_ASSOCIAZIONE_RICONOSCIUTA = "it-associazione-riconosciuta"
-    IT_DITTA_INDIVIDUALE = "it-ditta-individuale"
-    IT_FONDAZIONE = "it-fondazione"
-    IT_FONDO_FIDUCIARIO = "it-fondo-fiduciario"
-    IT_SAPA = "it-sapa"
-    IT_SAS = "it-sas"
-    IT_SNC = "it-snc"
-    IT_SOCIETA_COOPERATIVA = "it-societa-cooperativa"
-    IT_SPA = "it-spa"
-    IT_SRL = "it-srl"
-    IT_SS = "it-ss"
-
-
-class No(str, Enum):
-    r"""**Norway legal entities types.**
-
-    * `no-ans-da` - Ansvarlig selskap (ANS/DA)
-    * `no-as` - Aksjeselskap (AS)
-    * `no-asa` - Allmennaksjeselskap (ASA)
-    * `no-da` - Selskap med delt ansvar (DA)
-    * `no-enk` - Enkeltpersonsforetak (ENK)
-    * `no-ks` - Kommandittselskap (KS)
-    * `no-nuf` - Norskregistrert utenlandsk foretak (NUF)
-    * `no-samvirkeforetak` - Samvirkeforetak
-    * `no-statesforetak` - Statesforetak
-    * `no-stiftelse` - Stiftelse
-
-    """
-
-    NO_ANS_DA = "no-ans-da"
-    NO_AS = "no-as"
-    NO_ASA = "no-asa"
-    NO_DA = "no-da"
-    NO_ENK = "no-enk"
-    NO_KS = "no-ks"
-    NO_NUF = "no-nuf"
-    NO_SAMVIRKEFORETAK = "no-samvirkeforetak"
-    NO_STATESFORETAK = "no-statesforetak"
-    NO_STIFTELSE = "no-stiftelse"
-
-
-class Se(str, Enum):
-    r"""**Sweden legal entities types.**
-
-    * `se-ab` - Aktiebolag (AB)
-    * `se-ab-publ` - AB (publ)
-    * `se-ekonomisk-forening` - Ekonomisk förening
-    * `se-enkla-bolag` - Enkla bolag
-    * `se-enskild-firma` - Enskild firma
-    * `se-fillial-utlandskt-bolag` - Fillial till utländskt bolag
-    * `se-hb` - Handelsbolag (HB)
-    * `se-ideel-forening` - Ideel förening
-    * `se-kb` - Kommanditbolag (KB)
-    * `se-samriskforetag` - Samriskföretag
-    * `se-stiftelse` - Stiftelse
-    * `se-trust` - Trust
-
-    """
-
-    SE_AB = "se-ab"
-    SE_AB_PUBL = "se-ab-publ"
-    SE_EKONOMISK_FORENING = "se-ekonomisk-forening"
-    SE_ENKLA_BOLAG = "se-enkla-bolag"
-    SE_ENSKILD_FIRMA = "se-enskild-firma"
-    SE_FILLIAL_UTLANDSKT_BOLAG = "se-fillial-utlandskt-bolag"
-    SE_HB = "se-hb"
-    SE_IDEEL_FORENING = "se-ideel-forening"
-    SE_KB = "se-kb"
-    SE_SAMRISKFORETAG = "se-samriskforetag"
-    SE_STIFTELSE = "se-stiftelse"
-    SE_TRUST = "se-trust"
-
-
-class Dk(str, Enum):
-    r"""**Denmark legal entities types.**
-
-    * `dk-aktieselskab` - Aktieselskab
-    * `dk-anpartsselskab` - Anpartsselskab
-    * `dk-enkeltmandsvirksomhed` - Enkeltmandsvirksomhed
-    * `dk-interessentskab` - Interessentskab
-    * `dk-ivaerksaetterselskab` - Iværksætterselskab
-    * `dk-kommanditselskab` - Kommanditselskab
-    * `dk-stiftelse` - Stiftelse
-    * `dk-trust` - Trust
-
-    """
-
-    DK_AKTIESELSKAB = "dk-aktieselskab"
-    DK_ANPARTSSELSKAB = "dk-anpartsselskab"
-    DK_ENKELTMANDSVIRKSOMHED = "dk-enkeltmandsvirksomhed"
-    DK_INTERESSENTSKAB = "dk-interessentskab"
-    DK_IVAERKSAETTERSELSKAB = "dk-ivaerksaetterselskab"
-    DK_KOMMANDITSELSKAB = "dk-kommanditselskab"
-    DK_STIFTELSE = "dk-stiftelse"
-    DK_TRUST = "dk-trust"
-
-
-class Fi(str, Enum):
-    r"""**Finland legal entities types.**
-
-    * `fi-avoin-yhtio` - Avoin yhtiö
-    * `fi-julkinen-osakeyhtio` - Julkinen Osakeyhtiö
-    * `fi-kommandiittiyhtio` - Kommandiittiyhtiö
-    * `fi-osakeythio` - Osakeythiö
-    * `fi-osuuskunta` - Osuuskunta
-    * `fi-rekisteroity-yhdistys` - Rekisteroity Yhdistys
-    * `fi-saatio` - Säätiö
-    * `fi-toiminimi` - Toiminimi
-
-    """
-
-    FI_AVOIN_YHTIO = "fi-avoin-yhtio"
-    FI_JULKINEN_OSAKEYHTIO = "fi-julkinen-osakeyhtio"
-    FI_KOMMANDIITTIYHTIO = "fi-kommandiittiyhtio"
-    FI_OSAKEYTHIO = "fi-osakeythio"
-    FI_OSUUSKUNTA = "fi-osuuskunta"
-    FI_REKISTEROITY_YHDISTYS = "fi-rekisteroity-yhdistys"
-    FI_SAATIO = "fi-saatio"
-    FI_TOIMINIMI = "fi-toiminimi"
-
-
-class Ch(str, Enum):
-    r"""**Switzerland legal entities types.**
-
-    * `ch-ag` - Aktiengesellschaft (AG)
-    * `ch-eg` - Einfache Gesellschaft (eG)
-    * `ch-einzelunternehmen` - Einzelunternehmen
-    * `ch-genossenschaft` - Genossenschaft
-    * `ch-gmbh` - Gesellschaft mit beschränkter Haftung (GmbH)
-    * `ch-kg` - Kommanditgesellschaft (KG)
-    * `ch-kig` - Kollektivgesellschaft (KIG)
-    * `ch-kmag` - Kommanditaktiengesellschaft (KmAG)
-    * `ch-stiftung` - Stiftung
-    * `ch-trust` - Trust
-    * `ch-verein` - Verein
-
-    """
-
-    CH_AG = "ch-ag"
-    CH_EG = "ch-eg"
-    CH_EINZELUNTERNEHMEN = "ch-einzelunternehmen"
-    CH_GENOSSENSCHAFT = "ch-genossenschaft"
-    CH_GMBH = "ch-gmbh"
-    CH_KG = "ch-kg"
-    CH_KIG = "ch-kig"
-    CH_KMAG = "ch-kmag"
-    CH_STIFTUNG = "ch-stiftung"
-    CH_TRUST = "ch-trust"
-    CH_VEREIN = "ch-verein"
-
-
-class Pt(str, Enum):
-    r"""**Portugal legal entities types.**
-
-    * `pt-cooperativa` - Cooperativa
-    * `pt-eirl` - Estabelecimento Individual de Responsabilidade Limitada (EIRL)
-    * `pt-empresario-nome-individual` - Empresário em Nome individual
-    * `pt-fondo-fiduciario` - Fondo Fiduciario
-    * `pt-fundacao` - Fundação
-    * `pt-sociedade-anonima` - Sociedade Anónima
-    * `pt-sociedade-comandita` - Sociedade em Comandita
-    * `pt-sociedade-nome-colectivo` - Sociedade em Nome Colectivo
-    * `pt-sociedade-quotas` - Sociedade por Quotas
-    * `pt-sociedade-unipessoal-quotas` - Sociedade Unipessoal por Quotas
-
-    """
-
-    PT_COOPERATIVA = "pt-cooperativa"
-    PT_EIRL = "pt-eirl"
-    PT_EMPRESARIO_NOME_INDIVIDUAL = "pt-empresario-nome-individual"
-    PT_FONDO_FIDUCIARIO = "pt-fondo-fiduciario"
-    PT_FUNDACAO = "pt-fundacao"
-    PT_SOCIEDADE_ANONIMA = "pt-sociedade-anonima"
-    PT_SOCIEDADE_COMANDITA = "pt-sociedade-comandita"
-    PT_SOCIEDADE_NOME_COLECTIVO = "pt-sociedade-nome-colectivo"
-    PT_SOCIEDADE_QUOTAS = "pt-sociedade-quotas"
-    PT_SOCIEDADE_UNIPESSOAL_QUOTAS = "pt-sociedade-unipessoal-quotas"
-
-
-class Es(str, Enum):
-    r"""**Spain legal entities types.**
-
-    * `es-autonomo` - Autonomo
-    * `es-asociacion` - Asociación
-    * `es-cb` - Comunidad de Bienes (C.B.)
-    * `es-comerciante-individual` - Comerciante individual
-    * `es-fiducia` - Fiducia
-    * `es-fundacion` - Fundacion
-    * `es-sa` - Sociedad Anónima (S.A.)
-    * `es-sr-src` - Sociedad Regular Colectiva (S.R/S.R.C)
-    * `es-se` - Sociedad Anónima Europea (SE)
-    * `es-sociedad-civil` - Sociedad Civil
-    * `es-sociedad-cooperativa` - Sociedad Cooperativa
-    * `es-sociedad-comanditaria` - Sociedad en Comanditaria
-    * `es-srl-sl` - Sociedad de Responsabilidad Limitada (SRL/SL)
-    * `es-srlu` - Sociedad de Responsabilidad Limitada Unipersonal (SRLU)
-
-    """
-
-    ES_AUTONOMO = "es-autonomo"
-    ES_ASOCIACION = "es-asociacion"
-    ES_CB = "es-cb"
-    ES_COMERCIANTE_INDIVIDUAL = "es-comerciante-individual"
-    ES_FIDUCIA = "es-fiducia"
-    ES_FUNDACION = "es-fundacion"
-    ES_SA = "es-sa"
-    ES_SR_SRC = "es-sr-src"
-    ES_SE = "es-se"
-    ES_SOCIEDAD_CIVIL = "es-sociedad-civil"
-    ES_SOCIEDAD_COOPERATIVA = "es-sociedad-cooperativa"
-    ES_SOCIEDAD_COMANDITARIA = "es-sociedad-comanditaria"
-    ES_SRL_SL = "es-srl-sl"
-    ES_SRLU = "es-srlu"
-
-
-class Lu(str, Enum):
-    r"""**Luxembourg legal entities types.**
-
-    * `lu-ei` - Entreprise individuelle (EI)
-    * `lu-lpf` - Luxembourg Private Foundation (LPF)
-    * `lu-sa` - Société anonyme (S.A.)
-    * `lu-sarl` - Société à responsabilité limitée (SARL)
-    * `lu-sarl-s` - Société à responsabilité limitée simplifée (SARL-S)
-    * `lu-sas` - Société par actions simplifiée (SAS)
-    * `lu-sc` - Société civile (SC)
-    * `lu-sca` - Société en commandite par actions (SCA)
-    * `lu-sci` - Société civile immobilières (SCI)
-    * `lu-scsp` - Société en commandite special (SCSp)
-    * `lu-secs` - Société en commandite simple (SECS)
-    * `lu-senc` - Société en nom collectif (SENC)
-    * `lu-trust` - Trust
-
-    """
-
-    LU_EI = "lu-ei"
-    LU_LPF = "lu-lpf"
-    LU_SA = "lu-sa"
-    LU_SARL = "lu-sarl"
-    LU_SARL_S = "lu-sarl-s"
-    LU_SAS = "lu-sas"
-    LU_SC = "lu-sc"
-    LU_SCA = "lu-sca"
-    LU_SCI = "lu-sci"
-    LU_SCSP = "lu-scsp"
-    LU_SECS = "lu-secs"
-    LU_SENC = "lu-senc"
-    LU_TRUST = "lu-trust"
-
-
-class Fr(str, Enum):
-    r"""**France legal entities types.**
-
-    * `fr-adl` - Administration de l'état
-    * `fr-association` - Association
-    * `fr-ct` - Collectivité territoriale
-    * `fr-entreprise-individuelle` - Entreprise individuelle
-    * `fr-auto-entrepreneur` - Auto-entrepreneur
-    * `fr-epa` - Etablissement public administratif
-    * `fr-fiducie` - Fiducie
-    * `fr-fondation` - Fondation
-    * `fr-gie` - Groupement d'intérêt économique (GIE)
-    * `fr-eurl` - SARL unipersonnelle (ou EURL)
-    * `fr-sarl` - Société à responsabilité limitée (SARL)
-    * `fr-sa` - Société anonyme (SA)
-    * `fr-sc` - Société en commandite
-    * `fr-sca` - Société coopérative agricole (SCA)
-    * `fr-sccp` - Société coopérative commerciale particulière
-    * `fr-sdm` - Société d'assurance mutuelle
-    * `fr-civile` - Société civile
-    * `fr-snc` - Société en nom collectif (SNC)
-    * `fr-se` - Société européenne
-    * `fr-sas` - Société par actions simplifiée (SAS)
-    * `fr-sasu` - Société par actions simplifiée unipersonnelle (SASU)
-
-    """
-
-    FR_ADL = "fr-adl"
-    FR_ASSOCIATION = "fr-association"
-    FR_CT = "fr-ct"
-    FR_ENTREPRISE_INDIVIDUELLE = "fr-entreprise-individuelle"
-    FR_AUTO_ENTREPRENEUR = "fr-auto-entrepreneur"
-    FR_EPA = "fr-epa"
-    FR_FIDUCIE = "fr-fiducie"
-    FR_FONDATION = "fr-fondation"
-    FR_GIE = "fr-gie"
-    FR_EURL = "fr-eurl"
-    FR_SARL = "fr-sarl"
-    FR_SA = "fr-sa"
-    FR_SC = "fr-sc"
-    FR_SCA = "fr-sca"
-    FR_SCCP = "fr-sccp"
-    FR_SDM = "fr-sdm"
-    FR_CIVILE = "fr-civile"
-    FR_SNC = "fr-snc"
-    FR_SE = "fr-se"
-    FR_SAS = "fr-sas"
-    FR_SASU = "fr-sasu"
-
-
-class At(str, Enum):
-    r"""**Austria legal entities types.**
-
-    * `at-aktiengesellschaft` - Aktiengesellschaft (AG)
-    * `at-einzelunternehmen` - Einzelunternehmen
-    * `at-freie-berufe` - Freie Berufe
-    * `at-gesbr` - Gesellschaft bürgerlichen Rechts (GesbR)
-    * `at-gmbh` - Gesellschaft mit beschränkter Haftung (GmbH)
-    * `at-interessen-verienigung` - Europäische Wirtschaftliche Interessenvereinigung
-    * `at-keg` - Kommandit - Erwerbsgesellschaft (KEG)
-    * `at-kommanditgesellschaft` - Kommanditgesellschaft (KG)
-    * `at-korperschaft-offentlichen-rechts` - Körperschaft öffentlichen Rechts
-    * `at-oeg` - Offene Erwerbsgesellschaft (OEG)
-    * `at-offene-gesellschaft` - Offene Gesellschaft (OG)
-    * `at-offentliches-unternehmen` - Öffentliches Unternehmen
-    * `at-se` - Europäische Gesellschaft (SE)
-    * `at-stiftung` - Stiftung
-    * `at-trust` - Trust
-    * `at-verein` - Verein
-
-    """
-
-    AT_AKTIENGESELLSCHAFT = "at-aktiengesellschaft"
-    AT_EINZELUNTERNEHMEN = "at-einzelunternehmen"
-    AT_FREIE_BERUFE = "at-freie-berufe"
-    AT_GESBR = "at-gesbr"
-    AT_GMBH = "at-gmbh"
-    AT_INTERESSEN_VERIENIGUNG = "at-interessen-verienigung"
-    AT_KEG = "at-keg"
-    AT_KOMMANDITGESELLSCHAFT = "at-kommanditgesellschaft"
-    AT_KORPERSCHAFT_OFFENTLICHEN_RECHTS = "at-korperschaft-offentlichen-rechts"
-    AT_OEG = "at-oeg"
-    AT_OFFENE_GESELLSCHAFT = "at-offene-gesellschaft"
-    AT_OFFENTLICHES_UNTERNEHMEN = "at-offentliches-unternehmen"
-    AT_SE = "at-se"
-    AT_STIFTUNG = "at-stiftung"
-    AT_TRUST = "at-trust"
-    AT_VEREIN = "at-verein"
-
-
-class De(str, Enum):
-    r"""**Germany legal entities types.**
-
-    * `de-aktiengesellschaft` - Aktiengesellschaft (AG)
-    * `de-eingetragene-genossenschaft` - Eingetragene Genossenschaft (e.G.)
-    * `de-einzelunternehmen` - Einzelunternehmen
-    * `de-freiberufler` - Freiberufler
-    * `de-gesellschaft-burgerlichen-rechts` - Gesellschaft bürgerlichen Rechts (GbR)
-    * `de-gmbh` - Gesellschaft mit beschränkter Haftung (GmbH)
-    * `de-interessen-verienigung` - Europäische Wirtschaftliche Interessenvereinigung
-    * `de-kg` - Kommanditgesellschaft (KG)
-    * `de-kirchliche-stiftung` - Kirchliche Stiftung
-    * `de-korperschaft-offentlichen-rechts` - Körperschaft öffentlichen Rechts
-    * `de-nev` - Nicht eingetragener Verein (n.e.V.)
-    * `de-offentliches-unternehmen` - Öffentliches Unternehmen
-    * `de-ohg` - Offene Handelsgesellschaft (OHG)
-    * `de-partnergesellschaft` - Partnergesellschaft
-    * `de-se` - Europäische Gesellschaft (SE)
-    * `de-stiftung-des-privaten-rechts` - Stiftung des privaten Rechts
-    * `de-treuhandstiftung` - Treuhandstiftung
-    * `de-unternehmergesellschaft` - Unternehmergesellschaft (UG)
-    * `de-verein` - Verein (e.V.)
-
-    """
-
-    DE_AKTIENGESELLSCHAFT = "de-aktiengesellschaft"
-    DE_EINGETRAGENE_GENOSSENSCHAFT = "de-eingetragene-genossenschaft"
-    DE_EINZELUNTERNEHMEN = "de-einzelunternehmen"
-    DE_FREIBERUFLER = "de-freiberufler"
-    DE_GESELLSCHAFT_BURGERLICHEN_RECHTS = "de-gesellschaft-burgerlichen-rechts"
-    DE_GMBH = "de-gmbh"
-    DE_INTERESSEN_VERIENIGUNG = "de-interessen-verienigung"
-    DE_KG = "de-kg"
-    DE_KIRCHLICHE_STIFTUNG = "de-kirchliche-stiftung"
-    DE_KORPERSCHAFT_OFFENTLICHEN_RECHTS = "de-korperschaft-offentlichen-rechts"
-    DE_NEV = "de-nev"
-    DE_OFFENTLICHES_UNTERNEHMEN = "de-offentliches-unternehmen"
-    DE_OHG = "de-ohg"
-    DE_PARTNERGESELLSCHAFT = "de-partnergesellschaft"
-    DE_SE = "de-se"
-    DE_STIFTUNG_DES_PRIVATEN_RECHTS = "de-stiftung-des-privaten-rechts"
-    DE_TREUHANDSTIFTUNG = "de-treuhandstiftung"
-    DE_UNTERNEHMERGESELLSCHAFT = "de-unternehmergesellschaft"
-    DE_VEREIN = "de-verein"
-
-
-class Be(str, Enum):
-    r"""**Belgium legal entities types.**
-
-    * `be-autonoom-gemeentebedrijf` - Autonoom gemeentebedrijf
-    * `be-belgische-staat` - Belgische Staat
-    * `be-bv` - Besloten Vennootschap
-    * `be-bvba` - Besloten Vennootschap met Beperkte Aansprakelijkheid (BVBA)
-    * `be-comm-v` - Gewone Commanditaire Vennootschap (GCV / Comm. V)
-    * `be-comm-va` - Commanditaire Vennootschap op Aandelen (CVA / Comm. VA)
-    * `be-cv` - Coöperatieve Vennootschap
-    * `be-cvoa` - Coöperatieve Vennootschap met Onbeperkte Aansprakelijkheid (CVOA)
-    * `be-cvoha` - Coöperatieve Vennootschap met Onbeperkte en Hoofdelijke Aansprakelijkheid (CVOHA)
-    * `be-cvba` - Coöperatieve Vennootschap met Beperkte Aansprakelijkheid (CVBA)
-    * `be-economisch-samenwerkingsverband` - Europees Economisch Samenwerkingsverband (EESV)
-    * `be-eenmanszaak` - Eenmanszaak
-    * `be-eenmans-bvba` - Eénpersoons-BVBA (EBVBA)
-    * `be-europese-cooperatieve-vennootschap` - Europese Coöperatieve Vennootschap (SCE)
-    * `be-europese-vennootschap` - Europese Naamloze Vennootschap (SE)
-    * `be-ivzw` - Internationale Vereniging Zonder Winstoogmerk (IVZW)
-    * `be-kerkgenootschap` - Kerkgenootschap
-    * `be-landbouwvennootschap` - Landbouwvennootschap (LV)
-    * `be-maatschap` - Maatschap
-    * `be-nv` - Naamloze Vennootschap (NV)
-    * `be-politiek-publiek-rechtspersoon` - Politieke Publiekrechtelijke Rechtspersonen
-    * `be-s-bvba` - Starters-BVBA (S-BVBA)
-    * `be-stichting` - Stichting
-    * `be-stille-handelsvennootschap` - Stille Handelsvennootschap
-    * `be-tijdelijke-handelsvennootschap` - Tijdelijke Handelsvennootschap
-    * `be-trust` - Trust
-    * `be-vereniging-zonder-winstoogmerk` - Vereniging Zonder Winstoogmerk (VZW)
-    * `be-vof` - Vennootschap Onder Firma (VOF)
-
-    """
-
-    BE_AUTONOOM_GEMEENTEBEDRIJF = "be-autonoom-gemeentebedrijf"
-    BE_BELGISCHE_STAAT = "be-belgische-staat"
-    BE_BV = "be-bv"
-    BE_BVBA = "be-bvba"
-    BE_COMM_V = "be-comm-v"
-    BE_COMM_VA = "be-comm-va"
-    BE_CV = "be-cv"
-    BE_CVOA = "be-cvoa"
-    BE_CVOHA = "be-cvoha"
-    BE_CVBA = "be-cvba"
-    BE_ECONOMISCH_SAMENWERKINGSVERBAND = "be-economisch-samenwerkingsverband"
-    BE_EENMANSZAAK = "be-eenmanszaak"
-    BE_EENMANS_BVBA = "be-eenmans-bvba"
-    BE_EUROPESE_COOPERATIEVE_VENNOOTSCHAP = "be-europese-cooperatieve-vennootschap"
-    BE_EUROPESE_VENNOOTSCHAP = "be-europese-vennootschap"
-    BE_IVZW = "be-ivzw"
-    BE_KERKGENOOTSCHAP = "be-kerkgenootschap"
-    BE_LANDBOUWVENNOOTSCHAP = "be-landbouwvennootschap"
-    BE_MAATSCHAP = "be-maatschap"
-    BE_NV = "be-nv"
-    BE_POLITIEK_PUBLIEK_RECHTSPERSOON = "be-politiek-publiek-rechtspersoon"
-    BE_S_BVBA = "be-s-bvba"
-    BE_STICHTING = "be-stichting"
-    BE_STILLE_HANDELSVENNOOTSCHAP = "be-stille-handelsvennootschap"
-    BE_TIJDELIJKE_HANDELSVENNOOTSCHAP = "be-tijdelijke-handelsvennootschap"
-    BE_TRUST = "be-trust"
-    BE_VERENIGING_ZONDER_WINSTOOGMERK = "be-vereniging-zonder-winstoogmerk"
-    BE_VOF = "be-vof"
-
-
-class Nl(str, Enum):
-    r"""**Netherlands legal entities types.**
-
-    * `nl-bv` - Besloten Vennootschap (BV)
-    * `nl-cooperatie` - Coöperatie
-    * `nl-cv` - Commanditaire Vennootschap (CV)
-    * `nl-eenmanszaak` - Eenmanszaak
-    * `nl-eesv` - Europees Economisch Samenwerkingsverband (EESV)
-    * `nl-kerkgenootschap` - Kerkgenootschap
-    * `nl-kroondomein` - Kroondomein
-    * `nl-maatschap` - Maatschap
-    * `nl-nv` - Naamloze Vennootschap (NV)
-    * `nl-overheid` - Overheidsinstantie
-    * `nl-sce` - Europese Coöperatieve Vennootschap (SCE)
-    * `nl-se` - Europese Naamloze Vennootschap (SE)
-    * `nl-stichting` - Stichting
-    * `nl-trust` - Trust
-    * `nl-vereniging` - Vereniging
-    * `nl-vof` - Vennootschap Onder Firma (VOF)
-    * `nl-waarborgmaatschappij` - Onderlinge Waarborgmaatschappij
-
-    """
-
-    NL_BV = "nl-bv"
-    NL_COOPERATIE = "nl-cooperatie"
-    NL_CV = "nl-cv"
-    NL_EENMANSZAAK = "nl-eenmanszaak"
-    NL_EESV = "nl-eesv"
-    NL_KERKGENOOTSCHAP = "nl-kerkgenootschap"
-    NL_KROONDOMEIN = "nl-kroondomein"
-    NL_MAATSCHAP = "nl-maatschap"
-    NL_NV = "nl-nv"
-    NL_OVERHEID = "nl-overheid"
-    NL_SCE = "nl-sce"
-    NL_SE = "nl-se"
-    NL_STICHTING = "nl-stichting"
-    NL_TRUST = "nl-trust"
-    NL_VERENIGING = "nl-vereniging"
-    NL_VOF = "nl-vof"
-    NL_WAARBORGMAATSCHAPPIJ = "nl-waarborgmaatschappij"
-
-
-LegalEntityTypedDict = TypeAliasType(
-    "LegalEntityTypedDict",
-    Union[Nl, Be, De, At, Fr, Lu, Es, Pt, Ch, Fi, Dk, Se, No, It, Gb, Other],
-)
-r"""The legal entity type of the organization, based on its country of origin."""
-
-
-LegalEntity = TypeAliasType(
-    "LegalEntity",
-    Union[Nl, Be, De, At, Fr, Lu, Es, Pt, Ch, Fi, Dk, Se, No, It, Gb, Other],
-)
-r"""The legal entity type of the organization, based on its country of origin."""
-
-
 class ClientLinkRequestTypedDict(TypedDict):
     owner: OwnerTypedDict
     r"""Personal data of your customer."""
@@ -711,8 +156,16 @@ class ClientLinkRequestTypedDict(TypedDict):
     r"""The VAT number of the organization, if based in the European Union. VAT numbers are verified against the
     international registry *VIES*.
     """
-    legal_entity: NotRequired[LegalEntityTypedDict]
-    r"""The legal entity type of the organization, based on its country of origin."""
+    legal_entity: NotRequired[str]
+    r"""The legal entity type of the organization, based on its country of origin. Please refer to the
+    [legal entity list](common-data-types#legal-entity) for all possible options.
+    """
+    registration_office: NotRequired[str]
+    r"""The registration office that the organization was registered at. Please refer to the
+    [registration office list](common-data-types#registration-office) for all possible options.
+    """
+    incorporation_date: NotRequired[Nullable[str]]
+    r"""The incorporation date of the organization (format `YYYY-MM-DD`)"""
 
 
 class ClientLinkRequest(BaseModel):
@@ -737,15 +190,33 @@ class ClientLinkRequest(BaseModel):
     international registry *VIES*.
     """
 
-    legal_entity: Annotated[
-        Optional[LegalEntity], pydantic.Field(alias="legalEntity")
+    legal_entity: Annotated[Optional[str], pydantic.Field(alias="legalEntity")] = None
+    r"""The legal entity type of the organization, based on its country of origin. Please refer to the
+    [legal entity list](common-data-types#legal-entity) for all possible options.
+    """
+
+    registration_office: Annotated[
+        Optional[str], pydantic.Field(alias="registrationOffice")
     ] = None
-    r"""The legal entity type of the organization, based on its country of origin."""
+    r"""The registration office that the organization was registered at. Please refer to the
+    [registration office list](common-data-types#registration-office) for all possible options.
+    """
+
+    incorporation_date: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="incorporationDate")
+    ] = UNSET
+    r"""The incorporation date of the organization (format `YYYY-MM-DD`)"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["registrationNumber", "vatNumber", "legalEntity"]
-        nullable_fields = ["registrationNumber", "vatNumber"]
+        optional_fields = [
+            "registrationNumber",
+            "vatNumber",
+            "legalEntity",
+            "registrationOffice",
+            "incorporationDate",
+        ]
+        nullable_fields = ["registrationNumber", "vatNumber", "incorporationDate"]
         null_default_fields = []
 
         serialized = handler(self)

@@ -93,7 +93,9 @@ with ClientSDK(
             "country": "NL",
         },
         "registration_number": "12345678",
-        "legal_entity": mollie.Nl.NL_BV,
+        "legal_entity": "nl-bv",
+        "registration_office": "aachen",
+        "incorporation_date": "2024-12-24",
     })
 
     # Handle response
