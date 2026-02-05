@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3f63a12a-c4cd-4e2e-98dc-9d5c6f5180ec
 management:
-  docChecksum: ce1106feda5055744a87c25a0cf15f00
+  docChecksum: 459ed3671972bbc3555e879fede05bdf
   docVersion: 1.0.0
   speakeasyVersion: 1.640.0
   generationVersion: 2.730.5
-  releaseVersion: 1.1.1
-  configChecksum: 35eaba173e485c7678f98740d56cc823
+  releaseVersion: 1.1.2
+  configChecksum: 0bb1f451e0dd013916ac9bc28dda24be
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
@@ -691,6 +691,7 @@ generatedFiles:
   - docs/models/type.md
   - docs/models/unauthorizeddirectdebit.md
   - docs/models/updatecustomerrequest.md
+  - docs/models/updatecustomerrequestbody.md
   - docs/models/updatepaymentlinkrequest.md
   - docs/models/updatepaymentlinkrequestbody.md
   - docs/models/updatepaymentrequest.md
@@ -698,9 +699,9 @@ generatedFiles:
   - docs/models/updateprofilerequest.md
   - docs/models/updateprofilerequestbody.md
   - docs/models/updatesalesinvoicerequest.md
+  - docs/models/updatesalesinvoicerequestbody.md
   - docs/models/updatesubscriptionrequest.md
   - docs/models/updatesubscriptionrequestbody.md
-  - docs/models/updatevaluessalesinvoice.md
   - docs/models/updatewebhookeventtypes.md
   - docs/models/updatewebhookrequest.md
   - docs/models/updatewebhookrequestbody.md
@@ -1031,7 +1032,6 @@ generatedFiles:
   - src/mollie/models/update_profileop.py
   - src/mollie/models/update_sales_invoiceop.py
   - src/mollie/models/update_subscriptionop.py
-  - src/mollie/models/update_values_sales_invoice.py
   - src/mollie/models/update_webhookop.py
   - src/mollie/models/url.py
   - src/mollie/models/url_nullable.py
@@ -5559,9 +5559,7 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `client.client-links.create()`:  `request.client-link-request` **Changed** **Breaking** :warning:
+releaseNotes: "## Python SDK Changes Detected:\n* `client.payments.update()`: \n  *  `request_body.testmode` **Changed** **Breaking** :warning:\n* `client.payment-links.update()`: \n  *  `request_body.testmode` **Changed** **Breaking** :warning:\n* `client.customers.update()`:  `request` **Changed** **Breaking** :warning:\n* `client.subscriptions.update()`: \n  *  `request_body.testmode` **Changed** **Breaking** :warning:\n* `client.sales-invoices.update()`:  `request` **Changed** **Breaking** :warning:\n"
 persistentEdits:
   generation_id: b447ae8a-9f05-460c-a7cd-f421087b632c
   pristine_commit_hash: 353ee42295bde549cfa3a77070e603993577e347

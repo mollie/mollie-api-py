@@ -51,11 +51,12 @@ class UpdateSubscriptionRequestBodyTypedDict(TypedDict):
     failures as well. Be sure to verify the payment's subscription ID and its status.
     """
     mandate_id: NotRequired[str]
-    testmode: NotRequired[Nullable[bool]]
-    r"""Most API credentials are specifically created for either live mode or test mode. For organization-level credentials
-    such as OAuth access tokens, you can enable test mode by setting `testmode` to `true`.
+    testmode: NotRequired[bool]
+    r"""Whether the entity was created in test mode or live mode. This field does not update the mode of the entity.
 
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter can be
+    omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
     """
 
 
@@ -102,11 +103,12 @@ class UpdateSubscriptionRequestBody(BaseModel):
 
     mandate_id: Annotated[Optional[str], pydantic.Field(alias="mandateId")] = None
 
-    testmode: OptionalNullable[bool] = UNSET
-    r"""Most API credentials are specifically created for either live mode or test mode. For organization-level credentials
-    such as OAuth access tokens, you can enable test mode by setting `testmode` to `true`.
+    testmode: Optional[bool] = None
+    r"""Whether the entity was created in test mode or live mode. This field does not update the mode of the entity.
 
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter can be
+    omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
     """
 
     @model_serializer(mode="wrap")
@@ -122,7 +124,7 @@ class UpdateSubscriptionRequestBody(BaseModel):
             "mandateId",
             "testmode",
         ]
-        nullable_fields = ["metadata", "testmode"]
+        nullable_fields = ["metadata"]
         null_default_fields = []
 
         serialized = handler(self)

@@ -659,10 +659,10 @@ class SalesInvoices(BaseSDK):
         *,
         sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
-        update_values_sales_invoice: Optional[
+        request_body: Optional[
             Union[
-                models.UpdateValuesSalesInvoice,
-                models.UpdateValuesSalesInvoiceTypedDict,
+                models.UpdateSalesInvoiceRequestBody,
+                models.UpdateSalesInvoiceRequestBodyTypedDict,
             ]
         ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -682,7 +682,7 @@ class SalesInvoices(BaseSDK):
 
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
-        :param update_values_sales_invoice:
+        :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -701,8 +701,8 @@ class SalesInvoices(BaseSDK):
         request = models.UpdateSalesInvoiceRequest(
             sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
-            update_values_sales_invoice=utils.get_pydantic_model(
-                update_values_sales_invoice, Optional[models.UpdateValuesSalesInvoice]
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.UpdateSalesInvoiceRequestBody]
             ),
         )
 
@@ -720,11 +720,11 @@ class SalesInvoices(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.update_values_sales_invoice,
+                request.request_body,
                 False,
                 True,
                 "json",
-                Optional[models.UpdateValuesSalesInvoice],
+                Optional[models.UpdateSalesInvoiceRequestBody],
             ),
             timeout_ms=timeout_ms,
         )
@@ -776,10 +776,10 @@ class SalesInvoices(BaseSDK):
         *,
         sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
-        update_values_sales_invoice: Optional[
+        request_body: Optional[
             Union[
-                models.UpdateValuesSalesInvoice,
-                models.UpdateValuesSalesInvoiceTypedDict,
+                models.UpdateSalesInvoiceRequestBody,
+                models.UpdateSalesInvoiceRequestBodyTypedDict,
             ]
         ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -799,7 +799,7 @@ class SalesInvoices(BaseSDK):
 
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
-        :param update_values_sales_invoice:
+        :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -818,8 +818,8 @@ class SalesInvoices(BaseSDK):
         request = models.UpdateSalesInvoiceRequest(
             sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
-            update_values_sales_invoice=utils.get_pydantic_model(
-                update_values_sales_invoice, Optional[models.UpdateValuesSalesInvoice]
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.UpdateSalesInvoiceRequestBody]
             ),
         )
 
@@ -837,11 +837,11 @@ class SalesInvoices(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.update_values_sales_invoice,
+                request.request_body,
                 False,
                 True,
                 "json",
-                Optional[models.UpdateValuesSalesInvoice],
+                Optional[models.UpdateSalesInvoiceRequestBody],
             ),
             timeout_ms=timeout_ms,
         )

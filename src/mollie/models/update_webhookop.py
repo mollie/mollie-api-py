@@ -32,9 +32,11 @@ class UpdateWebhookRequestBodyTypedDict(TypedDict):
     r"""The URL Mollie will send the events to. This URL must be publicly accessible."""
     event_types: NotRequired[UpdateWebhookEventTypesTypedDict]
     testmode: NotRequired[bool]
-    r"""You can enable test mode by setting `testmode` to `true`.
+    r"""Whether the entity was created in test mode or live mode. This field does not update the mode of the entity.
 
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter can be
+    omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
     """
 
 
@@ -50,9 +52,11 @@ class UpdateWebhookRequestBody(BaseModel):
     ] = None
 
     testmode: Optional[bool] = None
-    r"""You can enable test mode by setting `testmode` to `true`.
+    r"""Whether the entity was created in test mode or live mode. This field does not update the mode of the entity.
 
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter can be
+    omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
     """
 
 

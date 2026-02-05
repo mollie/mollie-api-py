@@ -653,8 +653,11 @@ class Customers(BaseSDK):
         *,
         customer_id: str,
         idempotency_key: Optional[str] = None,
-        entity_customer: Optional[
-            Union[models.EntityCustomer, models.EntityCustomerTypedDict]
+        request_body: Optional[
+            Union[
+                models.UpdateCustomerRequestBody,
+                models.UpdateCustomerRequestBodyTypedDict,
+            ]
         ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -669,7 +672,7 @@ class Customers(BaseSDK):
 
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
-        :param entity_customer:
+        :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -688,8 +691,8 @@ class Customers(BaseSDK):
         request = models.UpdateCustomerRequest(
             customer_id=customer_id,
             idempotency_key=idempotency_key,
-            entity_customer=utils.get_pydantic_model(
-                entity_customer, Optional[models.EntityCustomer]
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.UpdateCustomerRequestBody]
             ),
         )
 
@@ -707,11 +710,11 @@ class Customers(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.entity_customer,
+                request.request_body,
                 False,
                 True,
                 "json",
-                Optional[models.EntityCustomer],
+                Optional[models.UpdateCustomerRequestBody],
             ),
             timeout_ms=timeout_ms,
         )
@@ -763,8 +766,11 @@ class Customers(BaseSDK):
         *,
         customer_id: str,
         idempotency_key: Optional[str] = None,
-        entity_customer: Optional[
-            Union[models.EntityCustomer, models.EntityCustomerTypedDict]
+        request_body: Optional[
+            Union[
+                models.UpdateCustomerRequestBody,
+                models.UpdateCustomerRequestBodyTypedDict,
+            ]
         ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -779,7 +785,7 @@ class Customers(BaseSDK):
 
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
-        :param entity_customer:
+        :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -798,8 +804,8 @@ class Customers(BaseSDK):
         request = models.UpdateCustomerRequest(
             customer_id=customer_id,
             idempotency_key=idempotency_key,
-            entity_customer=utils.get_pydantic_model(
-                entity_customer, Optional[models.EntityCustomer]
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.UpdateCustomerRequestBody]
             ),
         )
 
@@ -817,11 +823,11 @@ class Customers(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.entity_customer,
+                request.request_body,
                 False,
                 True,
                 "json",
-                Optional[models.EntityCustomer],
+                Optional[models.UpdateCustomerRequestBody],
             ),
             timeout_ms=timeout_ms,
         )

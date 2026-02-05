@@ -1481,7 +1481,12 @@ if TYPE_CHECKING:
         TestWebhookRequestBodyTypedDict,
         TestWebhookRequestTypedDict,
     )
-    from .update_customerop import UpdateCustomerRequest, UpdateCustomerRequestTypedDict
+    from .update_customerop import (
+        UpdateCustomerRequest,
+        UpdateCustomerRequestBody,
+        UpdateCustomerRequestBodyTypedDict,
+        UpdateCustomerRequestTypedDict,
+    )
     from .update_payment_linkop import (
         UpdatePaymentLinkRequest,
         UpdatePaymentLinkRequestBody,
@@ -1502,6 +1507,8 @@ if TYPE_CHECKING:
     )
     from .update_sales_invoiceop import (
         UpdateSalesInvoiceRequest,
+        UpdateSalesInvoiceRequestBody,
+        UpdateSalesInvoiceRequestBodyTypedDict,
         UpdateSalesInvoiceRequestTypedDict,
     )
     from .update_subscriptionop import (
@@ -1509,10 +1516,6 @@ if TYPE_CHECKING:
         UpdateSubscriptionRequestBody,
         UpdateSubscriptionRequestBodyTypedDict,
         UpdateSubscriptionRequestTypedDict,
-    )
-    from .update_values_sales_invoice import (
-        UpdateValuesSalesInvoice,
-        UpdateValuesSalesInvoiceTypedDict,
     )
     from .update_webhookop import (
         UpdateWebhookEventTypes,
@@ -2717,6 +2720,8 @@ __all__ = [
     "UnauthorizedDirectDebit",
     "UnauthorizedDirectDebitTypedDict",
     "UpdateCustomerRequest",
+    "UpdateCustomerRequestBody",
+    "UpdateCustomerRequestBodyTypedDict",
     "UpdateCustomerRequestTypedDict",
     "UpdatePaymentLinkRequest",
     "UpdatePaymentLinkRequestBody",
@@ -2731,13 +2736,13 @@ __all__ = [
     "UpdateProfileRequestBodyTypedDict",
     "UpdateProfileRequestTypedDict",
     "UpdateSalesInvoiceRequest",
+    "UpdateSalesInvoiceRequestBody",
+    "UpdateSalesInvoiceRequestBodyTypedDict",
     "UpdateSalesInvoiceRequestTypedDict",
     "UpdateSubscriptionRequest",
     "UpdateSubscriptionRequestBody",
     "UpdateSubscriptionRequestBodyTypedDict",
     "UpdateSubscriptionRequestTypedDict",
-    "UpdateValuesSalesInvoice",
-    "UpdateValuesSalesInvoiceTypedDict",
     "UpdateWebhookEventTypes",
     "UpdateWebhookEventTypesTypedDict",
     "UpdateWebhookRequest",
@@ -3937,6 +3942,8 @@ _dynamic_imports: dict[str, str] = {
     "TestWebhookRequestBodyTypedDict": ".test_webhookop",
     "TestWebhookRequestTypedDict": ".test_webhookop",
     "UpdateCustomerRequest": ".update_customerop",
+    "UpdateCustomerRequestBody": ".update_customerop",
+    "UpdateCustomerRequestBodyTypedDict": ".update_customerop",
     "UpdateCustomerRequestTypedDict": ".update_customerop",
     "UpdatePaymentLinkRequest": ".update_payment_linkop",
     "UpdatePaymentLinkRequestBody": ".update_payment_linkop",
@@ -3951,13 +3958,13 @@ _dynamic_imports: dict[str, str] = {
     "UpdateProfileRequestBodyTypedDict": ".update_profileop",
     "UpdateProfileRequestTypedDict": ".update_profileop",
     "UpdateSalesInvoiceRequest": ".update_sales_invoiceop",
+    "UpdateSalesInvoiceRequestBody": ".update_sales_invoiceop",
+    "UpdateSalesInvoiceRequestBodyTypedDict": ".update_sales_invoiceop",
     "UpdateSalesInvoiceRequestTypedDict": ".update_sales_invoiceop",
     "UpdateSubscriptionRequest": ".update_subscriptionop",
     "UpdateSubscriptionRequestBody": ".update_subscriptionop",
     "UpdateSubscriptionRequestBodyTypedDict": ".update_subscriptionop",
     "UpdateSubscriptionRequestTypedDict": ".update_subscriptionop",
-    "UpdateValuesSalesInvoice": ".update_values_sales_invoice",
-    "UpdateValuesSalesInvoiceTypedDict": ".update_values_sales_invoice",
     "UpdateWebhookEventTypes": ".update_webhookop",
     "UpdateWebhookEventTypesTypedDict": ".update_webhookop",
     "UpdateWebhookRequest": ".update_webhookop",
