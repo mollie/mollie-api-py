@@ -8,7 +8,8 @@ from mollie.types import BaseModel
 from mollie.utils import validate_open_enum
 import pydantic
 from pydantic.functional_validators import PlainValidator
-from typing_extensions import Annotated, TypedDict
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class RouteCreateResponseDestinationTypedDict(TypedDict):
@@ -37,6 +38,8 @@ class RouteCreateResponseLinksTypedDict(TypedDict):
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
     documentation: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
+    payment: URLTypedDict
+    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
 
 class RouteCreateResponseLinks(BaseModel):
@@ -46,6 +49,9 @@ class RouteCreateResponseLinks(BaseModel):
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
     documentation: URL
+    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
+
+    payment: URL
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
 
@@ -62,12 +68,14 @@ class RouteCreateResponseTypedDict(TypedDict):
     """
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    description: str
-    r"""The description of the route. This description is shown in the reports."""
     destination: RouteCreateResponseDestinationTypedDict
     r"""The destination of the route."""
+    created_at: str
+    r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: RouteCreateResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+    description: NotRequired[str]
+    r"""The description of the route. This description is shown in the reports."""
 
 
 class RouteCreateResponse(BaseModel):
@@ -87,11 +95,14 @@ class RouteCreateResponse(BaseModel):
     amount: Amount
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    description: str
-    r"""The description of the route. This description is shown in the reports."""
-
     destination: RouteCreateResponseDestination
     r"""The destination of the route."""
 
+    created_at: Annotated[str, pydantic.Field(alias="createdAt")]
+    r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
+
     links: Annotated[RouteCreateResponseLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+
+    description: Optional[str] = None
+    r"""The description of the route. This description is shown in the reports."""

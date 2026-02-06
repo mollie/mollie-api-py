@@ -400,12 +400,6 @@ if TYPE_CHECKING:
         EntityRefundResponseStatus,
         EntityRefundResponseTypedDict,
     )
-    from .entity_route import (
-        EntityRoute,
-        EntityRouteDestination,
-        EntityRouteDestinationTypedDict,
-        EntityRouteTypedDict,
-    )
     from .entity_settlement import (
         EntitySettlement,
         EntitySettlementAmount,
@@ -1228,6 +1222,10 @@ if TYPE_CHECKING:
         PaymentDetailsSellerProtectionResponse,
     )
     from .payment_details_wallet_response import PaymentDetailsWalletResponse
+    from .payment_get_routeop import (
+        PaymentGetRouteRequest,
+        PaymentGetRouteRequestTypedDict,
+    )
     from .payment_line_item import PaymentLineItem, PaymentLineItemTypedDict
     from .payment_line_item_response import (
         PaymentLineItemResponse,
@@ -1349,6 +1347,12 @@ if TYPE_CHECKING:
         RevokeMandateRequestBodyTypedDict,
         RevokeMandateRequestTypedDict,
     )
+    from .route_create_request import (
+        RouteCreateRequest,
+        RouteCreateRequestDestination,
+        RouteCreateRequestDestinationTypedDict,
+        RouteCreateRequestTypedDict,
+    )
     from .route_create_response import (
         RouteCreateResponse,
         RouteCreateResponseDestination,
@@ -1359,6 +1363,14 @@ if TYPE_CHECKING:
     )
     from .route_destination_type import RouteDestinationType
     from .route_destination_type_response import RouteDestinationTypeResponse
+    from .route_get_response import (
+        RouteGetResponse,
+        RouteGetResponseDestination,
+        RouteGetResponseDestinationTypedDict,
+        RouteGetResponseLinks,
+        RouteGetResponseLinksTypedDict,
+        RouteGetResponseTypedDict,
+    )
     from .sales_invoice_discount import (
         SalesInvoiceDiscount,
         SalesInvoiceDiscountTypedDict,
@@ -1808,10 +1820,6 @@ __all__ = [
     "EntityRefundResponseSourceTypedDict",
     "EntityRefundResponseStatus",
     "EntityRefundResponseTypedDict",
-    "EntityRoute",
-    "EntityRouteDestination",
-    "EntityRouteDestinationTypedDict",
-    "EntityRouteTypedDict",
     "EntitySettlement",
     "EntitySettlementAmount",
     "EntitySettlementAmountTypedDict",
@@ -2474,6 +2482,8 @@ __all__ = [
     "PaymentDetailsWalletResponse",
     "PaymentFee",
     "PaymentFeeTypedDict",
+    "PaymentGetRouteRequest",
+    "PaymentGetRouteRequestTypedDict",
     "PaymentLineItem",
     "PaymentLineItemResponse",
     "PaymentLineItemResponseTypedDict",
@@ -2608,6 +2618,10 @@ __all__ = [
     "RevokeMandateRequestBody",
     "RevokeMandateRequestBodyTypedDict",
     "RevokeMandateRequestTypedDict",
+    "RouteCreateRequest",
+    "RouteCreateRequestDestination",
+    "RouteCreateRequestDestinationTypedDict",
+    "RouteCreateRequestTypedDict",
     "RouteCreateResponse",
     "RouteCreateResponseDestination",
     "RouteCreateResponseDestinationTypedDict",
@@ -2616,6 +2630,12 @@ __all__ = [
     "RouteCreateResponseTypedDict",
     "RouteDestinationType",
     "RouteDestinationTypeResponse",
+    "RouteGetResponse",
+    "RouteGetResponseDestination",
+    "RouteGetResponseDestinationTypedDict",
+    "RouteGetResponseLinks",
+    "RouteGetResponseLinksTypedDict",
+    "RouteGetResponseTypedDict",
     "SalesInvoiceDiscount",
     "SalesInvoiceDiscountResponse",
     "SalesInvoiceDiscountResponseTypedDict",
@@ -3086,10 +3106,6 @@ _dynamic_imports: dict[str, str] = {
     "EntityRefundResponseSourceTypedDict": ".entity_refund_response",
     "EntityRefundResponseStatus": ".entity_refund_response",
     "EntityRefundResponseTypedDict": ".entity_refund_response",
-    "EntityRoute": ".entity_route",
-    "EntityRouteDestination": ".entity_route",
-    "EntityRouteDestinationTypedDict": ".entity_route",
-    "EntityRouteTypedDict": ".entity_route",
     "EntitySettlement": ".entity_settlement",
     "EntitySettlementAmount": ".entity_settlement",
     "EntitySettlementAmountTypedDict": ".entity_settlement",
@@ -3738,6 +3754,8 @@ _dynamic_imports: dict[str, str] = {
     "PaymentDetailsReceiptCardVerificationMethodResponse": ".payment_details_receipt_card_verification_method_response",
     "PaymentDetailsSellerProtectionResponse": ".payment_details_seller_protection_response",
     "PaymentDetailsWalletResponse": ".payment_details_wallet_response",
+    "PaymentGetRouteRequest": ".payment_get_routeop",
+    "PaymentGetRouteRequestTypedDict": ".payment_get_routeop",
     "PaymentLineItem": ".payment_line_item",
     "PaymentLineItemTypedDict": ".payment_line_item",
     "PaymentLineItemResponse": ".payment_line_item_response",
@@ -3840,6 +3858,10 @@ _dynamic_imports: dict[str, str] = {
     "RevokeMandateRequestBody": ".revoke_mandateop",
     "RevokeMandateRequestBodyTypedDict": ".revoke_mandateop",
     "RevokeMandateRequestTypedDict": ".revoke_mandateop",
+    "RouteCreateRequest": ".route_create_request",
+    "RouteCreateRequestDestination": ".route_create_request",
+    "RouteCreateRequestDestinationTypedDict": ".route_create_request",
+    "RouteCreateRequestTypedDict": ".route_create_request",
     "RouteCreateResponse": ".route_create_response",
     "RouteCreateResponseDestination": ".route_create_response",
     "RouteCreateResponseDestinationTypedDict": ".route_create_response",
@@ -3848,6 +3870,12 @@ _dynamic_imports: dict[str, str] = {
     "RouteCreateResponseTypedDict": ".route_create_response",
     "RouteDestinationType": ".route_destination_type",
     "RouteDestinationTypeResponse": ".route_destination_type_response",
+    "RouteGetResponse": ".route_get_response",
+    "RouteGetResponseDestination": ".route_get_response",
+    "RouteGetResponseDestinationTypedDict": ".route_get_response",
+    "RouteGetResponseLinks": ".route_get_response",
+    "RouteGetResponseLinksTypedDict": ".route_get_response",
+    "RouteGetResponseTypedDict": ".route_get_response",
     "SalesInvoiceDiscount": ".sales_invoice_discount",
     "SalesInvoiceDiscountTypedDict": ".sales_invoice_discount",
     "SalesInvoiceDiscountResponse": ".sales_invoice_discount_response",

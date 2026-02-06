@@ -343,6 +343,7 @@ client = ClientSDK(
 
 * [create](docs/sdks/delayedrouting/README.md#create) - Create a delayed route
 * [list](docs/sdks/delayedrouting/README.md#list) - List payment routes
+* [get](docs/sdks/delayedrouting/README.md#get) - Get a delayed route
 
 ### [invoices](docs/sdks/invoices/README.md)
 

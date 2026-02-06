@@ -343,6 +343,7 @@ client = ClientSDK(
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md#create) - Create a delayed route
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md#list) - List payment routes
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md#get) - Get a delayed route
 
 ### [invoices](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/invoices/README.md)
 

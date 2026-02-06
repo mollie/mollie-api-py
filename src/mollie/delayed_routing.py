@@ -15,8 +15,8 @@ class DelayedRouting(BaseSDK):
         *,
         payment_id: str,
         idempotency_key: Optional[str] = None,
-        entity_route: Optional[
-            Union[models.EntityRoute, models.EntityRouteTypedDict]
+        route_create_request: Optional[
+            Union[models.RouteCreateRequest, models.RouteCreateRequestTypedDict]
         ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -30,7 +30,7 @@ class DelayedRouting(BaseSDK):
 
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
-        :param entity_route:
+        :param route_create_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -49,8 +49,8 @@ class DelayedRouting(BaseSDK):
         request = models.PaymentCreateRouteRequest(
             payment_id=payment_id,
             idempotency_key=idempotency_key,
-            entity_route=utils.get_pydantic_model(
-                entity_route, Optional[models.EntityRoute]
+            route_create_request=utils.get_pydantic_model(
+                route_create_request, Optional[models.RouteCreateRequest]
             ),
         )
 
@@ -68,7 +68,11 @@ class DelayedRouting(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.entity_route, False, True, "json", Optional[models.EntityRoute]
+                request.route_create_request,
+                False,
+                True,
+                "json",
+                Optional[models.RouteCreateRequest],
             ),
             timeout_ms=timeout_ms,
         )
@@ -120,8 +124,8 @@ class DelayedRouting(BaseSDK):
         *,
         payment_id: str,
         idempotency_key: Optional[str] = None,
-        entity_route: Optional[
-            Union[models.EntityRoute, models.EntityRouteTypedDict]
+        route_create_request: Optional[
+            Union[models.RouteCreateRequest, models.RouteCreateRequestTypedDict]
         ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -135,7 +139,7 @@ class DelayedRouting(BaseSDK):
 
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
-        :param entity_route:
+        :param route_create_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -154,8 +158,8 @@ class DelayedRouting(BaseSDK):
         request = models.PaymentCreateRouteRequest(
             payment_id=payment_id,
             idempotency_key=idempotency_key,
-            entity_route=utils.get_pydantic_model(
-                entity_route, Optional[models.EntityRoute]
+            route_create_request=utils.get_pydantic_model(
+                route_create_request, Optional[models.RouteCreateRequest]
             ),
         )
 
@@ -173,7 +177,11 @@ class DelayedRouting(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.entity_route, False, True, "json", Optional[models.EntityRoute]
+                request.route_create_request,
+                False,
+                True,
+                "json",
+                Optional[models.RouteCreateRequest],
             ),
             timeout_ms=timeout_ms,
         )
@@ -408,6 +416,200 @@ class DelayedRouting(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.PaymentListRoutesResponse, http_res)
+        if utils.match_response(http_res, "404", "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    def get(
+        self,
+        *,
+        payment_id: str,
+        route_id: str,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RouteGetResponse:
+        r"""Get a delayed route
+
+        Retrieve a single route created for a specific payment.
+
+        :param payment_id: Provide the ID of the related payment.
+        :param route_id: Provide the ID of the route.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PaymentGetRouteRequest(
+            payment_id=payment_id,
+            route_id=route_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/payments/{paymentId}/routes/{routeId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="payment-get-route",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=["404", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.RouteGetResponse, http_res)
+        if utils.match_response(http_res, "404", "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def get_async(
+        self,
+        *,
+        payment_id: str,
+        route_id: str,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.RouteGetResponse:
+        r"""Get a delayed route
+
+        Retrieve a single route created for a specific payment.
+
+        :param payment_id: Provide the ID of the related payment.
+        :param route_id: Provide the ID of the route.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.PaymentGetRouteRequest(
+            payment_id=payment_id,
+            route_id=route_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/payments/{paymentId}/routes/{routeId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="payment-get-route",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=["404", "4XX", "5XX"],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.RouteGetResponse, http_res)
         if utils.match_response(http_res, "404", "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)

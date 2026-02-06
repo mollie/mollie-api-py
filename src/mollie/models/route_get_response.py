@@ -11,7 +11,7 @@ from pydantic.functional_validators import PlainValidator
 from typing_extensions import Annotated, TypedDict
 
 
-class ListRouteGetResponseDestinationTypedDict(TypedDict):
+class RouteGetResponseDestinationTypedDict(TypedDict):
     r"""The destination of the route."""
 
     type: RouteDestinationTypeResponse
@@ -19,7 +19,7 @@ class ListRouteGetResponseDestinationTypedDict(TypedDict):
     organization_id: str
 
 
-class ListRouteGetResponseDestination(BaseModel):
+class RouteGetResponseDestination(BaseModel):
     r"""The destination of the route."""
 
     type: Annotated[
@@ -30,26 +30,31 @@ class ListRouteGetResponseDestination(BaseModel):
     organization_id: Annotated[str, pydantic.Field(alias="organizationId")]
 
 
-class ListRouteGetResponseLinksTypedDict(TypedDict):
+class RouteGetResponseLinksTypedDict(TypedDict):
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
     self_: URLTypedDict
+    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
+    documentation: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
     payment: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
 
-class ListRouteGetResponseLinks(BaseModel):
+class RouteGetResponseLinks(BaseModel):
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
     self_: Annotated[URL, pydantic.Field(alias="self")]
+    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
+
+    documentation: URL
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
     payment: URL
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
 
-class ListRouteGetResponseTypedDict(TypedDict):
+class RouteGetResponseTypedDict(TypedDict):
     resource: str
     r"""Indicates the response contains a route object. Will always contain the string `route` for this endpoint."""
     id: str
@@ -64,15 +69,15 @@ class ListRouteGetResponseTypedDict(TypedDict):
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
     description: str
     r"""The description of the route. This description is shown in the reports."""
-    destination: ListRouteGetResponseDestinationTypedDict
+    destination: RouteGetResponseDestinationTypedDict
     r"""The destination of the route."""
     created_at: str
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
-    links: ListRouteGetResponseLinksTypedDict
+    links: RouteGetResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListRouteGetResponse(BaseModel):
+class RouteGetResponse(BaseModel):
     resource: str
     r"""Indicates the response contains a route object. Will always contain the string `route` for this endpoint."""
 
@@ -92,11 +97,11 @@ class ListRouteGetResponse(BaseModel):
     description: str
     r"""The description of the route. This description is shown in the reports."""
 
-    destination: ListRouteGetResponseDestination
+    destination: RouteGetResponseDestination
     r"""The destination of the route."""
 
     created_at: Annotated[str, pydantic.Field(alias="createdAt")]
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
 
-    links: Annotated[ListRouteGetResponseLinks, pydantic.Field(alias="_links")]
+    links: Annotated[RouteGetResponseLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
