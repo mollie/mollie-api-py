@@ -6,9 +6,10 @@ from .profile_review_status_response import ProfileReviewStatusResponse
 from .url import URL, URLTypedDict
 from enum import Enum
 from mollie import utils
-from mollie.types import BaseModel
+from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import validate_open_enum
 import pydantic
+from pydantic import model_serializer
 from pydantic.functional_validators import PlainValidator
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -119,10 +120,6 @@ class ProfileResponseTypedDict(TypedDict):
     r"""The email address associated with the profile's trade name or brand."""
     phone: str
     r"""The phone number associated with the profile's trade name or brand."""
-    business_category: str
-    r"""The industry associated with the profile's trade name or brand. Please refer to the
-    [business category list](common-data-types#business-category) for all possible options.
-    """
     status: ProfileResponseStatus
     created_at: str
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
@@ -134,6 +131,7 @@ class ProfileResponseTypedDict(TypedDict):
     r"""A list of countries where you expect that the majority of the profile's customers reside,
     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
     """
+    business_category: NotRequired[Nullable[str]]
     review: NotRequired[ProfileResponseReviewTypedDict]
     r"""Present if changes have been made that have not yet been approved by Mollie. Changes to test profiles are approved
     automatically, unless a switch to a live profile has been requested. The review object will therefore usually be
@@ -167,11 +165,6 @@ class ProfileResponse(BaseModel):
     phone: str
     r"""The phone number associated with the profile's trade name or brand."""
 
-    business_category: Annotated[str, pydantic.Field(alias="businessCategory")]
-    r"""The industry associated with the profile's trade name or brand. Please refer to the
-    [business category list](common-data-types#business-category) for all possible options.
-    """
-
     status: Annotated[ProfileResponseStatus, PlainValidator(validate_open_enum(False))]
 
     created_at: Annotated[str, pydantic.Field(alias="createdAt")]
@@ -190,8 +183,47 @@ class ProfileResponse(BaseModel):
     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
     """
 
+    business_category: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="businessCategory")
+    ] = UNSET
+
     review: Optional[ProfileResponseReview] = None
     r"""Present if changes have been made that have not yet been approved by Mollie. Changes to test profiles are approved
     automatically, unless a switch to a live profile has been requested. The review object will therefore usually be
     `null` in test mode.
     """
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = [
+            "description",
+            "countriesOfActivity",
+            "businessCategory",
+            "review",
+        ]
+        nullable_fields = ["businessCategory"]
+        null_default_fields = []
+
+        serialized = handler(self)
+
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+            serialized.pop(k, None)
+
+            optional_nullable = k in optional_fields and k in nullable_fields
+            is_set = (
+                self.__pydantic_fields_set__.intersection({n})
+                or k in null_default_fields
+            )  # pylint: disable=no-member
+
+            if val is not None and val != UNSET_SENTINEL:
+                m[k] = val
+            elif val != UNSET_SENTINEL and (
+                not k in optional_fields or (optional_nullable and is_set)
+            ):
+                m[k] = val
+
+        return m
