@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3f63a12a-c4cd-4e2e-98dc-9d5c6f5180ec
 management:
-  docChecksum: 9aff82578b9acde76766df00847b5336
+  docChecksum: 92f34d273917127bcde2ac571f79ac1a
   docVersion: 1.0.0
   speakeasyVersion: 1.640.0
   generationVersion: 2.730.5
-  releaseVersion: 1.1.4
-  configChecksum: d638a743600be2510424f26228705c93
+  releaseVersion: 1.1.5
+  configChecksum: 29bf32ff38e11e77bb93206e2f7993c8
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
@@ -5590,12 +5590,12 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes Detected:
-  * `client.profiles.create()`:  `response.business_category` **Changed** **Breaking** :warning:
-  * `client.profiles.list()`:  `response._embedded.profiles.[].business_category` **Changed** **Breaking** :warning:
-  * `client.profiles.get()`:  `response.business_category` **Changed** **Breaking** :warning:
-  * `client.profiles.update()`:  `response.business_category` **Changed** **Breaking** :warning:
-  * `client.profiles.get-current()`:  `response.business_category` **Changed** **Breaking** :warning:
-  * `client.webhook-events.get()`:  `response._embedded.entity.[profile-response].business_category` **Changed** **Breaking** :warning:
+  * `client.profiles.create()`:  `response.business_category` **Changed**
+  * `client.profiles.list()`:  `response._embedded.profiles.[].business_category` **Changed**
+  * `client.profiles.get()`:  `response.business_category` **Changed**
+  * `client.profiles.update()`:  `response.business_category` **Changed**
+  * `client.profiles.get-current()`:  `response.business_category` **Changed**
+  * `client.webhook-events.get()`:  `response._embedded.entity.[profile-response].business_category` **Changed**
 persistentEdits:
   generation_id: b447ae8a-9f05-460c-a7cd-f421087b632c
   pristine_commit_hash: 353ee42295bde549cfa3a77070e603993577e347
