@@ -19,7 +19,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class ListRefundsGlobalsTypedDict(TypedDict):
     testmode: NotRequired[bool]
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
+    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
     setting the `testmode` query parameter to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
@@ -32,7 +32,7 @@ class ListRefundsGlobals(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
+    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
     setting the `testmode` query parameter to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
@@ -54,7 +54,7 @@ class ListRefundsRequestTypedDict(TypedDict):
     """
     testmode: NotRequired[bool]
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
+    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
     setting the `testmode` query parameter to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
@@ -99,7 +99,7 @@ class ListRefundsRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
+    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
     setting the `testmode` query parameter to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.

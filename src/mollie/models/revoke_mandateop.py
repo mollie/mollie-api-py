@@ -16,8 +16,9 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class RevokeMandateRequestBodyTypedDict(TypedDict):
     testmode: NotRequired[Nullable[bool]]
-    r"""Most API credentials are specifically created for either live mode or test mode. For organization-level credentials
-    such as OAuth access tokens, you can enable test mode by setting `testmode` to `true`.
+    r"""Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
     """
@@ -25,8 +26,9 @@ class RevokeMandateRequestBodyTypedDict(TypedDict):
 
 class RevokeMandateRequestBody(BaseModel):
     testmode: OptionalNullable[bool] = UNSET
-    r"""Most API credentials are specifically created for either live mode or test mode. For organization-level credentials
-    such as OAuth access tokens, you can enable test mode by setting `testmode` to `true`.
+    r"""Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
     """

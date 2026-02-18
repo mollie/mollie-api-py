@@ -24,12 +24,12 @@ class GetMethodGlobalsTypedDict(TypedDict):
     r"""The identifier referring to the [profile](get-profile) you wish to
     retrieve the resources for.
 
-    Most API credentials are linked to a single profile. In these cases the `profileId` can be omitted. For
+    Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
     organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
     """
     testmode: NotRequired[bool]
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
+    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
     setting the `testmode` query parameter to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
@@ -45,7 +45,7 @@ class GetMethodGlobals(BaseModel):
     r"""The identifier referring to the [profile](get-profile) you wish to
     retrieve the resources for.
 
-    Most API credentials are linked to a single profile. In these cases the `profileId` can be omitted. For
+    Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
     organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
     """
 
@@ -54,7 +54,7 @@ class GetMethodGlobals(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
+    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
     setting the `testmode` query parameter to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
@@ -74,7 +74,7 @@ class GetMethodRequestTypedDict(TypedDict):
     r"""The identifier referring to the [profile](get-profile) you wish to
     retrieve the resources for.
 
-    Most API credentials are linked to a single profile. In these cases the `profileId` can be omitted. For
+    Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
     organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
     """
     include: NotRequired[Nullable[str]]
@@ -87,7 +87,7 @@ class GetMethodRequestTypedDict(TypedDict):
     """
     testmode: NotRequired[bool]
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
+    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
     setting the `testmode` query parameter to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
@@ -126,7 +126,7 @@ class GetMethodRequest(BaseModel):
     r"""The identifier referring to the [profile](get-profile) you wish to
     retrieve the resources for.
 
-    Most API credentials are linked to a single profile. In these cases the `profileId` can be omitted. For
+    Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
     organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
     """
 
@@ -152,7 +152,7 @@ class GetMethodRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter can be omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by
+    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
     setting the `testmode` query parameter to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.

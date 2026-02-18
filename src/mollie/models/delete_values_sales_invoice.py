@@ -8,8 +8,9 @@ from typing_extensions import NotRequired, TypedDict
 
 class DeleteValuesSalesInvoiceTypedDict(TypedDict):
     testmode: NotRequired[Nullable[bool]]
-    r"""Most API credentials are specifically created for either live mode or test mode. For organization-level credentials
-    such as OAuth access tokens, you can enable test mode by setting `testmode` to `true`.
+    r"""Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
     """
@@ -17,8 +18,9 @@ class DeleteValuesSalesInvoiceTypedDict(TypedDict):
 
 class DeleteValuesSalesInvoice(BaseModel):
     testmode: OptionalNullable[bool] = UNSET
-    r"""Most API credentials are specifically created for either live mode or test mode. For organization-level credentials
-    such as OAuth access tokens, you can enable test mode by setting `testmode` to `true`.
+    r"""Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
 
     Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
     """

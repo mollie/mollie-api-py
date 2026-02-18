@@ -195,6 +195,13 @@ class SalesInvoiceResponseTypedDict(TypedDict):
     r"""Whether this entity was created in live mode or in test mode."""
     invoice_number: NotRequired[Nullable[str]]
     r"""When issued, an invoice number will be set for the sales invoice."""
+    profile_id: NotRequired[Nullable[str]]
+    r"""The identifier referring to the [profile](get-profile) this entity belongs to.
+
+    Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent in the creation
+    request. For organization-level credentials such as OAuth access tokens however, the `profileId` parameter is
+    required.
+    """
     status: NotRequired[SalesInvoiceStatusResponse]
     r"""The status for the invoice to end up in.
 
@@ -293,6 +300,16 @@ class SalesInvoiceResponse(BaseModel):
         OptionalNullable[str], pydantic.Field(alias="invoiceNumber")
     ] = UNSET
     r"""When issued, an invoice number will be set for the sales invoice."""
+
+    profile_id: Annotated[OptionalNullable[str], pydantic.Field(alias="profileId")] = (
+        UNSET
+    )
+    r"""The identifier referring to the [profile](get-profile) this entity belongs to.
+
+    Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent in the creation
+    request. For organization-level credentials such as OAuth access tokens however, the `profileId` parameter is
+    required.
+    """
 
     status: Annotated[
         Optional[SalesInvoiceStatusResponse], PlainValidator(validate_open_enum(False))
@@ -444,6 +461,7 @@ class SalesInvoiceResponse(BaseModel):
     def serialize_model(self, handler):
         optional_fields = [
             "invoiceNumber",
+            "profileId",
             "status",
             "vatScheme",
             "vatMode",
@@ -471,6 +489,7 @@ class SalesInvoiceResponse(BaseModel):
         ]
         nullable_fields = [
             "invoiceNumber",
+            "profileId",
             "memo",
             "metadata",
             "paymentTerm",

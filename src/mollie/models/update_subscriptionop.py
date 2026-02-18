@@ -54,8 +54,8 @@ class UpdateSubscriptionRequestBodyTypedDict(TypedDict):
     testmode: NotRequired[bool]
     r"""Whether the entity was created in test mode or live mode. This field does not update the mode of the entity.
 
-    Most API credentials are specifically created for either live mode or test mode, in which case this parameter can be
-    omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
     `testmode` to `true`.
     """
 
@@ -106,8 +106,8 @@ class UpdateSubscriptionRequestBody(BaseModel):
     testmode: Optional[bool] = None
     r"""Whether the entity was created in test mode or live mode. This field does not update the mode of the entity.
 
-    Most API credentials are specifically created for either live mode or test mode, in which case this parameter can be
-    omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
     `testmode` to `true`.
     """
 

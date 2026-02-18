@@ -92,8 +92,8 @@ class SubscriptionRequestTypedDict(TypedDict):
     testmode: NotRequired[Nullable[bool]]
     r"""Whether to create the entity in test mode or live mode.
 
-    Most API credentials are specifically created for either live mode or test mode, in which case this parameter can be
-    omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
     `testmode` to `true`.
     """
 
@@ -164,8 +164,8 @@ class SubscriptionRequest(BaseModel):
     testmode: OptionalNullable[bool] = UNSET
     r"""Whether to create the entity in test mode or live mode.
 
-    Most API credentials are specifically created for either live mode or test mode, in which case this parameter can be
-    omitted. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
     `testmode` to `true`.
     """
 
