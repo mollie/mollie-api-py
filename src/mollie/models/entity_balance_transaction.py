@@ -13,6 +13,69 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
+class DeductionDetailsTypedDict(TypedDict):
+    r"""A detailed breakdown of the deductions withheld from the movement. Each field represents a specific type of
+    deduction applied to the transaction. Only the applicable fields will be present.
+    """
+
+    fees: NotRequired[Nullable[AmountNullableTypedDict]]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    commissions: NotRequired[Nullable[AmountNullableTypedDict]]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    repayments: NotRequired[Nullable[AmountNullableTypedDict]]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    reservations: NotRequired[Nullable[AmountNullableTypedDict]]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+
+class DeductionDetails(BaseModel):
+    r"""A detailed breakdown of the deductions withheld from the movement. Each field represents a specific type of
+    deduction applied to the transaction. Only the applicable fields will be present.
+    """
+
+    fees: OptionalNullable[AmountNullable] = UNSET
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    commissions: OptionalNullable[AmountNullable] = UNSET
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    repayments: OptionalNullable[AmountNullable] = UNSET
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    reservations: OptionalNullable[AmountNullable] = UNSET
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = ["fees", "commissions", "repayments", "reservations"]
+        nullable_fields = ["fees", "commissions", "repayments", "reservations"]
+        null_default_fields = []
+
+        serialized = handler(self)
+
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+            serialized.pop(k, None)
+
+            optional_nullable = k in optional_fields and k in nullable_fields
+            is_set = (
+                self.__pydantic_fields_set__.intersection({n})
+                or k in null_default_fields
+            )  # pylint: disable=no-member
+
+            if val is not None and val != UNSET_SENTINEL:
+                m[k] = val
+            elif val != UNSET_SENTINEL and (
+                not k in optional_fields or (optional_nullable and is_set)
+            ):
+                m[k] = val
+
+        return m
+
+
 class PaymentTypedDict(TypedDict):
     payment_id: NotRequired[str]
     payment_description: NotRequired[str]
@@ -915,6 +978,10 @@ class EntityBalanceTransactionTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     deductions: NotRequired[Nullable[AmountNullableTypedDict]]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    deduction_details: NotRequired[Nullable[DeductionDetailsTypedDict]]
+    r"""A detailed breakdown of the deductions withheld from the movement. Each field represents a specific type of
+    deduction applied to the transaction. Only the applicable fields will be present.
+    """
     context: NotRequired[Nullable[ContextTypedDict]]
     r"""Depending on the type of the balance transaction, we will try to give more context about the specific event that
     triggered it. For example, the context object for a payment transaction will look like
@@ -988,6 +1055,13 @@ class EntityBalanceTransaction(BaseModel):
     deductions: OptionalNullable[AmountNullable] = UNSET
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
+    deduction_details: Annotated[
+        OptionalNullable[DeductionDetails], pydantic.Field(alias="deductionDetails")
+    ] = UNSET
+    r"""A detailed breakdown of the deductions withheld from the movement. Each field represents a specific type of
+    deduction applied to the transaction. Only the applicable fields will be present.
+    """
+
     context: OptionalNullable[Context] = UNSET
     r"""Depending on the type of the balance transaction, we will try to give more context about the specific event that
     triggered it. For example, the context object for a payment transaction will look like
@@ -1039,8 +1113,8 @@ class EntityBalanceTransaction(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["deductions", "context"]
-        nullable_fields = ["deductions", "context"]
+        optional_fields = ["deductions", "deductionDetails", "context"]
+        nullable_fields = ["deductions", "deductionDetails", "context"]
         null_default_fields = []
 
         serialized = handler(self)
