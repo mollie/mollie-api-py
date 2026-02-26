@@ -96,8 +96,10 @@ with ClientSDK(
 
     res = client_sdk.mandates.list(customer_id="cst_5B8cwPMGnU", from_="mdt_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

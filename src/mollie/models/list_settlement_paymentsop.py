@@ -13,7 +13,7 @@ from mollie.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -199,7 +199,7 @@ class ListSettlementPaymentsEmbedded(BaseModel):
     r"""An array of payment objects."""
 
 
-class ListSettlementPaymentsResponseTypedDict(TypedDict):
+class ListSettlementPaymentsResponseBodyTypedDict(TypedDict):
     r"""A list of payment objects."""
 
     count: int
@@ -214,7 +214,7 @@ class ListSettlementPaymentsResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListSettlementPaymentsResponse(BaseModel):
+class ListSettlementPaymentsResponseBody(BaseModel):
     r"""A list of payment objects."""
 
     count: int
@@ -231,3 +231,13 @@ class ListSettlementPaymentsResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListSettlementPaymentsResponseTypedDict(TypedDict):
+    result: ListSettlementPaymentsResponseBodyTypedDict
+
+
+class ListSettlementPaymentsResponse(BaseModel):
+    next: Callable[[], Optional[ListSettlementPaymentsResponse]]
+
+    result: ListSettlementPaymentsResponseBody

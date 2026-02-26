@@ -130,8 +130,10 @@ with ClientSDK(
 
     res = client_sdk.sales_invoices.list(from_="invoice_4Y0eZitmBnQ6IDoMqZQKh", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

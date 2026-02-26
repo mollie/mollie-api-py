@@ -171,8 +171,10 @@ with ClientSDK(
 
     res = client_sdk.payment_links.list(from_="pl_d9fQur83kFdhH8hIhaZfq", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -434,8 +436,10 @@ with ClientSDK(
 
     res = client_sdk.payment_links.list_payments(payment_link_id="pl_d9fQur83kFdhH8hIhaZfq", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

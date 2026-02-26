@@ -109,8 +109,10 @@ with ClientSDK(
 
     res = client_sdk.refunds.list(payment_id="tr_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -258,8 +260,10 @@ with ClientSDK(
 
     res = client_sdk.refunds.all(from_="re_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

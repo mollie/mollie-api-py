@@ -7,7 +7,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -135,7 +135,7 @@ class ListBalancesEmbedded(BaseModel):
     """
 
 
-class ListBalancesResponseTypedDict(TypedDict):
+class ListBalancesResponseBodyTypedDict(TypedDict):
     r"""A list of balance objects. For a complete reference of the balance
     object, refer to the [Get balance endpoint](get-balance) documentation.
     """
@@ -152,7 +152,7 @@ class ListBalancesResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListBalancesResponse(BaseModel):
+class ListBalancesResponseBody(BaseModel):
     r"""A list of balance objects. For a complete reference of the balance
     object, refer to the [Get balance endpoint](get-balance) documentation.
     """
@@ -169,3 +169,13 @@ class ListBalancesResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListBalancesResponseTypedDict(TypedDict):
+    result: ListBalancesResponseBodyTypedDict
+
+
+class ListBalancesResponse(BaseModel):
+    next: Callable[[], Optional[ListBalancesResponse]]
+
+    result: ListBalancesResponseBody

@@ -12,7 +12,7 @@ from mollie.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -153,7 +153,7 @@ class ListSettlementChargebacksEmbedded(BaseModel):
     r"""A list of chargeback objects."""
 
 
-class ListSettlementChargebacksResponseTypedDict(TypedDict):
+class ListSettlementChargebacksResponseBodyTypedDict(TypedDict):
     r"""A list of chargeback objects."""
 
     count: int
@@ -168,7 +168,7 @@ class ListSettlementChargebacksResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListSettlementChargebacksResponse(BaseModel):
+class ListSettlementChargebacksResponseBody(BaseModel):
     r"""A list of chargeback objects."""
 
     count: int
@@ -185,3 +185,13 @@ class ListSettlementChargebacksResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListSettlementChargebacksResponseTypedDict(TypedDict):
+    result: ListSettlementChargebacksResponseBodyTypedDict
+
+
+class ListSettlementChargebacksResponse(BaseModel):
+    next: Callable[[], Optional[ListSettlementChargebacksResponse]]
+
+    result: ListSettlementChargebacksResponseBody

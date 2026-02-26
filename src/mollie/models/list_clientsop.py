@@ -13,7 +13,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -231,7 +231,7 @@ class ListClientsEmbedded(BaseModel):
     """
 
 
-class ListClientsResponseTypedDict(TypedDict):
+class ListClientsResponseBodyTypedDict(TypedDict):
     r"""A list of client objects. For a complete reference of the client object, refer to the
     [Get client endpoint](get-client) documentation.
     """
@@ -248,7 +248,7 @@ class ListClientsResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListClientsResponse(BaseModel):
+class ListClientsResponseBody(BaseModel):
     r"""A list of client objects. For a complete reference of the client object, refer to the
     [Get client endpoint](get-client) documentation.
     """
@@ -267,3 +267,13 @@ class ListClientsResponse(BaseModel):
 
     links: Annotated[Optional[ListLinks], pydantic.Field(alias="_links")] = None
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListClientsResponseTypedDict(TypedDict):
+    result: ListClientsResponseBodyTypedDict
+
+
+class ListClientsResponse(BaseModel):
+    next: Callable[[], Optional[ListClientsResponse]]
+
+    result: ListClientsResponseBody

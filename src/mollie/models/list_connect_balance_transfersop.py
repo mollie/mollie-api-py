@@ -11,7 +11,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -139,7 +139,7 @@ class ListConnectBalanceTransfersEmbedded(BaseModel):
     r"""A list of Connect balance transfers."""
 
 
-class ListConnectBalanceTransfersResponseTypedDict(TypedDict):
+class ListConnectBalanceTransfersResponseBodyTypedDict(TypedDict):
     r"""A list of Connect balance transfers. For a complete reference of the Connect balance transfer
     object, refer to the [Get balance transfer endpoint](get-balance-transfer) documentation.
     """
@@ -156,7 +156,7 @@ class ListConnectBalanceTransfersResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListConnectBalanceTransfersResponse(BaseModel):
+class ListConnectBalanceTransfersResponseBody(BaseModel):
     r"""A list of Connect balance transfers. For a complete reference of the Connect balance transfer
     object, refer to the [Get balance transfer endpoint](get-balance-transfer) documentation.
     """
@@ -175,3 +175,13 @@ class ListConnectBalanceTransfersResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListConnectBalanceTransfersResponseTypedDict(TypedDict):
+    result: ListConnectBalanceTransfersResponseBodyTypedDict
+
+
+class ListConnectBalanceTransfersResponse(BaseModel):
+    next: Callable[[], Optional[ListConnectBalanceTransfersResponse]]
+
+    result: ListConnectBalanceTransfersResponseBody

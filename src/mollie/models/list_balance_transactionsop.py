@@ -15,7 +15,7 @@ from mollie.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -140,7 +140,7 @@ class ListBalanceTransactionsEmbedded(BaseModel):
     r"""An array of balance transaction objects."""
 
 
-class ListBalanceTransactionsResponseTypedDict(TypedDict):
+class ListBalanceTransactionsResponseBodyTypedDict(TypedDict):
     r"""A list of balance transaction objects."""
 
     count: int
@@ -155,7 +155,7 @@ class ListBalanceTransactionsResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListBalanceTransactionsResponse(BaseModel):
+class ListBalanceTransactionsResponseBody(BaseModel):
     r"""A list of balance transaction objects."""
 
     count: int
@@ -172,3 +172,13 @@ class ListBalanceTransactionsResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListBalanceTransactionsResponseTypedDict(TypedDict):
+    result: ListBalanceTransactionsResponseBodyTypedDict
+
+
+class ListBalanceTransactionsResponse(BaseModel):
+    next: Callable[[], Optional[ListBalanceTransactionsResponse]]
+
+    result: ListBalanceTransactionsResponseBody

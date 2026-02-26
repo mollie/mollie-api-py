@@ -37,8 +37,10 @@ with ClientSDK(
 
     res = client_sdk.settlements.list(from_="stl_jDk30akdN", limit=50, balance_id="bal_gVMhHKqSSRYJyPsuoPNFH", year="2025", month="1", currencies=mollie.Currencies.EUR, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -249,8 +251,10 @@ with ClientSDK(
 
     res = client_sdk.settlements.list_payments(settlement_id="stl_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -302,8 +306,10 @@ with ClientSDK(
 
     res = client_sdk.settlements.list_captures(settlement_id="stl_5B8cwPMGnU", from_="cpt_vytxeTZskVKR7C7WgdSP3d", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -354,8 +360,10 @@ with ClientSDK(
 
     res = client_sdk.settlements.list_refunds(settlement_id="stl_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -406,8 +414,10 @@ with ClientSDK(
 
     res = client_sdk.settlements.list_chargebacks(settlement_id="stl_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

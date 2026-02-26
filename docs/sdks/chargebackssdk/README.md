@@ -33,8 +33,10 @@ with ClientSDK(
 
     res = client_sdk.chargebacks.list(payment_id="tr_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -135,8 +137,10 @@ with ClientSDK(
 
     res = client_sdk.chargebacks.all(from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, embed="payment", sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

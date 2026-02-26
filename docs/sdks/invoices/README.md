@@ -32,8 +32,10 @@ with ClientSDK(
 
     res = client_sdk.invoices.list(reference="2024.10000", year="2024", from_="inv_xBEbP9rvAq", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

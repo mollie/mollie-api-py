@@ -12,7 +12,7 @@ from mollie.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -153,7 +153,7 @@ class ListRefundsEmbedded(BaseModel):
     r"""An array of refund objects."""
 
 
-class ListRefundsResponseTypedDict(TypedDict):
+class ListRefundsResponseBodyTypedDict(TypedDict):
     r"""A list of refund objects. For a complete reference of the refund object, refer to the
     [Get refund endpoint](get-refund) documentation.
     """
@@ -170,7 +170,7 @@ class ListRefundsResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListRefundsResponse(BaseModel):
+class ListRefundsResponseBody(BaseModel):
     r"""A list of refund objects. For a complete reference of the refund object, refer to the
     [Get refund endpoint](get-refund) documentation.
     """
@@ -187,3 +187,13 @@ class ListRefundsResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListRefundsResponseTypedDict(TypedDict):
+    result: ListRefundsResponseBodyTypedDict
+
+
+class ListRefundsResponse(BaseModel):
+    next: Callable[[], Optional[ListRefundsResponse]]
+
+    result: ListRefundsResponseBody

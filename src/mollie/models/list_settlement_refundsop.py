@@ -12,7 +12,7 @@ from mollie.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -153,7 +153,7 @@ class ListSettlementRefundsEmbedded(BaseModel):
     r"""An array of refund objects."""
 
 
-class ListSettlementRefundsResponseTypedDict(TypedDict):
+class ListSettlementRefundsResponseBodyTypedDict(TypedDict):
     r"""A list of refund objects. For a complete reference of the refund object, refer to the
     [Get refund endpoint](get-refund) documentation.
     """
@@ -170,7 +170,7 @@ class ListSettlementRefundsResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListSettlementRefundsResponse(BaseModel):
+class ListSettlementRefundsResponseBody(BaseModel):
     r"""A list of refund objects. For a complete reference of the refund object, refer to the
     [Get refund endpoint](get-refund) documentation.
     """
@@ -189,3 +189,13 @@ class ListSettlementRefundsResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListSettlementRefundsResponseTypedDict(TypedDict):
+    result: ListSettlementRefundsResponseBodyTypedDict
+
+
+class ListSettlementRefundsResponse(BaseModel):
+    next: Callable[[], Optional[ListSettlementRefundsResponse]]
+
+    result: ListSettlementRefundsResponseBody

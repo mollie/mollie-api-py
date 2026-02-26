@@ -10,7 +10,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -170,7 +170,7 @@ class ListAllSubscriptionsEmbedded(BaseModel):
     r"""A list of subscription objects."""
 
 
-class ListAllSubscriptionsResponseTypedDict(TypedDict):
+class ListAllSubscriptionsResponseBodyTypedDict(TypedDict):
     r"""A list of subscription objects."""
 
     count: int
@@ -185,7 +185,7 @@ class ListAllSubscriptionsResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListAllSubscriptionsResponse(BaseModel):
+class ListAllSubscriptionsResponseBody(BaseModel):
     r"""A list of subscription objects."""
 
     count: int
@@ -200,3 +200,13 @@ class ListAllSubscriptionsResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListAllSubscriptionsResponseTypedDict(TypedDict):
+    result: ListAllSubscriptionsResponseBodyTypedDict
+
+
+class ListAllSubscriptionsResponse(BaseModel):
+    next: Callable[[], Optional[ListAllSubscriptionsResponse]]
+
+    result: ListAllSubscriptionsResponseBody

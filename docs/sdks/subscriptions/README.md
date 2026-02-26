@@ -122,8 +122,10 @@ with ClientSDK(
 
     res = client_sdk.subscriptions.list(customer_id="cst_5B8cwPMGnU", from_="sub_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -335,8 +337,10 @@ with ClientSDK(
 
     res = client_sdk.subscriptions.all(from_="tr_5B8cwPMGnU", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -387,8 +391,10 @@ with ClientSDK(
 
     res = client_sdk.subscriptions.list_payments(customer_id="cst_5B8cwPMGnU", subscription_id="sub_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

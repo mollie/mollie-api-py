@@ -92,8 +92,10 @@ with ClientSDK(
 
     res = client_sdk.captures.list(payment_id="tr_5B8cwPMGnU", from_="cpt_vytxeTZskVKR7C7WgdSP3d", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

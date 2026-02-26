@@ -8,7 +8,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -140,7 +140,7 @@ class ListCustomersEmbedded(BaseModel):
     r"""An array of customer objects."""
 
 
-class ListCustomersResponseTypedDict(TypedDict):
+class ListCustomersResponseBodyTypedDict(TypedDict):
     r"""A list of customer objects."""
 
     count: int
@@ -155,7 +155,7 @@ class ListCustomersResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListCustomersResponse(BaseModel):
+class ListCustomersResponseBody(BaseModel):
     r"""A list of customer objects."""
 
     count: int
@@ -170,3 +170,13 @@ class ListCustomersResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListCustomersResponseTypedDict(TypedDict):
+    result: ListCustomersResponseBodyTypedDict
+
+
+class ListCustomersResponse(BaseModel):
+    next: Callable[[], Optional[ListCustomersResponse]]
+
+    result: ListCustomersResponseBody

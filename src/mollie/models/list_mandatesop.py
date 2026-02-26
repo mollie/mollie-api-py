@@ -13,7 +13,7 @@ from mollie.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -154,7 +154,7 @@ class ListMandatesEmbedded(BaseModel):
     r"""An array of mandate objects."""
 
 
-class ListMandatesResponseTypedDict(TypedDict):
+class ListMandatesResponseBodyTypedDict(TypedDict):
     r"""A list of mandate objects."""
 
     count: int
@@ -169,7 +169,7 @@ class ListMandatesResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListMandatesResponse(BaseModel):
+class ListMandatesResponseBody(BaseModel):
     r"""A list of mandate objects."""
 
     count: int
@@ -184,3 +184,13 @@ class ListMandatesResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListMandatesResponseTypedDict(TypedDict):
+    result: ListMandatesResponseBodyTypedDict
+
+
+class ListMandatesResponse(BaseModel):
+    next: Callable[[], Optional[ListMandatesResponse]]
+
+    result: ListMandatesResponseBody

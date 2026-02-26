@@ -12,7 +12,7 @@ from mollie.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -153,7 +153,7 @@ class ListSettlementCapturesEmbedded(BaseModel):
     r"""An array of capture objects."""
 
 
-class ListSettlementCapturesResponseTypedDict(TypedDict):
+class ListSettlementCapturesResponseBodyTypedDict(TypedDict):
     r"""A list of capture objects."""
 
     count: int
@@ -168,7 +168,7 @@ class ListSettlementCapturesResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListSettlementCapturesResponse(BaseModel):
+class ListSettlementCapturesResponseBody(BaseModel):
     r"""A list of capture objects."""
 
     count: int
@@ -185,3 +185,13 @@ class ListSettlementCapturesResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListSettlementCapturesResponseTypedDict(TypedDict):
+    result: ListSettlementCapturesResponseBodyTypedDict
+
+
+class ListSettlementCapturesResponse(BaseModel):
+    next: Callable[[], Optional[ListSettlementCapturesResponse]]
+
+    result: ListSettlementCapturesResponseBody

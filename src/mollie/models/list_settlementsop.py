@@ -14,7 +14,7 @@ from mollie.utils import (
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import PlainValidator
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -142,7 +142,7 @@ class ListSettlementsEmbedded(BaseModel):
     """
 
 
-class ListSettlementsResponseTypedDict(TypedDict):
+class ListSettlementsResponseBodyTypedDict(TypedDict):
     r"""A list of settlement objects. For a complete reference of the settlement
     object, refer to the [Get settlement endpoint](get-settlement) documentation.
     """
@@ -159,7 +159,7 @@ class ListSettlementsResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListSettlementsResponse(BaseModel):
+class ListSettlementsResponseBody(BaseModel):
     r"""A list of settlement objects. For a complete reference of the settlement
     object, refer to the [Get settlement endpoint](get-settlement) documentation.
     """
@@ -176,3 +176,13 @@ class ListSettlementsResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListSettlementsResponseTypedDict(TypedDict):
+    result: ListSettlementsResponseBodyTypedDict
+
+
+class ListSettlementsResponse(BaseModel):
+    next: Callable[[], Optional[ListSettlementsResponse]]
+
+    result: ListSettlementsResponseBody

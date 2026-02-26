@@ -31,8 +31,10 @@ with ClientSDK(
 
     res = client_sdk.clients.list(embed="organization", from_="org_12345678", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 

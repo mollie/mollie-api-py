@@ -9,7 +9,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -153,7 +153,7 @@ class ListWebhooksEmbedded(BaseModel):
     r"""A list of webhooks."""
 
 
-class ListWebhooksResponseTypedDict(TypedDict):
+class ListWebhooksResponseBodyTypedDict(TypedDict):
     r"""A list of webhooks. For a complete reference of the webhook
     object, refer to the [Get hook endpoint](get-webhook) documentation.
     """
@@ -170,7 +170,7 @@ class ListWebhooksResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListWebhooksResponse(BaseModel):
+class ListWebhooksResponseBody(BaseModel):
     r"""A list of webhooks. For a complete reference of the webhook
     object, refer to the [Get hook endpoint](get-webhook) documentation.
     """
@@ -187,3 +187,13 @@ class ListWebhooksResponse(BaseModel):
 
     links: Annotated[ListLinks, pydantic.Field(alias="_links")]
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListWebhooksResponseTypedDict(TypedDict):
+    result: ListWebhooksResponseBodyTypedDict
+
+
+class ListWebhooksResponse(BaseModel):
+    next: Callable[[], Optional[ListWebhooksResponse]]
+
+    result: ListWebhooksResponseBody

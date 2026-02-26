@@ -10,7 +10,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -134,7 +134,7 @@ class ListSalesInvoicesEmbedded(BaseModel):
     """
 
 
-class ListSalesInvoicesResponseTypedDict(TypedDict):
+class ListSalesInvoicesResponseBodyTypedDict(TypedDict):
     r"""A list of sales invoice objects. For a complete reference of the sales invoice object, refer to the
     [Get sales invoice endpoint](get-sales-invoice) documentation.
     """
@@ -151,7 +151,7 @@ class ListSalesInvoicesResponseTypedDict(TypedDict):
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
 
 
-class ListSalesInvoicesResponse(BaseModel):
+class ListSalesInvoicesResponseBody(BaseModel):
     r"""A list of sales invoice objects. For a complete reference of the sales invoice object, refer to the
     [Get sales invoice endpoint](get-sales-invoice) documentation.
     """
@@ -170,3 +170,13 @@ class ListSalesInvoicesResponse(BaseModel):
 
     links: Annotated[Optional[ListLinks], pydantic.Field(alias="_links")] = None
     r"""Links to help navigate through the lists of items. Every URL object will contain an `href` and a `type` field."""
+
+
+class ListSalesInvoicesResponseTypedDict(TypedDict):
+    result: ListSalesInvoicesResponseBodyTypedDict
+
+
+class ListSalesInvoicesResponse(BaseModel):
+    next: Callable[[], Optional[ListSalesInvoicesResponse]]
+
+    result: ListSalesInvoicesResponseBody
