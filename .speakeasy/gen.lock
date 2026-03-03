@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 3f63a12a-c4cd-4e2e-98dc-9d5c6f5180ec
 management:
-  docChecksum: 8adf953b284b04c21ebb38d52bffbfb8
+  docChecksum: 46e1ee2f18340c1ad3b170f7a2517797
   docVersion: 1.0.0
   speakeasyVersion: 1.640.0
   generationVersion: 2.730.5
-  releaseVersion: 1.1.8
-  configChecksum: 39c2570df8b431dcde58583039da1fea
+  releaseVersion: 1.1.9
+  configChecksum: 05a50caefc4eb872346cd27e6af65766
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
@@ -5619,6 +5619,7 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes Detected:\n* `client.customers.list-payments()`:  `response._embedded.payments.[]` **Changed** **Breaking** :warning:\n* `client.payment-links.list-payments()`:  `response._embedded.payments.[]` **Changed** **Breaking** :warning:\n* `client.subscriptions.list-payments()`:  `response._embedded.payments.[]` **Changed** **Breaking** :warning:\n* `client.payments.create()`: \n  *  `request.payment-request.metadata.[number]` **Added**\n  *  `response` **Changed** **Breaking** :warning:\n* `client.payments.list()`:  `response._embedded.payments.[]` **Changed** **Breaking** :warning:\n* `client.payments.get()`:  `response` **Changed** **Breaking** :warning:\n* `client.payments.update()`: \n  *  `request_body.metadata.[number]` **Added**\n  *  `response` **Changed** **Breaking** :warning:\n* `client.payments.cancel()`:  `response` **Changed** **Breaking** :warning:\n* `client.settlements.list-payments()`:  `response._embedded.payments.[]` **Changed** **Breaking** :warning:\n* `client.customers.create-payment()`: \n  *  `request.payment-request.metadata.[number]` **Added**\n  *  `response` **Changed** **Breaking** :warning:\n* `client.customers.update()`: \n  *  `request_body.metadata.[number]` **Added**\n  *  `response.metadata.[number]` **Added**\n* `client.refunds.get()`:  `response.metadata.[number]` **Added**\n* `client.captures.create()`: \n  *  `request.entity-capture.metadata.[number]` **Added**\n  *  `response.metadata.[number]` **Added**\n* `client.captures.list()`:  `response._embedded.captures.[].metadata.[number]` **Added**\n* `client.settlements.list-captures()`:  `response._embedded.captures.[].metadata.[number]` **Added**\n* `client.customers.create()`: \n  *  `request.entity-customer.metadata.[number]` **Added**\n  *  `response.metadata.[number]` **Added**\n* `client.captures.get()`:  `response.metadata.[number]` **Added**\n* `client.customers.list()`:  `response._embedded.customers.[].metadata.[number]` **Added**\n* `client.customers.get()`:  `response.metadata.[number]` **Added**\n* `client.refunds.all()`:  `response._embedded.refunds.[].metadata.[number]` **Added**\n* `client.refunds.list()`:  `response._embedded.refunds.[].metadata.[number]` **Added**\n* `client.refunds.create()`: \n  *  `request.refund-request.metadata.[number]` **Added**\n  *  `response.metadata.[number]` **Added**\n* `client.subscriptions.create()`: \n  *  `request.subscription-request.metadata.[number]` **Added**\n  *  `response.metadata.[number]` **Added**\n* `client.subscriptions.list()`:  `response._embedded.subscriptions.[].metadata.[number]` **Added**\n* `client.subscriptions.get()`:  `response.metadata.[number]` **Added**\n* `client.subscriptions.update()`: \n  *  `request_body.metadata.[number]` **Added**\n  *  `response.metadata.[number]` **Added**\n* `client.subscriptions.cancel()`:  `response.metadata.[number]` **Added**\n* `client.subscriptions.all()`:  `response._embedded.subscriptions.[].metadata.[number]` **Added**\n* `client.settlements.list-refunds()`:  `response._embedded.refunds.[].metadata.[number]` **Added**\n"
 persistentEdits:
   generation_id: b447ae8a-9f05-460c-a7cd-f421087b632c
   pristine_commit_hash: 353ee42295bde549cfa3a77070e603993577e347
@@ -7039,7 +7040,7 @@ trackedFiles:
   docs/models/listpaymentresponseline.md:
     last_write_checksum: sha1:08669d72b71c6705ec4f7bdd7be6113d845aa6ba
   docs/models/listpaymentresponselinks.md:
-    last_write_checksum: sha1:f1d5162fedaea0e13486f22d76a823403900bad4
+    last_write_checksum: sha1:e2dc91e1a7ce7765cd6cd891c451b503055eff8c
   docs/models/listpaymentresponseqrcode.md:
     last_write_checksum: sha1:64ebf53f381995e3da9be870be14c66f93344a20
   docs/models/listpaymentresponsereceipt.md:
@@ -7374,7 +7375,7 @@ trackedFiles:
     pristine_git_object: 4c030fd3d68f12b96651709aab0c0b82c4cc7f33
   docs/models/metadata.md:
     id: ad63dba5a4f8
-    last_write_checksum: sha1:853d9884e7040991e5fd896aadabd53a9a1d8680
+    last_write_checksum: sha1:40dfa45e9f11bbb43f9448814fe66ca4e852ee91
     pristine_git_object: 3fe60a891d55187e2feeab712d3e91c78d47a6de
   docs/models/method.md:
     id: 51255838a997
@@ -7608,7 +7609,7 @@ trackedFiles:
     pristine_git_object: 58933cc18ce1f5267d9c36f13ebc54cc85863635
   docs/models/paymentresponselinks.md:
     id: 21874636ebd8
-    last_write_checksum: sha1:e82c6743ca0fc43a28c04c391d6ebeb788a480f1
+    last_write_checksum: sha1:d4e32db911601006e26ec3c11b783c6aa04ce6c3
     pristine_git_object: 24ef7a4be45d710ba1f97042f6c1b693a1875d0a
   docs/models/paymentresponseqrcode.md:
     last_write_checksum: sha1:c2e9ddb3e972b4009f1311478453c83e30726e72
@@ -8233,7 +8234,7 @@ trackedFiles:
     last_write_checksum: sha1:405a401fef1f2af6000d945591041683832b3132
     pristine_git_object: e8cd3e85682cd3d489cf3c5be75a0563d0c9f4bf
   pyproject.toml:
-    last_write_checksum: sha1:e18e694ecc70642181932b388d2847a73dad0318
+    last_write_checksum: sha1:ea5bab2a77ed73c9a64ae3f4cb9435e3e4a98ce3
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:915287b416bc35562eab2e6040d474c4a8cb9637
@@ -8260,7 +8261,7 @@ trackedFiles:
     pristine_git_object: 54946924a17396c0c6f33d47591a254bc5a8003c
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:782d58520a04a52a9c8881018325a9675562d8d8
+    last_write_checksum: sha1:828b7fa12c0289b57f9c66bf19f8c2ced3b27461
     pristine_git_object: ad80f23cffa436174a05b75b8bb9ed47c10df7ca
   src/mollie/balance_transfers.py:
     id: fd621abe5fb7
@@ -8877,7 +8878,7 @@ trackedFiles:
     last_write_checksum: sha1:17479078620ad94a7c081d2c1b5d1607f9e1cf07
     pristine_git_object: e5941e27a98580fda0830e9196885ca514548326
   src/mollie/models/list_payment_response.py:
-    last_write_checksum: sha1:997264edc4db485ef2fec9cf34895ecc86141bd0
+    last_write_checksum: sha1:6951eb8d0d226c16a7ad9a6f5ea3ecb3509fcf0e
   src/mollie/models/list_paymentsop.py:
     id: dcc69a79a9ed
     last_write_checksum: sha1:6f2ed77a3d693af3dc713102d7ce9ef9ff3a0d38
@@ -8972,7 +8973,7 @@ trackedFiles:
     pristine_git_object: 1814bddacbe741611e97802fbe1116e50bd43396
   src/mollie/models/metadata.py:
     id: 9d0a51166118
-    last_write_checksum: sha1:92de6312d4c1b18d2375e0d8cc0bdcbeef2f7f0e
+    last_write_checksum: sha1:aafce91d0e3f8eec1ddd5b840918030157d5afd3
     pristine_git_object: 48ef6fea4ec44dec8d39413ad6e8e83f2bb73c85
   src/mollie/models/method_enum.py:
     last_write_checksum: sha1:240a14ca20b25d1f46cce742c217b952ba257af0
@@ -9110,7 +9111,7 @@ trackedFiles:
     pristine_git_object: e2cca5413f9817fccc7820df93a92826c9cac4e4
   src/mollie/models/payment_response.py:
     id: b84539114322
-    last_write_checksum: sha1:df7d507eb3df1586194bb87a872f713d27ff3d47
+    last_write_checksum: sha1:a410e9b211dc97e12e00f68d8869ce4bd932b9dd
     pristine_git_object: b991a57d2a790c9d0a771b2b6f11c69cde9eb652
   src/mollie/models/profile_request.py:
     id: 17e80f45d2db
@@ -9422,7 +9423,7 @@ trackedFiles:
     pristine_git_object: 984d5ba5594f7b3cdb726c2fc9f317a3ed5af507
   src/mollie/sdk.py:
     id: 1ca5a15b9874
-    last_write_checksum: sha1:5e12648e785035d81ee64cf94213cf33bdc47d24
+    last_write_checksum: sha1:01efa89053c08a7e9966426168e296d60479dc2a
     pristine_git_object: a3764a727001a3101e6217b53c0d6ac9df9cdf14
   src/mollie/sdkconfiguration.py:
     id: a34a915b8def

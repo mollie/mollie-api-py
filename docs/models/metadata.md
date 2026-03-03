@@ -12,6 +12,12 @@ you fetch the entity with our API, we will also include the metadata. You can us
 value: str = /* values here */
 ```
 
+### `float`
+
+```python
+value: float = /* values here */
+```
+
 ### `Dict[str, Any]`
 
 ```python

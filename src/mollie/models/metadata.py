@@ -6,14 +6,14 @@ from typing_extensions import TypeAliasType
 
 
 MetadataTypedDict = TypeAliasType(
-    "MetadataTypedDict", Union[str, Dict[str, Any], List[str]]
+    "MetadataTypedDict", Union[str, float, Dict[str, Any], List[str]]
 )
 r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
 you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
 """
 
 
-Metadata = TypeAliasType("Metadata", Union[str, Dict[str, Any], List[str]])
+Metadata = TypeAliasType("Metadata", Union[str, float, Dict[str, Any], List[str]])
 r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
 you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
 """

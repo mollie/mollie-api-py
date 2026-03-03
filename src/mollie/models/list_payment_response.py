@@ -35,6 +35,7 @@ from .recurring_line_item import RecurringLineItem, RecurringLineItemTypedDict
 from .sequence_type_response import SequenceTypeResponse
 from .status_reason import StatusReason, StatusReasonTypedDict
 from .url import URL, URLTypedDict
+from .url_nullable import URLNullable, URLNullableTypedDict
 from datetime import date
 from enum import Enum
 from mollie import utils
@@ -1179,7 +1180,7 @@ class ListPaymentResponseLinksTypedDict(TypedDict):
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
     mobile_app_checkout: NotRequired[URLTypedDict]
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    change_payment_state: NotRequired[URLTypedDict]
+    change_payment_state: NotRequired[Nullable[URLNullableTypedDict]]
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
     refunds: NotRequired[URLTypedDict]
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
@@ -1223,8 +1224,8 @@ class ListPaymentResponseLinks(BaseModel):
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
     change_payment_state: Annotated[
-        Optional[URL], pydantic.Field(alias="changePaymentState")
-    ] = None
+        OptionalNullable[URLNullable], pydantic.Field(alias="changePaymentState")
+    ] = UNSET
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
     refunds: Optional[URL] = None
@@ -1259,6 +1260,51 @@ class ListPaymentResponseLinks(BaseModel):
 
     pay_online: Annotated[Optional[URL], pydantic.Field(alias="payOnline")] = None
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = [
+            "checkout",
+            "mobileAppCheckout",
+            "changePaymentState",
+            "refunds",
+            "chargebacks",
+            "captures",
+            "settlement",
+            "customer",
+            "mandate",
+            "subscription",
+            "order",
+            "terminal",
+            "status",
+            "payOnline",
+        ]
+        nullable_fields = ["changePaymentState"]
+        null_default_fields = []
+
+        serialized = handler(self)
+
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+            serialized.pop(k, None)
+
+            optional_nullable = k in optional_fields and k in nullable_fields
+            is_set = (
+                self.__pydantic_fields_set__.intersection({n})
+                or k in null_default_fields
+            )  # pylint: disable=no-member
+
+            if val is not None and val != UNSET_SENTINEL:
+                m[k] = val
+            elif val != UNSET_SENTINEL and (
+                not k in optional_fields or (optional_nullable and is_set)
+            ):
+                m[k] = val
+
+        return m
 
 
 class ListPaymentResponseTypedDict(TypedDict):
