@@ -105,6 +105,14 @@ class SalesInvoiceRequestTypedDict(TypedDict):
     `customerId` becomes required as well. Only allowed for invoices with status `paid`.
     """
     discount: NotRequired[Nullable[SalesInvoiceDiscountTypedDict]]
+    is_e_invoice: NotRequired[bool]
+    r"""This indicates whether the invoice is an e-invoice. The default value is `false` and can't be changed
+    after the invoice has been issued. When `emailDetails` is provided, an additional email is sent to the
+    recipient.
+
+    E-invoicing is only available for merchants based in Belgium, Germany, and the Netherlands, and only when
+    the recipient is also located in one of these countries.
+    """
 
 
 class SalesInvoiceRequest(BaseModel):
@@ -202,6 +210,15 @@ class SalesInvoiceRequest(BaseModel):
 
     discount: OptionalNullable[SalesInvoiceDiscount] = UNSET
 
+    is_e_invoice: Annotated[Optional[bool], pydantic.Field(alias="isEInvoice")] = None
+    r"""This indicates whether the invoice is an e-invoice. The default value is `false` and can't be changed
+    after the invoice has been issued. When `emailDetails` is provided, an additional email is sent to the
+    recipient.
+
+    E-invoicing is only available for merchants based in Belgium, Germany, and the Netherlands, and only when
+    the recipient is also located in one of these countries.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -217,6 +234,7 @@ class SalesInvoiceRequest(BaseModel):
             "customerId",
             "mandateId",
             "discount",
+            "isEInvoice",
         ]
         nullable_fields = [
             "testmode",

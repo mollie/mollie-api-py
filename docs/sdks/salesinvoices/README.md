@@ -76,6 +76,7 @@ with ClientSDK(
             "type": mollie.SalesInvoiceDiscountType.AMOUNT,
             "value": "10.00",
         },
+        "is_e_invoice": False,
     })
 
     # Handle response
@@ -285,6 +286,7 @@ with ClientSDK(
             "type": mollie.SalesInvoiceDiscountType.AMOUNT,
             "value": "10.00",
         },
+        "is_e_invoice": False,
     })
 
     # Handle response

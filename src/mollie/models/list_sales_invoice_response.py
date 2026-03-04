@@ -249,6 +249,14 @@ class ListSalesInvoiceResponseTypedDict(TypedDict):
     All lines must have the same currency as the invoice.
     """
     discount: NotRequired[Nullable[SalesInvoiceDiscountResponseTypedDict]]
+    is_e_invoice: NotRequired[bool]
+    r"""This indicates whether the invoice is an e-invoice. The default value is `false` and can't be changed
+    after the invoice has been issued. When `emailDetails` is provided, an additional email is sent to the
+    recipient.
+
+    E-invoicing is only available for merchants based in Belgium, Germany, and the Netherlands, and only when
+    the recipient is also located in one of these countries.
+    """
     amount_due: NotRequired[ListSalesInvoiceResponseAmountDueTypedDict]
     r"""The amount that is left to be paid."""
     subtotal_amount: NotRequired[ListSalesInvoiceResponseSubtotalAmountTypedDict]
@@ -399,6 +407,15 @@ class ListSalesInvoiceResponse(BaseModel):
 
     discount: OptionalNullable[SalesInvoiceDiscountResponse] = UNSET
 
+    is_e_invoice: Annotated[Optional[bool], pydantic.Field(alias="isEInvoice")] = None
+    r"""This indicates whether the invoice is an e-invoice. The default value is `false` and can't be changed
+    after the invoice has been issued. When `emailDetails` is provided, an additional email is sent to the
+    recipient.
+
+    E-invoicing is only available for merchants based in Belgium, Germany, and the Netherlands, and only when
+    the recipient is also located in one of these countries.
+    """
+
     amount_due: Annotated[
         Optional[ListSalesInvoiceResponseAmountDue], pydantic.Field(alias="amountDue")
     ] = None
@@ -472,6 +489,7 @@ class ListSalesInvoiceResponse(BaseModel):
             "recipient",
             "lines",
             "discount",
+            "isEInvoice",
             "amountDue",
             "subtotalAmount",
             "totalAmount",
