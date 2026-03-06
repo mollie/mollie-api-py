@@ -36,6 +36,7 @@ if TYPE_CHECKING:
     from mollie.profiles import Profiles
     from mollie.refunds_sdk import RefundsSDK
     from mollie.sales_invoices import SalesInvoices
+    from mollie.sessions import Sessions
     from mollie.settlements import Settlements
     from mollie.subscriptions import Subscriptions
     from mollie.terminals import Terminals
@@ -59,6 +60,7 @@ class ClientSDK(BaseSDK):
     webhook_events: "WebhookEvents"
     balance_transfers: "BalanceTransfers"
     payments: "PaymentsSDK"
+    sessions: "Sessions"
     methods: "Methods"
     refunds: "RefundsSDK"
     chargebacks: "ChargebacksSDK"
@@ -86,6 +88,7 @@ class ClientSDK(BaseSDK):
         "webhook_events": ("mollie.webhook_events", "WebhookEvents"),
         "balance_transfers": ("mollie.balance_transfers", "BalanceTransfers"),
         "payments": ("mollie.payments_sdk", "PaymentsSDK"),
+        "sessions": ("mollie.sessions", "Sessions"),
         "methods": ("mollie.methods", "Methods"),
         "refunds": ("mollie.refunds_sdk", "RefundsSDK"),
         "chargebacks": ("mollie.chargebacks_sdk", "ChargebacksSDK"),

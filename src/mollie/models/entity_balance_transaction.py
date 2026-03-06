@@ -76,12 +76,12 @@ class DeductionDetails(BaseModel):
         return m
 
 
-class PaymentTypedDict(TypedDict):
+class EntityBalanceTransactionPaymentTypedDict(TypedDict):
     payment_id: NotRequired[str]
     payment_description: NotRequired[str]
 
 
-class Payment(BaseModel):
+class EntityBalanceTransactionPayment(BaseModel):
     payment_id: Annotated[Optional[str], pydantic.Field(alias="paymentId")] = None
 
     payment_description: Annotated[
@@ -639,7 +639,7 @@ class ContextTypedDict(TypedDict):
     * Type `cash-collateral-release`: none
     """
 
-    payment: NotRequired[Nullable[PaymentTypedDict]]
+    payment: NotRequired[Nullable[EntityBalanceTransactionPaymentTypedDict]]
     capture: NotRequired[Nullable[CaptureTypedDict]]
     capture_commision: NotRequired[Nullable[CaptureCommisionTypedDict]]
     capture_rolling_reserve_release: NotRequired[
@@ -735,7 +735,7 @@ class Context(BaseModel):
     * Type `cash-collateral-release`: none
     """
 
-    payment: OptionalNullable[Payment] = UNSET
+    payment: OptionalNullable[EntityBalanceTransactionPayment] = UNSET
 
     capture: OptionalNullable[Capture] = UNSET
 

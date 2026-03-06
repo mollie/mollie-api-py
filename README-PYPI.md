@@ -429,6 +429,11 @@ client = ClientSDK(
 * [update](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#update) - Update sales invoice
 * [delete](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#delete) - Delete sales invoice
 
+### [sessions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md)
+
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#create) - Create session [BETA]
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#get) - Get session
+
 ### [settlements](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md#list) - List settlements

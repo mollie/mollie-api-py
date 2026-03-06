@@ -537,7 +537,7 @@ class Methods(BaseSDK):
     def get(
         self,
         *,
-        method_id: Nullable[models.MethodID],
+        method_id: Nullable[models.MethodEnum],
         locale: OptionalNullable[models.Locale] = UNSET,
         currency: Optional[str] = None,
         profile_id: Optional[str] = None,
@@ -664,7 +664,7 @@ class Methods(BaseSDK):
     async def get_async(
         self,
         *,
-        method_id: Nullable[models.MethodID],
+        method_id: Nullable[models.MethodEnum],
         locale: OptionalNullable[models.Locale] = UNSET,
         currency: Optional[str] = None,
         profile_id: Optional[str] = None,

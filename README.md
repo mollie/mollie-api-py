@@ -429,6 +429,11 @@ client = ClientSDK(
 * [update](docs/sdks/salesinvoices/README.md#update) - Update sales invoice
 * [delete](docs/sdks/salesinvoices/README.md#delete) - Delete sales invoice
 
+### [sessions](docs/sdks/sessions/README.md)
+
+* [create](docs/sdks/sessions/README.md#create) - Create session [BETA]
+* [get](docs/sdks/sessions/README.md#get) - Get session
+
 ### [settlements](docs/sdks/settlements/README.md)
 
 * [list](docs/sdks/settlements/README.md#list) - List settlements

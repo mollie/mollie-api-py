@@ -105,6 +105,7 @@ if TYPE_CHECKING:
         CreateSalesInvoiceRequest,
         CreateSalesInvoiceRequestTypedDict,
     )
+    from .create_sessionop import CreateSessionRequest, CreateSessionRequestTypedDict
     from .create_subscriptionop import (
         CreateSubscriptionRequest,
         CreateSubscriptionRequestTypedDict,
@@ -228,6 +229,8 @@ if TYPE_CHECKING:
         EntityBalanceTransaction,
         EntityBalanceTransactionApplicationFee,
         EntityBalanceTransactionApplicationFeeTypedDict,
+        EntityBalanceTransactionPayment,
+        EntityBalanceTransactionPaymentTypedDict,
         EntityBalanceTransactionTypedDict,
         FailedPayment,
         FailedPaymentFee,
@@ -239,12 +242,10 @@ if TYPE_CHECKING:
         ManagedFeeTypedDict,
         OutgoingTransfer,
         OutgoingTransferTypedDict,
-        Payment,
         PaymentCommission,
         PaymentCommissionTypedDict,
         PaymentFee,
         PaymentFeeTypedDict,
-        PaymentTypedDict,
         PlatformPaymentChargeback,
         PlatformPaymentChargebackTypedDict,
         PlatformPaymentRefund,
@@ -605,6 +606,7 @@ if TYPE_CHECKING:
         GetSalesInvoiceRequest,
         GetSalesInvoiceRequestTypedDict,
     )
+    from .get_sessionop import GetSessionRequest, GetSessionRequestTypedDict
     from .get_settlementop import GetSettlementRequest, GetSettlementRequestTypedDict
     from .get_subscriptionop import (
         GetSubscriptionGlobals,
@@ -1244,7 +1246,6 @@ if TYPE_CHECKING:
     )
     from .metadata import Metadata, MetadataTypedDict
     from .method_enum import MethodEnum
-    from .method_id import MethodID
     from .method_include_wallets_parameter import MethodIncludeWalletsParameter
     from .method_resource_parameter import MethodResourceParameter
     from .method_response import MethodResponse
@@ -1512,6 +1513,28 @@ if TYPE_CHECKING:
     from .security import Security, SecurityTypedDict
     from .sequence_type import SequenceType
     from .sequence_type_response import SequenceTypeResponse
+    from .session_line_item import SessionLineItem, SessionLineItemTypedDict
+    from .session_line_item_response import (
+        SessionLineItemResponse,
+        SessionLineItemResponseTypedDict,
+    )
+    from .session_request import (
+        SessionRequest,
+        SessionRequestPayment,
+        SessionRequestPaymentTypedDict,
+        SessionRequestTypedDict,
+    )
+    from .session_response import (
+        SessionResponse,
+        SessionResponseLinks,
+        SessionResponseLinksTypedDict,
+        SessionResponsePayment,
+        SessionResponsePaymentTypedDict,
+        SessionResponseStatus,
+        SessionResponseTypedDict,
+    )
+    from .session_sequence_type import SessionSequenceType
+    from .session_sequence_type_response import SessionSequenceTypeResponse
     from .sorting import Sorting
     from .status_reason import Code, StatusReason, StatusReasonTypedDict
     from .sub_group import SubGroup, SubGroupTypedDict
@@ -1716,6 +1739,8 @@ __all__ = [
     "CreateRefundRequestTypedDict",
     "CreateSalesInvoiceRequest",
     "CreateSalesInvoiceRequestTypedDict",
+    "CreateSessionRequest",
+    "CreateSessionRequestTypedDict",
     "CreateSubscriptionRequest",
     "CreateSubscriptionRequestTypedDict",
     "CreateWebhook",
@@ -1774,6 +1799,8 @@ __all__ = [
     "EntityBalanceTransaction",
     "EntityBalanceTransactionApplicationFee",
     "EntityBalanceTransactionApplicationFeeTypedDict",
+    "EntityBalanceTransactionPayment",
+    "EntityBalanceTransactionPaymentTypedDict",
     "EntityBalanceTransactionTypedDict",
     "EntityBalanceTransfer",
     "EntityBalanceTransferDestination",
@@ -2024,6 +2051,8 @@ __all__ = [
     "GetSalesInvoiceGlobalsTypedDict",
     "GetSalesInvoiceRequest",
     "GetSalesInvoiceRequestTypedDict",
+    "GetSessionRequest",
+    "GetSessionRequestTypedDict",
     "GetSettlementRequest",
     "GetSettlementRequestTypedDict",
     "GetSubscriptionGlobals",
@@ -2560,7 +2589,6 @@ __all__ = [
     "MetadataTypedDict",
     "Method",
     "MethodEnum",
-    "MethodID",
     "MethodIncludeWalletsParameter",
     "MethodResourceParameter",
     "MethodResponse",
@@ -2579,7 +2607,6 @@ __all__ = [
     "Owner",
     "OwnerTypedDict",
     "PartnerType",
-    "Payment",
     "PaymentAddress",
     "PaymentAddressTypedDict",
     "PaymentCommission",
@@ -2662,7 +2689,6 @@ __all__ = [
     "PaymentResponseSettlementAmountTypedDict",
     "PaymentResponseStatus",
     "PaymentResponseTypedDict",
-    "PaymentTypedDict",
     "Payments",
     "PaymentsTypedDict",
     "PendingBalance",
@@ -2810,6 +2836,23 @@ __all__ = [
     "SecurityTypedDict",
     "SequenceType",
     "SequenceTypeResponse",
+    "SessionLineItem",
+    "SessionLineItemResponse",
+    "SessionLineItemResponseTypedDict",
+    "SessionLineItemTypedDict",
+    "SessionRequest",
+    "SessionRequestPayment",
+    "SessionRequestPaymentTypedDict",
+    "SessionRequestTypedDict",
+    "SessionResponse",
+    "SessionResponseLinks",
+    "SessionResponseLinksTypedDict",
+    "SessionResponsePayment",
+    "SessionResponsePaymentTypedDict",
+    "SessionResponseStatus",
+    "SessionResponseTypedDict",
+    "SessionSequenceType",
+    "SessionSequenceTypeResponse",
     "Sorting",
     "SplitPayment",
     "SplitPaymentTypedDict",
@@ -2977,6 +3020,8 @@ _dynamic_imports: dict[str, str] = {
     "CreateRefundRequestTypedDict": ".create_refundop",
     "CreateSalesInvoiceRequest": ".create_sales_invoiceop",
     "CreateSalesInvoiceRequestTypedDict": ".create_sales_invoiceop",
+    "CreateSessionRequest": ".create_sessionop",
+    "CreateSessionRequestTypedDict": ".create_sessionop",
     "CreateSubscriptionRequest": ".create_subscriptionop",
     "CreateSubscriptionRequestTypedDict": ".create_subscriptionop",
     "CreateWebhook": ".create_webhook",
@@ -3078,6 +3123,8 @@ _dynamic_imports: dict[str, str] = {
     "EntityBalanceTransaction": ".entity_balance_transaction",
     "EntityBalanceTransactionApplicationFee": ".entity_balance_transaction",
     "EntityBalanceTransactionApplicationFeeTypedDict": ".entity_balance_transaction",
+    "EntityBalanceTransactionPayment": ".entity_balance_transaction",
+    "EntityBalanceTransactionPaymentTypedDict": ".entity_balance_transaction",
     "EntityBalanceTransactionTypedDict": ".entity_balance_transaction",
     "FailedPayment": ".entity_balance_transaction",
     "FailedPaymentFee": ".entity_balance_transaction",
@@ -3089,12 +3136,10 @@ _dynamic_imports: dict[str, str] = {
     "ManagedFeeTypedDict": ".entity_balance_transaction",
     "OutgoingTransfer": ".entity_balance_transaction",
     "OutgoingTransferTypedDict": ".entity_balance_transaction",
-    "Payment": ".entity_balance_transaction",
     "PaymentCommission": ".entity_balance_transaction",
     "PaymentCommissionTypedDict": ".entity_balance_transaction",
     "PaymentFee": ".entity_balance_transaction",
     "PaymentFeeTypedDict": ".entity_balance_transaction",
-    "PaymentTypedDict": ".entity_balance_transaction",
     "PlatformPaymentChargeback": ".entity_balance_transaction",
     "PlatformPaymentChargebackTypedDict": ".entity_balance_transaction",
     "PlatformPaymentRefund": ".entity_balance_transaction",
@@ -3370,6 +3415,8 @@ _dynamic_imports: dict[str, str] = {
     "GetSalesInvoiceGlobalsTypedDict": ".get_sales_invoiceop",
     "GetSalesInvoiceRequest": ".get_sales_invoiceop",
     "GetSalesInvoiceRequestTypedDict": ".get_sales_invoiceop",
+    "GetSessionRequest": ".get_sessionop",
+    "GetSessionRequestTypedDict": ".get_sessionop",
     "GetSettlementRequest": ".get_settlementop",
     "GetSettlementRequestTypedDict": ".get_settlementop",
     "GetSubscriptionGlobals": ".get_subscriptionop",
@@ -3905,7 +3952,6 @@ _dynamic_imports: dict[str, str] = {
     "Metadata": ".metadata",
     "MetadataTypedDict": ".metadata",
     "MethodEnum": ".method_enum",
-    "MethodID": ".method_id",
     "MethodIncludeWalletsParameter": ".method_include_wallets_parameter",
     "MethodResourceParameter": ".method_resource_parameter",
     "MethodResponse": ".method_response",
@@ -4108,6 +4154,23 @@ _dynamic_imports: dict[str, str] = {
     "SecurityTypedDict": ".security",
     "SequenceType": ".sequence_type",
     "SequenceTypeResponse": ".sequence_type_response",
+    "SessionLineItem": ".session_line_item",
+    "SessionLineItemTypedDict": ".session_line_item",
+    "SessionLineItemResponse": ".session_line_item_response",
+    "SessionLineItemResponseTypedDict": ".session_line_item_response",
+    "SessionRequest": ".session_request",
+    "SessionRequestPayment": ".session_request",
+    "SessionRequestPaymentTypedDict": ".session_request",
+    "SessionRequestTypedDict": ".session_request",
+    "SessionResponse": ".session_response",
+    "SessionResponseLinks": ".session_response",
+    "SessionResponseLinksTypedDict": ".session_response",
+    "SessionResponsePayment": ".session_response",
+    "SessionResponsePaymentTypedDict": ".session_response",
+    "SessionResponseStatus": ".session_response",
+    "SessionResponseTypedDict": ".session_response",
+    "SessionSequenceType": ".session_sequence_type",
+    "SessionSequenceTypeResponse": ".session_sequence_type_response",
     "Sorting": ".sorting",
     "Code": ".status_reason",
     "StatusReason": ".status_reason",
