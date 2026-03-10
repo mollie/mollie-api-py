@@ -431,7 +431,7 @@ client = ClientSDK(
 
 ### [sessions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md)
 
-* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#create) - Create session [BETA]
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#create) - Create session
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#get) - Get session
 
 ### [settlements](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md)

@@ -5,7 +5,7 @@
 
 ### Available Operations
 
-* [create](#create) - Create session [BETA]
+* [create](#create) - Create session
 * [get](#get) - Get session
 
 ## create
@@ -37,6 +37,7 @@ with ClientSDK(
             value="10.00",
         ),
         description="Order #12345",
+        lines=[],
         redirect_url="https://example.org/redirect",
         billing_address=mollie.PaymentAddress(
             title="Mr.",
@@ -71,7 +72,6 @@ with ClientSDK(
         payment=mollie.SessionRequestPayment(
             webhook_url="https://example.org/webhook",
         ),
-        lines=[],
         profile_id="pfl_5B8cwPMGnU",
         testmode=False,
     ))

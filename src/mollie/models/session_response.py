@@ -77,17 +77,17 @@ class SessionResponseTypedDict(TypedDict):
 
     Any payment created for the session will use the same description.
     """
-    redirect_url: str
-    r"""The URL your customer will be redirected to after the payment process.
-
-    It could make sense for the redirectUrl to contain a unique identifier – like your order ID – so you can show the
-    right page referencing the order when your customer returns.
-    """
     lines: List[SessionLineItemResponseTypedDict]
     r"""List of items the customer will pay for in this session. The sum of all line items must equal the
     session's amount.
 
     All lines must have the same currency as the session.
+    """
+    redirect_url: str
+    r"""The URL your customer will be redirected to after the payment process.
+
+    It could make sense for the redirectUrl to contain a unique identifier – like your order ID – so you can show the
+    right page referencing the order when your customer returns.
     """
     profile_id: str
     r"""The identifier referring to the [profile](get-profile) this entity belongs to.
@@ -139,18 +139,18 @@ class SessionResponse(BaseModel):
     Any payment created for the session will use the same description.
     """
 
-    redirect_url: Annotated[str, pydantic.Field(alias="redirectUrl")]
-    r"""The URL your customer will be redirected to after the payment process.
-
-    It could make sense for the redirectUrl to contain a unique identifier – like your order ID – so you can show the
-    right page referencing the order when your customer returns.
-    """
-
     lines: List[SessionLineItemResponse]
     r"""List of items the customer will pay for in this session. The sum of all line items must equal the
     session's amount.
 
     All lines must have the same currency as the session.
+    """
+
+    redirect_url: Annotated[str, pydantic.Field(alias="redirectUrl")]
+    r"""The URL your customer will be redirected to after the payment process.
+
+    It could make sense for the redirectUrl to contain a unique identifier – like your order ID – so you can show the
+    right page referencing the order when your customer returns.
     """
 
     profile_id: Annotated[str, pydantic.Field(alias="profileId")]

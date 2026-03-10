@@ -22,7 +22,7 @@ class Sessions(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.SessionResponse:
-        r"""Create session [BETA]
+        r"""Create session
 
         > 🚧 Beta feature
         >
@@ -131,7 +131,7 @@ class Sessions(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.SessionResponse:
-        r"""Create session [BETA]
+        r"""Create session
 
         > 🚧 Beta feature
         >

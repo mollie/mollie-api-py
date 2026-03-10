@@ -26,7 +26,8 @@ class EntityCapabilityRequirementTypedDict(TypedDict):
     id: str
     r"""The name of this requirement, referring to the task to be fulfilled by the organization
     to enable or re-enable the capability. The name is unique among other requirements
-    of the same capability.
+    of the same capability. Requirements related to the onboarding process start with 'onboarding-', while
+    requirements related to information requests start with 'information-request-'.
     """
     status: CapabilityRequirementStatus
     r"""The status of the requirement depends on its due date.
@@ -41,7 +42,8 @@ class EntityCapabilityRequirement(BaseModel):
     id: str
     r"""The name of this requirement, referring to the task to be fulfilled by the organization
     to enable or re-enable the capability. The name is unique among other requirements
-    of the same capability.
+    of the same capability. Requirements related to the onboarding process start with 'onboarding-', while
+    requirements related to information requests start with 'information-request-'.
     """
 
     status: Annotated[

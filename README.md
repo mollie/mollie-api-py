@@ -431,7 +431,7 @@ client = ClientSDK(
 
 ### [sessions](docs/sdks/sessions/README.md)
 
-* [create](docs/sdks/sessions/README.md#create) - Create session [BETA]
+* [create](docs/sdks/sessions/README.md#create) - Create session
 * [get](docs/sdks/sessions/README.md#get) - Get session
 
 ### [settlements](docs/sdks/settlements/README.md)
