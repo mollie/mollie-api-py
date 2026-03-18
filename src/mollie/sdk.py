@@ -206,25 +206,6 @@ class ClientSDK(BaseSDK):
             self.sdk_configuration.async_client,
             self.sdk_configuration.async_client_supplied,
         )
-        
-        if not self._can_have_global_fields() and self._has_global_fields():
-            raise AttributeError(
-                f"Global fields like testmode and profileId can only be set when using an Access or oAuth Key."
-            )
-            
-    def _can_have_global_fields(self) -> bool:
-        security = self.sdk_configuration.security
-        if not security:
-            return False
-
-        security_obj = security() if callable(security) else security
-
-        token = security_obj.api_key or security_obj.o_auth
-        return token and token.startswith("access_")
-    
-    def _has_global_fields(self) -> bool:
-        globals = self.sdk_configuration.globals
-        return globals.profile_id is not None or globals.testmode is not None
 
     def dynamic_import(self, modname, retries=3):
         for attempt in range(retries):

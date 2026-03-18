@@ -10,11 +10,22 @@ class PaymentDetailsSellerProtectionResponse(str, Enum, metaclass=utils.OpenEnum
     payments, and if the information is made available by PayPal.
     """
 
-    ELIGIBLE = "Eligible"
+    ELIGIBLE_UPPER = "ELIGIBLE"
+    PARTIALLY_ELIGIBLE_UPPER = "PARTIALLY_ELIGIBLE"
+    NOT_ELIGIBLE = "NOT_ELIGIBLE"
+    # Deprecated value
+    ELIGIBLE_MIXED = "Eligible"
+    # Deprecated value
     INELIGIBLE = "Ineligible"
+    # Deprecated value
     PARTIALLY_ELIGIBLE_INR_ONLY = "Partially Eligible - INR Only"
+    # Deprecated value
     PARTIALLY_ELIGIBLE_UNAUTH_ONLY = "Partially Eligible - Unauth Only"
-    PARTIALLY_ELIGIBLE = "Partially Eligible"
+    # Deprecated value
+    PARTIALLY_ELIGIBLE_MIXED = "Partially Eligible"
+    # Deprecated value
     NONE = "None"
+    # Deprecated value
     ACTIVE = "Active"
+    # Deprecated value
     FRAUD_CONTROL_UNAUTH_PREMIUM_ELIGIBLE = "Fraud Control - Unauth Premium Eligible"
