@@ -28,7 +28,8 @@ generation:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
-  persistentEdits: {}
+  persistentEdits:
+    enabled: "true"
   requestBodyFieldName: ""
   versioningStrategy: automatic
 python:
