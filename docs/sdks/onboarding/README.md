@@ -78,6 +78,12 @@ with ClientSDK(
     client_sdk.onboarding.submit(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "organization": {
             "name": "Mollie B.V.",
+            "address": {
+                "street_and_number": "Keizersgracht 126",
+                "postal_code": "1015 CW",
+                "city": "Amsterdam",
+                "country": "NL",
+            },
             "registration_number": "30204462",
             "vat_number": "NL815839091B01",
             "vat_regulation": mollie.OnboardingVatRegulation.DUTCH,

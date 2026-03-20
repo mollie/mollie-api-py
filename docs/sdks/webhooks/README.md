@@ -76,13 +76,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.webhooks.list(from_="hook_B2EyhTH5N4KWUnoYPcgiH", limit=50, sort=mollie.Sorting.DESC, event_types=mollie.WebhookEventTypes.PAYMENT_LINK_PAID, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.webhooks.list(limit=50, sort=mollie.Sorting.DESC, event_types=mollie.WebhookEventTypes.PAYMENT_LINK_PAID, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items

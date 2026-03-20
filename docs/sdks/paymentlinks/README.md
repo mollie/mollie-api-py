@@ -108,9 +108,7 @@ with ClientSDK(
         profile_id="pfl_QkEhN94Ba",
         reusable=False,
         expires_at="2025-12-24T11:00:16+00:00",
-        allowed_methods=[
-            mollie.PaymentLinkMethod.IDEAL,
-        ],
+        allowed_methods=None,
         application_fee=mollie.CreatePaymentLinkApplicationFee(
             amount=mollie.Amount(
                 currency="EUR",
@@ -275,38 +273,7 @@ with ClientSDK(
         allowed_methods=[
             mollie.PaymentLinkMethod.IDEAL,
         ],
-        lines=[
-            mollie.PaymentLineItem(
-                type=mollie.PaymentLineType.PHYSICAL,
-                description="LEGO 4440 Forest Police Station",
-                quantity=1,
-                quantity_unit="pcs",
-                unit_price=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                discount_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                total_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                vat_rate="21.00",
-                vat_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                sku="9780241661628",
-                categories=[
-                    mollie.LineCategories.MEAL,
-                    mollie.LineCategories.ECO,
-                ],
-                image_url="https://...",
-                product_url="https://...",
-            ),
-        ],
+        lines=None,
         billing_address=mollie.PaymentAddress(
             title="Mr.",
             given_name="Piet",
@@ -428,7 +395,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),

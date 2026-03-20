@@ -114,7 +114,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -166,7 +166,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -328,14 +328,14 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
-    testmode=False,
+    profile_id="<id>",
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.subscriptions.all(from_="tr_5B8cwPMGnU", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.subscriptions.all(limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -382,7 +382,7 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
+    profile_id="<id>",
     testmode=False,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),

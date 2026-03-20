@@ -133,13 +133,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.customers.get(customer_id="cst_5B8cwPMGnU", include="events", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.customers.get(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -334,7 +334,7 @@ with ClientSDK(
                 product_url="https://...",
                 recurring=mollie.RecurringLineItem(
                     description="Gym subscription",
-                    interval="... months",
+                    interval="12 months",
                     amount=mollie.Amount(
                         currency="EUR",
                         value="10.00",
@@ -385,27 +385,6 @@ with ClientSDK(
             description="10",
         ),
         routing=[
-            mollie.EntityPaymentRoute(
-                amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                destination=mollie.EntityPaymentRouteDestination(
-                    type=mollie.RouteDestinationType.ORGANIZATION,
-                    organization_id="org_1234567",
-                ),
-                release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
-            ),
             mollie.EntityPaymentRoute(
                 amount=mollie.Amount(
                     currency="EUR",
@@ -488,7 +467,7 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
+    profile_id="<id>",
     testmode=False,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),

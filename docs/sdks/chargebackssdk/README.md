@@ -31,7 +31,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.chargebacks.list(payment_id="tr_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.chargebacks.list(payment_id="tr_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -77,13 +77,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.chargebacks.get(payment_id="tr_5B8cwPMGnU", chargeback_id="chb_xFzwUN4ci8HAmSGUACS4J", embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.chargebacks.get(payment_id="tr_5B8cwPMGnU", chargeback_id="chb_xFzwUN4ci8HAmSGUACS4J", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -128,14 +128,14 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
-    testmode=False,
+    profile_id="<id>",
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.chargebacks.all(from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, embed="payment", sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.chargebacks.all(from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items

@@ -92,7 +92,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.profiles.list(from_="pfl_QkEhN94Ba", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.profiles.list(limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -135,7 +135,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),

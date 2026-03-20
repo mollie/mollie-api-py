@@ -29,7 +29,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.clients.list(embed="organization", from_="org_12345678", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.clients.list(limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -78,7 +78,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.clients.get(organization_id="org_1234567", embed="organization", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.clients.get(organization_id="org_1234567", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)

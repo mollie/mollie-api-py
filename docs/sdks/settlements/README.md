@@ -35,7 +35,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.settlements.list(from_="stl_jDk30akdN", limit=50, balance_id="bal_gVMhHKqSSRYJyPsuoPNFH", year="2025", month="1", currencies=mollie.Currencies.EUR, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.settlements.list(limit=50, balance_id="bal_gVMhHKqSSRYJyPsuoPNFH", year="2025", month="1", currencies=mollie.Currencies.EUR, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -242,7 +242,7 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
+    profile_id="<id>",
     testmode=False,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
@@ -304,7 +304,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.settlements.list_captures(settlement_id="stl_5B8cwPMGnU", from_="cpt_vytxeTZskVKR7C7WgdSP3d", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.settlements.list_captures(settlement_id="stl_5B8cwPMGnU", from_="cpt_vytxeTZskVKR7C7WgdSP3d", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -358,7 +358,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.settlements.list_refunds(settlement_id="stl_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.settlements.list_refunds(settlement_id="stl_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -412,7 +412,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.settlements.list_chargebacks(settlement_id="stl_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.settlements.list_chargebacks(settlement_id="stl_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items

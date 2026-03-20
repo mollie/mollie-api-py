@@ -43,7 +43,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.payments.create(include="details.qrCode", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+    res = client_sdk.payments.create(idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
         description="Chess Board",
         amount=mollie.Amount(
             currency="EUR",
@@ -84,87 +84,7 @@ with ClientSDK(
                 product_url="https://...",
                 recurring=mollie.RecurringLineItem(
                     description="Gym subscription",
-                    interval="... days",
-                    amount=mollie.Amount(
-                        currency="EUR",
-                        value="10.00",
-                    ),
-                    times=1,
-                    start_date="2024-12-12",
-                ),
-            ),
-            mollie.PaymentRequestLine(
-                type=mollie.PaymentLineType.PHYSICAL,
-                description="LEGO 4440 Forest Police Station",
-                quantity=1,
-                quantity_unit="pcs",
-                unit_price=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                discount_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                total_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                vat_rate="21.00",
-                vat_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                sku="9780241661628",
-                categories=[
-                    mollie.LineCategories.MEAL,
-                    mollie.LineCategories.ECO,
-                ],
-                image_url="https://...",
-                product_url="https://...",
-                recurring=mollie.RecurringLineItem(
-                    description="Gym subscription",
-                    interval="... weeks",
-                    amount=mollie.Amount(
-                        currency="EUR",
-                        value="10.00",
-                    ),
-                    times=1,
-                    start_date="2024-12-12",
-                ),
-            ),
-            mollie.PaymentRequestLine(
-                type=mollie.PaymentLineType.PHYSICAL,
-                description="LEGO 4440 Forest Police Station",
-                quantity=1,
-                quantity_unit="pcs",
-                unit_price=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                discount_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                total_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                vat_rate="21.00",
-                vat_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                sku="9780241661628",
-                categories=[
-                    mollie.LineCategories.MEAL,
-                    mollie.LineCategories.ECO,
-                ],
-                image_url="https://...",
-                product_url="https://...",
-                recurring=mollie.RecurringLineItem(
-                    description="Gym subscription",
-                    interval="... days",
+                    interval="12 months",
                     amount=mollie.Amount(
                         currency="EUR",
                         value="10.00",
@@ -215,27 +135,6 @@ with ClientSDK(
             description="10",
         ),
         routing=[
-            mollie.EntityPaymentRoute(
-                amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                destination=mollie.EntityPaymentRouteDestination(
-                    type=mollie.RouteDestinationType.ORGANIZATION,
-                    organization_id="org_1234567",
-                ),
-                release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
-            ),
             mollie.EntityPaymentRoute(
                 amount=mollie.Amount(
                     currency="EUR",
@@ -320,8 +219,8 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
-    testmode=False,
+    profile_id="<id>",
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -373,13 +272,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.payments.get(payment_id="tr_5B8cwPMGnU", include="details.qrCode", embed="captures", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.payments.get(payment_id="tr_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)

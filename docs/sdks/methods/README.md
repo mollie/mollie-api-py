@@ -41,7 +41,7 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
+    profile_id="<id>",
     testmode=False,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
@@ -51,7 +51,7 @@ with ClientSDK(
     res = client_sdk.methods.list(sequence_type=mollie.SequenceType.ONEOFF, locale=mollie.Locale.EN_US, amount={
         "currency": "EUR",
         "value": "10.00",
-    }, resource=mollie.MethodResourceParameter.PAYMENTS, billing_country="DE", include_wallets=mollie.MethodIncludeWalletsParameter.APPLEPAY, order_line_categories=mollie.LineCategories.ECO, include="issuers", idempotency_key="123e4567-e89b-12d3-a456-426")
+    }, billing_country="DE", include_wallets=mollie.MethodIncludeWalletsParameter.APPLEPAY, order_line_categories=mollie.LineCategories.ECO, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -106,8 +106,8 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
-    testmode=False,
+    profile_id="<id>",
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -116,7 +116,7 @@ with ClientSDK(
     res = client_sdk.methods.all(locale=mollie.Locale.EN_US, amount={
         "currency": "EUR",
         "value": "10.00",
-    }, include="issuers", sequence_type=mollie.SequenceType.ONEOFF, idempotency_key="123e4567-e89b-12d3-a456-426")
+    }, sequence_type=mollie.SequenceType.ONEOFF, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -172,14 +172,14 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
+    profile_id="<id>",
     testmode=False,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.methods.get(method_id=mollie.MethodEnum.IDEAL, locale=mollie.Locale.EN_US, currency="EUR", include="issuers", sequence_type=mollie.SequenceType.ONEOFF, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.methods.get(method_id=mollie.MethodEnum.IDEAL, locale=mollie.Locale.EN_US, currency="EUR", sequence_type=mollie.SequenceType.ONEOFF, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)

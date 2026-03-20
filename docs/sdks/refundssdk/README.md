@@ -38,7 +38,8 @@ with ClientSDK(
             "value": "10.00",
         },
         "metadata": {
-
+            "0": "<value 1>",
+            "1": "<value 2>",
         },
         "external_reference": {
             "type": mollie.RefundExternalReferenceType.ACQUIRER_REFERENCE,
@@ -107,7 +108,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.refunds.list(payment_id="tr_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.refunds.list(payment_id="tr_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -159,7 +160,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.refunds.get(payment_id="tr_5B8cwPMGnU", refund_id="re_5B8cwPMGnU", embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.refunds.get(payment_id="tr_5B8cwPMGnU", refund_id="re_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -206,7 +207,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -251,14 +252,14 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
-    testmode=False,
+    profile_id="<id>",
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.refunds.all(from_="re_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.refunds.all(from_="re_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items

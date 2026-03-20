@@ -71,7 +71,21 @@ with ClientSDK(
             "country": "NL",
             "locale": mollie.SalesInvoiceRecipientLocale.NL_NL,
         },
-        "lines": [],
+        "lines": [
+            {
+                "description": "LEGO 4440 Forest Police Station",
+                "quantity": 1,
+                "vat_rate": "21.00",
+                "unit_price": {
+                    "currency": "EUR",
+                    "value": "10.00",
+                },
+                "discount": {
+                    "type": mollie.SalesInvoiceDiscountType.AMOUNT,
+                    "value": "10.00",
+                },
+            },
+        ],
         "discount": {
             "type": mollie.SalesInvoiceDiscountType.AMOUNT,
             "value": "10.00",
@@ -129,7 +143,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.sales_invoices.list(from_="invoice_4Y0eZitmBnQ6IDoMqZQKh", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.sales_invoices.list(limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items

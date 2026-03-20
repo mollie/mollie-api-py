@@ -133,13 +133,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -161,13 +161,13 @@ import os
 async def main():
 
     async with ClientSDK(
-        testmode=False,
+        testmode=True,
         security=mollie.Security(
             api_key=os.getenv("CLIENT_API_KEY", ""),
         ),
     ) as client_sdk:
 
-        res = await client_sdk.balances.list_async(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = await client_sdk.balances.list_async(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
         while res is not None:
             # Handle items
@@ -201,10 +201,10 @@ with ClientSDK(
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
-    testmode=False,
+    testmode=True,
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -508,7 +508,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     profile_id="<id>",
     custom_user_agent="<value>",
     security=mollie.Security(
@@ -516,7 +516,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -541,13 +541,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -571,13 +571,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426",
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     while res is not None:
@@ -597,13 +597,13 @@ import os
 
 with ClientSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -635,7 +635,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -643,7 +643,7 @@ with ClientSDK(
     res = None
     try:
 
-        res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
         while res is not None:
             # Handle items
@@ -705,13 +705,13 @@ import os
 
 with ClientSDK(
     server_url="https://api.mollie.com/v2",
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -816,7 +816,7 @@ import os
 def main():
 
     with ClientSDK(
-        testmode=False,
+        testmode=True,
         security=mollie.Security(
             api_key=os.getenv("CLIENT_API_KEY", ""),
         ),
