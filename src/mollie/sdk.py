@@ -204,7 +204,7 @@ class ClientSDK(BaseSDK):
 
         if not self._can_have_global_fields() and self._has_global_fields():
             raise AttributeError(
-                f"Global fields like testmode and profileId can only be set when using an Access or oAuth Key."
+                "Global fields like testmode and profileId can only be set when using an Access or oAuth Key."
             )
             
     def _can_have_global_fields(self) -> bool:
@@ -215,7 +215,7 @@ class ClientSDK(BaseSDK):
         security_obj = security() if callable(security) else security
 
         token = security_obj.api_key or security_obj.o_auth
-        return token and token.startswith("access_")
+        return bool(token and token.startswith("access_"))
     
     def _has_global_fields(self) -> bool:
         globals = self.sdk_configuration.globals
