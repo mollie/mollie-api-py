@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.759.1
   generationVersion: 2.869.10
-  releaseVersion: 1.2.2
-  configChecksum: 07605cfde298e744af3527b0ad67a51c
+  releaseVersion: 1.2.3
+  configChecksum: b70de390ada1ef1c49e6ffcfa1a43200
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 6ac98580-4ae3-4a57-b3d4-e9a5f966298b
-  pristine_commit_hash: 3587734057c30bf16b75d9a1c6760c15696f5b95
-  pristine_tree_hash: 4b38bf551e1df77d8af92705e7b92afcbdeef1e9
+  generation_id: 7ef5a28e-36c1-4f16-95c9-947d56a9e296
+  pristine_commit_hash: 6d80dc0319e6eee583ba5d12e11ad06d020ea39e
+  pristine_tree_hash: fc28576fffc1340c45c2bd5b52013a95f20b28c1
 features:
   python:
     additionalDependencies: 1.0.0
@@ -3039,8 +3039,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:8cfe08b1d5d26e8a8efdc75cb57d48d4b9f0d666
-    pristine_git_object: caf43727ce015cfcdf7e82ec4924bcd2aed76e02
+    last_write_checksum: sha1:fba278f2d49f90892cf7265fc00e85c7e42932e4
+    pristine_git_object: 3cc3dbf02d9337c2d9adfc480d1394d50c9afcc5
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3067,8 +3067,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:d96d43bc05e2981e320ffdaad7f0ff6f5b7acf50
-    pristine_git_object: 863e292131559fda353746b529d4f2b82119cc78
+    last_write_checksum: sha1:b93f9e9a9be5324006df17b9336684920b8314a4
+    pristine_git_object: fa631412a6ae780b6778979e0ff5eb0e0f7bb692
   src/mollie/balance_transfers.py:
     id: fd621abe5fb7
     last_write_checksum: sha1:11ead0440f445e5a0cd61866d88ed6514b1c0b5e
