@@ -2,6 +2,14 @@
 
 The locale for the recipient, to be used for translations in PDF generation and payment pages.
 
+## Example Usage
+
+```python
+from mollie.models import SalesInvoiceRecipientLocale
+
+value = SalesInvoiceRecipientLocale.EN_US
+```
+
 
 ## Values
 

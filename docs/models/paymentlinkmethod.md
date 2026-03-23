@@ -1,5 +1,13 @@
 # PaymentLinkMethod
 
+## Example Usage
+
+```python
+from mollie.models import PaymentLinkMethod
+
+value = PaymentLinkMethod.APPLEPAY
+```
+
 
 ## Values
 

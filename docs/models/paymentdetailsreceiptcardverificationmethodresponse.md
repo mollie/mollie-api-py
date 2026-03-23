@@ -2,6 +2,16 @@
 
 The method used to verify the cardholder's identity.
 
+## Example Usage
+
+```python
+from mollie.models import PaymentDetailsReceiptCardVerificationMethodResponse
+
+value = PaymentDetailsReceiptCardVerificationMethodResponse.NO_CVM_REQUIRED
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

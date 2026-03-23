@@ -3,6 +3,16 @@
 The unique identifier of the payment method. When used during [payment creation](create-payment), the payment
 method selection screen will be skipped.
 
+## Example Usage
+
+```python
+from mollie.models import EntityMethodGetID
+
+value = EntityMethodGetID.ALMA
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

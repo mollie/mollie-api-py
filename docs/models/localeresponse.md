@@ -2,6 +2,16 @@
 
 Allows you to preset the language to be used.
 
+## Example Usage
+
+```python
+from mollie.models import LocaleResponse
+
+value = LocaleResponse.EN_US
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

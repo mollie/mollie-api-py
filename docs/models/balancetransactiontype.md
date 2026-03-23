@@ -1,5 +1,15 @@
 # BalanceTransactionType
 
+## Example Usage
+
+```python
+from mollie.models import BalanceTransactionType
+
+value = BalanceTransactionType.PAYMENT
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

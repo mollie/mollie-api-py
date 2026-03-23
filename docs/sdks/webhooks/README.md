@@ -1,5 +1,4 @@
 # Webhooks
-(*webhooks*)
 
 ## Overview
 
@@ -18,7 +17,7 @@ A webhook must have a name, an url and a list of event types. You can also creat
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="create-webhook" method="post" path="/webhooks" -->
+<!-- UsageSnippet language="python" operationID="create-webhook" method="post" path="/webhooks" example="create-webhook-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -27,7 +26,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -68,7 +67,7 @@ Returns a paginated list of your webhooks. If no webhook endpoints are available
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-webhooks" method="get" path="/webhooks" -->
+<!-- UsageSnippet language="python" operationID="list-webhooks" method="get" path="/webhooks" example="list-webhook-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -76,13 +75,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.webhooks.list(from_="hook_B2EyhTH5N4KWUnoYPcgiH", limit=50, sort=mollie.Sorting.DESC, event_types=mollie.WebhookEventTypes.PAYMENT_LINK_PAID, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.webhooks.list(limit=50, sort=mollie.Sorting.DESC, event_types=mollie.WebhookEventTypes.PAYMENT_LINK_PAID, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -120,7 +119,7 @@ Updates the webhook. You may edit the name, url and the list of subscribed event
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/webhooks/{webhookId}" -->
+<!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/webhooks/{webhookId}" example="create-webhook-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -129,7 +128,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -169,9 +168,9 @@ with ClientSDK(
 
 Retrieve a single webhook object by its ID.
 
-### Example Usage
+### Example Usage: get-webhook-200
 
-<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/webhooks/{webhookId}" -->
+<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/webhooks/{webhookId}" example="get-webhook-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -181,7 +180,29 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.webhooks.get(webhook_id="hook_1234567890", idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: get-webhook-200-1
+
+<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/webhooks/{webhookId}" example="get-webhook-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    testmode=True,
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -227,7 +248,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -270,7 +291,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 

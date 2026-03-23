@@ -2,6 +2,16 @@
 
 The payment method's activation status for this profile.
 
+## Example Usage
+
+```python
+from mollie.models import MethodStatus
+
+value = MethodStatus.ACTIVATED
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

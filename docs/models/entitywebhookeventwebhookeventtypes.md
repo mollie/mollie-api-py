@@ -3,6 +3,16 @@
 The list of events to enable for this webhook. You may specify `'*'` to add all events, except those
 that require explicit selection.
 
+## Example Usage
+
+```python
+from mollie.models import EntityWebhookEventWebhookEventTypes
+
+value = EntityWebhookEventWebhookEventTypes.PAYMENT_LINK_PAID
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

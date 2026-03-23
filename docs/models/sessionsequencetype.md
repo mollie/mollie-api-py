@@ -1,5 +1,13 @@
 # SessionSequenceType
 
+## Example Usage
+
+```python
+from mollie.models import SessionSequenceType
+
+value = SessionSequenceType.ONEOFF
+```
+
 
 ## Values
 

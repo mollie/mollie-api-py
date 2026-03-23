@@ -16,24 +16,26 @@ generation:
     requestResponseComponentNamesFeb2024: true
     securityFeb2025: true
     sharedErrorComponentsApr2025: false
-    nameOverrideFeb2026: false
     sharedNestedComponentsJan2026: false
+    nameOverrideFeb2026: false
   auth:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
     hoistGlobalSecurity: true
+  inferSSEOverload: true
+  sdkHooksConfigAccess: true
   schemas:
     allOfMergeStrategy: shallowMerge
+  requestBodyFieldName: ""
+  versioningStrategy: automatic
+  persistentEdits:
+    enabled: "true"
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
-  persistentEdits:
-    enabled: "true"
-  requestBodyFieldName: ""
-  versioningStrategy: automatic
 python:
-  version: 1.2.0
+  version: 1.2.1
   additionalDependencies:
     dev: {}
     main: {}
@@ -52,6 +54,8 @@ python:
   enumFormat: enum
   envVarPrefix: CLIENT
   fixFlags:
+    asyncPaginationSep2025: true
+    conflictResistantModelImportsFeb2026: true
     responseRequiredSep2024: true
   flattenGlobalSecurity: true
   flattenRequests: false

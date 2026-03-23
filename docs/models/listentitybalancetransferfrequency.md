@@ -5,6 +5,16 @@ destination.
 
 Settlements created during weekends or on bank holidays will take place on the next business day.
 
+## Example Usage
+
+```python
+from mollie.models import ListEntityBalanceTransferFrequency
+
+value = ListEntityBalanceTransferFrequency.EVERY_DAY
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

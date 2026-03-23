@@ -91,7 +91,7 @@ It's also possible to write a standalone Python script without needing to set up
 ```python
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.9"
+# requires-python = ">=3.10"
 # dependencies = [
 #     "mollie-api-py",
 # ]
@@ -133,13 +133,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -161,13 +161,13 @@ import os
 async def main():
 
     async with ClientSDK(
-        testmode=False,
+        testmode=True,
         security=mollie.Security(
-            api_key=os.getenv("CLIENT_API_KEY", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
 
-        res = await client_sdk.balances.list_async(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = await client_sdk.balances.list_async(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
         while res is not None:
             # Handle items
@@ -201,10 +201,10 @@ with ClientSDK(
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
-    testmode=False,
+    testmode=True,
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -297,13 +297,13 @@ client = ClientSDK(
 <details open>
 <summary>Available methods</summary>
 
-### [balance_transfers](docs/sdks/balancetransfers/README.md)
+### [BalanceTransfers](docs/sdks/balancetransfers/README.md)
 
 * [create](docs/sdks/balancetransfers/README.md#create) - Create a Connect balance transfer
 * [list](docs/sdks/balancetransfers/README.md#list) - List all Connect balance transfers
 * [get](docs/sdks/balancetransfers/README.md#get) - Get a Connect balance transfer
 
-### [balances](docs/sdks/balances/README.md)
+### [Balances](docs/sdks/balances/README.md)
 
 * [list](docs/sdks/balances/README.md#list) - List balances
 * [get](docs/sdks/balances/README.md#get) - Get balance
@@ -311,32 +311,32 @@ client = ClientSDK(
 * [get_report](docs/sdks/balances/README.md#get_report) - Get balance report
 * [list_transactions](docs/sdks/balances/README.md#list_transactions) - List balance transactions
 
-### [capabilities](docs/sdks/capabilities/README.md)
+### [Capabilities](docs/sdks/capabilities/README.md)
 
 * [list](docs/sdks/capabilities/README.md#list) - List capabilities
 
-### [captures](docs/sdks/captures/README.md)
+### [Captures](docs/sdks/captures/README.md)
 
 * [create](docs/sdks/captures/README.md#create) - Create capture
 * [list](docs/sdks/captures/README.md#list) - List captures
 * [get](docs/sdks/captures/README.md#get) - Get capture
 
-### [chargebacks](docs/sdks/chargebackssdk/README.md)
+### [Chargebacks](docs/sdks/chargebackssdk/README.md)
 
 * [list](docs/sdks/chargebackssdk/README.md#list) - List payment chargebacks
 * [get](docs/sdks/chargebackssdk/README.md#get) - Get payment chargeback
 * [all](docs/sdks/chargebackssdk/README.md#all) - List all chargebacks
 
-### [client_links](docs/sdks/clientlinks/README.md)
+### [ClientLinks](docs/sdks/clientlinks/README.md)
 
 * [create](docs/sdks/clientlinks/README.md#create) - Create client link
 
-### [clients](docs/sdks/clients/README.md)
+### [Clients](docs/sdks/clients/README.md)
 
 * [list](docs/sdks/clients/README.md#list) - List clients
 * [get](docs/sdks/clients/README.md#get) - Get client
 
-### [customers](docs/sdks/customers/README.md)
+### [Customers](docs/sdks/customers/README.md)
 
 * [create](docs/sdks/customers/README.md#create) - Create customer
 * [list](docs/sdks/customers/README.md#list) - List customers
@@ -346,42 +346,42 @@ client = ClientSDK(
 * [create_payment](docs/sdks/customers/README.md#create_payment) - Create customer payment
 * [list_payments](docs/sdks/customers/README.md#list_payments) - List customer payments
 
-### [delayed_routing](docs/sdks/delayedrouting/README.md)
+### [DelayedRouting](docs/sdks/delayedrouting/README.md)
 
 * [create](docs/sdks/delayedrouting/README.md#create) - Create a delayed route
 * [list](docs/sdks/delayedrouting/README.md#list) - List payment routes
 * [get](docs/sdks/delayedrouting/README.md#get) - Get a delayed route
 
-### [invoices](docs/sdks/invoices/README.md)
+### [Invoices](docs/sdks/invoices/README.md)
 
 * [list](docs/sdks/invoices/README.md#list) - List invoices
 * [get](docs/sdks/invoices/README.md#get) - Get invoice
 
-### [mandates](docs/sdks/mandates/README.md)
+### [Mandates](docs/sdks/mandates/README.md)
 
 * [create](docs/sdks/mandates/README.md#create) - Create mandate
 * [list](docs/sdks/mandates/README.md#list) - List mandates
 * [get](docs/sdks/mandates/README.md#get) - Get mandate
 * [revoke](docs/sdks/mandates/README.md#revoke) - Revoke mandate
 
-### [methods](docs/sdks/methods/README.md)
+### [Methods](docs/sdks/methods/README.md)
 
 * [list](docs/sdks/methods/README.md#list) - List payment methods
 * [all](docs/sdks/methods/README.md#all) - List all payment methods
 * [get](docs/sdks/methods/README.md#get) - Get payment method
 
-### [onboarding](docs/sdks/onboarding/README.md)
+### [Onboarding](docs/sdks/onboarding/README.md)
 
 * [get](docs/sdks/onboarding/README.md#get) - Get onboarding status
 * [submit](docs/sdks/onboarding/README.md#submit) - Submit onboarding data
 
-### [organizations](docs/sdks/organizations/README.md)
+### [Organizations](docs/sdks/organizations/README.md)
 
 * [get](docs/sdks/organizations/README.md#get) - Get organization
 * [get_current](docs/sdks/organizations/README.md#get_current) - Get current organization
 * [get_partner](docs/sdks/organizations/README.md#get_partner) - Get partner status
 
-### [payment_links](docs/sdks/paymentlinks/README.md)
+### [PaymentLinks](docs/sdks/paymentlinks/README.md)
 
 * [create](docs/sdks/paymentlinks/README.md#create) - Create payment link
 * [list](docs/sdks/paymentlinks/README.md#list) - List payment links
@@ -390,7 +390,7 @@ client = ClientSDK(
 * [delete](docs/sdks/paymentlinks/README.md#delete) - Delete payment link
 * [list_payments](docs/sdks/paymentlinks/README.md#list_payments) - Get payment link payments
 
-### [payments](docs/sdks/paymentssdk/README.md)
+### [Payments](docs/sdks/paymentssdk/README.md)
 
 * [create](docs/sdks/paymentssdk/README.md#create) - Create payment
 * [list](docs/sdks/paymentssdk/README.md#list) - List payments
@@ -399,12 +399,12 @@ client = ClientSDK(
 * [cancel](docs/sdks/paymentssdk/README.md#cancel) - Cancel payment
 * [release_authorization](docs/sdks/paymentssdk/README.md#release_authorization) - Release payment authorization
 
-### [permissions](docs/sdks/permissions/README.md)
+### [Permissions](docs/sdks/permissions/README.md)
 
 * [list](docs/sdks/permissions/README.md#list) - List permissions
 * [get](docs/sdks/permissions/README.md#get) - Get permission
 
-### [profiles](docs/sdks/profiles/README.md)
+### [Profiles](docs/sdks/profiles/README.md)
 
 * [create](docs/sdks/profiles/README.md#create) - Create profile
 * [list](docs/sdks/profiles/README.md#list) - List profiles
@@ -413,7 +413,7 @@ client = ClientSDK(
 * [delete](docs/sdks/profiles/README.md#delete) - Delete profile
 * [get_current](docs/sdks/profiles/README.md#get_current) - Get current profile
 
-### [refunds](docs/sdks/refundssdk/README.md)
+### [Refunds](docs/sdks/refundssdk/README.md)
 
 * [create](docs/sdks/refundssdk/README.md#create) - Create payment refund
 * [list](docs/sdks/refundssdk/README.md#list) - List payment refunds
@@ -421,7 +421,7 @@ client = ClientSDK(
 * [cancel](docs/sdks/refundssdk/README.md#cancel) - Cancel payment refund
 * [all](docs/sdks/refundssdk/README.md#all) - List all refunds
 
-### [sales_invoices](docs/sdks/salesinvoices/README.md)
+### [SalesInvoices](docs/sdks/salesinvoices/README.md)
 
 * [create](docs/sdks/salesinvoices/README.md#create) - Create sales invoice
 * [list](docs/sdks/salesinvoices/README.md#list) - List sales invoices
@@ -429,12 +429,12 @@ client = ClientSDK(
 * [update](docs/sdks/salesinvoices/README.md#update) - Update sales invoice
 * [delete](docs/sdks/salesinvoices/README.md#delete) - Delete sales invoice
 
-### [sessions](docs/sdks/sessions/README.md)
+### [Sessions](docs/sdks/sessions/README.md)
 
 * [create](docs/sdks/sessions/README.md#create) - Create session
 * [get](docs/sdks/sessions/README.md#get) - Get session
 
-### [settlements](docs/sdks/settlements/README.md)
+### [Settlements](docs/sdks/settlements/README.md)
 
 * [list](docs/sdks/settlements/README.md#list) - List settlements
 * [get](docs/sdks/settlements/README.md#get) - Get settlement
@@ -445,7 +445,7 @@ client = ClientSDK(
 * [list_refunds](docs/sdks/settlements/README.md#list_refunds) - List settlement refunds
 * [list_chargebacks](docs/sdks/settlements/README.md#list_chargebacks) - List settlement chargebacks
 
-### [subscriptions](docs/sdks/subscriptions/README.md)
+### [Subscriptions](docs/sdks/subscriptions/README.md)
 
 * [create](docs/sdks/subscriptions/README.md#create) - Create subscription
 * [list](docs/sdks/subscriptions/README.md#list) - List customer subscriptions
@@ -455,20 +455,20 @@ client = ClientSDK(
 * [all](docs/sdks/subscriptions/README.md#all) - List all subscriptions
 * [list_payments](docs/sdks/subscriptions/README.md#list_payments) - List subscription payments
 
-### [terminals](docs/sdks/terminals/README.md)
+### [Terminals](docs/sdks/terminals/README.md)
 
 * [list](docs/sdks/terminals/README.md#list) - List terminals
 * [get](docs/sdks/terminals/README.md#get) - Get terminal
 
-### [wallets](docs/sdks/wallets/README.md)
+### [Wallets](docs/sdks/wallets/README.md)
 
 * [request_apple_pay_session](docs/sdks/wallets/README.md#request_apple_pay_session) - Request Apple Pay payment session
 
-### [webhook_events](docs/sdks/webhookevents/README.md)
+### [WebhookEvents](docs/sdks/webhookevents/README.md)
 
 * [get](docs/sdks/webhookevents/README.md#get) - Get a Webhook Event
 
-### [webhooks](docs/sdks/webhooks/README.md)
+### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [create](docs/sdks/webhooks/README.md#create) - Create a webhook
 * [list](docs/sdks/webhooks/README.md#list) - List all webhooks
@@ -508,15 +508,15 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     profile_id="<id>",
     custom_user_agent="<value>",
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -541,13 +541,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -571,13 +571,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426",
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     while res is not None:
@@ -597,13 +597,13 @@ import os
 
 with ClientSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -635,15 +635,15 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
     res = None
     try:
 
-        res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
         while res is not None:
             # Handle items
@@ -705,13 +705,13 @@ import os
 
 with ClientSDK(
     server_url="https://api.mollie.com/v2",
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -816,9 +816,9 @@ import os
 def main():
 
     with ClientSDK(
-        testmode=False,
+        testmode=True,
         security=mollie.Security(
-            api_key=os.getenv("CLIENT_API_KEY", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
         # Rest of application here...
@@ -830,7 +830,7 @@ async def amain():
     async with ClientSDK(
         testmode=False,
         security=mollie.Security(
-            api_key=os.getenv("CLIENT_API_KEY", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
         # Rest of application here...

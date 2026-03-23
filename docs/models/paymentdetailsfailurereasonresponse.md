@@ -2,6 +2,16 @@
 
 A failure code to help understand why the payment failed.
 
+## Example Usage
+
+```python
+from mollie.models import PaymentDetailsFailureReasonResponse
+
+value = PaymentDetailsFailureReasonResponse.AUTHENTICATION_ABANDONED
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

@@ -1,5 +1,15 @@
 # LineCategoriesResponse
 
+## Example Usage
+
+```python
+from mollie.models import LineCategoriesResponse
+
+value = LineCategoriesResponse.ECO
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

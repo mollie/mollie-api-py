@@ -2,6 +2,14 @@
 
 The type of discount.
 
+## Example Usage
+
+```python
+from mollie.models import SalesInvoiceDiscountType
+
+value = SalesInvoiceDiscountType.AMOUNT
+```
+
 
 ## Values
 

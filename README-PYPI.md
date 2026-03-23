@@ -91,7 +91,7 @@ It's also possible to write a standalone Python script without needing to set up
 ```python
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.9"
+# requires-python = ">=3.10"
 # dependencies = [
 #     "mollie-api-py",
 # ]
@@ -133,13 +133,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -161,13 +161,13 @@ import os
 async def main():
 
     async with ClientSDK(
-        testmode=False,
+        testmode=True,
         security=mollie.Security(
-            api_key=os.getenv("CLIENT_API_KEY", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
 
-        res = await client_sdk.balances.list_async(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = await client_sdk.balances.list_async(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
         while res is not None:
             # Handle items
@@ -201,10 +201,10 @@ with ClientSDK(
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
-    testmode=False,
+    testmode=True,
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -297,13 +297,13 @@ client = ClientSDK(
 <details open>
 <summary>Available methods</summary>
 
-### [balance_transfers](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balancetransfers/README.md)
+### [BalanceTransfers](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balancetransfers/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balancetransfers/README.md#create) - Create a Connect balance transfer
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balancetransfers/README.md#list) - List all Connect balance transfers
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balancetransfers/README.md#get) - Get a Connect balance transfer
 
-### [balances](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balances/README.md)
+### [Balances](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balances/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balances/README.md#list) - List balances
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balances/README.md#get) - Get balance
@@ -311,32 +311,32 @@ client = ClientSDK(
 * [get_report](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balances/README.md#get_report) - Get balance report
 * [list_transactions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balances/README.md#list_transactions) - List balance transactions
 
-### [capabilities](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/capabilities/README.md)
+### [Capabilities](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/capabilities/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/capabilities/README.md#list) - List capabilities
 
-### [captures](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/captures/README.md)
+### [Captures](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/captures/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/captures/README.md#create) - Create capture
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/captures/README.md#list) - List captures
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/captures/README.md#get) - Get capture
 
-### [chargebacks](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/chargebackssdk/README.md)
+### [Chargebacks](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/chargebackssdk/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/chargebackssdk/README.md#list) - List payment chargebacks
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/chargebackssdk/README.md#get) - Get payment chargeback
 * [all](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/chargebackssdk/README.md#all) - List all chargebacks
 
-### [client_links](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clientlinks/README.md)
+### [ClientLinks](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clientlinks/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clientlinks/README.md#create) - Create client link
 
-### [clients](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clients/README.md)
+### [Clients](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clients/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clients/README.md#list) - List clients
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clients/README.md#get) - Get client
 
-### [customers](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/customers/README.md)
+### [Customers](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/customers/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/customers/README.md#create) - Create customer
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/customers/README.md#list) - List customers
@@ -346,42 +346,42 @@ client = ClientSDK(
 * [create_payment](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/customers/README.md#create_payment) - Create customer payment
 * [list_payments](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/customers/README.md#list_payments) - List customer payments
 
-### [delayed_routing](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md)
+### [DelayedRouting](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md#create) - Create a delayed route
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md#list) - List payment routes
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md#get) - Get a delayed route
 
-### [invoices](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/invoices/README.md)
+### [Invoices](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/invoices/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/invoices/README.md#list) - List invoices
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/invoices/README.md#get) - Get invoice
 
-### [mandates](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/mandates/README.md)
+### [Mandates](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/mandates/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/mandates/README.md#create) - Create mandate
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/mandates/README.md#list) - List mandates
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/mandates/README.md#get) - Get mandate
 * [revoke](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/mandates/README.md#revoke) - Revoke mandate
 
-### [methods](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md)
+### [Methods](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#list) - List payment methods
 * [all](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#all) - List all payment methods
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#get) - Get payment method
 
-### [onboarding](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/onboarding/README.md)
+### [Onboarding](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/onboarding/README.md)
 
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/onboarding/README.md#get) - Get onboarding status
 * [submit](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/onboarding/README.md#submit) - Submit onboarding data
 
-### [organizations](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/organizations/README.md)
+### [Organizations](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/organizations/README.md)
 
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/organizations/README.md#get) - Get organization
 * [get_current](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/organizations/README.md#get_current) - Get current organization
 * [get_partner](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/organizations/README.md#get_partner) - Get partner status
 
-### [payment_links](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentlinks/README.md)
+### [PaymentLinks](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentlinks/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentlinks/README.md#create) - Create payment link
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentlinks/README.md#list) - List payment links
@@ -390,7 +390,7 @@ client = ClientSDK(
 * [delete](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentlinks/README.md#delete) - Delete payment link
 * [list_payments](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentlinks/README.md#list_payments) - Get payment link payments
 
-### [payments](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentssdk/README.md)
+### [Payments](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentssdk/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentssdk/README.md#create) - Create payment
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentssdk/README.md#list) - List payments
@@ -399,12 +399,12 @@ client = ClientSDK(
 * [cancel](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentssdk/README.md#cancel) - Cancel payment
 * [release_authorization](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentssdk/README.md#release_authorization) - Release payment authorization
 
-### [permissions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/permissions/README.md)
+### [Permissions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/permissions/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/permissions/README.md#list) - List permissions
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/permissions/README.md#get) - Get permission
 
-### [profiles](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/profiles/README.md)
+### [Profiles](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/profiles/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/profiles/README.md#create) - Create profile
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/profiles/README.md#list) - List profiles
@@ -413,7 +413,7 @@ client = ClientSDK(
 * [delete](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/profiles/README.md#delete) - Delete profile
 * [get_current](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/profiles/README.md#get_current) - Get current profile
 
-### [refunds](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/refundssdk/README.md)
+### [Refunds](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/refundssdk/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/refundssdk/README.md#create) - Create payment refund
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/refundssdk/README.md#list) - List payment refunds
@@ -421,7 +421,7 @@ client = ClientSDK(
 * [cancel](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/refundssdk/README.md#cancel) - Cancel payment refund
 * [all](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/refundssdk/README.md#all) - List all refunds
 
-### [sales_invoices](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md)
+### [SalesInvoices](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#create) - Create sales invoice
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#list) - List sales invoices
@@ -429,12 +429,12 @@ client = ClientSDK(
 * [update](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#update) - Update sales invoice
 * [delete](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#delete) - Delete sales invoice
 
-### [sessions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md)
+### [Sessions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#create) - Create session
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#get) - Get session
 
-### [settlements](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md)
+### [Settlements](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md#list) - List settlements
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md#get) - Get settlement
@@ -445,7 +445,7 @@ client = ClientSDK(
 * [list_refunds](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md#list_refunds) - List settlement refunds
 * [list_chargebacks](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md#list_chargebacks) - List settlement chargebacks
 
-### [subscriptions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/subscriptions/README.md)
+### [Subscriptions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/subscriptions/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/subscriptions/README.md#create) - Create subscription
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/subscriptions/README.md#list) - List customer subscriptions
@@ -455,20 +455,20 @@ client = ClientSDK(
 * [all](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/subscriptions/README.md#all) - List all subscriptions
 * [list_payments](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/subscriptions/README.md#list_payments) - List subscription payments
 
-### [terminals](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/terminals/README.md)
+### [Terminals](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/terminals/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/terminals/README.md#list) - List terminals
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/terminals/README.md#get) - Get terminal
 
-### [wallets](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/wallets/README.md)
+### [Wallets](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/wallets/README.md)
 
 * [request_apple_pay_session](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/wallets/README.md#request_apple_pay_session) - Request Apple Pay payment session
 
-### [webhook_events](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/webhookevents/README.md)
+### [WebhookEvents](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/webhookevents/README.md)
 
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/webhookevents/README.md#get) - Get a Webhook Event
 
-### [webhooks](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/webhooks/README.md)
+### [Webhooks](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/webhooks/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/webhooks/README.md#create) - Create a webhook
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/webhooks/README.md#list) - List all webhooks
@@ -508,15 +508,15 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     profile_id="<id>",
     custom_user_agent="<value>",
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -541,13 +541,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -571,13 +571,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426",
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     while res is not None:
@@ -597,13 +597,13 @@ import os
 
 with ClientSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -635,15 +635,15 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
     res = None
     try:
 
-        res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
         while res is not None:
             # Handle items
@@ -705,13 +705,13 @@ import os
 
 with ClientSDK(
     server_url="https://api.mollie.com/v2",
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", from_="bal_gVMhHKqSSRYJyPsuoPNFH", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -816,9 +816,9 @@ import os
 def main():
 
     with ClientSDK(
-        testmode=False,
+        testmode=True,
         security=mollie.Security(
-            api_key=os.getenv("CLIENT_API_KEY", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
         # Rest of application here...
@@ -830,7 +830,7 @@ async def amain():
     async with ClientSDK(
         testmode=False,
         security=mollie.Security(
-            api_key=os.getenv("CLIENT_API_KEY", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
         # Rest of application here...

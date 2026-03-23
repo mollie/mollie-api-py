@@ -2,6 +2,16 @@
 
 The preferred locale of the merchant, as set in their Mollie dashboard.
 
+## Example Usage
+
+```python
+from mollie.models import EntityOrganizationLocale
+
+value = EntityOrganizationLocale.EN_US
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

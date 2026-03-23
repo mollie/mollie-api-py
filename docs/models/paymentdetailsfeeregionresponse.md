@@ -2,6 +2,16 @@
 
 The applicable card fee region.
 
+## Example Usage
+
+```python
+from mollie.models import PaymentDetailsFeeRegionResponse
+
+value = PaymentDetailsFeeRegionResponse.AMERICAN_EXPRESS
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

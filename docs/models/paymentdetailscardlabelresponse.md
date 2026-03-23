@@ -2,6 +2,16 @@
 
 The card's label, if known.
 
+## Example Usage
+
+```python
+from mollie.models import PaymentDetailsCardLabelResponse
+
+value = PaymentDetailsCardLabelResponse.AMERICAN_EXPRESS
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

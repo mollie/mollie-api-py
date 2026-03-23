@@ -2,6 +2,14 @@
 
 Allows you to preset the language to be used.
 
+## Example Usage
+
+```python
+from mollie.models import Locale
+
+value = Locale.EN_US
+```
+
 
 ## Values
 

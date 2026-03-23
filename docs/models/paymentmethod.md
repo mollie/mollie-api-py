@@ -2,6 +2,16 @@
 
 The payment method, if applicable
 
+## Example Usage
+
+```python
+from mollie.models import PaymentMethod
+
+value = PaymentMethod.ALMA
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

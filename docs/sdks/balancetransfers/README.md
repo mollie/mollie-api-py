@@ -1,5 +1,4 @@
 # BalanceTransfers
-(*balance_transfers*)
 
 ## Overview
 
@@ -16,9 +15,9 @@ You can also create a balance transfer between two connected organizations.
 To create a balance transfer, you must be authenticated as the source organization, and the destination organization must be a connected organization
 that has authorized the `balance-transfers.write` scope for your organization.
 
-### Example Usage
+### Example Usage: create-balance-transfer-200-1
 
-<!-- UsageSnippet language="python" operationID="create-connect-balance-transfer" method="post" path="/connect/balance-transfers" -->
+<!-- UsageSnippet language="python" operationID="create-connect-balance-transfer" method="post" path="/connect/balance-transfers" example="create-balance-transfer-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -27,7 +26,50 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.balance_transfers.create(idempotency_key="123e4567-e89b-12d3-a456-426", entity_balance_transfer=mollie.EntityBalanceTransfer(
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        source=mollie.EntityBalanceTransferParty(
+            type=mollie.BalanceTransferPartyType.ORGANIZATION,
+            id="org_1234567",
+            description="Invoice fee",
+        ),
+        destination=mollie.EntityBalanceTransferParty(
+            type=mollie.BalanceTransferPartyType.ORGANIZATION,
+            id="org_1234567",
+            description="Invoice fee",
+        ),
+        description="Invoice fee",
+        category=mollie.BalanceTransferCategory.INVOICE_COLLECTION,
+        metadata={
+            "order_id": 12345,
+            "customer_id": 9876,
+        },
+        testmode=False,
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-balance-transfer-422-1
+
+<!-- UsageSnippet language="python" operationID="create-connect-balance-transfer" method="post" path="/connect/balance-transfers" example="create-balance-transfer-422-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -85,7 +127,7 @@ Returns a paginated list of balance transfers associated with your organization.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-connect-balance-transfers" method="get" path="/connect/balance-transfers" -->
+<!-- UsageSnippet language="python" operationID="list-connect-balance-transfers" method="get" path="/connect/balance-transfers" example="list-balance-transfer-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -95,7 +137,7 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -136,7 +178,7 @@ Retrieve a single Connect balance transfer object by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-connect-balance-transfer" method="get" path="/connect/balance-transfers/{balanceTransferId}" -->
+<!-- UsageSnippet language="python" operationID="get-connect-balance-transfer" method="get" path="/connect/balance-transfers/{balanceTransferId}" example="get-balance-transfer-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -146,7 +188,7 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 

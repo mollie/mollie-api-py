@@ -1,5 +1,15 @@
 # Currencies
 
+## Example Usage
+
+```python
+from mollie.models import Currencies
+
+value = Currencies.EUR
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

@@ -1,5 +1,4 @@
 # Invoices
-(*invoices*)
 
 ## Overview
 
@@ -15,9 +14,9 @@ invoice reference.
 
 The results are paginated.
 
-### Example Usage
+### Example Usage: list-invoices-200-1
 
-<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" -->
+<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" example="list-invoices-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -26,11 +25,80 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.invoices.list(reference="2024.10000", year="2024", from_="inv_xBEbP9rvAq", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.invoices.list(reference="2024.10000", year="2024", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-invoices-200-2
+
+<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" example="list-invoices-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.invoices.list(reference="2024.10000", year="2024", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-invoices-200-3
+
+<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" example="list-invoices-200-3" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.invoices.list(reference="2024.10000", year="2024", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-invoices-200-4
+
+<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" example="list-invoices-200-4" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.invoices.list(reference="2024.10000", year="2024", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -71,7 +139,7 @@ call the [List invoices](list-invoices) endpoint with the `reference` parameter.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-invoice" method="get" path="/invoices/{invoiceId}" -->
+<!-- UsageSnippet language="python" operationID="get-invoice" method="get" path="/invoices/{invoiceId}" example="get-invoice-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -80,7 +148,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 

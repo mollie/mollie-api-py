@@ -1,5 +1,4 @@
 # WebhookEvents
-(*webhook_events*)
 
 ## Overview
 
@@ -13,7 +12,7 @@ Retrieve a single webhook event object by its event ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-webhook-event" method="get" path="/events/{webhookEventId}" -->
+<!-- UsageSnippet language="python" operationID="get-webhook-event" method="get" path="/events/{webhookEventId}" example="get-webhook-event-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -21,9 +20,9 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 

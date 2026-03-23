@@ -1,5 +1,15 @@
 # BalanceFeeType
 
+## Example Usage
+
+```python
+from mollie.models import BalanceFeeType
+
+value = BalanceFeeType.PAYMENT_FEE
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

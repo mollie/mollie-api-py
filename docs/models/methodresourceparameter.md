@@ -1,5 +1,13 @@
 # MethodResourceParameter
 
+## Example Usage
+
+```python
+from mollie.models import MethodResourceParameter
+
+value = MethodResourceParameter.PAYMENTS
+```
+
 
 ## Values
 

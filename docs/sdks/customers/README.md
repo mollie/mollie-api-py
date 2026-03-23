@@ -1,5 +1,4 @@
 # Customers
-(*customers*)
 
 ## Overview
 
@@ -22,7 +21,7 @@ Once registered, customers will also appear in your Mollie dashboard.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="create-customer" method="post" path="/customers" -->
+<!-- UsageSnippet language="python" operationID="create-customer" method="post" path="/customers" example="create-customer-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -74,7 +73,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-customers" method="get" path="/customers" -->
+<!-- UsageSnippet language="python" operationID="list-customers" method="get" path="/customers" example="list-customers" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -125,7 +124,7 @@ Retrieve a single customer by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-customer" method="get" path="/customers/{customerId}" -->
+<!-- UsageSnippet language="python" operationID="get-customer" method="get" path="/customers/{customerId}" example="get-customer-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -133,13 +132,13 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.customers.get(customer_id="cst_5B8cwPMGnU", include="events", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.customers.get(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -173,9 +172,35 @@ Update an existing customer.
 
 For an in-depth explanation of each parameter, refer to the [Create customer](create-customer) endpoint.
 
-### Example Usage
+### Example Usage: update-customer-200-1
 
-<!-- UsageSnippet language="python" operationID="update-customer" method="patch" path="/customers/{customerId}" -->
+<!-- UsageSnippet language="python" operationID="update-customer" method="patch" path="/customers/{customerId}" example="update-customer-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.update(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "name": "John Doe",
+        "email": "example@email.com",
+        "locale": mollie.LocaleResponse.EN_US,
+        "testmode": False,
+    })
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: update-customer-200-2
+
+<!-- UsageSnippet language="python" operationID="update-customer" method="patch" path="/customers/{customerId}" example="update-customer-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -277,9 +302,9 @@ Linking customers to payments enables you to:
 This endpoint is effectively an alias of the [Create payment endpoint](create-payment) with the `customerId`
 parameter predefined.
 
-### Example Usage
+### Example Usage: create-payment-201-1
 
-<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" -->
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-1" -->
 ```python
 from datetime import date
 import mollie
@@ -334,7 +359,7 @@ with ClientSDK(
                 product_url="https://...",
                 recurring=mollie.RecurringLineItem(
                     description="Gym subscription",
-                    interval="... months",
+                    interval="12 months",
                     amount=mollie.Amount(
                         currency="EUR",
                         value="10.00",
@@ -406,6 +431,1679 @@ with ClientSDK(
                     ),
                 ),
             ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-10
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-10" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-11
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-11" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-12
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-12" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-2
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-2" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-3
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-3" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-4
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-4" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-5
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-5" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-6
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-6" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-7
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-7" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-8
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-8" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-9
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-9" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
             mollie.EntityPaymentRoute(
                 amount=mollie.Amount(
                     currency="EUR",
@@ -478,9 +2176,9 @@ with ClientSDK(
 
 Retrieve all payments linked to the customer.
 
-### Example Usage
+### Example Usage: list-payments-200-1
 
-<!-- UsageSnippet language="python" operationID="list-customer-payments" method="get" path="/customers/{customerId}/payments" -->
+<!-- UsageSnippet language="python" operationID="list-customer-payments" method="get" path="/customers/{customerId}/payments" example="list-payments-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -488,8 +2186,58 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
+    profile_id="<id>",
     testmode=False,
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.list_payments(customer_id="cst_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-payments-200-2
+
+<!-- UsageSnippet language="python" operationID="list-customer-payments" method="get" path="/customers/{customerId}/payments" example="list-payments-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    profile_id="<id>",
+    testmode=False,
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.list_payments(customer_id="cst_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-payments-200-3
+
+<!-- UsageSnippet language="python" operationID="list-customer-payments" method="get" path="/customers/{customerId}/payments" example="list-payments-200-3" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    profile_id="<id>",
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),

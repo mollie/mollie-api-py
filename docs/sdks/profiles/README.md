@@ -1,5 +1,4 @@
 # Profiles
-(*profiles*)
 
 ## Overview
 
@@ -19,9 +18,9 @@ Create a profile to process payments on.
 Profiles are required for payment processing. Normally they are created via the Mollie dashboard. Alternatively, you
 can use this endpoint to automate profile creation.
 
-### Example Usage
+### Example Usage: create-profile-201-1
 
-<!-- UsageSnippet language="python" operationID="create-profile" method="post" path="/profiles" -->
+<!-- UsageSnippet language="python" operationID="create-profile" method="post" path="/profiles" example="create-profile-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -30,7 +29,39 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.profiles.create(profile_request={
+        "name": "My website name",
+        "website": "https://example.com",
+        "email": "test@mollie.com",
+        "phone": "+31208202070",
+        "description": "My website description",
+        "countries_of_activity": [
+            "NL",
+            "GB",
+        ],
+        "business_category": "OTHER_MERCHANDISE",
+    }, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-profile-201-2
+
+<!-- UsageSnippet language="python" operationID="create-profile" method="post" path="/profiles" example="create-profile-201-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -79,7 +110,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-profiles" method="get" path="/profiles" -->
+<!-- UsageSnippet language="python" operationID="list-profiles" method="get" path="/profiles" example="list-profiles-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -88,11 +119,11 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.profiles.list(from_="pfl_QkEhN94Ba", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.profiles.list(limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -127,7 +158,7 @@ Retrieve a single profile by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-profile" method="get" path="/profiles/{profileId}" -->
+<!-- UsageSnippet language="python" operationID="get-profile" method="get" path="/profiles/{profileId}" example="get-profile-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -135,9 +166,9 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -175,9 +206,9 @@ Update an existing profile.
 Profiles are required for payment processing. Normally they are created and updated via the Mollie dashboard.
 Alternatively, you can use this endpoint to automate profile management.
 
-### Example Usage
+### Example Usage: update-profile-200-1
 
-<!-- UsageSnippet language="python" operationID="update-profile" method="patch" path="/profiles/{profileId}" -->
+<!-- UsageSnippet language="python" operationID="update-profile" method="patch" path="/profiles/{profileId}" example="update-profile-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -186,7 +217,39 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.profiles.update(profile_id="pfl_5B8cwPMGnU", request_body={
+        "name": "My new website name",
+        "website": "https://example.com",
+        "email": "test@mollie.com",
+        "phone": "+31208202071",
+        "description": "My website description",
+        "countries_of_activity": [
+            "NL",
+            "GB",
+        ],
+        "business_category": "OTHER_MERCHANDISE",
+    }, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: update-profile-200-2
+
+<!-- UsageSnippet language="python" operationID="update-profile" method="patch" path="/profiles/{profileId}" example="update-profile-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -243,7 +306,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -278,7 +341,7 @@ documentation.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-current-profile" method="get" path="/profiles/me" -->
+<!-- UsageSnippet language="python" operationID="get-current-profile" method="get" path="/profiles/me" example="get-current-profile-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK

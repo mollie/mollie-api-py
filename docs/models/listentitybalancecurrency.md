@@ -2,6 +2,16 @@
 
 The balance's ISO 4217 currency code.
 
+## Example Usage
+
+```python
+from mollie.models import ListEntityBalanceCurrency
+
+value = ListEntityBalanceCurrency.EUR
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

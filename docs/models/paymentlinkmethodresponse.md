@@ -1,5 +1,15 @@
 # PaymentLinkMethodResponse
 
+## Example Usage
+
+```python
+from mollie.models import PaymentLinkMethodResponse
+
+value = PaymentLinkMethodResponse.APPLEPAY
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

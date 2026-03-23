@@ -2,6 +2,14 @@
 
 Specifies the reference type
 
+## Example Usage
+
+```python
+from mollie.models import RefundExternalReferenceType
+
+value = RefundExternalReferenceType.ACQUIRER_REFERENCE
+```
+
 
 ## Values
 

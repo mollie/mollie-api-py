@@ -5,6 +5,14 @@ and capture at a later time.
 
 This field needs to be set to `manual` for method `riverty`.
 
+## Example Usage
+
+```python
+from mollie.models import CaptureMode
+
+value = CaptureMode.AUTOMATIC
+```
+
 
 ## Values
 

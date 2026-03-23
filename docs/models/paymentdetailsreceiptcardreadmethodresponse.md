@@ -2,6 +2,16 @@
 
 The method by which the card was read by the terminal.
 
+## Example Usage
+
+```python
+from mollie.models import PaymentDetailsReceiptCardReadMethodResponse
+
+value = PaymentDetailsReceiptCardReadMethodResponse.CHIP
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

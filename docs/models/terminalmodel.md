@@ -2,6 +2,16 @@
 
 The model of the terminal. For example for a PAX A920, this field's value will be `A920`.
 
+## Example Usage
+
+```python
+from mollie.models import TerminalModel
+
+value = TerminalModel.A35
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

@@ -1,5 +1,4 @@
 # ClientLinks
-(*client_links*)
 
 ## Overview
 
@@ -63,9 +62,9 @@ to the URL.
 >
 > A client link must be used within 30 days of creation. After that period, it will expire and you will need to create a new client link.
 
-### Example Usage
+### Example Usage: create-client-link-201-1
 
-<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/client-links" -->
+<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/client-links" example="create-client-link-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -74,7 +73,87 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.client_links.create(idempotency_key="123e4567-e89b-12d3-a456-426", client_link_request={
+        "owner": {
+            "email": "john@example.org",
+            "given_name": "John",
+            "family_name": "Doe",
+            "locale": mollie.LocaleResponse.EN_US,
+        },
+        "name": "Acme Corporation",
+        "address": {
+            "street_and_number": "Main Street 123",
+            "postal_code": "1234AB",
+            "city": "Amsterdam",
+            "country": "NL",
+        },
+        "registration_number": "12345678",
+        "vat_number": "NL123456789B01",
+        "legal_entity": "nl-bv",
+        "registration_office": "aachen",
+        "incorporation_date": "2024-12-24",
+    })
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-client-link-201-2
+
+<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/client-links" example="create-client-link-201-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.client_links.create(idempotency_key="123e4567-e89b-12d3-a456-426", client_link_request={
+        "owner": {
+            "email": "john@example.org",
+            "given_name": "John",
+            "family_name": "Doe",
+            "locale": mollie.LocaleResponse.EN_US,
+        },
+        "name": "Acme Corporation",
+        "address": {
+            "street_and_number": "Main Street 123",
+            "postal_code": "1234AB",
+            "city": "Amsterdam",
+            "country": "NL",
+        },
+        "registration_number": "12345678",
+        "vat_number": "NL123456789B01",
+        "legal_entity": "nl-bv",
+        "registration_office": "aachen",
+        "incorporation_date": "2024-12-24",
+    })
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-client-link-201-3
+
+<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/client-links" example="create-client-link-201-3" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 

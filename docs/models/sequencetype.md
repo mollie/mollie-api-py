@@ -1,5 +1,13 @@
 # SequenceType
 
+## Example Usage
+
+```python
+from mollie.models import SequenceType
+
+value = SequenceType.ONEOFF
+```
+
 
 ## Values
 

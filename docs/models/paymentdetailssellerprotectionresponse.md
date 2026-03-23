@@ -3,6 +3,16 @@
 Indicates to what extent the payment is eligible for PayPal's Seller Protection. Only available for PayPal
 payments, and if the information is made available by PayPal.
 
+## Example Usage
+
+```python
+from mollie.models import PaymentDetailsSellerProtectionResponse
+
+value = PaymentDetailsSellerProtectionResponse.ELIGIBLE_UPPER
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

@@ -1,5 +1,4 @@
 # Settlements
-(*settlements*)
 
 ## Overview
 
@@ -22,7 +21,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-settlements" method="get" path="/settlements" -->
+<!-- UsageSnippet language="python" operationID="list-settlements" method="get" path="/settlements" example="list-settlements-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -31,11 +30,11 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.settlements.list(from_="stl_jDk30akdN", limit=50, balance_id="bal_gVMhHKqSSRYJyPsuoPNFH", year="2025", month="1", currencies=mollie.Currencies.EUR, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.settlements.list(limit=50, balance_id="bal_gVMhHKqSSRYJyPsuoPNFH", year="2025", month="1", currencies=mollie.Currencies.EUR, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -85,7 +84,7 @@ For more accurate bookkeeping, refer to the [balance report](get-balance-report)
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-settlement" method="get" path="/settlements/{settlementId}" -->
+<!-- UsageSnippet language="python" operationID="get-settlement" method="get" path="/settlements/{settlementId}" example="get-settlement-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -94,7 +93,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -137,7 +136,7 @@ For more accurate bookkeeping, refer to the [balance report](get-balance-report)
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-open-settlement" method="get" path="/settlements/open" -->
+<!-- UsageSnippet language="python" operationID="get-open-settlement" method="get" path="/settlements/open" example="get-settlement-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -146,7 +145,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -186,7 +185,7 @@ For more accurate bookkeeping, refer to the [balance report](get-balance-report)
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-next-settlement" method="get" path="/settlements/next" -->
+<!-- UsageSnippet language="python" operationID="get-next-settlement" method="get" path="/settlements/next" example="get-settlement-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -195,7 +194,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -232,9 +231,9 @@ The response is in the same format as the response of the [List payments endpoin
 For capture-based payment methods such as Klarna, the payments are not listed here. Refer to the
 [List captures endpoint](list-captures) endpoint instead.
 
-### Example Usage
+### Example Usage: list-payments-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" example="list-payments-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -242,10 +241,60 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
+    profile_id="<id>",
     testmode=False,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.list_payments(settlement_id="stl_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-payments-200-2
+
+<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" example="list-payments-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    profile_id="<id>",
+    testmode=True,
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.list_payments(settlement_id="stl_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-payments-200-3
+
+<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" example="list-payments-200-3" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    profile_id="<id>",
+    testmode=False,
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -288,9 +337,9 @@ Retrieve all captures included in the given settlement.
 
 The response is in the same format as the response of the [List captures endpoint](list-captures).
 
-### Example Usage
+### Example Usage: list-captures-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/settlements/{settlementId}/captures" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/settlements/{settlementId}/captures" example="list-captures-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -300,11 +349,35 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.settlements.list_captures(settlement_id="stl_5B8cwPMGnU", from_="cpt_vytxeTZskVKR7C7WgdSP3d", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.settlements.list_captures(settlement_id="stl_5B8cwPMGnU", from_="cpt_vytxeTZskVKR7C7WgdSP3d", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-captures-200-2
+
+<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/settlements/{settlementId}/captures" example="list-captures-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    testmode=True,
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.list_captures(settlement_id="stl_5B8cwPMGnU", from_="cpt_vytxeTZskVKR7C7WgdSP3d", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -320,7 +393,7 @@ with ClientSDK(
 | `settlement_id`                                                                                                                                                                                                                                                                                                                                                                          | *str*                                                                                                                                                                                                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                       | Provide the ID of the related settlement.                                                                                                                                                                                                                                                                                                                                                | stl_5B8cwPMGnU                                                                                                                                                                                                                                                                                                                                                                           |
 | `from_`                                                                                                                                                                                                                                                                                                                                                                                  | *Optional[str]*                                                                                                                                                                                                                                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the<br/>result set.                                                                                                                                                                                                                                                       | cpt_vytxeTZskVKR7C7WgdSP3d                                                                                                                                                                                                                                                                                                                                                               |
 | `limit`                                                                                                                                                                                                                                                                                                                                                                                  | *OptionalNullable[int]*                                                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | The maximum number of items to return. Defaults to 50 items.                                                                                                                                                                                                                                                                                                                             | 50                                                                                                                                                                                                                                                                                                                                                                                       |
-| `embed`                                                                                                                                                                                                                                                                                                                                                                                  | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | This endpoint allows embedding related API items by appending the following values via the `embed` query string<br/>parameter.                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                          |
+| `embed`                                                                                                                                                                                                                                                                                                                                                                                  | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | This endpoint allows you to embed additional resources via the<br/>`embed` query string parameter.                                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                                                                                                                                                                                                          |
 | `testmode`                                                                                                                                                                                                                                                                                                                                                                               | *Optional[bool]*                                                                                                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query<br/>parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by<br/>setting the `testmode` query parameter to `true`.<br/><br/>Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa. |                                                                                                                                                                                                                                                                                                                                                                                          |
 | `idempotency_key`                                                                                                                                                                                                                                                                                                                                                                        | *Optional[str]*                                                                                                                                                                                                                                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                                                                                                                                                                                                                                                                                                         | 123e4567-e89b-12d3-a456-426                                                                                                                                                                                                                                                                                                                                                              |
 | `retries`                                                                                                                                                                                                                                                                                                                                                                                | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | Configuration to override the default retry behavior of the client.                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -344,7 +417,7 @@ The response is in the same format as the response of the [List refunds endpoint
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-settlement-refunds" method="get" path="/settlements/{settlementId}/refunds" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-refunds" method="get" path="/settlements/{settlementId}/refunds" example="list-refunds-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -354,11 +427,11 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.settlements.list_refunds(settlement_id="stl_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.settlements.list_refunds(settlement_id="stl_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -396,9 +469,9 @@ Retrieve all chargebacks 'deducted' from the given settlement.
 
 The response is in the same format as the response of the [List chargebacks endpoint](list-chargebacks).
 
-### Example Usage
+### Example Usage: list-chargeback-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/settlements/{settlementId}/chargebacks" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/settlements/{settlementId}/chargebacks" example="list-chargeback-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -408,11 +481,59 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.settlements.list_chargebacks(settlement_id="stl_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.settlements.list_chargebacks(settlement_id="stl_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-chargeback-200-2
+
+<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/settlements/{settlementId}/chargebacks" example="list-chargeback-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    testmode=False,
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.list_chargebacks(settlement_id="stl_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-chargeback-200-3
+
+<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/settlements/{settlementId}/chargebacks" example="list-chargeback-200-3" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    testmode=True,
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.list_chargebacks(settlement_id="stl_5B8cwPMGnU", from_="chb_xFzwUN4ci8HAmSGUACS4J", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -428,7 +549,7 @@ with ClientSDK(
 | `settlement_id`                                                                                                                                                                                                                                                                                                                                                                          | *str*                                                                                                                                                                                                                                                                                                                                                                                    | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                       | Provide the ID of the related settlement.                                                                                                                                                                                                                                                                                                                                                | stl_5B8cwPMGnU                                                                                                                                                                                                                                                                                                                                                                           |
 | `from_`                                                                                                                                                                                                                                                                                                                                                                                  | *Optional[str]*                                                                                                                                                                                                                                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the<br/>result set.                                                                                                                                                                                                                                                       | chb_xFzwUN4ci8HAmSGUACS4J                                                                                                                                                                                                                                                                                                                                                                |
 | `limit`                                                                                                                                                                                                                                                                                                                                                                                  | *OptionalNullable[int]*                                                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | The maximum number of items to return. Defaults to 50 items.                                                                                                                                                                                                                                                                                                                             | 50                                                                                                                                                                                                                                                                                                                                                                                       |
-| `embed`                                                                                                                                                                                                                                                                                                                                                                                  | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | This endpoint allows embedding related API items by appending the following values via the `embed` query string<br/>parameter.                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                          |
+| `embed`                                                                                                                                                                                                                                                                                                                                                                                  | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | This endpoint allows you to embed additional information via the `embed` query string parameter.                                                                                                                                                                                                                                                                                         |                                                                                                                                                                                                                                                                                                                                                                                          |
 | `testmode`                                                                                                                                                                                                                                                                                                                                                                               | *Optional[bool]*                                                                                                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query<br/>parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by<br/>setting the `testmode` query parameter to `true`.<br/><br/>Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa. |                                                                                                                                                                                                                                                                                                                                                                                          |
 | `idempotency_key`                                                                                                                                                                                                                                                                                                                                                                        | *Optional[str]*                                                                                                                                                                                                                                                                                                                                                                          | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                                                                                                                                                                                                                                                                                                         | 123e4567-e89b-12d3-a456-426                                                                                                                                                                                                                                                                                                                                                              |
 | `retries`                                                                                                                                                                                                                                                                                                                                                                                | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                                                                                                                                                         | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                       | Configuration to override the default retry behavior of the client.                                                                                                                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                          |

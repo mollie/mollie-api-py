@@ -1,5 +1,13 @@
 # LineCategories
 
+## Example Usage
+
+```python
+from mollie.models import LineCategories
+
+value = LineCategories.ECO
+```
+
 
 ## Values
 

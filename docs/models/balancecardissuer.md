@@ -1,5 +1,15 @@
 # BalanceCardIssuer
 
+## Example Usage
+
+```python
+from mollie.models import BalanceCardIssuer
+
+value = BalanceCardIssuer.AMEX
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

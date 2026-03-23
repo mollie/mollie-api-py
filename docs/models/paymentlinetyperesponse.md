@@ -4,6 +4,16 @@ The type of product purchased. For example, a physical or a digital product.
 
 The `tip` payment line type is not available when creating a payment.
 
+## Example Usage
+
+```python
+from mollie.models import PaymentLineTypeResponse
+
+value = PaymentLineTypeResponse.PHYSICAL
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

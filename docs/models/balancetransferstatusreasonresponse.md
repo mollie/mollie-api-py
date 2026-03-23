@@ -2,6 +2,16 @@
 
 A machine-readable code that indicates the reason for the transfer's status.
 
+## Example Usage
+
+```python
+from mollie.models import BalanceTransferStatusReasonResponse
+
+value = BalanceTransferStatusReasonResponse.REQUEST_CREATED
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

@@ -1,5 +1,15 @@
 # EntityRefundResponseStatus
 
+## Example Usage
+
+```python
+from mollie.models import EntityRefundResponseStatus
+
+value = EntityRefundResponseStatus.QUEUED
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

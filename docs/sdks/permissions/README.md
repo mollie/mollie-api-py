@@ -1,5 +1,4 @@
 # Permissions
-(*permissions*)
 
 ## Overview
 
@@ -14,9 +13,9 @@ Retrieve a list of all permissions available to the current access token.
 
 The results are **not** paginated.
 
-### Example Usage
+### Example Usage: list-permissions-200-1
 
-<!-- UsageSnippet language="python" operationID="list-permissions" method="get" path="/permissions" -->
+<!-- UsageSnippet language="python" operationID="list-permissions" method="get" path="/permissions" example="list-permissions-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -25,7 +24,28 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.permissions.list(idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: list-permissions-200-2
+
+<!-- UsageSnippet language="python" operationID="list-permissions" method="get" path="/permissions" example="list-permissions-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -58,9 +78,9 @@ with ClientSDK(
 
 Retrieve a single permission by its ID, and see if the permission is granted to the current access token.
 
-### Example Usage
+### Example Usage: get-permission-200-1
 
-<!-- UsageSnippet language="python" operationID="get-permission" method="get" path="/permissions/{permissionId}" -->
+<!-- UsageSnippet language="python" operationID="get-permission" method="get" path="/permissions/{permissionId}" example="get-permission-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -70,7 +90,29 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.permissions.get(permission_id="payments.read", idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: get-permission-200-2
+
+<!-- UsageSnippet language="python" operationID="get-permission" method="get" path="/permissions/{permissionId}" example="get-permission-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    testmode=False,
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 

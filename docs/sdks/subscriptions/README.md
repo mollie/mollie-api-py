@@ -1,5 +1,4 @@
 # Subscriptions
-(*subscriptions*)
 
 ## Overview
 
@@ -37,7 +36,7 @@ Your customer will be charged €10 on the last day of each month, starting in A
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="create-subscription" method="post" path="/customers/{customerId}/subscriptions" -->
+<!-- UsageSnippet language="python" operationID="create-subscription" method="post" path="/customers/{customerId}/subscriptions" example="get-subscription-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -106,7 +105,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-subscriptions" method="get" path="/customers/{customerId}/subscriptions" -->
+<!-- UsageSnippet language="python" operationID="list-subscriptions" method="get" path="/customers/{customerId}/subscriptions" example="list-subscriptions-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -114,7 +113,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -158,7 +157,7 @@ Retrieve a single subscription by its ID and the ID of its parent customer.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-subscription" method="get" path="/customers/{customerId}/subscriptions/{subscriptionId}" -->
+<!-- UsageSnippet language="python" operationID="get-subscription" method="get" path="/customers/{customerId}/subscriptions/{subscriptionId}" example="get-subscription-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -166,7 +165,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -208,9 +207,42 @@ Canceled subscriptions cannot be updated.
 
 For an in-depth explanation of each parameter, refer to the [Create subscription](create-subscription) endpoint.
 
-### Example Usage
+### Example Usage: update-subscription-200-1
 
-<!-- UsageSnippet language="python" operationID="update-subscription" method="patch" path="/customers/{customerId}/subscriptions/{subscriptionId}" -->
+<!-- UsageSnippet language="python" operationID="update-subscription" method="patch" path="/customers/{customerId}/subscriptions/{subscriptionId}" example="update-subscription-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.subscriptions.update(customer_id="cst_5B8cwPMGnU", subscription_id="sub_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "amount": {
+            "currency": "EUR",
+            "value": "10.00",
+        },
+        "description": "Subscription of streaming channel",
+        "interval": "1 months",
+        "start_date": "2025-01-01",
+        "times": 6,
+        "webhook_url": "https://example.com/webhook",
+        "mandate_id": "mdt_5B8cwPMGnU",
+        "testmode": False,
+    })
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: update-subscription-200-2
+
+<!-- UsageSnippet language="python" operationID="update-subscription" method="patch" path="/customers/{customerId}/subscriptions/{subscriptionId}" example="update-subscription-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -269,7 +301,7 @@ Cancel an existing subscription. Canceling a subscription has no effect on the m
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="cancel-subscription" method="delete" path="/customers/{customerId}/subscriptions/{subscriptionId}" -->
+<!-- UsageSnippet language="python" operationID="cancel-subscription" method="delete" path="/customers/{customerId}/subscriptions/{subscriptionId}" example="cancel-subscription-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -320,7 +352,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-all-subscriptions" method="get" path="/subscriptions" -->
+<!-- UsageSnippet language="python" operationID="list-all-subscriptions" method="get" path="/subscriptions" example="list-subscriptions-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -328,14 +360,14 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
-    testmode=False,
+    profile_id="<id>",
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.subscriptions.all(from_="tr_5B8cwPMGnU", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.subscriptions.all(limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -372,9 +404,9 @@ Retrieve all payments of a specific subscription.
 
 The results are paginated.
 
-### Example Usage
+### Example Usage: list-payments-200-1
 
-<!-- UsageSnippet language="python" operationID="list-subscription-payments" method="get" path="/customers/{customerId}/subscriptions/{subscriptionId}/payments" -->
+<!-- UsageSnippet language="python" operationID="list-subscription-payments" method="get" path="/customers/{customerId}/subscriptions/{subscriptionId}/payments" example="list-payments-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -382,7 +414,57 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
+    profile_id="<id>",
+    testmode=False,
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.subscriptions.list_payments(customer_id="cst_5B8cwPMGnU", subscription_id="sub_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-payments-200-2
+
+<!-- UsageSnippet language="python" operationID="list-subscription-payments" method="get" path="/customers/{customerId}/subscriptions/{subscriptionId}/payments" example="list-payments-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    profile_id="<id>",
+    testmode=True,
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.subscriptions.list_payments(customer_id="cst_5B8cwPMGnU", subscription_id="sub_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-payments-200-3
+
+<!-- UsageSnippet language="python" operationID="list-subscription-payments" method="get" path="/customers/{customerId}/subscriptions/{subscriptionId}/payments" example="list-payments-200-3" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    profile_id="<id>",
     testmode=False,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),

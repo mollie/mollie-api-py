@@ -1,5 +1,4 @@
 # Terminals
-(*terminals*)
 
 ## Overview
 
@@ -14,9 +13,9 @@ Retrieve a list of all physical point-of-sale devices.
 
 The results are paginated.
 
-### Example Usage
+### Example Usage: list-terminals-200-1
 
-<!-- UsageSnippet language="python" operationID="list-terminals" method="get" path="/terminals" -->
+<!-- UsageSnippet language="python" operationID="list-terminals" method="get" path="/terminals" example="list-terminals-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -24,7 +23,31 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.terminals.list(from_="term_vytxeTZskVKR7C7WgdSP3d", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-terminals-200-2
+
+<!-- UsageSnippet language="python" operationID="list-terminals" method="get" path="/terminals" example="list-terminals-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -67,7 +90,7 @@ Retrieve a single terminal by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-terminal" method="get" path="/terminals/{terminalId}" -->
+<!-- UsageSnippet language="python" operationID="get-terminal" method="get" path="/terminals/{terminalId}" example="get-terminal-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -75,7 +98,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),

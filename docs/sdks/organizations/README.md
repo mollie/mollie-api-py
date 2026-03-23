@@ -1,5 +1,4 @@
 # Organizations
-(*organizations*)
 
 ## Overview
 
@@ -20,7 +19,7 @@ If you have a *partner account*', you can retrieve organization details of conne
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-organization" method="get" path="/organizations/{organizationId}" -->
+<!-- UsageSnippet language="python" operationID="get-organization" method="get" path="/organizations/{organizationId}" example="get-organization-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -28,9 +27,9 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -71,7 +70,7 @@ documentation.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-current-organization" method="get" path="/organizations/me" -->
+<!-- UsageSnippet language="python" operationID="get-current-organization" method="get" path="/organizations/me" example="get-current-organization-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -80,7 +79,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
@@ -115,7 +114,7 @@ accounts*.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-partner-status" method="get" path="/organizations/me/partner" -->
+<!-- UsageSnippet language="python" operationID="get-partner-status" method="get" path="/organizations/me/partner" example="get-partner-status-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -124,7 +123,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 

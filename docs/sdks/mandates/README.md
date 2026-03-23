@@ -1,5 +1,4 @@
 # Mandates
-(*mandates*)
 
 ## Overview
 
@@ -18,9 +17,42 @@ account recurrently.
 It is only possible to create mandates for IBANs and PayPal billing agreements with this endpoint. To create
 mandates for cards, your customers need to perform a 'first payment' with their card.
 
-### Example Usage
+### Example Usage: create-mandate-201-1
 
-<!-- UsageSnippet language="python" operationID="create-mandate" method="post" path="/customers/{customerId}/mandates" -->
+<!-- UsageSnippet language="python" operationID="create-mandate" method="post" path="/customers/{customerId}/mandates" example="create-mandate-201-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.mandates.create(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", mandate_request={
+        "id": "mdt_5B8cwPMGnU",
+        "method": mollie.MandateMethod.DIRECTDEBIT,
+        "consumer_name": "John Doe",
+        "consumer_account": "NL55INGB0000000000",
+        "consumer_bic": "BANKBIC",
+        "consumer_email": "example@email.com",
+        "signature_date": "2025-01-01",
+        "mandate_reference": "ID-1023892",
+        "paypal_billing_agreement_id": "B-12A34567B8901234CD",
+        "pay_pal_vault_id": "8kk8451t",
+        "testmode": False,
+    })
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-mandate-201-2
+
+<!-- UsageSnippet language="python" operationID="create-mandate" method="post" path="/customers/{customerId}/mandates" example="create-mandate-201-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -80,7 +112,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-mandates" method="get" path="/customers/{customerId}/mandates" -->
+<!-- UsageSnippet language="python" operationID="list-mandates" method="get" path="/customers/{customerId}/mandates" example="list-mandates-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -133,7 +165,7 @@ account details, card details, or PayPal account details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-mandate" method="get" path="/customers/{customerId}/mandates/{mandateId}" -->
+<!-- UsageSnippet language="python" operationID="get-mandate" method="get" path="/customers/{customerId}/mandates/{mandateId}" example="get-mandate-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -141,7 +173,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),

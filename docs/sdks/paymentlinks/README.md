@@ -1,5 +1,4 @@
 # PaymentLinks
-(*payment_links*)
 
 ## Overview
 
@@ -18,9 +17,9 @@ With the Payment links API you can generate payment links that by default, unlik
 The payment link can be shared with your customers and will redirect them to them the payment page where they can
 complete the payment. A [payment](get-payment) will only be created once the customer initiates the payment.
 
-### Example Usage
+### Example Usage: create-payment-link-201-1
 
-<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" -->
+<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" example="create-payment-link-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -108,9 +107,328 @@ with ClientSDK(
         profile_id="pfl_QkEhN94Ba",
         reusable=False,
         expires_at="2025-12-24T11:00:16+00:00",
-        allowed_methods=[
-            mollie.PaymentLinkMethod.IDEAL,
+        allowed_methods=None,
+        application_fee=mollie.CreatePaymentLinkApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="Platform fee",
+        ),
+        sequence_type=mollie.PaymentLinkSequenceType.ONEOFF,
+        customer_id="cst_XimFHuaEzd",
+        testmode=False,
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-link-201-2
+
+<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" example="create-payment-link-201-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.payment_links.create(idempotency_key="123e4567-e89b-12d3-a456-426", request_body=mollie.CreatePaymentLinkRequestBody(
+        description="Chess Board",
+        amount=mollie.AmountNullable(
+            currency="EUR",
+            value="10.00",
+        ),
+        minimum_amount=mollie.AmountNullable(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://webshop.example.org/payment-links/redirect/",
+        webhook_url="https://webshop.example.org/payment-links/webhook/",
+        lines=[
+            mollie.PaymentLineItem(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+            ),
         ],
+        billing_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        profile_id="pfl_QkEhN94Ba",
+        reusable=False,
+        expires_at="2025-12-24T11:00:16+00:00",
+        allowed_methods=None,
+        application_fee=mollie.CreatePaymentLinkApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="Platform fee",
+        ),
+        sequence_type=mollie.PaymentLinkSequenceType.ONEOFF,
+        customer_id="cst_XimFHuaEzd",
+        testmode=False,
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-link-201-3
+
+<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" example="create-payment-link-201-3" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.payment_links.create(idempotency_key="123e4567-e89b-12d3-a456-426", request_body=mollie.CreatePaymentLinkRequestBody(
+        description="Chess Board",
+        amount=mollie.AmountNullable(
+            currency="EUR",
+            value="10.00",
+        ),
+        minimum_amount=mollie.AmountNullable(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://webshop.example.org/payment-links/redirect/",
+        webhook_url="https://webshop.example.org/payment-links/webhook/",
+        lines=[
+            mollie.PaymentLineItem(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+            ),
+        ],
+        billing_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        profile_id="pfl_QkEhN94Ba",
+        reusable=False,
+        expires_at="2025-12-24T11:00:16+00:00",
+        allowed_methods=None,
+        application_fee=mollie.CreatePaymentLinkApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="Platform fee",
+        ),
+        sequence_type=mollie.PaymentLinkSequenceType.ONEOFF,
+        customer_id="cst_XimFHuaEzd",
+        testmode=False,
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-link-201-4
+
+<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" example="create-payment-link-201-4" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.payment_links.create(idempotency_key="123e4567-e89b-12d3-a456-426", request_body=mollie.CreatePaymentLinkRequestBody(
+        description="Chess Board",
+        amount=mollie.AmountNullable(
+            currency="EUR",
+            value="10.00",
+        ),
+        minimum_amount=mollie.AmountNullable(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://webshop.example.org/payment-links/redirect/",
+        webhook_url="https://webshop.example.org/payment-links/webhook/",
+        lines=[
+            mollie.PaymentLineItem(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+            ),
+        ],
+        billing_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        profile_id="pfl_QkEhN94Ba",
+        reusable=False,
+        expires_at="2025-12-24T11:00:16+00:00",
+        allowed_methods=None,
         application_fee=mollie.CreatePaymentLinkApplicationFee(
             amount=mollie.Amount(
                 currency="EUR",
@@ -153,9 +471,9 @@ Retrieve a list of all payment links.
 
 The results are paginated.
 
-### Example Usage
+### Example Usage: list-payment-links-200-1
 
-<!-- UsageSnippet language="python" operationID="list-payment-links" method="get" path="/payment-links" -->
+<!-- UsageSnippet language="python" operationID="list-payment-links" method="get" path="/payment-links" example="list-payment-links-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -164,6 +482,30 @@ import os
 
 with ClientSDK(
     testmode=False,
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.payment_links.list(from_="pl_d9fQur83kFdhH8hIhaZfq", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-payment-links-200-2
+
+<!-- UsageSnippet language="python" operationID="list-payment-links" method="get" path="/payment-links" example="list-payment-links-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -205,7 +547,7 @@ Retrieve a single payment link by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-payment-link" method="get" path="/payment-links/{paymentLinkId}" -->
+<!-- UsageSnippet language="python" operationID="get-payment-link" method="get" path="/payment-links/{paymentLinkId}" example="get-payment-link-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -252,7 +594,7 @@ Certain details of an existing payment link can be updated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="update-payment-link" method="patch" path="/payment-links/{paymentLinkId}" -->
+<!-- UsageSnippet language="python" operationID="update-payment-link" method="patch" path="/payment-links/{paymentLinkId}" example="update-payment-link-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -275,38 +617,7 @@ with ClientSDK(
         allowed_methods=[
             mollie.PaymentLinkMethod.IDEAL,
         ],
-        lines=[
-            mollie.PaymentLineItem(
-                type=mollie.PaymentLineType.PHYSICAL,
-                description="LEGO 4440 Forest Police Station",
-                quantity=1,
-                quantity_unit="pcs",
-                unit_price=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                discount_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                total_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                vat_rate="21.00",
-                vat_amount=mollie.Amount(
-                    currency="EUR",
-                    value="10.00",
-                ),
-                sku="9780241661628",
-                categories=[
-                    mollie.LineCategories.MEAL,
-                    mollie.LineCategories.ECO,
-                ],
-                image_url="https://...",
-                product_url="https://...",
-            ),
-        ],
+        lines=None,
         billing_address=mollie.PaymentAddress(
             title="Mr.",
             given_name="Piet",
@@ -420,7 +731,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-payment-link-payments" method="get" path="/payment-links/{paymentLinkId}/payments" -->
+<!-- UsageSnippet language="python" operationID="get-payment-link-payments" method="get" path="/payment-links/{paymentLinkId}/payments" example="get-payment-link-payments-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -428,7 +739,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),

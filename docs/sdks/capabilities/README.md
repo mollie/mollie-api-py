@@ -1,5 +1,4 @@
 # Capabilities
-(*capabilities*)
 
 ## Overview
 
@@ -28,7 +27,7 @@ the payments capability is enabled, communicating that the organization can inde
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-capabilities" method="get" path="/capabilities" -->
+<!-- UsageSnippet language="python" operationID="list-capabilities" method="get" path="/capabilities" example="successful-response-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -37,7 +36,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 

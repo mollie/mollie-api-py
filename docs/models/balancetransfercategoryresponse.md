@@ -2,6 +2,16 @@
 
 The type of the transfer. Different fees may apply to different types of transfers.
 
+## Example Usage
+
+```python
+from mollie.models import BalanceTransferCategoryResponse
+
+value = BalanceTransferCategoryResponse.INVOICE_COLLECTION
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

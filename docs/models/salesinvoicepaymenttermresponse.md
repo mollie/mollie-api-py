@@ -2,6 +2,16 @@
 
 The payment term to be set on the invoice.
 
+## Example Usage
+
+```python
+from mollie.models import SalesInvoicePaymentTermResponse
+
+value = SalesInvoicePaymentTermResponse.SEVENDAYS
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 

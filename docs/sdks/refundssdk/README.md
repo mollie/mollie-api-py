@@ -1,5 +1,4 @@
-# RefundsSDK
-(*refunds*)
+# Refunds
 
 ## Overview
 
@@ -16,9 +15,9 @@
 Creates a refund for a specific payment. The refunded amount is credited to your customer usually either via a bank
 transfer or by refunding the amount to your customer's credit card.
 
-### Example Usage
+### Example Usage: create-refund-201-1
 
-<!-- UsageSnippet language="python" operationID="create-refund" method="post" path="/payments/{paymentId}/refunds" -->
+<!-- UsageSnippet language="python" operationID="create-refund" method="post" path="/payments/{paymentId}/refunds" example="create-refund-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -38,7 +37,57 @@ with ClientSDK(
             "value": "10.00",
         },
         "metadata": {
+            "0": "<value 1>",
+            "1": "<value 2>",
+        },
+        "external_reference": {
+            "type": mollie.RefundExternalReferenceType.ACQUIRER_REFERENCE,
+            "id": "123456789012345",
+        },
+        "reverse_routing": False,
+        "routing_reversals": [
+            {
+                "amount": {
+                    "currency": "EUR",
+                    "value": "10.00",
+                },
+                "source": {
+                    "type": mollie.Type.ORGANIZATION,
+                    "organization_id": "org_1234567",
+                },
+            },
+        ],
+        "testmode": False,
+    })
 
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-refund-201-2
+
+<!-- UsageSnippet language="python" operationID="create-refund" method="post" path="/payments/{paymentId}/refunds" example="create-refund-201-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.refunds.create(payment_id="tr_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", refund_request={
+        "description": "Refunding a Chess Board",
+        "amount": {
+            "currency": "EUR",
+            "value": "10.00",
+        },
+        "metadata": {
+            "0": "<value 1>",
+            "1": "<value 2>",
         },
         "external_reference": {
             "type": mollie.RefundExternalReferenceType.ACQUIRER_REFERENCE,
@@ -93,7 +142,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-refunds" method="get" path="/payments/{paymentId}/refunds" -->
+<!-- UsageSnippet language="python" operationID="list-refunds" method="get" path="/payments/{paymentId}/refunds" example="list-refunds-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -107,7 +156,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.refunds.list(payment_id="tr_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.refunds.list(payment_id="tr_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items
@@ -145,7 +194,7 @@ Retrieve a single payment refund by its ID and the ID of its parent payment.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-refund" method="get" path="/payments/{paymentId}/refunds/{refundId}" -->
+<!-- UsageSnippet language="python" operationID="get-refund" method="get" path="/payments/{paymentId}/refunds/{refundId}" example="get-refund-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -159,7 +208,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.refunds.get(payment_id="tr_5B8cwPMGnU", refund_id="re_5B8cwPMGnU", embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.refunds.get(payment_id="tr_5B8cwPMGnU", refund_id="re_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426")
 
     # Handle response
     print(res)
@@ -206,7 +255,7 @@ import os
 
 
 with ClientSDK(
-    testmode=False,
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
@@ -243,7 +292,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-all-refunds" method="get" path="/refunds" -->
+<!-- UsageSnippet language="python" operationID="list-all-refunds" method="get" path="/refunds" example="list-refunds-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -251,14 +300,14 @@ import os
 
 
 with ClientSDK(
-    profile_id="pfl_5B8cwPMGnU",
-    testmode=False,
+    profile_id="<id>",
+    testmode=True,
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.refunds.all(from_="re_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, embed="payment", idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.refunds.all(from_="re_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
 
     while res is not None:
         # Handle items

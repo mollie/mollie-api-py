@@ -14,6 +14,16 @@ Dependent parameters:
   - `customerId` and `mandateId` are required if a recurring payment should be used to set the invoice to `paid`
   - `emailDetails` optional for `issued` and `paid` to send the invoice by email
 
+## Example Usage
+
+```python
+from mollie.models import SalesInvoiceStatusResponse
+
+value = SalesInvoiceStatusResponse.DRAFT
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
 
 ## Values
 
