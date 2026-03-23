@@ -48,3 +48,15 @@ class SDKConfiguration:
             self.server_idx = 0
 
         return SERVERS[self.server_idx], {}
+    
+    def can_have_global_fields(self) -> bool:
+        if not self.security:
+            return False
+
+        security_obj = self.security() if callable(self.security) else self.security
+
+        token = security_obj.api_key or security_obj.o_auth
+        return bool(token and token.startswith("access_"))
+    
+    def has_global_fields(self) -> bool:
+        return self.globals.profile_id is not None or self.globals.testmode is not None
