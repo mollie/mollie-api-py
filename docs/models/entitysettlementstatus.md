@@ -1,0 +1,23 @@
+# EntitySettlementStatus
+
+The status of the settlement.
+
+## Example Usage
+
+```python
+from mollie.models import EntitySettlementStatus
+
+value = EntitySettlementStatus.OPEN
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+```
+
+
+## Values
+
+| Name      | Value     |
+| --------- | --------- |
+| `OPEN`    | open      |
+| `PENDING` | pending   |
+| `PAIDOUT` | paidout   |
+| `FAILED`  | failed    |
