@@ -1,10 +1,10 @@
 import uuid
 import sys
+import os
 import json
 
 from httpx import Request
 from typing import Union
-from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 
 from .types import (
     BeforeRequestHook,
@@ -22,6 +22,15 @@ def generate_idempotency_key() -> str:
 
 
 class MollieHooks(BeforeRequestHook):
+    def __init__(self):
+        super().__init__()
+        self.global_usage = self.set_global_usage()
+
+    def set_global_usage(self) -> dict:
+        routes_path = os.path.join(os.path.dirname(__file__), "global_usage.json")
+        with open(routes_path, "r", encoding="utf-8") as f:
+            return json.load(f)        
+
     def before_request(self, hook_ctx: BeforeRequestContext, request: Request) -> Union[Request, Exception]:
         """
         Modify the request before sending.
@@ -51,9 +60,8 @@ class MollieHooks(BeforeRequestHook):
             extensions=request.extensions
         )
 
-        # Then populate profile ID and testmode if OAuth (this may update headers again)
-        if self._is_oauth_request(headers, hook_ctx):
-            request = self._populate_profile_id_and_testmode(request, hook_ctx)
+        if self._can_inject_global_fields(hook_ctx):
+            request = self._inject_global_fields(request, hook_ctx)
 
         return request
 
@@ -69,6 +77,66 @@ class MollieHooks(BeforeRequestHook):
                 raise ValueError(
                     f"Invalid request: empty path parameter detected in [{request.method}] '{path}'"
                 )
+            
+    def _get_security_from_context(self, hook_ctx: BeforeRequestContext) -> Union[None, object]:
+        security = hook_ctx.config.security
+
+        if callable(security):
+            return security()
+
+        return security
+
+    def _can_inject_global_fields(self, hook_ctx: BeforeRequestContext) -> bool:
+        if not self.global_usage:
+            return False
+        
+        security = self._get_security_from_context(hook_ctx)
+
+        if security is None:
+            return False
+        
+        return hook_ctx.config.can_have_global_fields()  # type: ignore[attr-defined]
+
+    def _inject_global_fields(self, request: Request, hook_ctx: BeforeRequestContext) -> Request:
+        """
+        Check if the current request's operation ID is listed under any of the global fields in the global_usage mapping.
+        If it is, inject the corresponding global field in the body (if not already present) and return the modified request.
+        """
+        operation_id = hook_ctx.operation_id
+        globals_dict = hook_ctx.config.globals.model_dump(by_alias=True, exclude_none=True)
+
+        fields_to_inject = {
+            field: globals_dict[field]
+            for field, operations in self.global_usage.items()
+            if operation_id in operations and field in globals_dict
+        }
+
+        if not fields_to_inject:
+            return request
+
+        if request.content:
+            try:
+                body = json.loads(request.content)
+            except (json.JSONDecodeError, TypeError):
+                return request
+        else:
+            body = {}
+
+        for field, value in fields_to_inject.items():
+            if field not in body:
+                body[field] = value
+
+        new_content = json.dumps(body).encode("utf-8")
+        new_headers = dict(request.headers)
+        new_headers["content-length"] = str(len(new_content))
+
+        return Request(
+            method=request.method,
+            url=request.url,
+            headers=new_headers,
+            content=new_content,
+            extensions=request.extensions,
+        )
 
     def _is_oauth_request(self, headers: dict, hook_ctx: BeforeRequestContext) -> bool:
         security = hook_ctx.config.security
@@ -106,76 +174,3 @@ class MollieHooks(BeforeRequestHook):
         headers[user_agent_key] = new_user_agent
 
         return headers
-    
-    def _populate_profile_id_and_testmode(self, request: Request, hook_ctx: BeforeRequestContext) -> Request:        
-        client_profile_id = hook_ctx.config.globals.profile_id
-        client_testmode = hook_ctx.config.globals.testmode
-
-        # Get the HTTP method
-        method = request.method
-        
-        if method == "GET":
-            # Update the query parameters. If testmode or profileId are not present, add them.
-            parsed_url = urlparse(str(request.url))
-            query_params = parse_qs(parsed_url.query, keep_blank_values=True)
-            
-            # Add profileId if not already present
-            if client_profile_id is not None and 'profileId' not in query_params:
-                query_params['profileId'] = [client_profile_id]
-            
-            # Add testmode if not already present
-            if client_testmode is not None and 'testmode' not in query_params:
-                query_params['testmode'] = [str(client_testmode).lower()]
-            
-            # Rebuild the URL with updated query parameters
-            new_query = urlencode(query_params, doseq=True)
-            new_url = urlunparse((
-                parsed_url.scheme,
-                parsed_url.netloc,
-                parsed_url.path,
-                parsed_url.params,
-                new_query,
-                parsed_url.fragment
-            ))
-            
-            return Request(
-                method=request.method,
-                url=new_url,
-                headers=request.headers,
-                content=request.content,
-                extensions=request.extensions
-            )
-
-        # It's POST, DELETE, PATCH
-        # Update the JSON body. If testmode or profileId are not present, add them.
-        if request.content:
-            try:
-                body = json.loads(request.content)
-            except (json.JSONDecodeError, TypeError):
-                # If it's not JSON, return the request unchanged
-                return request
-        else:
-            body = {}
-        
-        # Add profileId if not already present
-        if client_profile_id is not None and 'profileId' not in body:
-            body['profileId'] = client_profile_id
-        
-        # Add testmode if not already present
-        if client_testmode is not None and 'testmode' not in body:
-            body['testmode'] = client_testmode
-        
-        # Create a new request with updated body
-        new_content = json.dumps(body).encode('utf-8')
-        
-        # Update headers with correct Content-Length
-        new_headers = dict(request.headers)
-        new_headers['content-length'] = str(len(new_content))
-        
-        return Request(
-            method=request.method,
-            url=request.url,
-            headers=new_headers,
-            content=new_content,
-            extensions=request.extensions
-        )
