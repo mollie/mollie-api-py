@@ -185,10 +185,11 @@ asyncio.run(main())
 
 This SDK supports the following security schemes globally:
 
-| Name      | Type   | Scheme       | Environment Variable |
-| --------- | ------ | ------------ | -------------------- |
-| `api_key` | http   | HTTP Bearer  | `CLIENT_API_KEY`     |
-| `o_auth`  | oauth2 | OAuth2 token | `CLIENT_O_AUTH`      |
+| Name                        | Type   | Scheme       | Environment Variable               |
+| --------------------------- | ------ | ------------ | ---------------------------------- |
+| `api_key`                   | http   | HTTP Bearer  | `CLIENT_API_KEY`                   |
+| `organization_access_token` | http   | HTTP Bearer  | `CLIENT_ORGANIZATION_ACCESS_TOKEN` |
+| `o_auth`                    | oauth2 | OAuth2 token | `CLIENT_O_AUTH`                    |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```python
