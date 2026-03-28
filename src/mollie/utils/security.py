@@ -68,6 +68,11 @@ def get_security_from_env(security: Any, security_class: Any) -> Optional[BaseMo
     if os.getenv("CLIENT_API_KEY"):
         security_dict["api_key"] = os.getenv("CLIENT_API_KEY")
 
+    if os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN"):
+        security_dict["organization_access_token"] = os.getenv(
+            "CLIENT_ORGANIZATION_ACCESS_TOKEN"
+        )
+
     if os.getenv("CLIENT_O_AUTH"):
         security_dict["o_auth"] = os.getenv("CLIENT_O_AUTH")
 
