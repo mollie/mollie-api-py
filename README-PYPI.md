@@ -135,7 +135,7 @@ import os
 with ClientSDK(
     testmode=True,
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -163,7 +163,7 @@ async def main():
     async with ClientSDK(
         testmode=True,
         security=mollie.Security(
-            o_auth=os.getenv("CLIENT_O_AUTH", ""),
+            organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
         ),
     ) as client_sdk:
 
@@ -513,7 +513,7 @@ with ClientSDK(
     profile_id="<id>",
     custom_user_agent="<value>",
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -544,7 +544,7 @@ import os
 with ClientSDK(
     testmode=True,
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -574,7 +574,7 @@ import os
 with ClientSDK(
     testmode=True,
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -600,7 +600,7 @@ with ClientSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     testmode=True,
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -638,7 +638,7 @@ import os
 with ClientSDK(
     testmode=True,
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
     res = None
@@ -708,7 +708,7 @@ with ClientSDK(
     server_url="https://api.mollie.com/v2",
     testmode=True,
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -819,7 +819,7 @@ def main():
     with ClientSDK(
         testmode=True,
         security=mollie.Security(
-            o_auth=os.getenv("CLIENT_O_AUTH", ""),
+            organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
         ),
     ) as client_sdk:
         # Rest of application here...
@@ -831,7 +831,7 @@ async def amain():
     async with ClientSDK(
         testmode=False,
         security=mollie.Security(
-            o_auth=os.getenv("CLIENT_O_AUTH", ""),
+            organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
         ),
     ) as client_sdk:
         # Rest of application here...

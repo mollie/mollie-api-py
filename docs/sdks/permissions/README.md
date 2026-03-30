@@ -24,7 +24,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -45,7 +45,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -90,7 +90,7 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -112,7 +112,7 @@ import os
 with ClientSDK(
     testmode=False,
     security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 

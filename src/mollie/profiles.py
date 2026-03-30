@@ -96,14 +96,14 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["422", "4XX", "5XX"],
+            error_status_codes=["403", "422", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.ProfileResponse, http_res)
-        if utils.match_response(http_res, "422", "application/hal+json"):
+        if utils.match_response(http_res, ["403", "422"], "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -199,14 +199,14 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["422", "4XX", "5XX"],
+            error_status_codes=["403", "422", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.ProfileResponse, http_res)
-        if utils.match_response(http_res, "422", "application/hal+json"):
+        if utils.match_response(http_res, ["403", "422"], "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -782,7 +782,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["404", "410", "422", "4XX", "5XX"],
+            error_status_codes=["403", "404", "410", "422", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
@@ -790,7 +790,7 @@ class Profiles(BaseSDK):
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.ProfileResponse, http_res)
         if utils.match_response(
-            http_res, ["404", "410", "422"], "application/hal+json"
+            http_res, ["403", "404", "410", "422"], "application/hal+json"
         ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
@@ -896,7 +896,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["404", "410", "422", "4XX", "5XX"],
+            error_status_codes=["403", "404", "410", "422", "4XX", "5XX"],
             retry_config=retry_config,
         )
 
@@ -904,7 +904,7 @@ class Profiles(BaseSDK):
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.ProfileResponse, http_res)
         if utils.match_response(
-            http_res, ["404", "410", "422"], "application/hal+json"
+            http_res, ["403", "404", "410", "422"], "application/hal+json"
         ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
