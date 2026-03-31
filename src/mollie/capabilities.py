@@ -39,6 +39,8 @@ class Capabilities(BaseSDK):
         This means that if at least one of the clients's profiles can receive payments,
         the payments capability is enabled, communicating that the organization can indeed receive payments.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -73,6 +75,7 @@ class Capabilities(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -142,6 +145,8 @@ class Capabilities(BaseSDK):
         This means that if at least one of the clients's profiles can receive payments,
         the payments capability is enabled, communicating that the organization can indeed receive payments.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -176,6 +181,7 @@ class Capabilities(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

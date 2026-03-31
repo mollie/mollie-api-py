@@ -31,6 +31,8 @@ class Clients(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use `organization_access_token` from the global security.
+
         :param embed: This endpoint allows embedding related API items by appending the
             following values via the `embed` query string parameter.
 
@@ -81,6 +83,7 @@ class Clients(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -174,6 +177,8 @@ class Clients(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use `organization_access_token` from the global security.
+
         :param embed: This endpoint allows embedding related API items by appending the
             following values via the `embed` query string parameter.
 
@@ -224,6 +229,7 @@ class Clients(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -316,6 +322,8 @@ class Clients(BaseSDK):
 
         Retrieve a single client by its ID.
 
+        If set, this operation will use `organization_access_token` from the global security.
+
         :param organization_id: Provide the ID of the related organization.
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string
             parameter.
@@ -362,6 +370,7 @@ class Clients(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -422,6 +431,8 @@ class Clients(BaseSDK):
 
         Retrieve a single client by its ID.
 
+        If set, this operation will use `organization_access_token` from the global security.
+
         :param organization_id: Provide the ID of the related organization.
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string
             parameter.
@@ -468,6 +479,7 @@ class Clients(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token"],
             timeout_ms=timeout_ms,
         )
 

@@ -31,6 +31,8 @@ class BalanceTransfers(BaseSDK):
         To create a balance transfer, you must be authenticated as the source organization, and the destination organization must be a connected organization
         that has authorized the `balance-transfers.write` scope for your organization.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param entity_balance_transfer:
         :param retries: Override the default retry configuration for this method
@@ -76,6 +78,7 @@ class BalanceTransfers(BaseSDK):
                 Optional[models.EntityBalanceTransfer],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -142,6 +145,8 @@ class BalanceTransfers(BaseSDK):
         To create a balance transfer, you must be authenticated as the source organization, and the destination organization must be a connected organization
         that has authorized the `balance-transfers.write` scope for your organization.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param entity_balance_transfer:
         :param retries: Override the default retry configuration for this method
@@ -187,6 +192,7 @@ class BalanceTransfers(BaseSDK):
                 Optional[models.EntityBalanceTransfer],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -252,6 +258,8 @@ class BalanceTransfers(BaseSDK):
 
         Returns a paginated list of balance transfers associated with your organization. These may be a balance transfer that was received or sent from your balance, or a balance transfer that you initiated on behalf of your clients. If no balance transfers are available, the resulting array will be empty. This request should never throw an error.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -302,6 +310,7 @@ class BalanceTransfers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -395,6 +404,8 @@ class BalanceTransfers(BaseSDK):
 
         Returns a paginated list of balance transfers associated with your organization. These may be a balance transfer that was received or sent from your balance, or a balance transfer that you initiated on behalf of your clients. If no balance transfers are available, the resulting array will be empty. This request should never throw an error.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -445,6 +456,7 @@ class BalanceTransfers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -540,6 +552,8 @@ class BalanceTransfers(BaseSDK):
 
         Retrieve a single Connect balance transfer object by its ID.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param balance_transfer_id: Provide the ID of the related balance transfer.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -583,6 +597,7 @@ class BalanceTransfers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -645,6 +660,8 @@ class BalanceTransfers(BaseSDK):
 
         Retrieve a single Connect balance transfer object by its ID.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param balance_transfer_id: Provide the ID of the related balance transfer.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -688,6 +705,7 @@ class BalanceTransfers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

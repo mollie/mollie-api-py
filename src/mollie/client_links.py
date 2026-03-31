@@ -79,6 +79,8 @@ class ClientLinks(BaseSDK):
         >
         > A client link must be used within 30 days of creation. After that period, it will expire and you will need to create a new client link.
 
+        If set, this operation will use `organization_access_token` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param client_link_request:
         :param retries: Override the default retry configuration for this method
@@ -124,6 +126,7 @@ class ClientLinks(BaseSDK):
                 Optional[models.ClientLinkRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -237,6 +240,8 @@ class ClientLinks(BaseSDK):
         >
         > A client link must be used within 30 days of creation. After that period, it will expire and you will need to create a new client link.
 
+        If set, this operation will use `organization_access_token` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param client_link_request:
         :param retries: Override the default retry configuration for this method
@@ -282,6 +287,7 @@ class ClientLinks(BaseSDK):
                 Optional[models.ClientLinkRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token"],
             timeout_ms=timeout_ms,
         )
 

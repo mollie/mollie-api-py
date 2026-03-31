@@ -31,6 +31,8 @@ class Webhooks(BaseSDK):
 
         A webhook must have a name, an url and a list of event types. You can also create webhooks in the webhooks settings section of the Dashboard.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
         :param retries: Override the default retry configuration for this method
@@ -76,6 +78,7 @@ class Webhooks(BaseSDK):
                 Optional[models.CreateWebhookRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -140,6 +143,8 @@ class Webhooks(BaseSDK):
 
         A webhook must have a name, an url and a list of event types. You can also create webhooks in the webhooks settings section of the Dashboard.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
         :param retries: Override the default retry configuration for this method
@@ -185,6 +190,7 @@ class Webhooks(BaseSDK):
                 Optional[models.CreateWebhookRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -249,6 +255,8 @@ class Webhooks(BaseSDK):
 
         Returns a paginated list of your webhooks. If no webhook endpoints are available, the resulting array will be empty. This request should never throw an error.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -301,6 +309,7 @@ class Webhooks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -396,6 +405,8 @@ class Webhooks(BaseSDK):
 
         Returns a paginated list of your webhooks. If no webhook endpoints are available, the resulting array will be empty. This request should never throw an error.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -448,6 +459,7 @@ class Webhooks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -547,6 +559,8 @@ class Webhooks(BaseSDK):
 
         Updates the webhook. You may edit the name, url and the list of subscribed event types.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param webhook_id: Provide the ID of the related webhook.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -594,6 +608,7 @@ class Webhooks(BaseSDK):
                 Optional[models.UpdateWebhookRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -659,6 +674,8 @@ class Webhooks(BaseSDK):
 
         Updates the webhook. You may edit the name, url and the list of subscribed event types.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param webhook_id: Provide the ID of the related webhook.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -706,6 +723,7 @@ class Webhooks(BaseSDK):
                 Optional[models.UpdateWebhookRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -766,6 +784,8 @@ class Webhooks(BaseSDK):
 
         Retrieve a single webhook object by its ID.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param webhook_id: Provide the ID of the related webhook.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -809,6 +829,7 @@ class Webhooks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -869,6 +890,8 @@ class Webhooks(BaseSDK):
 
         Retrieve a single webhook object by its ID.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param webhook_id: Provide the ID of the related webhook.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -912,6 +935,7 @@ class Webhooks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -977,6 +1001,8 @@ class Webhooks(BaseSDK):
 
         Delete a single webhook object by its webhook ID.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param webhook_id: Provide the ID of the related webhook.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1024,6 +1050,7 @@ class Webhooks(BaseSDK):
                 Optional[models.DeleteWebhookRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1089,6 +1116,8 @@ class Webhooks(BaseSDK):
 
         Delete a single webhook object by its webhook ID.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param webhook_id: Provide the ID of the related webhook.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1136,6 +1165,7 @@ class Webhooks(BaseSDK):
                 Optional[models.DeleteWebhookRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1198,6 +1228,8 @@ class Webhooks(BaseSDK):
 
         Sends a test event to the webhook to verify the endpoint is working as expected.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param webhook_id: Provide the ID of the related webhook.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1245,6 +1277,7 @@ class Webhooks(BaseSDK):
                 Optional[models.TestWebhookRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1307,6 +1340,8 @@ class Webhooks(BaseSDK):
 
         Sends a test event to the webhook to verify the endpoint is working as expected.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param webhook_id: Provide the ID of the related webhook.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1354,6 +1389,7 @@ class Webhooks(BaseSDK):
                 Optional[models.TestWebhookRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

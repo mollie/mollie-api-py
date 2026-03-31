@@ -40,6 +40,8 @@ if TYPE_CHECKING:
     from mollie.settlements import Settlements
     from mollie.subscriptions import Subscriptions
     from mollie.terminals import Terminals
+    from mollie.transfers_sdk import TransfersSDK
+    from mollie.verify_payees import VerifyPayees
     from mollie.wallets import Wallets
     from mollie.webhook_events import WebhookEvents
     from mollie.webhooks import Webhooks
@@ -73,6 +75,8 @@ class ClientSDK(BaseSDK):
     mandates: "Mandates"
     subscriptions: "Subscriptions"
     sales_invoices: "SalesInvoices"
+    transfers: "TransfersSDK"
+    verify_payees: "VerifyPayees"
     _sub_sdk_map = {
         "balances": ("mollie.balances", "Balances"),
         "settlements": ("mollie.settlements", "Settlements"),
@@ -101,6 +105,8 @@ class ClientSDK(BaseSDK):
         "mandates": ("mollie.mandates", "Mandates"),
         "subscriptions": ("mollie.subscriptions", "Subscriptions"),
         "sales_invoices": ("mollie.sales_invoices", "SalesInvoices"),
+        "transfers": ("mollie.transfers_sdk", "TransfersSDK"),
+        "verify_payees": ("mollie.verify_payees", "VerifyPayees"),
     }
 
     def __init__(
