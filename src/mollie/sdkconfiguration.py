@@ -55,7 +55,7 @@ class SDKConfiguration:
 
         security_obj = self.security() if callable(self.security) else self.security
 
-        token = security_obj.api_key or security_obj.o_auth
+        token = security_obj.api_key or security_obj.organization_access_token or security_obj.o_auth
         return bool(token and token.startswith("access_"))
     
     def has_global_fields(self) -> bool:
