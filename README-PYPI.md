@@ -461,6 +461,15 @@ client = ClientSDK(
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/terminals/README.md#list) - List terminals
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/terminals/README.md#get) - Get terminal
 
+### [Transfers](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/transferssdk/README.md)
+
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/transferssdk/README.md#create) - Create transfer
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/transferssdk/README.md#get) - Get transfer
+
+### [VerifyPayees](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/verifypayees/README.md)
+
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/verifypayees/README.md#create) - Verify Payee
+
 ### [Wallets](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/wallets/README.md)
 
 * [request_apple_pay_session](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/wallets/README.md#request_apple_pay_session) - Request Apple Pay payment session

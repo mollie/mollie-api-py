@@ -31,6 +31,8 @@ class Organizations(BaseSDK):
 
         If you have a *partner account*', you can retrieve organization details of connected organizations.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param organization_id: Provide the ID of the related organization.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -74,6 +76,7 @@ class Organizations(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -139,6 +142,8 @@ class Organizations(BaseSDK):
 
         If you have a *partner account*', you can retrieve organization details of connected organizations.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param organization_id: Provide the ID of the related organization.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
 
@@ -182,6 +187,7 @@ class Organizations(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -244,6 +250,8 @@ class Organizations(BaseSDK):
         For a complete reference of the organization object, refer to the [Get organization](get-organization) endpoint
         documentation.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -278,6 +286,7 @@ class Organizations(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -336,6 +345,8 @@ class Organizations(BaseSDK):
         For a complete reference of the organization object, refer to the [Get organization](get-organization) endpoint
         documentation.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -370,6 +381,7 @@ class Organizations(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -425,6 +437,8 @@ class Organizations(BaseSDK):
         Retrieve partnership details about the currently authenticated organization. Only relevant for so-called *partner
         accounts*.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -459,6 +473,7 @@ class Organizations(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -514,6 +529,8 @@ class Organizations(BaseSDK):
         Retrieve partnership details about the currently authenticated organization. Only relevant for so-called *partner
         accounts*.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -548,6 +565,7 @@ class Organizations(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

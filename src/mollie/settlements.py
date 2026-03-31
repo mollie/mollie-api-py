@@ -34,6 +34,8 @@ class Settlements(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -83,6 +85,7 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -182,6 +185,8 @@ class Settlements(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -231,6 +236,7 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -336,6 +342,8 @@ class Settlements(BaseSDK):
         For more accurate bookkeeping, refer to the [balance report](get-balance-report) endpoint or the
         [balance transactions](list-balance-transactions) endpoint.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -372,6 +380,7 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -442,6 +451,8 @@ class Settlements(BaseSDK):
         For more accurate bookkeeping, refer to the [balance report](get-balance-report) endpoint or the
         [balance transactions](list-balance-transactions) endpoint.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -478,6 +489,7 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -543,6 +555,8 @@ class Settlements(BaseSDK):
         For more accurate bookkeeping, refer to the [balance report](get-balance-report) endpoint or the
         [balance transactions](list-balance-transactions) endpoint.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -577,6 +591,7 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -638,6 +653,8 @@ class Settlements(BaseSDK):
         For more accurate bookkeeping, refer to the [balance report](get-balance-report) endpoint or the
         [balance transactions](list-balance-transactions) endpoint.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -672,6 +689,7 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -732,6 +750,8 @@ class Settlements(BaseSDK):
         For more accurate bookkeeping, refer to the [balance report](get-balance-report) endpoint or the
         [balance transactions](list-balance-transactions) endpoint.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -766,6 +786,7 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -826,6 +847,8 @@ class Settlements(BaseSDK):
         For more accurate bookkeeping, refer to the [balance report](get-balance-report) endpoint or the
         [balance transactions](list-balance-transactions) endpoint.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -860,6 +883,7 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -926,6 +950,8 @@ class Settlements(BaseSDK):
         For capture-based payment methods such as Klarna, the payments are not listed here. Refer to the
         [List captures endpoint](list-captures) endpoint instead.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
@@ -987,6 +1013,7 @@ class Settlements(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1089,6 +1116,8 @@ class Settlements(BaseSDK):
         For capture-based payment methods such as Klarna, the payments are not listed here. Refer to the
         [List captures endpoint](list-captures) endpoint instead.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
@@ -1150,6 +1179,7 @@ class Settlements(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1251,6 +1281,8 @@ class Settlements(BaseSDK):
 
         The response is in the same format as the response of the [List captures endpoint](list-captures).
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -1305,6 +1337,7 @@ class Settlements(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1402,6 +1435,8 @@ class Settlements(BaseSDK):
 
         The response is in the same format as the response of the [List captures endpoint](list-captures).
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -1456,6 +1491,7 @@ class Settlements(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1556,6 +1592,8 @@ class Settlements(BaseSDK):
 
         The response is in the same format as the response of the [List refunds endpoint](list-refunds).
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -1610,6 +1648,7 @@ class Settlements(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1707,6 +1746,8 @@ class Settlements(BaseSDK):
 
         The response is in the same format as the response of the [List refunds endpoint](list-refunds).
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -1761,6 +1802,7 @@ class Settlements(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1861,6 +1903,8 @@ class Settlements(BaseSDK):
 
         The response is in the same format as the response of the [List chargebacks endpoint](list-chargebacks).
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -1914,6 +1958,7 @@ class Settlements(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -2011,6 +2056,8 @@ class Settlements(BaseSDK):
 
         The response is in the same format as the response of the [List chargebacks endpoint](list-chargebacks).
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param settlement_id: Provide the ID of the related settlement.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -2064,6 +2111,7 @@ class Settlements(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

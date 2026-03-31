@@ -34,6 +34,8 @@ class Invoices(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param reference: Filter for an invoice with a specific invoice reference, for example
             `2024.10000`.
         :param year: Filter for invoices of a specific year, for example `2024`.
@@ -82,6 +84,7 @@ class Invoices(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -180,6 +183,8 @@ class Invoices(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param reference: Filter for an invoice with a specific invoice reference, for example
             `2024.10000`.
         :param year: Filter for invoices of a specific year, for example `2024`.
@@ -228,6 +233,7 @@ class Invoices(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -324,6 +330,8 @@ class Invoices(BaseSDK):
         If you want to retrieve the details of an invoice by its invoice number,
         call the [List invoices](list-invoices) endpoint with the `reference` parameter.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param invoice_id: Provide the ID of the related invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -360,6 +368,7 @@ class Invoices(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -422,6 +431,8 @@ class Invoices(BaseSDK):
         If you want to retrieve the details of an invoice by its invoice number,
         call the [List invoices](list-invoices) endpoint with the `reference` parameter.
 
+        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+
         :param invoice_id: Provide the ID of the related invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -458,6 +469,7 @@ class Invoices(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["organization_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

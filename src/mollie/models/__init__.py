@@ -7,6 +7,8 @@ from typing import Any, TYPE_CHECKING
 from mollie.utils.dynamic_imports import lazy_getattr, lazy_dir
 
 if TYPE_CHECKING:
+    from .account_number_format import AccountNumberFormat
+    from .account_number_format_response import AccountNumberFormatResponse
     from .address import Address, AddressTypedDict
     from .amount import Amount, AmountTypedDict
     from .amount_nullable import AmountNullable, AmountNullableTypedDict
@@ -110,6 +112,7 @@ if TYPE_CHECKING:
         CreateSubscriptionRequest,
         CreateSubscriptionRequestTypedDict,
     )
+    from .create_transferop import CreateTransferRequest, CreateTransferRequestTypedDict
     from .create_webhook import (
         CreateWebhook,
         CreateWebhookLinks,
@@ -123,6 +126,12 @@ if TYPE_CHECKING:
         CreateWebhookRequestBody,
         CreateWebhookRequestBodyTypedDict,
         CreateWebhookRequestTypedDict,
+    )
+    from .credit_debit_indicator import CreditDebitIndicator
+    from .creditor_bank_account import CreditorBankAccount, CreditorBankAccountTypedDict
+    from .creditor_bank_account_response import (
+        CreditorBankAccountResponse,
+        CreditorBankAccountResponseTypedDict,
     )
     from .currencies import Currencies
     from .customer_response import (
@@ -619,6 +628,12 @@ if TYPE_CHECKING:
         GetTerminalGlobalsTypedDict,
         GetTerminalRequest,
         GetTerminalRequestTypedDict,
+    )
+    from .get_transferop import (
+        GetTransferGlobals,
+        GetTransferGlobalsTypedDict,
+        GetTransferRequest,
+        GetTransferRequestTypedDict,
     )
     from .get_webhook_eventop import (
         GetWebhookEventGlobals,
@@ -1536,7 +1551,13 @@ if TYPE_CHECKING:
     from .session_sequence_type import SessionSequenceType
     from .session_sequence_type_response import SessionSequenceTypeResponse
     from .sorting import Sorting
+    from .status_history_entry_response import (
+        StatusHistoryEntryResponse,
+        StatusHistoryEntryResponseTypedDict,
+    )
     from .status_reason import Code, StatusReason, StatusReasonTypedDict
+    from .status_reason_2 import StatusReason2, StatusReason2TypedDict
+    from .status_reason_code_response import StatusReasonCodeResponse
     from .sub_group import SubGroup, SubGroupTypedDict
     from .sub_totals import SubTotals, SubTotalsTypedDict
     from .submit_onboarding_dataop import (
@@ -1574,6 +1595,29 @@ if TYPE_CHECKING:
         TestWebhookRequestBodyTypedDict,
         TestWebhookRequestTypedDict,
     )
+    from .transfer_party import (
+        TransferParty,
+        TransferPartyAccount,
+        TransferPartyAccountTypedDict,
+        TransferPartyTypedDict,
+    )
+    from .transfer_request import TransferRequest, TransferRequestTypedDict
+    from .transfer_response import (
+        Debtor,
+        DebtorTypedDict,
+        TransferResponse,
+        TransferResponseAccount,
+        TransferResponseAccountTypedDict,
+        TransferResponseTypedDict,
+    )
+    from .transfer_scheme import TransferScheme, TransferSchemeTypedDict
+    from .transfer_scheme_response import (
+        TransferSchemeResponse,
+        TransferSchemeResponseTypedDict,
+    )
+    from .transfer_scheme_type import TransferSchemeType
+    from .transfer_scheme_type_response import TransferSchemeTypeResponse
+    from .transfer_status import TransferStatus
     from .update_customerop import (
         UpdateCustomerRequest,
         UpdateCustomerRequestBody,
@@ -1620,12 +1664,26 @@ if TYPE_CHECKING:
     )
     from .url import URL, URLTypedDict
     from .url_nullable import URLNullable, URLNullableTypedDict
+    from .verification_of_payee_request import (
+        VerificationOfPayeeRequest,
+        VerificationOfPayeeRequestTypedDict,
+    )
+    from .verification_of_payee_response import (
+        VerificationOfPayeeResponse,
+        VerificationOfPayeeResponseTypedDict,
+        VerificationOfPayeeResponseVerificationResult,
+        VerificationOfPayeeResponseVerificationResultTypedDict,
+    )
+    from .verification_result_enum import VerificationResultEnum
+    from .verify_payeeop import VerifyPayeeRequest, VerifyPayeeRequestTypedDict
     from .webhook_event_types import WebhookEventTypes
     from .webhook_status import WebhookStatus
     from . import internal
 
 __all__ = [
     "APIError",
+    "AccountNumberFormat",
+    "AccountNumberFormatResponse",
     "Address",
     "AddressTypedDict",
     "Amount",
@@ -1744,6 +1802,8 @@ __all__ = [
     "CreateSessionRequestTypedDict",
     "CreateSubscriptionRequest",
     "CreateSubscriptionRequestTypedDict",
+    "CreateTransferRequest",
+    "CreateTransferRequestTypedDict",
     "CreateWebhook",
     "CreateWebhookEventTypes",
     "CreateWebhookEventTypesTypedDict",
@@ -1754,11 +1814,18 @@ __all__ = [
     "CreateWebhookRequestBodyTypedDict",
     "CreateWebhookRequestTypedDict",
     "CreateWebhookTypedDict",
+    "CreditDebitIndicator",
+    "CreditorBankAccount",
+    "CreditorBankAccountResponse",
+    "CreditorBankAccountResponseTypedDict",
+    "CreditorBankAccountTypedDict",
     "Currencies",
     "CustomerResponse",
     "CustomerResponseLinks",
     "CustomerResponseLinksTypedDict",
     "CustomerResponseTypedDict",
+    "Debtor",
+    "DebtorTypedDict",
     "DeductionDetails",
     "DeductionDetailsTypedDict",
     "DeleteCustomerRequest",
@@ -2064,6 +2131,10 @@ __all__ = [
     "GetTerminalGlobalsTypedDict",
     "GetTerminalRequest",
     "GetTerminalRequestTypedDict",
+    "GetTransferGlobals",
+    "GetTransferGlobalsTypedDict",
+    "GetTransferRequest",
+    "GetTransferRequestTypedDict",
     "GetWebhookEventGlobals",
     "GetWebhookEventGlobalsTypedDict",
     "GetWebhookEventRequest",
@@ -2857,7 +2928,12 @@ __all__ = [
     "Sorting",
     "SplitPayment",
     "SplitPaymentTypedDict",
+    "StatusHistoryEntryResponse",
+    "StatusHistoryEntryResponseTypedDict",
     "StatusReason",
+    "StatusReason2",
+    "StatusReason2TypedDict",
+    "StatusReasonCodeResponse",
     "StatusReasonTypedDict",
     "SubGroup",
     "SubGroupTypedDict",
@@ -2890,6 +2966,23 @@ __all__ = [
     "TopupsTypedDict",
     "Totals",
     "TotalsTypedDict",
+    "TransferParty",
+    "TransferPartyAccount",
+    "TransferPartyAccountTypedDict",
+    "TransferPartyTypedDict",
+    "TransferRequest",
+    "TransferRequestTypedDict",
+    "TransferResponse",
+    "TransferResponseAccount",
+    "TransferResponseAccountTypedDict",
+    "TransferResponseTypedDict",
+    "TransferScheme",
+    "TransferSchemeResponse",
+    "TransferSchemeResponseTypedDict",
+    "TransferSchemeType",
+    "TransferSchemeTypeResponse",
+    "TransferSchemeTypedDict",
+    "TransferStatus",
     "Transfers",
     "TransfersTypedDict",
     "Type",
@@ -2931,11 +3024,22 @@ __all__ = [
     "UpdateWebhookRequestTypedDict",
     "UserAgentToken",
     "UserAgentTokenTypedDict",
+    "VerificationOfPayeeRequest",
+    "VerificationOfPayeeRequestTypedDict",
+    "VerificationOfPayeeResponse",
+    "VerificationOfPayeeResponseTypedDict",
+    "VerificationOfPayeeResponseVerificationResult",
+    "VerificationOfPayeeResponseVerificationResultTypedDict",
+    "VerificationResultEnum",
+    "VerifyPayeeRequest",
+    "VerifyPayeeRequestTypedDict",
     "WebhookEventTypes",
     "WebhookStatus",
 ]
 
 _dynamic_imports: dict[str, str] = {
+    "AccountNumberFormat": ".account_number_format",
+    "AccountNumberFormatResponse": ".account_number_format_response",
     "Address": ".address",
     "AddressTypedDict": ".address",
     "Amount": ".amount",
@@ -3025,6 +3129,8 @@ _dynamic_imports: dict[str, str] = {
     "CreateSessionRequestTypedDict": ".create_sessionop",
     "CreateSubscriptionRequest": ".create_subscriptionop",
     "CreateSubscriptionRequestTypedDict": ".create_subscriptionop",
+    "CreateTransferRequest": ".create_transferop",
+    "CreateTransferRequestTypedDict": ".create_transferop",
     "CreateWebhook": ".create_webhook",
     "CreateWebhookLinks": ".create_webhook",
     "CreateWebhookLinksTypedDict": ".create_webhook",
@@ -3035,6 +3141,11 @@ _dynamic_imports: dict[str, str] = {
     "CreateWebhookRequestBody": ".create_webhookop",
     "CreateWebhookRequestBodyTypedDict": ".create_webhookop",
     "CreateWebhookRequestTypedDict": ".create_webhookop",
+    "CreditDebitIndicator": ".credit_debit_indicator",
+    "CreditorBankAccount": ".creditor_bank_account",
+    "CreditorBankAccountTypedDict": ".creditor_bank_account",
+    "CreditorBankAccountResponse": ".creditor_bank_account_response",
+    "CreditorBankAccountResponseTypedDict": ".creditor_bank_account_response",
     "Currencies": ".currencies",
     "CustomerResponse": ".customer_response",
     "CustomerResponseLinks": ".customer_response",
@@ -3428,6 +3539,10 @@ _dynamic_imports: dict[str, str] = {
     "GetTerminalGlobalsTypedDict": ".get_terminalop",
     "GetTerminalRequest": ".get_terminalop",
     "GetTerminalRequestTypedDict": ".get_terminalop",
+    "GetTransferGlobals": ".get_transferop",
+    "GetTransferGlobalsTypedDict": ".get_transferop",
+    "GetTransferRequest": ".get_transferop",
+    "GetTransferRequestTypedDict": ".get_transferop",
     "GetWebhookEventGlobals": ".get_webhook_eventop",
     "GetWebhookEventGlobalsTypedDict": ".get_webhook_eventop",
     "GetWebhookEventRequest": ".get_webhook_eventop",
@@ -4173,9 +4288,14 @@ _dynamic_imports: dict[str, str] = {
     "SessionSequenceType": ".session_sequence_type",
     "SessionSequenceTypeResponse": ".session_sequence_type_response",
     "Sorting": ".sorting",
+    "StatusHistoryEntryResponse": ".status_history_entry_response",
+    "StatusHistoryEntryResponseTypedDict": ".status_history_entry_response",
     "Code": ".status_reason",
     "StatusReason": ".status_reason",
     "StatusReasonTypedDict": ".status_reason",
+    "StatusReason2": ".status_reason_2",
+    "StatusReason2TypedDict": ".status_reason_2",
+    "StatusReasonCodeResponse": ".status_reason_code_response",
     "SubGroup": ".sub_group",
     "SubGroupTypedDict": ".sub_group",
     "SubTotals": ".sub_totals",
@@ -4207,6 +4327,25 @@ _dynamic_imports: dict[str, str] = {
     "TestWebhookRequestBody": ".test_webhookop",
     "TestWebhookRequestBodyTypedDict": ".test_webhookop",
     "TestWebhookRequestTypedDict": ".test_webhookop",
+    "TransferParty": ".transfer_party",
+    "TransferPartyAccount": ".transfer_party",
+    "TransferPartyAccountTypedDict": ".transfer_party",
+    "TransferPartyTypedDict": ".transfer_party",
+    "TransferRequest": ".transfer_request",
+    "TransferRequestTypedDict": ".transfer_request",
+    "Debtor": ".transfer_response",
+    "DebtorTypedDict": ".transfer_response",
+    "TransferResponse": ".transfer_response",
+    "TransferResponseAccount": ".transfer_response",
+    "TransferResponseAccountTypedDict": ".transfer_response",
+    "TransferResponseTypedDict": ".transfer_response",
+    "TransferScheme": ".transfer_scheme",
+    "TransferSchemeTypedDict": ".transfer_scheme",
+    "TransferSchemeResponse": ".transfer_scheme_response",
+    "TransferSchemeResponseTypedDict": ".transfer_scheme_response",
+    "TransferSchemeType": ".transfer_scheme_type",
+    "TransferSchemeTypeResponse": ".transfer_scheme_type_response",
+    "TransferStatus": ".transfer_status",
     "UpdateCustomerRequest": ".update_customerop",
     "UpdateCustomerRequestBody": ".update_customerop",
     "UpdateCustomerRequestBodyTypedDict": ".update_customerop",
@@ -4241,6 +4380,15 @@ _dynamic_imports: dict[str, str] = {
     "URLTypedDict": ".url",
     "URLNullable": ".url_nullable",
     "URLNullableTypedDict": ".url_nullable",
+    "VerificationOfPayeeRequest": ".verification_of_payee_request",
+    "VerificationOfPayeeRequestTypedDict": ".verification_of_payee_request",
+    "VerificationOfPayeeResponse": ".verification_of_payee_response",
+    "VerificationOfPayeeResponseTypedDict": ".verification_of_payee_response",
+    "VerificationOfPayeeResponseVerificationResult": ".verification_of_payee_response",
+    "VerificationOfPayeeResponseVerificationResultTypedDict": ".verification_of_payee_response",
+    "VerificationResultEnum": ".verification_result_enum",
+    "VerifyPayeeRequest": ".verify_payeeop",
+    "VerifyPayeeRequestTypedDict": ".verify_payeeop",
     "WebhookEventTypes": ".webhook_event_types",
     "WebhookStatus": ".webhook_status",
 }

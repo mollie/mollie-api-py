@@ -461,6 +461,15 @@ client = ClientSDK(
 * [list](docs/sdks/terminals/README.md#list) - List terminals
 * [get](docs/sdks/terminals/README.md#get) - Get terminal
 
+### [Transfers](docs/sdks/transferssdk/README.md)
+
+* [create](docs/sdks/transferssdk/README.md#create) - Create transfer
+* [get](docs/sdks/transferssdk/README.md#get) - Get transfer
+
+### [VerifyPayees](docs/sdks/verifypayees/README.md)
+
+* [create](docs/sdks/verifypayees/README.md#create) - Verify Payee
+
 ### [Wallets](docs/sdks/wallets/README.md)
 
 * [request_apple_pay_session](docs/sdks/wallets/README.md#request_apple_pay_session) - Request Apple Pay payment session
