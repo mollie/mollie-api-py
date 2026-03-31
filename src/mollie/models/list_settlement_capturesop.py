@@ -2,8 +2,11 @@
 # @generated-id: d5f08197fa53
 
 from __future__ import annotations
-from .list_capture_response import ListCaptureResponse, ListCaptureResponseTypedDict
 from .list_links import ListLinks, ListLinksTypedDict
+from .list_settlement_capture_response import (
+    ListSettlementCaptureResponse,
+    ListSettlementCaptureResponseTypedDict,
+)
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import (
     FieldMetadata,
@@ -17,64 +20,18 @@ from typing import Awaitable, Callable, List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class ListSettlementCapturesGlobalsTypedDict(TypedDict):
-    testmode: NotRequired[bool]
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
-
-
-class ListSettlementCapturesGlobals(BaseModel):
-    testmode: Annotated[
-        Optional[bool],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["testmode"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
-
-
 class ListSettlementCapturesRequestTypedDict(TypedDict):
     settlement_id: str
     r"""Provide the ID of the related settlement."""
     from_: NotRequired[str]
-    r"""Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
-    result set.
+    r"""Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
+    the result set.
     """
     limit: NotRequired[Nullable[int]]
     r"""The maximum number of items to return. Defaults to 50 items."""
     embed: NotRequired[Nullable[str]]
     r"""This endpoint allows you to embed additional resources via the
     `embed` query string parameter.
-    """
-    testmode: NotRequired[bool]
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
     """
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
@@ -93,8 +50,8 @@ class ListSettlementCapturesRequest(BaseModel):
         pydantic.Field(alias="from"),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = None
-    r"""Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
-    result set.
+    r"""Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
+    the result set.
     """
 
     limit: Annotated[
@@ -111,17 +68,6 @@ class ListSettlementCapturesRequest(BaseModel):
     `embed` query string parameter.
     """
 
-    testmode: Annotated[
-        Optional[bool],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
-
     idempotency_key: Annotated[
         Optional[str],
         pydantic.Field(alias="idempotency-key"),
@@ -131,7 +77,7 @@ class ListSettlementCapturesRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["from", "limit", "embed", "testmode", "idempotency-key"])
+        optional_fields = set(["from", "limit", "embed", "idempotency-key"])
         nullable_fields = set(["limit", "embed"])
         serialized = handler(self)
         m = {}
@@ -156,12 +102,12 @@ class ListSettlementCapturesRequest(BaseModel):
 
 
 class ListSettlementCapturesEmbeddedTypedDict(TypedDict):
-    captures: List[ListCaptureResponseTypedDict]
+    captures: List[ListSettlementCaptureResponseTypedDict]
     r"""An array of capture objects."""
 
 
 class ListSettlementCapturesEmbedded(BaseModel):
-    captures: List[ListCaptureResponse]
+    captures: List[ListSettlementCaptureResponse]
     r"""An array of capture objects."""
 
 

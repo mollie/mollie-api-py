@@ -933,7 +933,6 @@ class Settlements(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
         profile_id: Optional[str] = None,
-        testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -963,11 +962,6 @@ class Settlements(BaseSDK):
 
             Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
             organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
-        :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-            parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-            setting the `testmode` query parameter to `true`.
-
-            Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -990,7 +984,6 @@ class Settlements(BaseSDK):
             limit=limit,
             sort=sort,
             profile_id=profile_id,
-            testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
@@ -1009,7 +1002,6 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             _globals=models.ListSettlementPaymentsGlobals(
                 profile_id=self.sdk_configuration.globals.profile_id,
-                testmode=self.sdk_configuration.globals.testmode,
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
@@ -1065,7 +1057,6 @@ class Settlements(BaseSDK):
                 limit=limit,
                 sort=sort,
                 profile_id=profile_id,
-                testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
                 url_override=next_url,
@@ -1099,7 +1090,6 @@ class Settlements(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
         profile_id: Optional[str] = None,
-        testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1129,11 +1119,6 @@ class Settlements(BaseSDK):
 
             Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
             organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
-        :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-            parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-            setting the `testmode` query parameter to `true`.
-
-            Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1156,7 +1141,6 @@ class Settlements(BaseSDK):
             limit=limit,
             sort=sort,
             profile_id=profile_id,
-            testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
@@ -1175,7 +1159,6 @@ class Settlements(BaseSDK):
             http_headers=http_headers,
             _globals=models.ListSettlementPaymentsGlobals(
                 profile_id=self.sdk_configuration.globals.profile_id,
-                testmode=self.sdk_configuration.globals.testmode,
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
@@ -1234,7 +1217,6 @@ class Settlements(BaseSDK):
                 limit=limit,
                 sort=sort,
                 profile_id=profile_id,
-                testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
                 url_override=next_url,
@@ -1267,7 +1249,6 @@ class Settlements(BaseSDK):
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         embed: OptionalNullable[str] = UNSET,
-        testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1284,16 +1265,11 @@ class Settlements(BaseSDK):
         If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
 
         :param settlement_id: Provide the ID of the related settlement.
-        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
-            result set.
+        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
+            the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param embed: This endpoint allows you to embed additional resources via the
             `embed` query string parameter.
-        :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-            parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-            setting the `testmode` query parameter to `true`.
-
-            Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1315,7 +1291,6 @@ class Settlements(BaseSDK):
             from_=from_,
             limit=limit,
             embed=embed,
-            testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
@@ -1332,9 +1307,6 @@ class Settlements(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/hal+json",
             http_headers=http_headers,
-            _globals=models.ListSettlementCapturesGlobals(
-                testmode=self.sdk_configuration.globals.testmode,
-            ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
             allowed_fields=["organization_access_token", "o_auth"],
@@ -1388,7 +1360,6 @@ class Settlements(BaseSDK):
                 from_=from_,
                 limit=limit,
                 embed=embed,
-                testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
                 url_override=next_url,
@@ -1421,7 +1392,6 @@ class Settlements(BaseSDK):
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         embed: OptionalNullable[str] = UNSET,
-        testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1438,16 +1408,11 @@ class Settlements(BaseSDK):
         If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
 
         :param settlement_id: Provide the ID of the related settlement.
-        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
-            result set.
+        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
+            the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param embed: This endpoint allows you to embed additional resources via the
             `embed` query string parameter.
-        :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-            parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-            setting the `testmode` query parameter to `true`.
-
-            Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1469,7 +1434,6 @@ class Settlements(BaseSDK):
             from_=from_,
             limit=limit,
             embed=embed,
-            testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
@@ -1486,9 +1450,6 @@ class Settlements(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/hal+json",
             http_headers=http_headers,
-            _globals=models.ListSettlementCapturesGlobals(
-                testmode=self.sdk_configuration.globals.testmode,
-            ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
             allowed_fields=["organization_access_token", "o_auth"],
@@ -1545,7 +1506,6 @@ class Settlements(BaseSDK):
                 from_=from_,
                 limit=limit,
                 embed=embed,
-                testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
                 url_override=next_url,
@@ -1578,7 +1538,6 @@ class Settlements(BaseSDK):
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         embed: OptionalNullable[str] = UNSET,
-        testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1595,16 +1554,11 @@ class Settlements(BaseSDK):
         If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
 
         :param settlement_id: Provide the ID of the related settlement.
-        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
-            result set.
+        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
+            the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string
             parameter.
-        :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-            parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-            setting the `testmode` query parameter to `true`.
-
-            Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1626,7 +1580,6 @@ class Settlements(BaseSDK):
             from_=from_,
             limit=limit,
             embed=embed,
-            testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
@@ -1643,9 +1596,6 @@ class Settlements(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/hal+json",
             http_headers=http_headers,
-            _globals=models.ListSettlementRefundsGlobals(
-                testmode=self.sdk_configuration.globals.testmode,
-            ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
             allowed_fields=["organization_access_token", "o_auth"],
@@ -1699,7 +1649,6 @@ class Settlements(BaseSDK):
                 from_=from_,
                 limit=limit,
                 embed=embed,
-                testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
                 url_override=next_url,
@@ -1732,7 +1681,6 @@ class Settlements(BaseSDK):
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         embed: OptionalNullable[str] = UNSET,
-        testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1749,16 +1697,11 @@ class Settlements(BaseSDK):
         If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
 
         :param settlement_id: Provide the ID of the related settlement.
-        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
-            result set.
+        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
+            the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string
             parameter.
-        :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-            parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-            setting the `testmode` query parameter to `true`.
-
-            Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1780,7 +1723,6 @@ class Settlements(BaseSDK):
             from_=from_,
             limit=limit,
             embed=embed,
-            testmode=testmode,
             idempotency_key=idempotency_key,
         )
 
@@ -1797,9 +1739,6 @@ class Settlements(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/hal+json",
             http_headers=http_headers,
-            _globals=models.ListSettlementRefundsGlobals(
-                testmode=self.sdk_configuration.globals.testmode,
-            ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
             allowed_fields=["organization_access_token", "o_auth"],
@@ -1856,7 +1795,6 @@ class Settlements(BaseSDK):
                 from_=from_,
                 limit=limit,
                 embed=embed,
-                testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
                 url_override=next_url,
