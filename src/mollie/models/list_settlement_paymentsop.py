@@ -3,7 +3,10 @@
 
 from __future__ import annotations
 from .list_links import ListLinks, ListLinksTypedDict
-from .list_payment_response import ListPaymentResponse, ListPaymentResponseTypedDict
+from .list_settlement_payment_response import (
+    ListSettlementPaymentResponse,
+    ListSettlementPaymentResponseTypedDict,
+)
 from .sorting import Sorting
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import (
@@ -26,13 +29,6 @@ class ListSettlementPaymentsGlobalsTypedDict(TypedDict):
     Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
     organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
     """
-    testmode: NotRequired[bool]
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
 
 
 class ListSettlementPaymentsGlobals(BaseModel):
@@ -48,20 +44,9 @@ class ListSettlementPaymentsGlobals(BaseModel):
     organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
     """
 
-    testmode: Annotated[
-        Optional[bool],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["profileId", "testmode"])
+        optional_fields = set(["profileId"])
         serialized = handler(self)
         m = {}
 
@@ -95,13 +80,6 @@ class ListSettlementPaymentsRequestTypedDict(TypedDict):
 
     Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
     organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
-    """
-    testmode: NotRequired[bool]
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
     """
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
@@ -150,17 +128,6 @@ class ListSettlementPaymentsRequest(BaseModel):
     organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
     """
 
-    testmode: Annotated[
-        Optional[bool],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
-
     idempotency_key: Annotated[
         Optional[str],
         pydantic.Field(alias="idempotency-key"),
@@ -170,9 +137,7 @@ class ListSettlementPaymentsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(
-            ["from", "limit", "sort", "profileId", "testmode", "idempotency-key"]
-        )
+        optional_fields = set(["from", "limit", "sort", "profileId", "idempotency-key"])
         nullable_fields = set(["limit"])
         serialized = handler(self)
         m = {}
@@ -197,12 +162,12 @@ class ListSettlementPaymentsRequest(BaseModel):
 
 
 class ListSettlementPaymentsEmbeddedTypedDict(TypedDict):
-    payments: NotRequired[List[ListPaymentResponseTypedDict]]
+    payments: NotRequired[List[ListSettlementPaymentResponseTypedDict]]
     r"""An array of payment objects."""
 
 
 class ListSettlementPaymentsEmbedded(BaseModel):
-    payments: Optional[List[ListPaymentResponse]] = None
+    payments: Optional[List[ListSettlementPaymentResponse]] = None
     r"""An array of payment objects."""
 
     @model_serializer(mode="wrap")
