@@ -303,6 +303,30 @@ with ClientSDK(
         res = res.next()
 
 ```
+### Example Usage: list-settlement-payments-200-1
+
+<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" example="list-settlement-payments-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    profile_id="<id>",
+    security=mollie.Security(
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.list_payments(settlement_id="stl_5B8cwPMGnU", from_="tr_5B8cwPMGnU", limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
 
 ### Parameters
 
@@ -379,6 +403,29 @@ with ClientSDK(
         res = res.next()
 
 ```
+### Example Usage: list-settlement-captures-200-1
+
+<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/settlements/{settlementId}/captures" example="list-settlement-captures-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.list_captures(settlement_id="stl_5B8cwPMGnU", from_="cpt_vytxeTZskVKR7C7WgdSP3d", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
 
 ### Parameters
 
@@ -408,9 +455,32 @@ Retrieve all refunds 'deducted' from the given settlement.
 
 The response is in the same format as the response of the [List refunds endpoint](list-refunds).
 
-### Example Usage
+### Example Usage: list-refunds-200-1
 
 <!-- UsageSnippet language="python" operationID="list-settlement-refunds" method="get" path="/settlements/{settlementId}/refunds" example="list-refunds-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.list_refunds(settlement_id="stl_5B8cwPMGnU", from_="re_5B8cwPMGnU", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+### Example Usage: list-settlement-refunds-200-1
+
+<!-- UsageSnippet language="python" operationID="list-settlement-refunds" method="get" path="/settlements/{settlementId}/refunds" example="list-settlement-refunds-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
