@@ -298,6 +298,13 @@ client = ClientSDK(
 <details open>
 <summary>Available methods</summary>
 
+### [Accounts](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md)
+
+* [list_accounts](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md#list_accounts) - List business accounts
+* [get_account](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md#get_account) - Get business account
+* [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md#list) - List transactions
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md#get) - Get transaction
+
 ### [BalanceTransfers](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balancetransfers/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/balancetransfers/README.md#create) - Create a Connect balance transfer

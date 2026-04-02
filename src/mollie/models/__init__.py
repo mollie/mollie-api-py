@@ -7,12 +7,16 @@ from typing import Any, TYPE_CHECKING
 from mollie.utils.dynamic_imports import lazy_getattr, lazy_dir
 
 if TYPE_CHECKING:
+    from .account_details import AccountDetails, AccountDetailsTypedDict
     from .account_number_format import AccountNumberFormat
     from .account_number_format_response import AccountNumberFormatResponse
+    from .account_status import AccountStatus
     from .address import Address, AddressTypedDict
+    from .after_balance import AfterBalance, AfterBalanceTypedDict
     from .amount import Amount, AmountTypedDict
     from .amount_nullable import AmountNullable, AmountNullableTypedDict
     from .apierror import APIError
+    from .balance import Balance, BalanceTypedDict
     from .balance_card_audience import BalanceCardAudience
     from .balance_card_issuer import BalanceCardIssuer
     from .balance_card_region import BalanceCardRegion
@@ -30,6 +34,10 @@ if TYPE_CHECKING:
         BalanceTransferStatusReasonResponse,
     )
     from .billingaddress import BillingAddress, BillingAddressTypedDict
+    from .business_account_response import (
+        BusinessAccountResponse,
+        BusinessAccountResponseTypedDict,
+    )
     from .cancel_paymentop import (
         CancelPaymentRequest,
         CancelPaymentRequestBody,
@@ -77,6 +85,7 @@ if TYPE_CHECKING:
         ClientLinkResponseTypedDict,
     )
     from .components_sub_totals import ComponentsSubTotals, ComponentsSubTotalsTypedDict
+    from .counterparty import Counterparty, CounterpartyTypedDict
     from .create_captureop import CreateCaptureRequest, CreateCaptureRequestTypedDict
     from .create_client_linkop import (
         CreateClientLinkRequest,
@@ -473,6 +482,18 @@ if TYPE_CHECKING:
         GetBalanceRequest,
         GetBalanceRequestTypedDict,
     )
+    from .get_business_account_transactionop import (
+        GetBusinessAccountTransactionGlobals,
+        GetBusinessAccountTransactionGlobalsTypedDict,
+        GetBusinessAccountTransactionRequest,
+        GetBusinessAccountTransactionRequestTypedDict,
+    )
+    from .get_business_accountop import (
+        GetBusinessAccountGlobals,
+        GetBusinessAccountGlobalsTypedDict,
+        GetBusinessAccountRequest,
+        GetBusinessAccountRequestTypedDict,
+    )
     from .get_captureop import (
         GetCaptureGlobals,
         GetCaptureGlobalsTypedDict,
@@ -720,6 +741,30 @@ if TYPE_CHECKING:
         ListBalancesResponseBody,
         ListBalancesResponseBodyTypedDict,
         ListBalancesResponseTypedDict,
+    )
+    from .list_business_account_transactionsop import (
+        ListBusinessAccountTransactionsEmbedded,
+        ListBusinessAccountTransactionsEmbeddedTypedDict,
+        ListBusinessAccountTransactionsGlobals,
+        ListBusinessAccountTransactionsGlobalsTypedDict,
+        ListBusinessAccountTransactionsRequest,
+        ListBusinessAccountTransactionsRequestTypedDict,
+        ListBusinessAccountTransactionsResponse,
+        ListBusinessAccountTransactionsResponseBody,
+        ListBusinessAccountTransactionsResponseBodyTypedDict,
+        ListBusinessAccountTransactionsResponseTypedDict,
+    )
+    from .list_business_accountsop import (
+        ListBusinessAccountsEmbedded,
+        ListBusinessAccountsEmbeddedTypedDict,
+        ListBusinessAccountsGlobals,
+        ListBusinessAccountsGlobalsTypedDict,
+        ListBusinessAccountsRequest,
+        ListBusinessAccountsRequestTypedDict,
+        ListBusinessAccountsResponse,
+        ListBusinessAccountsResponseBody,
+        ListBusinessAccountsResponseBodyTypedDict,
+        ListBusinessAccountsResponseTypedDict,
     )
     from .list_capabilitiesop import (
         ListCapabilitiesEmbedded,
@@ -1645,6 +1690,8 @@ if TYPE_CHECKING:
         TestWebhookRequestBodyTypedDict,
         TestWebhookRequestTypedDict,
     )
+    from .transaction_response import TransactionResponse, TransactionResponseTypedDict
+    from .transaction_type import TransactionType
     from .transfer_party import (
         TransferParty,
         TransferPartyAccount,
@@ -1732,16 +1779,22 @@ if TYPE_CHECKING:
 
 __all__ = [
     "APIError",
+    "AccountDetails",
+    "AccountDetailsTypedDict",
     "AccountNumberFormat",
     "AccountNumberFormatResponse",
+    "AccountStatus",
     "Address",
     "AddressTypedDict",
+    "AfterBalance",
+    "AfterBalanceTypedDict",
     "Amount",
     "AmountNullable",
     "AmountNullableTypedDict",
     "AmountTypedDict",
     "AvailableBalance",
     "AvailableBalanceTypedDict",
+    "Balance",
     "BalanceCardAudience",
     "BalanceCardIssuer",
     "BalanceCardRegion",
@@ -1756,8 +1809,11 @@ __all__ = [
     "BalanceTransferPartyTypeResponse",
     "BalanceTransferStatus",
     "BalanceTransferStatusReasonResponse",
+    "BalanceTypedDict",
     "BillingAddress",
     "BillingAddressTypedDict",
+    "BusinessAccountResponse",
+    "BusinessAccountResponseTypedDict",
     "CancelPaymentRequest",
     "CancelPaymentRequestBody",
     "CancelPaymentRequestBodyTypedDict",
@@ -1822,6 +1878,8 @@ __all__ = [
     "ContextTypedDict",
     "Corrections",
     "CorrectionsTypedDict",
+    "Counterparty",
+    "CounterpartyTypedDict",
     "CreateCaptureRequest",
     "CreateCaptureRequestTypedDict",
     "CreateClientLinkRequest",
@@ -2073,6 +2131,14 @@ __all__ = [
     "GetBalanceReportRequestTypedDict",
     "GetBalanceRequest",
     "GetBalanceRequestTypedDict",
+    "GetBusinessAccountGlobals",
+    "GetBusinessAccountGlobalsTypedDict",
+    "GetBusinessAccountRequest",
+    "GetBusinessAccountRequestTypedDict",
+    "GetBusinessAccountTransactionGlobals",
+    "GetBusinessAccountTransactionGlobalsTypedDict",
+    "GetBusinessAccountTransactionRequest",
+    "GetBusinessAccountTransactionRequestTypedDict",
     "GetCaptureGlobals",
     "GetCaptureGlobalsTypedDict",
     "GetCaptureRequest",
@@ -2257,6 +2323,26 @@ __all__ = [
     "ListBalancesResponseBody",
     "ListBalancesResponseBodyTypedDict",
     "ListBalancesResponseTypedDict",
+    "ListBusinessAccountTransactionsEmbedded",
+    "ListBusinessAccountTransactionsEmbeddedTypedDict",
+    "ListBusinessAccountTransactionsGlobals",
+    "ListBusinessAccountTransactionsGlobalsTypedDict",
+    "ListBusinessAccountTransactionsRequest",
+    "ListBusinessAccountTransactionsRequestTypedDict",
+    "ListBusinessAccountTransactionsResponse",
+    "ListBusinessAccountTransactionsResponseBody",
+    "ListBusinessAccountTransactionsResponseBodyTypedDict",
+    "ListBusinessAccountTransactionsResponseTypedDict",
+    "ListBusinessAccountsEmbedded",
+    "ListBusinessAccountsEmbeddedTypedDict",
+    "ListBusinessAccountsGlobals",
+    "ListBusinessAccountsGlobalsTypedDict",
+    "ListBusinessAccountsRequest",
+    "ListBusinessAccountsRequestTypedDict",
+    "ListBusinessAccountsResponse",
+    "ListBusinessAccountsResponseBody",
+    "ListBusinessAccountsResponseBodyTypedDict",
+    "ListBusinessAccountsResponseTypedDict",
     "ListCapabilitiesEmbedded",
     "ListCapabilitiesEmbeddedTypedDict",
     "ListCapabilitiesLinks",
@@ -3060,6 +3146,9 @@ __all__ = [
     "TopupsTypedDict",
     "Totals",
     "TotalsTypedDict",
+    "TransactionResponse",
+    "TransactionResponseTypedDict",
+    "TransactionType",
     "TransferParty",
     "TransferPartyAccount",
     "TransferPartyAccountTypedDict",
@@ -3132,15 +3221,22 @@ __all__ = [
 ]
 
 _dynamic_imports: dict[str, str] = {
+    "AccountDetails": ".account_details",
+    "AccountDetailsTypedDict": ".account_details",
     "AccountNumberFormat": ".account_number_format",
     "AccountNumberFormatResponse": ".account_number_format_response",
+    "AccountStatus": ".account_status",
     "Address": ".address",
     "AddressTypedDict": ".address",
+    "AfterBalance": ".after_balance",
+    "AfterBalanceTypedDict": ".after_balance",
     "Amount": ".amount",
     "AmountTypedDict": ".amount",
     "AmountNullable": ".amount_nullable",
     "AmountNullableTypedDict": ".amount_nullable",
     "APIError": ".apierror",
+    "Balance": ".balance",
+    "BalanceTypedDict": ".balance",
     "BalanceCardAudience": ".balance_card_audience",
     "BalanceCardIssuer": ".balance_card_issuer",
     "BalanceCardRegion": ".balance_card_region",
@@ -3157,6 +3253,8 @@ _dynamic_imports: dict[str, str] = {
     "BalanceTransferStatusReasonResponse": ".balance_transfer_status_reason_response",
     "BillingAddress": ".billingaddress",
     "BillingAddressTypedDict": ".billingaddress",
+    "BusinessAccountResponse": ".business_account_response",
+    "BusinessAccountResponseTypedDict": ".business_account_response",
     "CancelPaymentRequest": ".cancel_paymentop",
     "CancelPaymentRequestBody": ".cancel_paymentop",
     "CancelPaymentRequestBodyTypedDict": ".cancel_paymentop",
@@ -3193,6 +3291,8 @@ _dynamic_imports: dict[str, str] = {
     "ClientLinkResponseTypedDict": ".client_link_response",
     "ComponentsSubTotals": ".components_sub_totals",
     "ComponentsSubTotalsTypedDict": ".components_sub_totals",
+    "Counterparty": ".counterparty",
+    "CounterpartyTypedDict": ".counterparty",
     "CreateCaptureRequest": ".create_captureop",
     "CreateCaptureRequestTypedDict": ".create_captureop",
     "CreateClientLinkRequest": ".create_client_linkop",
@@ -3522,6 +3622,14 @@ _dynamic_imports: dict[str, str] = {
     "GetBalanceGlobalsTypedDict": ".get_balanceop",
     "GetBalanceRequest": ".get_balanceop",
     "GetBalanceRequestTypedDict": ".get_balanceop",
+    "GetBusinessAccountTransactionGlobals": ".get_business_account_transactionop",
+    "GetBusinessAccountTransactionGlobalsTypedDict": ".get_business_account_transactionop",
+    "GetBusinessAccountTransactionRequest": ".get_business_account_transactionop",
+    "GetBusinessAccountTransactionRequestTypedDict": ".get_business_account_transactionop",
+    "GetBusinessAccountGlobals": ".get_business_accountop",
+    "GetBusinessAccountGlobalsTypedDict": ".get_business_accountop",
+    "GetBusinessAccountRequest": ".get_business_accountop",
+    "GetBusinessAccountRequestTypedDict": ".get_business_accountop",
     "GetCaptureGlobals": ".get_captureop",
     "GetCaptureGlobalsTypedDict": ".get_captureop",
     "GetCaptureRequest": ".get_captureop",
@@ -3707,6 +3815,26 @@ _dynamic_imports: dict[str, str] = {
     "ListBalancesResponseBody": ".list_balancesop",
     "ListBalancesResponseBodyTypedDict": ".list_balancesop",
     "ListBalancesResponseTypedDict": ".list_balancesop",
+    "ListBusinessAccountTransactionsEmbedded": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsEmbeddedTypedDict": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsGlobals": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsGlobalsTypedDict": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsRequest": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsRequestTypedDict": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsResponse": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsResponseBody": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsResponseBodyTypedDict": ".list_business_account_transactionsop",
+    "ListBusinessAccountTransactionsResponseTypedDict": ".list_business_account_transactionsop",
+    "ListBusinessAccountsEmbedded": ".list_business_accountsop",
+    "ListBusinessAccountsEmbeddedTypedDict": ".list_business_accountsop",
+    "ListBusinessAccountsGlobals": ".list_business_accountsop",
+    "ListBusinessAccountsGlobalsTypedDict": ".list_business_accountsop",
+    "ListBusinessAccountsRequest": ".list_business_accountsop",
+    "ListBusinessAccountsRequestTypedDict": ".list_business_accountsop",
+    "ListBusinessAccountsResponse": ".list_business_accountsop",
+    "ListBusinessAccountsResponseBody": ".list_business_accountsop",
+    "ListBusinessAccountsResponseBodyTypedDict": ".list_business_accountsop",
+    "ListBusinessAccountsResponseTypedDict": ".list_business_accountsop",
     "ListCapabilitiesEmbedded": ".list_capabilitiesop",
     "ListCapabilitiesEmbeddedTypedDict": ".list_capabilitiesop",
     "ListCapabilitiesLinks": ".list_capabilitiesop",
@@ -4465,6 +4593,9 @@ _dynamic_imports: dict[str, str] = {
     "TestWebhookRequestBody": ".test_webhookop",
     "TestWebhookRequestBodyTypedDict": ".test_webhookop",
     "TestWebhookRequestTypedDict": ".test_webhookop",
+    "TransactionResponse": ".transaction_response",
+    "TransactionResponseTypedDict": ".transaction_response",
+    "TransactionType": ".transaction_type",
     "TransferParty": ".transfer_party",
     "TransferPartyAccount": ".transfer_party",
     "TransferPartyAccountTypedDict": ".transfer_party",

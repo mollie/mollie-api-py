@@ -7,7 +7,7 @@ from mollie import utils
 
 
 class CreditDebitIndicator(str, Enum, metaclass=utils.OpenEnumMeta):
-    r"""Indicates whether the transfer is a credit or debit transaction from the perspective of the account holder."""
+    r"""Indicates whether the entry is a credit or debit from the perspective of the account holder."""
 
     CREDIT = "credit"
     DEBIT = "debit"

@@ -16,6 +16,7 @@ from typing import Callable, Dict, Optional, TYPE_CHECKING, Union, cast
 import weakref
 
 if TYPE_CHECKING:
+    from mollie.accounts import Accounts
     from mollie.balance_transfers import BalanceTransfers
     from mollie.balances import Balances
     from mollie.capabilities import Capabilities
@@ -75,6 +76,7 @@ class ClientSDK(BaseSDK):
     mandates: "Mandates"
     subscriptions: "Subscriptions"
     sales_invoices: "SalesInvoices"
+    accounts: "Accounts"
     transfers: "TransfersSDK"
     verify_payees: "VerifyPayees"
     _sub_sdk_map = {
@@ -105,6 +107,7 @@ class ClientSDK(BaseSDK):
         "mandates": ("mollie.mandates", "Mandates"),
         "subscriptions": ("mollie.subscriptions", "Subscriptions"),
         "sales_invoices": ("mollie.sales_invoices", "SalesInvoices"),
+        "accounts": ("mollie.accounts", "Accounts"),
         "transfers": ("mollie.transfers_sdk", "TransfersSDK"),
         "verify_payees": ("mollie.verify_payees", "VerifyPayees"),
     }

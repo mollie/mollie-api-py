@@ -298,6 +298,13 @@ client = ClientSDK(
 <details open>
 <summary>Available methods</summary>
 
+### [Accounts](docs/sdks/accounts/README.md)
+
+* [list_accounts](docs/sdks/accounts/README.md#list_accounts) - List business accounts
+* [get_account](docs/sdks/accounts/README.md#get_account) - Get business account
+* [list](docs/sdks/accounts/README.md#list) - List transactions
+* [get](docs/sdks/accounts/README.md#get) - Get transaction
+
 ### [BalanceTransfers](docs/sdks/balancetransfers/README.md)
 
 * [create](docs/sdks/balancetransfers/README.md#create) - Create a Connect balance transfer
