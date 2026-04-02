@@ -80,7 +80,7 @@ class TransferResponseTypedDict(TypedDict):
     transfer_scheme: TransferSchemeResponseTypedDict
     r"""The scheme, as requested by the client."""
     credit_debit_indicator: CreditDebitIndicator
-    r"""Indicates whether the transfer is a credit or debit transaction from the perspective of the account holder."""
+    r"""Indicates whether the entry is a credit or debit from the perspective of the account holder."""
     status: TransferStatus
     r"""The status of the transfer."""
     status_history: List[StatusHistoryEntryResponseTypedDict]
@@ -145,7 +145,7 @@ class TransferResponse(BaseModel):
     credit_debit_indicator: Annotated[
         CreditDebitIndicator, pydantic.Field(alias="creditDebitIndicator")
     ]
-    r"""Indicates whether the transfer is a credit or debit transaction from the perspective of the account holder."""
+    r"""Indicates whether the entry is a credit or debit from the perspective of the account holder."""
 
     status: TransferStatus
     r"""The status of the transfer."""
