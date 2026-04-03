@@ -1,0 +1,11 @@
+# EntityUnmatchedCreditTransferLinks
+
+Links to related resources.
+
+
+## Fields
+
+| Field                                                                                                                  | Type                                                                                                                   | Required                                                                                                               | Description                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `self_`                                                                                                                | [Optional[models.EntityUnmatchedCreditTransferSelf]](../models/entityunmatchedcredittransferself.md)                   | :heavy_minus_sign:                                                                                                     | The URL to this unmatched credit transfer.                                                                             |
+| `documentation`                                                                                                        | [Optional[models.EntityUnmatchedCreditTransferDocumentation]](../models/entityunmatchedcredittransferdocumentation.md) | :heavy_minus_sign:                                                                                                     | The URL to the documentation of this endpoint.                                                                         |

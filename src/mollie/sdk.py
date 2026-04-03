@@ -42,6 +42,7 @@ if TYPE_CHECKING:
     from mollie.subscriptions import Subscriptions
     from mollie.terminals import Terminals
     from mollie.transfers_sdk import TransfersSDK
+    from mollie.unmatched_credit_transfers import UnmatchedCreditTransfers
     from mollie.verify_payees import VerifyPayees
     from mollie.wallets import Wallets
     from mollie.webhook_events import WebhookEvents
@@ -63,6 +64,7 @@ class ClientSDK(BaseSDK):
     webhook_events: "WebhookEvents"
     balance_transfers: "BalanceTransfers"
     payments: "PaymentsSDK"
+    unmatched_credit_transfers: "UnmatchedCreditTransfers"
     sessions: "Sessions"
     methods: "Methods"
     refunds: "RefundsSDK"
@@ -94,6 +96,10 @@ class ClientSDK(BaseSDK):
         "webhook_events": ("mollie.webhook_events", "WebhookEvents"),
         "balance_transfers": ("mollie.balance_transfers", "BalanceTransfers"),
         "payments": ("mollie.payments_sdk", "PaymentsSDK"),
+        "unmatched_credit_transfers": (
+            "mollie.unmatched_credit_transfers",
+            "UnmatchedCreditTransfers",
+        ),
         "sessions": ("mollie.sessions", "Sessions"),
         "methods": ("mollie.methods", "Methods"),
         "refunds": ("mollie.refunds_sdk", "RefundsSDK"),

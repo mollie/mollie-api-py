@@ -11,14 +11,14 @@ from typing import Optional
 from typing_extensions import Annotated, TypedDict
 
 
-class DocumentationTypedDict(TypedDict):
+class ErrorsDocumentationTypedDict(TypedDict):
     r"""The URL to the generic Mollie API error handling guide."""
 
     href: str
     type: str
 
 
-class Documentation(BaseModel):
+class ErrorsDocumentation(BaseModel):
     r"""The URL to the generic Mollie API error handling guide."""
 
     href: str
@@ -27,12 +27,12 @@ class Documentation(BaseModel):
 
 
 class ErrorsLinksTypedDict(TypedDict):
-    documentation: DocumentationTypedDict
+    documentation: ErrorsDocumentationTypedDict
     r"""The URL to the generic Mollie API error handling guide."""
 
 
 class ErrorsLinks(BaseModel):
-    documentation: Documentation
+    documentation: ErrorsDocumentation
     r"""The URL to the generic Mollie API error handling guide."""
 
 

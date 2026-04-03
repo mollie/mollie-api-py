@@ -1,0 +1,11 @@
+# UnmatchedCreditTransferActionResponseLinks
+
+Links to related resources.
+
+
+## Fields
+
+| Field                                                                                                                                  | Type                                                                                                                                   | Required                                                                                                                               | Description                                                                                                                            |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `self_`                                                                                                                                | [Optional[models.UnmatchedCreditTransferActionResponseSelf]](../models/unmatchedcredittransferactionresponseself.md)                   | :heavy_minus_sign:                                                                                                                     | The URL to this action.                                                                                                                |
+| `documentation`                                                                                                                        | [Optional[models.UnmatchedCreditTransferActionResponseDocumentation]](../models/unmatchedcredittransferactionresponsedocumentation.md) | :heavy_minus_sign:                                                                                                                     | The URL to the documentation of this endpoint.                                                                                         |
