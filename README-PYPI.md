@@ -473,6 +473,13 @@ client = ClientSDK(
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/transferssdk/README.md#create) - Create transfer
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/transferssdk/README.md#get) - Get transfer
 
+### [UnmatchedCreditTransfers](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/unmatchedcredittransfers/README.md)
+
+* [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/unmatchedcredittransfers/README.md#list) - List unmatched credit transfers
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/unmatchedcredittransfers/README.md#get) - Get unmatched credit transfer
+* [match](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/unmatchedcredittransfers/README.md#match) - Match unmatched credit transfer
+* [return_](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/unmatchedcredittransfers/README.md#return_) - Return unmatched credit transfer
+
 ### [VerifyPayees](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/verifypayees/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/verifypayees/README.md#create) - Verify Payee

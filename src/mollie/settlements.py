@@ -140,6 +140,9 @@ class Settlements(BaseSDK):
                 currencies=currencies,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -294,6 +297,9 @@ class Settlements(BaseSDK):
                 currencies=currencies,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -1059,6 +1065,9 @@ class Settlements(BaseSDK):
                 profile_id=profile_id,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -1219,6 +1228,9 @@ class Settlements(BaseSDK):
                 profile_id=profile_id,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -1362,6 +1374,9 @@ class Settlements(BaseSDK):
                 embed=embed,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -1508,6 +1523,9 @@ class Settlements(BaseSDK):
                 embed=embed,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -1651,6 +1669,9 @@ class Settlements(BaseSDK):
                 embed=embed,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -1797,6 +1818,9 @@ class Settlements(BaseSDK):
                 embed=embed,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -1950,6 +1974,9 @@ class Settlements(BaseSDK):
                 testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -2108,6 +2135,9 @@ class Settlements(BaseSDK):
                 testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 

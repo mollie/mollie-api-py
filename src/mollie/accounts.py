@@ -139,6 +139,9 @@ class Accounts(BaseSDK):
                 testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -292,6 +295,9 @@ class Accounts(BaseSDK):
                 testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -664,6 +670,9 @@ class Accounts(BaseSDK):
                 testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 
@@ -823,6 +832,9 @@ class Accounts(BaseSDK):
                 testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
                 url_override=next_url,
             )
 

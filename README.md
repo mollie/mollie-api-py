@@ -473,6 +473,13 @@ client = ClientSDK(
 * [create](docs/sdks/transferssdk/README.md#create) - Create transfer
 * [get](docs/sdks/transferssdk/README.md#get) - Get transfer
 
+### [UnmatchedCreditTransfers](docs/sdks/unmatchedcredittransfers/README.md)
+
+* [list](docs/sdks/unmatchedcredittransfers/README.md#list) - List unmatched credit transfers
+* [get](docs/sdks/unmatchedcredittransfers/README.md#get) - Get unmatched credit transfer
+* [match](docs/sdks/unmatchedcredittransfers/README.md#match) - Match unmatched credit transfer
+* [return_](docs/sdks/unmatchedcredittransfers/README.md#return_) - Return unmatched credit transfer
+
 ### [VerifyPayees](docs/sdks/verifypayees/README.md)
 
 * [create](docs/sdks/verifypayees/README.md#create) - Verify Payee
