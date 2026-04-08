@@ -91,7 +91,10 @@ class EntityOrganizationTypedDict(TypedDict):
     name: str
     r"""The name of the organization."""
     email: str
-    r"""The email address associated with the organization."""
+    r"""The email address associated with the organization.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
     locale: Nullable[EntityOrganizationLocale]
     r"""The preferred locale of the merchant, as set in their Mollie dashboard."""
     address: AddressTypedDict
@@ -125,7 +128,10 @@ class EntityOrganization(BaseModel):
     r"""The name of the organization."""
 
     email: str
-    r"""The email address associated with the organization."""
+    r"""The email address associated with the organization.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
 
     locale: Nullable[EntityOrganizationLocale]
     r"""The preferred locale of the merchant, as set in their Mollie dashboard."""

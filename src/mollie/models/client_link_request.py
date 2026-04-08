@@ -15,7 +15,10 @@ class OwnerTypedDict(TypedDict):
     r"""Personal data of your customer."""
 
     email: str
-    r"""The email address of your customer."""
+    r"""The email address of your customer.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
     given_name: str
     r"""The given name (first name) of your customer."""
     family_name: str
@@ -28,7 +31,10 @@ class Owner(BaseModel):
     r"""Personal data of your customer."""
 
     email: str
-    r"""The email address of your customer."""
+    r"""The email address of your customer.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
 
     given_name: Annotated[str, pydantic.Field(alias="givenName")]
     r"""The given name (first name) of your customer."""

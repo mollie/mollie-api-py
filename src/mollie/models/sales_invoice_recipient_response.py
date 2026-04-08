@@ -17,7 +17,10 @@ class SalesInvoiceRecipientResponseTypedDict(TypedDict):
     required on the `recipient` object.
     """
     email: str
-    r"""The email address of the recipient."""
+    r"""The email address of the recipient.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
     street_and_number: str
     r"""A street and street number."""
     postal_code: str
@@ -63,7 +66,10 @@ class SalesInvoiceRecipientResponse(BaseModel):
     """
 
     email: str
-    r"""The email address of the recipient."""
+    r"""The email address of the recipient.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
 
     street_and_number: Annotated[str, pydantic.Field(alias="streetAndNumber")]
     r"""A street and street number."""
