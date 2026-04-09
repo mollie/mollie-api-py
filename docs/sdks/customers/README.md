@@ -437,6 +437,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -591,6 +592,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -745,6 +747,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -899,6 +902,162 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
+        testmode=False,
+        apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
+        company=mollie.Company(
+            registration_number="12345678",
+            vat_number="NL123456789B01",
+        ),
+        card_token="tkn_12345",
+        voucher_number="1234567890",
+        voucher_pin="1234",
+        consumer_date_of_birth=date.fromisoformat("2000-01-01"),
+        digital_goods=True,
+        customer_reference="1234567890",
+        terminal_id="term_1234567890",
+    ))
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: create-payment-201-13
+
+<!-- UsageSnippet language="python" operationID="create-customer-payment" method="post" path="/customers/{customerId}/payments" example="create-payment-201-13" -->
+```python
+from datetime import date
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.customers.create_payment(customer_id="cst_5B8cwPMGnU", idempotency_key="123e4567-e89b-12d3-a456-426", payment_request=mollie.PaymentRequest(
+        description="Chess Board",
+        amount=mollie.Amount(
+            currency="EUR",
+            value="10.00",
+        ),
+        redirect_url="https://example.org/redirect",
+        cancel_url="https://example.org/cancel",
+        webhook_url="https://example.org/webhooks",
+        lines=[
+            mollie.PaymentRequestLine(
+                type=mollie.PaymentLineType.PHYSICAL,
+                description="LEGO 4440 Forest Police Station",
+                quantity=1,
+                quantity_unit="pcs",
+                unit_price=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                discount_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                total_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                vat_rate="21.00",
+                vat_amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                sku="9780241661628",
+                categories=[
+                    mollie.LineCategories.MEAL,
+                    mollie.LineCategories.ECO,
+                ],
+                image_url="https://...",
+                product_url="https://...",
+                recurring=mollie.RecurringLineItem(
+                    description="Gym subscription",
+                    interval="12 months",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                    times=1,
+                    start_date="2024-12-12",
+                ),
+            ),
+        ],
+        billing_address=mollie.PaymentRequestBillingAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        shipping_address=mollie.PaymentAddress(
+            title="Mr.",
+            given_name="Piet",
+            family_name="Mondriaan",
+            organization_name="Mollie B.V.",
+            street_and_number="Keizersgracht 126",
+            street_additional="Apt. 1",
+            postal_code="1234AB",
+            email="piet@example.org",
+            phone="31208202070",
+            city="Amsterdam",
+            region="Noord-Holland",
+            country="NL",
+        ),
+        locale=mollie.Locale.EN_US,
+        method=mollie.MethodEnum.IDEAL,
+        issuer="ideal_INGBNL2A",
+        restrict_payment_methods_to_country="NL",
+        capture_mode=mollie.CaptureMode.MANUAL,
+        capture_delay="8 hours",
+        application_fee=mollie.PaymentRequestApplicationFee(
+            amount=mollie.Amount(
+                currency="EUR",
+                value="10.00",
+            ),
+            description="10",
+        ),
+        routing=[
+            mollie.EntityPaymentRoute(
+                amount=mollie.Amount(
+                    currency="EUR",
+                    value="10.00",
+                ),
+                destination=mollie.EntityPaymentRouteDestination(
+                    type=mollie.RouteDestinationType.ORGANIZATION,
+                    organization_id="org_1234567",
+                ),
+                release_date="2024-12-12",
+                links=mollie.EntityPaymentRouteLinks(
+                    self_=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                    payment=mollie.URL(
+                        href="https://...",
+                        type="application/hal+json",
+                    ),
+                ),
+            ),
+        ],
+        sequence_type=mollie.SequenceType.ONEOFF,
+        mandate_id="mdt_5B8cwPMGnU",
+        customer_id="cst_5B8cwPMGnU",
+        profile_id="pfl_5B8cwPMGnU",
+        due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -1053,6 +1212,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -1207,6 +1367,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -1361,6 +1522,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -1515,6 +1677,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -1669,6 +1832,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -1823,6 +1987,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -1977,6 +2142,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(
@@ -2131,6 +2297,7 @@ with ClientSDK(
         customer_id="cst_5B8cwPMGnU",
         profile_id="pfl_5B8cwPMGnU",
         due_date="2025-01-01",
+        store_credentials=True,
         testmode=False,
         apple_pay_payment_token="{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}",
         company=mollie.Company(

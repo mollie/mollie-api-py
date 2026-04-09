@@ -579,10 +579,10 @@ class PaymentRequestTypedDict(TypedDict):
     """
     sequence_type: NotRequired[SequenceType]
     mandate_id: NotRequired[Nullable[str]]
-    r"""**Only relevant for recurring payments.**
+    r"""**Only relevant for recurring payments and stored cards.**
 
-    When creating recurring payments, the ID of a specific [mandate](get-mandate) can be supplied to indicate which of
-    the customer's accounts should be credited.
+    When creating recurring or stored cards payments, the ID of a specific [mandate](get-mandate) can be supplied to indicate which of
+    the customer's accounts should be debited.
     """
     customer_id: NotRequired[str]
     profile_id: NotRequired[str]
@@ -594,6 +594,10 @@ class PaymentRequestTypedDict(TypedDict):
     """
     due_date: NotRequired[str]
     r"""The date by which the payment should be completed in `YYYY-MM-DD` format"""
+    store_credentials: NotRequired[bool]
+    r"""Whether the card details should be stored for the customer after a successful payment. This will create a mandate for the customer,
+    allowing for future customer present saved-card CIT payments. Requires customerId, cardToken, and the creditcard method to be specified.
+    """
     testmode: NotRequired[Nullable[bool]]
     r"""Whether to create the entity in test mode or live mode.
 
@@ -833,10 +837,10 @@ class PaymentRequest(BaseModel):
     mandate_id: Annotated[OptionalNullable[str], pydantic.Field(alias="mandateId")] = (
         UNSET
     )
-    r"""**Only relevant for recurring payments.**
+    r"""**Only relevant for recurring payments and stored cards.**
 
-    When creating recurring payments, the ID of a specific [mandate](get-mandate) can be supplied to indicate which of
-    the customer's accounts should be credited.
+    When creating recurring or stored cards payments, the ID of a specific [mandate](get-mandate) can be supplied to indicate which of
+    the customer's accounts should be debited.
     """
 
     customer_id: Annotated[Optional[str], pydantic.Field(alias="customerId")] = None
@@ -851,6 +855,13 @@ class PaymentRequest(BaseModel):
 
     due_date: Annotated[Optional[str], pydantic.Field(alias="dueDate")] = None
     r"""The date by which the payment should be completed in `YYYY-MM-DD` format"""
+
+    store_credentials: Annotated[
+        Optional[bool], pydantic.Field(alias="storeCredentials")
+    ] = None
+    r"""Whether the card details should be stored for the customer after a successful payment. This will create a mandate for the customer,
+    allowing for future customer present saved-card CIT payments. Requires customerId, cardToken, and the creditcard method to be specified.
+    """
 
     testmode: OptionalNullable[bool] = UNSET
     r"""Whether to create the entity in test mode or live mode.
@@ -952,6 +963,7 @@ class PaymentRequest(BaseModel):
                 "customerId",
                 "profileId",
                 "dueDate",
+                "storeCredentials",
                 "testmode",
                 "applePayPaymentToken",
                 "company",

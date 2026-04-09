@@ -1651,10 +1651,10 @@ class ListPaymentResponseTypedDict(TypedDict):
     be added to the response.
     """
     mandate_id: NotRequired[Nullable[str]]
-    r"""**Only relevant for recurring payments.**
+    r"""**Only relevant for recurring payments and stored cards.**
 
-    When creating recurring payments, the ID of a specific [mandate](get-mandate) can be supplied to indicate which of
-    the customer's accounts should be credited.
+    When creating recurring or stored cards payments, the ID of a specific [mandate](get-mandate) can be supplied to indicate which of
+    the customer's accounts should be debited.
     """
     customer_id: NotRequired[str]
     settlement_id: NotRequired[Nullable[str]]
@@ -1967,10 +1967,10 @@ class ListPaymentResponse(BaseModel):
     mandate_id: Annotated[OptionalNullable[str], pydantic.Field(alias="mandateId")] = (
         UNSET
     )
-    r"""**Only relevant for recurring payments.**
+    r"""**Only relevant for recurring payments and stored cards.**
 
-    When creating recurring payments, the ID of a specific [mandate](get-mandate) can be supplied to indicate which of
-    the customer's accounts should be credited.
+    When creating recurring or stored cards payments, the ID of a specific [mandate](get-mandate) can be supplied to indicate which of
+    the customer's accounts should be debited.
     """
 
     customer_id: Annotated[Optional[str], pydantic.Field(alias="customerId")] = None

@@ -245,6 +245,7 @@ class Mandates(BaseSDK):
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
+        scopes: Optional[List[models.MandateScopes]] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -265,6 +266,7 @@ class Mandates(BaseSDK):
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param sort: Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from
             newest to oldest.
+        :param scopes: Returns only mandates that include the specified scopes.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
             setting the `testmode` query parameter to `true`.
@@ -291,6 +293,7 @@ class Mandates(BaseSDK):
             from_=from_,
             limit=limit,
             sort=sort,
+            scopes=scopes,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
@@ -363,6 +366,7 @@ class Mandates(BaseSDK):
                 from_=from_,
                 limit=limit,
                 sort=sort,
+                scopes=scopes,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
@@ -399,6 +403,7 @@ class Mandates(BaseSDK):
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
+        scopes: Optional[List[models.MandateScopes]] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -419,6 +424,7 @@ class Mandates(BaseSDK):
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param sort: Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from
             newest to oldest.
+        :param scopes: Returns only mandates that include the specified scopes.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
             setting the `testmode` query parameter to `true`.
@@ -445,6 +451,7 @@ class Mandates(BaseSDK):
             from_=from_,
             limit=limit,
             sort=sort,
+            scopes=scopes,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
@@ -520,6 +527,7 @@ class Mandates(BaseSDK):
                 from_=from_,
                 limit=limit,
                 sort=sort,
+                scopes=scopes,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
                 retries=retries,
