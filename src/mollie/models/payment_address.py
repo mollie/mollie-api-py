@@ -45,6 +45,8 @@ class PaymentAddressTypedDict(TypedDict):
     email upon payment creation. The language of the email will follow the locale parameter of the payment.
 
     Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
     """
     phone: NotRequired[str]
     r"""If provided, it must be in the [E.164](https://en.wikipedia.org/wiki/E.164) format. For example: +31208202070."""
@@ -111,6 +113,8 @@ class PaymentAddress(BaseModel):
     email upon payment creation. The language of the email will follow the locale parameter of the payment.
 
     Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
     """
 
     phone: Optional[str] = None

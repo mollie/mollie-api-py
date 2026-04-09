@@ -211,7 +211,10 @@ class GetCustomerResponseTypedDict(TypedDict):
     name: Nullable[str]
     r"""The full name of the customer."""
     email: Nullable[str]
-    r"""The email address of the customer."""
+    r"""The email address of the customer.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
     locale: Nullable[LocaleResponse]
     r"""Allows you to preset the language to be used."""
     metadata: Nullable[MetadataTypedDict]
@@ -241,7 +244,10 @@ class GetCustomerResponse(BaseModel):
     r"""The full name of the customer."""
 
     email: Nullable[str]
-    r"""The email address of the customer."""
+    r"""The email address of the customer.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
 
     locale: Nullable[LocaleResponse]
     r"""Allows you to preset the language to be used."""

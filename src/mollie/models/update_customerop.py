@@ -22,7 +22,10 @@ class UpdateCustomerRequestBodyTypedDict(TypedDict):
     name: NotRequired[Nullable[str]]
     r"""The full name of the customer."""
     email: NotRequired[Nullable[str]]
-    r"""The email address of the customer."""
+    r"""The email address of the customer.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
     locale: NotRequired[Nullable[LocaleResponse]]
     r"""Allows you to preset the language to be used."""
     metadata: NotRequired[Nullable[MetadataTypedDict]]
@@ -43,7 +46,10 @@ class UpdateCustomerRequestBody(BaseModel):
     r"""The full name of the customer."""
 
     email: OptionalNullable[str] = UNSET
-    r"""The email address of the customer."""
+    r"""The email address of the customer.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
 
     locale: OptionalNullable[LocaleResponse] = UNSET
     r"""Allows you to preset the language to be used."""

@@ -99,7 +99,10 @@ class ProfileTypedDict(TypedDict):
     signs are allowed.
     """
     email: NotRequired[str]
-    r"""The email address associated with the profile's trade name or brand."""
+    r"""The email address associated with the profile's trade name or brand.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
     phone: NotRequired[str]
     r"""The phone number associated with the profile's trade name or brand."""
     description: NotRequired[Nullable[str]]
@@ -122,7 +125,10 @@ class Profile(BaseModel):
     """
 
     email: Optional[str] = None
-    r"""The email address associated with the profile's trade name or brand."""
+    r"""The email address associated with the profile's trade name or brand.
+
+    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
+    """
 
     phone: Optional[str] = None
     r"""The phone number associated with the profile's trade name or brand."""
