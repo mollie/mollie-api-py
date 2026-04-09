@@ -4,6 +4,7 @@
 from __future__ import annotations
 from .list_links import ListLinks, ListLinksTypedDict
 from .list_mandate_response import ListMandateResponse, ListMandateResponseTypedDict
+from .mandate_scopes import MandateScopes
 from .sorting import Sorting
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import (
@@ -70,6 +71,8 @@ class ListMandatesRequestTypedDict(TypedDict):
     r"""Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from
     newest to oldest.
     """
+    scopes: NotRequired[List[MandateScopes]]
+    r"""Returns only mandates that include the specified scopes."""
     testmode: NotRequired[bool]
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
     parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -112,6 +115,12 @@ class ListMandatesRequest(BaseModel):
     newest to oldest.
     """
 
+    scopes: Annotated[
+        Optional[List[MandateScopes]],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""Returns only mandates that include the specified scopes."""
+
     testmode: Annotated[
         Optional[bool],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -132,7 +141,9 @@ class ListMandatesRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["from", "limit", "sort", "testmode", "idempotency-key"])
+        optional_fields = set(
+            ["from", "limit", "sort", "scopes", "testmode", "idempotency-key"]
+        )
         nullable_fields = set(["limit"])
         serialized = handler(self)
         m = {}

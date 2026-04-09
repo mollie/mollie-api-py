@@ -11,6 +11,7 @@ from mollie import models, utils
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import field_serializer, model_serializer
+from typing import List
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -136,6 +137,15 @@ class MandateResponseDetails(BaseModel):
         return m
 
 
+class MandateResponseScope(str, Enum, metaclass=utils.OpenEnumMeta):
+    r"""An array defining the eligible use cases for the mandate. For creditcard mandates, this field will always be
+    present and can contain one or both of the following values:
+    """
+
+    CUSTOMER_PRESENT = "customer-present"
+    CUSTOMER_NOT_PRESENT = "customer-not-present"
+
+
 class MandateResponseStatus(str, Enum, metaclass=utils.OpenEnumMeta):
     r"""The status of the mandate. A status can be `pending` for mandates when the first payment is not yet finalized, or
     when we did not received the IBAN yet from the first payment.
@@ -196,6 +206,10 @@ class MandateResponseTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: MandateResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+    scopes: NotRequired[Nullable[List[MandateResponseScope]]]
+    r"""An array defining the eligible use cases for the mandate. This field will always be
+    present and can contain one or both of the following values:
+    """
 
 
 class MandateResponse(BaseModel):
@@ -237,6 +251,11 @@ class MandateResponse(BaseModel):
     links: Annotated[MandateResponseLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
+    scopes: OptionalNullable[List[MandateResponseScope]] = UNSET
+    r"""An array defining the eligible use cases for the mandate. This field will always be
+    present and can contain one or both of the following values:
+    """
+
     @field_serializer("mode")
     def serialize_mode(self, value):
         if isinstance(value, str):
@@ -266,15 +285,26 @@ class MandateResponse(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
+        optional_fields = set(["scopes"])
+        nullable_fields = set(["signatureDate", "mandateReference", "scopes"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                m[k] = val
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m
 
