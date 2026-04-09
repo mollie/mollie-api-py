@@ -34,6 +34,7 @@ This documentation is for the new Mollie's SDK. You can find more details on how
   * [Global Parameters](#global-parameters)
   * [Pagination](#pagination)
   * [Retries](#retries)
+  * [Webhook Signature Validation](#webhook-signature-validation)
   * [Error Handling](#error-handling)
   * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
@@ -636,6 +637,56 @@ with ClientSDK(
 
 ```
 <!-- End Retries [retries] -->
+
+<!-- Start Webhook Signature Validation [webhook-signature-validation] -->
+## Webhook Signature Validation
+
+The SDK includes a helper to validate Mollie webhook signatures using HMAC-SHA256.
+Use it with the raw request body exactly as received by your web framework and the value of the
+`X-Mollie-Signature` header.
+
+```python
+import os
+
+from mollie.utils.webhooks import InvalidSignatureException, SignatureValidator
+
+
+def handle_webhook(raw_body: str, signature_header: str | None) -> None:
+    validator = SignatureValidator(os.getenv("MOLLIE_WEBHOOK_SECRET", ""))
+
+    try:
+        is_verified = validator.validate_payload(raw_body, signature_header)
+    except InvalidSignatureException:
+        print("Webhook signature is invalid")
+        return
+
+    if not is_verified:
+        print("No signature header was provided; treating it as a legacy webhook")
+        return
+
+    print("Webhook signature is valid")
+```
+
+You can also use the static helper when you do not want to instantiate the validator yourself:
+
+```python
+from mollie.utils.webhooks import SignatureValidator
+
+
+SignatureValidator.validate(
+    payload=raw_body,
+    signing_secrets=["current_secret", "previous_secret"],
+    signatures=signature_header,
+)
+```
+
+Notes:
+
+- `validate_payload()` returns `True` when at least one signature matches.
+- It returns `False` when no signature is present, which lets you support legacy webhooks.
+- It raises `InvalidSignatureException` when a signature is present but does not match.
+- Header values with the `sha256=` prefix are supported automatically.
+<!-- End Webhook Signature Validation [webhook-signature-validation] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
