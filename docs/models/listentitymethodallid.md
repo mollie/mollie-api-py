@@ -32,6 +32,7 @@ value = ListEntityMethodAllID.ALMA
 | `DIRECTDEBIT`  | directdebit    |
 | `EPS`          | eps            |
 | `GIFTCARD`     | giftcard       |
+| `GOOGLEPAY`    | googlepay      |
 | `IDEAL`        | ideal          |
 | `IN3`          | in3            |
 | `KBC`          | kbc            |
