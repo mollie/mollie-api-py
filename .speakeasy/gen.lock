@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: d1ea56ec793f5de741cc1f74e334eb06
+  docChecksum: 79cf5ff55b1ce7e85b9156c043710931
   docVersion: 1.0.0
   speakeasyVersion: 1.761.1
   generationVersion: 2.879.6
-  releaseVersion: 1.3.0
-  configChecksum: 744827a00dd5087248656124a604e8f1
+  releaseVersion: 1.3.1
+  configChecksum: d9b467f5895ffd1eff23a892373e9113
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: ae8830fb-fd44-4e81-a879-3766ea1d303a
-  pristine_commit_hash: af93850279557e30f9c027101ed4466012aece73
-  pristine_tree_hash: d5057800222f4793c0b5ada783e74e82278f2679
+  generation_id: e4d8b60f-02b9-4868-88ad-a8f20b2b3132
+  pristine_commit_hash: a309ab5dbed0f978cedd2b17f71ccf9153fb1c9b
+  pristine_tree_hash: 40c9397e1312b3422f0cf222e0df4195aa835e1d
 features:
   python:
     additionalDependencies: 1.0.0
@@ -1567,8 +1567,8 @@ trackedFiles:
     pristine_git_object: 6cf3ea59578a906974086e21c24b13310d42facd
   docs/models/listentitymethodallid.md:
     id: 785b3c8471b7
-    last_write_checksum: sha1:5f9f3b5e03166441933366a79f759c9c5242cb2f
-    pristine_git_object: 3e9639c11f53a704ace6a4bc195c11d32a51eb4c
+    last_write_checksum: sha1:47fce2dde075e0a3c38a23a4635cb3d421154148
+    pristine_git_object: 0629776f5004ef66a657e9c3d430d46b33e1928e
   docs/models/listentitymethodallimage.md:
     id: 5eb6453fbdc5
     last_write_checksum: sha1:d769c22283290b5cecd1511e58124ac8343cd490
@@ -1595,8 +1595,8 @@ trackedFiles:
     pristine_git_object: f20a7bee6b761d1fda7d625ae99cb46eba77e0ca
   docs/models/listentitymethodid.md:
     id: e3d45c1841da
-    last_write_checksum: sha1:645ea8efbdee58c255695ff4830525015a8501dc
-    pristine_git_object: c75f03e4675022ac875a5a42c185999bd83638f8
+    last_write_checksum: sha1:e482bb55ee2629c0dcd8dfa1a81aff8081497fec
+    pristine_git_object: 39fa7eeee63c0383483ad1e759bb7dabb1ffb61b
   docs/models/listentitymethodimage.md:
     id: 62e57329278b
     last_write_checksum: sha1:2d4e895a52f4b1f54730ed97069de7c27d7386b9
@@ -2399,8 +2399,8 @@ trackedFiles:
     pristine_git_object: 2fdf08a3015253f5b6394aafa86f13fc6bebd6f1
   docs/models/methodincludewalletsparameter.md:
     id: 8c7233d5f4c1
-    last_write_checksum: sha1:514bed7f2dac6fd788fc76877435ea142c97ca27
-    pristine_git_object: e5e1a52e57b616812b9ddf427973d14133efd237
+    last_write_checksum: sha1:14264dc48ff46f4f872371c4afea965f3bd3b1a2
+    pristine_git_object: 5bc7e730bfe8dc905bb752a4674fcb310031eea6
   docs/models/methodresourceparameter.md:
     id: 7593e3a4c678
     last_write_checksum: sha1:1ae29679a8afda1395e25e5f5cacd075119d31ec
@@ -3475,8 +3475,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:269bd9506a7d9d4e3a283d68f69f336209099bfb
-    pristine_git_object: d2cca42324db86801b654ce8d8d52ac05223f226
+    last_write_checksum: sha1:eda5d04b9b340fc483c87fe5c6934d7b23c1dd74
+    pristine_git_object: 6e559eafb181c48412941f7d4b660186f80d3a9e
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3503,8 +3503,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:491bebc03616c7b300dcc840091eebc8b7369be3
-    pristine_git_object: 21ce2fb4f81384565db84e10417e091cc952d103
+    last_write_checksum: sha1:48f224f01eed6a106778deb27abab4ed65eacebd
+    pristine_git_object: 9fa2ec5d3b4fc4ab5a8cd7d398aefa1f35f5f48d
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:cbac5d17dfecec246c28d89e5f0745fb1e407a92
@@ -4183,12 +4183,12 @@ trackedFiles:
     pristine_git_object: ae78b304d2e4e669bace5dc4039673fe48150ee7
   src/mollie/models/list_entity_method.py:
     id: 59fe6d2598ff
-    last_write_checksum: sha1:d081c0090988d4d5ea227921e48e34c45666e4d5
-    pristine_git_object: eadf668426c2819366639cfdcd63bf2bbf94fb45
+    last_write_checksum: sha1:534e2fc7972dd17cac1deace25129bd73dca1a6d
+    pristine_git_object: 864e785b9f621807323e320aacba0c3290b8fd33
   src/mollie/models/list_entity_method_all.py:
     id: 28109001c08a
-    last_write_checksum: sha1:7d7e2a3e937e11b7a27539d5dc1d5575932db0ac
-    pristine_git_object: cdd53fdd6896d5776c9503522735dec34b13f8ee
+    last_write_checksum: sha1:7544ce0cd5de857c9c31352c44b234a4b22af527
+    pristine_git_object: 4091fbea3bf41652559e96031f712f33bd2bcf6d
   src/mollie/models/list_entity_permission.py:
     id: d0a366e4eef7
     last_write_checksum: sha1:79385b3e92136704384e6df2af5584daa3b9c503
@@ -4375,8 +4375,8 @@ trackedFiles:
     pristine_git_object: 17407aa3646b29dc9665b4de554958d5d2687733
   src/mollie/models/method_include_wallets_parameter.py:
     id: ccfe5d251516
-    last_write_checksum: sha1:943cf73907f707abbba06a68b59dccb9f803ea92
-    pristine_git_object: 5039c676f2c6d1c843f97ee867c4f284c150a320
+    last_write_checksum: sha1:cce4c935ce50656d453155919a60df60b0d8b292
+    pristine_git_object: eb41da32309992a2468356fd156a1c22df31c658
   src/mollie/models/method_resource_parameter.py:
     id: bab7a395c5ff
     last_write_checksum: sha1:1ba9d3414c3a5a804672b9fa136b355d48920175
@@ -8334,4 +8334,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.payments.create()`: \n  *  `request.payment_request.store_credentials` **Added**\n* `client.customers.create_payment()`: \n  *  `request.payment_request.store_credentials` **Added**\n* `client.mandates.create()`:  `response.scopes` **Added**\n* `client.mandates.list()`: \n  *  `request.scopes` **Added**\n  *  `response._embedded.mandates[].scopes` **Added**\n* `client.mandates.get()`:  `response.scopes` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `client.methods.list()`: \n  *  `request.include_wallets` **Changed**\n  *  `response._embedded.methods[].id.enum(googlepay)` **Added**\n* `client.methods.all()`:  `response._embedded.methods[].id.enum(googlepay)` **Added**\n"

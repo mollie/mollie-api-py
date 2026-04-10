@@ -7,3 +7,4 @@ from enum import Enum
 
 class MethodIncludeWalletsParameter(str, Enum):
     APPLEPAY = "applepay"
+    GOOGLEPAY = "googlepay"

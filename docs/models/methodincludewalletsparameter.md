@@ -11,6 +11,7 @@ value = MethodIncludeWalletsParameter.APPLEPAY
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `APPLEPAY` | applepay   |
+| Name        | Value       |
+| ----------- | ----------- |
+| `APPLEPAY`  | applepay    |
+| `GOOGLEPAY` | googlepay   |
