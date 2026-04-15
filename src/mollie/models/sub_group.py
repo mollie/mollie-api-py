@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 from .amount import Amount, AmountTypedDict
-from .components_sub_totals import ComponentsSubTotals, ComponentsSubTotalsTypedDict
+from .sub_totals_2 import SubTotals2, SubTotals2TypedDict
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from pydantic import model_serializer
 from typing import List, Optional
@@ -13,14 +13,14 @@ from typing_extensions import NotRequired, TypedDict
 class SubGroupTypedDict(TypedDict):
     amount: NotRequired[AmountTypedDict]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    subtotals: NotRequired[Nullable[List[ComponentsSubTotalsTypedDict]]]
+    subtotals: NotRequired[Nullable[List[SubTotals2TypedDict]]]
 
 
 class SubGroup(BaseModel):
     amount: Optional[Amount] = None
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    subtotals: OptionalNullable[List[ComponentsSubTotals]] = UNSET
+    subtotals: OptionalNullable[List[SubTotals2]] = UNSET
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
