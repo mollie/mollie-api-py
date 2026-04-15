@@ -84,7 +84,6 @@ if TYPE_CHECKING:
         ClientLinkResponseLinksTypedDict,
         ClientLinkResponseTypedDict,
     )
-    from .components_sub_totals import ComponentsSubTotals, ComponentsSubTotalsTypedDict
     from .counterparty import Counterparty, CounterpartyTypedDict
     from .create_captureop import CreateCaptureRequest, CreateCaptureRequestTypedDict
     from .create_client_linkop import (
@@ -1710,6 +1709,7 @@ if TYPE_CHECKING:
     from .status_reason_code_response import StatusReasonCodeResponse
     from .sub_group import SubGroup, SubGroupTypedDict
     from .sub_totals import SubTotals, SubTotalsTypedDict
+    from .sub_totals_2 import SubTotals2, SubTotals2TypedDict
     from .submit_onboarding_dataop import (
         Organization,
         OrganizationTypedDict,
@@ -1947,8 +1947,6 @@ __all__ = [
     "Code",
     "Company",
     "CompanyTypedDict",
-    "ComponentsSubTotals",
-    "ComponentsSubTotalsTypedDict",
     "Context",
     "ContextTypedDict",
     "Corrections",
@@ -3236,6 +3234,8 @@ __all__ = [
     "SubGroup",
     "SubGroupTypedDict",
     "SubTotals",
+    "SubTotals2",
+    "SubTotals2TypedDict",
     "SubTotalsTypedDict",
     "SubmitOnboardingDataRequest",
     "SubmitOnboardingDataRequestBody",
@@ -3421,8 +3421,6 @@ _dynamic_imports: dict[str, str] = {
     "ClientLinkResponseLinks": ".client_link_response",
     "ClientLinkResponseLinksTypedDict": ".client_link_response",
     "ClientLinkResponseTypedDict": ".client_link_response",
-    "ComponentsSubTotals": ".components_sub_totals",
-    "ComponentsSubTotalsTypedDict": ".components_sub_totals",
     "Counterparty": ".counterparty",
     "CounterpartyTypedDict": ".counterparty",
     "CreateCaptureRequest": ".create_captureop",
@@ -4741,6 +4739,8 @@ _dynamic_imports: dict[str, str] = {
     "SubGroupTypedDict": ".sub_group",
     "SubTotals": ".sub_totals",
     "SubTotalsTypedDict": ".sub_totals",
+    "SubTotals2": ".sub_totals_2",
+    "SubTotals2TypedDict": ".sub_totals_2",
     "Organization": ".submit_onboarding_dataop",
     "OrganizationTypedDict": ".submit_onboarding_dataop",
     "Profile": ".submit_onboarding_dataop",
