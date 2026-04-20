@@ -99,7 +99,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "422", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -205,7 +205,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "422", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -311,7 +311,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["400", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -448,7 +448,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["400", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -588,7 +588,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["404", "410", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -694,7 +694,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["404", "410", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -809,7 +809,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "404", "410", "422", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -926,7 +926,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "404", "410", "422", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1026,7 +1026,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["404", "410", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1124,7 +1124,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["404", "410", "4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1223,7 +1223,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 
@@ -1318,7 +1318,7 @@ class Profiles(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["4XX", "5XX"],
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
             retry_config=retry_config,
         )
 

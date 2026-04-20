@@ -2,12 +2,26 @@
 # @generated-id: aac214b3532e
 
 from __future__ import annotations
-from .sales_invoice_recipient_locale import SalesInvoiceRecipientLocale
 from .sales_invoice_recipient_type import SalesInvoiceRecipientType
+from enum import Enum
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+class SalesInvoiceRecipientLocale(str, Enum):
+    r"""The locale for the recipient, to be used for translations in PDF generation and payment pages."""
+
+    EN_US = "en_US"
+    EN_GB = "en_GB"
+    NL_NL = "nl_NL"
+    NL_BE = "nl_BE"
+    DE_DE = "de_DE"
+    DE_AT = "de_AT"
+    DE_CH = "de_CH"
+    FR_FR = "fr_FR"
+    FR_BE = "fr_BE"
 
 
 class SalesInvoiceRecipientTypedDict(TypedDict):
@@ -29,7 +43,6 @@ class SalesInvoiceRecipientTypedDict(TypedDict):
     country: str
     r"""A country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format."""
     locale: SalesInvoiceRecipientLocale
-    r"""The locale for the recipient, to be used for translations in PDF generation and payment pages."""
     title: NotRequired[Nullable[str]]
     r"""The title of the `consumer` type recipient, for example Mr. or Mrs.."""
     given_name: NotRequired[Nullable[str]]
@@ -83,7 +96,6 @@ class SalesInvoiceRecipient(BaseModel):
     r"""A country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format."""
 
     locale: SalesInvoiceRecipientLocale
-    r"""The locale for the recipient, to be used for translations in PDF generation and payment pages."""
 
     title: OptionalNullable[str] = UNSET
     r"""The title of the `consumer` type recipient, for example Mr. or Mrs.."""

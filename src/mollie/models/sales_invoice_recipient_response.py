@@ -2,7 +2,6 @@
 # @generated-id: 94da8eae2621
 
 from __future__ import annotations
-from .sales_invoice_recipient_locale_response import SalesInvoiceRecipientLocaleResponse
 from .sales_invoice_recipient_type_response import SalesInvoiceRecipientTypeResponse
 from mollie import models
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
@@ -29,8 +28,6 @@ class SalesInvoiceRecipientResponseTypedDict(TypedDict):
     r"""The recipient's city."""
     country: str
     r"""A country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format."""
-    locale: SalesInvoiceRecipientLocaleResponse
-    r"""The locale for the recipient, to be used for translations in PDF generation and payment pages."""
     title: NotRequired[Nullable[str]]
     r"""The title of the `consumer` type recipient, for example Mr. or Mrs.."""
     given_name: NotRequired[Nullable[str]]
@@ -82,9 +79,6 @@ class SalesInvoiceRecipientResponse(BaseModel):
 
     country: str
     r"""A country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format."""
-
-    locale: SalesInvoiceRecipientLocaleResponse
-    r"""The locale for the recipient, to be used for translations in PDF generation and payment pages."""
 
     title: OptionalNullable[str] = UNSET
     r"""The title of the `consumer` type recipient, for example Mr. or Mrs.."""
@@ -138,15 +132,6 @@ class SalesInvoiceRecipientResponse(BaseModel):
         if isinstance(value, str):
             try:
                 return models.SalesInvoiceRecipientTypeResponse(value)
-            except ValueError:
-                return value
-        return value
-
-    @field_serializer("locale")
-    def serialize_locale(self, value):
-        if isinstance(value, str):
-            try:
-                return models.SalesInvoiceRecipientLocaleResponse(value)
             except ValueError:
                 return value
         return value
