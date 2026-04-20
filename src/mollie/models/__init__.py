@@ -1628,11 +1628,8 @@ if TYPE_CHECKING:
     from .sales_invoice_payment_term_response import SalesInvoicePaymentTermResponse
     from .sales_invoice_recipient import (
         SalesInvoiceRecipient,
+        SalesInvoiceRecipientLocale,
         SalesInvoiceRecipientTypedDict,
-    )
-    from .sales_invoice_recipient_locale import SalesInvoiceRecipientLocale
-    from .sales_invoice_recipient_locale_response import (
-        SalesInvoiceRecipientLocaleResponse,
     )
     from .sales_invoice_recipient_response import (
         SalesInvoiceRecipientResponse,
@@ -3164,7 +3161,6 @@ __all__ = [
     "SalesInvoicePaymentTermResponse",
     "SalesInvoiceRecipient",
     "SalesInvoiceRecipientLocale",
-    "SalesInvoiceRecipientLocaleResponse",
     "SalesInvoiceRecipientResponse",
     "SalesInvoiceRecipientResponseTypedDict",
     "SalesInvoiceRecipientType",
@@ -4668,9 +4664,8 @@ _dynamic_imports: dict[str, str] = {
     "SalesInvoicePaymentTerm": ".sales_invoice_payment_term",
     "SalesInvoicePaymentTermResponse": ".sales_invoice_payment_term_response",
     "SalesInvoiceRecipient": ".sales_invoice_recipient",
+    "SalesInvoiceRecipientLocale": ".sales_invoice_recipient",
     "SalesInvoiceRecipientTypedDict": ".sales_invoice_recipient",
-    "SalesInvoiceRecipientLocale": ".sales_invoice_recipient_locale",
-    "SalesInvoiceRecipientLocaleResponse": ".sales_invoice_recipient_locale_response",
     "SalesInvoiceRecipientResponse": ".sales_invoice_recipient_response",
     "SalesInvoiceRecipientResponseTypedDict": ".sales_invoice_recipient_response",
     "SalesInvoiceRecipientType": ".sales_invoice_recipient_type",

@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 99d4565358f0facffed2c89f5b069f48
+  docChecksum: 19786eba31761283f3c5717d0833088d
   docVersion: 1.0.0
-  speakeasyVersion: 1.761.5
-  generationVersion: 2.879.13
-  releaseVersion: 1.3.2
-  configChecksum: d8561098f523fa246f65f3ee1e99d408
+  speakeasyVersion: 1.761.8
+  generationVersion: 2.881.2
+  releaseVersion: 1.3.3
+  configChecksum: 71f7662c85ee202aab2766ed5f1681f7
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 95c8feb5-f433-4515-a900-54d569f8f42a
-  pristine_commit_hash: 626c97fcf06b973d42500bbbc9b53dee7a247b5f
-  pristine_tree_hash: c1d8baf53155302c2599df5e739430cf8111cf92
+  generation_id: 528ff4d7-96fa-41c5-a1c6-0a522d2f0df0
+  pristine_commit_hash: 9f4e0d05ff2d9fcf2fb76cca309dd8ddeeb6276a
+  pristine_tree_hash: 8336c993fb7506cb240f18d77d1e2ec66b683afe
 features:
   python:
     additionalDependencies: 1.0.0
@@ -37,7 +37,7 @@ features:
     openEnums: 1.0.4
     pagination: 3.0.9
     responseFormat: 1.1.0
-    retries: 3.0.4
+    retries: 3.0.5
     sdkHooks: 1.2.1
     unions: 3.1.4
 trackedFiles:
@@ -2887,20 +2887,16 @@ trackedFiles:
     pristine_git_object: 11e1d4390c847ced875de6f0de908986ccc0452f
   docs/models/salesinvoicerecipient.md:
     id: a3de71f85fc8
-    last_write_checksum: sha1:dd3fe26678873e23fb47df1c403aa8f798305109
-    pristine_git_object: 004d6bdbff5f21240ce89f7faad92386aa541491
+    last_write_checksum: sha1:f318166d6505359ab4f0a9e08b9ea61be030f994
+    pristine_git_object: c4d9ccbfd3f92aed6fabcee66630a296d935fbe6
   docs/models/salesinvoicerecipientlocale.md:
     id: 0467f0b58de1
     last_write_checksum: sha1:02e92f5e7ca399635f45cba2c45273b6e83e03c0
     pristine_git_object: 9a22c66d50609087d729937ee4489fe83e73c53a
-  docs/models/salesinvoicerecipientlocaleresponse.md:
-    id: 17336915a233
-    last_write_checksum: sha1:7e369fe9ebc8808504469ee3734f4f0d744c640a
-    pristine_git_object: b949124789f3600bd1216fd5cf745d0286c4aec9
   docs/models/salesinvoicerecipientresponse.md:
     id: 86f8cd81dc71
-    last_write_checksum: sha1:8027d0f2f26b372c85421b142c0f28340a32ff57
-    pristine_git_object: f7b690a491b760fae2ef74ac2dcbea365b965268
+    last_write_checksum: sha1:e0389463d48aaf1552f8943d9379c7992f97399d
+    pristine_git_object: b6c2678f075b3da40968329075a2a2b912dedc36
   docs/models/salesinvoicerecipienttype.md:
     id: 7c79f6e19312
     last_write_checksum: sha1:492a2e5c437a9084fdc62284e5b27e2fba40771d
@@ -3475,8 +3471,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:68d1a04d2acc9767d2d25b667585a2db4c922acc
-    pristine_git_object: 48cdc2494a110ce944539340ad04f18f01036831
+    last_write_checksum: sha1:2ceb06435763559196934bd6ae31ece489a66a4d
+    pristine_git_object: 8d6c152e04ea57e5853254cba0d87c9a0913b883
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3503,72 +3499,72 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:fa1a20edab808c0918863cb74f67ac63ce3bbb04
-    pristine_git_object: a93dec2db31f624bd0dc6bd69090f5499b43d5bb
+    last_write_checksum: sha1:f7824c562576934e33ba6cdf740ea25efd39a1cb
+    pristine_git_object: 2ad78f22c2e53b684e1974c8f042de2d36598401
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
-    last_write_checksum: sha1:cbac5d17dfecec246c28d89e5f0745fb1e407a92
-    pristine_git_object: 24e9c3dcfec01a3bec3856111bdbc4713a6e71d7
+    last_write_checksum: sha1:3d869580a22a6c49e214144f2b0abf90989f5dd4
+    pristine_git_object: 995b19fb615d352c9aa39cf6383daa2fd2e0c7a6
   src/mollie/balance_transfers.py:
     id: fd621abe5fb7
-    last_write_checksum: sha1:f15a158ce2ce19a267690bc2e501fb9737d3aca4
-    pristine_git_object: 8830ebfd57ff1f4b70b6ffe46cfc6ba6c01db3b0
+    last_write_checksum: sha1:062f818010842f7fb6575dbc77d8f44b6cf90d96
+    pristine_git_object: a8a284c2d2e4b0deba8424c619c8b80b2197eed1
   src/mollie/balances.py:
     id: 528cc19ae879
-    last_write_checksum: sha1:1c44c8676e664f26f1dc646f36afcb7522238937
-    pristine_git_object: 9f011897a5b722cf0cf913694428ad6094048ac9
+    last_write_checksum: sha1:4192a0408492c0f8dc1fdd7d49a6184f424687d8
+    pristine_git_object: 77f48184e7ba69eade77ccd33ba542204b4cf83d
   src/mollie/basesdk.py:
     id: 2f317408f31a
-    last_write_checksum: sha1:c153a0cd8736b78cea9036d9589975bf29a29f66
-    pristine_git_object: 27f109291d1c97245611fe100191bc3bbec11af8
+    last_write_checksum: sha1:d29321f8e67c2a19d358ad76f25bbfe51f7f93ea
+    pristine_git_object: b9562685cd2b1a9671aad0ada9233ebd11605445
   src/mollie/capabilities.py:
     id: 2502fdeba0ab
-    last_write_checksum: sha1:dcaa3dfac2899c2ece4454e9b9f1e19e89fe1069
-    pristine_git_object: 1d1301da697a122aa63800ef2ccb5a4db6313939
+    last_write_checksum: sha1:66fcb32413d3ef7d17dffe1ee4ad7cddd27d225f
+    pristine_git_object: 72db6c3506767f0bd3eb01a6abc35097d2ed384c
   src/mollie/captures.py:
     id: 60d0766933cb
-    last_write_checksum: sha1:873cf61561d2f2beead5b6ceac54ec3789d713db
-    pristine_git_object: 324ac3a61bc4abcae8f464330bf8c0da37121d5d
+    last_write_checksum: sha1:11aeab38905e03b119d874dcd92a1390c48bebc2
+    pristine_git_object: 365915565eaefc77848a0bd276fc265d3056eafb
   src/mollie/chargebacks_sdk.py:
     id: b00d22a87dca
-    last_write_checksum: sha1:cdd17d223c256ab9234aaac54d8e63631ab3781d
-    pristine_git_object: 2fd4de88d8a6b4f28521bcd04a285121076b45d8
+    last_write_checksum: sha1:a1ebdc29949c177e8a942ec40b6631b18e599871
+    pristine_git_object: 71bd01b4e797861bd136be2c1d292aaa1393e509
   src/mollie/client_links.py:
     id: ec1eb717d206
-    last_write_checksum: sha1:e792971fd72c12a172416aa28b9a60507c286003
-    pristine_git_object: 279c5d66635a7b3475d7f5f897e09b8039164169
+    last_write_checksum: sha1:cdcec6c4963110e1dabc0b381b52fc2de489821c
+    pristine_git_object: 019823e0e1864bea659b7d5d661cf808ce787d76
   src/mollie/clients.py:
     id: 6ff1a7091c35
-    last_write_checksum: sha1:8b4ca2952c9a46be26ef22e3e255aecf48ac678e
-    pristine_git_object: 3346f151fd2c3374b82249c2fbc132cd09e39b31
+    last_write_checksum: sha1:5be8f30325e3d872f53e385ccc174b663c8a9da5
+    pristine_git_object: a7e2058cba1d6ea8f092ba461a87f7dbdffd002b
   src/mollie/customers.py:
     id: 302bb19efd23
-    last_write_checksum: sha1:c63ebde2cae0df6dc57f06e55b4b9c8ef3e3b799
-    pristine_git_object: e8fe3c1bc576ef40834d96d95f52246550a31092
+    last_write_checksum: sha1:c2ca9a7a92376b47cb06a79731c33610d91364c6
+    pristine_git_object: 11ef59f58d416e3580fb65e7d599b0a33c074fdd
   src/mollie/delayed_routing.py:
     id: 1bdc4a7520d8
-    last_write_checksum: sha1:24d282efcc451fb94f8404b6c36c3b06e52a11cc
-    pristine_git_object: 9139cf799135c8d4e88f77d5f8aae1f9d6263019
+    last_write_checksum: sha1:5d99041ec6ac5b98287da6aabacf7ec17c4722f0
+    pristine_git_object: a46b113a99596e151f66145d8c104c426399e182
   src/mollie/httpclient.py:
     id: 39b19b616664
     last_write_checksum: sha1:d842ca9e16e6b3fa4ce8af300a4948110277f166
     pristine_git_object: 2374d93988343feb119a07ef513ebd2e4cc2efa5
   src/mollie/invoices.py:
     id: f5651ea88b74
-    last_write_checksum: sha1:31e4cbd5be27587439e9ed6f17168b80c1d1a36a
-    pristine_git_object: c07ec583bf1bc54b6b20a25879510d0ed50580a9
+    last_write_checksum: sha1:65d156e815eea2fa3b7d10db2a2117261083e548
+    pristine_git_object: 7be4055bcad946e3d3c1c2ea4a0666dc9feec232
   src/mollie/mandates.py:
     id: c4cf042df32c
-    last_write_checksum: sha1:97d7a1729bce01ab80d2ef0da3e665608a706bd8
-    pristine_git_object: 6568ce25e02093e9193da56c772b91c037404820
+    last_write_checksum: sha1:142711cfff37489b52ad8f9bfa37143167ecb585
+    pristine_git_object: 70964eed140f49dc4b8313f6cb7ded6a93e9f2e1
   src/mollie/methods.py:
     id: 29a56c8fab24
-    last_write_checksum: sha1:b2dff104dafc2f23bba1c324acb64a2ecccf5506
-    pristine_git_object: 6b11bd0c23f2a1ed66949d2a072f3206d444ab67
+    last_write_checksum: sha1:c7fda55ffecee88317126bbff80cc168a1948f52
+    pristine_git_object: 8d8e488d4bec573b94161dc083170bcc079dbdb1
   src/mollie/models/__init__.py:
     id: 6afa296e99ce
-    last_write_checksum: sha1:cd2270542f880ea3f6cde8b4cfd7a7138c9108e4
-    pristine_git_object: 224039d78a02247cb6d19f8a4bfa0b5aa5ef37c0
+    last_write_checksum: sha1:172df0628c17d288f70c8c7268a4ba95ee3fdbd3
+    pristine_git_object: 09306faaac335c93312b6db84b393800050584c5
   src/mollie/models/account_details.py:
     id: 6afe7b95a53c
     last_write_checksum: sha1:5e913925526b8d6032b89c3eac8c9b2f2207de93
@@ -4627,20 +4623,12 @@ trackedFiles:
     pristine_git_object: e091daff89cd9fe44d96c4415ee915c3b983fd63
   src/mollie/models/sales_invoice_recipient.py:
     id: aac214b3532e
-    last_write_checksum: sha1:fb0a3b5bdffd99c4db71a0f3a2359f967ba52aee
-    pristine_git_object: cd57d932f99b36294d1519e854564bba421e6f08
-  src/mollie/models/sales_invoice_recipient_locale.py:
-    id: 2cec862052f7
-    last_write_checksum: sha1:3a6a1b6cb810a5e5eaa9b95417d9e26075804f1c
-    pristine_git_object: 389d3a2211ae5e662ba554f2991181c92d772f1d
-  src/mollie/models/sales_invoice_recipient_locale_response.py:
-    id: 67347c3fd9ae
-    last_write_checksum: sha1:dd6d5d29eb3d953939b609f451cdca8cde340145
-    pristine_git_object: 2bad9cd37f9df54e6c473da2995c291b3a458879
+    last_write_checksum: sha1:84c2618a01ba0d3655a97a7bb301f9c7d5d79bcb
+    pristine_git_object: 4dbdf09240b096a10d4a21c32ec65c89954c9f89
   src/mollie/models/sales_invoice_recipient_response.py:
     id: 94da8eae2621
-    last_write_checksum: sha1:5741a573efaa7b377a9c86dd1105335bfe4672c3
-    pristine_git_object: 87680367e0e01d7118be1cde5d7fcaafcfd4ac67
+    last_write_checksum: sha1:2ee072482f9acf47e079ce039967d5a9d68fa253
+    pristine_git_object: bfd9c32c9cf8a9316828e3e016d5e2b3e92ec33c
   src/mollie/models/sales_invoice_recipient_type.py:
     id: 37d4b7b503e7
     last_write_checksum: sha1:06192f5cfb16f222cb5f91fe37091669756ff55a
@@ -4911,40 +4899,40 @@ trackedFiles:
     pristine_git_object: 0b82ce33c6d9ababe44cf6c973dbfe1c572951a2
   src/mollie/onboarding.py:
     id: 91f79aaa78a7
-    last_write_checksum: sha1:4c4156ae8568f7a9d31da5a9859a82b149f3bec0
-    pristine_git_object: 9d4c0e011d3761082d6aba64f6f696b411ff706f
+    last_write_checksum: sha1:b431dfef4eb71805348bdce66747ddc054939874
+    pristine_git_object: 695013345785898d1e5bc6d6b6961b4360db4f60
   src/mollie/organizations.py:
     id: 0ba2ed354a14
-    last_write_checksum: sha1:a49720f49dc9e0440ea5779a1c2c4827135c4d3b
-    pristine_git_object: 998fbe3174515caa8809592847c492f6ccf67e08
+    last_write_checksum: sha1:d9d181b1dce4b3a4f09d2bfbd9b15de03d9632b2
+    pristine_git_object: 78c20364e3db8147ade9591d4d8fcc3cfd7dd97e
   src/mollie/payment_links.py:
     id: b3511a5e3fde
-    last_write_checksum: sha1:30167661d2d0af2a616765a2a8e0e47f9b78d5d1
-    pristine_git_object: 7e428d681e76178c4895fecfdf4418a7a44dcb04
+    last_write_checksum: sha1:151481eb6a78186c03ae2e3c7376d7c2daf4ff58
+    pristine_git_object: 1cab54a961a69fb702e2f19ce4919a8a4be95d78
   src/mollie/payments_sdk.py:
     id: 43a3fa158138
-    last_write_checksum: sha1:848b49f80991ae24167234cb122beaaa6021af8b
-    pristine_git_object: 066018b0ec41af71e5e5b78ebc81c8910e597ef4
+    last_write_checksum: sha1:ae6d66274b9ca62bf31b81eb3206f4e1e6e0293c
+    pristine_git_object: 536a10f65c719e90e3a7b2afd4189380e0050590
   src/mollie/permissions.py:
     id: c57740a1aa9d
-    last_write_checksum: sha1:7db7661238cf50a3a75b4da7e235b65c9151b09b
-    pristine_git_object: f862fe4dec6e1ce3bf7ae95b652d05d9fb61f50a
+    last_write_checksum: sha1:10b9ad78e201b8eacf3cbbfbb73ba7145be5ad2f
+    pristine_git_object: 02e5a007d5ad2900993efd625abbd43ae70f8cd0
   src/mollie/profiles.py:
     id: 64f7827f2dad
-    last_write_checksum: sha1:cd41d34a6bbc5c52d3105e7637c39bf9f2b0d0e3
-    pristine_git_object: cbfa472f1f7a42eb4a071c667d09df99e8c5acdc
+    last_write_checksum: sha1:5f034830acb0b36d0255ba4e96c128250e462c96
+    pristine_git_object: 6923bb63d348cd99dcb446a2ab7ac5cb28475733
   src/mollie/py.typed:
     id: ded9700933d8
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
     pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   src/mollie/refunds_sdk.py:
     id: 049b771f577a
-    last_write_checksum: sha1:a04474d83fb14b9ba530103a420ad96ad8546e9d
-    pristine_git_object: 4ed71b7bcbdea717962def2b412c275cf047a8cc
+    last_write_checksum: sha1:bb2ed24c1fbac7af387c38b2c5ef78ad85119cf9
+    pristine_git_object: 333104fbd0120f44e44eb17cd0b17dfcde8255a5
   src/mollie/sales_invoices.py:
     id: dde27618d36e
-    last_write_checksum: sha1:e568c35ee9a0ded5a777406754e509d08256cc19
-    pristine_git_object: 66835f92ee310acd75a833c9d3cb27fb36cf3988
+    last_write_checksum: sha1:b7b4b6645be5329df2056598c210d193f31703a8
+    pristine_git_object: c99ef3d4cba332152f4c49cb4fd167be239209c8
   src/mollie/sdk.py:
     id: 1ca5a15b9874
     last_write_checksum: sha1:4f820e4eb8ee0858cad7ca8120442a0931a04e72
@@ -4955,24 +4943,24 @@ trackedFiles:
     pristine_git_object: ec171967a45cb702694bf863e7c3282572c6b78a
   src/mollie/sessions.py:
     id: ae4d560df7a8
-    last_write_checksum: sha1:4295db1a1a630cc8626e15d2f0f8625da2a94810
-    pristine_git_object: 78f26f7405d7eb60aeeea060bf21ef1314f8f034
+    last_write_checksum: sha1:7481c11fcab1c3dfc56f086b122437774d9ef135
+    pristine_git_object: ffff7dcd6e7244e72c4bc3a1eb04118c5c843709
   src/mollie/settlements.py:
     id: 916863d48c34
-    last_write_checksum: sha1:2ad32c18930a6314d0f4c851c883c7100a5ff3e6
-    pristine_git_object: aa4601962e42624b63275b55a410c55e46700987
+    last_write_checksum: sha1:41b28e5b45bfc2bf60ab9795c267ba6a93c2b2b6
+    pristine_git_object: 4ed8e504a23ae7808b3985b58589f6860e163193
   src/mollie/subscriptions.py:
     id: f4a78efea6f1
-    last_write_checksum: sha1:b2e85468260a70017b6879d9435b631429ecbb8a
-    pristine_git_object: d587935fd9eb88060d41e604c70203520415d837
+    last_write_checksum: sha1:f0b7b1c1e24a6d550dd6ab60c89017884f0f3c09
+    pristine_git_object: 7df2deeaae1cbf8ac779d226a93bfa75903dfb24
   src/mollie/terminals.py:
     id: 4ca0266eee84
-    last_write_checksum: sha1:d29ee9daaf3c29ea3a3d691bc259704139dea9af
-    pristine_git_object: 0880fbf3f299f68ac89e27fd43856bd0e855f587
+    last_write_checksum: sha1:5dbe51fcc41e65b834fda3804ebe05838e77f14f
+    pristine_git_object: f7d01b81ab8b1df7e178c959a041e4f8fa89d01c
   src/mollie/transfers_sdk.py:
     id: 0040e1e52add
-    last_write_checksum: sha1:b37a5565e13af3382789762fb4679bdf84c1c49f
-    pristine_git_object: 9d1408694dd61cd1dca946fff404fd9a35fc8fd2
+    last_write_checksum: sha1:3c444fb1425fc43e00c3ae03e0f7c18705bb5fa6
+    pristine_git_object: 8e449cc5c50d176febaf3dd4467dacafacee76d7
   src/mollie/types/__init__.py:
     id: 13f11926ef2f
     last_write_checksum: sha1:8f7a9ff262109c2fe242d25faa23e8163a988cea
@@ -4983,8 +4971,8 @@ trackedFiles:
     pristine_git_object: b73e50f2023afa6f043a4eee28a902ba72221529
   src/mollie/unmatched_credit_transfers.py:
     id: d177cfefe55e
-    last_write_checksum: sha1:bb27fb02858ec5a90f6fad449a663f1c6a3cd8e4
-    pristine_git_object: 849289bb6a2e21f512a465351c4c5c4b2a6eee88
+    last_write_checksum: sha1:e6849387700dff9e87b44928c60c73a206d21332
+    pristine_git_object: 00ef6f28676bb5e5f233134c7630b612cb8447f9
   src/mollie/utils/__init__.py:
     id: d78503be995a
     last_write_checksum: sha1:81385e8eaeb45116467c07e3bdb3c3d339ff5598
@@ -5059,20 +5047,20 @@ trackedFiles:
     pristine_git_object: ffb706cf1d673c4674b61ed140a5f1271942c815
   src/mollie/verify_payees.py:
     id: f56d0df6ccff
-    last_write_checksum: sha1:2cdffa7fcf6e715bfcf2e8fd61d7b206d7da6cfe
-    pristine_git_object: 672f4e9153554cd25bc6b19ecc2d42c8050e6502
+    last_write_checksum: sha1:b92aea7e7019db2fb3c48ad9b4d5b2346ad58271
+    pristine_git_object: 44a0d31118732257e2f79a491378063caf6e33c1
   src/mollie/wallets.py:
     id: ff89f41f13c5
-    last_write_checksum: sha1:8409a9124023cd3d416432d261b6ddf56280f777
-    pristine_git_object: bd8c3f8db2477143dc0a2da855652d81d4a9dc39
+    last_write_checksum: sha1:184395a3e8283a4a250284528be68584c72a2c8a
+    pristine_git_object: d90a0c96e9ff86aeed5f329eb6e62fd6e02a3938
   src/mollie/webhook_events.py:
     id: 7503f3bc7548
-    last_write_checksum: sha1:57b7fd476e8ba461d2ba182958556b9592749b7b
-    pristine_git_object: 712461bd18e3e9aea8e1c08f558c1af88768bb36
+    last_write_checksum: sha1:0baa7da6e9a5817d3d090ea54338adbe26b1e06c
+    pristine_git_object: 7d046bd113d21fc3b80a3dc67b8372d1c210347b
   src/mollie/webhooks.py:
     id: 2bc9465c792e
-    last_write_checksum: sha1:b772e8b7e67a4e66d6e60a6df1c752ff6e6e8331
-    pristine_git_object: 65fce5bdc209122669f6fe4e6799bb9f263da688
+    last_write_checksum: sha1:61219db766465d5eaa851de5e3a1104fcfc50782
+    pristine_git_object: 60238a27ac3848d37ec0880588e8042bb55e91ba
 examples:
   list-balances:
     list-balances-200-1:
@@ -7974,7 +7962,7 @@ examples:
         application/json: {"testmode": false, "profileId": "pfl_QkEhN94Ba", "status": "draft", "vatScheme": "standard", "vatMode": "exclusive", "memo": "This is a memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "customerId": "cst_8wmqcHMN4U", "mandateId": "mdt_pWUnw6pkBN", "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL", "locale": "nl_NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": {"type": "amount", "value": "10.00"}}], "discount": {"type": "amount", "value": "10.00"}, "isEInvoice": false}
       responses:
         "201":
-          application/hal+json: {"resource": "sales-invoice", "id": "invoice_4Y0eZitmBnQ6IDoMqZQKh", "mode": "live", "invoiceNumber": "INV-0000001", "profileId": "pfl_QkEhN94Ba", "status": "draft", "vatScheme": "standard", "vatMode": "exclusive", "memo": "This is a memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "customerId": "cst_8wmqcHMN4U", "mandateId": "mdt_pWUnw6pkBN", "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL", "locale": "nl_NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": {"type": "amount", "value": "10.00"}}], "discount": {"type": "amount", "value": "10.00"}, "isEInvoice": false, "amountDue": {"currency": "EUR", "value": "10.00"}, "subtotalAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "totalVatAmount": {"currency": "EUR", "value": "10.00"}, "discountedSubtotalAmount": {"currency": "EUR", "value": "10.00"}, "createdAt": "2024-03-20T09:13:37+00:00", "issuedAt": "2024-10-03T10:47:38+00:00", "paidAt": "2024-10-04T10:47:38+00:00", "dueAt": "2024-11-01T10:47:38+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "invoicePayment": {"href": "https://...", "type": "application/hal+json"}, "pdfLink": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}, "next": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}}}
+          application/hal+json: {"resource": "sales-invoice", "id": "invoice_4Y0eZitmBnQ6IDoMqZQKh", "mode": "live", "invoiceNumber": "INV-0000001", "profileId": "pfl_QkEhN94Ba", "status": "draft", "vatScheme": "standard", "vatMode": "exclusive", "memo": "This is a memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "customerId": "cst_8wmqcHMN4U", "mandateId": "mdt_pWUnw6pkBN", "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": {"type": "amount", "value": "10.00"}}], "discount": {"type": "amount", "value": "10.00"}, "isEInvoice": false, "amountDue": {"currency": "EUR", "value": "10.00"}, "subtotalAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "totalVatAmount": {"currency": "EUR", "value": "10.00"}, "discountedSubtotalAmount": {"currency": "EUR", "value": "10.00"}, "createdAt": "2024-03-20T09:13:37+00:00", "issuedAt": "2024-10-03T10:47:38+00:00", "paidAt": "2024-10-04T10:47:38+00:00", "dueAt": "2024-11-01T10:47:38+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "invoicePayment": {"href": "https://...", "type": "application/hal+json"}, "pdfLink": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}, "next": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}}}
         "404":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
   list-sales-invoices:
@@ -7998,7 +7986,7 @@ examples:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       responses:
         "200":
-          application/hal+json: {"resource": "sales-invoice", "id": "invoice_4Y0eZitmBnQ6IDoMqZQKh", "mode": "live", "invoiceNumber": "INV-0000001", "profileId": "pfl_QkEhN94Ba", "status": "draft", "vatScheme": "standard", "vatMode": "exclusive", "memo": "This is a memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "customerId": "cst_8wmqcHMN4U", "mandateId": "mdt_pWUnw6pkBN", "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL", "locale": "nl_NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": null}], "discount": null, "isEInvoice": false, "amountDue": {"currency": "EUR", "value": "10.00"}, "subtotalAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "totalVatAmount": {"currency": "EUR", "value": "10.00"}, "discountedSubtotalAmount": {"currency": "EUR", "value": "10.00"}, "createdAt": "2024-03-20T09:13:37+00:00", "issuedAt": "2024-10-03T10:47:38+00:00", "paidAt": "2024-10-04T10:47:38+00:00", "dueAt": "2024-11-01T10:47:38+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "invoicePayment": {"href": "https://...", "type": "application/hal+json"}, "pdfLink": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}, "next": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}}}
+          application/hal+json: {"resource": "sales-invoice", "id": "invoice_4Y0eZitmBnQ6IDoMqZQKh", "mode": "live", "invoiceNumber": "INV-0000001", "profileId": "pfl_QkEhN94Ba", "status": "draft", "vatScheme": "standard", "vatMode": "exclusive", "memo": "This is a memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "customerId": "cst_8wmqcHMN4U", "mandateId": "mdt_pWUnw6pkBN", "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": null}], "discount": null, "isEInvoice": false, "amountDue": {"currency": "EUR", "value": "10.00"}, "subtotalAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "totalVatAmount": {"currency": "EUR", "value": "10.00"}, "discountedSubtotalAmount": {"currency": "EUR", "value": "10.00"}, "createdAt": "2024-03-20T09:13:37+00:00", "issuedAt": "2024-10-03T10:47:38+00:00", "paidAt": "2024-10-04T10:47:38+00:00", "dueAt": "2024-11-01T10:47:38+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "invoicePayment": {"href": "https://...", "type": "application/hal+json"}, "pdfLink": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}, "next": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}}}
         "404":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
   update-sales-invoice:
@@ -8012,7 +8000,7 @@ examples:
         application/json: {"testmode": false, "status": "draft", "memo": "An updated memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL", "locale": "nl_NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": {"type": "amount", "value": "10.00"}}], "discount": {"type": "amount", "value": "10.00"}, "isEInvoice": false}
       responses:
         "200":
-          application/hal+json: {"resource": "sales-invoice", "id": "invoice_4Y0eZitmBnQ6IDoMqZQKh", "mode": "live", "invoiceNumber": "INV-0000001", "profileId": "pfl_QkEhN94Ba", "status": "draft", "vatScheme": "standard", "vatMode": "exclusive", "memo": "This is a memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "customerId": "cst_8wmqcHMN4U", "mandateId": "mdt_pWUnw6pkBN", "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL", "locale": "nl_NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": {"type": "amount", "value": "10.00"}}], "discount": {"type": "amount", "value": "10.00"}, "isEInvoice": false, "amountDue": {"currency": "EUR", "value": "10.00"}, "subtotalAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "totalVatAmount": {"currency": "EUR", "value": "10.00"}, "discountedSubtotalAmount": {"currency": "EUR", "value": "10.00"}, "createdAt": "2024-03-20T09:13:37+00:00", "issuedAt": "2024-10-03T10:47:38+00:00", "paidAt": "2024-10-04T10:47:38+00:00", "dueAt": "2024-11-01T10:47:38+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "invoicePayment": {"href": "https://...", "type": "application/hal+json"}, "pdfLink": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}, "next": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}}}
+          application/hal+json: {"resource": "sales-invoice", "id": "invoice_4Y0eZitmBnQ6IDoMqZQKh", "mode": "live", "invoiceNumber": "INV-0000001", "profileId": "pfl_QkEhN94Ba", "status": "draft", "vatScheme": "standard", "vatMode": "exclusive", "memo": "This is a memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "customerId": "cst_8wmqcHMN4U", "mandateId": "mdt_pWUnw6pkBN", "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": {"type": "amount", "value": "10.00"}}], "discount": {"type": "amount", "value": "10.00"}, "isEInvoice": false, "amountDue": {"currency": "EUR", "value": "10.00"}, "subtotalAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "totalVatAmount": {"currency": "EUR", "value": "10.00"}, "discountedSubtotalAmount": {"currency": "EUR", "value": "10.00"}, "createdAt": "2024-03-20T09:13:37+00:00", "issuedAt": "2024-10-03T10:47:38+00:00", "paidAt": "2024-10-04T10:47:38+00:00", "dueAt": "2024-11-01T10:47:38+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "invoicePayment": {"href": "https://...", "type": "application/hal+json"}, "pdfLink": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}, "next": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}}}
         "404":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
   delete-sales-invoice:
@@ -8334,3 +8322,9 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes:
+  * `client.sales_invoices.create()`:  `response.recipient.locale` **Removed** (Breaking ⚠️)
+  * `client.sales_invoices.list()`:  `response._embedded.sales_invoices[].recipient.locale` **Removed** (Breaking ⚠️)
+  * `client.sales_invoices.get()`:  `response.recipient.locale` **Removed** (Breaking ⚠️)
+  * `client.sales_invoices.update()`:  `response.recipient.locale` **Removed** (Breaking ⚠️)
