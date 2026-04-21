@@ -6,6 +6,7 @@ from .creditor_bank_account_response import (
     CreditorBankAccountResponse,
     CreditorBankAccountResponseTypedDict,
 )
+from .mode import Mode
 from .verification_result_enum import VerificationResultEnum
 from mollie import models
 from mollie.types import BaseModel, UNSET_SENTINEL
@@ -66,6 +67,8 @@ class VerificationOfPayeeResponseTypedDict(TypedDict):
     r"""Indicates the response contains a payee verification object. Will always contain the string
     `business-account-payee-verification` for this endpoint.
     """
+    mode: Mode
+    r"""Whether this entity was created in live mode or in test mode."""
     creditor_bank_account: CreditorBankAccountResponseTypedDict
     r"""The bank account details of the creditor (recipient) for Verification of Payee."""
     verification_result: VerificationOfPayeeResponseVerificationResultTypedDict
@@ -83,6 +86,9 @@ class VerificationOfPayeeResponse(BaseModel):
     `business-account-payee-verification` for this endpoint.
     """
 
+    mode: Mode
+    r"""Whether this entity was created in live mode or in test mode."""
+
     creditor_bank_account: Annotated[
         CreditorBankAccountResponse, pydantic.Field(alias="creditorBankAccount")
     ]
@@ -95,6 +101,15 @@ class VerificationOfPayeeResponse(BaseModel):
 
     created_at: Annotated[str, pydantic.Field(alias="createdAt")]
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
+
+    @field_serializer("mode")
+    def serialize_mode(self, value):
+        if isinstance(value, str):
+            try:
+                return models.Mode(value)
+            except ValueError:
+                return value
+        return value
 
 
 try:

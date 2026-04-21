@@ -15,4 +15,4 @@ class TransferStatus(str, Enum, metaclass=utils.OpenEnumMeta):
     PROCESSED = "processed"
     FAILED = "failed"
     BLOCKED = "blocked"
-    INCOMING_SETTLED = "incoming-settled"
+    RETURNED = "returned"
