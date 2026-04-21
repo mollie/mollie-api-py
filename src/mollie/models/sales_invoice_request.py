@@ -23,20 +23,8 @@ from .sales_invoice_vat_scheme import SalesInvoiceVatScheme
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-
-
-class SalesInvoiceRequestMetadataTypedDict(TypedDict):
-    r"""Provide any data you like as a JSON object. We will save the data alongside the entity. Whenever
-    you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
-    """
-
-
-class SalesInvoiceRequestMetadata(BaseModel):
-    r"""Provide any data you like as a JSON object. We will save the data alongside the entity. Whenever
-    you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
-    """
 
 
 class SalesInvoiceRequestTypedDict(TypedDict):
@@ -89,7 +77,7 @@ class SalesInvoiceRequestTypedDict(TypedDict):
     """
     memo: NotRequired[Nullable[str]]
     r"""A free-form memo you can set on the invoice, and will be shown on the invoice PDF."""
-    metadata: NotRequired[Nullable[SalesInvoiceRequestMetadataTypedDict]]
+    metadata: NotRequired[Nullable[Dict[str, Any]]]
     r"""Provide any data you like as a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
@@ -181,7 +169,7 @@ class SalesInvoiceRequest(BaseModel):
     memo: OptionalNullable[str] = UNSET
     r"""A free-form memo you can set on the invoice, and will be shown on the invoice PDF."""
 
-    metadata: OptionalNullable[SalesInvoiceRequestMetadata] = UNSET
+    metadata: OptionalNullable[Dict[str, Any]] = UNSET
     r"""Provide any data you like as a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
