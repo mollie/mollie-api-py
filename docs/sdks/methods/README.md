@@ -32,7 +32,7 @@ a non-online payment method, you can use the [Get payment method endpoint](get-m
 
 ### Example Usage: list-method-200-3
 
-<!-- UsageSnippet language="python" operationID="list-methods" method="get" path="/methods" example="list-method-200-3" -->
+<!-- UsageSnippet language="python" operationID="list-methods" method="get" path="/v2/methods" example="list-method-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -58,7 +58,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-methods-200-1
 
-<!-- UsageSnippet language="python" operationID="list-methods" method="get" path="/methods" example="list-methods-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-methods" method="get" path="/v2/methods" example="list-methods-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -84,7 +84,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-methods-200-2
 
-<!-- UsageSnippet language="python" operationID="list-methods" method="get" path="/methods" example="list-methods-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-methods" method="get" path="/v2/methods" example="list-methods-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -149,7 +149,7 @@ a non-online payment method, you can use the [Get payment method endpoint](get-m
 
 ### Example Usage: list-all-methods-200-1
 
-<!-- UsageSnippet language="python" operationID="list-all-methods" method="get" path="/methods/all" example="list-all-methods-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-all-methods" method="get" path="/v2/methods/all" example="list-all-methods-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -175,7 +175,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-all-methods-200-2
 
-<!-- UsageSnippet language="python" operationID="list-all-methods" method="get" path="/methods/all" example="list-all-methods-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-all-methods" method="get" path="/v2/methods/all" example="list-all-methods-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -201,7 +201,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-all-methods-200-3
 
-<!-- UsageSnippet language="python" operationID="list-all-methods" method="get" path="/methods/all" example="list-all-methods-200-3" -->
+<!-- UsageSnippet language="python" operationID="list-all-methods" method="get" path="/v2/methods/all" example="list-all-methods-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -227,7 +227,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-all-methods-200-4
 
-<!-- UsageSnippet language="python" operationID="list-all-methods" method="get" path="/methods/all" example="list-all-methods-200-4" -->
+<!-- UsageSnippet language="python" operationID="list-all-methods" method="get" path="/v2/methods/all" example="list-all-methods-200-4" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -293,7 +293,7 @@ are enabled by passing the wallet ID (`applepay`) as the method ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-method" method="get" path="/methods/{methodId}" example="get-method-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-method" method="get" path="/v2/methods/{methodId}" example="get-method-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK

@@ -17,7 +17,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-business-accounts" method="get" path="/business-accounts/accounts" example="list-business-accounts-200" -->
+<!-- UsageSnippet language="python" operationID="list-business-accounts" method="get" path="/v2/business-accounts/accounts" example="list-business-accounts-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -69,7 +69,7 @@ balance, and account details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-business-account" method="get" path="/business-accounts/accounts/{businessAccountId}" example="get-business-account-200" -->
+<!-- UsageSnippet language="python" operationID="get-business-account" method="get" path="/v2/business-accounts/accounts/{businessAccountId}" example="get-business-account-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -118,7 +118,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-business-account-transactions" method="get" path="/business-accounts/accounts/{businessAccountId}/transactions" example="list-transactions-200" -->
+<!-- UsageSnippet language="python" operationID="list-business-account-transactions" method="get" path="/v2/business-accounts/accounts/{businessAccountId}/transactions" example="list-transactions-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -171,7 +171,7 @@ amount, counterparty, and balance impact of a specific transaction.
 
 ### Example Usage: get-transaction-200
 
-<!-- UsageSnippet language="python" operationID="get-business-account-transaction" method="get" path="/business-accounts/accounts/{businessAccountId}/transactions/{transactionId}" example="get-transaction-200" -->
+<!-- UsageSnippet language="python" operationID="get-business-account-transaction" method="get" path="/v2/business-accounts/accounts/{businessAccountId}/transactions/{transactionId}" example="get-transaction-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -193,7 +193,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-transaction-200-credit
 
-<!-- UsageSnippet language="python" operationID="get-business-account-transaction" method="get" path="/business-accounts/accounts/{businessAccountId}/transactions/{transactionId}" example="get-transaction-200-credit" -->
+<!-- UsageSnippet language="python" operationID="get-business-account-transaction" method="get" path="/v2/business-accounts/accounts/{businessAccountId}/transactions/{transactionId}" example="get-transaction-200-credit" -->
 ```python
 import mollie
 from mollie import ClientSDK

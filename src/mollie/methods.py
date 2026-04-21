@@ -122,7 +122,7 @@ class Methods(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/methods",
+            path="/v2/methods",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -294,7 +294,7 @@ class Methods(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/methods",
+            path="/v2/methods",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -430,7 +430,7 @@ class Methods(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/methods/all",
+            path="/v2/methods/all",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -566,7 +566,7 @@ class Methods(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/methods/all",
+            path="/v2/methods/all",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -708,7 +708,7 @@ class Methods(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/methods/{methodId}",
+            path="/v2/methods/{methodId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -850,7 +850,7 @@ class Methods(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/methods/{methodId}",
+            path="/v2/methods/{methodId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

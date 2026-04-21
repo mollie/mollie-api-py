@@ -74,7 +74,7 @@ class Wallets(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/wallets/applepay/sessions",
+            path="/v2/wallets/applepay/sessions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -201,7 +201,7 @@ class Wallets(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/wallets/applepay/sessions",
+            path="/v2/wallets/applepay/sessions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

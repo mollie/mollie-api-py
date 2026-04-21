@@ -134,18 +134,15 @@ import os
 
 
 with ClientSDK(
-    testmode=True,
     security=mollie.Security(
-        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    while res is not None:
-        # Handle items
-
-        res = res.next()
+    # Handle response
+    print(res)
 ```
 
 </br>
@@ -162,18 +159,15 @@ import os
 async def main():
 
     async with ClientSDK(
-        testmode=True,
         security=mollie.Security(
-            organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
 
-        res = await client_sdk.balances.list_async(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = await client_sdk.oauth.generate_async(idempotency_key="123e4567-e89b-12d3-a456-426")
 
-        while res is not None:
-            # Handle items
-
-            res = res.next()
+        # Handle response
+        print(res)
 
 asyncio.run(main())
 ```
@@ -203,15 +197,12 @@ with ClientSDK(
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
-    testmode=True,
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    while res is not None:
-        # Handle items
-
-        res = res.next()
+    # Handle response
+    print(res)
 
 ```
 <!-- End Authentication [security] -->
@@ -378,6 +369,11 @@ client = ClientSDK(
 * [list](docs/sdks/methods/README.md#list) - List payment methods
 * [all](docs/sdks/methods/README.md#all) - List all payment methods
 * [get](docs/sdks/methods/README.md#get) - Get payment method
+
+### [Oauth](docs/sdks/oauth/README.md)
+
+* [generate](docs/sdks/oauth/README.md#generate) - Generate tokens
+* [revoke](docs/sdks/oauth/README.md#revoke) - Revoke tokens
 
 ### [Onboarding](docs/sdks/onboarding/README.md)
 
@@ -596,19 +592,16 @@ import os
 
 
 with ClientSDK(
-    testmode=True,
     security=mollie.Security(
-        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426",
+    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
-    while res is not None:
-        # Handle items
-
-        res = res.next()
+    # Handle response
+    print(res)
 
 ```
 
@@ -622,18 +615,15 @@ import os
 
 with ClientSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    testmode=True,
     security=mollie.Security(
-        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    while res is not None:
-        # Handle items
-
-        res = res.next()
+    # Handle response
+    print(res)
 
 ```
 <!-- End Retries [retries] -->
@@ -779,7 +769,7 @@ import os
 
 
 with ClientSDK(
-    server_url="https://api.mollie.com/v2",
+    server_url="https://api.mollie.com",
     testmode=True,
     security=mollie.Security(
         organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
@@ -792,6 +782,28 @@ with ClientSDK(
         # Handle items
 
         res = res.next()
+
+```
+
+### Override Server URL Per-Operation
+
+The server URL can also be overridden on a per-operation basis, provided a server list was specified for the operation. For example:
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", server_url="https://api.mollie.com/oauth2")
+
+    # Handle response
+    print(res)
 
 ```
 <!-- End Server Selection [server] -->
@@ -891,9 +903,8 @@ import os
 def main():
 
     with ClientSDK(
-        testmode=True,
         security=mollie.Security(
-            organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
         # Rest of application here...
@@ -903,9 +914,8 @@ def main():
 async def amain():
 
     async with ClientSDK(
-        testmode=False,
         security=mollie.Security(
-            organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
         # Rest of application here...

@@ -28,7 +28,7 @@ guide on [method-specific parameters](extra-payment-parameters).
 
 ### Example Usage: create-payment-201-1
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-1" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-1" -->
 ```python
 from datetime import date
 import mollie
@@ -183,7 +183,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-10
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-10" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-10" -->
 ```python
 from datetime import date
 import mollie
@@ -338,7 +338,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-11
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-11" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-11" -->
 ```python
 from datetime import date
 import mollie
@@ -493,7 +493,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-12
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-12" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-12" -->
 ```python
 from datetime import date
 import mollie
@@ -648,7 +648,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-13
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-13" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-13" -->
 ```python
 from datetime import date
 import mollie
@@ -803,7 +803,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-2
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-2" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-2" -->
 ```python
 from datetime import date
 import mollie
@@ -958,7 +958,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-3
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-3" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-3" -->
 ```python
 from datetime import date
 import mollie
@@ -1113,7 +1113,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-4
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-4" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-4" -->
 ```python
 from datetime import date
 import mollie
@@ -1268,7 +1268,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-5
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-5" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-5" -->
 ```python
 from datetime import date
 import mollie
@@ -1423,7 +1423,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-6
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-6" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-6" -->
 ```python
 from datetime import date
 import mollie
@@ -1578,7 +1578,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-7
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-7" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-7" -->
 ```python
 from datetime import date
 import mollie
@@ -1733,7 +1733,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-8
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-8" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-8" -->
 ```python
 from datetime import date
 import mollie
@@ -1888,7 +1888,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-201-9
 
-<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/payments" example="create-payment-201-9" -->
+<!-- UsageSnippet language="python" operationID="create-payment" method="post" path="/v2/payments" example="create-payment-201-9" -->
 ```python
 from datetime import date
 import mollie
@@ -2071,7 +2071,7 @@ The results are paginated.
 
 ### Example Usage: list-payments-200-1
 
-<!-- UsageSnippet language="python" operationID="list-payments" method="get" path="/payments" example="list-payments-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-payments" method="get" path="/v2/payments" example="list-payments-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2096,7 +2096,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-payments-200-2
 
-<!-- UsageSnippet language="python" operationID="list-payments" method="get" path="/payments" example="list-payments-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-payments" method="get" path="/v2/payments" example="list-payments-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2121,7 +2121,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-payments-200-3
 
-<!-- UsageSnippet language="python" operationID="list-payments" method="get" path="/payments" example="list-payments-200-3" -->
+<!-- UsageSnippet language="python" operationID="list-payments" method="get" path="/v2/payments" example="list-payments-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2174,7 +2174,7 @@ Retrieve a single payment object by its payment ID.
 
 ### Example Usage: get-payment-200-1
 
-<!-- UsageSnippet language="python" operationID="get-payment" method="get" path="/payments/{paymentId}" example="get-payment-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-payment" method="get" path="/v2/payments/{paymentId}" example="get-payment-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2196,7 +2196,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-payment-200-2
 
-<!-- UsageSnippet language="python" operationID="get-payment" method="get" path="/payments/{paymentId}" example="get-payment-200-2" -->
+<!-- UsageSnippet language="python" operationID="get-payment" method="get" path="/v2/payments/{paymentId}" example="get-payment-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2218,7 +2218,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-payment-200-3
 
-<!-- UsageSnippet language="python" operationID="get-payment" method="get" path="/payments/{paymentId}" example="get-payment-200-3" -->
+<!-- UsageSnippet language="python" operationID="get-payment" method="get" path="/v2/payments/{paymentId}" example="get-payment-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2269,7 +2269,7 @@ Updating the payment details will not result in a webhook call.
 
 ### Example Usage: update-payment-200-1
 
-<!-- UsageSnippet language="python" operationID="update-payment" method="patch" path="/payments/{paymentId}" example="update-payment-200-1" -->
+<!-- UsageSnippet language="python" operationID="update-payment" method="patch" path="/v2/payments/{paymentId}" example="update-payment-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2329,7 +2329,7 @@ with ClientSDK(
 ```
 ### Example Usage: update-payment-200-2
 
-<!-- UsageSnippet language="python" operationID="update-payment" method="patch" path="/payments/{paymentId}" example="update-payment-200-2" -->
+<!-- UsageSnippet language="python" operationID="update-payment" method="patch" path="/v2/payments/{paymentId}" example="update-payment-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2389,7 +2389,7 @@ with ClientSDK(
 ```
 ### Example Usage: update-payment-200-3
 
-<!-- UsageSnippet language="python" operationID="update-payment" method="patch" path="/payments/{paymentId}" example="update-payment-200-3" -->
+<!-- UsageSnippet language="python" operationID="update-payment" method="patch" path="/v2/payments/{paymentId}" example="update-payment-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2479,7 +2479,7 @@ The `isCancelable` property on the [Payment object](get-payment) will indicate i
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="cancel-payment" method="delete" path="/payments/{paymentId}" example="cancel-payment-200-1" -->
+<!-- UsageSnippet language="python" operationID="cancel-payment" method="delete" path="/v2/payments/{paymentId}" example="cancel-payment-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -2534,7 +2534,7 @@ If there is a successful capture, the payment will transition to `paid`.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="release-authorization" method="post" path="/payments/{paymentId}/release-authorization" -->
+<!-- UsageSnippet language="python" operationID="release-authorization" method="post" path="/v2/payments/{paymentId}/release-authorization" -->
 ```python
 import mollie
 from mollie import ClientSDK

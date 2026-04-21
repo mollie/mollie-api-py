@@ -61,7 +61,7 @@ class Mandates(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/customers/{customerId}/mandates",
+            path="/v2/customers/{customerId}/mandates",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -174,7 +174,7 @@ class Mandates(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/customers/{customerId}/mandates",
+            path="/v2/customers/{customerId}/mandates",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -300,7 +300,7 @@ class Mandates(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/customers/{customerId}/mandates",
+            path="/v2/customers/{customerId}/mandates",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -458,7 +458,7 @@ class Mandates(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/customers/{customerId}/mandates",
+            path="/v2/customers/{customerId}/mandates",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -606,7 +606,7 @@ class Mandates(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/customers/{customerId}/mandates/{mandateId}",
+            path="/v2/customers/{customerId}/mandates/{mandateId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -715,7 +715,7 @@ class Mandates(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/customers/{customerId}/mandates/{mandateId}",
+            path="/v2/customers/{customerId}/mandates/{mandateId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -827,7 +827,7 @@ class Mandates(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/customers/{customerId}/mandates/{mandateId}",
+            path="/v2/customers/{customerId}/mandates/{mandateId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -943,7 +943,7 @@ class Mandates(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/customers/{customerId}/mandates/{mandateId}",
+            path="/v2/customers/{customerId}/mandates/{mandateId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

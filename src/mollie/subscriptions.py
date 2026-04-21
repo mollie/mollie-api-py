@@ -75,7 +75,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/customers/{customerId}/subscriptions",
+            path="/v2/customers/{customerId}/subscriptions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -202,7 +202,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/customers/{customerId}/subscriptions",
+            path="/v2/customers/{customerId}/subscriptions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -325,7 +325,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/customers/{customerId}/subscriptions",
+            path="/v2/customers/{customerId}/subscriptions",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -479,7 +479,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/customers/{customerId}/subscriptions",
+            path="/v2/customers/{customerId}/subscriptions",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -625,7 +625,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/customers/{customerId}/subscriptions/{subscriptionId}",
+            path="/v2/customers/{customerId}/subscriptions/{subscriptionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -733,7 +733,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/customers/{customerId}/subscriptions/{subscriptionId}",
+            path="/v2/customers/{customerId}/subscriptions/{subscriptionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -848,7 +848,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request(
             method="PATCH",
-            path="/customers/{customerId}/subscriptions/{subscriptionId}",
+            path="/v2/customers/{customerId}/subscriptions/{subscriptionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -967,7 +967,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request_async(
             method="PATCH",
-            path="/customers/{customerId}/subscriptions/{subscriptionId}",
+            path="/v2/customers/{customerId}/subscriptions/{subscriptionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1082,7 +1082,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/customers/{customerId}/subscriptions/{subscriptionId}",
+            path="/v2/customers/{customerId}/subscriptions/{subscriptionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1197,7 +1197,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/customers/{customerId}/subscriptions/{subscriptionId}",
+            path="/v2/customers/{customerId}/subscriptions/{subscriptionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1321,7 +1321,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/subscriptions",
+            path="/v2/subscriptions",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1476,7 +1476,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/subscriptions",
+            path="/v2/subscriptions",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1643,7 +1643,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/customers/{customerId}/subscriptions/{subscriptionId}/payments",
+            path="/v2/customers/{customerId}/subscriptions/{subscriptionId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1810,7 +1810,7 @@ class Subscriptions(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/customers/{customerId}/subscriptions/{subscriptionId}/payments",
+            path="/v2/customers/{customerId}/subscriptions/{subscriptionId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,

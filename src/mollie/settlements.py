@@ -72,7 +72,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/settlements",
+            path="/v2/settlements",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -226,7 +226,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/settlements",
+            path="/v2/settlements",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -374,7 +374,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/settlements/{settlementId}",
+            path="/v2/settlements/{settlementId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -483,7 +483,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/settlements/{settlementId}",
+            path="/v2/settlements/{settlementId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -585,7 +585,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/settlements/open",
+            path="/v2/settlements/open",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -683,7 +683,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/settlements/open",
+            path="/v2/settlements/open",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -780,7 +780,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/settlements/next",
+            path="/v2/settlements/next",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -877,7 +877,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/settlements/next",
+            path="/v2/settlements/next",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -995,7 +995,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/settlements/{settlementId}/payments",
+            path="/v2/settlements/{settlementId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1155,7 +1155,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/settlements/{settlementId}/payments",
+            path="/v2/settlements/{settlementId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1308,7 +1308,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/settlements/{settlementId}/captures",
+            path="/v2/settlements/{settlementId}/captures",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1454,7 +1454,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/settlements/{settlementId}/captures",
+            path="/v2/settlements/{settlementId}/captures",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1603,7 +1603,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/settlements/{settlementId}/refunds",
+            path="/v2/settlements/{settlementId}/refunds",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1749,7 +1749,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/settlements/{settlementId}/refunds",
+            path="/v2/settlements/{settlementId}/refunds",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1904,7 +1904,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/settlements/{settlementId}/chargebacks",
+            path="/v2/settlements/{settlementId}/chargebacks",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -2060,7 +2060,7 @@ class Settlements(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/settlements/{settlementId}/chargebacks",
+            path="/v2/settlements/{settlementId}/chargebacks",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,

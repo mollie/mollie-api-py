@@ -57,7 +57,7 @@ class DelayedRouting(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/payments/{paymentId}/routes",
+            path="/v2/payments/{paymentId}/routes",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -167,7 +167,7 @@ class DelayedRouting(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/payments/{paymentId}/routes",
+            path="/v2/payments/{paymentId}/routes",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -276,7 +276,7 @@ class DelayedRouting(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payments/{paymentId}/routes",
+            path="/v2/payments/{paymentId}/routes",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -381,7 +381,7 @@ class DelayedRouting(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payments/{paymentId}/routes",
+            path="/v2/payments/{paymentId}/routes",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -482,7 +482,7 @@ class DelayedRouting(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payments/{paymentId}/routes/{routeId}",
+            path="/v2/payments/{paymentId}/routes/{routeId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -580,7 +580,7 @@ class DelayedRouting(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payments/{paymentId}/routes/{routeId}",
+            path="/v2/payments/{paymentId}/routes/{routeId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

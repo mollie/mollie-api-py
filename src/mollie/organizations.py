@@ -61,7 +61,7 @@ class Organizations(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/organizations/{organizationId}",
+            path="/v2/organizations/{organizationId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -172,7 +172,7 @@ class Organizations(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/organizations/{organizationId}",
+            path="/v2/organizations/{organizationId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -274,7 +274,7 @@ class Organizations(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/organizations/me",
+            path="/v2/organizations/me",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -369,7 +369,7 @@ class Organizations(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/organizations/me",
+            path="/v2/organizations/me",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -461,7 +461,7 @@ class Organizations(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/organizations/me/partner",
+            path="/v2/organizations/me/partner",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -553,7 +553,7 @@ class Organizations(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/organizations/me/partner",
+            path="/v2/organizations/me/partner",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

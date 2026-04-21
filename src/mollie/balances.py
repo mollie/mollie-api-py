@@ -67,7 +67,7 @@ class Balances(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/balances",
+            path="/v2/balances",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -217,7 +217,7 @@ class Balances(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/balances",
+            path="/v2/balances",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -374,7 +374,7 @@ class Balances(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/balances/{balanceId}",
+            path="/v2/balances/{balanceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -494,7 +494,7 @@ class Balances(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/balances/{balanceId}",
+            path="/v2/balances/{balanceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -596,7 +596,7 @@ class Balances(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/balances/primary",
+            path="/v2/balances/primary",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -691,7 +691,7 @@ class Balances(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/balances/primary",
+            path="/v2/balances/primary",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -814,7 +814,7 @@ class Balances(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/balances/{balanceId}/report",
+            path="/v2/balances/{balanceId}/report",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -944,7 +944,7 @@ class Balances(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/balances/{balanceId}/report",
+            path="/v2/balances/{balanceId}/report",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1067,7 +1067,7 @@ class Balances(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/balances/{balanceId}/transactions",
+            path="/v2/balances/{balanceId}/transactions",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1226,7 +1226,7 @@ class Balances(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/balances/{balanceId}/transactions",
+            path="/v2/balances/{balanceId}/transactions",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,

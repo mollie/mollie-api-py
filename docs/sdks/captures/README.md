@@ -21,7 +21,7 @@ having collected the customer's authorization.
 
 ### Example Usage: get-capture-200-1
 
-<!-- UsageSnippet language="python" operationID="create-capture" method="post" path="/payments/{paymentId}/captures" example="get-capture-200-1" -->
+<!-- UsageSnippet language="python" operationID="create-capture" method="post" path="/v2/payments/{paymentId}/captures" example="get-capture-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -48,7 +48,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-capture-200-2
 
-<!-- UsageSnippet language="python" operationID="create-capture" method="post" path="/payments/{paymentId}/captures" example="get-capture-200-2" -->
+<!-- UsageSnippet language="python" operationID="create-capture" method="post" path="/v2/payments/{paymentId}/captures" example="get-capture-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -102,7 +102,7 @@ The results are paginated.
 
 ### Example Usage: list-captures-200-1
 
-<!-- UsageSnippet language="python" operationID="list-captures" method="get" path="/payments/{paymentId}/captures" example="list-captures-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-captures" method="get" path="/v2/payments/{paymentId}/captures" example="list-captures-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -126,7 +126,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-captures-200-2
 
-<!-- UsageSnippet language="python" operationID="list-captures" method="get" path="/payments/{paymentId}/captures" example="list-captures-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-captures" method="get" path="/v2/payments/{paymentId}/captures" example="list-captures-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -179,7 +179,7 @@ payment.
 
 ### Example Usage: get-capture-200-1
 
-<!-- UsageSnippet language="python" operationID="get-capture" method="get" path="/payments/{paymentId}/captures/{captureId}" example="get-capture-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-capture" method="get" path="/v2/payments/{paymentId}/captures/{captureId}" example="get-capture-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -201,7 +201,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-capture-200-2
 
-<!-- UsageSnippet language="python" operationID="get-capture" method="get" path="/payments/{paymentId}/captures/{captureId}" example="get-capture-200-2" -->
+<!-- UsageSnippet language="python" operationID="get-capture" method="get" path="/v2/payments/{paymentId}/captures/{captureId}" example="get-capture-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK

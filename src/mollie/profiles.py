@@ -57,7 +57,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/profiles",
+            path="/v2/profiles",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -163,7 +163,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/profiles",
+            path="/v2/profiles",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -271,7 +271,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/profiles",
+            path="/v2/profiles",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -408,7 +408,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/profiles",
+            path="/v2/profiles",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -546,7 +546,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/profiles/{profileId}",
+            path="/v2/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -652,7 +652,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/profiles/{profileId}",
+            path="/v2/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -763,7 +763,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request(
             method="PATCH",
-            path="/profiles/{profileId}",
+            path="/v2/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -880,7 +880,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request_async(
             method="PATCH",
-            path="/profiles/{profileId}",
+            path="/v2/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -987,7 +987,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/profiles/{profileId}",
+            path="/v2/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1085,7 +1085,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/profiles/{profileId}",
+            path="/v2/profiles/{profileId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1184,7 +1184,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/profiles/me",
+            path="/v2/profiles/me",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1279,7 +1279,7 @@ class Profiles(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/profiles/me",
+            path="/v2/profiles/me",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

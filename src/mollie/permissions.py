@@ -50,7 +50,7 @@ class Permissions(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/permissions",
+            path="/v2/permissions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -147,7 +147,7 @@ class Permissions(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/permissions",
+            path="/v2/permissions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -250,7 +250,7 @@ class Permissions(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/permissions/{permissionId}",
+            path="/v2/permissions/{permissionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -356,7 +356,7 @@ class Permissions(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/permissions/{permissionId}",
+            path="/v2/permissions/{permissionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

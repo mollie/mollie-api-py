@@ -56,7 +56,7 @@ class WebhookEvents(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/events/{webhookEventId}",
+            path="/v2/events/{webhookEventId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -162,7 +162,7 @@ class WebhookEvents(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/events/{webhookEventId}",
+            path="/v2/events/{webhookEventId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

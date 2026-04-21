@@ -57,7 +57,7 @@ class Customers(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/customers",
+            path="/v2/customers",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -166,7 +166,7 @@ class Customers(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/customers",
+            path="/v2/customers",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -286,7 +286,7 @@ class Customers(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/customers",
+            path="/v2/customers",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -436,7 +436,7 @@ class Customers(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/customers",
+            path="/v2/customers",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -581,7 +581,7 @@ class Customers(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/customers/{customerId}",
+            path="/v2/customers/{customerId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -689,7 +689,7 @@ class Customers(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/customers/{customerId}",
+            path="/v2/customers/{customerId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -799,7 +799,7 @@ class Customers(BaseSDK):
 
         req = self._build_request(
             method="PATCH",
-            path="/customers/{customerId}",
+            path="/v2/customers/{customerId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -913,7 +913,7 @@ class Customers(BaseSDK):
 
         req = self._build_request_async(
             method="PATCH",
-            path="/customers/{customerId}",
+            path="/v2/customers/{customerId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1025,7 +1025,7 @@ class Customers(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/customers/{customerId}",
+            path="/v2/customers/{customerId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1137,7 +1137,7 @@ class Customers(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/customers/{customerId}",
+            path="/v2/customers/{customerId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1256,7 +1256,7 @@ class Customers(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/customers/{customerId}/payments",
+            path="/v2/customers/{customerId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1378,7 +1378,7 @@ class Customers(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/customers/{customerId}/payments",
+            path="/v2/customers/{customerId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1509,7 +1509,7 @@ class Customers(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/customers/{customerId}/payments",
+            path="/v2/customers/{customerId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1670,7 +1670,7 @@ class Customers(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/customers/{customerId}/payments",
+            path="/v2/customers/{customerId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,

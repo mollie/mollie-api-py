@@ -61,7 +61,7 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/unmatched-credit-transfers",
+            path="/v2/unmatched-credit-transfers",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -199,7 +199,7 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/unmatched-credit-transfers",
+            path="/v2/unmatched-credit-transfers",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -335,7 +335,7 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/unmatched-credit-transfers/{unmatchedCreditTransferId}",
+            path="/v2/unmatched-credit-transfers/{unmatchedCreditTransferId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -436,7 +436,7 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/unmatched-credit-transfers/{unmatchedCreditTransferId}",
+            path="/v2/unmatched-credit-transfers/{unmatchedCreditTransferId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -548,7 +548,7 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/unmatched-credit-transfers/{unmatchedCreditTransferId}/match",
+            path="/v2/unmatched-credit-transfers/{unmatchedCreditTransferId}/match",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -669,7 +669,7 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/unmatched-credit-transfers/{unmatchedCreditTransferId}/match",
+            path="/v2/unmatched-credit-transfers/{unmatchedCreditTransferId}/match",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -779,7 +779,7 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/unmatched-credit-transfers/{unmatchedCreditTransferId}/return",
+            path="/v2/unmatched-credit-transfers/{unmatchedCreditTransferId}/return",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -880,7 +880,7 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/unmatched-credit-transfers/{unmatchedCreditTransferId}/return",
+            path="/v2/unmatched-credit-transfers/{unmatchedCreditTransferId}/return",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

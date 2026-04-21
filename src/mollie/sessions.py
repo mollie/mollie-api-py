@@ -57,7 +57,7 @@ class Sessions(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/sessions",
+            path="/v2/sessions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -167,7 +167,7 @@ class Sessions(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/sessions",
+            path="/v2/sessions",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -273,7 +273,7 @@ class Sessions(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/sessions/{sessionId}",
+            path="/v2/sessions/{sessionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -368,7 +368,7 @@ class Sessions(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/sessions/{sessionId}",
+            path="/v2/sessions/{sessionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

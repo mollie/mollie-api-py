@@ -19,7 +19,7 @@ If you have a *partner account*', you can retrieve organization details of conne
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-organization" method="get" path="/organizations/{organizationId}" example="get-organization-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-organization" method="get" path="/v2/organizations/{organizationId}" example="get-organization-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -70,7 +70,7 @@ documentation.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-current-organization" method="get" path="/organizations/me" example="get-current-organization-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-current-organization" method="get" path="/v2/organizations/me" example="get-current-organization-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -114,7 +114,7 @@ accounts*.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-partner-status" method="get" path="/organizations/me/partner" example="get-partner-status-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-partner-status" method="get" path="/v2/organizations/me/partner" example="get-partner-status-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK

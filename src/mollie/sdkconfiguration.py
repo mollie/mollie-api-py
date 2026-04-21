@@ -17,7 +17,7 @@ from typing import Callable, Dict, Optional, Tuple, Union
 
 
 SERVERS = [
-    "https://api.mollie.com/v2",
+    "https://api.mollie.com",
 ]
 """Contains the list of servers available to the SDK"""
 

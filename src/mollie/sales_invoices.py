@@ -58,7 +58,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/sales-invoices",
+            path="/v2/sales-invoices",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -168,7 +168,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/sales-invoices",
+            path="/v2/sales-invoices",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -288,7 +288,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/sales-invoices",
+            path="/v2/sales-invoices",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -437,7 +437,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/sales-invoices",
+            path="/v2/sales-invoices",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -582,7 +582,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/sales-invoices/{salesInvoiceId}",
+            path="/v2/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -691,7 +691,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/sales-invoices/{salesInvoiceId}",
+            path="/v2/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -805,7 +805,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request(
             method="PATCH",
-            path="/sales-invoices/{salesInvoiceId}",
+            path="/v2/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -923,7 +923,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request_async(
             method="PATCH",
-            path="/sales-invoices/{salesInvoiceId}",
+            path="/v2/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1040,7 +1040,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/sales-invoices/{salesInvoiceId}",
+            path="/v2/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1157,7 +1157,7 @@ class SalesInvoices(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/sales-invoices/{salesInvoiceId}",
+            path="/v2/sales-invoices/{salesInvoiceId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

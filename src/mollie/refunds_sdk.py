@@ -58,7 +58,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/payments/{paymentId}/refunds",
+            path="/v2/payments/{paymentId}/refunds",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -170,7 +170,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/payments/{paymentId}/refunds",
+            path="/v2/payments/{paymentId}/refunds",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -295,7 +295,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payments/{paymentId}/refunds",
+            path="/v2/payments/{paymentId}/refunds",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -449,7 +449,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payments/{paymentId}/refunds",
+            path="/v2/payments/{paymentId}/refunds",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -599,7 +599,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payments/{paymentId}/refunds/{refundId}",
+            path="/v2/payments/{paymentId}/refunds/{refundId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -711,7 +711,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payments/{paymentId}/refunds/{refundId}",
+            path="/v2/payments/{paymentId}/refunds/{refundId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -823,7 +823,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/payments/{paymentId}/refunds/{refundId}",
+            path="/v2/payments/{paymentId}/refunds/{refundId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -935,7 +935,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/payments/{paymentId}/refunds/{refundId}",
+            path="/v2/payments/{paymentId}/refunds/{refundId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1062,7 +1062,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/refunds",
+            path="/v2/refunds",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1226,7 +1226,7 @@ class RefundsSDK(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/refunds",
+            path="/v2/refunds",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,

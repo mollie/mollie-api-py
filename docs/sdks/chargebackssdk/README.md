@@ -16,7 +16,7 @@ The results are paginated.
 
 ### Example Usage: list-chargeback-200-1
 
-<!-- UsageSnippet language="python" operationID="list-chargebacks" method="get" path="/payments/{paymentId}/chargebacks" example="list-chargeback-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-chargebacks" method="get" path="/v2/payments/{paymentId}/chargebacks" example="list-chargeback-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -40,7 +40,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-chargeback-200-2
 
-<!-- UsageSnippet language="python" operationID="list-chargebacks" method="get" path="/payments/{paymentId}/chargebacks" example="list-chargeback-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-chargebacks" method="get" path="/v2/payments/{paymentId}/chargebacks" example="list-chargeback-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -64,7 +64,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-chargeback-200-3
 
-<!-- UsageSnippet language="python" operationID="list-chargebacks" method="get" path="/payments/{paymentId}/chargebacks" example="list-chargeback-200-3" -->
+<!-- UsageSnippet language="python" operationID="list-chargebacks" method="get" path="/v2/payments/{paymentId}/chargebacks" example="list-chargeback-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -116,7 +116,7 @@ Retrieve a single payment chargeback by its ID and the ID of its parent payment.
 
 ### Example Usage: get-chargeback-200-1
 
-<!-- UsageSnippet language="python" operationID="get-chargeback" method="get" path="/payments/{paymentId}/chargebacks/{chargebackId}" example="get-chargeback-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-chargeback" method="get" path="/v2/payments/{paymentId}/chargebacks/{chargebackId}" example="get-chargeback-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -138,7 +138,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-chargeback-200-2
 
-<!-- UsageSnippet language="python" operationID="get-chargeback" method="get" path="/payments/{paymentId}/chargebacks/{chargebackId}" example="get-chargeback-200-2" -->
+<!-- UsageSnippet language="python" operationID="get-chargeback" method="get" path="/v2/payments/{paymentId}/chargebacks/{chargebackId}" example="get-chargeback-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -189,7 +189,7 @@ The results are paginated.
 
 ### Example Usage: list-all-chargebacks-200-1
 
-<!-- UsageSnippet language="python" operationID="list-all-chargebacks" method="get" path="/chargebacks" example="list-all-chargebacks-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-all-chargebacks" method="get" path="/v2/chargebacks" example="list-all-chargebacks-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -214,7 +214,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-all-chargebacks-200-2
 
-<!-- UsageSnippet language="python" operationID="list-all-chargebacks" method="get" path="/chargebacks" example="list-all-chargebacks-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-all-chargebacks" method="get" path="/v2/chargebacks" example="list-all-chargebacks-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -239,7 +239,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-all-chargebacks-200-3
 
-<!-- UsageSnippet language="python" operationID="list-all-chargebacks" method="get" path="/chargebacks" example="list-all-chargebacks-200-3" -->
+<!-- UsageSnippet language="python" operationID="list-all-chargebacks" method="get" path="/v2/chargebacks" example="list-all-chargebacks-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK

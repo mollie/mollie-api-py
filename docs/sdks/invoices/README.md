@@ -16,7 +16,7 @@ The results are paginated.
 
 ### Example Usage: list-invoices-200-1
 
-<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" example="list-invoices-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/v2/invoices" example="list-invoices-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -39,7 +39,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-invoices-200-2
 
-<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" example="list-invoices-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/v2/invoices" example="list-invoices-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -62,7 +62,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-invoices-200-3
 
-<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" example="list-invoices-200-3" -->
+<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/v2/invoices" example="list-invoices-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -85,7 +85,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-invoices-200-4
 
-<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/invoices" example="list-invoices-200-4" -->
+<!-- UsageSnippet language="python" operationID="list-invoices" method="get" path="/v2/invoices" example="list-invoices-200-4" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -139,7 +139,7 @@ call the [List invoices](list-invoices) endpoint with the `reference` parameter.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-invoice" method="get" path="/invoices/{invoiceId}" example="get-invoice-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-invoice" method="get" path="/v2/invoices/{invoiceId}" example="get-invoice-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK

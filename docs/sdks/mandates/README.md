@@ -19,7 +19,7 @@ mandates for cards, your customers need to perform a 'first payment' with their 
 
 ### Example Usage: create-mandate-201-1
 
-<!-- UsageSnippet language="python" operationID="create-mandate" method="post" path="/customers/{customerId}/mandates" example="create-mandate-201-1" -->
+<!-- UsageSnippet language="python" operationID="create-mandate" method="post" path="/v2/customers/{customerId}/mandates" example="create-mandate-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -52,7 +52,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-mandate-201-2
 
-<!-- UsageSnippet language="python" operationID="create-mandate" method="post" path="/customers/{customerId}/mandates" example="create-mandate-201-2" -->
+<!-- UsageSnippet language="python" operationID="create-mandate" method="post" path="/v2/customers/{customerId}/mandates" example="create-mandate-201-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -112,7 +112,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-mandates" method="get" path="/customers/{customerId}/mandates" example="list-mandates-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-mandates" method="get" path="/v2/customers/{customerId}/mandates" example="list-mandates-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -168,7 +168,7 @@ account details, card details, or PayPal account details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-mandate" method="get" path="/customers/{customerId}/mandates/{mandateId}" example="get-mandate-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-mandate" method="get" path="/v2/customers/{customerId}/mandates/{mandateId}" example="get-mandate-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -217,7 +217,7 @@ mandate, and all connected subscriptions will be canceled.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="revoke-mandate" method="delete" path="/customers/{customerId}/mandates/{mandateId}" -->
+<!-- UsageSnippet language="python" operationID="revoke-mandate" method="delete" path="/v2/customers/{customerId}/mandates/{mandateId}" -->
 ```python
 import mollie
 from mollie import ClientSDK

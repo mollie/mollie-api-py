@@ -27,7 +27,7 @@ the payments capability is enabled, communicating that the organization can inde
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-capabilities" method="get" path="/capabilities" example="successful-response-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-capabilities" method="get" path="/v2/capabilities" example="successful-response-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
