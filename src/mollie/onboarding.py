@@ -48,7 +48,7 @@ class Onboarding(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/onboarding/me",
+            path="/v2/onboarding/me",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -139,7 +139,7 @@ class Onboarding(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/onboarding/me",
+            path="/v2/onboarding/me",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -245,7 +245,7 @@ class Onboarding(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/onboarding/me",
+            path="/v2/onboarding/me",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -358,7 +358,7 @@ class Onboarding(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/onboarding/me",
+            path="/v2/onboarding/me",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

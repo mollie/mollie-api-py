@@ -19,7 +19,7 @@ complete the payment. A [payment](get-payment) will only be created once the cus
 
 ### Example Usage: create-payment-link-201-1
 
-<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" example="create-payment-link-201-1" -->
+<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/v2/payment-links" example="create-payment-link-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -126,7 +126,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-link-201-2
 
-<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" example="create-payment-link-201-2" -->
+<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/v2/payment-links" example="create-payment-link-201-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -233,7 +233,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-link-201-3
 
-<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" example="create-payment-link-201-3" -->
+<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/v2/payment-links" example="create-payment-link-201-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -340,7 +340,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-payment-link-201-4
 
-<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/payment-links" example="create-payment-link-201-4" -->
+<!-- UsageSnippet language="python" operationID="create-payment-link" method="post" path="/v2/payment-links" example="create-payment-link-201-4" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -473,7 +473,7 @@ The results are paginated.
 
 ### Example Usage: list-payment-links-200-1
 
-<!-- UsageSnippet language="python" operationID="list-payment-links" method="get" path="/payment-links" example="list-payment-links-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-payment-links" method="get" path="/v2/payment-links" example="list-payment-links-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -497,7 +497,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-payment-links-200-2
 
-<!-- UsageSnippet language="python" operationID="list-payment-links" method="get" path="/payment-links" example="list-payment-links-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-payment-links" method="get" path="/v2/payment-links" example="list-payment-links-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -547,7 +547,7 @@ Retrieve a single payment link by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-payment-link" method="get" path="/payment-links/{paymentLinkId}" example="get-payment-link-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-payment-link" method="get" path="/v2/payment-links/{paymentLinkId}" example="get-payment-link-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -594,7 +594,7 @@ Certain details of an existing payment link can be updated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="update-payment-link" method="patch" path="/payment-links/{paymentLinkId}" example="update-payment-link-200-1" -->
+<!-- UsageSnippet language="python" operationID="update-payment-link" method="patch" path="/v2/payment-links/{paymentLinkId}" example="update-payment-link-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -686,7 +686,7 @@ To simply disable a payment link without fully deleting it, you can use the `arc
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="delete-payment-link" method="delete" path="/payment-links/{paymentLinkId}" -->
+<!-- UsageSnippet language="python" operationID="delete-payment-link" method="delete" path="/v2/payment-links/{paymentLinkId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -731,7 +731,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-payment-link-payments" method="get" path="/payment-links/{paymentLinkId}/payments" example="get-payment-link-payments-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-payment-link-payments" method="get" path="/v2/payment-links/{paymentLinkId}/payments" example="get-payment-link-payments-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK

@@ -37,7 +37,7 @@ it reaches a final status: `blocked`, `failed`, `processed`, or `returned`.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="create-transfer" method="post" path="/business-accounts/transfers" example="create-transfer-201" -->
+<!-- UsageSnippet language="python" operationID="create-transfer" method="post" path="/v2/business-accounts/transfers" example="create-transfer-201" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -108,7 +108,7 @@ and details of a previously created transfer.
 
 ### Example Usage: get-transfer-200
 
-<!-- UsageSnippet language="python" operationID="get-transfer" method="get" path="/business-accounts/transfers/{businessAccountsTransferId}" example="get-transfer-200" -->
+<!-- UsageSnippet language="python" operationID="get-transfer" method="get" path="/v2/business-accounts/transfers/{businessAccountsTransferId}" example="get-transfer-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -130,7 +130,7 @@ with ClientSDK(
 ```
 ### Example Usage: processed-transfer
 
-<!-- UsageSnippet language="python" operationID="get-transfer" method="get" path="/business-accounts/transfers/{businessAccountsTransferId}" example="processed-transfer" -->
+<!-- UsageSnippet language="python" operationID="get-transfer" method="get" path="/v2/business-accounts/transfers/{businessAccountsTransferId}" example="processed-transfer" -->
 ```python
 import mollie
 from mollie import ClientSDK

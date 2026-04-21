@@ -20,7 +20,7 @@ With the Sales Invoice API you can generate sales invoices to send to your custo
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="create-sales-invoice" method="post" path="/sales-invoices" -->
+<!-- UsageSnippet language="python" operationID="create-sales-invoice" method="post" path="/v2/sales-invoices" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -128,7 +128,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-sales-invoices" method="get" path="/sales-invoices" -->
+<!-- UsageSnippet language="python" operationID="list-sales-invoices" method="get" path="/v2/sales-invoices" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -182,7 +182,7 @@ Retrieve a single sales invoice by its ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-sales-invoice" method="get" path="/sales-invoices/{salesInvoiceId}" -->
+<!-- UsageSnippet language="python" operationID="get-sales-invoice" method="get" path="/v2/sales-invoices/{salesInvoiceId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -235,7 +235,7 @@ respectively).
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="update-sales-invoice" method="patch" path="/sales-invoices/{salesInvoiceId}" -->
+<!-- UsageSnippet language="python" operationID="update-sales-invoice" method="patch" path="/v2/sales-invoices/{salesInvoiceId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -338,7 +338,7 @@ Sales invoices which are in status `draft` can be deleted. For all other statuse
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="delete-sales-invoice" method="delete" path="/sales-invoices/{salesInvoiceId}" -->
+<!-- UsageSnippet language="python" operationID="delete-sales-invoice" method="delete" path="/v2/sales-invoices/{salesInvoiceId}" -->
 ```python
 import mollie
 from mollie import ClientSDK

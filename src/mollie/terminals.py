@@ -68,7 +68,7 @@ class Terminals(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/terminals",
+            path="/v2/terminals",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -218,7 +218,7 @@ class Terminals(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/terminals",
+            path="/v2/terminals",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -360,7 +360,7 @@ class Terminals(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/terminals/{terminalId}",
+            path="/v2/terminals/{terminalId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -465,7 +465,7 @@ class Terminals(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/terminals/{terminalId}",
+            path="/v2/terminals/{terminalId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

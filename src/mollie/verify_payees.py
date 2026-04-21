@@ -80,7 +80,7 @@ class VerifyPayees(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/business-accounts/payee-verifications",
+            path="/v2/business-accounts/payee-verifications",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -217,7 +217,7 @@ class VerifyPayees(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/business-accounts/payee-verifications",
+            path="/v2/business-accounts/payee-verifications",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

@@ -30,7 +30,7 @@ full documentation, see the official
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="request-apple-pay-payment-session" method="post" path="/wallets/applepay/sessions" example="request-apple-pay-payment-session-201-1" -->
+<!-- UsageSnippet language="python" operationID="request-apple-pay-payment-session" method="post" path="/v2/wallets/applepay/sessions" example="request-apple-pay-payment-session-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK

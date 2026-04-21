@@ -94,7 +94,7 @@ class TransfersSDK(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/business-accounts/transfers",
+            path="/v2/business-accounts/transfers",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -245,7 +245,7 @@ class TransfersSDK(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/business-accounts/transfers",
+            path="/v2/business-accounts/transfers",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -365,7 +365,7 @@ class TransfersSDK(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/business-accounts/transfers/{businessAccountsTransferId}",
+            path="/v2/business-accounts/transfers/{businessAccountsTransferId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -478,7 +478,7 @@ class TransfersSDK(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/business-accounts/transfers/{businessAccountsTransferId}",
+            path="/v2/business-accounts/transfers/{businessAccountsTransferId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

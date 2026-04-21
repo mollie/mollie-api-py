@@ -1406,6 +1406,22 @@ if TYPE_CHECKING:
     from .method_status import MethodStatus
     from .mode import Mode
     from .no_response_error import NoResponseError
+    from .oauth_generate_tokensop import (
+        OAUTH_GENERATE_TOKENS_OP_SERVERS,
+        OauthGenerateTokensRequest,
+        OauthGenerateTokensRequestBody,
+        OauthGenerateTokensRequestBodyTypedDict,
+        OauthGenerateTokensRequestTypedDict,
+        OauthGenerateTokensResponseBody,
+        OauthGenerateTokensResponseBodyTypedDict,
+    )
+    from .oauth_revoke_tokensop import (
+        OAUTH_REVOKE_TOKENS_OP_SERVERS,
+        OauthRevokeTokensRequest,
+        OauthRevokeTokensRequestBody,
+        OauthRevokeTokensRequestBodyTypedDict,
+        OauthRevokeTokensRequestTypedDict,
+    )
     from .onboarding_vat_regulation import OnboardingVatRegulation
     from .organization_vat_regulation import OrganizationVatRegulation
     from .payment_address import PaymentAddress, PaymentAddressTypedDict
@@ -2944,6 +2960,18 @@ __all__ = [
     "MethodTypedDict",
     "Mode",
     "NoResponseError",
+    "OAUTH_GENERATE_TOKENS_OP_SERVERS",
+    "OAUTH_REVOKE_TOKENS_OP_SERVERS",
+    "OauthGenerateTokensRequest",
+    "OauthGenerateTokensRequestBody",
+    "OauthGenerateTokensRequestBodyTypedDict",
+    "OauthGenerateTokensRequestTypedDict",
+    "OauthGenerateTokensResponseBody",
+    "OauthGenerateTokensResponseBodyTypedDict",
+    "OauthRevokeTokensRequest",
+    "OauthRevokeTokensRequestBody",
+    "OauthRevokeTokensRequestBodyTypedDict",
+    "OauthRevokeTokensRequestTypedDict",
     "OnboardingVatRegulation",
     "Open",
     "OpenTypedDict",
@@ -4486,6 +4514,18 @@ _dynamic_imports: dict[str, str] = {
     "MethodStatus": ".method_status",
     "Mode": ".mode",
     "NoResponseError": ".no_response_error",
+    "OAUTH_GENERATE_TOKENS_OP_SERVERS": ".oauth_generate_tokensop",
+    "OauthGenerateTokensRequest": ".oauth_generate_tokensop",
+    "OauthGenerateTokensRequestBody": ".oauth_generate_tokensop",
+    "OauthGenerateTokensRequestBodyTypedDict": ".oauth_generate_tokensop",
+    "OauthGenerateTokensRequestTypedDict": ".oauth_generate_tokensop",
+    "OauthGenerateTokensResponseBody": ".oauth_generate_tokensop",
+    "OauthGenerateTokensResponseBodyTypedDict": ".oauth_generate_tokensop",
+    "OAUTH_REVOKE_TOKENS_OP_SERVERS": ".oauth_revoke_tokensop",
+    "OauthRevokeTokensRequest": ".oauth_revoke_tokensop",
+    "OauthRevokeTokensRequestBody": ".oauth_revoke_tokensop",
+    "OauthRevokeTokensRequestBodyTypedDict": ".oauth_revoke_tokensop",
+    "OauthRevokeTokensRequestTypedDict": ".oauth_revoke_tokensop",
     "OnboardingVatRegulation": ".onboarding_vat_regulation",
     "OrganizationVatRegulation": ".organization_vat_regulation",
     "PaymentAddress": ".payment_address",

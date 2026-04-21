@@ -15,7 +15,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-clients" method="get" path="/clients" example="list-clients-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-clients" method="get" path="/v2/clients" example="list-clients-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -64,7 +64,7 @@ Retrieve a single client by its ID.
 
 ### Example Usage: get-client-200-1
 
-<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/clients/{organizationId}" example="get-client-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/v2/clients/{organizationId}" example="get-client-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -85,7 +85,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-client-200-2
 
-<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/clients/{organizationId}" example="get-client-200-2" -->
+<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/v2/clients/{organizationId}" example="get-client-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -106,7 +106,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-client-200-3
 
-<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/clients/{organizationId}" example="get-client-200-3" -->
+<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/v2/clients/{organizationId}" example="get-client-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -127,7 +127,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-client-200-4
 
-<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/clients/{organizationId}" example="get-client-200-4" -->
+<!-- UsageSnippet language="python" operationID="get-client" method="get" path="/v2/clients/{organizationId}" example="get-client-200-4" -->
 ```python
 import mollie
 from mollie import ClientSDK

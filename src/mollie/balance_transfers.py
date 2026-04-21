@@ -59,7 +59,7 @@ class BalanceTransfers(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/connect/balance-transfers",
+            path="/v2/connect/balance-transfers",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -173,7 +173,7 @@ class BalanceTransfers(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/connect/balance-transfers",
+            path="/v2/connect/balance-transfers",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -294,7 +294,7 @@ class BalanceTransfers(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/connect/balance-transfers",
+            path="/v2/connect/balance-transfers",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -443,7 +443,7 @@ class BalanceTransfers(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/connect/balance-transfers",
+            path="/v2/connect/balance-transfers",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -588,7 +588,7 @@ class BalanceTransfers(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/connect/balance-transfers/{balanceTransferId}",
+            path="/v2/connect/balance-transfers/{balanceTransferId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -696,7 +696,7 @@ class BalanceTransfers(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/connect/balance-transfers/{balanceTransferId}",
+            path="/v2/connect/balance-transfers/{balanceTransferId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

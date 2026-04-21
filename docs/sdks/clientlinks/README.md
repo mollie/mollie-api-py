@@ -64,7 +64,7 @@ to the URL.
 
 ### Example Usage: create-client-link-201-1
 
-<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/client-links" example="create-client-link-201-1" -->
+<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/v2/client-links" example="create-client-link-201-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -104,7 +104,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-client-link-201-2
 
-<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/client-links" example="create-client-link-201-2" -->
+<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/v2/client-links" example="create-client-link-201-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -144,7 +144,7 @@ with ClientSDK(
 ```
 ### Example Usage: create-client-link-201-3
 
-<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/client-links" example="create-client-link-201-3" -->
+<!-- UsageSnippet language="python" operationID="create-client-link" method="post" path="/v2/client-links" example="create-client-link-201-3" -->
 ```python
 import mollie
 from mollie import ClientSDK

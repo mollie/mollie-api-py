@@ -29,6 +29,7 @@ if TYPE_CHECKING:
     from mollie.invoices import Invoices
     from mollie.mandates import Mandates
     from mollie.methods import Methods
+    from mollie.oauth import Oauth
     from mollie.onboarding import Onboarding
     from mollie.organizations import Organizations
     from mollie.payment_links import PaymentLinks
@@ -50,6 +51,7 @@ if TYPE_CHECKING:
 
 
 class ClientSDK(BaseSDK):
+    oauth: "Oauth"
     balances: "Balances"
     settlements: "Settlements"
     invoices: "Invoices"
@@ -82,6 +84,7 @@ class ClientSDK(BaseSDK):
     transfers: "TransfersSDK"
     verify_payees: "VerifyPayees"
     _sub_sdk_map = {
+        "oauth": ("mollie.oauth", "Oauth"),
         "balances": ("mollie.balances", "Balances"),
         "settlements": ("mollie.settlements", "Settlements"),
         "invoices": ("mollie.invoices", "Invoices"),

@@ -70,7 +70,7 @@ class ChargebacksSDK(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payments/{paymentId}/chargebacks",
+            path="/v2/payments/{paymentId}/chargebacks",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -223,7 +223,7 @@ class ChargebacksSDK(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payments/{paymentId}/chargebacks",
+            path="/v2/payments/{paymentId}/chargebacks",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -372,7 +372,7 @@ class ChargebacksSDK(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payments/{paymentId}/chargebacks/{chargebackId}",
+            path="/v2/payments/{paymentId}/chargebacks/{chargebackId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -483,7 +483,7 @@ class ChargebacksSDK(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payments/{paymentId}/chargebacks/{chargebackId}",
+            path="/v2/payments/{paymentId}/chargebacks/{chargebackId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -613,7 +613,7 @@ class ChargebacksSDK(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/chargebacks",
+            path="/v2/chargebacks",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -780,7 +780,7 @@ class ChargebacksSDK(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/chargebacks",
+            path="/v2/chargebacks",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,

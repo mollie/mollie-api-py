@@ -18,7 +18,7 @@ The results are paginated.
 
 ### Example Usage: list-balances-200-1
 
-<!-- UsageSnippet language="python" operationID="list-balances" method="get" path="/balances" example="list-balances-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-balances" method="get" path="/v2/balances" example="list-balances-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -42,7 +42,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-balances-200-2
 
-<!-- UsageSnippet language="python" operationID="list-balances" method="get" path="/balances" example="list-balances-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-balances" method="get" path="/v2/balances" example="list-balances-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -107,7 +107,7 @@ funds are available on your balance. These funds will be shown under the *pendin
 
 ### Example Usage: get-balance-200-1
 
-<!-- UsageSnippet language="python" operationID="get-balance" method="get" path="/balances/{balanceId}" example="get-balance-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-balance" method="get" path="/v2/balances/{balanceId}" example="get-balance-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -129,7 +129,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-balance-200-2
 
-<!-- UsageSnippet language="python" operationID="get-balance" method="get" path="/balances/{balanceId}" example="get-balance-200-2" -->
+<!-- UsageSnippet language="python" operationID="get-balance" method="get" path="/v2/balances/{balanceId}" example="get-balance-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -180,7 +180,7 @@ endpoint.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-primary-balance" method="get" path="/balances/primary" example="get-primary-balance-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-primary-balance" method="get" path="/v2/balances/primary" example="get-primary-balance-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -229,7 +229,7 @@ organization's primary balance.
 
 ### Example Usage: get-balance-report-200-1
 
-<!-- UsageSnippet language="python" operationID="get-balance-report" method="get" path="/balances/{balanceId}/report" example="get-balance-report-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-balance-report" method="get" path="/v2/balances/{balanceId}/report" example="get-balance-report-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -251,7 +251,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-balance-report-200-2
 
-<!-- UsageSnippet language="python" operationID="get-balance-report" method="get" path="/balances/{balanceId}/report" example="get-balance-report-200-2" -->
+<!-- UsageSnippet language="python" operationID="get-balance-report" method="get" path="/v2/balances/{balanceId}/report" example="get-balance-report-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -273,7 +273,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-balance-report-200-3
 
-<!-- UsageSnippet language="python" operationID="get-balance-report" method="get" path="/balances/{balanceId}/report" example="get-balance-report-200-3" -->
+<!-- UsageSnippet language="python" operationID="get-balance-report" method="get" path="/v2/balances/{balanceId}/report" example="get-balance-report-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -332,7 +332,7 @@ The results are paginated.
 
 ### Example Usage: list-balance-transactions-200-1
 
-<!-- UsageSnippet language="python" operationID="list-balance-transactions" method="get" path="/balances/{balanceId}/transactions" example="list-balance-transactions-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-balance-transactions" method="get" path="/v2/balances/{balanceId}/transactions" example="list-balance-transactions-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -356,7 +356,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-balance-transactions-200-2
 
-<!-- UsageSnippet language="python" operationID="list-balance-transactions" method="get" path="/balances/{balanceId}/transactions" example="list-balance-transactions-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-balance-transactions" method="get" path="/v2/balances/{balanceId}/transactions" example="list-balance-transactions-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK

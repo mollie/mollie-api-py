@@ -17,7 +17,7 @@ A webhook must have a name, an url and a list of event types. You can also creat
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="create-webhook" method="post" path="/webhooks" example="create-webhook-200" -->
+<!-- UsageSnippet language="python" operationID="create-webhook" method="post" path="/v2/webhooks" example="create-webhook-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -67,7 +67,7 @@ Returns a paginated list of your webhooks. If no webhook endpoints are available
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-webhooks" method="get" path="/webhooks" example="list-webhook-200" -->
+<!-- UsageSnippet language="python" operationID="list-webhooks" method="get" path="/v2/webhooks" example="list-webhook-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -119,7 +119,7 @@ Updates the webhook. You may edit the name, url and the list of subscribed event
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/webhooks/{webhookId}" example="create-webhook-200" -->
+<!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/v2/webhooks/{webhookId}" example="create-webhook-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -170,7 +170,7 @@ Retrieve a single webhook object by its ID.
 
 ### Example Usage: get-webhook-200
 
-<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/webhooks/{webhookId}" example="get-webhook-200" -->
+<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/v2/webhooks/{webhookId}" example="get-webhook-200" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -192,7 +192,7 @@ with ClientSDK(
 ```
 ### Example Usage: get-webhook-200-1
 
-<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/webhooks/{webhookId}" example="get-webhook-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-webhook" method="get" path="/v2/webhooks/{webhookId}" example="get-webhook-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -239,7 +239,7 @@ Delete a single webhook object by its webhook ID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="delete-webhook" method="delete" path="/webhooks/{webhookId}" -->
+<!-- UsageSnippet language="python" operationID="delete-webhook" method="delete" path="/v2/webhooks/{webhookId}" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -282,7 +282,7 @@ Sends a test event to the webhook to verify the endpoint is working as expected.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="test-webhook" method="post" path="/webhooks/{webhookId}/ping" -->
+<!-- UsageSnippet language="python" operationID="test-webhook" method="post" path="/v2/webhooks/{webhookId}/ping" -->
 ```python
 import mollie
 from mollie import ClientSDK

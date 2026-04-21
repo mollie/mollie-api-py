@@ -63,7 +63,7 @@ class Capabilities(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/capabilities",
+            path="/v2/capabilities",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -169,7 +169,7 @@ class Capabilities(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/capabilities",
+            path="/v2/capabilities",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

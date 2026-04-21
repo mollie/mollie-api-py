@@ -21,7 +21,7 @@ The results are paginated.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="list-settlements" method="get" path="/settlements" example="list-settlements-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-settlements" method="get" path="/v2/settlements" example="list-settlements-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -84,7 +84,7 @@ For more accurate bookkeeping, refer to the [balance report](get-balance-report)
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-settlement" method="get" path="/settlements/{settlementId}" example="get-settlement-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-settlement" method="get" path="/v2/settlements/{settlementId}" example="get-settlement-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -136,7 +136,7 @@ For more accurate bookkeeping, refer to the [balance report](get-balance-report)
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-open-settlement" method="get" path="/settlements/open" example="get-settlement-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-open-settlement" method="get" path="/v2/settlements/open" example="get-settlement-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -185,7 +185,7 @@ For more accurate bookkeeping, refer to the [balance report](get-balance-report)
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="get-next-settlement" method="get" path="/settlements/next" example="get-settlement-200-1" -->
+<!-- UsageSnippet language="python" operationID="get-next-settlement" method="get" path="/v2/settlements/next" example="get-settlement-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -233,7 +233,7 @@ For capture-based payment methods such as Klarna, the payments are not listed he
 
 ### Example Usage: list-payments-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" example="list-payments-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/v2/settlements/{settlementId}/payments" example="list-payments-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -257,7 +257,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-payments-200-2
 
-<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" example="list-payments-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/v2/settlements/{settlementId}/payments" example="list-payments-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -281,7 +281,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-payments-200-3
 
-<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" example="list-payments-200-3" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/v2/settlements/{settlementId}/payments" example="list-payments-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -305,7 +305,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-settlement-payments-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/settlements/{settlementId}/payments" example="list-settlement-payments-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-payments" method="get" path="/v2/settlements/{settlementId}/payments" example="list-settlement-payments-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -359,7 +359,7 @@ The response is in the same format as the response of the [List captures endpoin
 
 ### Example Usage: list-captures-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/settlements/{settlementId}/captures" example="list-captures-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/v2/settlements/{settlementId}/captures" example="list-captures-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -382,7 +382,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-captures-200-2
 
-<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/settlements/{settlementId}/captures" example="list-captures-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/v2/settlements/{settlementId}/captures" example="list-captures-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -405,7 +405,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-settlement-captures-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/settlements/{settlementId}/captures" example="list-settlement-captures-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-captures" method="get" path="/v2/settlements/{settlementId}/captures" example="list-settlement-captures-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -457,7 +457,7 @@ The response is in the same format as the response of the [List refunds endpoint
 
 ### Example Usage: list-refunds-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-refunds" method="get" path="/settlements/{settlementId}/refunds" example="list-refunds-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-refunds" method="get" path="/v2/settlements/{settlementId}/refunds" example="list-refunds-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -480,7 +480,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-settlement-refunds-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-refunds" method="get" path="/settlements/{settlementId}/refunds" example="list-settlement-refunds-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-refunds" method="get" path="/v2/settlements/{settlementId}/refunds" example="list-settlement-refunds-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -532,7 +532,7 @@ The response is in the same format as the response of the [List chargebacks endp
 
 ### Example Usage: list-chargeback-200-1
 
-<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/settlements/{settlementId}/chargebacks" example="list-chargeback-200-1" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/v2/settlements/{settlementId}/chargebacks" example="list-chargeback-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -556,7 +556,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-chargeback-200-2
 
-<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/settlements/{settlementId}/chargebacks" example="list-chargeback-200-2" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/v2/settlements/{settlementId}/chargebacks" example="list-chargeback-200-2" -->
 ```python
 import mollie
 from mollie import ClientSDK
@@ -580,7 +580,7 @@ with ClientSDK(
 ```
 ### Example Usage: list-chargeback-200-3
 
-<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/settlements/{settlementId}/chargebacks" example="list-chargeback-200-3" -->
+<!-- UsageSnippet language="python" operationID="list-settlement-chargebacks" method="get" path="/v2/settlements/{settlementId}/chargebacks" example="list-chargeback-200-3" -->
 ```python
 import mollie
 from mollie import ClientSDK

@@ -70,7 +70,7 @@ class Accounts(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/business-accounts/accounts",
+            path="/v2/business-accounts/accounts",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -223,7 +223,7 @@ class Accounts(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/business-accounts/accounts",
+            path="/v2/business-accounts/accounts",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -369,7 +369,7 @@ class Accounts(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/business-accounts/accounts/{businessAccountId}",
+            path="/v2/business-accounts/accounts/{businessAccountId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -478,7 +478,7 @@ class Accounts(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/business-accounts/accounts/{businessAccountId}",
+            path="/v2/business-accounts/accounts/{businessAccountId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -600,7 +600,7 @@ class Accounts(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/business-accounts/accounts/{businessAccountId}/transactions",
+            path="/v2/business-accounts/accounts/{businessAccountId}/transactions",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -757,7 +757,7 @@ class Accounts(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/business-accounts/accounts/{businessAccountId}/transactions",
+            path="/v2/business-accounts/accounts/{businessAccountId}/transactions",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -909,7 +909,7 @@ class Accounts(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/business-accounts/accounts/{businessAccountId}/transactions/{transactionId}",
+            path="/v2/business-accounts/accounts/{businessAccountId}/transactions/{transactionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1021,7 +1021,7 @@ class Accounts(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/business-accounts/accounts/{businessAccountId}/transactions/{transactionId}",
+            path="/v2/business-accounts/accounts/{businessAccountId}/transactions/{transactionId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,

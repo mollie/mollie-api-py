@@ -7,18 +7,15 @@ import os
 
 
 with ClientSDK(
-    testmode=True,
     security=mollie.Security(
-        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+        o_auth=os.getenv("CLIENT_O_AUTH", ""),
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426")
 
-    while res is not None:
-        # Handle items
-
-        res = res.next()
+    # Handle response
+    print(res)
 ```
 
 </br>
@@ -35,18 +32,15 @@ import os
 async def main():
 
     async with ClientSDK(
-        testmode=True,
         security=mollie.Security(
-            organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+            o_auth=os.getenv("CLIENT_O_AUTH", ""),
         ),
     ) as client_sdk:
 
-        res = await client_sdk.balances.list_async(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = await client_sdk.oauth.generate_async(idempotency_key="123e4567-e89b-12d3-a456-426")
 
-        while res is not None:
-            # Handle items
-
-            res = res.next()
+        # Handle response
+        print(res)
 
 asyncio.run(main())
 ```

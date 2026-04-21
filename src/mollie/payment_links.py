@@ -59,7 +59,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request(
             method="POST",
-            path="/payment-links",
+            path="/v2/payment-links",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -170,7 +170,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request_async(
             method="POST",
-            path="/payment-links",
+            path="/v2/payment-links",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -286,7 +286,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payment-links",
+            path="/v2/payment-links",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -431,7 +431,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payment-links",
+            path="/v2/payment-links",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -572,7 +572,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payment-links/{paymentLinkId}",
+            path="/v2/payment-links/{paymentLinkId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -677,7 +677,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payment-links/{paymentLinkId}",
+            path="/v2/payment-links/{paymentLinkId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -785,7 +785,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request(
             method="PATCH",
-            path="/payment-links/{paymentLinkId}",
+            path="/v2/payment-links/{paymentLinkId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -897,7 +897,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request_async(
             method="PATCH",
-            path="/payment-links/{paymentLinkId}",
+            path="/v2/payment-links/{paymentLinkId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1015,7 +1015,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request(
             method="DELETE",
-            path="/payment-links/{paymentLinkId}",
+            path="/v2/payment-links/{paymentLinkId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1133,7 +1133,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request_async(
             method="DELETE",
-            path="/payment-links/{paymentLinkId}",
+            path="/v2/payment-links/{paymentLinkId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -1256,7 +1256,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/payment-links/{paymentLinkId}/payments",
+            path="/v2/payment-links/{paymentLinkId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -1410,7 +1410,7 @@ class PaymentLinks(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/payment-links/{paymentLinkId}/payments",
+            path="/v2/payment-links/{paymentLinkId}/payments",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,

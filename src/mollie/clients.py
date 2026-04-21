@@ -70,7 +70,7 @@ class Clients(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/clients",
+            path="/v2/clients",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -219,7 +219,7 @@ class Clients(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/clients",
+            path="/v2/clients",
             base_url=base_url,
             url_variables=url_variables,
             url_override=url_override,
@@ -364,7 +364,7 @@ class Clients(BaseSDK):
 
         req = self._build_request(
             method="GET",
-            path="/clients/{organizationId}",
+            path="/v2/clients/{organizationId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -473,7 +473,7 @@ class Clients(BaseSDK):
 
         req = self._build_request_async(
             method="GET",
-            path="/clients/{organizationId}",
+            path="/v2/clients/{organizationId}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
