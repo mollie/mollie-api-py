@@ -6,6 +6,7 @@ from mollie import models, utils
 from mollie._hooks import HookContext
 from mollie.types import OptionalNullable, UNSET
 from mollie.utils import get_security_from_env
+from mollie.utils.unmarshal_json_response import unmarshal_json_response
 from typing import Mapping, Optional, Union
 
 
@@ -24,7 +25,7 @@ class Oauth(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> bytes:
+    ) -> models.OauthGenerateTokensResponse:
         r"""Generate tokens
 
         Exchange the authorization code you received from the [Authorize endpoint](oauth-authorize) for an 'access token'
@@ -68,7 +69,7 @@ class Oauth(BaseSDK):
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
-            accept_header_value="text/html",
+            accept_header_value="application/hal+json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
@@ -110,9 +111,8 @@ class Oauth(BaseSDK):
             retry_config=retry_config,
         )
 
-        if utils.match_response(http_res, "200", "text/html"):
-            http_res_bytes = utils.stream_to_bytes(http_res)
-            return http_res_bytes
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.OauthGenerateTokensResponse, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError("API error occurred", http_res, http_res_text)
@@ -136,7 +136,7 @@ class Oauth(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> bytes:
+    ) -> models.OauthGenerateTokensResponse:
         r"""Generate tokens
 
         Exchange the authorization code you received from the [Authorize endpoint](oauth-authorize) for an 'access token'
@@ -180,7 +180,7 @@ class Oauth(BaseSDK):
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
-            accept_header_value="text/html",
+            accept_header_value="application/hal+json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
@@ -222,9 +222,8 @@ class Oauth(BaseSDK):
             retry_config=retry_config,
         )
 
-        if utils.match_response(http_res, "200", "text/html"):
-            http_res_bytes = await utils.stream_to_bytes_async(http_res)
-            return http_res_bytes
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.OauthGenerateTokensResponse, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError("API error occurred", http_res, http_res_text)

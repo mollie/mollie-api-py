@@ -2,6 +2,7 @@
 # @generated-id: 7808a3326749
 
 from __future__ import annotations
+from .oauth_token_type_hint import OauthTokenTypeHint
 from mollie.types import BaseModel, UNSET_SENTINEL
 from mollie.utils import FieldMetadata, HeaderMetadata, RequestMetadata
 import pydantic
@@ -16,21 +17,13 @@ OAUTH_REVOKE_TOKENS_OP_SERVERS = [
 
 
 class OauthRevokeTokensRequestBodyTypedDict(TypedDict):
-    token_type_hint: str
-    r"""The type of token you want to revoke.
-
-    Possible values: `access_token` `refresh_token`
-    """
+    token_type_hint: OauthTokenTypeHint
     token: str
     r"""The token you want to revoke."""
 
 
 class OauthRevokeTokensRequestBody(BaseModel):
-    token_type_hint: str
-    r"""The type of token you want to revoke.
-
-    Possible values: `access_token` `refresh_token`
-    """
+    token_type_hint: OauthTokenTypeHint
 
     token: str
     r"""The token you want to revoke."""
