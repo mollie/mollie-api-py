@@ -12,7 +12,12 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
+        "code": "auth_...",
+        "refresh_token": "refresh_...",
+        "redirect_uri": "https://example.com/redirect",
+    })
 
     # Handle response
     print(res)
@@ -37,7 +42,12 @@ async def main():
         ),
     ) as client_sdk:
 
-        res = await client_sdk.oauth.generate_async(idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = await client_sdk.oauth.generate_async(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+            "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
+            "code": "auth_...",
+            "refresh_token": "refresh_...",
+            "redirect_uri": "https://example.com/redirect",
+        })
 
         # Handle response
         print(res)

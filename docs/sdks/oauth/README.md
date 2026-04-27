@@ -29,7 +29,12 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
+        "code": "auth_...",
+        "refresh_token": "refresh_...",
+        "redirect_uri": "https://example.com/redirect",
+    })
 
     # Handle response
     print(res)
@@ -47,7 +52,7 @@ with ClientSDK(
 
 ### Response
 
-**[bytes](../../models/.md)**
+**[models.OauthGenerateTokensResponse](../../models/oauthgeneratetokensresponse.md)**
 
 ### Errors
 
@@ -78,7 +83,10 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    client_sdk.oauth.revoke(idempotency_key="123e4567-e89b-12d3-a456-426")
+    client_sdk.oauth.revoke(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "token_type_hint": mollie.OauthTokenTypeHint.ACCESS_TOKEN,
+        "token": "access_...",
+    })
 
     # Use the SDK ...
 

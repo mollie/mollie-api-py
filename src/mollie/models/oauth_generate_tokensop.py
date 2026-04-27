@@ -2,7 +2,8 @@
 # @generated-id: 761fd37f9f16
 
 from __future__ import annotations
-from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from .oauth_grant_type import OauthGrantType
+from mollie.types import BaseModel, UNSET_SENTINEL
 from mollie.utils import FieldMetadata, HeaderMetadata, RequestMetadata
 import pydantic
 from pydantic import model_serializer
@@ -16,22 +17,16 @@ OAUTH_GENERATE_TOKENS_OP_SERVERS = [
 
 
 class OauthGenerateTokensRequestBodyTypedDict(TypedDict):
-    grant_type: str
-    r"""If you wish to exchange your authorization code for an app access token, use grant type
-    `authorization_code`. If you wish to renew your app access token with your refresh token, use grant type
-    `refresh_token`.
-
-    Possible values: `authorization_code` `refresh_token`
-    """
-    code: NotRequired[Nullable[str]]
+    grant_type: OauthGrantType
+    code: NotRequired[str]
     r"""The authorization code you received when creating the authorization. Only use this field when using
     grant type `authorization_code`.
     """
-    refresh_token: NotRequired[Nullable[str]]
+    refresh_token: NotRequired[str]
     r"""The refresh token you received when creating the authorization. Only use this field when using grant
     type `refresh_token`.
     """
-    redirect_uri: NotRequired[Nullable[str]]
+    redirect_uri: NotRequired[str]
     r"""The URL the merchant is sent back to once the request has been authorized. It must match the URL you set
     when registering your app.
 
@@ -41,25 +36,19 @@ class OauthGenerateTokensRequestBodyTypedDict(TypedDict):
 
 
 class OauthGenerateTokensRequestBody(BaseModel):
-    grant_type: str
-    r"""If you wish to exchange your authorization code for an app access token, use grant type
-    `authorization_code`. If you wish to renew your app access token with your refresh token, use grant type
-    `refresh_token`.
+    grant_type: OauthGrantType
 
-    Possible values: `authorization_code` `refresh_token`
-    """
-
-    code: OptionalNullable[str] = UNSET
+    code: Optional[str] = None
     r"""The authorization code you received when creating the authorization. Only use this field when using
     grant type `authorization_code`.
     """
 
-    refresh_token: OptionalNullable[str] = UNSET
+    refresh_token: Optional[str] = None
     r"""The refresh token you received when creating the authorization. Only use this field when using grant
     type `refresh_token`.
     """
 
-    redirect_uri: OptionalNullable[str] = UNSET
+    redirect_uri: Optional[str] = None
     r"""The URL the merchant is sent back to once the request has been authorized. It must match the URL you set
     when registering your app.
 
@@ -70,24 +59,15 @@ class OauthGenerateTokensRequestBody(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(["code", "refresh_token", "redirect_uri"])
-        nullable_fields = set(["code", "refresh_token", "redirect_uri"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
-            is_nullable_and_explicitly_set = (
-                k in nullable_fields
-                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
-            )
 
             if val != UNSET_SENTINEL:
-                if (
-                    val is not None
-                    or k not in optional_fields
-                    or is_nullable_and_explicitly_set
-                ):
+                if val is not None or k not in optional_fields:
                     m[k] = val
 
         return m
@@ -129,7 +109,7 @@ class OauthGenerateTokensRequest(BaseModel):
         return m
 
 
-class OauthGenerateTokensResponseBodyTypedDict(TypedDict):
+class OauthGenerateTokensResponseTypedDict(TypedDict):
     r"""The newly generated access token and refresh token."""
 
     access_token: NotRequired[str]
@@ -151,7 +131,7 @@ class OauthGenerateTokensResponseBodyTypedDict(TypedDict):
     r"""A space-separated list of [permissions](https://docs.mollie.com/docs/permissions)."""
 
 
-class OauthGenerateTokensResponseBody(BaseModel):
+class OauthGenerateTokensResponse(BaseModel):
     r"""The newly generated access token and refresh token."""
 
     access_token: Optional[str] = None
