@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: ea0e5ed06e4c1ccdde296f092df8599b
+  docChecksum: df3327512b06d75fef71c9fd996af139
   docVersion: 1.0.0
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 1.4.3
-  configChecksum: 461e50b2661173150da17ec4059ab4f8
+  releaseVersion: 1.4.4
+  configChecksum: 59eefa3126bb1bdebe8978008f019351
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 6c73e12c-e761-4eda-b8a7-f2ad66dd337d
-  pristine_commit_hash: 52582061bdc7dbda047e569e31ba9be7ad929af5
-  pristine_tree_hash: 02db84f0d645ef92aeba4990f558e4f88f937905
+  generation_id: 40b4da23-6e49-469e-a3ed-aa6af15f1861
+  pristine_commit_hash: e0cbb7ba5a651c46415c28ee85b7bac797d1c8e7
+  pristine_tree_hash: 08d0ace1235e8c1cb93c96bfd1b8d331337fc0db
 features:
   python:
     additionalDependencies: 1.0.0
@@ -472,8 +472,8 @@ trackedFiles:
     pristine_git_object: 44011a960e853da351b0b0bc70626fc5576127da
   docs/models/entity.md:
     id: 903c73579a5c
-    last_write_checksum: sha1:868c4a095967bd57111b9a2d2eaf0c85aaf19014
-    pristine_git_object: fa4afa055d04244861fa73ea6191986c38dd4f0b
+    last_write_checksum: sha1:aad960a9c86332785aba1735a5043875f31f4b89
+    pristine_git_object: fb58cecccf1eaeff52a06e6d433aa1c7b984a3ea
   docs/models/entitybalance.md:
     id: aa9b25037f5a
     last_write_checksum: sha1:92830e9c79d70e405f011dea20c7ad019dd65ae3
@@ -824,8 +824,8 @@ trackedFiles:
     pristine_git_object: b5789efb871223eea993e7a681280a93c1614805
   docs/models/entitywebhookeventwebhookeventtypes.md:
     id: 197b04a2a12d
-    last_write_checksum: sha1:7b2086eafae26fa98f38b4a28a71b5015482a037
-    pristine_git_object: e42e18ed47efa570021afae1ee8bb06317e60db4
+    last_write_checksum: sha1:e777b2ab99bb3ea90b8ea5e973c20e593755cfff
+    pristine_git_object: 3f14c2513571ec5bacee987d0661058148916b25
   docs/models/entitywebhooklinks.md:
     id: 604767b2d528
     last_write_checksum: sha1:0965d49ee2486504f0feb948f50c12937f22441f
@@ -3344,8 +3344,8 @@ trackedFiles:
     pristine_git_object: aa2262ef131088dbb78630fa424f14d6193c6aa3
   docs/models/webhookeventtypes.md:
     id: 9f3a891e62d0
-    last_write_checksum: sha1:ea2709134de382ee829be725e8ed0d82a26a6a64
-    pristine_git_object: bec420efd2744168ba559c923f426e7089902c02
+    last_write_checksum: sha1:c6b2fbcca92238666750fc91459440eb6a10ddfb
+    pristine_git_object: 5a83b02de3d5ce03dfe636f24ca6be081e525910
   docs/models/webhookstatus.md:
     id: 68d3b89180be
     last_write_checksum: sha1:478687729a43a1a03d7825fe298e43cb6b4ecdd4
@@ -3492,8 +3492,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:866b3c24b059df99b1a0a96326f0fd0622694c29
-    pristine_git_object: 9464ed2bb5a420838a4e114896c718a39de900c1
+    last_write_checksum: sha1:1ffb9e04946eae642764dae265849b0b5e13b4a4
+    pristine_git_object: e8e7e865a94dfdbd32560d68c6528bed6fc9b4d1
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3520,8 +3520,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:80ae110d0bd25eba233311fba16466c2577b5181
-    pristine_git_object: 4dd6e5ba21a39259080b9d7e43caa5f890293a24
+    last_write_checksum: sha1:fed13153d04589b4f21f0f39a79ddbabc70c605e
+    pristine_git_object: 14e728f76b8b84decdeed726bd328a404c9792e2
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:894a3ee5232b27dbae4a59155b0242bb507a7097
@@ -3952,8 +3952,8 @@ trackedFiles:
     pristine_git_object: 9d3f1e1dd25375df0e6966544e9479f64f41e92c
   src/mollie/models/entity_webhook_event.py:
     id: 2db7196b42ba
-    last_write_checksum: sha1:3e8b0ca340e73a31c01ca0542f8ae01529882082
-    pristine_git_object: eb833b2ba67f74526180922a7de315e1b5a9a45c
+    last_write_checksum: sha1:41a354ca25e09313c83e3d27fadbe1fc508c7d20
+    pristine_git_object: 05b649a77b5560170cc7ea684345641ff84eae0f
   src/mollie/models/error_response.py:
     id: db6489b710b3
     last_write_checksum: sha1:9a442cfe8e30760f983793aa1fc784d3e2c1481e
@@ -4928,8 +4928,8 @@ trackedFiles:
     pristine_git_object: feaed75dec6a947debb8301bfa21c1674dfb269c
   src/mollie/models/webhook_event_types.py:
     id: 2e00ccde906c
-    last_write_checksum: sha1:eaead7186edaabd727f4d664266a5d680bf885a7
-    pristine_git_object: 84cc264e572a332912bbc6efe0fea0f98acffa36
+    last_write_checksum: sha1:d02c0e5de0d741f59390d2edea41c55aaebff6b0
+    pristine_git_object: a4468145e9ff451938ec20df7252d8b1f06d6b09
   src/mollie/models/webhook_status.py:
     id: 450da8431c7d
     last_write_checksum: sha1:3cb36590dc4b85d46178604969915de95b868f73
@@ -6119,7 +6119,7 @@ examples:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       responses:
         "200":
-          application/hal+json: {"resource": "event", "id": "event_GvJ8WHrp5isUdRub9CJyH", "type": "payment-link.paid", "entityId": "pl_qng5gbbv8NAZ5gpM5ZYgx", "createdAt": "2024-06-10T14:23:45+00:00", "_embedded": {"entity": {"resource": "profile", "id": "pfl_QkEhN94Ba", "mode": "live", "name": "My website name", "website": "https://example.com", "email": "test@mollie.com", "phone": "+31208202070", "description": "My website description", "countriesOfActivity": ["NL", "GB"], "businessCategory": "OTHER_MERCHANDISE", "status": "unverified", "review": {"status": "pending"}, "createdAt": "2024-03-20T09:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://www.mollie.com/dashboard/org_7049691/settings/profiles/pfl_2q3RyuMGry", "type": "text/html"}, "chargebacks": {"href": "https://api.mollie.com/v2/chargebacks?profileId=pfl_2q3RyuMGry", "type": "application/hal+json"}, "methods": {"href": "https://api.mollie.com/v2/methods?profileId=pfl_2q3RyuMGry", "type": "application/hal+json"}, "payments": {"href": "https://api.mollie.com/v2/payments?profileId=pfl_2q3RyuMGry", "type": "application/hal+json"}, "refunds": {"href": "https://api.mollie.com/v2/refunds?profileId=pfl_2q3RyuMGry", "type": "application/hal+json"}, "checkoutPreviewUrl": {"href": "https://www.mollie.com/checkout/preview/pfl_2q3RyuMGry", "type": "text/html"}, "documentation": {"href": "https://...", "type": "text/html"}}}}, "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}, "entity": {"href": "https://...", "type": "application/hal+json"}}}
+          application/hal+json: {"resource": "event", "id": "event_GvJ8WHrp5isUdRub9CJyH", "type": "payment-link.paid", "entityId": "pl_qng5gbbv8NAZ5gpM5ZYgx", "createdAt": "2024-06-10T14:23:45+00:00", "_embedded": {"entity": {"resource": "profile", "id": "pfl_QkEhN94Ba", "mode": "live", "invoiceNumber": "INV-0000001", "profileId": "pfl_QkEhN94Ba", "status": "paid", "vatScheme": "standard", "vatMode": "exclusive", "memo": "This is a memo!", "paymentTerm": "30 days", "paymentDetails": {"source": "payment-link", "sourceReference": "pl_d9fQur83kFdhH8hIhaZfq"}, "emailDetails": {"subject": "Your invoice is available", "body": "Please find your invoice enclosed."}, "customerId": "cst_8wmqcHMN4U", "mandateId": "mdt_pWUnw6pkBN", "recipientIdentifier": "customer-xyz-0123", "recipient": {"type": "consumer", "title": "Mrs.", "givenName": "Jane", "familyName": "Doe", "organizationName": "Organization Corp.", "organizationNumber": "12345678", "vatNumber": "NL123456789B01", "email": "example@email.com", "phone": "+0123456789", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "4th floor", "postalCode": "5678AB", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "lines": [{"description": "LEGO 4440 Forest Police Station", "quantity": 1, "vatRate": "21.00", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discount": {"type": "amount", "value": "10.00"}}], "discount": {"type": "amount", "value": "10.00"}, "isEInvoice": false, "amountDue": {"currency": "EUR", "value": "10.00"}, "subtotalAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "totalVatAmount": {"currency": "EUR", "value": "10.00"}, "discountedSubtotalAmount": {"currency": "EUR", "value": "10.00"}, "createdAt": "2024-03-20T09:13:37+00:00", "issuedAt": "2024-10-03T10:47:38+00:00", "paidAt": "2024-10-04T10:47:38+00:00", "dueAt": "2024-11-01T10:47:38+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "invoicePayment": {"href": "https://...", "type": "application/hal+json"}, "pdfLink": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}, "next": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}}}}, "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}, "entity": {"href": "https://...", "type": "application/hal+json"}}}
         "404":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
   create-connect-balance-transfer:
@@ -8382,6 +8382,4 @@ examples:
         application/json: {"token_type_hint": "access_token", "token": "access_..."}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `client.oauth.generate()`:  `response.status[200]` **Changed** (Breaking ⚠️)
+releaseNotes: "## Python SDK Changes:\n* `client.webhooks.create()`: \n  *  `request_body.event_types.union(Array<webhook-event-types>)[]` **Changed**\n  *  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.list()`: \n  *  `request.event_types` **Changed**\n  *  `response._embedded.webhooks[].event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.update()`: \n  *  `request_body.event_types.union(Array<webhook-event-types>)[]` **Changed**\n  *  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.get()`:  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhook_events.get()`:  `response` **Changed** (Breaking ⚠️)\n"

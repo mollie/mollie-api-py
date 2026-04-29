@@ -3,7 +3,8 @@
 
 from __future__ import annotations
 from .payment_link_response import PaymentLinkResponse, PaymentLinkResponseTypedDict
-from .profile_response import ProfileResponse, ProfileResponseTypedDict
+from .sales_invoice_response import SalesInvoiceResponse, SalesInvoiceResponseTypedDict
+from .transfer_response import TransferResponse, TransferResponseTypedDict
 from .url import URL, URLTypedDict
 from enum import Enum
 from mollie import models, utils
@@ -25,15 +26,31 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
     SALES_INVOICE_ISSUED = "sales-invoice.issued"
     SALES_INVOICE_CANCELED = "sales-invoice.canceled"
     SALES_INVOICE_PAID = "sales-invoice.paid"
+    BUSINESS_ACCOUNT_TRANSFER_REQUESTED = "business-account-transfer.requested"
+    BUSINESS_ACCOUNT_TRANSFER_INITIATED = "business-account-transfer.initiated"
+    BUSINESS_ACCOUNT_TRANSFER_PENDING_REVIEW = (
+        "business-account-transfer.pending-review"
+    )
+    BUSINESS_ACCOUNT_TRANSFER_PROCESSED = "business-account-transfer.processed"
+    BUSINESS_ACCOUNT_TRANSFER_FAILED = "business-account-transfer.failed"
+    BUSINESS_ACCOUNT_TRANSFER_BLOCKED = "business-account-transfer.blocked"
+    BUSINESS_ACCOUNT_TRANSFER_RETURNED = "business-account-transfer.returned"
     WILDCARD_ = "*"
 
 
 EntityTypedDict = TypeAliasType(
-    "EntityTypedDict", Union[ProfileResponseTypedDict, PaymentLinkResponseTypedDict]
+    "EntityTypedDict",
+    Union[
+        TransferResponseTypedDict,
+        PaymentLinkResponseTypedDict,
+        SalesInvoiceResponseTypedDict,
+    ],
 )
 
 
-Entity = TypeAliasType("Entity", Union[ProfileResponse, PaymentLinkResponse])
+Entity = TypeAliasType(
+    "Entity", Union[TransferResponse, PaymentLinkResponse, SalesInvoiceResponse]
+)
 
 
 class EmbeddedTypedDict(TypedDict):
