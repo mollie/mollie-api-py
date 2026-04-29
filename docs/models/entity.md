@@ -9,9 +9,15 @@
 value: models.PaymentLinkResponse = /* values here */
 ```
 
-### `models.ProfileResponse`
+### `models.SalesInvoiceResponse`
 
 ```python
-value: models.ProfileResponse = /* values here */
+value: models.SalesInvoiceResponse = /* values here */
+```
+
+### `models.TransferResponse`
+
+```python
+value: models.TransferResponse = /* values here */
 ```
 
