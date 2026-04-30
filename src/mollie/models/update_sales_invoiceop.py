@@ -17,7 +17,7 @@ from .sales_invoice_recipient import (
     SalesInvoiceRecipient,
     SalesInvoiceRecipientTypedDict,
 )
-from .sales_invoice_status import SalesInvoiceStatus
+from .sales_invoice_status_update import SalesInvoiceStatusUpdate
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import (
     FieldMetadata,
@@ -39,15 +39,12 @@ class UpdateSalesInvoiceRequestBodyTypedDict(TypedDict):
     not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
     `testmode` to `true`.
     """
-    status: NotRequired[SalesInvoiceStatus]
+    status: NotRequired[SalesInvoiceStatusUpdate]
     r"""The status for the invoice to end up in.
 
     A `draft` invoice is not paid or not sent and can be updated after creation. Setting it to `issued` sends it to
     the recipient so they may then pay through our payment system. To skip our payment process, set this to `paid` to
     mark it as paid. It can then subsequently be sent as well, same as with `issued`.
-
-    A status value that cannot be set but can be returned is `canceled`, for invoices which were
-    issued, but then canceled. Currently this can only be done for invoices created in the dashboard.
 
     Dependent parameters:
     - `paymentDetails` is required if invoice should be set directly to `paid`
@@ -90,15 +87,12 @@ class UpdateSalesInvoiceRequestBody(BaseModel):
     `testmode` to `true`.
     """
 
-    status: Optional[SalesInvoiceStatus] = None
+    status: Optional[SalesInvoiceStatusUpdate] = None
     r"""The status for the invoice to end up in.
 
     A `draft` invoice is not paid or not sent and can be updated after creation. Setting it to `issued` sends it to
     the recipient so they may then pay through our payment system. To skip our payment process, set this to `paid` to
     mark it as paid. It can then subsequently be sent as well, same as with `issued`.
-
-    A status value that cannot be set but can be returned is `canceled`, for invoices which were
-    issued, but then canceled. Currently this can only be done for invoices created in the dashboard.
 
     Dependent parameters:
     - `paymentDetails` is required if invoice should be set directly to `paid`

@@ -1,4 +1,4 @@
-# VerifyPayees
+# VerifyPayee
 
 ## Overview
 
@@ -46,7 +46,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.verify_payees.create(idempotency_key="123e4567-e89b-12d3-a456-426", verification_of_payee_request={
+    res = client_sdk.verify_payee.create(idempotency_key="123e4567-e89b-12d3-a456-426", verification_of_payee_request={
         "creditor_bank_account": {
             "account_holder_name": "Jan Jansen",
             "format_": mollie.AccountNumberFormat.IBAN,
@@ -74,7 +74,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.verify_payees.create(idempotency_key="123e4567-e89b-12d3-a456-426", verification_of_payee_request={
+    res = client_sdk.verify_payee.create(idempotency_key="123e4567-e89b-12d3-a456-426", verification_of_payee_request={
         "creditor_bank_account": {
             "account_holder_name": "Jan Jansen",
             "format_": mollie.AccountNumberFormat.IBAN,
@@ -102,7 +102,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.verify_payees.create(idempotency_key="123e4567-e89b-12d3-a456-426", verification_of_payee_request={
+    res = client_sdk.verify_payee.create(idempotency_key="123e4567-e89b-12d3-a456-426", verification_of_payee_request={
         "creditor_bank_account": {
             "account_holder_name": "Jan Jansen",
             "format_": mollie.AccountNumberFormat.IBAN,
@@ -130,7 +130,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.verify_payees.create(idempotency_key="123e4567-e89b-12d3-a456-426", verification_of_payee_request={
+    res = client_sdk.verify_payee.create(idempotency_key="123e4567-e89b-12d3-a456-426", verification_of_payee_request={
         "creditor_bank_account": {
             "account_holder_name": "Jan Jansen",
             "format_": mollie.AccountNumberFormat.IBAN,

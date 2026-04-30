@@ -1672,6 +1672,7 @@ if TYPE_CHECKING:
     )
     from .sales_invoice_status import SalesInvoiceStatus
     from .sales_invoice_status_response import SalesInvoiceStatusResponse
+    from .sales_invoice_status_update import SalesInvoiceStatusUpdate
     from .sales_invoice_vat_mode import SalesInvoiceVatMode
     from .sales_invoice_vat_mode_response import SalesInvoiceVatModeResponse
     from .sales_invoice_vat_scheme import SalesInvoiceVatScheme
@@ -3205,6 +3206,7 @@ __all__ = [
     "SalesInvoiceResponseTypedDict",
     "SalesInvoiceStatus",
     "SalesInvoiceStatusResponse",
+    "SalesInvoiceStatusUpdate",
     "SalesInvoiceVatMode",
     "SalesInvoiceVatModeResponse",
     "SalesInvoiceVatScheme",
@@ -4717,6 +4719,7 @@ _dynamic_imports: dict[str, str] = {
     "SalesInvoiceResponseTypedDict": ".sales_invoice_response",
     "SalesInvoiceStatus": ".sales_invoice_status",
     "SalesInvoiceStatusResponse": ".sales_invoice_status_response",
+    "SalesInvoiceStatusUpdate": ".sales_invoice_status_update",
     "SalesInvoiceVatMode": ".sales_invoice_vat_mode",
     "SalesInvoiceVatModeResponse": ".sales_invoice_vat_mode_response",
     "SalesInvoiceVatScheme": ".sales_invoice_vat_scheme",

@@ -208,9 +208,6 @@ class ListSalesInvoiceResponseTypedDict(TypedDict):
     the recipient so they may then pay through our payment system. To skip our payment process, set this to `paid` to
     mark it as paid. It can then subsequently be sent as well, same as with `issued`.
 
-    A status value that cannot be set but can be returned is `canceled`, for invoices which were
-    issued, but then canceled. Currently this can only be done for invoices created in the dashboard.
-
     Dependent parameters:
     - `paymentDetails` is required if invoice should be set directly to `paid`
     - `customerId` and `mandateId` are required if a recurring payment should be used to set the invoice to `paid`
@@ -230,7 +227,10 @@ class ListSalesInvoiceResponseTypedDict(TypedDict):
     """
     payment_term: NotRequired[Nullable[SalesInvoicePaymentTermResponse]]
     r"""The payment term to be set on the invoice."""
-    payment_details: NotRequired[SalesInvoicePaymentDetailsResponseTypedDict]
+    payment_details: NotRequired[List[SalesInvoicePaymentDetailsResponseTypedDict]]
+    r"""Used when setting an invoice to status of `paid`, and will store a payment that fully pays the invoice with the
+    provided details. Required for `paid` status.
+    """
     email_details: NotRequired[Nullable[SalesInvoiceEmailDetailsTypedDict]]
     customer_id: NotRequired[str]
     r"""The identifier referring to the [customer](get-customer) you want to attempt an automated payment for. If
@@ -325,9 +325,6 @@ class ListSalesInvoiceResponse(BaseModel):
     the recipient so they may then pay through our payment system. To skip our payment process, set this to `paid` to
     mark it as paid. It can then subsequently be sent as well, same as with `issued`.
 
-    A status value that cannot be set but can be returned is `canceled`, for invoices which were
-    issued, but then canceled. Currently this can only be done for invoices created in the dashboard.
-
     Dependent parameters:
     - `paymentDetails` is required if invoice should be set directly to `paid`
     - `customerId` and `mandateId` are required if a recurring payment should be used to set the invoice to `paid`
@@ -361,9 +358,12 @@ class ListSalesInvoiceResponse(BaseModel):
     r"""The payment term to be set on the invoice."""
 
     payment_details: Annotated[
-        Optional[SalesInvoicePaymentDetailsResponse],
+        Optional[List[SalesInvoicePaymentDetailsResponse]],
         pydantic.Field(alias="paymentDetails"),
     ] = None
+    r"""Used when setting an invoice to status of `paid`, and will store a payment that fully pays the invoice with the
+    provided details. Required for `paid` status.
+    """
 
     email_details: Annotated[
         OptionalNullable[SalesInvoiceEmailDetails], pydantic.Field(alias="emailDetails")

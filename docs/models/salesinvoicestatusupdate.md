@@ -1,4 +1,4 @@
-# SalesInvoiceStatusResponse
+# SalesInvoiceStatusUpdate
 
 The status for the invoice to end up in.
 
@@ -14,18 +14,17 @@ Dependent parameters:
 ## Example Usage
 
 ```python
-from mollie.models import SalesInvoiceStatusResponse
+from mollie.models import SalesInvoiceStatusUpdate
 
-value = SalesInvoiceStatusResponse.DRAFT
-
-# Open enum: unrecognized values are captured as UnrecognizedStr
+value = SalesInvoiceStatusUpdate.DRAFT
 ```
 
 
 ## Values
 
-| Name     | Value    |
-| -------- | -------- |
-| `DRAFT`  | draft    |
-| `ISSUED` | issued   |
-| `PAID`   | paid     |
+| Name        | Value       |
+| ----------- | ----------- |
+| `DRAFT`     | draft       |
+| `ISSUED`    | issued      |
+| `PAID`      | paid        |
+| `CANCELLED` | cancelled   |
