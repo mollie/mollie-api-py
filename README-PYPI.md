@@ -492,9 +492,9 @@ client = ClientSDK(
 * [match](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/unmatchedcredittransfers/README.md#match) - Match unmatched credit transfer
 * [return_](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/unmatchedcredittransfers/README.md#return_) - Return unmatched credit transfer
 
-### [VerifyPayees](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/verifypayees/README.md)
+### [VerifyPayee](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/verifypayee/README.md)
 
-* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/verifypayees/README.md#create) - Verify Payee
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/verifypayee/README.md#create) - Verify Payee
 
 ### [Wallets](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/wallets/README.md)
 

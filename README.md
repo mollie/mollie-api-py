@@ -492,9 +492,9 @@ client = ClientSDK(
 * [match](docs/sdks/unmatchedcredittransfers/README.md#match) - Match unmatched credit transfer
 * [return_](docs/sdks/unmatchedcredittransfers/README.md#return_) - Return unmatched credit transfer
 
-### [VerifyPayees](docs/sdks/verifypayees/README.md)
+### [VerifyPayee](docs/sdks/verifypayee/README.md)
 
-* [create](docs/sdks/verifypayees/README.md#create) - Verify Payee
+* [create](docs/sdks/verifypayee/README.md#create) - Verify Payee
 
 ### [Wallets](docs/sdks/wallets/README.md)
 

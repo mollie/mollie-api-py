@@ -250,7 +250,7 @@ with ClientSDK(
 
     res = client_sdk.sales_invoices.update(sales_invoice_id="invoice_4Y0eZitmBnQ6IDoMqZQKh", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "testmode": False,
-        "status": mollie.SalesInvoiceStatus.DRAFT,
+        "status": mollie.SalesInvoiceStatusUpdate.DRAFT,
         "memo": "An updated memo!",
         "payment_term": mollie.SalesInvoicePaymentTerm.THIRTYDAYS,
         "payment_details": {
