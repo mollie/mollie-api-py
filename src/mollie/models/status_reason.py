@@ -3,11 +3,13 @@
 
 from __future__ import annotations
 from enum import Enum
+from mollie import models, utils
 from mollie.types import BaseModel
+from pydantic import field_serializer
 from typing_extensions import TypedDict
 
 
-class Code(str, Enum):
+class Code(str, Enum, metaclass=utils.OpenEnumMeta):
     r"""A machine-readable code that indicates the reason for the payment's status."""
 
     APPROVED_OR_COMPLETED_SUCCESSFULLY = "approved_or_completed_successfully"
@@ -169,3 +171,12 @@ class StatusReason(BaseModel):
 
     message: str
     r"""A description of the status reason, localized according to the payment `locale`."""
+
+    @field_serializer("code")
+    def serialize_code(self, value):
+        if isinstance(value, str):
+            try:
+                return models.Code(value)
+            except ValueError:
+                return value
+        return value

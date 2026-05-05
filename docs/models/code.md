@@ -8,6 +8,8 @@ A machine-readable code that indicates the reason for the payment's status.
 from mollie.models import Code
 
 value = Code.APPROVED_OR_COMPLETED_SUCCESSFULLY
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
 ```
 
 

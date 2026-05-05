@@ -2,8 +2,11 @@
 # @generated-id: 7a3c7ee727db
 
 from __future__ import annotations
-from .list_entity_chargeback import ListEntityChargeback, ListEntityChargebackTypedDict
 from .list_links import ListLinks, ListLinksTypedDict
+from .list_settlement_chargeback_response import (
+    ListSettlementChargebackResponse,
+    ListSettlementChargebackResponseTypedDict,
+)
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import (
     FieldMetadata,
@@ -152,12 +155,12 @@ class ListSettlementChargebacksRequest(BaseModel):
 
 
 class ListSettlementChargebacksEmbeddedTypedDict(TypedDict):
-    chargebacks: List[ListEntityChargebackTypedDict]
+    chargebacks: List[ListSettlementChargebackResponseTypedDict]
     r"""A list of chargeback objects."""
 
 
 class ListSettlementChargebacksEmbedded(BaseModel):
-    chargebacks: List[ListEntityChargeback]
+    chargebacks: List[ListSettlementChargebackResponse]
     r"""A list of chargeback objects."""
 
 

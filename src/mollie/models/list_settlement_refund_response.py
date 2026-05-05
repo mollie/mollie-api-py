@@ -18,19 +18,10 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class ListSettlementRefundResponseSettlementAmountTypedDict(TypedDict):
-    r"""This optional field will contain the approximate amount that will be deducted from your account balance, converted
-    to the currency your account is settled in.
+    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
+    settled in. Always a **negative** amount.
 
-    The amount is a **negative** amount.
-
-    If the refund is not directly processed by Mollie, for example for PayPal refunds, the settlement amount will be
-    zero.
-
-    Since the field contains an estimated amount during refund processing, it may change over time. For example, while
-    the refund is queued the settlement amount is likely not yet available.
-
-    To retrieve accurate settlement amounts we recommend using the
-    [List balance transactions endpoint](list-balance-transactions) instead.
+    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
     """
 
     currency: str
@@ -40,19 +31,10 @@ class ListSettlementRefundResponseSettlementAmountTypedDict(TypedDict):
 
 
 class ListSettlementRefundResponseSettlementAmount(BaseModel):
-    r"""This optional field will contain the approximate amount that will be deducted from your account balance, converted
-    to the currency your account is settled in.
+    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
+    settled in. Always a **negative** amount.
 
-    The amount is a **negative** amount.
-
-    If the refund is not directly processed by Mollie, for example for PayPal refunds, the settlement amount will be
-    zero.
-
-    Since the field contains an estimated amount during refund processing, it may change over time. For example, while
-    the refund is queued the settlement amount is likely not yet available.
-
-    To retrieve accurate settlement amounts we recommend using the
-    [List balance transactions endpoint](list-balance-transactions) instead.
+    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
     """
 
     currency: str
@@ -238,19 +220,10 @@ class ListSettlementRefundResponseTypedDict(TypedDict):
     settlement_amount: NotRequired[
         Nullable[ListSettlementRefundResponseSettlementAmountTypedDict]
     ]
-    r"""This optional field will contain the approximate amount that will be deducted from your account balance, converted
-    to the currency your account is settled in.
+    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
+    settled in. Always a **negative** amount.
 
-    The amount is a **negative** amount.
-
-    If the refund is not directly processed by Mollie, for example for PayPal refunds, the settlement amount will be
-    zero.
-
-    Since the field contains an estimated amount during refund processing, it may change over time. For example, while
-    the refund is queued the settlement amount is likely not yet available.
-
-    To retrieve accurate settlement amounts we recommend using the
-    [List balance transactions endpoint](list-balance-transactions) instead.
+    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
     """
     payment_id: NotRequired[str]
     r"""The unique identifier of the payment this refund was created for.
@@ -311,19 +284,10 @@ class ListSettlementRefundResponse(BaseModel):
         OptionalNullable[ListSettlementRefundResponseSettlementAmount],
         pydantic.Field(alias="settlementAmount"),
     ] = UNSET
-    r"""This optional field will contain the approximate amount that will be deducted from your account balance, converted
-    to the currency your account is settled in.
+    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
+    settled in. Always a **negative** amount.
 
-    The amount is a **negative** amount.
-
-    If the refund is not directly processed by Mollie, for example for PayPal refunds, the settlement amount will be
-    zero.
-
-    Since the field contains an estimated amount during refund processing, it may change over time. For example, while
-    the refund is queued the settlement amount is likely not yet available.
-
-    To retrieve accurate settlement amounts we recommend using the
-    [List balance transactions endpoint](list-balance-transactions) instead.
+    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
     """
 
     payment_id: Annotated[Optional[str], pydantic.Field(alias="paymentId")] = None
