@@ -17,13 +17,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class ListSettlementCaptureResponseSettlementAmountTypedDict(TypedDict):
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
-
-    Since the field contains an estimated amount during capture processing, it may change over time. To retrieve
-    accurate settlement amounts we recommend using the [List balance transactions endpoint](list-balance-transactions)
-    instead.
-    """
+    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
 
     currency: str
     r"""A three-character ISO 4217 currency code."""
@@ -32,13 +26,7 @@ class ListSettlementCaptureResponseSettlementAmountTypedDict(TypedDict):
 
 
 class ListSettlementCaptureResponseSettlementAmount(BaseModel):
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
-
-    Since the field contains an estimated amount during capture processing, it may change over time. To retrieve
-    accurate settlement amounts we recommend using the [List balance transactions endpoint](list-balance-transactions)
-    instead.
-    """
+    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
 
     currency: str
     r"""A three-character ISO 4217 currency code."""
@@ -125,13 +113,7 @@ class ListSettlementCaptureResponseTypedDict(TypedDict):
     settlement_amount: NotRequired[
         Nullable[ListSettlementCaptureResponseSettlementAmountTypedDict]
     ]
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
-
-    Since the field contains an estimated amount during capture processing, it may change over time. To retrieve
-    accurate settlement amounts we recommend using the [List balance transactions endpoint](list-balance-transactions)
-    instead.
-    """
+    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
     metadata: NotRequired[Nullable[MetadataTypedDict]]
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
@@ -180,13 +162,7 @@ class ListSettlementCaptureResponse(BaseModel):
         OptionalNullable[ListSettlementCaptureResponseSettlementAmount],
         pydantic.Field(alias="settlementAmount"),
     ] = UNSET
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
-
-    Since the field contains an estimated amount during capture processing, it may change over time. To retrieve
-    accurate settlement amounts we recommend using the [List balance transactions endpoint](list-balance-transactions)
-    instead.
-    """
+    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
 
     metadata: OptionalNullable[Metadata] = UNSET
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever

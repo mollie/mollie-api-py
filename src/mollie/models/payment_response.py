@@ -44,7 +44,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 import pydantic
 from pydantic import field_serializer, model_serializer
 from typing import Any, Dict, List, Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict, deprecated
 
 
 class PaymentResponseAmountRefundedTypedDict(TypedDict):
@@ -133,15 +133,18 @@ class PaymentResponseAmountChargedBack(BaseModel):
     r"""A string containing an exact monetary amount in the given currency."""
 
 
+@deprecated(
+    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+)
 class PaymentResponseSettlementAmountTypedDict(TypedDict):
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
+    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
+    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
 
-    Any amounts not settled by Mollie will not be reflected in this amount, e.g. PayPal or gift cards. If no amount is
-    settled by Mollie the `settlementAmount` is omitted from the response.
+    The amount that will be settled to your account, converted to the currency your account is settled in. Only
+    available once the payment is finalized and the final settlement amount has been determined.
 
-    Please note that this amount might be recalculated and changed when the status of the payment changes. We suggest
-    using the List balance transactions endpoint instead to get more accurate settlement amounts for your payments.
+    Amounts not settled by Mollie are not reflected here (e.g. PayPal or gift cards). If no amount is settled by
+    Mollie, this field is omitted from the response.
     """
 
     currency: str
@@ -150,15 +153,18 @@ class PaymentResponseSettlementAmountTypedDict(TypedDict):
     r"""A string containing an exact monetary amount in the given currency."""
 
 
+@deprecated(
+    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+)
 class PaymentResponseSettlementAmount(BaseModel):
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
+    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
+    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
 
-    Any amounts not settled by Mollie will not be reflected in this amount, e.g. PayPal or gift cards. If no amount is
-    settled by Mollie the `settlementAmount` is omitted from the response.
+    The amount that will be settled to your account, converted to the currency your account is settled in. Only
+    available once the payment is finalized and the final settlement amount has been determined.
 
-    Please note that this amount might be recalculated and changed when the status of the payment changes. We suggest
-    using the List balance transactions endpoint instead to get more accurate settlement amounts for your payments.
+    Amounts not settled by Mollie are not reflected here (e.g. PayPal or gift cards). If no amount is settled by
+    Mollie, this field is omitted from the response.
     """
 
     currency: str
@@ -1515,14 +1521,14 @@ class PaymentResponseTypedDict(TypedDict):
     zero.
     """
     settlement_amount: NotRequired[PaymentResponseSettlementAmountTypedDict]
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
+    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
+    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
 
-    Any amounts not settled by Mollie will not be reflected in this amount, e.g. PayPal or gift cards. If no amount is
-    settled by Mollie the `settlementAmount` is omitted from the response.
+    The amount that will be settled to your account, converted to the currency your account is settled in. Only
+    available once the payment is finalized and the final settlement amount has been determined.
 
-    Please note that this amount might be recalculated and changed when the status of the payment changes. We suggest
-    using the List balance transactions endpoint instead to get more accurate settlement amounts for your payments.
+    Amounts not settled by Mollie are not reflected here (e.g. PayPal or gift cards). If no amount is settled by
+    Mollie, this field is omitted from the response.
     """
     redirect_url: NotRequired[Nullable[str]]
     r"""The URL your customer will be redirected to after the payment process.
@@ -1781,16 +1787,19 @@ class PaymentResponse(BaseModel):
 
     settlement_amount: Annotated[
         Optional[PaymentResponseSettlementAmount],
-        pydantic.Field(alias="settlementAmount"),
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="settlementAmount",
+        ),
     ] = None
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
+    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
+    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
 
-    Any amounts not settled by Mollie will not be reflected in this amount, e.g. PayPal or gift cards. If no amount is
-    settled by Mollie the `settlementAmount` is omitted from the response.
+    The amount that will be settled to your account, converted to the currency your account is settled in. Only
+    available once the payment is finalized and the final settlement amount has been determined.
 
-    Please note that this amount might be recalculated and changed when the status of the payment changes. We suggest
-    using the List balance transactions endpoint instead to get more accurate settlement amounts for your payments.
+    Amounts not settled by Mollie are not reflected here (e.g. PayPal or gift cards). If no amount is settled by
+    Mollie, this field is omitted from the response.
     """
 
     redirect_url: Annotated[

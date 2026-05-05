@@ -13,16 +13,18 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 import pydantic
 from pydantic import field_serializer, model_serializer
 from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import Annotated, NotRequired, TypedDict, deprecated
 
 
+@deprecated(
+    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+)
 class CaptureResponseSettlementAmountTypedDict(TypedDict):
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
+    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
+    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
 
-    Since the field contains an estimated amount during capture processing, it may change over time. To retrieve
-    accurate settlement amounts we recommend using the [List balance transactions endpoint](list-balance-transactions)
-    instead.
+    The amount that will be settled to your account for this capture, converted to the currency your account is
+    settled in. Only available once the capture is finalized and the final settlement amount has been determined.
     """
 
     currency: str
@@ -31,13 +33,15 @@ class CaptureResponseSettlementAmountTypedDict(TypedDict):
     r"""A string containing an exact monetary amount in the given currency."""
 
 
+@deprecated(
+    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
+)
 class CaptureResponseSettlementAmount(BaseModel):
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
+    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
+    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
 
-    Since the field contains an estimated amount during capture processing, it may change over time. To retrieve
-    accurate settlement amounts we recommend using the [List balance transactions endpoint](list-balance-transactions)
-    instead.
+    The amount that will be settled to your account for this capture, converted to the currency your account is
+    settled in. Only available once the capture is finalized and the final settlement amount has been determined.
     """
 
     currency: str
@@ -135,12 +139,11 @@ class CaptureResponseTypedDict(TypedDict):
     description: NotRequired[str]
     r"""The description of the capture."""
     settlement_amount: NotRequired[Nullable[CaptureResponseSettlementAmountTypedDict]]
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
+    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
+    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
 
-    Since the field contains an estimated amount during capture processing, it may change over time. To retrieve
-    accurate settlement amounts we recommend using the [List balance transactions endpoint](list-balance-transactions)
-    instead.
+    The amount that will be settled to your account for this capture, converted to the currency your account is
+    settled in. Only available once the capture is finalized and the final settlement amount has been determined.
     """
     metadata: NotRequired[Nullable[MetadataTypedDict]]
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
@@ -187,14 +190,16 @@ class CaptureResponse(BaseModel):
 
     settlement_amount: Annotated[
         OptionalNullable[CaptureResponseSettlementAmount],
-        pydantic.Field(alias="settlementAmount"),
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
+            alias="settlementAmount",
+        ),
     ] = UNSET
-    r"""This optional field will contain the approximate amount that will be settled to your account, converted to the
-    currency your account is settled in.
+    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
+    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
 
-    Since the field contains an estimated amount during capture processing, it may change over time. To retrieve
-    accurate settlement amounts we recommend using the [List balance transactions endpoint](list-balance-transactions)
-    instead.
+    The amount that will be settled to your account for this capture, converted to the currency your account is
+    settled in. Only available once the capture is finalized and the final settlement amount has been determined.
     """
 
     metadata: OptionalNullable[Metadata] = UNSET

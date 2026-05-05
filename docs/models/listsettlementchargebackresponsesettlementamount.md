@@ -1,15 +1,7 @@
-# ~~EntityRefundResponseSettlementAmount~~
+# ListSettlementChargebackResponseSettlementAmount
 
-**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-The amount deducted from your account balance for this refund, converted to the currency your account is settled
-in. Always a **negative** amount. Only available once the refund is finalized and the final settlement amount has
-been determined.
-
-For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-
-> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
+The amount deducted from your account balance for this chargeback, converted to the currency your account is
+settled in. Always a **negative** amount.
 
 
 ## Fields
