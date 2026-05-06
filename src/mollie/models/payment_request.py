@@ -493,7 +493,7 @@ class PaymentRequestTypedDict(TypedDict):
     """
     shipping_address: NotRequired[PaymentAddressTypedDict]
     locale: NotRequired[Nullable[Locale]]
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
     method: NotRequired[Nullable[MethodTypedDict]]
     issuer: NotRequired[Nullable[str]]
     r"""**Only relevant for iDEAL, KBC/CBC, gift card, and voucher payments.**
@@ -728,7 +728,7 @@ class PaymentRequest(BaseModel):
     ] = None
 
     locale: OptionalNullable[Locale] = UNSET
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
 
     method: OptionalNullable[Method] = UNSET
 

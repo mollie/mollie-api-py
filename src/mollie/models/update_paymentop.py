@@ -72,7 +72,7 @@ class UpdatePaymentRequestBodyTypedDict(TypedDict):
     payment methods from a specific country to your customer `['bancontact', 'belfius']`.
     """
     locale: NotRequired[Nullable[Locale]]
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
     due_date: NotRequired[str]
     r"""The date by which the payment should be completed in `YYYY-MM-DD` format"""
     restrict_payment_methods_to_country: NotRequired[Nullable[str]]
@@ -186,7 +186,7 @@ class UpdatePaymentRequestBody(BaseModel):
     """
 
     locale: OptionalNullable[Locale] = UNSET
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
 
     due_date: Annotated[Optional[str], pydantic.Field(alias="dueDate")] = None
     r"""The date by which the payment should be completed in `YYYY-MM-DD` format"""

@@ -1569,7 +1569,7 @@ class ListPaymentResponseTypedDict(TypedDict):
     """
     shipping_address: NotRequired[PaymentAddressTypedDict]
     locale: NotRequired[Nullable[LocaleResponse]]
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
     country_code: NotRequired[Nullable[str]]
     r"""This optional field contains your customer's ISO 3166-1 alpha-2 country code, detected by us during checkout. This
     field is omitted if the country code was not detected.
@@ -1860,7 +1860,7 @@ class ListPaymentResponse(BaseModel):
     ] = None
 
     locale: OptionalNullable[LocaleResponse] = UNSET
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
 
     country_code: Annotated[
         OptionalNullable[str], pydantic.Field(alias="countryCode")
