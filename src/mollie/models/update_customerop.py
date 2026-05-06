@@ -27,7 +27,7 @@ class UpdateCustomerRequestBodyTypedDict(TypedDict):
     If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
     """
     locale: NotRequired[Nullable[LocaleResponse]]
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
     metadata: NotRequired[Nullable[MetadataTypedDict]]
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
@@ -52,7 +52,7 @@ class UpdateCustomerRequestBody(BaseModel):
     """
 
     locale: OptionalNullable[LocaleResponse] = UNSET
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
 
     metadata: OptionalNullable[Metadata] = UNSET
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever

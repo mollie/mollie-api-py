@@ -1,6 +1,6 @@
 # Locale
 
-Allows you to preset the language to be used.
+Sets the language for customer-facing content and communications.
 
 ## Example Usage
 
@@ -22,8 +22,10 @@ value = Locale.EN_US
 | `DE_DE` | de_DE   |
 | `DE_AT` | de_AT   |
 | `DE_CH` | de_CH   |
+| `DE_LU` | de_LU   |
 | `FR_FR` | fr_FR   |
 | `FR_BE` | fr_BE   |
+| `FR_LU` | fr_LU   |
 | `ES_ES` | es_ES   |
 | `CA_ES` | ca_ES   |
 | `PT_PT` | pt_PT   |

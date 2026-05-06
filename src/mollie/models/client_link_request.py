@@ -24,7 +24,7 @@ class OwnerTypedDict(TypedDict):
     family_name: str
     r"""The family name (surname) of your customer."""
     locale: NotRequired[Nullable[LocaleResponse]]
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
 
 
 class Owner(BaseModel):
@@ -43,7 +43,7 @@ class Owner(BaseModel):
     r"""The family name (surname) of your customer."""
 
     locale: OptionalNullable[LocaleResponse] = UNSET
-    r"""Allows you to preset the language to be used."""
+    r"""Sets the language for customer-facing content and communications."""
 
     @field_serializer("locale")
     def serialize_locale(self, value):
