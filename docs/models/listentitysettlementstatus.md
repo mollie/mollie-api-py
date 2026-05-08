@@ -15,9 +15,10 @@ value = ListEntitySettlementStatus.OPEN
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `OPEN`    | open      |
-| `PENDING` | pending   |
-| `PAIDOUT` | paidout   |
-| `FAILED`  | failed    |
+| Name                 | Value                |
+| -------------------- | -------------------- |
+| `OPEN`               | open                 |
+| `PENDING`            | pending              |
+| `PROCESSING_AT_BANK` | processing-at-bank   |
+| `PAIDOUT`            | paidout              |
+| `FAILED`             | failed               |
