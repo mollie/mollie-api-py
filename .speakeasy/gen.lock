@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 08de12094e819ca24452ccda29449709
+  docChecksum: 483eb490ad84cf97c9954976c28ebd06
   docVersion: 1.0.0
   speakeasyVersion: 1.762.0
   generationVersion: 2.882.0
-  releaseVersion: 1.4.7
-  configChecksum: faa9a0968a434f4dd01cdf6ef2a75029
+  releaseVersion: 1.4.8
+  configChecksum: 762bfbb7d54c33c56371a8218d014c0e
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 9b4e906d-a6e7-48e2-a91b-de1cd8b26149
-  pristine_commit_hash: a115f42b9cb89cfa89bee8567ee2ba6b8381a6af
-  pristine_tree_hash: 1dde8c70bf335f1a15c687629cabd31468a8bb6b
+  generation_id: 9b7bffa5-9e31-44a9-af8e-2587590345ad
+  pristine_commit_hash: 79e9b2a9962303f00a186bee1026d07daf410823
+  pristine_tree_hash: 0d5edaca1bf47816faa870a602da1221221db1de
 features:
   python:
     additionalDependencies: 1.0.0
@@ -768,8 +768,8 @@ trackedFiles:
     pristine_git_object: 0fb6e391035d78e3726972327bd9ff66083ff1d6
   docs/models/entitysettlementstatus.md:
     id: 0cda9409beef
-    last_write_checksum: sha1:e8d4b3b3ffafe69b34cf89c955a05e38a44f7218
-    pristine_git_object: da08300a4aacff31d971873b34e4deac9ccfea24
+    last_write_checksum: sha1:87ccfa31ffc91ac198f5113427f58a807cf59922
+    pristine_git_object: 8104ea86e48cb11561659195c5ff0d543ab63bb7
   docs/models/entityterminal.md:
     id: 91068cbfd6c3
     last_write_checksum: sha1:5384ea8ec93a65426ff194153eab25f548fb1677
@@ -1684,8 +1684,8 @@ trackedFiles:
     pristine_git_object: 882c5c514736cb6f9d0d3043097b4ddf77abd2c8
   docs/models/listentitysettlementstatus.md:
     id: 39027d3ce15f
-    last_write_checksum: sha1:8c3be921efce5bf1d7a739ee829bdf7e7a742c8f
-    pristine_git_object: ae63ba515b3513c1b2dcd01b4220705e66c31f10
+    last_write_checksum: sha1:3193affa31739658080cb35ff5668738947a9f3a
+    pristine_git_object: 3116db47d25387e4cbe0aae78570224a6dcde7e1
   docs/models/listentityterminal.md:
     id: 7c4ee43386f9
     last_write_checksum: sha1:90994aa81f4ef47f7ff41d57b6ddbca27e9e79ae
@@ -3512,8 +3512,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:9ac4743ee5870ce9fc6aba2a60baa62ab073e6ef
-    pristine_git_object: 354d298ba776cf1f62d1183552310df84fbe3780
+    last_write_checksum: sha1:d03c7a8b1548cd167cc0befb015bfaf0abd85ad8
+    pristine_git_object: 0aceae605e0ff1c062071bc8105307d2a90005da
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3540,8 +3540,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:dc173f2828cfe2747fd45abb99d94b090333892a
-    pristine_git_object: 1b8b9bb6283918864884e89ec18472c0e696fc98
+    last_write_checksum: sha1:043a606cd485cad5d26af30e0a2428c441bea76b
+    pristine_git_object: 7a210979527287efb4bb7714926649b4ee691437
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:894a3ee5232b27dbae4a59155b0242bb507a7097
@@ -3956,8 +3956,8 @@ trackedFiles:
     pristine_git_object: 80e35ebf54a8f18136d393fa30de65f5c980087c
   src/mollie/models/entity_settlement.py:
     id: 59d05b1038b3
-    last_write_checksum: sha1:5b5671d55cd2af2b74558b5e01ae8c3461ce0058
-    pristine_git_object: e47b240c93cf00e6dc3c7625d3af8383beaa90d6
+    last_write_checksum: sha1:1356f8a06cf966b34f4c6f76da818c73fa3072eb
+    pristine_git_object: 6b4eb01a412c2788b6ef72aae20daaabcbbcc916
   src/mollie/models/entity_terminal.py:
     id: 55812a4c5808
     last_write_checksum: sha1:a1998684521725825f119cb7d4cc936f379605bf
@@ -4232,8 +4232,8 @@ trackedFiles:
     pristine_git_object: 03edd95b2a62b6380059d3eccc135010edf6d991
   src/mollie/models/list_entity_settlement.py:
     id: 2300b346cee4
-    last_write_checksum: sha1:e088373436b969d25d763f79f0a08d34ffecc926
-    pristine_git_object: 9234e44efc1ba7bd4bc452003d64743946ec7f3f
+    last_write_checksum: sha1:b943c24df17ff6a67eb3ac74319eacba6c080bd0
+    pristine_git_object: 2f1ca07bf97a96417bb195ba17511f581ba5f014
   src/mollie/models/list_entity_terminal.py:
     id: 486fbe5d6fe3
     last_write_checksum: sha1:0191bf8ac067c6e246923c07a9d017de4c39c2ec
@@ -8410,4 +8410,9 @@ examples:
         application/json: {"token_type_hint": "access_token", "token": "access_..."}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.settlements.list_payments()`:  `response._embedded.payments[].locale` **Changed**\n* `client.organizations.get()`:  `response.locale` **Changed**\n* `client.organizations.get_current()`:  `response.locale` **Changed**\n* `client.clients.list()`:  `response._embedded.clients[]._embedded.organization.locale` **Changed**\n* `client.clients.get()`:  `response._embedded.organization.locale` **Changed**\n* `client.client_links.create()`: \n  *  `request.client_link_request.owner.locale` **Changed**\n* `client.payments.create()`: \n  *  `request.payment_request.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.payments.list()`:  `response._embedded.payments[].locale` **Changed**\n* `client.payments.get()`:  `response.locale` **Changed**\n* `client.payments.update()`: \n  *  `request_body.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.payments.cancel()`:  `response.locale` **Changed**\n* `client.methods.list()`:  `request.locale` **Changed**\n* `client.methods.all()`:  `request.locale` **Changed**\n* `client.methods.get()`:  `request.locale` **Changed**\n* `client.payment_links.list_payments()`:  `response._embedded.payments[].locale` **Changed**\n* `client.customers.create()`: \n  *  `request.entity_customer.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.customers.list()`:  `response._embedded.customers[].locale` **Changed**\n* `client.customers.get()`:  `response.locale` **Changed**\n* `client.customers.update()`: \n  *  `request_body.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.customers.create_payment()`: \n  *  `request.payment_request.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.customers.list_payments()`:  `response._embedded.payments[].locale` **Changed**\n* `client.subscriptions.list_payments()`:  `response._embedded.payments[].locale` **Changed**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `client.settlements.list()`:  `response._embedded.settlements[].status.enum(processing_at_bank)` **Added**
+  * `client.settlements.get()`:  `response.status.enum(processing_at_bank)` **Added**
+  * `client.settlements.get_open()`:  `response.status.enum(processing_at_bank)` **Added**
+  * `client.settlements.get_next()`:  `response.status.enum(processing_at_bank)` **Added**
