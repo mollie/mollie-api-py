@@ -29,7 +29,7 @@ class Profiles(BaseSDK):
         Profiles are required for payment processing. Normally they are created via the Mollie dashboard. Alternatively, you
         can use this endpoint to automate profile creation.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param profile_request:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -72,7 +72,7 @@ class Profiles(BaseSDK):
                 request.profile_request, False, False, "json", models.ProfileRequest
             ),
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -135,7 +135,7 @@ class Profiles(BaseSDK):
         Profiles are required for payment processing. Normally they are created via the Mollie dashboard. Alternatively, you
         can use this endpoint to automate profile creation.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param profile_request:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -178,7 +178,7 @@ class Profiles(BaseSDK):
                 request.profile_request, False, False, "json", models.ProfileRequest
             ),
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -242,7 +242,7 @@ class Profiles(BaseSDK):
 
         The results are paginated.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -284,7 +284,7 @@ class Profiles(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -379,7 +379,7 @@ class Profiles(BaseSDK):
 
         The results are paginated.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -421,7 +421,7 @@ class Profiles(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -516,7 +516,7 @@ class Profiles(BaseSDK):
 
         Retrieve a single profile by its ID.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param profile_id: Provide the ID of the related profile.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
@@ -561,7 +561,7 @@ class Profiles(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -622,7 +622,7 @@ class Profiles(BaseSDK):
 
         Retrieve a single profile by its ID.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param profile_id: Provide the ID of the related profile.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
@@ -667,7 +667,7 @@ class Profiles(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -733,7 +733,7 @@ class Profiles(BaseSDK):
         Profiles are required for payment processing. Normally they are created and updated via the Mollie dashboard.
         Alternatively, you can use this endpoint to automate profile management.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param profile_id: Provide the ID of the related profile.
         :param request_body:
@@ -782,7 +782,7 @@ class Profiles(BaseSDK):
                 models.UpdateProfileRequestBody,
             ),
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -850,7 +850,7 @@ class Profiles(BaseSDK):
         Profiles are required for payment processing. Normally they are created and updated via the Mollie dashboard.
         Alternatively, you can use this endpoint to automate profile management.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param profile_id: Provide the ID of the related profile.
         :param request_body:
@@ -899,7 +899,7 @@ class Profiles(BaseSDK):
                 models.UpdateProfileRequestBody,
             ),
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -961,7 +961,7 @@ class Profiles(BaseSDK):
 
         Delete a profile. A deleted profile and its related credentials can no longer be used for accepting payments.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param profile_id: Provide the ID of the related profile.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -999,7 +999,7 @@ class Profiles(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1059,7 +1059,7 @@ class Profiles(BaseSDK):
 
         Delete a profile. A deleted profile and its related credentials can no longer be used for accepting payments.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param profile_id: Provide the ID of the related profile.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -1097,7 +1097,7 @@ class Profiles(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

@@ -190,11 +190,11 @@ asyncio.run(main())
 
 This SDK supports the following security schemes globally:
 
-| Name                        | Type   | Scheme       | Environment Variable               |
-| --------------------------- | ------ | ------------ | ---------------------------------- |
-| `api_key`                   | http   | HTTP Bearer  | `CLIENT_API_KEY`                   |
-| `organization_access_token` | http   | HTTP Bearer  | `CLIENT_ORGANIZATION_ACCESS_TOKEN` |
-| `o_auth`                    | oauth2 | OAuth2 token | `CLIENT_O_AUTH`                    |
+| Name                    | Type   | Scheme       | Environment Variable           |
+| ----------------------- | ------ | ------------ | ------------------------------ |
+| `api_key`               | http   | HTTP Bearer  | `CLIENT_API_KEY`               |
+| `advanced_access_token` | http   | HTTP Bearer  | `CLIENT_ADVANCED_ACCESS_TOKEN` |
+| `o_auth`                | oauth2 | OAuth2 token | `CLIENT_O_AUTH`                |
 
 You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
 ```python
@@ -548,7 +548,7 @@ with ClientSDK(
     profile_id="<id>",
     custom_user_agent="<value>",
     security=mollie.Security(
-        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -579,7 +579,7 @@ import os
 with ClientSDK(
     testmode=True,
     security=mollie.Security(
-        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 
@@ -727,7 +727,7 @@ import os
 with ClientSDK(
     testmode=True,
     security=mollie.Security(
-        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
     res = None
@@ -797,7 +797,7 @@ with ClientSDK(
     server_url="https://api.mollie.com",
     testmode=True,
     security=mollie.Security(
-        organization_access_token=os.getenv("CLIENT_ORGANIZATION_ACCESS_TOKEN", ""),
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
     ),
 ) as client_sdk:
 

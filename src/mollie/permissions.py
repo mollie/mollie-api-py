@@ -26,7 +26,7 @@ class Permissions(BaseSDK):
 
         The results are **not** paginated.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -62,7 +62,7 @@ class Permissions(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -123,7 +123,7 @@ class Permissions(BaseSDK):
 
         The results are **not** paginated.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -159,7 +159,7 @@ class Permissions(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -220,7 +220,7 @@ class Permissions(BaseSDK):
 
         Retrieve a single permission by its ID, and see if the permission is granted to the current access token.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param permission_id: Provide the ID of the related permission.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
@@ -265,7 +265,7 @@ class Permissions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -326,7 +326,7 @@ class Permissions(BaseSDK):
 
         Retrieve a single permission by its ID, and see if the permission is granted to the current access token.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param permission_id: Provide the ID of the related permission.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
@@ -371,7 +371,7 @@ class Permissions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
