@@ -32,7 +32,7 @@ class Balances(BaseSDK):
 
         The results are paginated.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param currency: Optionally only return balances with the given currency. For example: `EUR`.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
@@ -83,7 +83,7 @@ class Balances(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -182,7 +182,7 @@ class Balances(BaseSDK):
 
         The results are paginated.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param currency: Optionally only return balances with the given currency. For example: `EUR`.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
@@ -233,7 +233,7 @@ class Balances(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -344,7 +344,7 @@ class Balances(BaseSDK):
         balance instantly. With slower payment methods, like credit card for example, it can take a few days before the
         funds are available on your balance. These funds will be shown under the *pending amount* in the meanwhile.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param balance_id: Provide the ID of the related balance.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
@@ -389,7 +389,7 @@ class Balances(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -464,7 +464,7 @@ class Balances(BaseSDK):
         balance instantly. With slower payment methods, like credit card for example, it can take a few days before the
         funds are available on your balance. These funds will be shown under the *pending amount* in the meanwhile.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param balance_id: Provide the ID of the related balance.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
@@ -509,7 +509,7 @@ class Balances(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -572,7 +572,7 @@ class Balances(BaseSDK):
         This endpoint is a convenient alias of the [Get balance](get-balance)
         endpoint.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -608,7 +608,7 @@ class Balances(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -667,7 +667,7 @@ class Balances(BaseSDK):
         This endpoint is a convenient alias of the [Get balance](get-balance)
         endpoint.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -703,7 +703,7 @@ class Balances(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -769,7 +769,7 @@ class Balances(BaseSDK):
         The alias `primary` can be used instead of the balance ID to refer to the
         organization's primary balance.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param balance_id: Provide the ID of the related balance.
         :param from_: The start date of the report, in `YYYY-MM-DD` format. The from date is
@@ -829,7 +829,7 @@ class Balances(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -899,7 +899,7 @@ class Balances(BaseSDK):
         The alias `primary` can be used instead of the balance ID to refer to the
         organization's primary balance.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param balance_id: Provide the ID of the related balance.
         :param from_: The start date of the report, in `YYYY-MM-DD` format. The from date is
@@ -959,7 +959,7 @@ class Balances(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1032,7 +1032,7 @@ class Balances(BaseSDK):
 
         The results are paginated.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param balance_id: Provide the ID of the related balance.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
@@ -1083,7 +1083,7 @@ class Balances(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1191,7 +1191,7 @@ class Balances(BaseSDK):
 
         The results are paginated.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param balance_id: Provide the ID of the related balance.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
@@ -1242,7 +1242,7 @@ class Balances(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

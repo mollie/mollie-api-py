@@ -26,7 +26,7 @@ class WebhookEvents(BaseSDK):
 
         Retrieve a single webhook event object by its event ID.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param webhook_event_id: Provide the ID of the related webhook event.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
@@ -71,7 +71,7 @@ class WebhookEvents(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -132,7 +132,7 @@ class WebhookEvents(BaseSDK):
 
         Retrieve a single webhook event object by its event ID.
 
-        If set, this operation will use either `organization_access_token` or `o_auth` from the global security.
+        If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param webhook_event_id: Provide the ID of the related webhook event.
         :param testmode: You can enable test mode by setting the `testmode` query parameter to `true`.
@@ -177,7 +177,7 @@ class WebhookEvents(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token", "o_auth"],
+            allowed_fields=["advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

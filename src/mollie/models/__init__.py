@@ -387,8 +387,6 @@ if TYPE_CHECKING:
         EntityPaymentRoute,
         EntityPaymentRouteDestination,
         EntityPaymentRouteDestinationTypedDict,
-        EntityPaymentRouteLinks,
-        EntityPaymentRouteLinksTypedDict,
         EntityPaymentRouteTypedDict,
     )
     from .entity_payment_route_response import (
@@ -2145,8 +2143,6 @@ __all__ = [
     "EntityPaymentRoute",
     "EntityPaymentRouteDestination",
     "EntityPaymentRouteDestinationTypedDict",
-    "EntityPaymentRouteLinks",
-    "EntityPaymentRouteLinksTypedDict",
     "EntityPaymentRouteResponse",
     "EntityPaymentRouteResponseDestination",
     "EntityPaymentRouteResponseDestinationTypedDict",
@@ -3712,8 +3708,6 @@ _dynamic_imports: dict[str, str] = {
     "EntityPaymentRoute": ".entity_payment_route",
     "EntityPaymentRouteDestination": ".entity_payment_route",
     "EntityPaymentRouteDestinationTypedDict": ".entity_payment_route",
-    "EntityPaymentRouteLinks": ".entity_payment_route",
-    "EntityPaymentRouteLinksTypedDict": ".entity_payment_route",
     "EntityPaymentRouteTypedDict": ".entity_payment_route",
     "EntityPaymentRouteResponse": ".entity_payment_route_response",
     "EntityPaymentRouteResponseDestination": ".entity_payment_route_response",

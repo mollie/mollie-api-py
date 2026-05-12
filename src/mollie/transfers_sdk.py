@@ -54,7 +54,7 @@ class TransfersSDK(BaseSDK):
         | `14.00` | Transfer processed, then returned by receiving bank | `business-account-transfer.requested` → `business-account-transfer.initiated` → `business-account-transfer.processed` → `business-account-transfer.returned`       |
         | Other   | Default: transfer is processed                      | `business-account-transfer.requested` → `business-account-transfer.initiated` → `business-account-transfer.processed`                                              |
 
-        If set, this operation will use `organization_access_token` from the global security.
+        If set, this operation will use `advanced_access_token` from the global security.
 
         :param x_client_signature: A cryptographic signature of the request payload, used to verify the authenticity of the transfer request.
         :param x_client_signed_at: The timestamp (in ISO 8601 format) indicating when the client signed the request. Used in conjunction with
@@ -113,7 +113,7 @@ class TransfersSDK(BaseSDK):
                 Optional[models.TransferRequest],
             ),
             allow_empty_value=None,
-            allowed_fields=["organization_access_token"],
+            allowed_fields=["advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -205,7 +205,7 @@ class TransfersSDK(BaseSDK):
         | `14.00` | Transfer processed, then returned by receiving bank | `business-account-transfer.requested` → `business-account-transfer.initiated` → `business-account-transfer.processed` → `business-account-transfer.returned`       |
         | Other   | Default: transfer is processed                      | `business-account-transfer.requested` → `business-account-transfer.initiated` → `business-account-transfer.processed`                                              |
 
-        If set, this operation will use `organization_access_token` from the global security.
+        If set, this operation will use `advanced_access_token` from the global security.
 
         :param x_client_signature: A cryptographic signature of the request payload, used to verify the authenticity of the transfer request.
         :param x_client_signed_at: The timestamp (in ISO 8601 format) indicating when the client signed the request. Used in conjunction with
@@ -264,7 +264,7 @@ class TransfersSDK(BaseSDK):
                 Optional[models.TransferRequest],
             ),
             allow_empty_value=None,
-            allowed_fields=["organization_access_token"],
+            allowed_fields=["advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -333,7 +333,7 @@ class TransfersSDK(BaseSDK):
         Retrieve a single transfer object by its transfer ID. This allows you to check the current status
         and details of a previously created transfer.
 
-        If set, this operation will use `organization_access_token` from the global security.
+        If set, this operation will use `advanced_access_token` from the global security.
 
         :param business_accounts_transfer_id: Provide the ID of the related transfer.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -380,7 +380,7 @@ class TransfersSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token"],
+            allowed_fields=["advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -446,7 +446,7 @@ class TransfersSDK(BaseSDK):
         Retrieve a single transfer object by its transfer ID. This allows you to check the current status
         and details of a previously created transfer.
 
-        If set, this operation will use `organization_access_token` from the global security.
+        If set, this operation will use `advanced_access_token` from the global security.
 
         :param business_accounts_transfer_id: Provide the ID of the related transfer.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -493,7 +493,7 @@ class TransfersSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["organization_access_token"],
+            allowed_fields=["advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
