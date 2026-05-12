@@ -420,16 +420,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -575,16 +565,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -730,16 +710,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -885,16 +855,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -1040,16 +1000,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -1195,16 +1145,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -1350,16 +1290,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -1505,16 +1435,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -1660,16 +1580,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -1815,16 +1725,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -1970,16 +1870,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -2125,16 +2015,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,
@@ -2280,16 +2160,6 @@ with ClientSDK(
                     organization_id="org_1234567",
                 ),
                 release_date="2024-12-12",
-                links=mollie.EntityPaymentRouteLinks(
-                    self_=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                    payment=mollie.URL(
-                        href="https://...",
-                        type="application/hal+json",
-                    ),
-                ),
             ),
         ],
         sequence_type=mollie.SequenceType.ONEOFF,

@@ -51,7 +51,7 @@ class VerifyPayee(BaseSDK):
         | `John Unavailable`                     | Verification is not available                  | `not-available`     | —              |
         | Any other name                         | Default: name matches the bank records         | `match`             | —              |
 
-        If set, this operation will use `organization_access_token` from the global security.
+        If set, this operation will use `advanced_access_token` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param verification_of_payee_request:
@@ -99,7 +99,7 @@ class VerifyPayee(BaseSDK):
                 Optional[models.VerificationOfPayeeRequest],
             ),
             allow_empty_value=None,
-            allowed_fields=["organization_access_token"],
+            allowed_fields=["advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -188,7 +188,7 @@ class VerifyPayee(BaseSDK):
         | `John Unavailable`                     | Verification is not available                  | `not-available`     | —              |
         | Any other name                         | Default: name matches the bank records         | `match`             | —              |
 
-        If set, this operation will use `organization_access_token` from the global security.
+        If set, this operation will use `advanced_access_token` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param verification_of_payee_request:
@@ -236,7 +236,7 @@ class VerifyPayee(BaseSDK):
                 Optional[models.VerificationOfPayeeRequest],
             ),
             allow_empty_value=None,
-            allowed_fields=["organization_access_token"],
+            allowed_fields=["advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 

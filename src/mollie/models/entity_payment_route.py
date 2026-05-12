@@ -4,7 +4,6 @@
 from __future__ import annotations
 from .amount import Amount, AmountTypedDict
 from .route_destination_type import RouteDestinationType
-from .url import URL, URLTypedDict
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
@@ -28,32 +27,11 @@ class EntityPaymentRouteDestination(BaseModel):
     organization_id: Annotated[str, pydantic.Field(alias="organizationId")]
 
 
-class EntityPaymentRouteLinksTypedDict(TypedDict):
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-
-    self_: URLTypedDict
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    payment: URLTypedDict
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-
-class EntityPaymentRouteLinks(BaseModel):
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-
-    self_: Annotated[URL, pydantic.Field(alias="self")]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    payment: URL
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-
 class EntityPaymentRouteTypedDict(TypedDict):
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
     destination: EntityPaymentRouteDestinationTypedDict
     r"""The destination of this portion of the payment."""
-    links: EntityPaymentRouteLinksTypedDict
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
     release_date: NotRequired[Nullable[str]]
     r"""Optionally, schedule this portion of the payment to be transferred to its destination on a later date. The
     date must be given in `YYYY-MM-DD` format.
@@ -68,9 +46,6 @@ class EntityPaymentRoute(BaseModel):
 
     destination: EntityPaymentRouteDestination
     r"""The destination of this portion of the payment."""
-
-    links: Annotated[EntityPaymentRouteLinks, pydantic.Field(alias="_links")]
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
     release_date: Annotated[
         OptionalNullable[str], pydantic.Field(alias="releaseDate")
@@ -109,10 +84,6 @@ class EntityPaymentRoute(BaseModel):
 
 try:
     EntityPaymentRouteDestination.model_rebuild()
-except NameError:
-    pass
-try:
-    EntityPaymentRouteLinks.model_rebuild()
 except NameError:
     pass
 try:
