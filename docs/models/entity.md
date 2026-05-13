@@ -9,6 +9,12 @@
 value: models.PaymentLinkResponse = /* values here */
 ```
 
+### `models.EntityPayoutResponse`
+
+```python
+value: models.EntityPayoutResponse = /* values here */
+```
+
 ### `models.SalesInvoiceResponse`
 
 ```python

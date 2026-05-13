@@ -2,6 +2,7 @@
 # @generated-id: 2db7196b42ba
 
 from __future__ import annotations
+from .entity_payout_response import EntityPayoutResponse, EntityPayoutResponseTypedDict
 from .payment_link_response import PaymentLinkResponse, PaymentLinkResponseTypedDict
 from .sales_invoice_response import SalesInvoiceResponse, SalesInvoiceResponseTypedDict
 from .transfer_response import TransferResponse, TransferResponseTypedDict
@@ -22,6 +23,11 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
 
     PAYMENT_LINK_PAID = "payment-link.paid"
     BALANCE_TRANSACTION_CREATED = "balance-transaction.created"
+    PAYOUT_INITIATED = "payout.initiated"
+    PAYOUT_PROCESSING_AT_BANK = "payout.processing-at-bank"
+    PAYOUT_COMPLETED = "payout.completed"
+    PAYOUT_CANCELED = "payout.canceled"
+    PAYOUT_FAILED = "payout.failed"
     SALES_INVOICE_CREATED = "sales-invoice.created"
     SALES_INVOICE_ISSUED = "sales-invoice.issued"
     SALES_INVOICE_CANCELED = "sales-invoice.canceled"
@@ -41,6 +47,7 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
 EntityTypedDict = TypeAliasType(
     "EntityTypedDict",
     Union[
+        EntityPayoutResponseTypedDict,
         TransferResponseTypedDict,
         PaymentLinkResponseTypedDict,
         SalesInvoiceResponseTypedDict,
@@ -49,7 +56,13 @@ EntityTypedDict = TypeAliasType(
 
 
 Entity = TypeAliasType(
-    "Entity", Union[TransferResponse, PaymentLinkResponse, SalesInvoiceResponse]
+    "Entity",
+    Union[
+        EntityPayoutResponse,
+        TransferResponse,
+        PaymentLinkResponse,
+        SalesInvoiceResponse,
+    ],
 )
 
 
