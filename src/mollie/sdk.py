@@ -34,6 +34,7 @@ if TYPE_CHECKING:
     from mollie.organizations import Organizations
     from mollie.payment_links import PaymentLinks
     from mollie.payments_sdk import PaymentsSDK
+    from mollie.payouts import Payouts
     from mollie.permissions import Permissions
     from mollie.profiles import Profiles
     from mollie.refunds_sdk import RefundsSDK
@@ -83,6 +84,7 @@ class ClientSDK(BaseSDK):
     accounts: "Accounts"
     transfers: "TransfersSDK"
     verify_payee: "VerifyPayee"
+    payouts: "Payouts"
     _sub_sdk_map = {
         "oauth": ("mollie.oauth", "Oauth"),
         "balances": ("mollie.balances", "Balances"),
@@ -119,6 +121,7 @@ class ClientSDK(BaseSDK):
         "accounts": ("mollie.accounts", "Accounts"),
         "transfers": ("mollie.transfers_sdk", "TransfersSDK"),
         "verify_payee": ("mollie.verify_payee", "VerifyPayee"),
+        "payouts": ("mollie.payouts", "Payouts"),
     }
 
     def __init__(

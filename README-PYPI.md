@@ -419,6 +419,13 @@ client = ClientSDK(
 * [cancel](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentssdk/README.md#cancel) - Cancel payment
 * [release_authorization](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/paymentssdk/README.md#release_authorization) - Release payment authorization
 
+### [Payouts](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/payouts/README.md)
+
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/payouts/README.md#create) - Create payout
+* [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/payouts/README.md#list) - List payouts
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/payouts/README.md#get) - Get payout
+* [cancel](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/payouts/README.md#cancel) - Cancel payout
+
 ### [Permissions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/permissions/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/permissions/README.md#list) - List permissions

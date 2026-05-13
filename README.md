@@ -419,6 +419,13 @@ client = ClientSDK(
 * [cancel](docs/sdks/paymentssdk/README.md#cancel) - Cancel payment
 * [release_authorization](docs/sdks/paymentssdk/README.md#release_authorization) - Release payment authorization
 
+### [Payouts](docs/sdks/payouts/README.md)
+
+* [create](docs/sdks/payouts/README.md#create) - Create payout
+* [list](docs/sdks/payouts/README.md#list) - List payouts
+* [get](docs/sdks/payouts/README.md#get) - Get payout
+* [cancel](docs/sdks/payouts/README.md#cancel) - Cancel payout
+
 ### [Permissions](docs/sdks/permissions/README.md)
 
 * [list](docs/sdks/permissions/README.md#list) - List permissions
