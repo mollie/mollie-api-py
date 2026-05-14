@@ -52,14 +52,7 @@ class EntityPayoutResponseTypedDict(TypedDict):
     mode: Mode
     r"""Whether this entity was created in live mode or in test mode."""
     amount: NotRequired[Nullable[AmountNullableTypedDict]]
-    r"""The amount to pay out. When omitted from the request, the full available balance minus any configured
-    balance reserve is paid out.
-
-    Merchants registered in the United Kingdom cannot specify a custom amount — omit this field to pay out
-    the full available balance.
-
-    The value in the response reflects the amount paid out, excluding any applicable fees.
-    """
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
     description: NotRequired[str]
     r"""The description that will appear on the bank statement for this payout."""
     initiated_at: NotRequired[Nullable[str]]
@@ -103,14 +96,7 @@ class EntityPayoutResponse(BaseModel):
     r"""Whether this entity was created in live mode or in test mode."""
 
     amount: OptionalNullable[AmountNullable] = UNSET
-    r"""The amount to pay out. When omitted from the request, the full available balance minus any configured
-    balance reserve is paid out.
-
-    Merchants registered in the United Kingdom cannot specify a custom amount — omit this field to pay out
-    the full available balance.
-
-    The value in the response reflects the amount paid out, excluding any applicable fees.
-    """
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
     description: Optional[str] = None
     r"""The description that will appear on the bank statement for this payout."""

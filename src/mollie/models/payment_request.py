@@ -622,6 +622,12 @@ class PaymentRequestTypedDict(TypedDict):
     payment. Note: field only valid for oneoff and first payments. For recurring payments, the customerId alone is
     enough.
     """
+    google_pay_payment_token: NotRequired[str]
+    r"""The Google Pay payment token object (encoded as JSON) returned by the Google Pay SDK after the customer authorizes
+    the payment. The token contains the payment information needed to complete the payment.
+
+    The object should be passed encoded in a JSON string.
+    """
     voucher_number: NotRequired[str]
     r"""The card token you received from the card component of Mollie Components. The token represents the customer's card
     information needed to complete the payment.
@@ -893,6 +899,15 @@ class PaymentRequest(BaseModel):
     enough.
     """
 
+    google_pay_payment_token: Annotated[
+        Optional[str], pydantic.Field(alias="googlePayPaymentToken")
+    ] = None
+    r"""The Google Pay payment token object (encoded as JSON) returned by the Google Pay SDK after the customer authorizes
+    the payment. The token contains the payment information needed to complete the payment.
+
+    The object should be passed encoded in a JSON string.
+    """
+
     voucher_number: Annotated[Optional[str], pydantic.Field(alias="voucherNumber")] = (
         None
     )
@@ -968,6 +983,7 @@ class PaymentRequest(BaseModel):
                 "applePayPaymentToken",
                 "company",
                 "cardToken",
+                "googlePayPaymentToken",
                 "voucherNumber",
                 "voucherPin",
                 "consumerDateOfBirth",
