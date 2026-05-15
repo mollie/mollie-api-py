@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 1ddbf4f529ac3f6423af3093cae1bd84
+  docChecksum: 536cfdf4a7ed1cc890da692cec8211a7
   docVersion: 1.0.0
-  speakeasyVersion: 1.763.0
-  generationVersion: 2.884.0
-  releaseVersion: 1.5.2
-  configChecksum: 58d91e54173aa01fb243f01ae2c3c60b
+  speakeasyVersion: 1.763.1
+  generationVersion: 2.884.4
+  releaseVersion: 1.5.3
+  configChecksum: 542ebd8da899e323edb777327f20faee
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 33af6081-fdf0-4a12-9654-4d69908db3e5
-  pristine_commit_hash: f701205b15cfd57dbc1b0257f2d73de7be480a5e
-  pristine_tree_hash: 46ada0297510c1935ea343889051e6dc3f691c5a
+  generation_id: 647a6da8-e2a2-4279-bcbf-8b4faeef8e9e
+  pristine_commit_hash: 562121b898bc5c95390755ce3e80f1bc95b8e0bd
+  pristine_tree_hash: 43d87aa9079a2f959f25e7c352ecf18dcc460f52
 features:
   python:
     additionalDependencies: 1.0.0
@@ -3588,8 +3588,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:9da26628edeacf9d018affe385c19fa73da0af94
-    pristine_git_object: 2aeee7acb20fd59cc6fdfa499849dcd3773b1a49
+    last_write_checksum: sha1:f81a3f66104c0101d5e4f6e04b90b5f7f3bb2a34
+    pristine_git_object: 4ac71cd4bc67c57cf0123d1e44f9624fef402965
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3616,8 +3616,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:588c6f627975228dc9e4c42d8c8fb4d7ae8f3395
-    pristine_git_object: e755b77f9a7a1b57e9290f654aa442f19afb9e08
+    last_write_checksum: sha1:0f7c7961ac970625cbc9b53560df2f169041cd68
+    pristine_git_object: c78b38ab91e6e4da45ec52d7e9f6586ac69aa359
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:894a3ee5232b27dbae4a59155b0242bb507a7097
@@ -8636,4 +8636,3 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.payments.create()`: \n  *  `request.payment_request.google_pay_payment_token` **Added**\n* `client.customers.create_payment()`: \n  *  `request.payment_request.google_pay_payment_token` **Added**\n"
