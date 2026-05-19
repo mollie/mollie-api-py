@@ -14,6 +14,10 @@ class Oauth(BaseSDK):
     def generate(
         self,
         *,
+        security: Union[
+            models.OauthGenerateTokensSecurity,
+            models.OauthGenerateTokensSecurityTypedDict,
+        ],
         idempotency_key: Optional[str] = None,
         request_body: Optional[
             Union[
@@ -33,8 +37,7 @@ class Oauth(BaseSDK):
 
         This endpoint can only be accessed using **OAuth client credentials**.
 
-        If set, this operation will use `o_auth` from the global security.
-
+        :param security:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
         :param retries: Override the default retry configuration for this method
@@ -71,7 +74,9 @@ class Oauth(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
-            security=self.sdk_configuration.security,
+            security=utils.get_pydantic_model(
+                security, models.OauthGenerateTokensSecurity
+            ),
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body if request is not None else None,
                 False,
@@ -80,7 +85,6 @@ class Oauth(BaseSDK):
                 Optional[models.OauthGenerateTokensRequestBody],
             ),
             allow_empty_value=None,
-            allowed_fields=["o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -102,9 +106,7 @@ class Oauth(BaseSDK):
                 base_url=base_url or "",
                 operation_id="oauth-generate-tokens",
                 oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
+                security_source=get_security_from_env(security, models.Security),
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -125,6 +127,10 @@ class Oauth(BaseSDK):
     async def generate_async(
         self,
         *,
+        security: Union[
+            models.OauthGenerateTokensSecurity,
+            models.OauthGenerateTokensSecurityTypedDict,
+        ],
         idempotency_key: Optional[str] = None,
         request_body: Optional[
             Union[
@@ -144,8 +150,7 @@ class Oauth(BaseSDK):
 
         This endpoint can only be accessed using **OAuth client credentials**.
 
-        If set, this operation will use `o_auth` from the global security.
-
+        :param security:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
         :param retries: Override the default retry configuration for this method
@@ -182,7 +187,9 @@ class Oauth(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
-            security=self.sdk_configuration.security,
+            security=utils.get_pydantic_model(
+                security, models.OauthGenerateTokensSecurity
+            ),
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body if request is not None else None,
                 False,
@@ -191,7 +198,6 @@ class Oauth(BaseSDK):
                 Optional[models.OauthGenerateTokensRequestBody],
             ),
             allow_empty_value=None,
-            allowed_fields=["o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -213,9 +219,7 @@ class Oauth(BaseSDK):
                 base_url=base_url or "",
                 operation_id="oauth-generate-tokens",
                 oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
+                security_source=get_security_from_env(security, models.Security),
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -236,6 +240,9 @@ class Oauth(BaseSDK):
     def revoke(
         self,
         *,
+        security: Union[
+            models.OauthRevokeTokensSecurity, models.OauthRevokeTokensSecurityTypedDict
+        ],
         idempotency_key: Optional[str] = None,
         request_body: Optional[
             Union[
@@ -256,8 +263,7 @@ class Oauth(BaseSDK):
 
         This endpoint can only be accessed using **OAuth client credentials**.
 
-        If set, this operation will use `o_auth` from the global security.
-
+        :param security:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
         :param retries: Override the default retry configuration for this method
@@ -294,7 +300,9 @@ class Oauth(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="*/*",
             http_headers=http_headers,
-            security=self.sdk_configuration.security,
+            security=utils.get_pydantic_model(
+                security, models.OauthRevokeTokensSecurity
+            ),
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body if request is not None else None,
                 False,
@@ -303,7 +311,6 @@ class Oauth(BaseSDK):
                 Optional[models.OauthRevokeTokensRequestBody],
             ),
             allow_empty_value=None,
-            allowed_fields=["o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -325,9 +332,7 @@ class Oauth(BaseSDK):
                 base_url=base_url or "",
                 operation_id="oauth-revoke-tokens",
                 oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
+                security_source=get_security_from_env(security, models.Security),
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -348,6 +353,9 @@ class Oauth(BaseSDK):
     async def revoke_async(
         self,
         *,
+        security: Union[
+            models.OauthRevokeTokensSecurity, models.OauthRevokeTokensSecurityTypedDict
+        ],
         idempotency_key: Optional[str] = None,
         request_body: Optional[
             Union[
@@ -368,8 +376,7 @@ class Oauth(BaseSDK):
 
         This endpoint can only be accessed using **OAuth client credentials**.
 
-        If set, this operation will use `o_auth` from the global security.
-
+        :param security:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
         :param retries: Override the default retry configuration for this method
@@ -406,7 +413,9 @@ class Oauth(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="*/*",
             http_headers=http_headers,
-            security=self.sdk_configuration.security,
+            security=utils.get_pydantic_model(
+                security, models.OauthRevokeTokensSecurity
+            ),
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body if request is not None else None,
                 False,
@@ -415,7 +424,6 @@ class Oauth(BaseSDK):
                 Optional[models.OauthRevokeTokensRequestBody],
             ),
             allow_empty_value=None,
-            allowed_fields=["o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -437,9 +445,7 @@ class Oauth(BaseSDK):
                 base_url=base_url or "",
                 operation_id="oauth-revoke-tokens",
                 oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
+                security_source=get_security_from_env(security, models.Security),
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

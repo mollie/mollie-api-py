@@ -34,6 +34,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -74,6 +76,7 @@ class UnmatchedCreditTransfers(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -172,6 +175,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -212,6 +217,7 @@ class UnmatchedCreditTransfers(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -311,6 +317,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         Retrieves a single unmatched credit transfer by its identifier.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -347,6 +355,7 @@ class UnmatchedCreditTransfers(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -412,6 +421,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         Retrieves a single unmatched credit transfer by its identifier.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -448,6 +459,7 @@ class UnmatchedCreditTransfers(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -519,6 +531,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         Matches an unmatched credit transfer to one or more payments, settling the funds accordingly.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param unmatched_credit_transfer_match_request:
@@ -569,6 +583,7 @@ class UnmatchedCreditTransfers(BaseSDK):
                 Optional[models.UnmatchedCreditTransferMatchRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -640,6 +655,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         Matches an unmatched credit transfer to one or more payments, settling the funds accordingly.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param unmatched_credit_transfer_match_request:
@@ -690,6 +707,7 @@ class UnmatchedCreditTransfers(BaseSDK):
                 Optional[models.UnmatchedCreditTransferMatchRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -755,6 +773,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         Returns an unmatched credit transfer, sending the funds back to the original sender.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -791,6 +811,7 @@ class UnmatchedCreditTransfers(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -856,6 +877,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         Returns an unmatched credit transfer, sending the funds back to the original sender.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -892,6 +915,7 @@ class UnmatchedCreditTransfers(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

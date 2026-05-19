@@ -32,6 +32,8 @@ class SalesInvoices(BaseSDK):
 
         With the Sales Invoice API you can generate sales invoices to send to your customers.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param sales_invoice_request:
         :param retries: Override the default retry configuration for this method
@@ -77,6 +79,7 @@ class SalesInvoices(BaseSDK):
                 Optional[models.SalesInvoiceRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -142,6 +145,8 @@ class SalesInvoices(BaseSDK):
 
         With the Sales Invoice API you can generate sales invoices to send to your customers.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param sales_invoice_request:
         :param retries: Override the default retry configuration for this method
@@ -187,6 +192,7 @@ class SalesInvoices(BaseSDK):
                 Optional[models.SalesInvoiceRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -255,6 +261,8 @@ class SalesInvoices(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -304,6 +312,7 @@ class SalesInvoices(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -404,6 +413,8 @@ class SalesInvoices(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -453,6 +464,7 @@ class SalesInvoices(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -552,6 +564,8 @@ class SalesInvoices(BaseSDK):
 
         Retrieve a single sales invoice by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -597,6 +611,7 @@ class SalesInvoices(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -661,6 +676,8 @@ class SalesInvoices(BaseSDK):
 
         Retrieve a single sales invoice by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -706,6 +723,7 @@ class SalesInvoices(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -777,6 +795,8 @@ class SalesInvoices(BaseSDK):
         statuses `paid` and `issued` there are certain additional requirements (`paymentDetails` and `emailDetails`,
         respectively).
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -824,6 +844,7 @@ class SalesInvoices(BaseSDK):
                 Optional[models.UpdateSalesInvoiceRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -895,6 +916,8 @@ class SalesInvoices(BaseSDK):
         statuses `paid` and `issued` there are certain additional requirements (`paymentDetails` and `emailDetails`,
         respectively).
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -942,6 +965,7 @@ class SalesInvoices(BaseSDK):
                 Optional[models.UpdateSalesInvoiceRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1012,6 +1036,8 @@ class SalesInvoices(BaseSDK):
         Sales invoices which are in status `draft` can be deleted. For all other statuses, please use the
         [Update sales invoice](update-sales-invoice) endpoint instead.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param delete_values_sales_invoice:
@@ -1059,6 +1085,7 @@ class SalesInvoices(BaseSDK):
                 Optional[models.DeleteValuesSalesInvoice],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1129,6 +1156,8 @@ class SalesInvoices(BaseSDK):
         Sales invoices which are in status `draft` can be deleted. For all other statuses, please use the
         [Update sales invoice](update-sales-invoice) endpoint instead.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param delete_values_sales_invoice:
@@ -1176,6 +1205,7 @@ class SalesInvoices(BaseSDK):
                 Optional[models.DeleteValuesSalesInvoice],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

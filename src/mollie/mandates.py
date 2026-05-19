@@ -33,6 +33,8 @@ class Mandates(BaseSDK):
         It is only possible to create mandates for IBANs and PayPal billing agreements with this endpoint. To create
         mandates for cards, your customers need to perform a 'first payment' with their card.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param mandate_request:
@@ -80,6 +82,7 @@ class Mandates(BaseSDK):
                 Optional[models.MandateRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -146,6 +149,8 @@ class Mandates(BaseSDK):
         It is only possible to create mandates for IBANs and PayPal billing agreements with this endpoint. To create
         mandates for cards, your customers need to perform a 'first payment' with their card.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param mandate_request:
@@ -193,6 +198,7 @@ class Mandates(BaseSDK):
                 Optional[models.MandateRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -260,6 +266,8 @@ class Mandates(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -316,6 +324,7 @@ class Mandates(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -418,6 +427,8 @@ class Mandates(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -474,6 +485,7 @@ class Mandates(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -574,6 +586,8 @@ class Mandates(BaseSDK):
         Retrieve a single mandate by its ID. Depending on the type of mandate, the object will contain the customer's bank
         account details, card details, or PayPal account details.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param mandate_id: Provide the ID of the related mandate.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -621,6 +635,7 @@ class Mandates(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -683,6 +698,8 @@ class Mandates(BaseSDK):
         Retrieve a single mandate by its ID. Depending on the type of mandate, the object will contain the customer's bank
         account details, card details, or PayPal account details.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param mandate_id: Provide the ID of the related mandate.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -730,6 +747,7 @@ class Mandates(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -797,6 +815,8 @@ class Mandates(BaseSDK):
         Revoke a customer's mandate. You will no longer be able to charge the customer's bank account or card with this
         mandate, and all connected subscriptions will be canceled.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param mandate_id: Provide the ID of the related mandate.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -846,6 +866,7 @@ class Mandates(BaseSDK):
                 Optional[models.RevokeMandateRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -913,6 +934,8 @@ class Mandates(BaseSDK):
         Revoke a customer's mandate. You will no longer be able to charge the customer's bank account or card with this
         mandate, and all connected subscriptions will be canceled.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param mandate_id: Provide the ID of the related mandate.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -962,6 +985,7 @@ class Mandates(BaseSDK):
                 Optional[models.RevokeMandateRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

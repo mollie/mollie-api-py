@@ -31,6 +31,8 @@ class Customers(BaseSDK):
 
         Once registered, customers will also appear in your Mollie dashboard.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param entity_customer:
         :param retries: Override the default retry configuration for this method
@@ -76,6 +78,7 @@ class Customers(BaseSDK):
                 Optional[models.EntityCustomer],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -140,6 +143,8 @@ class Customers(BaseSDK):
 
         Once registered, customers will also appear in your Mollie dashboard.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param entity_customer:
         :param retries: Override the default retry configuration for this method
@@ -185,6 +190,7 @@ class Customers(BaseSDK):
                 Optional[models.EntityCustomer],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -250,6 +256,8 @@ class Customers(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -302,6 +310,7 @@ class Customers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -400,6 +409,8 @@ class Customers(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -452,6 +463,7 @@ class Customers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -549,6 +561,8 @@ class Customers(BaseSDK):
 
         Retrieve a single customer by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param include: This endpoint allows you to include additional information via the `include` query string parameter.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -596,6 +610,7 @@ class Customers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -657,6 +672,8 @@ class Customers(BaseSDK):
 
         Retrieve a single customer by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param include: This endpoint allows you to include additional information via the `include` query string parameter.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -704,6 +721,7 @@ class Customers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -771,6 +789,8 @@ class Customers(BaseSDK):
 
         For an in-depth explanation of each parameter, refer to the [Create customer](create-customer) endpoint.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -818,6 +838,7 @@ class Customers(BaseSDK):
                 Optional[models.UpdateCustomerRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -885,6 +906,8 @@ class Customers(BaseSDK):
 
         For an in-depth explanation of each parameter, refer to the [Create customer](create-customer) endpoint.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -932,6 +955,7 @@ class Customers(BaseSDK):
                 Optional[models.UpdateCustomerRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -997,6 +1021,8 @@ class Customers(BaseSDK):
 
         Delete a customer. All mandates and subscriptions created for this customer will be canceled as well.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1044,6 +1070,7 @@ class Customers(BaseSDK):
                 Optional[models.DeleteCustomerRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1109,6 +1136,8 @@ class Customers(BaseSDK):
 
         Delete a customer. All mandates and subscriptions created for this customer will be canceled as well.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1156,6 +1185,7 @@ class Customers(BaseSDK):
                 Optional[models.DeleteCustomerRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1228,6 +1258,8 @@ class Customers(BaseSDK):
         This endpoint is effectively an alias of the [Create payment endpoint](create-payment) with the `customerId`
         parameter predefined.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param payment_request:
@@ -1275,6 +1307,7 @@ class Customers(BaseSDK):
                 Optional[models.PaymentRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1350,6 +1383,8 @@ class Customers(BaseSDK):
         This endpoint is effectively an alias of the [Create payment endpoint](create-payment) with the `customerId`
         parameter predefined.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param payment_request:
@@ -1397,6 +1432,7 @@ class Customers(BaseSDK):
                 Optional[models.PaymentRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1465,6 +1501,8 @@ class Customers(BaseSDK):
 
         Retrieve all payments linked to the customer.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
@@ -1526,6 +1564,7 @@ class Customers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1626,6 +1665,8 @@ class Customers(BaseSDK):
 
         Retrieve all payments linked to the customer.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
@@ -1687,6 +1728,7 @@ class Customers(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

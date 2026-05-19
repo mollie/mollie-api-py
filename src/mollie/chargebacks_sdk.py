@@ -33,6 +33,8 @@ class ChargebacksSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -86,6 +88,7 @@ class ChargebacksSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -186,6 +189,8 @@ class ChargebacksSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -239,6 +244,7 @@ class ChargebacksSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -338,6 +344,8 @@ class ChargebacksSDK(BaseSDK):
 
         Retrieve a single payment chargeback by its ID and the ID of its parent payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param chargeback_id: Provide the ID of the related chargeback.
         :param embed: This endpoint allows you to embed additional information via the `embed` query string parameter.
@@ -387,6 +395,7 @@ class ChargebacksSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -449,6 +458,8 @@ class ChargebacksSDK(BaseSDK):
 
         Retrieve a single payment chargeback by its ID and the ID of its parent payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param chargeback_id: Provide the ID of the related chargeback.
         :param embed: This endpoint allows you to embed additional information via the `embed` query string parameter.
@@ -498,6 +509,7 @@ class ChargebacksSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -565,6 +577,8 @@ class ChargebacksSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -630,6 +644,7 @@ class ChargebacksSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -732,6 +747,8 @@ class ChargebacksSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -797,6 +814,7 @@ class ChargebacksSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

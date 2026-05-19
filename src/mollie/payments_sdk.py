@@ -40,6 +40,8 @@ class PaymentsSDK(BaseSDK):
         additional parameters may be available for the payment method that are not listed below. Please refer to the
         guide on [method-specific parameters](extra-payment-parameters).
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param include: This endpoint allows you to include additional information via the `include` query string parameter.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param payment_request:
@@ -87,6 +89,7 @@ class PaymentsSDK(BaseSDK):
                 Optional[models.PaymentRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -163,6 +166,8 @@ class PaymentsSDK(BaseSDK):
         additional parameters may be available for the payment method that are not listed below. Please refer to the
         guide on [method-specific parameters](extra-payment-parameters).
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param include: This endpoint allows you to include additional information via the `include` query string parameter.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param payment_request:
@@ -210,6 +215,7 @@ class PaymentsSDK(BaseSDK):
                 Optional[models.PaymentRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -279,6 +285,8 @@ class PaymentsSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -338,6 +346,7 @@ class PaymentsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -438,6 +447,8 @@ class PaymentsSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -497,6 +508,7 @@ class PaymentsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -596,6 +608,8 @@ class PaymentsSDK(BaseSDK):
 
         Retrieve a single payment object by its payment ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param include: This endpoint allows you to include additional information via the `include` query string parameter.
         :param embed: This endpoint allows embedding related API items by appending the
@@ -646,6 +660,7 @@ class PaymentsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -708,6 +723,8 @@ class PaymentsSDK(BaseSDK):
 
         Retrieve a single payment object by its payment ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param include: This endpoint allows you to include additional information via the `include` query string parameter.
         :param embed: This endpoint allows embedding related API items by appending the
@@ -758,6 +775,7 @@ class PaymentsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -825,6 +843,8 @@ class PaymentsSDK(BaseSDK):
 
         Updating the payment details will not result in a webhook call.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -872,6 +892,7 @@ class PaymentsSDK(BaseSDK):
                 Optional[models.UpdatePaymentRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -939,6 +960,8 @@ class PaymentsSDK(BaseSDK):
 
         Updating the payment details will not result in a webhook call.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -986,6 +1009,7 @@ class PaymentsSDK(BaseSDK):
                 Optional[models.UpdatePaymentRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1056,6 +1080,8 @@ class PaymentsSDK(BaseSDK):
 
         The `isCancelable` property on the [Payment object](get-payment) will indicate if the payment can be canceled.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1103,6 +1129,7 @@ class PaymentsSDK(BaseSDK):
                 Optional[models.CancelPaymentRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1173,6 +1200,8 @@ class PaymentsSDK(BaseSDK):
 
         The `isCancelable` property on the [Payment object](get-payment) will indicate if the payment can be canceled.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1220,6 +1249,7 @@ class PaymentsSDK(BaseSDK):
                 Optional[models.CancelPaymentRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1292,6 +1322,8 @@ class PaymentsSDK(BaseSDK):
         If the request does succeed, the payment status will change to `canceled` for payments without captures.
         If there is a successful capture, the payment will transition to `paid`.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1339,6 +1371,7 @@ class PaymentsSDK(BaseSDK):
                 Optional[models.ReleaseAuthorizationRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1411,6 +1444,8 @@ class PaymentsSDK(BaseSDK):
         If the request does succeed, the payment status will change to `canceled` for payments without captures.
         If there is a successful capture, the payment will transition to `paid`.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1458,6 +1493,7 @@ class PaymentsSDK(BaseSDK):
                 Optional[models.ReleaseAuthorizationRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

@@ -130,16 +130,14 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 # Synchronous Example
 import mollie
 from mollie import ClientSDK
-import os
 
 
-with ClientSDK(
-    security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
-    ),
-) as client_sdk:
+with ClientSDK() as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
+        username="",
+        password="",
+    ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
         "code": "auth_...",
         "refresh_token": "refresh_...",
@@ -159,17 +157,15 @@ The same SDK client can also be used to make asynchronous requests by importing 
 import asyncio
 import mollie
 from mollie import ClientSDK
-import os
 
 async def main():
 
-    async with ClientSDK(
-        security=mollie.Security(
-            o_auth=os.getenv("CLIENT_O_AUTH", ""),
-        ),
-    ) as client_sdk:
+    async with ClientSDK() as client_sdk:
 
-        res = await client_sdk.oauth.generate_async(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        res = await client_sdk.oauth.generate_async(security=mollie.OauthGenerateTokensSecurity(
+            username="",
+            password="",
+        ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
             "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
             "code": "auth_...",
             "refresh_token": "refresh_...",
@@ -207,9 +203,32 @@ with ClientSDK(
     security=mollie.Security(
         api_key=os.getenv("CLIENT_API_KEY", ""),
     ),
+    testmode=True,
 ) as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    while res is not None:
+        # Handle items
+
+        res = res.next()
+
+```
+
+### Per-Operation Security Schemes
+
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
+```python
+import mollie
+from mollie import ClientSDK
+
+
+with ClientSDK() as client_sdk:
+
+    res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
+        username="",
+        password="",
+    ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
         "code": "auth_...",
         "refresh_token": "refresh_...",
@@ -610,16 +629,14 @@ To change the default retry strategy for a single API call, simply provide a `Re
 import mollie
 from mollie import ClientSDK
 from mollie.utils import BackoffStrategy, RetryConfig
-import os
 
 
-with ClientSDK(
-    security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
-    ),
-) as client_sdk:
+with ClientSDK() as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
+        username="",
+        password="",
+    ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
         "code": "auth_...",
         "refresh_token": "refresh_...",
@@ -637,17 +654,16 @@ If you'd like to override the default retry strategy for all operations that sup
 import mollie
 from mollie import ClientSDK
 from mollie.utils import BackoffStrategy, RetryConfig
-import os
 
 
 with ClientSDK(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
-    ),
 ) as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
+        username="",
+        password="",
+    ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
         "code": "auth_...",
         "refresh_token": "refresh_...",
@@ -823,16 +839,14 @@ The server URL can also be overridden on a per-operation basis, provided a serve
 ```python
 import mollie
 from mollie import ClientSDK
-import os
 
 
-with ClientSDK(
-    security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
-    ),
-) as client_sdk:
+with ClientSDK() as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
+        username="",
+        password="",
+    ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
         "code": "auth_...",
         "refresh_token": "refresh_...",
@@ -934,27 +948,17 @@ The `ClientSDK` class implements the context manager protocol and registers a fi
 [context-manager]: https://docs.python.org/3/reference/datamodel.html#context-managers
 
 ```python
-import mollie
 from mollie import ClientSDK
-import os
 def main():
 
-    with ClientSDK(
-        security=mollie.Security(
-            o_auth=os.getenv("CLIENT_O_AUTH", ""),
-        ),
-    ) as client_sdk:
+    with ClientSDK() as client_sdk:
         # Rest of application here...
 
 
 # Or when using async:
 async def amain():
 
-    async with ClientSDK(
-        security=mollie.Security(
-            o_auth=os.getenv("CLIENT_O_AUTH", ""),
-        ),
-    ) as client_sdk:
+    async with ClientSDK() as client_sdk:
         # Rest of application here...
 ```
 <!-- End Resource Management [resource-management] -->

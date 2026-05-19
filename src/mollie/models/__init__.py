@@ -115,12 +115,7 @@ if TYPE_CHECKING:
         CreatePaymentLinkRequestTypedDict,
     )
     from .create_paymentop import CreatePaymentRequest, CreatePaymentRequestTypedDict
-    from .create_payoutop import (
-        CreatePayoutGlobals,
-        CreatePayoutGlobalsTypedDict,
-        CreatePayoutRequest,
-        CreatePayoutRequestTypedDict,
-    )
+    from .create_payoutop import CreatePayoutRequest, CreatePayoutRequestTypedDict
     from .create_profileop import CreateProfileRequest, CreateProfileRequestTypedDict
     from .create_refundop import CreateRefundRequest, CreateRefundRequestTypedDict
     from .create_sales_invoiceop import (
@@ -1464,6 +1459,8 @@ if TYPE_CHECKING:
         OauthGenerateTokensRequestTypedDict,
         OauthGenerateTokensResponse,
         OauthGenerateTokensResponseTypedDict,
+        OauthGenerateTokensSecurity,
+        OauthGenerateTokensSecurityTypedDict,
     )
     from .oauth_grant_type import OauthGrantType
     from .oauth_revoke_tokensop import (
@@ -1472,6 +1469,8 @@ if TYPE_CHECKING:
         OauthRevokeTokensRequestBody,
         OauthRevokeTokensRequestBodyTypedDict,
         OauthRevokeTokensRequestTypedDict,
+        OauthRevokeTokensSecurity,
+        OauthRevokeTokensSecurityTypedDict,
     )
     from .oauth_token_type_hint import OauthTokenTypeHint
     from .onboarding_vat_regulation import OnboardingVatRegulation
@@ -2038,8 +2037,6 @@ __all__ = [
     "CreatePaymentLinkRequestTypedDict",
     "CreatePaymentRequest",
     "CreatePaymentRequestTypedDict",
-    "CreatePayoutGlobals",
-    "CreatePayoutGlobalsTypedDict",
     "CreatePayoutRequest",
     "CreatePayoutRequestTypedDict",
     "CreateProfileRequest",
@@ -3061,11 +3058,15 @@ __all__ = [
     "OauthGenerateTokensRequestTypedDict",
     "OauthGenerateTokensResponse",
     "OauthGenerateTokensResponseTypedDict",
+    "OauthGenerateTokensSecurity",
+    "OauthGenerateTokensSecurityTypedDict",
     "OauthGrantType",
     "OauthRevokeTokensRequest",
     "OauthRevokeTokensRequestBody",
     "OauthRevokeTokensRequestBodyTypedDict",
     "OauthRevokeTokensRequestTypedDict",
+    "OauthRevokeTokensSecurity",
+    "OauthRevokeTokensSecurityTypedDict",
     "OauthTokenTypeHint",
     "OnboardingVatRegulation",
     "Open",
@@ -3558,8 +3559,6 @@ _dynamic_imports: dict[str, str] = {
     "CreatePaymentLinkRequestTypedDict": ".create_payment_linkop",
     "CreatePaymentRequest": ".create_paymentop",
     "CreatePaymentRequestTypedDict": ".create_paymentop",
-    "CreatePayoutGlobals": ".create_payoutop",
-    "CreatePayoutGlobalsTypedDict": ".create_payoutop",
     "CreatePayoutRequest": ".create_payoutop",
     "CreatePayoutRequestTypedDict": ".create_payoutop",
     "CreateProfileRequest": ".create_profileop",
@@ -4659,12 +4658,16 @@ _dynamic_imports: dict[str, str] = {
     "OauthGenerateTokensRequestTypedDict": ".oauth_generate_tokensop",
     "OauthGenerateTokensResponse": ".oauth_generate_tokensop",
     "OauthGenerateTokensResponseTypedDict": ".oauth_generate_tokensop",
+    "OauthGenerateTokensSecurity": ".oauth_generate_tokensop",
+    "OauthGenerateTokensSecurityTypedDict": ".oauth_generate_tokensop",
     "OauthGrantType": ".oauth_grant_type",
     "OAUTH_REVOKE_TOKENS_OP_SERVERS": ".oauth_revoke_tokensop",
     "OauthRevokeTokensRequest": ".oauth_revoke_tokensop",
     "OauthRevokeTokensRequestBody": ".oauth_revoke_tokensop",
     "OauthRevokeTokensRequestBodyTypedDict": ".oauth_revoke_tokensop",
     "OauthRevokeTokensRequestTypedDict": ".oauth_revoke_tokensop",
+    "OauthRevokeTokensSecurity": ".oauth_revoke_tokensop",
+    "OauthRevokeTokensSecurityTypedDict": ".oauth_revoke_tokensop",
     "OauthTokenTypeHint": ".oauth_token_type_hint",
     "OnboardingVatRegulation": ".onboarding_vat_regulation",
     "OrganizationVatRegulation": ".organization_vat_regulation",

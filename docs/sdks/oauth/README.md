@@ -20,16 +20,14 @@ This endpoint can only be accessed using **OAuth client credentials**.
 ```python
 import mollie
 from mollie import ClientSDK
-import os
 
 
-with ClientSDK(
-    security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
-    ),
-) as client_sdk:
+with ClientSDK() as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
+        username="",
+        password="",
+    ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
         "code": "auth_...",
         "refresh_token": "refresh_...",
@@ -45,6 +43,7 @@ with ClientSDK(
 
 | Parameter                                                                                         | Type                                                                                              | Required                                                                                          | Description                                                                                       | Example                                                                                           |
 | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `security`                                                                                        | [models.OauthGenerateTokensSecurity](../../models/oauthgeneratetokenssecurity.md)                 | :heavy_check_mark:                                                                                | N/A                                                                                               |                                                                                                   |
 | `idempotency_key`                                                                                 | *Optional[str]*                                                                                   | :heavy_minus_sign:                                                                                | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                  | 123e4567-e89b-12d3-a456-426                                                                       |
 | `request_body`                                                                                    | [Optional[models.OauthGenerateTokensRequestBody]](../../models/oauthgeneratetokensrequestbody.md) | :heavy_minus_sign:                                                                                | N/A                                                                                               |                                                                                                   |
 | `retries`                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                  | :heavy_minus_sign:                                                                                | Configuration to override the default retry behavior of the client.                               |                                                                                                   |
@@ -74,16 +73,14 @@ This endpoint can only be accessed using **OAuth client credentials**.
 ```python
 import mollie
 from mollie import ClientSDK
-import os
 
 
-with ClientSDK(
-    security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
-    ),
-) as client_sdk:
+with ClientSDK() as client_sdk:
 
-    client_sdk.oauth.revoke(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    client_sdk.oauth.revoke(security=mollie.OauthRevokeTokensSecurity(
+        username="",
+        password="",
+    ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "token_type_hint": mollie.OauthTokenTypeHint.ACCESS_TOKEN,
         "token": "access_...",
     })
@@ -96,6 +93,7 @@ with ClientSDK(
 
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `security`                                                                                    | [models.OauthRevokeTokensSecurity](../../models/oauthrevoketokenssecurity.md)                 | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `idempotency_key`                                                                             | *Optional[str]*                                                                               | :heavy_minus_sign:                                                                            | A unique key to ensure idempotent requests. This key should be a UUID v4 string.              | 123e4567-e89b-12d3-a456-426                                                                   |
 | `request_body`                                                                                | [Optional[models.OauthRevokeTokensRequestBody]](../../models/oauthrevoketokensrequestbody.md) | :heavy_minus_sign:                                                                            | N/A                                                                                           |                                                                                               |
 | `retries`                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                              | :heavy_minus_sign:                                                                            | Configuration to override the default retry behavior of the client.                           |                                                                                               |

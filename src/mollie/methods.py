@@ -52,6 +52,8 @@ class Methods(BaseSDK):
         ℹ️ **Note:** This endpoint only returns **online** payment methods. If you wish to retrieve the information about
         a non-online payment method, you can use the [Get payment method endpoint](get-method).
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param sequence_type: Set this parameter to `first` to only return the enabled methods that
             can be used for the first payment of a recurring sequence.
 
@@ -138,6 +140,7 @@ class Methods(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -224,6 +227,8 @@ class Methods(BaseSDK):
         ℹ️ **Note:** This endpoint only returns **online** payment methods. If you wish to retrieve the information about
         a non-online payment method, you can use the [Get payment method endpoint](get-method).
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param sequence_type: Set this parameter to `first` to only return the enabled methods that
             can be used for the first payment of a recurring sequence.
 
@@ -310,6 +315,7 @@ class Methods(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -380,6 +386,8 @@ class Methods(BaseSDK):
         ℹ️ **Note:** This endpoint only returns **online** payment methods. If you wish to retrieve the information about
         a non-online payment method, you can use the [Get payment method endpoint](get-method).
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param locale: Passing a locale will sort the payment methods in the preferred order
             for the country, and translate the payment method names in the corresponding language.
         :param amount: If supplied, only payment methods that support the amount and currency
@@ -446,6 +454,7 @@ class Methods(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -516,6 +525,8 @@ class Methods(BaseSDK):
         ℹ️ **Note:** This endpoint only returns **online** payment methods. If you wish to retrieve the information about
         a non-online payment method, you can use the [Get payment method endpoint](get-method).
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param locale: Passing a locale will sort the payment methods in the preferred order
             for the country, and translate the payment method names in the corresponding language.
         :param amount: If supplied, only payment methods that support the amount and currency
@@ -582,6 +593,7 @@ class Methods(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -658,6 +670,8 @@ class Methods(BaseSDK):
         Additionally, it is possible to check if wallet methods such as Apple Pay
         are enabled by passing the wallet ID (`applepay`) as the method ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param method_id: Provide the ID of the related payment method.
         :param locale: Passing a locale will sort the payment methods in the preferred order
             for the country, and translate the payment method names in the corresponding language.
@@ -724,6 +738,7 @@ class Methods(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -800,6 +815,8 @@ class Methods(BaseSDK):
         Additionally, it is possible to check if wallet methods such as Apple Pay
         are enabled by passing the wallet ID (`applepay`) as the method ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param method_id: Provide the ID of the related payment method.
         :param locale: Passing a locale will sort the payment methods in the preferred order
             for the country, and translate the payment method names in the corresponding language.
@@ -866,6 +883,7 @@ class Methods(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

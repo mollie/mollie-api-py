@@ -29,6 +29,8 @@ class DelayedRouting(BaseSDK):
         Create a route for a specific payment.
         The routed amount is credited to the account of your customer.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param route_create_request:
@@ -76,6 +78,7 @@ class DelayedRouting(BaseSDK):
                 Optional[models.RouteCreateRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -139,6 +142,8 @@ class DelayedRouting(BaseSDK):
         Create a route for a specific payment.
         The routed amount is credited to the account of your customer.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param route_create_request:
@@ -186,6 +191,7 @@ class DelayedRouting(BaseSDK):
                 Optional[models.RouteCreateRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -246,6 +252,8 @@ class DelayedRouting(BaseSDK):
 
         Retrieve a list of all routes created for a specific payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -291,6 +299,7 @@ class DelayedRouting(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -351,6 +360,8 @@ class DelayedRouting(BaseSDK):
 
         Retrieve a list of all routes created for a specific payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -396,6 +407,7 @@ class DelayedRouting(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -456,6 +468,8 @@ class DelayedRouting(BaseSDK):
 
         Retrieve a single route created for a specific payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param route_id: Provide the ID of the route.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -494,6 +508,7 @@ class DelayedRouting(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -554,6 +569,8 @@ class DelayedRouting(BaseSDK):
 
         Retrieve a single route created for a specific payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param route_id: Provide the ID of the route.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -592,6 +609,7 @@ class DelayedRouting(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
