@@ -4,7 +4,12 @@
 from __future__ import annotations
 from .oauth_token_type_hint import OauthTokenTypeHint
 from mollie.types import BaseModel, UNSET_SENTINEL
-from mollie.utils import FieldMetadata, HeaderMetadata, RequestMetadata
+from mollie.utils import (
+    FieldMetadata,
+    HeaderMetadata,
+    RequestMetadata,
+    SecurityMetadata,
+)
 import pydantic
 from pydantic import model_serializer
 from typing import Optional
@@ -14,6 +19,31 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 OAUTH_REVOKE_TOKENS_OP_SERVERS = [
     "https://api.mollie.com/oauth2",
 ]
+
+
+class OauthRevokeTokensSecurityTypedDict(TypedDict):
+    username: str
+    password: str
+
+
+class OauthRevokeTokensSecurity(BaseModel):
+    username: Annotated[
+        str,
+        FieldMetadata(
+            security=SecurityMetadata(
+                scheme=True, scheme_type="http", sub_type="basic", field_name="username"
+            )
+        ),
+    ]
+
+    password: Annotated[
+        str,
+        FieldMetadata(
+            security=SecurityMetadata(
+                scheme=True, scheme_type="http", sub_type="basic", field_name="password"
+            )
+        ),
+    ]
 
 
 class OauthRevokeTokensRequestBodyTypedDict(TypedDict):

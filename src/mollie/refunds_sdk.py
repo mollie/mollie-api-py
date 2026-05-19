@@ -30,6 +30,8 @@ class RefundsSDK(BaseSDK):
         Creates a refund for a specific payment. The refunded amount is credited to your customer usually either via a bank
         transfer or by refunding the amount to your customer's credit card.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param refund_request:
@@ -77,6 +79,7 @@ class RefundsSDK(BaseSDK):
                 Optional[models.RefundRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -142,6 +145,8 @@ class RefundsSDK(BaseSDK):
         Creates a refund for a specific payment. The refunded amount is credited to your customer usually either via a bank
         transfer or by refunding the amount to your customer's credit card.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param refund_request:
@@ -189,6 +194,7 @@ class RefundsSDK(BaseSDK):
                 Optional[models.RefundRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -257,6 +263,8 @@ class RefundsSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -311,6 +319,7 @@ class RefundsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -411,6 +420,8 @@ class RefundsSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -465,6 +476,7 @@ class RefundsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -564,6 +576,8 @@ class RefundsSDK(BaseSDK):
 
         Retrieve a single payment refund by its ID and the ID of its parent payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param refund_id: Provide the ID of the related refund.
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string
@@ -614,6 +628,7 @@ class RefundsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -676,6 +691,8 @@ class RefundsSDK(BaseSDK):
 
         Retrieve a single payment refund by its ID and the ID of its parent payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param refund_id: Provide the ID of the related refund.
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string
@@ -726,6 +743,7 @@ class RefundsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -791,6 +809,8 @@ class RefundsSDK(BaseSDK):
         A refund can only be canceled while its `status` field is either `queued` or `pending`. See the
         [Get refund endpoint](get-refund) for more information.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param refund_id: Provide the ID of the related refund.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -838,6 +858,7 @@ class RefundsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -903,6 +924,8 @@ class RefundsSDK(BaseSDK):
         A refund can only be canceled while its `status` field is either `queued` or `pending`. See the
         [Get refund endpoint](get-refund) for more information.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param refund_id: Provide the ID of the related refund.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -950,6 +973,7 @@ class RefundsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1017,6 +1041,8 @@ class RefundsSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -1079,6 +1105,7 @@ class RefundsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1181,6 +1208,8 @@ class RefundsSDK(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -1243,6 +1272,7 @@ class RefundsSDK(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

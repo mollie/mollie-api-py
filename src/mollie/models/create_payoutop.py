@@ -4,66 +4,15 @@
 from __future__ import annotations
 from .payout_request import PayoutRequest, PayoutRequestTypedDict
 from mollie.types import BaseModel, UNSET_SENTINEL
-from mollie.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    RequestMetadata,
-)
+from mollie.utils import FieldMetadata, HeaderMetadata, RequestMetadata
 import pydantic
 from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class CreatePayoutGlobalsTypedDict(TypedDict):
-    testmode: NotRequired[bool]
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
-
-
-class CreatePayoutGlobals(BaseModel):
-    testmode: Annotated[
-        Optional[bool],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["testmode"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
-
-
 class CreatePayoutRequestTypedDict(TypedDict):
     payout_request: PayoutRequestTypedDict
-    testmode: NotRequired[bool]
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
@@ -74,17 +23,6 @@ class CreatePayoutRequest(BaseModel):
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
 
-    testmode: Annotated[
-        Optional[bool],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = None
-    r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-    parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-    setting the `testmode` query parameter to `true`.
-
-    Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
-    """
-
     idempotency_key: Annotated[
         Optional[str],
         pydantic.Field(alias="idempotency-key"),
@@ -94,7 +32,7 @@ class CreatePayoutRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["testmode", "idempotency-key"])
+        optional_fields = set(["idempotency-key"])
         serialized = handler(self)
         m = {}
 

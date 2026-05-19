@@ -31,6 +31,8 @@ class Sessions(BaseSDK):
 
         Create a session to start a checkout process with Mollie Components.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param session_request:
         :param retries: Override the default retry configuration for this method
@@ -76,6 +78,7 @@ class Sessions(BaseSDK):
                 Optional[models.SessionRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -141,6 +144,8 @@ class Sessions(BaseSDK):
 
         Create a session to start a checkout process with Mollie Components.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param session_request:
         :param retries: Override the default retry configuration for this method
@@ -186,6 +191,7 @@ class Sessions(BaseSDK):
                 Optional[models.SessionRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -249,6 +255,8 @@ class Sessions(BaseSDK):
 
         Retrieve a session to view its details and status to inform your customers about the checkout process.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param session_id: Provide the ID of the related session.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -285,6 +293,7 @@ class Sessions(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -344,6 +353,8 @@ class Sessions(BaseSDK):
 
         Retrieve a session to view its details and status to inform your customers about the checkout process.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param session_id: Provide the ID of the related session.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
@@ -380,6 +391,7 @@ class Sessions(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

@@ -36,6 +36,8 @@ class Captures(BaseSDK):
         configured your payment with `captureMode: manual`, you can capture the payment using this endpoint after
         having collected the customer's authorization.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param entity_capture:
@@ -83,6 +85,7 @@ class Captures(BaseSDK):
                 Optional[models.EntityCapture],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -152,6 +155,8 @@ class Captures(BaseSDK):
         configured your payment with `captureMode: manual`, you can capture the payment using this endpoint after
         having collected the customer's authorization.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param entity_capture:
@@ -199,6 +204,7 @@ class Captures(BaseSDK):
                 Optional[models.EntityCapture],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -265,6 +271,8 @@ class Captures(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -319,6 +327,7 @@ class Captures(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -419,6 +428,8 @@ class Captures(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -473,6 +484,7 @@ class Captures(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -573,6 +585,8 @@ class Captures(BaseSDK):
         Retrieve a single payment capture by its ID and the ID of its parent
         payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param capture_id: Provide the ID of the related capture.
         :param embed: This endpoint allows you to embed additional resources via the
@@ -623,6 +637,7 @@ class Captures(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -686,6 +701,8 @@ class Captures(BaseSDK):
         Retrieve a single payment capture by its ID and the ID of its parent
         payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_id: Provide the ID of the related payment.
         :param capture_id: Provide the ID of the related capture.
         :param embed: This endpoint allows you to embed additional resources via the
@@ -736,6 +753,7 @@ class Captures(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

@@ -3,16 +3,14 @@
 # Synchronous Example
 import mollie
 from mollie import ClientSDK
-import os
 
 
-with ClientSDK(
-    security=mollie.Security(
-        o_auth=os.getenv("CLIENT_O_AUTH", ""),
-    ),
-) as client_sdk:
+with ClientSDK() as client_sdk:
 
-    res = client_sdk.oauth.generate(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+    res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
+        username="",
+        password="",
+    ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
         "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
         "code": "auth_...",
         "refresh_token": "refresh_...",
@@ -32,17 +30,15 @@ The same SDK client can also be used to make asynchronous requests by importing 
 import asyncio
 import mollie
 from mollie import ClientSDK
-import os
 
 async def main():
 
-    async with ClientSDK(
-        security=mollie.Security(
-            o_auth=os.getenv("CLIENT_O_AUTH", ""),
-        ),
-    ) as client_sdk:
+    async with ClientSDK() as client_sdk:
 
-        res = await client_sdk.oauth.generate_async(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        res = await client_sdk.oauth.generate_async(security=mollie.OauthGenerateTokensSecurity(
+            username="",
+            password="",
+        ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
             "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
             "code": "auth_...",
             "refresh_token": "refresh_...",

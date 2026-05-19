@@ -32,6 +32,8 @@ class Terminals(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -84,6 +86,7 @@ class Terminals(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -182,6 +185,8 @@ class Terminals(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -234,6 +239,7 @@ class Terminals(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -330,6 +336,8 @@ class Terminals(BaseSDK):
 
         Retrieve a single terminal by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param terminal_id: Provide the ID of the related terminal.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -375,6 +383,7 @@ class Terminals(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -435,6 +444,8 @@ class Terminals(BaseSDK):
 
         Retrieve a single terminal by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param terminal_id: Provide the ID of the related terminal.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -480,6 +491,7 @@ class Terminals(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

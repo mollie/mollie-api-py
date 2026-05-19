@@ -33,6 +33,8 @@ class PaymentLinks(BaseSDK):
         The payment link can be shared with your customers and will redirect them to them the payment page where they can
         complete the payment. A [payment](get-payment) will only be created once the customer initiates the payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
         :param retries: Override the default retry configuration for this method
@@ -78,6 +80,7 @@ class PaymentLinks(BaseSDK):
                 Optional[models.CreatePaymentLinkRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -144,6 +147,8 @@ class PaymentLinks(BaseSDK):
         The payment link can be shared with your customers and will redirect them to them the payment page where they can
         complete the payment. A [payment](get-payment) will only be created once the customer initiates the payment.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
         :param retries: Override the default retry configuration for this method
@@ -189,6 +194,7 @@ class PaymentLinks(BaseSDK):
                 Optional[models.CreatePaymentLinkRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -253,6 +259,8 @@ class PaymentLinks(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -302,6 +310,7 @@ class PaymentLinks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -398,6 +407,8 @@ class PaymentLinks(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -447,6 +458,7 @@ class PaymentLinks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -542,6 +554,8 @@ class PaymentLinks(BaseSDK):
 
         Retrieve a single payment link by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_link_id: Provide the ID of the related payment link.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -587,6 +601,7 @@ class PaymentLinks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -647,6 +662,8 @@ class PaymentLinks(BaseSDK):
 
         Retrieve a single payment link by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_link_id: Provide the ID of the related payment link.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -692,6 +709,7 @@ class PaymentLinks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -757,6 +775,8 @@ class PaymentLinks(BaseSDK):
 
         Certain details of an existing payment link can be updated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_link_id: Provide the ID of the related payment link.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -804,6 +824,7 @@ class PaymentLinks(BaseSDK):
                 Optional[models.UpdatePaymentLinkRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -869,6 +890,8 @@ class PaymentLinks(BaseSDK):
 
         Certain details of an existing payment link can be updated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_link_id: Provide the ID of the related payment link.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -916,6 +939,7 @@ class PaymentLinks(BaseSDK):
                 Optional[models.UpdatePaymentLinkRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -987,6 +1011,8 @@ class PaymentLinks(BaseSDK):
         To simply disable a payment link without fully deleting it, you can use the `archived` parameter on the
         [Update payment link](update-payment-link) endpoint instead.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_link_id: Provide the ID of the related payment link.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1034,6 +1060,7 @@ class PaymentLinks(BaseSDK):
                 Optional[models.DeletePaymentLinkRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1105,6 +1132,8 @@ class PaymentLinks(BaseSDK):
         To simply disable a payment link without fully deleting it, you can use the `archived` parameter on the
         [Update payment link](update-payment-link) endpoint instead.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_link_id: Provide the ID of the related payment link.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param request_body:
@@ -1152,6 +1181,7 @@ class PaymentLinks(BaseSDK):
                 Optional[models.DeletePaymentLinkRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1218,6 +1248,8 @@ class PaymentLinks(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_link_id: Provide the ID of the related payment link.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -1272,6 +1304,7 @@ class PaymentLinks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1372,6 +1405,8 @@ class PaymentLinks(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payment_link_id: Provide the ID of the related payment link.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -1426,6 +1461,7 @@ class PaymentLinks(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

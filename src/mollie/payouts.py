@@ -16,7 +16,6 @@ class Payouts(BaseSDK):
         self,
         *,
         payout_request: Union[models.PayoutRequest, models.PayoutRequestTypedDict],
-        testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -62,12 +61,9 @@ class Payouts(BaseSDK):
         - One of the organization's balances is below the negative balance threshold.
         - The payout destination (bank account) is invalid or not configured.
 
-        :param payout_request:
-        :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-            parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-            setting the `testmode` query parameter to `true`.
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
-            Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
+        :param payout_request:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -85,7 +81,6 @@ class Payouts(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreatePayoutRequest(
-            testmode=testmode,
             idempotency_key=idempotency_key,
             payout_request=utils.get_pydantic_model(
                 payout_request, models.PayoutRequest
@@ -104,14 +99,12 @@ class Payouts(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/hal+json",
             http_headers=http_headers,
-            _globals=models.CreatePayoutGlobals(
-                testmode=self.sdk_configuration.globals.testmode,
-            ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.payout_request, False, False, "json", models.PayoutRequest
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -161,7 +154,6 @@ class Payouts(BaseSDK):
         self,
         *,
         payout_request: Union[models.PayoutRequest, models.PayoutRequestTypedDict],
-        testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -207,12 +199,9 @@ class Payouts(BaseSDK):
         - One of the organization's balances is below the negative balance threshold.
         - The payout destination (bank account) is invalid or not configured.
 
-        :param payout_request:
-        :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
-            parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
-            setting the `testmode` query parameter to `true`.
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
-            Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
+        :param payout_request:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -230,7 +219,6 @@ class Payouts(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreatePayoutRequest(
-            testmode=testmode,
             idempotency_key=idempotency_key,
             payout_request=utils.get_pydantic_model(
                 payout_request, models.PayoutRequest
@@ -249,14 +237,12 @@ class Payouts(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/hal+json",
             http_headers=http_headers,
-            _globals=models.CreatePayoutGlobals(
-                testmode=self.sdk_configuration.globals.testmode,
-            ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.payout_request, False, False, "json", models.PayoutRequest
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -327,6 +313,8 @@ class Payouts(BaseSDK):
         The results are paginated. Use the `from` query parameter together with `_links.next` to iterate through
         the full result set.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param balance_id: Return only payouts for the balance with the given ID. The value must be a valid balance
             token in the format `bal_*`.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
@@ -382,6 +370,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -486,6 +475,8 @@ class Payouts(BaseSDK):
         The results are paginated. Use the `from` query parameter together with `_links.next` to iterate through
         the full result set.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param balance_id: Return only payouts for the balance with the given ID. The value must be a valid balance
             token in the format `bal_*`.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
@@ -541,6 +532,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -638,6 +630,8 @@ class Payouts(BaseSDK):
 
         Retrieve a single payout by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payout_id: Provide the ID of the payout.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -683,6 +677,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -743,6 +738,8 @@ class Payouts(BaseSDK):
 
         Retrieve a single payout by its ID.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payout_id: Provide the ID of the payout.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -788,6 +785,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -851,6 +849,8 @@ class Payouts(BaseSDK):
 
         The canceled payout object is returned with the status set to `canceled`.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payout_id: Provide the ID of the payout.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -896,6 +896,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -959,6 +960,8 @@ class Payouts(BaseSDK):
 
         The canceled payout object is returned with the status set to `canceled`.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param payout_id: Provide the ID of the payout.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -1004,6 +1007,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 

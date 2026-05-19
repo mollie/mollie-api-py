@@ -47,6 +47,8 @@ class Subscriptions(BaseSDK):
         `startDate=\"2018-04-30\"`
         Your customer will be charged €10 on the last day of each month, starting in April 2018.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param subscription_request:
@@ -94,6 +96,7 @@ class Subscriptions(BaseSDK):
                 Optional[models.SubscriptionRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -174,6 +177,8 @@ class Subscriptions(BaseSDK):
         `startDate=\"2018-04-30\"`
         Your customer will be charged €10 on the last day of each month, starting in April 2018.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
         :param subscription_request:
@@ -221,6 +226,7 @@ class Subscriptions(BaseSDK):
                 Optional[models.SubscriptionRequest],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -287,6 +293,8 @@ class Subscriptions(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -341,6 +349,7 @@ class Subscriptions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -441,6 +450,8 @@ class Subscriptions(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
@@ -495,6 +506,7 @@ class Subscriptions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -593,6 +605,8 @@ class Subscriptions(BaseSDK):
 
         Retrieve a single subscription by its ID and the ID of its parent customer.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -640,6 +654,7 @@ class Subscriptions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -701,6 +716,8 @@ class Subscriptions(BaseSDK):
 
         Retrieve a single subscription by its ID and the ID of its parent customer.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -748,6 +765,7 @@ class Subscriptions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -818,6 +836,8 @@ class Subscriptions(BaseSDK):
 
         For an in-depth explanation of each parameter, refer to the [Create subscription](create-subscription) endpoint.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -867,6 +887,7 @@ class Subscriptions(BaseSDK):
                 Optional[models.UpdateSubscriptionRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -937,6 +958,8 @@ class Subscriptions(BaseSDK):
 
         For an in-depth explanation of each parameter, refer to the [Create subscription](create-subscription) endpoint.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -986,6 +1009,7 @@ class Subscriptions(BaseSDK):
                 Optional[models.UpdateSubscriptionRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1052,6 +1076,8 @@ class Subscriptions(BaseSDK):
 
         Cancel an existing subscription. Canceling a subscription has no effect on the mandates of the customer.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -1101,6 +1127,7 @@ class Subscriptions(BaseSDK):
                 Optional[models.CancelSubscriptionRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1167,6 +1194,8 @@ class Subscriptions(BaseSDK):
 
         Cancel an existing subscription. Canceling a subscription has no effect on the mandates of the customer.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -1216,6 +1245,7 @@ class Subscriptions(BaseSDK):
                 Optional[models.CancelSubscriptionRequestBody],
             ),
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1281,6 +1311,8 @@ class Subscriptions(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -1338,6 +1370,7 @@ class Subscriptions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1436,6 +1469,8 @@ class Subscriptions(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -1493,6 +1528,7 @@ class Subscriptions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1597,6 +1633,8 @@ class Subscriptions(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
@@ -1660,6 +1698,7 @@ class Subscriptions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
@@ -1764,6 +1803,8 @@ class Subscriptions(BaseSDK):
 
         The results are paginated.
 
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
@@ -1827,6 +1868,7 @@ class Subscriptions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
             timeout_ms=timeout_ms,
         )
 
