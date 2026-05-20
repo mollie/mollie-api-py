@@ -99,7 +99,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 403, 422             | application/hal+json |
+| models.ErrorResponse | 403, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## list
@@ -149,7 +149,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 400                  | application/hal+json |
+| models.ErrorResponse | 400, 429             | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## get
@@ -196,7 +196,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 410             | application/hal+json |
+| models.ErrorResponse | 404, 410, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## update
@@ -286,10 +286,10 @@ with ClientSDK(
 
 ### Errors
 
-| Error Type           | Status Code          | Content Type         |
-| -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 403, 404, 410, 422   | application/hal+json |
-| models.APIError      | 4XX, 5XX             | \*/\*                |
+| Error Type              | Status Code             | Content Type            |
+| ----------------------- | ----------------------- | ----------------------- |
+| models.ErrorResponse    | 403, 404, 410, 422, 429 | application/hal+json    |
+| models.APIError         | 4XX, 5XX                | \*/\*                   |
 
 ## delete
 
@@ -328,7 +328,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 410             | application/hal+json |
+| models.ErrorResponse | 404, 410, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## get_current
@@ -374,6 +374,7 @@ with ClientSDK(
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| models.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 429                  | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |

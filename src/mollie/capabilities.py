@@ -7,7 +7,7 @@ from mollie._hooks import HookContext
 from mollie.types import OptionalNullable, UNSET
 from mollie.utils import get_security_from_env
 from mollie.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Mapping, Optional
+from typing import Any, Mapping, Optional
 
 
 class Capabilities(BaseSDK):
@@ -89,7 +89,7 @@ class Capabilities(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = self.do_request(
             hook_ctx=HookContext(
@@ -106,8 +106,12 @@ class Capabilities(BaseSDK):
             retry_config=retry_config,
         )
 
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.ListCapabilitiesResponse, http_res)
+        if utils.match_response(http_res, "429", "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError("API error occurred", http_res, http_res_text)
@@ -195,7 +199,7 @@ class Capabilities(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
@@ -212,8 +216,12 @@ class Capabilities(BaseSDK):
             retry_config=retry_config,
         )
 
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.ListCapabilitiesResponse, http_res)
+        if utils.match_response(http_res, "429", "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError("API error occurred", http_res, http_res_text)

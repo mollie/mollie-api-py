@@ -96,7 +96,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 422                  | application/hal+json |
+| models.ErrorResponse | 422, 429             | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## get
@@ -143,6 +143,7 @@ with ClientSDK(
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| models.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 429                  | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |

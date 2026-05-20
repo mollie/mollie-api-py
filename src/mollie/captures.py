@@ -99,7 +99,7 @@ class Captures(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = self.do_request(
             hook_ctx=HookContext(
@@ -119,7 +119,9 @@ class Captures(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.CaptureResponse, http_res)
-        if utils.match_response(http_res, ["404", "422"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -218,7 +220,7 @@ class Captures(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
@@ -238,7 +240,9 @@ class Captures(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.CaptureResponse, http_res)
-        if utils.match_response(http_res, ["404", "422"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -341,7 +345,7 @@ class Captures(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = self.do_request(
             hook_ctx=HookContext(
@@ -395,7 +399,9 @@ class Captures(BaseSDK):
                 ),
                 next=next_func,
             )
-        if utils.match_response(http_res, ["400", "404"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["400", "404", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -498,7 +504,7 @@ class Captures(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
@@ -555,7 +561,9 @@ class Captures(BaseSDK):
                 ),
                 next=next_func,
             )
-        if utils.match_response(http_res, ["400", "404"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["400", "404", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -651,7 +659,7 @@ class Captures(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = self.do_request(
             hook_ctx=HookContext(
@@ -671,7 +679,7 @@ class Captures(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.CaptureResponse, http_res)
-        if utils.match_response(http_res, "404", "application/hal+json"):
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -767,7 +775,7 @@ class Captures(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
@@ -787,7 +795,7 @@ class Captures(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.CaptureResponse, http_res)
-        if utils.match_response(http_res, "404", "application/hal+json"):
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):

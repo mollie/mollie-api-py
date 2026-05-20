@@ -84,7 +84,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 400, 404             | application/hal+json |
+| models.ErrorResponse | 400, 404, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## get
@@ -167,7 +167,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404                  | application/hal+json |
+| models.ErrorResponse | 404, 429             | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## get_primary
@@ -213,9 +213,10 @@ with ClientSDK(
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| models.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 429                  | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## get_report
 
@@ -314,7 +315,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 422             | application/hal+json |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## list_transactions

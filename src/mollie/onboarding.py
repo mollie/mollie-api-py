@@ -7,7 +7,7 @@ from mollie._hooks import HookContext
 from mollie.types import OptionalNullable, UNSET
 from mollie.utils import get_security_from_env
 from mollie.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Mapping, Optional, Union
+from typing import Any, Mapping, Optional, Union
 
 
 class Onboarding(BaseSDK):
@@ -74,7 +74,7 @@ class Onboarding(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = self.do_request(
             hook_ctx=HookContext(
@@ -91,8 +91,12 @@ class Onboarding(BaseSDK):
             retry_config=retry_config,
         )
 
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.EntityOnboardingStatus, http_res)
+        if utils.match_response(http_res, "429", "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError("API error occurred", http_res, http_res_text)
@@ -165,7 +169,7 @@ class Onboarding(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
@@ -182,8 +186,12 @@ class Onboarding(BaseSDK):
             retry_config=retry_config,
         )
 
+        response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.EntityOnboardingStatus, http_res)
+        if utils.match_response(http_res, "429", "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError("API error occurred", http_res, http_res_text)
@@ -253,7 +261,7 @@ class Onboarding(BaseSDK):
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
-            accept_header_value="*/*",
+            accept_header_value="application/hal+json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
@@ -278,7 +286,7 @@ class Onboarding(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = self.do_request(
             hook_ctx=HookContext(
@@ -295,8 +303,12 @@ class Onboarding(BaseSDK):
             retry_config=retry_config,
         )
 
+        response_data: Any = None
         if utils.match_response(http_res, "204", "*"):
             return
+        if utils.match_response(http_res, "429", "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError("API error occurred", http_res, http_res_text)
@@ -366,7 +378,7 @@ class Onboarding(BaseSDK):
             request_has_path_params=False,
             request_has_query_params=True,
             user_agent_header="user-agent",
-            accept_header_value="*/*",
+            accept_header_value="application/hal+json",
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
@@ -391,7 +403,7 @@ class Onboarding(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
@@ -408,8 +420,12 @@ class Onboarding(BaseSDK):
             retry_config=retry_config,
         )
 
+        response_data: Any = None
         if utils.match_response(http_res, "204", "*"):
             return
+        if utils.match_response(http_res, "429", "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError("API error occurred", http_res, http_res_text)

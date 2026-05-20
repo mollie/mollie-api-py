@@ -199,5 +199,5 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 422             | application/hal+json |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |

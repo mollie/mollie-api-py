@@ -744,24 +744,24 @@ Notes:
 ```python
 import mollie
 from mollie import ClientSDK, models
-import os
 
 
-with ClientSDK(
-    testmode=True,
-    security=mollie.Security(
-        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
-    ),
-) as client_sdk:
+with ClientSDK() as client_sdk:
     res = None
     try:
 
-        res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+        res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
+            username="",
+            password="",
+        ), idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+            "grant_type": mollie.OauthGrantType.AUTHORIZATION_CODE,
+            "code": "auth_...",
+            "refresh_token": "refresh_...",
+            "redirect_uri": "https://example.com/redirect",
+        })
 
-        while res is not None:
-            # Handle items
-
-            res = res.next()
+        # Handle response
+        print(res)
 
 
     except models.ClientError as e:
@@ -784,7 +784,7 @@ with ClientSDK(
 ### Error Classes
 **Primary errors:**
 * [`ClientError`](./src/mollie/models/clienterror.py): The base class for HTTP error responses.
-  * [`ErrorResponse`](./src/mollie/models/errorresponse.py): An error response object. *
+  * [`ErrorResponse`](./src/mollie/models/errorresponse.py): An error response object.
 
 <details><summary>Less common errors (5)</summary>
 
@@ -800,8 +800,6 @@ with ClientSDK(
 * [`ResponseValidationError`](./src/mollie/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
 
 </details>
-
-\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
