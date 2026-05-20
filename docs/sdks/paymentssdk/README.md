@@ -1942,7 +1942,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 422                  | application/hal+json |
+| models.ErrorResponse | 422, 429             | application/hal+json |
 | models.ErrorResponse | 503                  | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
@@ -2048,7 +2048,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 400                  | application/hal+json |
+| models.ErrorResponse | 400, 429             | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## get
@@ -2141,7 +2141,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404                  | application/hal+json |
+| models.ErrorResponse | 404, 429             | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## update
@@ -2348,7 +2348,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 422             | application/hal+json |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## cancel
@@ -2401,7 +2401,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 422             | application/hal+json |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## release_authorization
@@ -2452,5 +2452,5 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 422             | application/hal+json |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |

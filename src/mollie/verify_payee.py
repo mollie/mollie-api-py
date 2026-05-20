@@ -113,7 +113,7 @@ class VerifyPayee(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = self.do_request(
             hook_ctx=HookContext(
@@ -250,7 +250,7 @@ class VerifyPayee(BaseSDK):
 
         retry_config = None
         if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5xx"])
+            retry_config = (retries, ["429", "5xx"])
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(

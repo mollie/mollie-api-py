@@ -60,6 +60,7 @@ with ClientSDK(
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| models.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 429                  | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
