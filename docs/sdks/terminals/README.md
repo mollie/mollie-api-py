@@ -6,6 +6,10 @@
 
 * [list](#list) - List terminals
 * [get](#get) - Get terminal
+* [terminals_request_pairing_code](#terminals_request_pairing_code) - Request terminal pairing code
+* [terminals_list_pairing_codes](#terminals_list_pairing_codes) - List terminal pairing codes
+* [terminals_get_pairing_code](#terminals_get_pairing_code) - Get terminal pairing code
+* [terminals_revoke_pairing_code](#terminals_revoke_pairing_code) - Revoke terminal pairing code
 
 ## list
 
@@ -129,4 +133,218 @@ with ClientSDK(
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
 | models.ErrorResponse | 404, 429             | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
+
+## terminals_request_pairing_code
+
+> ℹ️ **Test mode**
+>
+> This endpoint currently does not support test mode yet.
+
+Request a pairing code to onboard a point-of-sale terminal.
+
+The response includes a human-readable `code` for manual entry on the terminal, and a QR Code as a
+base64 encoded SVG data URI for scanning if you specify the query parameter `include` with value `details.qrCode`.
+
+Pairing codes expire after 90 days (see `expiresAt`) and can be used multiple times.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="terminals-request-pairing-code" method="post" path="/v2/terminals/pairing-codes" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.terminals.terminals_request_pairing_code(idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "profile_id": "pfl_jA9bC4DkFj3G",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                         | Type                                                                                                              | Required                                                                                                          | Description                                                                                                       | Example                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `include`                                                                                                         | *OptionalNullable[str]*                                                                                           | :heavy_minus_sign:                                                                                                | Include additional information in the response.                                                                   |                                                                                                                   |
+| `idempotency_key`                                                                                                 | *Optional[str]*                                                                                                   | :heavy_minus_sign:                                                                                                | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                                  | 123e4567-e89b-12d3-a456-426                                                                                       |
+| `request_body`                                                                                                    | [Optional[models.TerminalsRequestPairingCodeRequestBody]](../../models/terminalsrequestpairingcoderequestbody.md) | :heavy_minus_sign:                                                                                                | N/A                                                                                                               |                                                                                                                   |
+| `retries`                                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                  | :heavy_minus_sign:                                                                                                | Configuration to override the default retry behavior of the client.                                               |                                                                                                                   |
+
+### Response
+
+**[models.EntityPairingCode](../../models/entitypairingcode.md)**
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 422, 429             | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
+
+## terminals_list_pairing_codes
+
+> ℹ️ **Test mode**
+>
+> This endpoint currently does not support test mode yet.
+
+Returns all pairing codes: `active`, `expired`, and `revoked`. Results are paginated.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="terminals-list-pairing-codes" method="get" path="/v2/terminals/pairing-codes" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    profile_id="<id>",
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.terminals.terminals_list_pairing_codes(limit=50, sort=mollie.Sorting.DESC, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                              | Type                                                                                                                                   | Required                                                                                                                               | Description                                                                                                                            | Example                                                                                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `from_`                                                                                                                                | *OptionalNullable[str]*                                                                                                                | :heavy_minus_sign:                                                                                                                     | Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the<br/>result set.     |                                                                                                                                        |
+| `limit`                                                                                                                                | *OptionalNullable[int]*                                                                                                                | :heavy_minus_sign:                                                                                                                     | The maximum number of items to return. Defaults to 50 items.                                                                           | 50                                                                                                                                     |
+| `sort`                                                                                                                                 | [Optional[models.Sorting]](../../models/sorting.md)                                                                                    | :heavy_minus_sign:                                                                                                                     | Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from<br/>newest to oldest. | desc                                                                                                                                   |
+| `profile_id`                                                                                                                           | *Optional[str]*                                                                                                                        | :heavy_minus_sign:                                                                                                                     | The identifier referring to the [profile](get-profile) you wish to retrieve pairing codes for.                                         |                                                                                                                                        |
+| `idempotency_key`                                                                                                                      | *Optional[str]*                                                                                                                        | :heavy_minus_sign:                                                                                                                     | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                                                       | 123e4567-e89b-12d3-a456-426                                                                                                            |
+| `retries`                                                                                                                              | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                       | :heavy_minus_sign:                                                                                                                     | Configuration to override the default retry behavior of the client.                                                                    |                                                                                                                                        |
+
+### Response
+
+**[models.TerminalsListPairingCodesResponse](../../models/terminalslistpairingcodesresponse.md)**
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 400, 429             | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
+
+## terminals_get_pairing_code
+
+> ℹ️ **Test mode**
+>
+> This endpoint currently does not support test mode yet.
+
+Get a pairing code to onboard a point-of-sale terminal.
+
+The response includes a human-readable `code` for manual entry on the terminal and, optionally, a QR Code as a
+base64 encoded SVG data URI when you use the `include` query parameter with value `details.qrCode`.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="terminals-get-pairing-code" method="get" path="/v2/terminals/pairing-codes/{pairingCodeId}" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.terminals.terminals_get_pairing_code(pairing_code_id="termpc_R7gX5Ea9bC4DkFj3G", idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `pairing_code_id`                                                                | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the terminal pairing code.                                     | termpc_R7gX5Ea9bC4DkFj3G                                                         |
+| `include`                                                                        | *OptionalNullable[str]*                                                          | :heavy_minus_sign:                                                               | Include additional information in the response.                                  |                                                                                  |
+| `idempotency_key`                                                                | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | A unique key to ensure idempotent requests. This key should be a UUID v4 string. | 123e4567-e89b-12d3-a456-426                                                      |
+| `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
+
+### Response
+
+**[models.EntityPairingCode](../../models/entitypairingcode.md)**
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 404, 429             | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
+
+## terminals_revoke_pairing_code
+
+> ℹ️ **Test mode**
+>
+> This endpoint currently does not support test mode yet.
+
+Revoke a pairing code, preventing the onboarding of new point-of-sale terminals.
+
+Terminals that have already paired with this code are not affected.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="terminals-revoke-pairing-code" method="delete" path="/v2/terminals/pairing-codes/{pairingCodeId}" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.terminals.terminals_revoke_pairing_code(pairing_code_id="termpc_R7gX5Ea9bC4DkFj3G", idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `pairing_code_id`                                                                | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the terminal pairing code.                                     | termpc_R7gX5Ea9bC4DkFj3G                                                         |
+| `idempotency_key`                                                                | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | A unique key to ensure idempotent requests. This key should be a UUID v4 string. | 123e4567-e89b-12d3-a456-426                                                      |
+| `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
+
+### Response
+
+**[models.EntityPairingCode](../../models/entitypairingcode.md)**
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
