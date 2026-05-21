@@ -536,3 +536,915 @@ class Terminals(BaseSDK):
             raise models.APIError("API error occurred", http_res, http_res_text)
 
         raise models.APIError("Unexpected response received", http_res)
+
+    def terminals_request_pairing_code(
+        self,
+        *,
+        include: OptionalNullable[str] = UNSET,
+        idempotency_key: Optional[str] = None,
+        request_body: Optional[
+            Union[
+                models.TerminalsRequestPairingCodeRequestBody,
+                models.TerminalsRequestPairingCodeRequestBodyTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EntityPairingCode:
+        r"""Request terminal pairing code
+
+        > ℹ️ **Test mode**
+        >
+        > This endpoint currently does not support test mode yet.
+
+        Request a pairing code to onboard a point-of-sale terminal.
+
+        The response includes a human-readable `code` for manual entry on the terminal, and a QR Code as a
+        base64 encoded SVG data URI for scanning if you specify the query parameter `include` with value `details.qrCode`.
+
+        Pairing codes expire after 90 days (see `expiresAt`) and can be used multiple times.
+
+        If set, this operation will use either `api_key` or `o_auth` from the global security.
+
+        :param include: Include additional information in the response.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param request_body:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.TerminalsRequestPairingCodeRequest(
+            include=include,
+            idempotency_key=idempotency_key,
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.TerminalsRequestPairingCodeRequestBody]
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/v2/terminals/pairing-codes",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.request_body if request is not None else None,
+                False,
+                True,
+                "json",
+                Optional[models.TerminalsRequestPairingCodeRequestBody],
+            ),
+            allow_empty_value=None,
+            allowed_fields=["api_key", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="terminals-request-pairing-code",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "201", "application/hal+json"):
+            return unmarshal_json_response(models.EntityPairingCode, http_res)
+        if utils.match_response(http_res, ["422", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def terminals_request_pairing_code_async(
+        self,
+        *,
+        include: OptionalNullable[str] = UNSET,
+        idempotency_key: Optional[str] = None,
+        request_body: Optional[
+            Union[
+                models.TerminalsRequestPairingCodeRequestBody,
+                models.TerminalsRequestPairingCodeRequestBodyTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EntityPairingCode:
+        r"""Request terminal pairing code
+
+        > ℹ️ **Test mode**
+        >
+        > This endpoint currently does not support test mode yet.
+
+        Request a pairing code to onboard a point-of-sale terminal.
+
+        The response includes a human-readable `code` for manual entry on the terminal, and a QR Code as a
+        base64 encoded SVG data URI for scanning if you specify the query parameter `include` with value `details.qrCode`.
+
+        Pairing codes expire after 90 days (see `expiresAt`) and can be used multiple times.
+
+        If set, this operation will use either `api_key` or `o_auth` from the global security.
+
+        :param include: Include additional information in the response.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param request_body:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.TerminalsRequestPairingCodeRequest(
+            include=include,
+            idempotency_key=idempotency_key,
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.TerminalsRequestPairingCodeRequestBody]
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/v2/terminals/pairing-codes",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.request_body if request is not None else None,
+                False,
+                True,
+                "json",
+                Optional[models.TerminalsRequestPairingCodeRequestBody],
+            ),
+            allow_empty_value=None,
+            allowed_fields=["api_key", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="terminals-request-pairing-code",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "201", "application/hal+json"):
+            return unmarshal_json_response(models.EntityPairingCode, http_res)
+        if utils.match_response(http_res, ["422", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    def terminals_list_pairing_codes(
+        self,
+        *,
+        from_: OptionalNullable[str] = UNSET,
+        limit: OptionalNullable[int] = UNSET,
+        sort: Optional[models.Sorting] = None,
+        profile_id: Optional[str] = None,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.TerminalsListPairingCodesResponse:
+        r"""List terminal pairing codes
+
+        > ℹ️ **Test mode**
+        >
+        > This endpoint currently does not support test mode yet.
+
+        Returns all pairing codes: `active`, `expired`, and `revoked`. Results are paginated.
+
+        If set, this operation will use either `api_key` or `o_auth` from the global security.
+
+        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
+            result set.
+        :param limit: The maximum number of items to return. Defaults to 50 items.
+        :param sort: Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from
+            newest to oldest.
+        :param profile_id: The identifier referring to the [profile](get-profile) you wish to retrieve pairing codes for.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.TerminalsListPairingCodesRequest(
+            from_=from_,
+            limit=limit,
+            sort=sort,
+            profile_id=profile_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/v2/terminals/pairing-codes",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            _globals=models.TerminalsListPairingCodesGlobals(
+                profile_id=self.sdk_configuration.globals.profile_id,
+            ),
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="terminals-list-pairing-codes",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(
+                models.TerminalsListPairingCodesResponse, http_res
+            )
+        if utils.match_response(http_res, ["400", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def terminals_list_pairing_codes_async(
+        self,
+        *,
+        from_: OptionalNullable[str] = UNSET,
+        limit: OptionalNullable[int] = UNSET,
+        sort: Optional[models.Sorting] = None,
+        profile_id: Optional[str] = None,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.TerminalsListPairingCodesResponse:
+        r"""List terminal pairing codes
+
+        > ℹ️ **Test mode**
+        >
+        > This endpoint currently does not support test mode yet.
+
+        Returns all pairing codes: `active`, `expired`, and `revoked`. Results are paginated.
+
+        If set, this operation will use either `api_key` or `o_auth` from the global security.
+
+        :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate the
+            result set.
+        :param limit: The maximum number of items to return. Defaults to 50 items.
+        :param sort: Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from
+            newest to oldest.
+        :param profile_id: The identifier referring to the [profile](get-profile) you wish to retrieve pairing codes for.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.TerminalsListPairingCodesRequest(
+            from_=from_,
+            limit=limit,
+            sort=sort,
+            profile_id=profile_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/v2/terminals/pairing-codes",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            _globals=models.TerminalsListPairingCodesGlobals(
+                profile_id=self.sdk_configuration.globals.profile_id,
+            ),
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="terminals-list-pairing-codes",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(
+                models.TerminalsListPairingCodesResponse, http_res
+            )
+        if utils.match_response(http_res, ["400", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    def terminals_get_pairing_code(
+        self,
+        *,
+        pairing_code_id: str,
+        include: OptionalNullable[str] = UNSET,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EntityPairingCode:
+        r"""Get terminal pairing code
+
+        > ℹ️ **Test mode**
+        >
+        > This endpoint currently does not support test mode yet.
+
+        Get a pairing code to onboard a point-of-sale terminal.
+
+        The response includes a human-readable `code` for manual entry on the terminal and, optionally, a QR Code as a
+        base64 encoded SVG data URI when you use the `include` query parameter with value `details.qrCode`.
+
+        If set, this operation will use either `api_key` or `o_auth` from the global security.
+
+        :param pairing_code_id: Provide the ID of the terminal pairing code.
+        :param include: Include additional information in the response.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.TerminalsGetPairingCodeRequest(
+            pairing_code_id=pairing_code_id,
+            include=include,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/v2/terminals/pairing-codes/{pairingCodeId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="terminals-get-pairing-code",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.EntityPairingCode, http_res)
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def terminals_get_pairing_code_async(
+        self,
+        *,
+        pairing_code_id: str,
+        include: OptionalNullable[str] = UNSET,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EntityPairingCode:
+        r"""Get terminal pairing code
+
+        > ℹ️ **Test mode**
+        >
+        > This endpoint currently does not support test mode yet.
+
+        Get a pairing code to onboard a point-of-sale terminal.
+
+        The response includes a human-readable `code` for manual entry on the terminal and, optionally, a QR Code as a
+        base64 encoded SVG data URI when you use the `include` query parameter with value `details.qrCode`.
+
+        If set, this operation will use either `api_key` or `o_auth` from the global security.
+
+        :param pairing_code_id: Provide the ID of the terminal pairing code.
+        :param include: Include additional information in the response.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.TerminalsGetPairingCodeRequest(
+            pairing_code_id=pairing_code_id,
+            include=include,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/v2/terminals/pairing-codes/{pairingCodeId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="terminals-get-pairing-code",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.EntityPairingCode, http_res)
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    def terminals_revoke_pairing_code(
+        self,
+        *,
+        pairing_code_id: str,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EntityPairingCode:
+        r"""Revoke terminal pairing code
+
+        > ℹ️ **Test mode**
+        >
+        > This endpoint currently does not support test mode yet.
+
+        Revoke a pairing code, preventing the onboarding of new point-of-sale terminals.
+
+        Terminals that have already paired with this code are not affected.
+
+        If set, this operation will use either `api_key` or `o_auth` from the global security.
+
+        :param pairing_code_id: Provide the ID of the terminal pairing code.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.TerminalsRevokePairingCodeRequest(
+            pairing_code_id=pairing_code_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request(
+            method="DELETE",
+            path="/v2/terminals/pairing-codes/{pairingCodeId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="terminals-revoke-pairing-code",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.EntityPairingCode, http_res)
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def terminals_revoke_pairing_code_async(
+        self,
+        *,
+        pairing_code_id: str,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EntityPairingCode:
+        r"""Revoke terminal pairing code
+
+        > ℹ️ **Test mode**
+        >
+        > This endpoint currently does not support test mode yet.
+
+        Revoke a pairing code, preventing the onboarding of new point-of-sale terminals.
+
+        Terminals that have already paired with this code are not affected.
+
+        If set, this operation will use either `api_key` or `o_auth` from the global security.
+
+        :param pairing_code_id: Provide the ID of the terminal pairing code.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.TerminalsRevokePairingCodeRequest(
+            pairing_code_id=pairing_code_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request_async(
+            method="DELETE",
+            path="/v2/terminals/pairing-codes/{pairingCodeId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="terminals-revoke-pairing-code",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.EntityPairingCode, http_res)
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)

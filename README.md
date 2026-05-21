@@ -505,6 +505,10 @@ client = ClientSDK(
 
 * [list](docs/sdks/terminals/README.md#list) - List terminals
 * [get](docs/sdks/terminals/README.md#get) - Get terminal
+* [terminals_request_pairing_code](docs/sdks/terminals/README.md#terminals_request_pairing_code) - Request terminal pairing code
+* [terminals_list_pairing_codes](docs/sdks/terminals/README.md#terminals_list_pairing_codes) - List terminal pairing codes
+* [terminals_get_pairing_code](docs/sdks/terminals/README.md#terminals_get_pairing_code) - Get terminal pairing code
+* [terminals_revoke_pairing_code](docs/sdks/terminals/README.md#terminals_revoke_pairing_code) - Revoke terminal pairing code
 
 ### [Transfers](docs/sdks/transferssdk/README.md)
 
