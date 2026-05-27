@@ -16,11 +16,6 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-OAUTH_REVOKE_TOKENS_OP_SERVERS = [
-    "https://api.mollie.com/oauth2",
-]
-
-
 class OauthRevokeTokensSecurityTypedDict(TypedDict):
     username: str
     password: str

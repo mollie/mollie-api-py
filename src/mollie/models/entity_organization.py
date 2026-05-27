@@ -99,11 +99,11 @@ class EntityOrganizationTypedDict(TypedDict):
     """
     locale: Nullable[EntityOrganizationLocale]
     r"""The preferred locale of the merchant, as set in their Mollie dashboard."""
-    address: AddressTypedDict
-    registration_number: str
-    r"""The registration number of the organization at their local chamber of commerce."""
     links: EntityOrganizationLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+    address: NotRequired[AddressTypedDict]
+    registration_number: NotRequired[str]
+    r"""The registration number of the organization at their local chamber of commerce."""
     vat_number: NotRequired[Nullable[str]]
     r"""The VAT number of the organization, if based in the European Union or in The United Kingdom. VAT numbers are
     verified against the international registry *VIES*.
@@ -138,13 +138,15 @@ class EntityOrganization(BaseModel):
     locale: Nullable[EntityOrganizationLocale]
     r"""The preferred locale of the merchant, as set in their Mollie dashboard."""
 
-    address: Address
-
-    registration_number: Annotated[str, pydantic.Field(alias="registrationNumber")]
-    r"""The registration number of the organization at their local chamber of commerce."""
-
     links: Annotated[EntityOrganizationLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+
+    address: Optional[Address] = None
+
+    registration_number: Annotated[
+        Optional[str], pydantic.Field(alias="registrationNumber")
+    ] = None
+    r"""The registration number of the organization at their local chamber of commerce."""
 
     vat_number: Annotated[OptionalNullable[str], pydantic.Field(alias="vatNumber")] = (
         UNSET
@@ -185,7 +187,9 @@ class EntityOrganization(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["vatNumber", "vatRegulation"])
+        optional_fields = set(
+            ["address", "registrationNumber", "vatNumber", "vatRegulation"]
+        )
         nullable_fields = set(["locale", "vatNumber", "vatRegulation"])
         serialized = handler(self)
         m = {}

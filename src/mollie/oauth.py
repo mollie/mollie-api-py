@@ -53,7 +53,7 @@ class Oauth(BaseSDK):
         if server_url is not None:
             base_url = server_url
         else:
-            base_url = models.OAUTH_GENERATE_TOKENS_OP_SERVERS[0]
+            base_url = self._get_url(base_url, url_variables)
 
         request = models.OauthGenerateTokensRequest(
             idempotency_key=idempotency_key,
@@ -170,7 +170,7 @@ class Oauth(BaseSDK):
         if server_url is not None:
             base_url = server_url
         else:
-            base_url = models.OAUTH_GENERATE_TOKENS_OP_SERVERS[0]
+            base_url = self._get_url(base_url, url_variables)
 
         request = models.OauthGenerateTokensRequest(
             idempotency_key=idempotency_key,
@@ -287,7 +287,7 @@ class Oauth(BaseSDK):
         if server_url is not None:
             base_url = server_url
         else:
-            base_url = models.OAUTH_REVOKE_TOKENS_OP_SERVERS[0]
+            base_url = self._get_url(base_url, url_variables)
 
         request = models.OauthRevokeTokensRequest(
             idempotency_key=idempotency_key,
@@ -404,7 +404,7 @@ class Oauth(BaseSDK):
         if server_url is not None:
             base_url = server_url
         else:
-            base_url = models.OAUTH_REVOKE_TOKENS_OP_SERVERS[0]
+            base_url = self._get_url(base_url, url_variables)
 
         request = models.OauthRevokeTokensRequest(
             idempotency_key=idempotency_key,

@@ -1463,7 +1463,6 @@ if TYPE_CHECKING:
     from .mode import Mode
     from .no_response_error import NoResponseError
     from .oauth_generate_tokensop import (
-        OAUTH_GENERATE_TOKENS_OP_SERVERS,
         OauthGenerateTokensRequest,
         OauthGenerateTokensRequestBody,
         OauthGenerateTokensRequestBodyTypedDict,
@@ -1475,7 +1474,6 @@ if TYPE_CHECKING:
     )
     from .oauth_grant_type import OauthGrantType
     from .oauth_revoke_tokensop import (
-        OAUTH_REVOKE_TOKENS_OP_SERVERS,
         OauthRevokeTokensRequest,
         OauthRevokeTokensRequestBody,
         OauthRevokeTokensRequestBodyTypedDict,
@@ -3096,8 +3094,6 @@ __all__ = [
     "MethodTypedDict",
     "Mode",
     "NoResponseError",
-    "OAUTH_GENERATE_TOKENS_OP_SERVERS",
-    "OAUTH_REVOKE_TOKENS_OP_SERVERS",
     "OauthGenerateTokensRequest",
     "OauthGenerateTokensRequestBody",
     "OauthGenerateTokensRequestBodyTypedDict",
@@ -4724,7 +4720,6 @@ _dynamic_imports: dict[str, str] = {
     "MethodStatus": ".method_status",
     "Mode": ".mode",
     "NoResponseError": ".no_response_error",
-    "OAUTH_GENERATE_TOKENS_OP_SERVERS": ".oauth_generate_tokensop",
     "OauthGenerateTokensRequest": ".oauth_generate_tokensop",
     "OauthGenerateTokensRequestBody": ".oauth_generate_tokensop",
     "OauthGenerateTokensRequestBodyTypedDict": ".oauth_generate_tokensop",
@@ -4734,7 +4729,6 @@ _dynamic_imports: dict[str, str] = {
     "OauthGenerateTokensSecurity": ".oauth_generate_tokensop",
     "OauthGenerateTokensSecurityTypedDict": ".oauth_generate_tokensop",
     "OauthGrantType": ".oauth_grant_type",
-    "OAUTH_REVOKE_TOKENS_OP_SERVERS": ".oauth_revoke_tokensop",
     "OauthRevokeTokensRequest": ".oauth_revoke_tokensop",
     "OauthRevokeTokensRequestBody": ".oauth_revoke_tokensop",
     "OauthRevokeTokensRequestBodyTypedDict": ".oauth_revoke_tokensop",

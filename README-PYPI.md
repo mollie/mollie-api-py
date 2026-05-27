@@ -815,35 +815,11 @@ The default server can be overridden globally by passing a URL to the `server_ur
 ```python
 import mollie
 from mollie import ClientSDK
-import os
 
 
 with ClientSDK(
     server_url="https://api.mollie.com",
-    testmode=True,
-    security=mollie.Security(
-        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
-    ),
 ) as client_sdk:
-
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
-
-    while res is not None:
-        # Handle items
-
-        res = res.next()
-
-```
-
-### Override Server URL Per-Operation
-
-The server URL can also be overridden on a per-operation basis, provided a server list was specified for the operation. For example:
-```python
-import mollie
-from mollie import ClientSDK
-
-
-with ClientSDK() as client_sdk:
 
     res = client_sdk.oauth.generate(security=mollie.OauthGenerateTokensSecurity(
         username="",
@@ -853,7 +829,7 @@ with ClientSDK() as client_sdk:
         "code": "auth_...",
         "refresh_token": "refresh_...",
         "redirect_uri": "https://example.com/redirect",
-    }, server_url="https://api.mollie.com/oauth2")
+    })
 
     # Handle response
     print(res)
