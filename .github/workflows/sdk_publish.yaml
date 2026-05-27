@@ -49,3 +49,62 @@ jobs:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       pypi_token: ${{ secrets.PYPI_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
+
+  notify:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Get version and diff
+        id: info
+        run: |
+          VERSION=$(grep '^version' pyproject.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          {
+            echo "diff<<EOF"
+            git diff HEAD~1 HEAD -- src/
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Summarise with Claude
+        id: summary
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          SUMMARY=$(curl -sf https://api.anthropic.com/v1/messages \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            -H "content-type: application/json" \
+            -d "$(jq -n \
+              --arg diff "${{ steps.info.outputs.diff }}" '{
+                model: "claude-haiku-4-5-20251001",
+                max_tokens: 300,
+                messages: [{
+                  role: "user",
+                  content: ("You write release notes for a Discord message. Given this git diff of a Python SDK update, write 2–4 concise bullet points explaining what changed for developers using the SDK. Be specific but friendly. Use plain text with Discord markdown (**bold**, `code`). No intro, no outro — just the bullets.\n\n" + $diff)
+                }]
+              }')" \
+            | jq -r '.content[0].text')
+          {
+            echo "summary<<EOF"
+            echo "$SUMMARY"
+            echo "EOF"
+          } >> $GITHUB_OUTPUT
+
+      - name: Send Discord notification
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: |
+          VERSION="${{ steps.info.outputs.version }}"
+          SUMMARY="${{ steps.summary.outputs.summary }}"
+          curl -sf -X POST "$DISCORD_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$(jq -n \
+              --arg version "$VERSION" \
+              --arg summary "$SUMMARY" \
+              --arg url "https://pypi.org/project/mollie-api-py/$VERSION/" '{
+                content: ("🐍 Python **v" + $version + "** is out 🎉\n\nA shiny new version just dropped! ✨\nWhat changed? **Great question, glad you asked!**\n\n" + $summary + "\n\nCheck it out [here](" + $url + ")")
+              }')"
