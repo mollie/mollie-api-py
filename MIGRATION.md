@@ -1,10 +1,6 @@
 # Migration Guide for Mollie API Python
 Learn how to migrate to the latest version of the Python SDK
 
-> [!WARNING]
-> ### Beta Feature
-> This feature is currently in Beta testing, and the final specification may still change.
-
 Mollie uses API specification to autogenerate the SDK and enhance its consistency, ensure frequent updates and provide a more streamlined integration experience for developers.
 
 The new version of Python SDK introduces a number of changes that might affect the way your integration works and require adjustments in your current setup: new ways of defining specific arguments, changes to methods and parameter names etc. 
