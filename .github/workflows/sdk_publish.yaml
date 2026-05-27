@@ -106,5 +106,5 @@ jobs:
               --arg version "$VERSION" \
               --arg summary "$SUMMARY" \
               --arg url "https://pypi.org/project/mollie-api-py/$VERSION/" '{
-                content: ("🐍 Python **v" + $version + "** is out 🎉\n\nA shiny new version just dropped! ✨\nWhat changed? **Great question, glad you asked!**\n\n" + $summary + "\n\nCheck it out [here](" + $url + ")")
+                content: ("<:python:1509111025377738832> Python **v" + $version + "** is out 🎉\n\nA shiny new version just dropped! ✨\nWhat changed? **Great question, glad you asked!**\n\n" + $summary + "\n\nCheck it out [here](" + $url + ")")
               }')"
