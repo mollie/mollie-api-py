@@ -13,7 +13,7 @@ from .session_sequence_type_response import SessionSequenceTypeResponse
 from .url import URL, URLTypedDict
 from enum import Enum
 from mollie import models, utils
-from mollie.types import BaseModel, UNSET_SENTINEL
+from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import field_serializer, model_serializer
 from typing import Any, Dict, List, Optional
@@ -127,6 +127,14 @@ class SessionResponseTypedDict(TypedDict):
     Any payment created for the session will use the same metadata.
     """
     payment: NotRequired[SessionResponsePaymentTypedDict]
+    expired_at: NotRequired[Nullable[str]]
+    r"""The date and time the session expired, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    Omitted if the session has not expired.
+    """
+    completed_at: NotRequired[Nullable[str]]
+    r"""The date and time the session was completed, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    Omitted if the session has not been completed.
+    """
 
 
 class SessionResponse(BaseModel):
@@ -206,6 +214,20 @@ class SessionResponse(BaseModel):
 
     payment: Optional[SessionResponsePayment] = None
 
+    expired_at: Annotated[OptionalNullable[str], pydantic.Field(alias="expiredAt")] = (
+        UNSET
+    )
+    r"""The date and time the session expired, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    Omitted if the session has not expired.
+    """
+
+    completed_at: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="completedAt")
+    ] = UNSET
+    r"""The date and time the session was completed, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    Omitted if the session has not been completed.
+    """
+
     @field_serializer("mode")
     def serialize_mode(self, value):
         if isinstance(value, str):
@@ -243,17 +265,28 @@ class SessionResponse(BaseModel):
                 "sequenceType",
                 "metadata",
                 "payment",
+                "expiredAt",
+                "completedAt",
             ]
         )
+        nullable_fields = set(["expiredAt", "completedAt"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m
