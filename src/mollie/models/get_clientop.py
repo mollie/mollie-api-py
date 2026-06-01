@@ -18,7 +18,7 @@ from mollie.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import Optional
+from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -174,7 +174,7 @@ class GetClientLinks(BaseModel):
 class GetClientEmbeddedTypedDict(TypedDict):
     organization: NotRequired[EntityOrganizationTypedDict]
     onboarding: NotRequired[EntityOnboardingStatusTypedDict]
-    capabilities: NotRequired[EntityCapabilityTypedDict]
+    capabilities: NotRequired[List[EntityCapabilityTypedDict]]
 
 
 class GetClientEmbedded(BaseModel):
@@ -182,7 +182,7 @@ class GetClientEmbedded(BaseModel):
 
     onboarding: Optional[EntityOnboardingStatus] = None
 
-    capabilities: Optional[EntityCapability] = None
+    capabilities: Optional[List[EntityCapability]] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

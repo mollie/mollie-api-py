@@ -177,7 +177,7 @@ class ListClientsLinks(BaseModel):
 class ClientEmbeddedTypedDict(TypedDict):
     organization: NotRequired[EntityOrganizationTypedDict]
     onboarding: NotRequired[EntityOnboardingStatusTypedDict]
-    capabilities: NotRequired[EntityCapabilityTypedDict]
+    capabilities: NotRequired[List[EntityCapabilityTypedDict]]
 
 
 class ClientEmbedded(BaseModel):
@@ -185,7 +185,7 @@ class ClientEmbedded(BaseModel):
 
     onboarding: Optional[EntityOnboardingStatus] = None
 
-    capabilities: Optional[EntityCapability] = None
+    capabilities: Optional[List[EntityCapability]] = None
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
