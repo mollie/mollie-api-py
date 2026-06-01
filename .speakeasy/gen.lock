@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 017182f54e9fc0727b783f26195b93dc
+  docChecksum: 8466f8cd44e35230a20130badacdfaf8
   docVersion: 1.0.0
   speakeasyVersion: 1.768.2
   generationVersion: 2.889.1
-  releaseVersion: 1.7.1
-  configChecksum: d310c2465ead675dfef2259dee652f62
+  releaseVersion: 1.7.2
+  configChecksum: 3681b1f2cbce375334c00a88ef6907fd
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 67239a9a-c0aa-4dc2-85a8-efa5f74a3314
-  pristine_commit_hash: 9ae855565590ebee0394117ad505acc62e82d1ed
-  pristine_tree_hash: 90f8f4cf6211fe32ef7015ed4229b2a4bf1d730c
+  generation_id: a741728c-203a-48d9-8e76-7753f8dfdd36
+  pristine_commit_hash: 565a3e45ce0dbb5289b6f7c7d1407253289894fb
+  pristine_tree_hash: 90581f58a5f006f726aadc70c814eeb4aa806222
 features:
   python:
     additionalDependencies: 1.0.0
@@ -280,8 +280,8 @@ trackedFiles:
     pristine_git_object: beadcb496a00a232aa910b0b202d904709175e1b
   docs/models/clientembedded.md:
     id: 27eb0b1a57eb
-    last_write_checksum: sha1:4ca3eac56e3a47e4b96e588fd1a8c39f8f9215d5
-    pristine_git_object: b403a55a8ef7a7eb1391e63b0e19ea343b7d02e0
+    last_write_checksum: sha1:d053bd502ba9c048bd8ae45739a0d6151803ec66
+    pristine_git_object: 9772eaae12a3ff7970eb7854492f019cf77bbcf5
   docs/models/clientlinkrequest.md:
     id: 99295ad7cbed
     last_write_checksum: sha1:2cad753244539a87dc301ba335790dabe5df0d93
@@ -944,8 +944,8 @@ trackedFiles:
     pristine_git_object: a939790a67672f1f65364b80b4dc6ea0af9ff87a
   docs/models/getclientembedded.md:
     id: a4412ea9a94a
-    last_write_checksum: sha1:97f3f22c197a49fc9ce9d0fd19409209c4f2a5d4
-    pristine_git_object: 85be99d88b47199b06c718434411015ac7b2e9bd
+    last_write_checksum: sha1:53dd25538d397369a0890205738e7dfcdf48d574
+    pristine_git_object: 5672488b61f6cc90bac118ba1e45a50891586acc
   docs/models/getclientlinks.md:
     id: 689d81662aa6
     last_write_checksum: sha1:1833e34a60b9532ea16c125b8c666ec64c2209bb
@@ -3648,8 +3648,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:0aa97d37779141dd0271b0e02eb82f76ff5d98dd
-    pristine_git_object: 4f8ffd2501aa4a33bb16e76641d4891dc23c242e
+    last_write_checksum: sha1:344fb97787d19c8550c2b180f8b2a4bc3e74203b
+    pristine_git_object: 0cb884c159793a514d9d10050325754b024ce99b
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3676,8 +3676,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:d2103844d3bb63461d667606a1ff7ec23f52b16a
-    pristine_git_object: 35cd2b8f48f9916218413edcba14429a27993fce
+    last_write_checksum: sha1:c19aaf057c51bde1b164fd6a4ecc36c5aebcc5b7
+    pristine_git_object: 3be29b01a453782e1274280ccb224e4f3be021ce
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:817bfcad60963efda3d45286668ae75032ee89d8
@@ -4156,8 +4156,8 @@ trackedFiles:
     pristine_git_object: 22c37055b4e2c1ac1931e36bce8381059f8c3c2e
   src/mollie/models/get_clientop.py:
     id: 6234807472aa
-    last_write_checksum: sha1:868952098d3d2637bb7f0336ec5bf20d2191f277
-    pristine_git_object: b2d892d21006f696129af1fb2dde116313f8d882
+    last_write_checksum: sha1:25a7750968d2f20b7612f1ef3af12314ee9e053e
+    pristine_git_object: 40c309cd1b4f0f01a3cc7994f3506b6b370e15fc
   src/mollie/models/get_connect_balance_transferop.py:
     id: 9a9e684f8a72
     last_write_checksum: sha1:9cf8b67d27a14bce78d842959a7bcdf1eca44c27
@@ -4340,8 +4340,8 @@ trackedFiles:
     pristine_git_object: 7e51e5bb24f580fb6f37158161d1d257de4702a6
   src/mollie/models/list_clientsop.py:
     id: 3c2c92be7cad
-    last_write_checksum: sha1:b6330278d6919b013962ee1c0a020a04d2addafb
-    pristine_git_object: 35614652cf3ef5f554e7a29d86695b88c761292c
+    last_write_checksum: sha1:860d444804b7d4a1c77683a09069374a042e9c70
+    pristine_git_object: 73c0ec3253ce1180e122b67f6f6ed91d1261a9a4
   src/mollie/models/list_connect_balance_transfersop.py:
     id: 17faa2726684
     last_write_checksum: sha1:fd5ec2e31f63913039a8636016788641aadd9f58
@@ -6193,7 +6193,7 @@ examples:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       responses:
         "200":
-          application/hal+json: {"count": 5, "_embedded": {"clients": [{"resource": "client", "id": "org_1234567", "commission": {"count": 10}, "organizationCreatedAt": "2023-01-15T13:45:30+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "organization": {"href": "https://...", "type": "application/hal+json"}, "onboarding": {"href": "https://...", "type": "application/hal+json"}}, "_embedded": {"organization": {"resource": "organization", "id": "org_1234567", "name": "My Online Store", "email": "example@mail.com", "locale": "en_US", "address": {"streetAndNumber": "Keizersgracht 126", "postalCode": "1015 CW", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "vatNumber": "NL123456789B01", "vatRegulation": "dutch", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}, "onboarding": {"resource": "onboarding", "name": "My webshop", "status": "completed", "canReceivePayments": true, "canReceiveSettlements": true, "signedUpAt": "2023-01-15T13:45:30+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://...", "type": "application/hal+json"}, "organization": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}, "capabilities": {"resource": "capability", "name": "payments", "status": "pending", "statusReason": "requirement-past-due", "requirements": []}}}]}, "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}, "next": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
+          application/hal+json: {"count": 5, "_embedded": {"clients": [{"resource": "client", "id": "org_1234567", "commission": {"count": 10}, "organizationCreatedAt": "2023-01-15T13:45:30+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "organization": {"href": "https://...", "type": "application/hal+json"}, "onboarding": {"href": "https://...", "type": "application/hal+json"}}, "_embedded": {"organization": {"resource": "organization", "id": "org_1234567", "name": "My Online Store", "email": "example@mail.com", "locale": "en_US", "address": {"streetAndNumber": "Keizersgracht 126", "postalCode": "1015 CW", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "vatNumber": "NL123456789B01", "vatRegulation": "dutch", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}, "onboarding": {"resource": "onboarding", "name": "My webshop", "status": "completed", "canReceivePayments": true, "canReceiveSettlements": true, "signedUpAt": "2023-01-15T13:45:30+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://...", "type": "application/hal+json"}, "organization": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}, "capabilities": [{"resource": "capability", "name": "payments", "status": "pending", "statusReason": "requirement-past-due", "requirements": []}]}}]}, "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "previous": {"href": "https://...", "type": "application/hal+json"}, "next": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
         "400":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
   get-client:
@@ -6241,7 +6241,7 @@ examples:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       responses:
         "200":
-          application/hal+json: {"resource": "client", "id": "org_1234567", "commission": {"count": 10}, "organizationCreatedAt": "2023-01-15T13:45:30+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "organization": {"href": "https://...", "type": "application/hal+json"}, "onboarding": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}, "_embedded": {"organization": {"resource": "organization", "id": "org_1234567", "name": "My Online Store", "email": "example@mail.com", "locale": "en_US", "address": {"streetAndNumber": "Keizersgracht 126", "postalCode": "1015 CW", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "vatNumber": "NL123456789B01", "vatRegulation": "dutch", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}, "onboarding": {"resource": "onboarding", "name": "My webshop", "status": "completed", "canReceivePayments": true, "canReceiveSettlements": true, "signedUpAt": "2023-01-15T13:45:30+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://...", "type": "application/hal+json"}, "organization": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}, "capabilities": {"resource": "capability", "name": "payments", "status": "pending", "statusReason": "requirement-past-due", "requirements": [{"id": "information-request-aml-charities-and-donations", "status": "past-due", "dueDate": "2024-01-01T12:00:00+00:00", "_links": {"dashboard": {"href": "https://...", "type": "application/hal+json"}}}]}}}
+          application/hal+json: {"resource": "client", "id": "org_1234567", "commission": {"count": 10}, "organizationCreatedAt": "2023-01-15T13:45:30+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "organization": {"href": "https://...", "type": "application/hal+json"}, "onboarding": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}, "_embedded": {"organization": {"resource": "organization", "id": "org_1234567", "name": "My Online Store", "email": "example@mail.com", "locale": "en_US", "address": {"streetAndNumber": "Keizersgracht 126", "postalCode": "1015 CW", "city": "Amsterdam", "country": "NL"}, "registrationNumber": "12345678", "vatNumber": "NL123456789B01", "vatRegulation": "dutch", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}, "onboarding": {"resource": "onboarding", "name": "My webshop", "status": "completed", "canReceivePayments": true, "canReceiveSettlements": true, "signedUpAt": "2023-01-15T13:45:30+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "dashboard": {"href": "https://...", "type": "application/hal+json"}, "organization": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}, "capabilities": [{"resource": "capability", "name": "payments", "status": "pending", "statusReason": "requirement-past-due", "requirements": [{"id": "information-request-aml-charities-and-donations", "status": "past-due", "dueDate": "2024-01-01T12:00:00+00:00", "_links": {"dashboard": {"href": "https://...", "type": "application/hal+json"}}}]}]}}
         "404":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
   create-client-link:
@@ -8871,5 +8871,5 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `client.sessions.create()`:  `response` **Changed**
-  * `client.sessions.get()`:  `response` **Changed**
+  * `client.clients.list()`:  `response._embedded.clients[]._embedded.capabilities` **Changed** (Breaking ⚠️)
+  * `client.clients.get()`:  `response._embedded.capabilities` **Changed** (Breaking ⚠️)
