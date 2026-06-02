@@ -24,8 +24,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementsResponse]:
         r"""List settlements
@@ -180,8 +180,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementsResponse]:
         r"""List settlements
@@ -962,8 +962,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementPaymentsResponse]:
         r"""List settlement payments
@@ -1122,8 +1122,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementPaymentsResponse]:
         r"""List settlement payments
@@ -1284,8 +1284,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementCapturesResponse]:
         r"""List settlement captures
@@ -1432,8 +1432,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementCapturesResponse]:
         r"""List settlement captures
@@ -1583,8 +1583,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementRefundsResponse]:
         r"""List settlement refunds
@@ -1731,8 +1731,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementRefundsResponse]:
         r"""List settlement refunds
@@ -1883,8 +1883,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementChargebacksResponse]:
         r"""List settlement chargebacks
@@ -2041,8 +2041,8 @@ class Settlements(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSettlementChargebacksResponse]:
         r"""List settlement chargebacks
