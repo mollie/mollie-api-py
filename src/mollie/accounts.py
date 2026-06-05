@@ -22,8 +22,8 @@ class Accounts(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListBusinessAccountsResponse]:
         r"""List business accounts
@@ -175,8 +175,8 @@ class Accounts(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListBusinessAccountsResponse]:
         r"""List business accounts
@@ -550,8 +550,8 @@ class Accounts(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListBusinessAccountTransactionsResponse]:
         r"""List transactions
@@ -707,8 +707,8 @@ class Accounts(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListBusinessAccountTransactionsResponse]:
         r"""List transactions

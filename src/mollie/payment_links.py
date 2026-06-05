@@ -253,8 +253,8 @@ class PaymentLinks(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListPaymentLinksResponse]:
         r"""List payment links
@@ -401,8 +401,8 @@ class PaymentLinks(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListPaymentLinksResponse]:
         r"""List payment links
@@ -1250,8 +1250,8 @@ class PaymentLinks(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.GetPaymentLinkPaymentsResponse]:
         r"""Get payment link payments
@@ -1407,8 +1407,8 @@ class PaymentLinks(BaseSDK):
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
         url_override: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.GetPaymentLinkPaymentsResponse]:
         r"""Get payment link payments
