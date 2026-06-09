@@ -10,3 +10,4 @@ class PaymentDetailsWalletResponse(str, Enum, metaclass=utils.OpenEnumMeta):
     r"""The wallet used when creating the payment."""
 
     APPLEPAY = "applepay"
+    GOOGLEPAY = "googlepay"
