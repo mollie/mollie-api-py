@@ -65,9 +65,9 @@ class SubscriptionResponseLinksTypedDict(TypedDict):
 
     self_: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    customer: Nullable[URLNullableTypedDict]
+    customer: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    profile: Nullable[URLNullableTypedDict]
+    profile: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
     documentation: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
@@ -83,10 +83,10 @@ class SubscriptionResponseLinks(BaseModel):
     self_: Annotated[URL, pydantic.Field(alias="self")]
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
-    customer: Nullable[URLNullable]
+    customer: URL
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
-    profile: Nullable[URLNullable]
+    profile: URL
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
     documentation: URL
@@ -101,7 +101,7 @@ class SubscriptionResponseLinks(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(["mandate", "payments"])
-        nullable_fields = set(["customer", "mandate", "profile", "payments"])
+        nullable_fields = set(["mandate", "payments"])
         serialized = handler(self)
         m = {}
 

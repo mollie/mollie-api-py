@@ -35,7 +35,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.7.2
+  version: 1.8.0
   additionalDependencies:
     dev: {}
     main: {}
@@ -46,6 +46,7 @@ python:
   authors:
     - Speakeasy
   baseErrorName: ClientError
+  bodyVariantOverloads: false
   clientServerStatusCodesAsErrors: true
   constFieldCasing: upper
   defaultErrorName: APIError
@@ -53,6 +54,9 @@ python:
   enableCustomCodeRegions: false
   enumFormat: enum
   envVarPrefix: CLIENT
+  eventStreamClassNames:
+    async: EventStreamAsync
+    sync: EventStream
   fixFlags:
     asyncPaginationSep2025: true
     conflictResistantModelImportsFeb2026: true
@@ -76,14 +80,18 @@ python:
   license: ""
   maxMethodParams: 999
   methodArguments: infer-optional-args
+  methodTimeoutArgument: timeout-ms
+  methodTimeoutUnits: milliseconds
   moduleName: mollie
   multipartArrayFormat: legacy
+  optionalDependencies: {}
   outputModelSuffix: output
   packageManager: poetry
   packageName: mollie-api-py
   preApplyUnionDiscriminators: false
   pytestFilterWarnings: []
   pytestTimeout: 0
+  rawResponseHelpers: false
   responseFormat: flat
   sseFlatResponse: false
   templateVersion: v2
