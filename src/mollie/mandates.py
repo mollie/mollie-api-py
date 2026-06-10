@@ -8,7 +8,7 @@ from mollie._hooks import HookContext
 from mollie.types import OptionalNullable, UNSET
 from mollie.utils import get_security_from_env
 from mollie.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Awaitable, Dict, List, Mapping, Optional, Union
+from typing import Any, Awaitable, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class Mandates(BaseSDK):
@@ -251,7 +251,7 @@ class Mandates(BaseSDK):
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
-        scopes: Optional[List[models.MandateScopes]] = None,
+        scopes: Optional[Iterable[models.MandateScopes]] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -301,7 +301,7 @@ class Mandates(BaseSDK):
             from_=from_,
             limit=limit,
             sort=sort,
-            scopes=scopes,
+            scopes=utils.unmarshal(scopes, Optional[List[models.MandateScopes]]),
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
@@ -414,7 +414,7 @@ class Mandates(BaseSDK):
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
-        scopes: Optional[List[models.MandateScopes]] = None,
+        scopes: Optional[Iterable[models.MandateScopes]] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -464,7 +464,7 @@ class Mandates(BaseSDK):
             from_=from_,
             limit=limit,
             sort=sort,
-            scopes=scopes,
+            scopes=utils.unmarshal(scopes, Optional[List[models.MandateScopes]]),
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
