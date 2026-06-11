@@ -55,36 +55,20 @@ class ListPermissionsEmbedded(BaseModel):
 class ListPermissionsLinksTypedDict(TypedDict):
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
-    self_: NotRequired[URLTypedDict]
+    self_: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    documentation: NotRequired[URLTypedDict]
+    documentation: URLTypedDict
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
 
 class ListPermissionsLinks(BaseModel):
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
-    self_: Annotated[Optional[URL], pydantic.Field(alias="self")] = None
+    self_: Annotated[URL, pydantic.Field(alias="self")]
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
-    documentation: Optional[URL] = None
+    documentation: URL
     r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["self", "documentation"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
 
 
 class ListPermissionsResponseTypedDict(TypedDict):
