@@ -39,9 +39,9 @@ jobs:
       - name: Send Discord notification
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          VERSION: ${{ steps.info.outputs.version }}
+          SUMMARY: ${{ steps.summary.outputs.release_notes }}
         run: |
-          VERSION="${{ steps.info.outputs.version }}"
-          SUMMARY="${{ steps.summary.outputs.release_notes }}"
           curl -sf -X POST "$DISCORD_WEBHOOK_URL" \
             -H "Content-Type: application/json" \
             -d "$(jq -n \
