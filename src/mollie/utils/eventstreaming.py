@@ -8,6 +8,7 @@ from typing import (
     Any,
     Callable,
     Generic,
+    List,
     TypeVar,
     Optional,
     Generator,
@@ -121,6 +122,7 @@ MESSAGE_BOUNDARIES = [
     b"\n\r",
     b"\n\n",
 ]
+MAX_BOUNDARY_LEN = max(len(b) for b in MESSAGE_BOUNDARIES)
 
 UTF8_BOM = b"\xef\xbb\xbf"
 
@@ -138,8 +140,10 @@ async def stream_events_async(
         async for chunk in response.aiter_bytes():
             if len(buffer) == 0 and chunk.startswith(UTF8_BOM):
                 chunk = chunk[len(UTF8_BOM) :]
+            old_len = len(buffer)
             buffer += chunk
-            for i in range(position, len(buffer)):
+            search_start = max(position, old_len - MAX_BOUNDARY_LEN + 1)
+            for i in range(search_start, len(buffer)):
                 char = buffer[i : i + 1]
                 seq: Optional[bytes] = None
                 if char in [b"\r", b"\n"]:
@@ -194,8 +198,10 @@ def stream_events(
         for chunk in response.iter_bytes():
             if len(buffer) == 0 and chunk.startswith(UTF8_BOM):
                 chunk = chunk[len(UTF8_BOM) :]
+            old_len = len(buffer)
             buffer += chunk
-            for i in range(position, len(buffer)):
+            search_start = max(position, old_len - MAX_BOUNDARY_LEN + 1)
+            for i in range(search_start, len(buffer)):
                 char = buffer[i : i + 1]
                 seq: Optional[bytes] = None
                 if char in [b"\r", b"\n"]:
@@ -249,7 +255,7 @@ def _parse_event(
     lines = re.split(r"\r?\n|\r", block)
     publish = False
     event = ServerEvent()
-    data = ""
+    data_parts: List[str] = []
     for line in lines:
         if not line:
             continue
@@ -270,7 +276,7 @@ def _parse_event(
             event.event = value
             publish = True
         elif field == "data":
-            data += value + "\n"
+            data_parts.append(value)
             publish = True
         elif field == "id":
             publish = True
@@ -282,16 +288,17 @@ def _parse_event(
             publish = True
 
     event.id = event_id
+    has_data = bool(data_parts)
+    data = "\n".join(data_parts)
 
-    if sentinel and data == f"{sentinel}\n":
+    if sentinel and has_data and data == sentinel:
         return None, True, event_id
 
     # Skip data-less events when data is required
-    if not data and publish and data_required:
+    if not has_data and publish and data_required:
         return None, False, event_id
 
-    if data:
-        data = data[:-1]
+    if has_data:
         try:
             event.data = json.loads(data)
         except json.JSONDecodeError:
@@ -302,7 +309,7 @@ def _parse_event(
         out_dict = {
             k: v
             for k, v in asdict(event).items()
-            if v is not None or (k == "data" and data)
+            if v is not None or (k == "data" and has_data)
         }
         out = decoder(json.dumps(out_dict))
 
