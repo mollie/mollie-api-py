@@ -822,6 +822,8 @@ class ListSettlementPaymentResponseDetailsTypedDict(TypedDict):
     r"""Multibanco payment reference of the transaction"""
     multibanco_entity: NotRequired[Nullable[str]]
     r"""Multibanco entity reference of the transaction"""
+    bizum_reference: NotRequired[Nullable[str]]
+    r"""Bizum payment reference of the transaction"""
 
 
 class ListSettlementPaymentResponseDetails(BaseModel):
@@ -1109,6 +1111,11 @@ class ListSettlementPaymentResponseDetails(BaseModel):
     ] = UNSET
     r"""Multibanco entity reference of the transaction"""
 
+    bizum_reference: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="bizumReference")
+    ] = UNSET
+    r"""Bizum payment reference of the transaction"""
+
     @field_serializer("card_audition")
     def serialize_card_audition(self, value):
         if isinstance(value, str):
@@ -1237,6 +1244,7 @@ class ListSettlementPaymentResponseDetails(BaseModel):
                 "remainderDetails",
                 "multibancoReference",
                 "multibancoEntity",
+                "bizumReference",
             ]
         )
         nullable_fields = set(
@@ -1279,6 +1287,7 @@ class ListSettlementPaymentResponseDetails(BaseModel):
                 "fileReference",
                 "multibancoReference",
                 "multibancoEntity",
+                "bizumReference",
             ]
         )
         serialized = handler(self)
