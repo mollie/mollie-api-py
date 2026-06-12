@@ -47,6 +47,11 @@ jobs:
             -d "$(jq -n \
               --arg version "$VERSION" \
               --arg summary "$SUMMARY" \
-              --arg url "https://pypi.org/project/mollie-api-py/$VERSION/" '{
-                content: ("<:python:1509111025377738832> Python **v" + $version + "** is out 🎉\n\nA shiny new version just dropped! ✨\nWhat changed? **Great question, glad you asked!**\n\n" + $summary + "\n\nCheck it out [here](" + $url + ")")
+              --arg url "https://github.com/mollie/mollie-api-py/releases/tag/v$VERSION" '{
+                embeds: [{
+                  color: 2326507,
+                  title: ("<:python:1509111025377738832> Python `v" + $version + "` is out 🎉"),
+                  description: ("A shiny new version just dropped! ✨\nWhat changed? **Great question, glad you asked!**\n\n" + $summary + "\n\nCheck it out [here](" + $url + ")"),
+                  url: $url
+                }]
               }')"
