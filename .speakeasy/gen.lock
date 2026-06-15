@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 209a2825519d071096a4f597e8f005b7
+  docChecksum: db15a87ae2baa66de62dfde1a2c094ad
   docVersion: 1.0.0
   speakeasyVersion: 1.778.0
   generationVersion: 2.904.2
-  releaseVersion: 1.8.3
-  configChecksum: 8df8cdf3446c7cfa1bdcf4299d47d2fc
+  releaseVersion: 1.8.4
+  configChecksum: a74acc31e78025ad61290e8d188b198a
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 15dc9023-7c06-4d53-a716-a35dc4528784
-  pristine_commit_hash: 62de85425be694d4234f09f8fdcccab7f5854e91
-  pristine_tree_hash: 67f6ea7330b30a8919f251d163b81a6fa06c3231
+  generation_id: 0b1ef456-e73b-41b9-97bc-01711311e576
+  pristine_commit_hash: 83ae56c4096f40eebfad6b6e3d6d1ce82e2ab01e
+  pristine_tree_hash: 43b68e8a4e13d0660ecd7ae4034596eaf58eb0b3
 features:
   python:
     additionalDependencies: 1.1.0
@@ -3648,8 +3648,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:a59028414ab695d742b7e4d15e57afb8e9e5bbbf
-    pristine_git_object: bb7fc5b827e8cee54a0f944c20590b455e4ae18f
+    last_write_checksum: sha1:22e141e8a42be41253f2990d117982d06dd99c64
+    pristine_git_object: 44d047f0084070444b5e98bf52e43615d3cc3232
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3676,8 +3676,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:bfcad8410900d596afd2b23946c624ca06cf8368
-    pristine_git_object: ca14bcea7db5d593fac53786eae507e9abb6f7c1
+    last_write_checksum: sha1:dd399130c212bdf4e8135f1c81cf6b35a1d77c82
+    pristine_git_object: 5f0cd1993791d935d001a75f8de94ae6782435bd
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:c3bff6f1356f348a834c3982976cef7fa1270603
@@ -8869,10 +8869,3 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `client.settlements.list_refunds()`:  `response._embedded.refunds[].payment_id` **Changed**
-  * `client.refunds.create()`:  `response.payment_id` **Changed**
-  * `client.refunds.list()`:  `response._embedded.refunds[].payment_id` **Changed**
-  * `client.refunds.get()`:  `response.payment_id` **Changed**
-  * `client.refunds.all()`:  `response._embedded.refunds[].payment_id` **Changed**
