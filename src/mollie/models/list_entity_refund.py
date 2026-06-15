@@ -234,6 +234,10 @@ class ListEntityRefundTypedDict(TypedDict):
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
+    payment_id: str
+    r"""The unique identifier of the payment this refund was created for.
+    The full payment object can be retrieved via the payment URL in the `_links` object.
+    """
     status: ListEntityRefundStatus
     created_at: str
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
@@ -248,10 +252,6 @@ class ListEntityRefundTypedDict(TypedDict):
     been determined.
 
     For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
-    payment_id: NotRequired[str]
-    r"""The unique identifier of the payment this refund was created for.
-    The full payment object can be retrieved via the payment URL in the `_links` object.
     """
     settlement_id: NotRequired[Nullable[str]]
     r"""The identifier referring to the settlement this refund was settled with. This field is omitted if the refund is not settled (yet)."""
@@ -293,6 +293,11 @@ class ListEntityRefund(BaseModel):
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
 
+    payment_id: Annotated[str, pydantic.Field(alias="paymentId")]
+    r"""The unique identifier of the payment this refund was created for.
+    The full payment object can be retrieved via the payment URL in the `_links` object.
+    """
+
     status: ListEntityRefundStatus
 
     created_at: Annotated[str, pydantic.Field(alias="createdAt")]
@@ -316,11 +321,6 @@ class ListEntityRefund(BaseModel):
     been determined.
 
     For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
-
-    payment_id: Annotated[Optional[str], pydantic.Field(alias="paymentId")] = None
-    r"""The unique identifier of the payment this refund was created for.
-    The full payment object can be retrieved via the payment URL in the `_links` object.
     """
 
     settlement_id: Annotated[
@@ -370,7 +370,6 @@ class ListEntityRefund(BaseModel):
         optional_fields = set(
             [
                 "settlementAmount",
-                "paymentId",
                 "settlementId",
                 "externalReference",
                 "routingReversals",
