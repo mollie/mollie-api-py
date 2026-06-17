@@ -3,15 +3,59 @@
 
 from __future__ import annotations
 from enum import Enum
-from mollie import models, utils
+from mollie import utils
 from mollie.types import BaseModel
-from pydantic import field_serializer
-from typing_extensions import TypedDict
+from typing import Union
+from typing_extensions import TypeAliasType, TypedDict
 
 
-class Code(str, Enum, metaclass=utils.OpenEnumMeta):
-    r"""A machine-readable code that indicates the reason for the payment's status."""
+class StatusReasonVoucherResponse(str, Enum, metaclass=utils.OpenEnumMeta):
+    SERVICE_FAILED = "service_failed"
+    INVALID_OPERATION = "invalid_operation"
+    AUTHORIZATION_ERROR = "authorization_error"
+    LOGIN_FAILED_WITHOUT_REASON = "login_failed_without_reason"
+    INVALID_RETAILER = "invalid_retailer"
+    REFER_TO_CARD_ISSUER = "refer_to_card_issuer"
+    CARD_DOES_NOT_EXIST = "card_does_not_exist"
+    EXPIRED_CARD = "expired_card"
+    CARD_IS_BLOCKED = "card_is_blocked"
+    INSUFFICIENT_FUNDS = "insufficient_funds"
+    INVALID_CARD_ID = "invalid_card_id"
+    CARD_IS_TRANSFERRED = "card_is_transferred"
+    CARD_IS_NOT_ACTIVE = "card_is_not_active"
+    INCORRECT_PURCHASE_VALUE = "incorrect_purchase_value"
+    CARD_NOT_AVAILABLE = "card_not_available"
+    WRONG_CURRENCY = "wrong_currency"
+    LOGIN_FAILED_UNKNOWN_USER = "login_failed_unknown_user"
+    LOGIN_FAILED_INVALID_PASSWORD = "login_failed_invalid_password"
+    INVALID_PIN = "invalid_pin"
+    INVALID_EAN_CODE = "invalid_ean_code"
 
+
+class StatusReasonTerminalResponse(str, Enum, metaclass=utils.OpenEnumMeta):
+    TERMINAL_BUSY = "terminal_busy"
+    TERMINAL_UNREACHABLE = "terminal_unreachable"
+
+
+class StatusReasonMerchantResponse(str, Enum, metaclass=utils.OpenEnumMeta):
+    MERCHANT_ID_NOT_FOUND = "merchant_id_not_found"
+    MERCHANT_ACCOUNT_CLOSED = "merchant_account_closed"
+    TERMINAL_ID_NOT_FOUND = "terminal_id_not_found"
+    TERMINAL_CLOSED = "terminal_closed"
+    INVALID_CATEGORY_CODE = "invalid_category_code"
+    INVALID_CURRENCY = "invalid_currency"
+    MISSING_CVV2_CVC2 = "missing_cvv2_cvc2"
+    CVV2_NOT_ALLOWED = "cvv2_not_allowed"
+    MERCHANT_NOT_REGISTERED_VBV = "merchant_not_registered_vbv"
+    MERCHANT_NOT_REGISTERED_FOR_AMEX = "merchant_not_registered_for_amex"
+    TRANSACTION_NOT_PERMITTED_AT_TERMINAL = "transaction_not_permitted_at_terminal"
+    AGREEMENT_TERMINAL_NOT_RELATED = "agreement_terminal_not_related"
+    INVALID_PROCESSOR_ID = "invalid_processor_id"
+    INVALID_MERCHANT_DATA = "invalid_merchant_data"
+    SUB_MERCHANT_ACCOUNT_CLOSED = "sub_merchant_account_closed"
+
+
+class StatusReasonCardSchemeResponse(str, Enum, metaclass=utils.OpenEnumMeta):
     APPROVED_OR_COMPLETED_SUCCESSFULLY = "approved_or_completed_successfully"
     REFER_TO_CARD_ISSUER = "refer_to_card_issuer"
     INVALID_MERCHANT = "invalid_merchant"
@@ -109,41 +153,30 @@ class Code(str, Enum, metaclass=utils.OpenEnumMeta):
     ADDITIONAL_CUSTOMER_AUTHENTICATION_REQUIRED = (
         "additional_customer_authentication_required"
     )
-    MERCHANT_ID_NOT_FOUND = "merchant_id_not_found"
-    MERCHANT_ACCOUNT_CLOSED = "merchant_account_closed"
-    TERMINAL_ID_NOT_FOUND = "terminal_id_not_found"
-    TERMINAL_CLOSED = "terminal_closed"
-    INVALID_CATEGORY_CODE = "invalid_category_code"
-    INVALID_CURRENCY = "invalid_currency"
-    MISSING_CVV2_CVC2 = "missing_cvv2_cvc2"
-    CVV2_NOT_ALLOWED = "cvv2_not_allowed"
-    MERCHANT_NOT_REGISTERED_VBV = "merchant_not_registered_vbv"
-    MERCHANT_NOT_REGISTERED_FOR_AMEX = "merchant_not_registered_for_amex"
-    TRANSACTION_NOT_PERMITTED_AT_TERMINAL = "transaction_not_permitted_at_terminal"
-    AGREEMENT_TERMINAL_NOT_RELATED = "agreement_terminal_not_related"
-    INVALID_PROCESSOR_ID = "invalid_processor_id"
-    INVALID_MERCHANT_DATA = "invalid_merchant_data"
-    SUB_MERCHANT_ACCOUNT_CLOSED = "sub_merchant_account_closed"
-    TERMINAL_BUSY = "terminal_busy"
-    TERMINAL_UNREACHABLE = "terminal_unreachable"
-    SERVICE_FAILED = "service_failed"
-    INVALID_OPERATION = "invalid_operation"
-    AUTHORIZATION_ERROR = "authorization_error"
-    LOGIN_FAILED_WITHOUT_REASON = "login_failed_without_reason"
-    INVALID_RETAILER = "invalid_retailer"
-    CARD_DOES_NOT_EXIST = "card_does_not_exist"
-    CARD_IS_BLOCKED = "card_is_blocked"
-    INVALID_CARD_ID = "invalid_card_id"
-    CARD_IS_TRANSFERRED = "card_is_transferred"
-    CARD_IS_NOT_ACTIVE = "card_is_not_active"
-    INCORRECT_PURCHASE_VALUE = "incorrect_purchase_value"
-    CARD_NOT_AVAILABLE = "card_not_available"
-    WRONG_CURRENCY = "wrong_currency"
-    LOGIN_FAILED_UNKNOWN_USER = "login_failed_unknown_user"
-    LOGIN_FAILED_INVALID_PASSWORD = "login_failed_invalid_password"
-    INVALID_EAN_CODE = "invalid_ean_code"
-    CARD_ERROR = "card_error"
-    TERMINAL_CONFIGURATION_ISSUE = "terminal_configuration_issue"
+
+
+CodeTypedDict = TypeAliasType(
+    "CodeTypedDict",
+    Union[
+        StatusReasonCardSchemeResponse,
+        StatusReasonMerchantResponse,
+        StatusReasonTerminalResponse,
+        StatusReasonVoucherResponse,
+    ],
+)
+r"""A machine-readable code that indicates the reason for the payment's status."""
+
+
+Code = TypeAliasType(
+    "Code",
+    Union[
+        StatusReasonCardSchemeResponse,
+        StatusReasonMerchantResponse,
+        StatusReasonTerminalResponse,
+        StatusReasonVoucherResponse,
+    ],
+)
+r"""A machine-readable code that indicates the reason for the payment's status."""
 
 
 class StatusReasonTypedDict(TypedDict):
@@ -154,7 +187,7 @@ class StatusReasonTypedDict(TypedDict):
     [this page](status-reasons).**
     """
 
-    code: Code
+    code: CodeTypedDict
     message: str
     r"""A description of the status reason, localized according to the payment `locale`."""
 
@@ -171,12 +204,3 @@ class StatusReason(BaseModel):
 
     message: str
     r"""A description of the status reason, localized according to the payment `locale`."""
-
-    @field_serializer("code")
-    def serialize_code(self, value):
-        if isinstance(value, str):
-            try:
-                return models.Code(value)
-            except ValueError:
-                return value
-        return value

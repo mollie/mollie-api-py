@@ -35,7 +35,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.8.4
+  version: 1.8.5
   additionalDependencies:
     dev: {}
     main: {}
@@ -54,6 +54,7 @@ python:
   enableCustomCodeRegions: false
   enumFormat: enum
   envVarPrefix: CLIENT
+  errorSchemaValidation: true
   eventStreamClassNames:
     async: EventStreamAsync
     sync: EventStream
