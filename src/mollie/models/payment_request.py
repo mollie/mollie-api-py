@@ -387,9 +387,14 @@ class PaymentRequestApplicationFee(BaseModel):
 
 
 class CompanyTypedDict(TypedDict):
-    r"""Billie is a business-to-business (B2B) payment method. It requires extra information to identify the organization
-    that is completing the payment. It is recommended to include these parameters up front for a seamless flow.
-    Otherwise, Billie will ask the customer to complete the missing fields during checkout.
+    r"""Billie is a business-to-business (B2B) payment method. It requires extra information to identify the
+    organization that is completing the payment. It is recommended to include these parameters up front for a
+    seamless flow. Otherwise, Billie will ask the customer to complete the missing fields during checkout.
+
+    * `billingAddress.organizationName`: The organization's name.
+    * `registrationNumber` _string_: The organization's registration number.
+    * `vatNumber` _string_: The organization's VAT number.
+    * `entityType` _string_: The organization's entity type.
     """
 
     registration_number: NotRequired[str]
@@ -401,9 +406,14 @@ class CompanyTypedDict(TypedDict):
 
 
 class Company(BaseModel):
-    r"""Billie is a business-to-business (B2B) payment method. It requires extra information to identify the organization
-    that is completing the payment. It is recommended to include these parameters up front for a seamless flow.
-    Otherwise, Billie will ask the customer to complete the missing fields during checkout.
+    r"""Billie is a business-to-business (B2B) payment method. It requires extra information to identify the
+    organization that is completing the payment. It is recommended to include these parameters up front for a
+    seamless flow. Otherwise, Billie will ask the customer to complete the missing fields during checkout.
+
+    * `billingAddress.organizationName`: The organization's name.
+    * `registrationNumber` _string_: The organization's registration number.
+    * `vatNumber` _string_: The organization's VAT number.
+    * `entityType` _string_: The organization's entity type.
     """
 
     registration_number: Annotated[
@@ -593,7 +603,18 @@ class PaymentRequestTypedDict(TypedDict):
     required.
     """
     due_date: NotRequired[str]
-    r"""The date by which the payment should be completed in `YYYY-MM-DD` format"""
+    r"""The date the bank transfer payment should expire, in `YYYY-MM-DD` format. The minimum date is tomorrow, and the
+    maximum date is 100 days after tomorrow.
+
+    After you created the payment, you can still update the `dueDate` via [Update payment](update-payment).
+
+    <Callout icon=\"📘\" theme=\"info\">
+    If `dueDate` falls out of business days, it will be set to the **next business day** and the payment will
+    expire at 00:00 (on the following business day).
+    Example: `dueDate` is `2025-12-06` (Saturday) -> `dueDate` will be set for `2025-12-08`, `expiresAt`
+    `2025-12-09 00:00`
+    </Callout>
+    """
     store_credentials: NotRequired[bool]
     r"""Whether the card details should be stored for the customer after a successful payment. This will create a mandate for the customer,
     allowing for future customer present saved-card CIT payments. Requires customerId, cardToken, and the creditcard method to be specified.
@@ -606,57 +627,74 @@ class PaymentRequestTypedDict(TypedDict):
     `testmode` to `true`.
     """
     apple_pay_payment_token: NotRequired[str]
-    r"""The Apple Pay Payment token object (encoded as JSON) that is part of the result of authorizing a payment request.
-    The token contains the payment information needed to authorize the payment.
+    r"""The [Apple Pay Payment](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypayment) token
+    object (encoded as JSON) that is part of the result of authorizing a payment request. The token contains the
+    payment information needed to authorize the payment.
 
-    The object should be passed encoded in a JSON string.
+    The object should be passed encoded in a JSON string. For example:
+    `{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}`
     """
     company: NotRequired[CompanyTypedDict]
-    r"""Billie is a business-to-business (B2B) payment method. It requires extra information to identify the organization
-    that is completing the payment. It is recommended to include these parameters up front for a seamless flow.
-    Otherwise, Billie will ask the customer to complete the missing fields during checkout.
+    r"""Billie is a business-to-business (B2B) payment method. It requires extra information to identify the
+    organization that is completing the payment. It is recommended to include these parameters up front for a
+    seamless flow. Otherwise, Billie will ask the customer to complete the missing fields during checkout.
+
+    * `billingAddress.organizationName`: The organization's name.
+    * `registrationNumber` _string_: The organization's registration number.
+    * `vatNumber` _string_: The organization's VAT number.
+    * `entityType` _string_: The organization's entity type.
     """
     card_token: NotRequired[str]
-    r"""When creating credit card payments using Mollie Components, you need to provide the card token you received from
-    the card component in this field. The token represents the customer's card information needed to complete the
-    payment. Note: field only valid for oneoff and first payments. For recurring payments, the customerId alone is
-    enough.
+    r"""When creating credit card payments using Mollie Components, you need to provide the card token you received
+    from the card component in this field. The token represents the customer's card information needed to complete
+    the payment. **Note:** field only valid for `oneoff` and `first` payments. For recurring payments, the
+    `customerId` alone is enough.
     """
     google_pay_payment_token: NotRequired[str]
-    r"""The Google Pay payment token object (encoded as JSON) returned by the Google Pay SDK after the customer authorizes
-    the payment. The token contains the payment information needed to complete the payment.
+    r"""The Google Pay payment token object (encoded as JSON) returned by the Google Pay SDK after the customer
+    authorizes the payment. The token contains the payment information needed to complete the payment.
 
     The object should be passed encoded in a JSON string.
     """
     voucher_number: NotRequired[str]
-    r"""The card token you received from the card component of Mollie Components. The token represents the customer's card
-    information needed to complete the payment.
+    r"""The card token you received from the card component of Mollie Components. The token represents the customer's
+    card information needed to complete the payment.
     """
     voucher_pin: NotRequired[str]
     r"""The PIN on the gift card. You can supply this to prefill the PIN, if the card has any."""
     consumer_date_of_birth: NotRequired[date]
-    r"""The customer's date of birth. If not provided via the API, iDeal in3 will ask the customer to provide it during
-    the payment process.
+    r"""The customer's date of birth. If not provided via the API, iDeal in3 will ask the customer to provide it
+    during the payment process.
     """
     extra_merchant_data: NotRequired[Dict[str, Any]]
     r"""For some industries, additional purchase information can be sent to Klarna to increase the authorization rate.
     You can submit your extra data in this field if you have agreed upon this with Klarna. This field should be an
-    object containing any of the allowed keys and sub-objects described at the Klarna Developer Documentation.
+    object containing any of the allowed keys and sub-objects described at the
+    <Anchor label=\"Klarna Developer Documentation\" target=\"_blank\" href=\"https://docs.klarna.com/acquirer/mollie/api/extra-merchant-data/\">Klarna Developer Documentation</Anchor>.
+
+    Reach out to your account manager at Mollie to enable this feature with Klarna, and to agree on which fields
+    you can send.
     """
     session_id: NotRequired[str]
     r"""The unique ID you have used for the PayPal fraud library. You should include this if you use PayPal for an
     on-demand payment.
     """
     digital_goods: NotRequired[bool]
-    r"""Indicate if you are about to deliver digital goods, such as for example a software license. Setting this parameter
-    can have consequences for your PayPal Seller Protection. Refer to PayPal's documentation for more information.
+    r"""Indicate if you are about to deliver digital goods, such as for example a software license. Setting this
+    parameter can have consequences for your PayPal Seller Protection. Refer to
+    [PayPal's documentation](https://www.paypal.com/us/webapps/mpp/ua/seller-protection) for more information.
     """
     customer_reference: NotRequired[str]
-    r"""Used by paysafecard for customer identification across payments. When you generate a customer reference yourself,
-    make sure not to put personal identifiable information or IP addresses in the customer reference directly.
+    r"""Used by paysafecard for customer identification across payments. When you generate a customer reference
+    yourself, make sure not to put personal identifiable information or IP addresses in the customer reference
+    directly.
+
+    If not provided, Mollie will use a hashed version of the customer's IP address.
     """
     terminal_id: NotRequired[str]
-    r"""The ID of the terminal device where you want to initiate the payment on."""
+    r"""The ID of the terminal device where you want to initiate the payment on. See also the
+    [Terminals API](ref:terminals-api).
+    """
 
 
 class PaymentRequest(BaseModel):
@@ -860,7 +898,18 @@ class PaymentRequest(BaseModel):
     """
 
     due_date: Annotated[Optional[str], pydantic.Field(alias="dueDate")] = None
-    r"""The date by which the payment should be completed in `YYYY-MM-DD` format"""
+    r"""The date the bank transfer payment should expire, in `YYYY-MM-DD` format. The minimum date is tomorrow, and the
+    maximum date is 100 days after tomorrow.
+
+    After you created the payment, you can still update the `dueDate` via [Update payment](update-payment).
+
+    <Callout icon=\"📘\" theme=\"info\">
+    If `dueDate` falls out of business days, it will be set to the **next business day** and the payment will
+    expire at 00:00 (on the following business day).
+    Example: `dueDate` is `2025-12-06` (Saturday) -> `dueDate` will be set for `2025-12-08`, `expiresAt`
+    `2025-12-09 00:00`
+    </Callout>
+    """
 
     store_credentials: Annotated[
         Optional[bool], pydantic.Field(alias="storeCredentials")
@@ -880,30 +929,37 @@ class PaymentRequest(BaseModel):
     apple_pay_payment_token: Annotated[
         Optional[str], pydantic.Field(alias="applePayPaymentToken")
     ] = None
-    r"""The Apple Pay Payment token object (encoded as JSON) that is part of the result of authorizing a payment request.
-    The token contains the payment information needed to authorize the payment.
+    r"""The [Apple Pay Payment](https://developer.apple.com/documentation/apple_pay_on_the_web/applepaypayment) token
+    object (encoded as JSON) that is part of the result of authorizing a payment request. The token contains the
+    payment information needed to authorize the payment.
 
-    The object should be passed encoded in a JSON string.
+    The object should be passed encoded in a JSON string. For example:
+    `{\"paymentData\": {\"version\": \"EC_v1\", \"data\": \"vK3BbrCbI/....\"}}`
     """
 
     company: Optional[Company] = None
-    r"""Billie is a business-to-business (B2B) payment method. It requires extra information to identify the organization
-    that is completing the payment. It is recommended to include these parameters up front for a seamless flow.
-    Otherwise, Billie will ask the customer to complete the missing fields during checkout.
+    r"""Billie is a business-to-business (B2B) payment method. It requires extra information to identify the
+    organization that is completing the payment. It is recommended to include these parameters up front for a
+    seamless flow. Otherwise, Billie will ask the customer to complete the missing fields during checkout.
+
+    * `billingAddress.organizationName`: The organization's name.
+    * `registrationNumber` _string_: The organization's registration number.
+    * `vatNumber` _string_: The organization's VAT number.
+    * `entityType` _string_: The organization's entity type.
     """
 
     card_token: Annotated[Optional[str], pydantic.Field(alias="cardToken")] = None
-    r"""When creating credit card payments using Mollie Components, you need to provide the card token you received from
-    the card component in this field. The token represents the customer's card information needed to complete the
-    payment. Note: field only valid for oneoff and first payments. For recurring payments, the customerId alone is
-    enough.
+    r"""When creating credit card payments using Mollie Components, you need to provide the card token you received
+    from the card component in this field. The token represents the customer's card information needed to complete
+    the payment. **Note:** field only valid for `oneoff` and `first` payments. For recurring payments, the
+    `customerId` alone is enough.
     """
 
     google_pay_payment_token: Annotated[
         Optional[str], pydantic.Field(alias="googlePayPaymentToken")
     ] = None
-    r"""The Google Pay payment token object (encoded as JSON) returned by the Google Pay SDK after the customer authorizes
-    the payment. The token contains the payment information needed to complete the payment.
+    r"""The Google Pay payment token object (encoded as JSON) returned by the Google Pay SDK after the customer
+    authorizes the payment. The token contains the payment information needed to complete the payment.
 
     The object should be passed encoded in a JSON string.
     """
@@ -911,8 +967,8 @@ class PaymentRequest(BaseModel):
     voucher_number: Annotated[Optional[str], pydantic.Field(alias="voucherNumber")] = (
         None
     )
-    r"""The card token you received from the card component of Mollie Components. The token represents the customer's card
-    information needed to complete the payment.
+    r"""The card token you received from the card component of Mollie Components. The token represents the customer's
+    card information needed to complete the payment.
     """
 
     voucher_pin: Annotated[Optional[str], pydantic.Field(alias="voucherPin")] = None
@@ -921,8 +977,8 @@ class PaymentRequest(BaseModel):
     consumer_date_of_birth: Annotated[
         Optional[date], pydantic.Field(alias="consumerDateOfBirth")
     ] = None
-    r"""The customer's date of birth. If not provided via the API, iDeal in3 will ask the customer to provide it during
-    the payment process.
+    r"""The customer's date of birth. If not provided via the API, iDeal in3 will ask the customer to provide it
+    during the payment process.
     """
 
     extra_merchant_data: Annotated[
@@ -930,7 +986,11 @@ class PaymentRequest(BaseModel):
     ] = None
     r"""For some industries, additional purchase information can be sent to Klarna to increase the authorization rate.
     You can submit your extra data in this field if you have agreed upon this with Klarna. This field should be an
-    object containing any of the allowed keys and sub-objects described at the Klarna Developer Documentation.
+    object containing any of the allowed keys and sub-objects described at the
+    <Anchor label=\"Klarna Developer Documentation\" target=\"_blank\" href=\"https://docs.klarna.com/acquirer/mollie/api/extra-merchant-data/\">Klarna Developer Documentation</Anchor>.
+
+    Reach out to your account manager at Mollie to enable this feature with Klarna, and to agree on which fields
+    you can send.
     """
 
     session_id: Annotated[Optional[str], pydantic.Field(alias="sessionId")] = None
@@ -941,19 +1001,25 @@ class PaymentRequest(BaseModel):
     digital_goods: Annotated[Optional[bool], pydantic.Field(alias="digitalGoods")] = (
         None
     )
-    r"""Indicate if you are about to deliver digital goods, such as for example a software license. Setting this parameter
-    can have consequences for your PayPal Seller Protection. Refer to PayPal's documentation for more information.
+    r"""Indicate if you are about to deliver digital goods, such as for example a software license. Setting this
+    parameter can have consequences for your PayPal Seller Protection. Refer to
+    [PayPal's documentation](https://www.paypal.com/us/webapps/mpp/ua/seller-protection) for more information.
     """
 
     customer_reference: Annotated[
         Optional[str], pydantic.Field(alias="customerReference")
     ] = None
-    r"""Used by paysafecard for customer identification across payments. When you generate a customer reference yourself,
-    make sure not to put personal identifiable information or IP addresses in the customer reference directly.
+    r"""Used by paysafecard for customer identification across payments. When you generate a customer reference
+    yourself, make sure not to put personal identifiable information or IP addresses in the customer reference
+    directly.
+
+    If not provided, Mollie will use a hashed version of the customer's IP address.
     """
 
     terminal_id: Annotated[Optional[str], pydantic.Field(alias="terminalId")] = None
-    r"""The ID of the terminal device where you want to initiate the payment on."""
+    r"""The ID of the terminal device where you want to initiate the payment on. See also the
+    [Terminals API](ref:terminals-api).
+    """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

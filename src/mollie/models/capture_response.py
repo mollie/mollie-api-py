@@ -13,42 +13,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 import pydantic
 from pydantic import field_serializer, model_serializer
 from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict, deprecated
-
-
-@deprecated(
-    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-)
-class CaptureResponseSettlementAmountTypedDict(TypedDict):
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount that will be settled to your account for this capture, converted to the currency your account is
-    settled in. Only available once the capture is finalized and the final settlement amount has been determined.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
-@deprecated(
-    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-)
-class CaptureResponseSettlementAmount(BaseModel):
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount that will be settled to your account for this capture, converted to the currency your account is
-    settled in. Only available once the capture is finalized and the final settlement amount has been determined.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class CaptureResponseStatus(str, Enum, metaclass=utils.OpenEnumMeta):
@@ -138,13 +103,6 @@ class CaptureResponseTypedDict(TypedDict):
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
     description: NotRequired[str]
     r"""The description of the capture."""
-    settlement_amount: NotRequired[Nullable[CaptureResponseSettlementAmountTypedDict]]
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount that will be settled to your account for this capture, converted to the currency your account is
-    settled in. Only available once the capture is finalized and the final settlement amount has been determined.
-    """
     metadata: NotRequired[Nullable[MetadataTypedDict]]
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
@@ -188,20 +146,6 @@ class CaptureResponse(BaseModel):
     description: Optional[str] = None
     r"""The description of the capture."""
 
-    settlement_amount: Annotated[
-        OptionalNullable[CaptureResponseSettlementAmount],
-        pydantic.Field(
-            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
-            alias="settlementAmount",
-        ),
-    ] = UNSET
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount that will be settled to your account for this capture, converted to the currency your account is
-    settled in. Only available once the capture is finalized and the final settlement amount has been determined.
-    """
-
     metadata: OptionalNullable[Metadata] = UNSET
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
@@ -241,18 +185,8 @@ class CaptureResponse(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(
-            [
-                "description",
-                "settlementAmount",
-                "metadata",
-                "shipmentId",
-                "settlementId",
-            ]
-        )
-        nullable_fields = set(
-            ["amount", "settlementAmount", "metadata", "shipmentId", "settlementId"]
-        )
+        optional_fields = set(["description", "metadata", "shipmentId", "settlementId"])
+        nullable_fields = set(["amount", "metadata", "shipmentId", "settlementId"])
         serialized = handler(self)
         m = {}
 

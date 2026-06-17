@@ -14,29 +14,6 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class ListSettlementChargebackResponseSettlementAmountTypedDict(TypedDict):
-    r"""The amount deducted from your account balance for this chargeback, converted to the currency your account is
-    settled in. Always a **negative** amount.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
-class ListSettlementChargebackResponseSettlementAmount(BaseModel):
-    r"""The amount deducted from your account balance for this chargeback, converted to the currency your account is
-    settled in. Always a **negative** amount.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
 class ListSettlementChargebackResponseReasonTypedDict(TypedDict):
     r"""Reason for the chargeback as given by the bank. Only available for chargebacks of SEPA Direct Debit payments."""
 
@@ -105,6 +82,29 @@ class ListSettlementChargebackResponseLinks(BaseModel):
         return m
 
 
+class ListSettlementChargebackResponseSettlementAmountTypedDict(TypedDict):
+    r"""The amount deducted from your account balance for this chargeback, converted to the currency your account is
+    settled in. Always a **negative** amount.
+    """
+
+    currency: str
+    r"""A three-character ISO 4217 currency code."""
+    value: str
+    r"""A string containing an exact monetary amount in the given currency."""
+
+
+class ListSettlementChargebackResponseSettlementAmount(BaseModel):
+    r"""The amount deducted from your account balance for this chargeback, converted to the currency your account is
+    settled in. Always a **negative** amount.
+    """
+
+    currency: str
+    r"""A three-character ISO 4217 currency code."""
+
+    value: str
+    r"""A string containing an exact monetary amount in the given currency."""
+
+
 class ListSettlementChargebackResponseTypedDict(TypedDict):
     resource: str
     r"""Indicates the response contains a chargeback object. Will always contain the string `chargeback` for this
@@ -122,12 +122,6 @@ class ListSettlementChargebackResponseTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: ListSettlementChargebackResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-    settlement_amount: NotRequired[
-        Nullable[ListSettlementChargebackResponseSettlementAmountTypedDict]
-    ]
-    r"""The amount deducted from your account balance for this chargeback, converted to the currency your account is
-    settled in. Always a **negative** amount.
-    """
     reason: NotRequired[Nullable[ListSettlementChargebackResponseReasonTypedDict]]
     r"""Reason for the chargeback as given by the bank. Only available for chargebacks of SEPA Direct Debit payments."""
     settlement_id: NotRequired[Nullable[str]]
@@ -140,6 +134,12 @@ class ListSettlementChargebackResponseTypedDict(TypedDict):
     """
     mode: NotRequired[SettlementMode]
     r"""Whether this entity was created in live mode or in test mode. Settlements are always in live mode."""
+    settlement_amount: NotRequired[
+        Nullable[ListSettlementChargebackResponseSettlementAmountTypedDict]
+    ]
+    r"""The amount deducted from your account balance for this chargeback, converted to the currency your account is
+    settled in. Always a **negative** amount.
+    """
 
 
 class ListSettlementChargebackResponse(BaseModel):
@@ -167,14 +167,6 @@ class ListSettlementChargebackResponse(BaseModel):
     ]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
-    settlement_amount: Annotated[
-        OptionalNullable[ListSettlementChargebackResponseSettlementAmount],
-        pydantic.Field(alias="settlementAmount"),
-    ] = UNSET
-    r"""The amount deducted from your account balance for this chargeback, converted to the currency your account is
-    settled in. Always a **negative** amount.
-    """
-
     reason: OptionalNullable[ListSettlementChargebackResponseReason] = UNSET
     r"""Reason for the chargeback as given by the bank. Only available for chargebacks of SEPA Direct Debit payments."""
 
@@ -195,6 +187,14 @@ class ListSettlementChargebackResponse(BaseModel):
     mode: Optional[SettlementMode] = None
     r"""Whether this entity was created in live mode or in test mode. Settlements are always in live mode."""
 
+    settlement_amount: Annotated[
+        OptionalNullable[ListSettlementChargebackResponseSettlementAmount],
+        pydantic.Field(alias="settlementAmount"),
+    ] = UNSET
+    r"""The amount deducted from your account balance for this chargeback, converted to the currency your account is
+    settled in. Always a **negative** amount.
+    """
+
     @field_serializer("mode")
     def serialize_mode(self, value):
         if isinstance(value, str):
@@ -207,10 +207,10 @@ class ListSettlementChargebackResponse(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["settlementAmount", "reason", "settlementId", "reversedAt", "mode"]
+            ["reason", "settlementId", "reversedAt", "mode", "settlementAmount"]
         )
         nullable_fields = set(
-            ["settlementAmount", "reason", "settlementId", "reversedAt"]
+            ["reason", "settlementId", "reversedAt", "settlementAmount"]
         )
         serialized = handler(self)
         m = {}

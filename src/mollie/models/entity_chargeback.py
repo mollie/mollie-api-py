@@ -8,44 +8,7 @@ from .url_nullable import URLNullable, URLNullableTypedDict
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
-from typing_extensions import Annotated, NotRequired, TypedDict, deprecated
-
-
-@deprecated(
-    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-)
-class EntityChargebackSettlementAmountTypedDict(TypedDict):
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount deducted from your account balance for this chargeback, converted to the currency your account is
-    settled in. Always a **negative** amount. Only available once the chargeback is finalized and the final settlement
-    amount has been determined.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
-@deprecated(
-    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-)
-class EntityChargebackSettlementAmount(BaseModel):
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount deducted from your account balance for this chargeback, converted to the currency your account is
-    settled in. Always a **negative** amount. Only available once the chargeback is finalized and the final settlement
-    amount has been determined.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class EntityChargebackReasonTypedDict(TypedDict):
@@ -138,14 +101,6 @@ class EntityChargebackTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: EntityChargebackLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-    settlement_amount: NotRequired[Nullable[EntityChargebackSettlementAmountTypedDict]]
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount deducted from your account balance for this chargeback, converted to the currency your account is
-    settled in. Always a **negative** amount. Only available once the chargeback is finalized and the final settlement
-    amount has been determined.
-    """
     reason: NotRequired[Nullable[EntityChargebackReasonTypedDict]]
     r"""Reason for the chargeback as given by the bank. Only available for chargebacks of SEPA Direct Debit payments."""
     settlement_id: NotRequired[Nullable[str]]
@@ -181,21 +136,6 @@ class EntityChargeback(BaseModel):
     links: Annotated[EntityChargebackLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
-    settlement_amount: Annotated[
-        OptionalNullable[EntityChargebackSettlementAmount],
-        pydantic.Field(
-            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
-            alias="settlementAmount",
-        ),
-    ] = UNSET
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount deducted from your account balance for this chargeback, converted to the currency your account is
-    settled in. Always a **negative** amount. Only available once the chargeback is finalized and the final settlement
-    amount has been determined.
-    """
-
     reason: OptionalNullable[EntityChargebackReason] = UNSET
     r"""Reason for the chargeback as given by the bank. Only available for chargebacks of SEPA Direct Debit payments."""
 
@@ -215,12 +155,8 @@ class EntityChargeback(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(
-            ["settlementAmount", "reason", "settlementId", "reversedAt"]
-        )
-        nullable_fields = set(
-            ["settlementAmount", "reason", "settlementId", "reversedAt"]
-        )
+        optional_fields = set(["reason", "settlementId", "reversedAt"])
+        nullable_fields = set(["reason", "settlementId", "reversedAt"])
         serialized = handler(self)
         m = {}
 

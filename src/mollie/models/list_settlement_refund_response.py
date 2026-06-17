@@ -17,33 +17,6 @@ from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class ListSettlementRefundResponseSettlementAmountTypedDict(TypedDict):
-    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
-    settled in. Always a **negative** amount.
-
-    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
-class ListSettlementRefundResponseSettlementAmount(BaseModel):
-    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
-    settled in. Always a **negative** amount.
-
-    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
 class ListSettlementRefundResponseExternalReferenceTypedDict(TypedDict):
     type: NotRequired[RefundExternalReferenceTypeResponse]
     r"""Specifies the reference type"""
@@ -194,6 +167,33 @@ class ListSettlementRefundResponseLinks(BaseModel):
         return m
 
 
+class ListSettlementRefundResponseSettlementAmountTypedDict(TypedDict):
+    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
+    settled in. Always a **negative** amount.
+
+    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
+    """
+
+    currency: str
+    r"""A three-character ISO 4217 currency code."""
+    value: str
+    r"""A string containing an exact monetary amount in the given currency."""
+
+
+class ListSettlementRefundResponseSettlementAmount(BaseModel):
+    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
+    settled in. Always a **negative** amount.
+
+    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
+    """
+
+    currency: str
+    r"""A three-character ISO 4217 currency code."""
+
+    value: str
+    r"""A string containing an exact monetary amount in the given currency."""
+
+
 class ListSettlementRefundResponseTypedDict(TypedDict):
     resource: str
     r"""Indicates the response contains a refund object. Will always contain the string `refund` for this endpoint."""
@@ -221,14 +221,6 @@ class ListSettlementRefundResponseTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: ListSettlementRefundResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-    settlement_amount: NotRequired[
-        Nullable[ListSettlementRefundResponseSettlementAmountTypedDict]
-    ]
-    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
-    settled in. Always a **negative** amount.
-
-    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
     settlement_id: NotRequired[Nullable[str]]
     r"""The identifier referring to the settlement this refund was settled with. This field is omitted if the refund is not settled (yet)."""
     external_reference: NotRequired[
@@ -245,6 +237,14 @@ class ListSettlementRefundResponseTypedDict(TypedDict):
     needs to be reversed from which merchant(s).
 
     If you simply want to fully reverse the routed funds, you can also use the `reverseRouting` parameter instead.
+    """
+    settlement_amount: NotRequired[
+        Nullable[ListSettlementRefundResponseSettlementAmountTypedDict]
+    ]
+    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
+    settled in. Always a **negative** amount.
+
+    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
     """
 
 
@@ -285,16 +285,6 @@ class ListSettlementRefundResponse(BaseModel):
     links: Annotated[ListSettlementRefundResponseLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
-    settlement_amount: Annotated[
-        OptionalNullable[ListSettlementRefundResponseSettlementAmount],
-        pydantic.Field(alias="settlementAmount"),
-    ] = UNSET
-    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
-    settled in. Always a **negative** amount.
-
-    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
-
     settlement_id: Annotated[
         OptionalNullable[str], pydantic.Field(alias="settlementId")
     ] = UNSET
@@ -319,6 +309,16 @@ class ListSettlementRefundResponse(BaseModel):
     If you simply want to fully reverse the routed funds, you can also use the `reverseRouting` parameter instead.
     """
 
+    settlement_amount: Annotated[
+        OptionalNullable[ListSettlementRefundResponseSettlementAmount],
+        pydantic.Field(alias="settlementAmount"),
+    ] = UNSET
+    r"""The amount deducted from your account balance for this refund, converted to the currency your account is
+    settled in. Always a **negative** amount.
+
+    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
+    """
+
     @field_serializer("mode")
     def serialize_mode(self, value):
         if isinstance(value, str):
@@ -341,14 +341,14 @@ class ListSettlementRefundResponse(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
-                "settlementAmount",
                 "settlementId",
                 "externalReference",
                 "routingReversals",
+                "settlementAmount",
             ]
         )
         nullable_fields = set(
-            ["settlementAmount", "metadata", "settlementId", "routingReversals"]
+            ["metadata", "settlementId", "routingReversals", "settlementAmount"]
         )
         serialized = handler(self)
         m = {}

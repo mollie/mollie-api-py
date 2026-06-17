@@ -14,48 +14,7 @@ from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SEN
 import pydantic
 from pydantic import field_serializer, model_serializer
 from typing import List, Optional
-from typing_extensions import Annotated, NotRequired, TypedDict, deprecated
-
-
-@deprecated(
-    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-)
-class EntityRefundResponseSettlementAmountTypedDict(TypedDict):
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount deducted from your account balance for this refund, converted to the currency your account is settled
-    in. Always a **negative** amount. Only available once the refund is finalized and the final settlement amount has
-    been determined.
-
-    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
-@deprecated(
-    "warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible."
-)
-class EntityRefundResponseSettlementAmount(BaseModel):
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount deducted from your account balance for this refund, converted to the currency your account is settled
-    in. Always a **negative** amount. Only available once the refund is finalized and the final settlement amount has
-    been determined.
-
-    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class EntityRefundResponseStatus(str, Enum, metaclass=utils.OpenEnumMeta):
@@ -248,18 +207,6 @@ class EntityRefundResponseTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: EntityRefundResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-    settlement_amount: NotRequired[
-        Nullable[EntityRefundResponseSettlementAmountTypedDict]
-    ]
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount deducted from your account balance for this refund, converted to the currency your account is settled
-    in. Always a **negative** amount. Only available once the refund is finalized and the final settlement amount has
-    been determined.
-
-    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
     settlement_id: NotRequired[Nullable[str]]
     r"""The identifier referring to the settlement this refund was settled with. This field is omitted if the refund is not settled (yet)."""
     external_reference: NotRequired[EntityRefundResponseExternalReferenceTypedDict]
@@ -313,23 +260,6 @@ class EntityRefundResponse(BaseModel):
     links: Annotated[EntityRefundResponseLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
-    settlement_amount: Annotated[
-        OptionalNullable[EntityRefundResponseSettlementAmount],
-        pydantic.Field(
-            deprecated="warning: ** DEPRECATED ** - This will be removed in a future release, please migrate away from it as soon as possible.",
-            alias="settlementAmount",
-        ),
-    ] = UNSET
-    r"""**Deprecated.** This field will be removed on January 1st, 2027. Use the [Settlements API](list-settlements) or
-    the [List balance transactions endpoint](list-balance-transactions) for settlement data.
-
-    The amount deducted from your account balance for this refund, converted to the currency your account is settled
-    in. Always a **negative** amount. Only available once the refund is finalized and the final settlement amount has
-    been determined.
-
-    For refunds not directly processed by Mollie (e.g. PayPal), the settlement amount is zero.
-    """
-
     settlement_id: Annotated[
         OptionalNullable[str], pydantic.Field(alias="settlementId")
     ] = UNSET
@@ -374,17 +304,8 @@ class EntityRefundResponse(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(
-            [
-                "settlementAmount",
-                "settlementId",
-                "externalReference",
-                "routingReversals",
-            ]
-        )
-        nullable_fields = set(
-            ["settlementAmount", "metadata", "settlementId", "routingReversals"]
-        )
+        optional_fields = set(["settlementId", "externalReference", "routingReversals"])
+        nullable_fields = set(["metadata", "settlementId", "routingReversals"])
         serialized = handler(self)
         m = {}
 

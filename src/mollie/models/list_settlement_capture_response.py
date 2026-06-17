@@ -16,25 +16,6 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class ListSettlementCaptureResponseSettlementAmountTypedDict(TypedDict):
-    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
-class ListSettlementCaptureResponseSettlementAmount(BaseModel):
-    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
-
-    currency: str
-    r"""A three-character ISO 4217 currency code."""
-
-    value: str
-    r"""A string containing an exact monetary amount in the given currency."""
-
-
 class ListSettlementCaptureResponseLinksTypedDict(TypedDict):
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
@@ -89,6 +70,25 @@ class ListSettlementCaptureResponseLinks(BaseModel):
         return m
 
 
+class ListSettlementCaptureResponseSettlementAmountTypedDict(TypedDict):
+    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
+
+    currency: str
+    r"""A three-character ISO 4217 currency code."""
+    value: str
+    r"""A string containing an exact monetary amount in the given currency."""
+
+
+class ListSettlementCaptureResponseSettlementAmount(BaseModel):
+    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
+
+    currency: str
+    r"""A three-character ISO 4217 currency code."""
+
+    value: str
+    r"""A string containing an exact monetary amount in the given currency."""
+
+
 class ListSettlementCaptureResponseTypedDict(TypedDict):
     resource: str
     r"""Indicates the response contains a capture object. Will always contain the string `capture` for this endpoint."""
@@ -110,10 +110,6 @@ class ListSettlementCaptureResponseTypedDict(TypedDict):
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
     description: NotRequired[str]
     r"""The description of the capture."""
-    settlement_amount: NotRequired[
-        Nullable[ListSettlementCaptureResponseSettlementAmountTypedDict]
-    ]
-    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
     metadata: NotRequired[Nullable[MetadataTypedDict]]
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
@@ -126,6 +122,10 @@ class ListSettlementCaptureResponseTypedDict(TypedDict):
     r"""The identifier referring to the settlement this capture was settled with. For example, `stl_BkEjN2eBb`. This field
     is omitted if the capture is not settled (yet).
     """
+    settlement_amount: NotRequired[
+        Nullable[ListSettlementCaptureResponseSettlementAmountTypedDict]
+    ]
+    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
 
 
 class ListSettlementCaptureResponse(BaseModel):
@@ -158,12 +158,6 @@ class ListSettlementCaptureResponse(BaseModel):
     description: Optional[str] = None
     r"""The description of the capture."""
 
-    settlement_amount: Annotated[
-        OptionalNullable[ListSettlementCaptureResponseSettlementAmount],
-        pydantic.Field(alias="settlementAmount"),
-    ] = UNSET
-    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
-
     metadata: OptionalNullable[Metadata] = UNSET
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
@@ -182,6 +176,12 @@ class ListSettlementCaptureResponse(BaseModel):
     r"""The identifier referring to the settlement this capture was settled with. For example, `stl_BkEjN2eBb`. This field
     is omitted if the capture is not settled (yet).
     """
+
+    settlement_amount: Annotated[
+        OptionalNullable[ListSettlementCaptureResponseSettlementAmount],
+        pydantic.Field(alias="settlementAmount"),
+    ] = UNSET
+    r"""The amount settled to your account for this capture, converted to the currency your account is settled in."""
 
     @field_serializer("mode")
     def serialize_mode(self, value):
@@ -206,14 +206,14 @@ class ListSettlementCaptureResponse(BaseModel):
         optional_fields = set(
             [
                 "description",
-                "settlementAmount",
                 "metadata",
                 "shipmentId",
                 "settlementId",
+                "settlementAmount",
             ]
         )
         nullable_fields = set(
-            ["amount", "settlementAmount", "metadata", "shipmentId", "settlementId"]
+            ["amount", "metadata", "shipmentId", "settlementId", "settlementAmount"]
         )
         serialized = handler(self)
         m = {}
