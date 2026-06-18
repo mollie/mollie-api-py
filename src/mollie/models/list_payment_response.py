@@ -667,18 +667,9 @@ class ListPaymentResponseTypedDict(TypedDict):
     links: ListPaymentResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
     amount_refunded: NotRequired[ListPaymentResponseAmountRefundedTypedDict]
-    r"""The total amount that is already refunded. Only available when refunds are available for this payment. For some
-    payment methods, this amount may be higher than the payment amount, for example to allow reimbursement of the
-    costs for a return shipment to the customer.
-    """
     amount_remaining: NotRequired[ListPaymentResponseAmountRemainingTypedDict]
-    r"""The remaining amount that can be refunded. Only available when refunds are available for this payment."""
     amount_captured: NotRequired[ListPaymentResponseAmountCapturedTypedDict]
-    r"""The total amount that is already captured for this payment. Only available when this payment supports captures."""
     amount_charged_back: NotRequired[ListPaymentResponseAmountChargedBackTypedDict]
-    r"""The total amount that was charged back for this payment. Only available when the total charged back amount is not
-    zero.
-    """
     redirect_url: NotRequired[Nullable[str]]
     r"""The URL your customer will be redirected to after the payment process.
 
@@ -911,30 +902,21 @@ class ListPaymentResponse(BaseModel):
         Optional[ListPaymentResponseAmountRefunded],
         pydantic.Field(alias="amountRefunded"),
     ] = None
-    r"""The total amount that is already refunded. Only available when refunds are available for this payment. For some
-    payment methods, this amount may be higher than the payment amount, for example to allow reimbursement of the
-    costs for a return shipment to the customer.
-    """
 
     amount_remaining: Annotated[
         Optional[ListPaymentResponseAmountRemaining],
         pydantic.Field(alias="amountRemaining"),
     ] = None
-    r"""The remaining amount that can be refunded. Only available when refunds are available for this payment."""
 
     amount_captured: Annotated[
         Optional[ListPaymentResponseAmountCaptured],
         pydantic.Field(alias="amountCaptured"),
     ] = None
-    r"""The total amount that is already captured for this payment. Only available when this payment supports captures."""
 
     amount_charged_back: Annotated[
         Optional[ListPaymentResponseAmountChargedBack],
         pydantic.Field(alias="amountChargedBack"),
     ] = None
-    r"""The total amount that was charged back for this payment. Only available when the total charged back amount is not
-    zero.
-    """
 
     redirect_url: Annotated[
         OptionalNullable[str], pydantic.Field(alias="redirectUrl")

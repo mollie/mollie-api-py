@@ -235,19 +235,11 @@ class EntityBalanceTypedDict(TypedDict):
     r"""The description or name of the balance. Can be used to denote the purpose of the balance."""
     status: EntityBalanceStatus
     available_amount: EntityBalanceAvailableAmountTypedDict
-    r"""The amount directly available on the balance, e.g. `{\"currency\":\"EUR\", \"value\":\"100.00\"}`."""
     pending_amount: EntityBalancePendingAmountTypedDict
-    r"""The total amount that is queued to be transferred to your balance. For example, a credit card payment can take a
-    few days to clear.
-    """
     links: EntityBalanceLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
     transfer_frequency: NotRequired[EntityBalanceTransferFrequency]
     transfer_threshold: NotRequired[EntityBalanceTransferThresholdTypedDict]
-    r"""The minimum amount configured for scheduled automatic settlements. As soon as the amount on the balance exceeds
-    this threshold, the complete balance will be paid out to the transfer destination according to the configured
-    frequency.
-    """
     transfer_reference: NotRequired[Nullable[str]]
     r"""The transfer reference set to be included in all the transfers for this balance."""
     transfer_destination: NotRequired[
@@ -282,14 +274,10 @@ class EntityBalance(BaseModel):
     available_amount: Annotated[
         EntityBalanceAvailableAmount, pydantic.Field(alias="availableAmount")
     ]
-    r"""The amount directly available on the balance, e.g. `{\"currency\":\"EUR\", \"value\":\"100.00\"}`."""
 
     pending_amount: Annotated[
         EntityBalancePendingAmount, pydantic.Field(alias="pendingAmount")
     ]
-    r"""The total amount that is queued to be transferred to your balance. For example, a credit card payment can take a
-    few days to clear.
-    """
 
     links: Annotated[EntityBalanceLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
@@ -303,10 +291,6 @@ class EntityBalance(BaseModel):
         Optional[EntityBalanceTransferThreshold],
         pydantic.Field(alias="transferThreshold"),
     ] = None
-    r"""The minimum amount configured for scheduled automatic settlements. As soon as the amount on the balance exceeds
-    this threshold, the complete balance will be paid out to the transfer destination according to the configured
-    frequency.
-    """
 
     transfer_reference: Annotated[
         OptionalNullable[str], pydantic.Field(alias="transferReference")

@@ -262,17 +262,12 @@ class ListSalesInvoiceResponseTypedDict(TypedDict):
     the recipient is also located in one of these countries.
     """
     amount_due: NotRequired[ListSalesInvoiceResponseAmountDueTypedDict]
-    r"""The amount that is left to be paid."""
     subtotal_amount: NotRequired[ListSalesInvoiceResponseSubtotalAmountTypedDict]
-    r"""The total amount without VAT before discounts."""
     total_amount: NotRequired[ListSalesInvoiceResponseTotalAmountTypedDict]
-    r"""The total amount with VAT."""
     total_vat_amount: NotRequired[ListSalesInvoiceResponseTotalVatAmountTypedDict]
-    r"""The total VAT amount."""
     discounted_subtotal_amount: NotRequired[
         ListSalesInvoiceResponseDiscountedSubtotalAmountTypedDict
     ]
-    r"""The total amount without VAT after discounts."""
     created_at: NotRequired[str]
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     issued_at: NotRequired[Nullable[str]]
@@ -410,31 +405,26 @@ class ListSalesInvoiceResponse(BaseModel):
     amount_due: Annotated[
         Optional[ListSalesInvoiceResponseAmountDue], pydantic.Field(alias="amountDue")
     ] = None
-    r"""The amount that is left to be paid."""
 
     subtotal_amount: Annotated[
         Optional[ListSalesInvoiceResponseSubtotalAmount],
         pydantic.Field(alias="subtotalAmount"),
     ] = None
-    r"""The total amount without VAT before discounts."""
 
     total_amount: Annotated[
         Optional[ListSalesInvoiceResponseTotalAmount],
         pydantic.Field(alias="totalAmount"),
     ] = None
-    r"""The total amount with VAT."""
 
     total_vat_amount: Annotated[
         Optional[ListSalesInvoiceResponseTotalVatAmount],
         pydantic.Field(alias="totalVatAmount"),
     ] = None
-    r"""The total VAT amount."""
 
     discounted_subtotal_amount: Annotated[
         Optional[ListSalesInvoiceResponseDiscountedSubtotalAmount],
         pydantic.Field(alias="discountedSubtotalAmount"),
     ] = None
-    r"""The total amount without VAT after discounts."""
 
     created_at: Annotated[Optional[str], pydantic.Field(alias="createdAt")] = None
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
