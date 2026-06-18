@@ -324,7 +324,6 @@ class ListEntitySettlementTypedDict(TypedDict):
     r"""The identifier uniquely referring to this settlement."""
     status: ListEntitySettlementStatus
     amount: ListEntitySettlementAmountTypedDict
-    r"""The total amount of the settlement."""
     balance_id: str
     r"""The balance token that the settlement was settled to."""
     links: ListEntitySettlementLinksTypedDict
@@ -367,7 +366,6 @@ class ListEntitySettlement(BaseModel):
     status: ListEntitySettlementStatus
 
     amount: ListEntitySettlementAmount
-    r"""The total amount of the settlement."""
 
     balance_id: Annotated[str, pydantic.Field(alias="balanceId")]
     r"""The balance token that the settlement was settled to."""

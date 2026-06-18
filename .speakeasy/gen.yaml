@@ -35,7 +35,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.8.5
+  version: 1.8.6
   additionalDependencies:
     dev: {}
     main: {}
@@ -95,6 +95,7 @@ python:
   pytestTimeout: 0
   rawResponseHelpers: false
   responseFormat: flat
+  responseSchemaValidation: true
   sseFlatResponse: false
   templateVersion: v2
   useAsyncHooks: false

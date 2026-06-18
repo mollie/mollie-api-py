@@ -230,19 +230,11 @@ class ListEntityBalanceTypedDict(TypedDict):
     r"""The description or name of the balance. Can be used to denote the purpose of the balance."""
     status: ListEntityBalanceStatus
     available_amount: ListEntityBalanceAvailableAmountTypedDict
-    r"""The amount directly available on the balance, e.g. `{\"currency\":\"EUR\", \"value\":\"100.00\"}`."""
     pending_amount: ListEntityBalancePendingAmountTypedDict
-    r"""The total amount that is queued to be transferred to your balance. For example, a credit card payment can take a
-    few days to clear.
-    """
     links: ListEntityBalanceLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
     transfer_frequency: NotRequired[ListEntityBalanceTransferFrequency]
     transfer_threshold: NotRequired[ListEntityBalanceTransferThresholdTypedDict]
-    r"""The minimum amount configured for scheduled automatic settlements. As soon as the amount on the balance exceeds
-    this threshold, the complete balance will be paid out to the transfer destination according to the configured
-    frequency.
-    """
     transfer_reference: NotRequired[Nullable[str]]
     r"""The transfer reference set to be included in all the transfers for this balance."""
     transfer_destination: NotRequired[
@@ -277,14 +269,10 @@ class ListEntityBalance(BaseModel):
     available_amount: Annotated[
         ListEntityBalanceAvailableAmount, pydantic.Field(alias="availableAmount")
     ]
-    r"""The amount directly available on the balance, e.g. `{\"currency\":\"EUR\", \"value\":\"100.00\"}`."""
 
     pending_amount: Annotated[
         ListEntityBalancePendingAmount, pydantic.Field(alias="pendingAmount")
     ]
-    r"""The total amount that is queued to be transferred to your balance. For example, a credit card payment can take a
-    few days to clear.
-    """
 
     links: Annotated[ListEntityBalanceLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
@@ -298,10 +286,6 @@ class ListEntityBalance(BaseModel):
         Optional[ListEntityBalanceTransferThreshold],
         pydantic.Field(alias="transferThreshold"),
     ] = None
-    r"""The minimum amount configured for scheduled automatic settlements. As soon as the amount on the balance exceeds
-    this threshold, the complete balance will be paid out to the transfer destination according to the configured
-    frequency.
-    """
 
     transfer_reference: Annotated[
         OptionalNullable[str], pydantic.Field(alias="transferReference")

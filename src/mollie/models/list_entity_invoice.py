@@ -161,14 +161,8 @@ class ListEntityInvoiceTypedDict(TypedDict):
     r"""The VAT number to which the invoice was issued to, if applicable."""
     status: ListEntityInvoiceStatus
     net_amount: ListEntityInvoiceNetAmountTypedDict
-    r"""Total amount of the invoice, excluding VAT."""
     vat_amount: ListEntityInvoiceVatAmountTypedDict
-    r"""VAT amount of the invoice. Only applicable to merchants registered in the Netherlands. For EU merchants, VAT will
-    be shifted to the recipient (as per article 44 and 196 in the EU VAT Directive 2006/112). For merchants outside
-    the EU, no VAT will be charged.
-    """
     gross_amount: ListEntityInvoiceGrossAmountTypedDict
-    r"""Total amount of the invoice, including VAT."""
     lines: List[ListEntityInvoiceLineTypedDict]
     r"""The collection of products which make up the invoice."""
     issued_at: str
@@ -198,18 +192,12 @@ class ListEntityInvoice(BaseModel):
     status: ListEntityInvoiceStatus
 
     net_amount: Annotated[ListEntityInvoiceNetAmount, pydantic.Field(alias="netAmount")]
-    r"""Total amount of the invoice, excluding VAT."""
 
     vat_amount: Annotated[ListEntityInvoiceVatAmount, pydantic.Field(alias="vatAmount")]
-    r"""VAT amount of the invoice. Only applicable to merchants registered in the Netherlands. For EU merchants, VAT will
-    be shifted to the recipient (as per article 44 and 196 in the EU VAT Directive 2006/112). For merchants outside
-    the EU, no VAT will be charged.
-    """
 
     gross_amount: Annotated[
         ListEntityInvoiceGrossAmount, pydantic.Field(alias="grossAmount")
     ]
-    r"""Total amount of the invoice, including VAT."""
 
     lines: List[ListEntityInvoiceLine]
     r"""The collection of products which make up the invoice."""

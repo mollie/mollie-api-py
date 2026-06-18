@@ -238,7 +238,6 @@ class ListEntityMethodTypedDict(TypedDict):
     If a `locale` parameter is provided, the name is translated to the given locale if possible.
     """
     minimum_amount: ListEntityMethodMinimumAmountTypedDict
-    r"""The minimum payment amount required to use this payment method."""
     maximum_amount: Nullable[ListEntityMethodMaximumAmountTypedDict]
     r"""The maximum payment amount allowed when using this payment method. If there is no method-specific maximum, `null`
     is returned instead.
@@ -275,7 +274,6 @@ class ListEntityMethod(BaseModel):
     minimum_amount: Annotated[
         ListEntityMethodMinimumAmount, pydantic.Field(alias="minimumAmount")
     ]
-    r"""The minimum payment amount required to use this payment method."""
 
     maximum_amount: Annotated[
         Nullable[ListEntityMethodMaximumAmount], pydantic.Field(alias="maximumAmount")
