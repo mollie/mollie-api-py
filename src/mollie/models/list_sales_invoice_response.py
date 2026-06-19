@@ -7,6 +7,7 @@ from .sales_invoice_discount_response import (
     SalesInvoiceDiscountResponse,
     SalesInvoiceDiscountResponseTypedDict,
 )
+from .sales_invoice_e_invoice_status import SalesInvoiceEInvoiceStatus
 from .sales_invoice_email_details import (
     SalesInvoiceEmailDetails,
     SalesInvoiceEmailDetailsTypedDict,
@@ -213,6 +214,8 @@ class ListSalesInvoiceResponseTypedDict(TypedDict):
     - `customerId` and `mandateId` are required if a recurring payment should be used to set the invoice to `paid`
     - `emailDetails` optional for `issued` and `paid` to send the invoice by email
     """
+    e_invoice_status: NotRequired[SalesInvoiceEInvoiceStatus]
+    r"""The e-invoice submission status for the invoice, if it was configured to be an e-invoice."""
     vat_scheme: NotRequired[SalesInvoiceVatSchemeResponse]
     r"""The VAT scheme to create the invoice for. You must be enrolled with One Stop Shop enabled to use it."""
     vat_mode: NotRequired[SalesInvoiceVatModeResponse]
@@ -325,6 +328,11 @@ class ListSalesInvoiceResponse(BaseModel):
     - `customerId` and `mandateId` are required if a recurring payment should be used to set the invoice to `paid`
     - `emailDetails` optional for `issued` and `paid` to send the invoice by email
     """
+
+    e_invoice_status: Annotated[
+        Optional[SalesInvoiceEInvoiceStatus], pydantic.Field(alias="eInvoiceStatus")
+    ] = None
+    r"""The e-invoice submission status for the invoice, if it was configured to be an e-invoice."""
 
     vat_scheme: Annotated[
         Optional[SalesInvoiceVatSchemeResponse], pydantic.Field(alias="vatScheme")
@@ -469,6 +477,15 @@ class ListSalesInvoiceResponse(BaseModel):
                 return value
         return value
 
+    @field_serializer("e_invoice_status")
+    def serialize_e_invoice_status(self, value):
+        if isinstance(value, str):
+            try:
+                return models.SalesInvoiceEInvoiceStatus(value)
+            except ValueError:
+                return value
+        return value
+
     @field_serializer("vat_scheme")
     def serialize_vat_scheme(self, value):
         if isinstance(value, str):
@@ -503,6 +520,7 @@ class ListSalesInvoiceResponse(BaseModel):
                 "invoiceNumber",
                 "profileId",
                 "status",
+                "eInvoiceStatus",
                 "vatScheme",
                 "vatMode",
                 "memo",

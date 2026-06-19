@@ -1652,6 +1652,7 @@ if TYPE_CHECKING:
     )
     from .sales_invoice_discount_type import SalesInvoiceDiscountType
     from .sales_invoice_discount_type_response import SalesInvoiceDiscountTypeResponse
+    from .sales_invoice_e_invoice_status import SalesInvoiceEInvoiceStatus
     from .sales_invoice_email_details import (
         SalesInvoiceEmailDetails,
         SalesInvoiceEmailDetailsTypedDict,
@@ -3262,6 +3263,7 @@ __all__ = [
     "SalesInvoiceDiscountType",
     "SalesInvoiceDiscountTypeResponse",
     "SalesInvoiceDiscountTypedDict",
+    "SalesInvoiceEInvoiceStatus",
     "SalesInvoiceEmailDetails",
     "SalesInvoiceEmailDetailsTypedDict",
     "SalesInvoiceLineItem",
@@ -4820,6 +4822,7 @@ _dynamic_imports: dict[str, str] = {
     "SalesInvoiceDiscountResponseTypedDict": ".sales_invoice_discount_response",
     "SalesInvoiceDiscountType": ".sales_invoice_discount_type",
     "SalesInvoiceDiscountTypeResponse": ".sales_invoice_discount_type_response",
+    "SalesInvoiceEInvoiceStatus": ".sales_invoice_e_invoice_status",
     "SalesInvoiceEmailDetails": ".sales_invoice_email_details",
     "SalesInvoiceEmailDetailsTypedDict": ".sales_invoice_email_details",
     "SalesInvoiceLineItem": ".sales_invoice_line_item",
