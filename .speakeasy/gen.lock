@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: b0753ee21ada70995c85d206c2bcaf06
+  docChecksum: 4aa9ead5f71f139d745557290350f31e
   docVersion: 1.0.0
   speakeasyVersion: 1.784.0
   generationVersion: 2.911.0
-  releaseVersion: 1.8.7
-  configChecksum: 488d10e9d9e26af625d0b03c511a0ea5
+  releaseVersion: 1.8.8
+  configChecksum: 7c3a1554d90c40cbc0ca101a683b741c
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 17d2c39b-656d-46df-b758-eefb115f6f3d
-  pristine_commit_hash: 80a643ab08c293f86325a3eacf51f4d44dcf6ed5
-  pristine_tree_hash: 182587a165b1e79c14dab277fd2fe2d62a01607a
+  generation_id: 7f18f257-59d3-42ac-9af9-57ad21280416
+  pristine_commit_hash: 91ba3de528accbeab13a55bd1772d6b19eb4ea03
+  pristine_tree_hash: 3e86b43407e526d51d23735b554d53e68d40a30c
 features:
   python:
     additionalDependencies: 1.1.0
@@ -848,8 +848,8 @@ trackedFiles:
     pristine_git_object: b5789efb871223eea993e7a681280a93c1614805
   docs/models/entitywebhookeventwebhookeventtypes.md:
     id: 197b04a2a12d
-    last_write_checksum: sha1:92bcf1118cd841f8cbeace0336ec03853b8a9f4a
-    pristine_git_object: 018187dde7a3eac2e8fcfad8a58d5910ed31e827
+    last_write_checksum: sha1:1b19d6ff19521d4bfa0255a5410d462b77f6a794
+    pristine_git_object: 2e5862283837dfbc2f15d454024e9aadde870aca
   docs/models/entitywebhooklinks.md:
     id: 604767b2d528
     last_write_checksum: sha1:0965d49ee2486504f0feb948f50c12937f22441f
@@ -3460,8 +3460,8 @@ trackedFiles:
     pristine_git_object: aa2262ef131088dbb78630fa424f14d6193c6aa3
   docs/models/webhookeventtypes.md:
     id: 9f3a891e62d0
-    last_write_checksum: sha1:496f39a85e44173eca81ac29673497287d8080d8
-    pristine_git_object: 07dfcb92f3a2ff3837c05301497e9b6ef0010cb2
+    last_write_checksum: sha1:8fd7844ae831288c1f3b82717c1bb22472e288c0
+    pristine_git_object: 18e72a4d962724274af6474af858899363c9b1e1
   docs/models/webhookstatus.md:
     id: 68d3b89180be
     last_write_checksum: sha1:478687729a43a1a03d7825fe298e43cb6b4ecdd4
@@ -3612,8 +3612,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:619ed4fb5fd2ac8cd960e5ab893f8dac0daae549
-    pristine_git_object: 58ace51799ad7c3173fea8ab41cc1a89d367c3ee
+    last_write_checksum: sha1:d9d78bec94f38b558586c8ef9107049ba1fdb77c
+    pristine_git_object: 9cb388b24abbffde5bce88db50b1ee3db4c47b71
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3640,8 +3640,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:548ec13309feae3f6e3aab21fb189b836ce09c97
-    pristine_git_object: 4d7ba6e781709bcf40dc03c3a04ce50e874e5348
+    last_write_checksum: sha1:30917dcd824e9a88e8c6eaa8a84a8fc0599b1587
+    pristine_git_object: 2d9aef6783ed8d8d5953f14a83654ec097056ac4
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:c3bff6f1356f348a834c3982976cef7fa1270603
@@ -4088,8 +4088,8 @@ trackedFiles:
     pristine_git_object: 9d3f1e1dd25375df0e6966544e9479f64f41e92c
   src/mollie/models/entity_webhook_event.py:
     id: 2db7196b42ba
-    last_write_checksum: sha1:7f17cf9a512d6c2860e2693a87d7c97b5481578a
-    pristine_git_object: 3139ddfc639f2784ad678526acc14da011157845
+    last_write_checksum: sha1:01d06d6b45d25defd4a4e092268d2e22c38b109a
+    pristine_git_object: 13d977119d28d00bca47bbc7612fbcdc8fd73d94
   src/mollie/models/error_response.py:
     id: db6489b710b3
     last_write_checksum: sha1:9a442cfe8e30760f983793aa1fc784d3e2c1481e
@@ -5124,8 +5124,8 @@ trackedFiles:
     pristine_git_object: feaed75dec6a947debb8301bfa21c1674dfb269c
   src/mollie/models/webhook_event_types.py:
     id: 2e00ccde906c
-    last_write_checksum: sha1:3a1958b35a90d08e655cf22b3a80279f486fccba
-    pristine_git_object: 1b98c061c74ecc3637329cb018558b38511e3849
+    last_write_checksum: sha1:1b263dbcc9fdd71136e9a3a4c5b5980117515433
+    pristine_git_object: 3213676bcca1967879c4776d13726f69880a2ab9
   src/mollie/models/webhook_status.py:
     id: 450da8431c7d
     last_write_checksum: sha1:3cb36590dc4b85d46178604969915de95b868f73
@@ -8841,10 +8841,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `client.webhook_events.get()`:  `response._embedded.entity.union(sales-invoice-response).e_invoice_status` **Added**
-  * `client.sales_invoices.create()`:  `response.e_invoice_status` **Added**
-  * `client.sales_invoices.list()`:  `response._embedded.sales_invoices[].e_invoice_status` **Added**
-  * `client.sales_invoices.get()`:  `response.e_invoice_status` **Added**
-  * `client.sales_invoices.update()`:  `response.e_invoice_status` **Added**
+releaseNotes: "## Python SDK Changes:\n* `client.webhooks.create()`: \n  *  `request_body.event_types.union(Array<webhook-event-types>)[]` **Changed**\n  *  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.list()`: \n  *  `request.event_types` **Changed**\n  *  `response._embedded.webhooks[].event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.update()`: \n  *  `request_body.event_types.union(Array<webhook-event-types>)[]` **Changed**\n  *  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.get()`:  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhook_events.get()`:  `response.webhook_event_types` **Changed**\n"
