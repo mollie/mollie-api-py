@@ -1431,6 +1431,7 @@ if TYPE_CHECKING:
     from .metadata import Metadata, MetadataTypedDict
     from .method_enum import MethodEnum
     from .method_include_wallets_parameter import MethodIncludeWalletsParameter
+    from .method_request import MethodRequest, MethodRequestTypedDict
     from .method_resource_parameter import MethodResourceParameter
     from .method_response import MethodResponse
     from .method_status import MethodStatus
@@ -3047,6 +3048,8 @@ __all__ = [
     "Method",
     "MethodEnum",
     "MethodIncludeWalletsParameter",
+    "MethodRequest",
+    "MethodRequestTypedDict",
     "MethodResourceParameter",
     "MethodResponse",
     "MethodStatus",
@@ -4651,6 +4654,8 @@ _dynamic_imports: dict[str, str] = {
     "MetadataTypedDict": ".metadata",
     "MethodEnum": ".method_enum",
     "MethodIncludeWalletsParameter": ".method_include_wallets_parameter",
+    "MethodRequest": ".method_request",
+    "MethodRequestTypedDict": ".method_request",
     "MethodResourceParameter": ".method_resource_parameter",
     "MethodResponse": ".method_response",
     "MethodStatus": ".method_status",

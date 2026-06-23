@@ -324,9 +324,25 @@ class PaymentRequestBillingAddress(BaseModel):
 MethodTypedDict = TypeAliasType(
     "MethodTypedDict", Union[MethodEnum, List[Nullable[MethodEnum]]]
 )
+r"""Normally, a payment method screen is shown. However, when using this parameter, you can choose a specific
+payment method and your customer will skip the selection screen and is sent directly to the chosen payment
+method. The parameter enables you to fully integrate the payment method selection into your website.
+
+You can also specify the methods in an array. By doing so we will still show the payment method selection
+screen but will only show the methods specified in the array. For example, you can use this functionality
+to only show payment methods from a specific country to your customer `['bancontact', 'belfius']`.
+"""
 
 
 Method = TypeAliasType("Method", Union[MethodEnum, List[Nullable[MethodEnum]]])
+r"""Normally, a payment method screen is shown. However, when using this parameter, you can choose a specific
+payment method and your customer will skip the selection screen and is sent directly to the chosen payment
+method. The parameter enables you to fully integrate the payment method selection into your website.
+
+You can also specify the methods in an array. By doing so we will still show the payment method selection
+screen but will only show the methods specified in the array. For example, you can use this functionality
+to only show payment methods from a specific country to your customer `['bancontact', 'belfius']`.
+"""
 
 
 class PaymentRequestApplicationFeeTypedDict(TypedDict):
@@ -505,6 +521,14 @@ class PaymentRequestTypedDict(TypedDict):
     locale: NotRequired[Nullable[Locale]]
     r"""Sets the language for customer-facing content and communications."""
     method: NotRequired[Nullable[MethodTypedDict]]
+    r"""Normally, a payment method screen is shown. However, when using this parameter, you can choose a specific
+    payment method and your customer will skip the selection screen and is sent directly to the chosen payment
+    method. The parameter enables you to fully integrate the payment method selection into your website.
+
+    You can also specify the methods in an array. By doing so we will still show the payment method selection
+    screen but will only show the methods specified in the array. For example, you can use this functionality
+    to only show payment methods from a specific country to your customer `['bancontact', 'belfius']`.
+    """
     issuer: NotRequired[Nullable[str]]
     r"""**Only relevant for iDEAL, KBC/CBC, gift card, and voucher payments.**
 
@@ -775,6 +799,14 @@ class PaymentRequest(BaseModel):
     r"""Sets the language for customer-facing content and communications."""
 
     method: OptionalNullable[Method] = UNSET
+    r"""Normally, a payment method screen is shown. However, when using this parameter, you can choose a specific
+    payment method and your customer will skip the selection screen and is sent directly to the chosen payment
+    method. The parameter enables you to fully integrate the payment method selection into your website.
+
+    You can also specify the methods in an array. By doing so we will still show the payment method selection
+    screen but will only show the methods specified in the array. For example, you can use this functionality
+    to only show payment methods from a specific country to your customer `['bancontact', 'belfius']`.
+    """
 
     issuer: OptionalNullable[str] = UNSET
     r"""**Only relevant for iDEAL, KBC/CBC, gift card, and voucher payments.**
