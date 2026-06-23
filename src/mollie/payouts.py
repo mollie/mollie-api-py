@@ -61,7 +61,7 @@ class Payouts(BaseSDK):
         - One of the organization's balances is below the negative balance threshold.
         - The payout destination (bank account) is invalid or not configured.
 
-        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+        If set, this operation will use either `api_key` or `advanced_access_token` from the global security.
 
         :param payout_request:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -104,7 +104,7 @@ class Payouts(BaseSDK):
                 request.payout_request, False, False, "json", models.PayoutRequest
             ),
             allow_empty_value=None,
-            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            allowed_fields=["api_key", "advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -199,7 +199,7 @@ class Payouts(BaseSDK):
         - One of the organization's balances is below the negative balance threshold.
         - The payout destination (bank account) is invalid or not configured.
 
-        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+        If set, this operation will use either `api_key` or `advanced_access_token` from the global security.
 
         :param payout_request:
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
@@ -242,7 +242,7 @@ class Payouts(BaseSDK):
                 request.payout_request, False, False, "json", models.PayoutRequest
             ),
             allow_empty_value=None,
-            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            allowed_fields=["api_key", "advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -313,7 +313,7 @@ class Payouts(BaseSDK):
         The results are paginated. Use the `from` query parameter together with `_links.next` to iterate through
         the full result set.
 
-        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+        If set, this operation will use either `api_key` or `advanced_access_token` from the global security.
 
         :param balance_id: Return only payouts for the balance with the given ID. The value must be a valid balance
             token in the format `bal_*`.
@@ -370,7 +370,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            allowed_fields=["api_key", "advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -475,7 +475,7 @@ class Payouts(BaseSDK):
         The results are paginated. Use the `from` query parameter together with `_links.next` to iterate through
         the full result set.
 
-        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+        If set, this operation will use either `api_key` or `advanced_access_token` from the global security.
 
         :param balance_id: Return only payouts for the balance with the given ID. The value must be a valid balance
             token in the format `bal_*`.
@@ -532,7 +532,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            allowed_fields=["api_key", "advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -630,7 +630,7 @@ class Payouts(BaseSDK):
 
         Retrieve a single payout by its ID.
 
-        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+        If set, this operation will use either `api_key` or `advanced_access_token` from the global security.
 
         :param payout_id: Provide the ID of the payout.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -677,7 +677,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            allowed_fields=["api_key", "advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -738,7 +738,7 @@ class Payouts(BaseSDK):
 
         Retrieve a single payout by its ID.
 
-        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+        If set, this operation will use either `api_key` or `advanced_access_token` from the global security.
 
         :param payout_id: Provide the ID of the payout.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -785,7 +785,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            allowed_fields=["api_key", "advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -849,7 +849,7 @@ class Payouts(BaseSDK):
 
         The canceled payout object is returned with the status set to `canceled`.
 
-        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+        If set, this operation will use either `api_key` or `advanced_access_token` from the global security.
 
         :param payout_id: Provide the ID of the payout.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -896,7 +896,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            allowed_fields=["api_key", "advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
@@ -962,7 +962,7 @@ class Payouts(BaseSDK):
 
         The canceled payout object is returned with the status set to `canceled`.
 
-        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+        If set, this operation will use either `api_key` or `advanced_access_token` from the global security.
 
         :param payout_id: Provide the ID of the payout.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
@@ -1009,7 +1009,7 @@ class Payouts(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
-            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            allowed_fields=["api_key", "advanced_access_token"],
             timeout_ms=timeout_ms,
         )
 
