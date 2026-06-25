@@ -3,7 +3,9 @@
 
 from __future__ import annotations
 from .entity_payout_response import EntityPayoutResponse, EntityPayoutResponseTypedDict
+from .entity_refund_response import EntityRefundResponse, EntityRefundResponseTypedDict
 from .payment_link_response import PaymentLinkResponse, PaymentLinkResponseTypedDict
+from .payment_response import PaymentResponse, PaymentResponseTypedDict
 from .sales_invoice_response import SalesInvoiceResponse, SalesInvoiceResponseTypedDict
 from .transfer_response import TransferResponse, TransferResponseTypedDict
 from .url import URL, URLTypedDict
@@ -21,6 +23,18 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
     that require explicit selection.
     """
 
+    PAYMENT_PAID = "payment.paid"
+    PAYMENT_AUTHORIZED = "payment.authorized"
+    PAYMENT_FAILED = "payment.failed"
+    PAYMENT_CANCELED = "payment.canceled"
+    PAYMENT_EXPIRED = "payment.expired"
+    PAYMENT_PENDING = "payment.pending"
+    REFUND_QUEUED = "refund.queued"
+    REFUND_PENDING = "refund.pending"
+    REFUND_PROCESSING = "refund.processing"
+    REFUND_REFUNDED = "refund.refunded"
+    REFUND_FAILED = "refund.failed"
+    REFUND_CANCELED = "refund.canceled"
     PAYMENT_LINK_PAID = "payment-link.paid"
     BALANCE_TRANSACTION_CREATED = "balance-transaction.created"
     PAYOUT_INITIATED = "payout.initiated"
@@ -49,10 +63,12 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
 EntityTypedDict = TypeAliasType(
     "EntityTypedDict",
     Union[
+        EntityRefundResponseTypedDict,
         EntityPayoutResponseTypedDict,
         TransferResponseTypedDict,
         PaymentLinkResponseTypedDict,
         SalesInvoiceResponseTypedDict,
+        PaymentResponseTypedDict,
     ],
 )
 
@@ -60,10 +76,12 @@ EntityTypedDict = TypeAliasType(
 Entity = TypeAliasType(
     "Entity",
     Union[
+        EntityRefundResponse,
         EntityPayoutResponse,
         TransferResponse,
         PaymentLinkResponse,
         SalesInvoiceResponse,
+        PaymentResponse,
     ],
 )
 
