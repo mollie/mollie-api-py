@@ -8,7 +8,7 @@ that require explicit selection.
 ```python
 from mollie.models import EntityWebhookEventWebhookEventTypes
 
-value = EntityWebhookEventWebhookEventTypes.PAYMENT_LINK_PAID
+value = EntityWebhookEventWebhookEventTypes.PAYMENT_PAID
 
 # Open enum: unrecognized values are captured as UnrecognizedStr
 ```
@@ -18,6 +18,18 @@ value = EntityWebhookEventWebhookEventTypes.PAYMENT_LINK_PAID
 
 | Name                                       | Value                                      |
 | ------------------------------------------ | ------------------------------------------ |
+| `PAYMENT_PAID`                             | payment.paid                               |
+| `PAYMENT_AUTHORIZED`                       | payment.authorized                         |
+| `PAYMENT_FAILED`                           | payment.failed                             |
+| `PAYMENT_CANCELED`                         | payment.canceled                           |
+| `PAYMENT_EXPIRED`                          | payment.expired                            |
+| `PAYMENT_PENDING`                          | payment.pending                            |
+| `REFUND_QUEUED`                            | refund.queued                              |
+| `REFUND_PENDING`                           | refund.pending                             |
+| `REFUND_PROCESSING`                        | refund.processing                          |
+| `REFUND_REFUNDED`                          | refund.refunded                            |
+| `REFUND_FAILED`                            | refund.failed                              |
+| `REFUND_CANCELED`                          | refund.canceled                            |
 | `PAYMENT_LINK_PAID`                        | payment-link.paid                          |
 | `BALANCE_TRANSACTION_CREATED`              | balance-transaction.created                |
 | `PAYOUT_INITIATED`                         | payout.initiated                           |

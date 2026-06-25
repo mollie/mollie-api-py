@@ -3,6 +3,18 @@
 
 ## Supported Types
 
+### `models.PaymentResponse`
+
+```python
+value: models.PaymentResponse = /* values here */
+```
+
+### `models.EntityRefundResponse`
+
+```python
+value: models.EntityRefundResponse = /* values here */
+```
+
 ### `models.PaymentLinkResponse`
 
 ```python

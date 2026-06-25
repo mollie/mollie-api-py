@@ -1,24 +1,24 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 03616e6e659f670948346e92727e88ea
+  docChecksum: 881fddcc4175df3513c14383a24c21b9
   docVersion: 1.0.0
-  speakeasyVersion: 1.784.1
-  generationVersion: 2.911.3
-  releaseVersion: 1.8.9
-  configChecksum: 72281ed1d4d28f71f28072c1db2e674b
+  speakeasyVersion: 1.785.0
+  generationVersion: 2.912.1
+  releaseVersion: 1.8.10
+  configChecksum: 87bc6ca8fbe56e9430ae1410027a9353
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: c03d636e-407c-4a4f-9e7f-4b7e1798f12c
-  pristine_commit_hash: d2e7a13cfce2ef08e8ae302bbb433a701f3d6f29
-  pristine_tree_hash: ad531531ea726a2a5d8ebe81ce0e5495977d96f0
+  generation_id: f761be35-c6b8-4cca-98a7-4f15df85591b
+  pristine_commit_hash: 171f321ad2e8a4e9f82d2bf59881e55cfa78b5dc
+  pristine_tree_hash: fd305a29c4ba5c4f88a5b24a5bd5e13cc073bc7b
 features:
   python:
     additionalDependencies: 1.1.0
     configurableModuleName: 0.2.0
-    core: 6.0.30
+    core: 6.0.31
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -480,8 +480,8 @@ trackedFiles:
     pristine_git_object: 44011a960e853da351b0b0bc70626fc5576127da
   docs/models/entity.md:
     id: 903c73579a5c
-    last_write_checksum: sha1:254345f755807c27fefe543b292b2ec31c281ff3
-    pristine_git_object: 3829280883f4a13acf8bf593a242ab2dc839d821
+    last_write_checksum: sha1:9d22e1c2cb3d5336281c1426f358c5f685578312
+    pristine_git_object: 6049fb0239a04ddb557fe7c83ca3878f9bd581e5
   docs/models/entitybalance.md:
     id: aa9b25037f5a
     last_write_checksum: sha1:c3961942149e135de00a4ad4965647e357df814a
@@ -848,8 +848,8 @@ trackedFiles:
     pristine_git_object: b5789efb871223eea993e7a681280a93c1614805
   docs/models/entitywebhookeventwebhookeventtypes.md:
     id: 197b04a2a12d
-    last_write_checksum: sha1:1b19d6ff19521d4bfa0255a5410d462b77f6a794
-    pristine_git_object: 2e5862283837dfbc2f15d454024e9aadde870aca
+    last_write_checksum: sha1:f879bd2d5f74622f59c51eff64a9fe325e8c8921
+    pristine_git_object: dba57ad03b60b44315faeaf78bc0da0b8e5f80f9
   docs/models/entitywebhooklinks.md:
     id: 604767b2d528
     last_write_checksum: sha1:0965d49ee2486504f0feb948f50c12937f22441f
@@ -3464,8 +3464,8 @@ trackedFiles:
     pristine_git_object: aa2262ef131088dbb78630fa424f14d6193c6aa3
   docs/models/webhookeventtypes.md:
     id: 9f3a891e62d0
-    last_write_checksum: sha1:8fd7844ae831288c1f3b82717c1bb22472e288c0
-    pristine_git_object: 18e72a4d962724274af6474af858899363c9b1e1
+    last_write_checksum: sha1:c413c4a2801363e3c44546f5ed3cf7b90f84ee2f
+    pristine_git_object: 81850faedd7535b56d88c0652a44201d4288700d
   docs/models/webhookstatus.md:
     id: 68d3b89180be
     last_write_checksum: sha1:478687729a43a1a03d7825fe298e43cb6b4ecdd4
@@ -3616,8 +3616,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:2e08be41ecfdd9ed6ea8524db929052d1222306a
-    pristine_git_object: f94b3f988801bb864193b9715130d0425f5a7fae
+    last_write_checksum: sha1:aafd66792d481f68e8d714a731c53e6344d9ae36
+    pristine_git_object: 5ead401431ba9eb6790d50aa0dbe21bcf1033a4a
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3644,8 +3644,8 @@ trackedFiles:
     pristine_git_object: f2ef22903efdc18b4c764a8110a9eb219ebe508d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:a9366b8df1a7f9303b9ed958c727867f3ca32f57
-    pristine_git_object: 1bc7c47d95216570c373656ef30bdb729c5f77c2
+    last_write_checksum: sha1:2f9ca92a84077682ee01e4acf95a529bcc677eb3
+    pristine_git_object: d7bcf1de0360700b9f44fcca3de36b01287e3607
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:c3bff6f1356f348a834c3982976cef7fa1270603
@@ -4092,8 +4092,8 @@ trackedFiles:
     pristine_git_object: 9d3f1e1dd25375df0e6966544e9479f64f41e92c
   src/mollie/models/entity_webhook_event.py:
     id: 2db7196b42ba
-    last_write_checksum: sha1:01d06d6b45d25defd4a4e092268d2e22c38b109a
-    pristine_git_object: 13d977119d28d00bca47bbc7612fbcdc8fd73d94
+    last_write_checksum: sha1:548ac37da412a85d3ca03ee50a1786090a8b37cd
+    pristine_git_object: c649204dbe0c7edc00f650229e0621f8e8390a67
   src/mollie/models/error_response.py:
     id: db6489b710b3
     last_write_checksum: sha1:9a442cfe8e30760f983793aa1fc784d3e2c1481e
@@ -5132,8 +5132,8 @@ trackedFiles:
     pristine_git_object: feaed75dec6a947debb8301bfa21c1674dfb269c
   src/mollie/models/webhook_event_types.py:
     id: 2e00ccde906c
-    last_write_checksum: sha1:1b263dbcc9fdd71136e9a3a4c5b5980117515433
-    pristine_git_object: 3213676bcca1967879c4776d13726f69880a2ab9
+    last_write_checksum: sha1:fce7871d8fd2e1a2127149d18eb8552fec450626
+    pristine_git_object: 8c85003fce42fcb425535ca30c99c1d8259f8702
   src/mollie/models/webhook_status.py:
     id: 450da8431c7d
     last_write_checksum: sha1:3cb36590dc4b85d46178604969915de95b868f73
@@ -8849,4 +8849,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.payments.update()`: \n  *  `request_body.method` **Changed** (Breaking ⚠️)\n"
+releaseNotes: "## Python SDK Changes:\n* `client.webhooks.create()`: \n  *  `request_body.event_types.union(Array<webhook-event-types>)[]` **Changed**\n  *  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.list()`: \n  *  `request.event_types` **Changed**\n  *  `response._embedded.webhooks[].event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.update()`: \n  *  `request_body.event_types.union(Array<webhook-event-types>)[]` **Changed**\n  *  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhooks.get()`:  `response.event_types[]` **Changed** (Breaking ⚠️)\n* `client.webhook_events.get()`:  `response` **Changed** (Breaking ⚠️)\n"
