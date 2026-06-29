@@ -138,6 +138,33 @@ class TransfersSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -i -X POST \\\nhttps://api.mollie.com/v2/business-accounts/transfers \\\n-H \'Authorization: Bearer <YOUR_TOKEN_HERE>\' \\\n-H \'Content-Type: application/json\' \\\n-H \'Idempotency-Key: 12345678-abcd\' \\\n-H \'X-Client-Signature: string\' \\\n-H \'X-Client-Signed-At: 2025-01-01T12:00:00Z\' \\\n  -d \'{\n      "transferScheme": {\n        "type": "sepa-credit-inst"\n      },\n      "amount": {\n        "currency": "EUR",\n        "value": "10.00"\n      },\n      "debtorIban": "NL55MLLE0123456789",\n      "creditor": {\n        "fullName": "Jan Jansen",\n        "account": {\n          "iban": "NL02ABNA0123456789"\n        }\n      },\n      "description": "Invoice 12345",\n      "metadata": {\n        "order_id": "12345",\n        "customer_reference": "cust_001"\n      }\n    }\'',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$transfer = $mollie->businessAccountTransfers->create([\n    "transferScheme" => [\n        "type" => "sepa-credit-inst"\n    ],\n    "amount" => [\n        "currency" => "EUR",\n        "value" => "10.00",\n    ],\n    "debtorIban" => "NL55MLLE0123456789",\n    "creditor" => [\n        "fullName" => "Jan Jansen",\n        "account" => [\n            "iban" => "NL02ABNA0123456789",\n        ],\n    ],\n    "description" => "Invoice 12345",\n    "metadata" => [\n        "order_id" => "12345",\n        "customer_reference" => "cust_001",\n    ],\n]);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.create({\n  transferScheme: {\n    type: 'sepa-credit-inst'\n  },\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  debtorIban: 'NL55MLLE0123456789',\n  creditor: {\n    fullName: 'Jan Jansen',\n    account: {\n      iban: 'NL02ABNA0123456789'\n    }\n  },\n  description: 'Invoice 12345',\n  metadata: {\n    order_id: '12345',\n    customer_reference: 'cust_001'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ntransfer = mollie_client.business_account_transfers.create({\n    "transferScheme": {\n        "type": "sepa-credit-inst",\n    },\n    "amount": {\n        "currency": "EUR",\n        "value": "10.00",\n    },\n    "debtorIban": "NL55MLLE0123456789",\n    "creditor": {\n        "fullName": "Jan Jansen",\n        "account": {\n            "iban": "NL02ABNA0123456789",\n        },\n    },\n    "description": "Invoice 12345",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ntransfer = Mollie::BusinessAccount::Transfer.create(\n  transfer_scheme: 'sepa-credit-inst',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  debtorIban: 'NL55MLLE0123456789',\n  creditor: {\n    full_name: 'Jan Jansen',\n    account: {\n      iban: 'NL02ABNA0123456789'\n    }\n  },\n  description: 'Invoice 12345'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -289,6 +316,33 @@ class TransfersSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -i -X POST \\\nhttps://api.mollie.com/v2/business-accounts/transfers \\\n-H \'Authorization: Bearer <YOUR_TOKEN_HERE>\' \\\n-H \'Content-Type: application/json\' \\\n-H \'Idempotency-Key: 12345678-abcd\' \\\n-H \'X-Client-Signature: string\' \\\n-H \'X-Client-Signed-At: 2025-01-01T12:00:00Z\' \\\n  -d \'{\n      "transferScheme": {\n        "type": "sepa-credit-inst"\n      },\n      "amount": {\n        "currency": "EUR",\n        "value": "10.00"\n      },\n      "debtorIban": "NL55MLLE0123456789",\n      "creditor": {\n        "fullName": "Jan Jansen",\n        "account": {\n          "iban": "NL02ABNA0123456789"\n        }\n      },\n      "description": "Invoice 12345",\n      "metadata": {\n        "order_id": "12345",\n        "customer_reference": "cust_001"\n      }\n    }\'',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$transfer = $mollie->businessAccountTransfers->create([\n    "transferScheme" => [\n        "type" => "sepa-credit-inst"\n    ],\n    "amount" => [\n        "currency" => "EUR",\n        "value" => "10.00",\n    ],\n    "debtorIban" => "NL55MLLE0123456789",\n    "creditor" => [\n        "fullName" => "Jan Jansen",\n        "account" => [\n            "iban" => "NL02ABNA0123456789",\n        ],\n    ],\n    "description" => "Invoice 12345",\n    "metadata" => [\n        "order_id" => "12345",\n        "customer_reference" => "cust_001",\n    ],\n]);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.create({\n  transferScheme: {\n    type: 'sepa-credit-inst'\n  },\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  debtorIban: 'NL55MLLE0123456789',\n  creditor: {\n    fullName: 'Jan Jansen',\n    account: {\n      iban: 'NL02ABNA0123456789'\n    }\n  },\n  description: 'Invoice 12345',\n  metadata: {\n    order_id: '12345',\n    customer_reference: 'cust_001'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ntransfer = mollie_client.business_account_transfers.create({\n    "transferScheme": {\n        "type": "sepa-credit-inst",\n    },\n    "amount": {\n        "currency": "EUR",\n        "value": "10.00",\n    },\n    "debtorIban": "NL55MLLE0123456789",\n    "creditor": {\n        "fullName": "Jan Jansen",\n        "account": {\n            "iban": "NL02ABNA0123456789",\n        },\n    },\n    "description": "Invoice 12345",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ntransfer = Mollie::BusinessAccount::Transfer.create(\n  transfer_scheme: 'sepa-credit-inst',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  debtorIban: 'NL55MLLE0123456789',\n  creditor: {\n    full_name: 'Jan Jansen',\n    account: {\n      iban: 'NL02ABNA0123456789'\n    }\n  },\n  description: 'Invoice 12345'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -405,6 +459,33 @@ class TransfersSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl https://api.mollie.com/v2/business-accounts/transfers/batrf_87GByBuj4UCcUTEbs6aGJ \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$transfer = $mollie->businessAccountTransfers->get("batrf_87GByBuj4UCcUTEbs6aGJ");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.get('batrf_87GByBuj4UCcUTEbs6aGJ');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ntransfer = mollie_client.business_account_transfers.get("batrf_87GByBuj4UCcUTEbs6aGJ")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ntransfer = Mollie::BusinessAccount::Transfer.get('batrf_87GByBuj4UCcUTEbs6aGJ')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -518,6 +599,33 @@ class TransfersSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl https://api.mollie.com/v2/business-accounts/transfers/batrf_87GByBuj4UCcUTEbs6aGJ \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$transfer = $mollie->businessAccountTransfers->get("batrf_87GByBuj4UCcUTEbs6aGJ");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.get('batrf_87GByBuj4UCcUTEbs6aGJ');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ntransfer = mollie_client.business_account_transfers.get("batrf_87GByBuj4UCcUTEbs6aGJ")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ntransfer = Mollie::BusinessAccount::Transfer.get('batrf_87GByBuj4UCcUTEbs6aGJ')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

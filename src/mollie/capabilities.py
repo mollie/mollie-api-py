@@ -100,6 +100,24 @@ class Capabilities(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Capabilities API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/capabilities \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\ListCapabilitiesRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$capabilities = $mollie->send(new ListCapabilitiesRequest());\n\nforeach ($capabilities as $capability) {\n    echo "Capability: " . $capability->name . "\\n";\n    echo "Status: " . $capability->status . "\\n\\n";\n}',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -210,6 +228,24 @@ class Capabilities(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Capabilities API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/capabilities \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\ListCapabilitiesRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$capabilities = $mollie->send(new ListCapabilitiesRequest());\n\nforeach ($capabilities as $capability) {\n    echo "Capability: " . $capability->name . "\\n";\n    echo "Status: " . $capability->status . "\\n\\n";\n}',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

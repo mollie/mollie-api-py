@@ -101,6 +101,21 @@ class UnmatchedCreditTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Unmatched Credit Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/unmatched-credit-transfers \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "No example available.", "language": "php"},
+                            {"code": "No example available.", "language": "node"},
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -242,6 +257,21 @@ class UnmatchedCreditTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Unmatched Credit Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/unmatched-credit-transfers \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "No example available.", "language": "php"},
+                            {"code": "No example available.", "language": "node"},
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -380,6 +410,21 @@ class UnmatchedCreditTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Unmatched Credit Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/unmatched-credit-transfers/uct_abcDEFghij123456789 \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "No example available.", "language": "php"},
+                            {"code": "No example available.", "language": "node"},
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -484,6 +529,21 @@ class UnmatchedCreditTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Unmatched Credit Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/unmatched-credit-transfers/uct_abcDEFghij123456789 \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "No example available.", "language": "php"},
+                            {"code": "No example available.", "language": "node"},
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -608,6 +668,21 @@ class UnmatchedCreditTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Unmatched Credit Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/unmatched-credit-transfers/uct_abcDEFghij123456789/match \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{"paymentIds": ["tr_newPaYMentTOKENHere"]}\'',
+                                "language": "shell",
+                            },
+                            {"code": "No example available.", "language": "php"},
+                            {"code": "No example available.", "language": "node"},
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -734,6 +809,21 @@ class UnmatchedCreditTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Unmatched Credit Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/unmatched-credit-transfers/uct_abcDEFghij123456789/match \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{"paymentIds": ["tr_newPaYMentTOKENHere"]}\'',
+                                "language": "shell",
+                            },
+                            {"code": "No example available.", "language": "php"},
+                            {"code": "No example available.", "language": "node"},
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -840,6 +930,21 @@ class UnmatchedCreditTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Unmatched Credit Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/unmatched-credit-transfers/uct_abcDEFghij123456789/return \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "No example available.", "language": "php"},
+                            {"code": "No example available.", "language": "node"},
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -944,6 +1049,21 @@ class UnmatchedCreditTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Unmatched Credit Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/unmatched-credit-transfers/uct_abcDEFghij123456789/return \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "No example available.", "language": "php"},
+                            {"code": "No example available.", "language": "node"},
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

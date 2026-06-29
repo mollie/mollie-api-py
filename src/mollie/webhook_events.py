@@ -96,6 +96,24 @@ class WebhookEvents(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhook Events API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/events/event_GvJ8WHrp5isUdRub9CJyH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\GetWebhookEventRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhookEvent = $mollie->send(\n    new GetWebhookEventRequest(id: 'event_GvJ8WHrp5isUdRub9CJyH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -202,6 +220,24 @@ class WebhookEvents(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhook Events API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/events/event_GvJ8WHrp5isUdRub9CJyH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\GetWebhookEventRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhookEvent = $mollie->send(\n    new GetWebhookEventRequest(id: 'event_GvJ8WHrp5isUdRub9CJyH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

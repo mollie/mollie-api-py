@@ -103,6 +103,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/customers \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "name=John Doe" \\\n    -d "email=customer@example.org"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$customer = $mollie->send(new CreateCustomerRequest(\n    name: "John Doe",\n    email: "customer@example.org"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.create({\n  name: 'John Doe',\n  email: 'customer@example.org'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.create({\n    "name": "John Doe",\n    "email": "customer@example.org",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.create(\n  name: 'John Doe',\n  email: 'customer@example.org'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -215,6 +242,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/customers \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "name=John Doe" \\\n    -d "email=customer@example.org"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$customer = $mollie->send(new CreateCustomerRequest(\n    name: "John Doe",\n    email: "customer@example.org"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.create({\n  name: 'John Doe',\n  email: 'customer@example.org'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.create({\n    "name": "John Doe",\n    "email": "customer@example.org",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.create(\n  name: 'John Doe',\n  email: 'customer@example.org'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -335,6 +389,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$customers = $mollie->send(new GetPaginatedCustomerRequest());',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customers = mollieClient.customers.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomers = mollie_client.customers.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomers = Mollie::Customer.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -490,6 +571,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$customers = $mollie->send(new GetPaginatedCustomerRequest());',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customers = mollieClient.customers.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomers = mollie_client.customers.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomers = Mollie::Customer.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -553,14 +661,13 @@ class Customers(BaseSDK):
         self,
         *,
         customer_id: str,
-        include: OptionalNullable[str] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.GetCustomerResponse:
+    ) -> models.CustomerResponse:
         r"""Get customer
 
         Retrieve a single customer by its ID.
@@ -568,7 +675,6 @@ class Customers(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param customer_id: Provide the ID of the related customer.
-        :param include: This endpoint allows you to include additional information via the `include` query string parameter.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
             setting the `testmode` query parameter to `true`.
@@ -592,7 +698,6 @@ class Customers(BaseSDK):
 
         request = models.GetCustomerRequest(
             customer_id=customer_id,
-            include=include,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
@@ -639,6 +744,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_8wmqcHMN4U \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$customer = $mollie->send(new GetCustomerRequest(\n    id: "cst_8wmqcHMN4U"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.get('cst_8wmqcHMN4U');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_8wmqcHMN4U")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.get('cst_8wmqcHMN4U')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -647,7 +779,7 @@ class Customers(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
-            return unmarshal_json_response(models.GetCustomerResponse, http_res)
+            return unmarshal_json_response(models.CustomerResponse, http_res)
         if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
@@ -664,14 +796,13 @@ class Customers(BaseSDK):
         self,
         *,
         customer_id: str,
-        include: OptionalNullable[str] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.GetCustomerResponse:
+    ) -> models.CustomerResponse:
         r"""Get customer
 
         Retrieve a single customer by its ID.
@@ -679,7 +810,6 @@ class Customers(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param customer_id: Provide the ID of the related customer.
-        :param include: This endpoint allows you to include additional information via the `include` query string parameter.
         :param testmode: Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
             parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
             setting the `testmode` query parameter to `true`.
@@ -703,7 +833,6 @@ class Customers(BaseSDK):
 
         request = models.GetCustomerRequest(
             customer_id=customer_id,
-            include=include,
             testmode=testmode,
             idempotency_key=idempotency_key,
         )
@@ -750,6 +879,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_8wmqcHMN4U \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$customer = $mollie->send(new GetCustomerRequest(\n    id: "cst_8wmqcHMN4U"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.get('cst_8wmqcHMN4U');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_8wmqcHMN4U")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.get('cst_8wmqcHMN4U')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -758,7 +914,7 @@ class Customers(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
-            return unmarshal_json_response(models.GetCustomerResponse, http_res)
+            return unmarshal_json_response(models.CustomerResponse, http_res)
         if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
@@ -867,6 +1023,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/customers/cst_8wmqcHMN4U \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "name=Jane Doe" \\\n    -d "email=jane@example.org"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\UpdateCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$customer = $mollie->send(new UpdateCustomerRequest(\n    id: "cst_8wmqcHMN4U",\n    name: "Jane Doe",\n    email: "jane@example.org"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.update('cst_8wmqcHMN4U', {\n  name: 'Jane Doe',\n  email: 'jane@example.org'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.update("cst_8wmqcHMN4U", {\n    "name": "Jane Doe",\n    "email": "jane@example.org"\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.update(\n  'cst_8wmqcHMN4U',\n  name: 'Jane Doe',\n  email: 'jane@example.org'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -984,6 +1167,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/customers/cst_8wmqcHMN4U \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "name=Jane Doe" \\\n    -d "email=jane@example.org"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\UpdateCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$customer = $mollie->send(new UpdateCustomerRequest(\n    id: "cst_8wmqcHMN4U",\n    name: "Jane Doe",\n    email: "jane@example.org"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.update('cst_8wmqcHMN4U', {\n  name: 'Jane Doe',\n  email: 'jane@example.org'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.update("cst_8wmqcHMN4U", {\n    "name": "Jane Doe",\n    "email": "jane@example.org"\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.update(\n  'cst_8wmqcHMN4U',\n  name: 'Jane Doe',\n  email: 'jane@example.org'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1099,6 +1309,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/customers/cst_8wmqcHMN4U \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DeleteCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(new DeleteCustomerRequest(\n    id: "cst_8wmqcHMN4U"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.delete('cst_8wmqcHMN4U');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.delete("cst_8wmqcHMN4U")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.delete('cst_8wmqcHMN4U')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1214,6 +1451,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/customers/cst_8wmqcHMN4U \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DeleteCustomerRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(new DeleteCustomerRequest(\n    id: "cst_8wmqcHMN4U"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.delete('cst_8wmqcHMN4U');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.delete("cst_8wmqcHMN4U")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.delete('cst_8wmqcHMN4U')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1336,6 +1600,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/customers/cst_8wmqcHMN4U/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=10.00" \\\n    -d "description=Order #12345" \\\n    -d "redirectUrl=https://webshop.example.org/order/12345/" \\\n    -d "webhookUrl=https://webshop.example.org/payments/webhook/" \\\n    -d "metadata={\\"order_id\\": \\"12345\\"}"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreateCustomerPaymentRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payment = $mollie->send(new CreateCustomerPaymentRequest(\n    customerId: "cst_8wmqcHMN4U",\n    description: "Order #12345",\n    amount: new Money(currency: "EUR", value: "10.00"),\n    redirectUrl: "https://webshop.example.org/order/12345/",\n    webhookUrl: "https://webshop.example.org/payments/webhook/",\n    metadata: ["order_id" => "12345"]\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.customerPayments.create({\n  customerId: 'cst_8wmqcHMN4U',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  webhookUrl: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_8wmqcHMN4U")\npayment = customer.payments.create({\n    "amount": {\n        "currency": "EUR",\n        "value": "10.00",\n    },\n    "description": "Order #12345",\n    "redirectUrl": "https://webshop.example.org/payments/webhook/",\n    "webhookUrl": "https://webshop.example.org/order/12345/",\n    "metadata": {\n        "order_id": "12345",\n    }\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayment = Mollie::Customer::Payment.create(\n  customer_id: 'cst_8wmqcHMN4U',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirect_url: 'https://webshop.example.org/order/12345/',\n  webhook_url: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1461,6 +1752,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/customers/cst_8wmqcHMN4U/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=10.00" \\\n    -d "description=Order #12345" \\\n    -d "redirectUrl=https://webshop.example.org/order/12345/" \\\n    -d "webhookUrl=https://webshop.example.org/payments/webhook/" \\\n    -d "metadata={\\"order_id\\": \\"12345\\"}"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreateCustomerPaymentRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payment = $mollie->send(new CreateCustomerPaymentRequest(\n    customerId: "cst_8wmqcHMN4U",\n    description: "Order #12345",\n    amount: new Money(currency: "EUR", value: "10.00"),\n    redirectUrl: "https://webshop.example.org/order/12345/",\n    webhookUrl: "https://webshop.example.org/payments/webhook/",\n    metadata: ["order_id" => "12345"]\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.customerPayments.create({\n  customerId: 'cst_8wmqcHMN4U',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  webhookUrl: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_8wmqcHMN4U")\npayment = customer.payments.create({\n    "amount": {\n        "currency": "EUR",\n        "value": "10.00",\n    },\n    "description": "Order #12345",\n    "redirectUrl": "https://webshop.example.org/payments/webhook/",\n    "webhookUrl": "https://webshop.example.org/order/12345/",\n    "metadata": {\n        "order_id": "12345",\n    }\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayment = Mollie::Customer::Payment.create(\n  customer_id: 'cst_8wmqcHMN4U',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirect_url: 'https://webshop.example.org/order/12345/',\n  webhook_url: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1593,6 +1911,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_8wmqcHMN4U/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedCustomerPaymentsRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payments = $mollie->send(new GetPaginatedCustomerPaymentsRequest(\n    customerId: "cst_8wmqcHMN4U"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payments = mollieClient.customerPayments.iterate({ customerId: 'cst_8wmqcHMN4U' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_8wmqcHMN4U")\npayments = customer.payments.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayments = Mollie::Customer::Payment.all(customer_id: 'cst_8wmqcHMN4U')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1757,6 +2102,33 @@ class Customers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Customers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_8wmqcHMN4U/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedCustomerPaymentsRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payments = $mollie->send(new GetPaginatedCustomerPaymentsRequest(\n    customerId: "cst_8wmqcHMN4U"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payments = mollieClient.customerPayments.iterate({ customerId: 'cst_8wmqcHMN4U' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_8wmqcHMN4U")\npayments = customer.payments.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayments = Mollie::Customer::Payment.all(customer_id: 'cst_8wmqcHMN4U')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

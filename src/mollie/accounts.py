@@ -111,6 +111,33 @@ class Accounts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/business-accounts/accounts?limit=5 \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$accounts = $mollie->businessAccounts->page();',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst accounts = await mollieClient.businessAccounts.list();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\naccounts = mollie_client.business_accounts.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\naccounts = Mollie::BusinessAccount.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -264,6 +291,33 @@ class Accounts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/business-accounts/accounts?limit=5 \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$accounts = $mollie->businessAccounts->page();',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst accounts = await mollieClient.businessAccounts.list();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\naccounts = mollie_client.business_accounts.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\naccounts = Mollie::BusinessAccount.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -409,6 +463,33 @@ class Accounts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/business-accounts/accounts/ba_nopqrstuvwxyz23456789A \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$account = $mollie->businessAccounts->get("ba_nopqrstuvwxyz23456789A");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst account = await mollieClient.businessAccounts.get('ba_nopqrstuvwxyz23456789A');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\naccount = mollie_client.business_accounts.get("ba_nopqrstuvwxyz23456789A")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\naccount = Mollie::BusinessAccount.get('ba_nopqrstuvwxyz23456789A')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -518,6 +599,33 @@ class Accounts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/business-accounts/accounts/ba_nopqrstuvwxyz23456789A \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$account = $mollie->businessAccounts->get("ba_nopqrstuvwxyz23456789A");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst account = await mollieClient.businessAccounts.get('ba_nopqrstuvwxyz23456789A');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\naccount = mollie_client.business_accounts.get("ba_nopqrstuvwxyz23456789A")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\naccount = Mollie::BusinessAccount.get('ba_nopqrstuvwxyz23456789A')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -641,6 +749,33 @@ class Accounts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/business-accounts/accounts/ba_nopqrstuvwxyz23456789A/transactions?limit=5 \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$transactions = $mollie->businessAccountTransactions->pageFor(\n    $mollie->businessAccounts->get("ba_nopqrstuvwxyz23456789A")\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transactions = await mollieClient.businessAccountTransactions.list({\n  businessAccountId: 'ba_nopqrstuvwxyz23456789A'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ntransactions = mollie_client.business_account_transactions.list(\n    "ba_nopqrstuvwxyz23456789A"\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ntransactions = Mollie::BusinessAccount::Transaction.all(\n  business_account_id: 'ba_nopqrstuvwxyz23456789A'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -798,6 +933,33 @@ class Accounts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/business-accounts/accounts/ba_nopqrstuvwxyz23456789A/transactions?limit=5 \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$transactions = $mollie->businessAccountTransactions->pageFor(\n    $mollie->businessAccounts->get("ba_nopqrstuvwxyz23456789A")\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transactions = await mollieClient.businessAccountTransactions.list({\n  businessAccountId: 'ba_nopqrstuvwxyz23456789A'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ntransactions = mollie_client.business_account_transactions.list(\n    "ba_nopqrstuvwxyz23456789A"\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ntransactions = Mollie::BusinessAccount::Transaction.all(\n  business_account_id: 'ba_nopqrstuvwxyz23456789A'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -949,6 +1111,33 @@ class Accounts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/business-accounts/accounts/ba_nopqrstuvwxyz23456789A/transactions/batr_jzQPWFaiDhzpkBcAeKEZH \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$transaction = $mollie->businessAccountTransactions->getFor(\n    $mollie->businessAccounts->get("ba_nopqrstuvwxyz23456789A"),\n    "batr_jzQPWFaiDhzpkBcAeKEZH"\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transaction = await mollieClient.businessAccountTransactions.get(\n  'batr_jzQPWFaiDhzpkBcAeKEZH',\n  { businessAccountId: 'ba_nopqrstuvwxyz23456789A' }\n);",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ntransaction = mollie_client.business_account_transactions.get(\n    "batr_jzQPWFaiDhzpkBcAeKEZH",\n    business_account_id="ba_nopqrstuvwxyz23456789A"\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ntransaction = Mollie::BusinessAccount::Transaction.get(\n  'batr_jzQPWFaiDhzpkBcAeKEZH',\n  business_account_id: 'ba_nopqrstuvwxyz23456789A'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1061,6 +1250,33 @@ class Accounts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/business-accounts/accounts/ba_nopqrstuvwxyz23456789A/transactions/batr_jzQPWFaiDhzpkBcAeKEZH \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$transaction = $mollie->businessAccountTransactions->getFor(\n    $mollie->businessAccounts->get("ba_nopqrstuvwxyz23456789A"),\n    "batr_jzQPWFaiDhzpkBcAeKEZH"\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transaction = await mollieClient.businessAccountTransactions.get(\n  'batr_jzQPWFaiDhzpkBcAeKEZH',\n  { businessAccountId: 'ba_nopqrstuvwxyz23456789A' }\n);",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ntransaction = mollie_client.business_account_transactions.get(\n    "batr_jzQPWFaiDhzpkBcAeKEZH",\n    business_account_id="ba_nopqrstuvwxyz23456789A"\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ntransaction = Mollie::BusinessAccount::Transaction.get(\n  'batr_jzQPWFaiDhzpkBcAeKEZH',\n  business_account_id: 'ba_nopqrstuvwxyz23456789A'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

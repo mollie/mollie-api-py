@@ -103,6 +103,27 @@ class Sessions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sessions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=10.00" \\\n    -d "description=Order #12345" \\\n    -d "lines[0][description]=T-shirt" \\\n    -d "lines[0][quantity]=1" \\\n    -d "lines[0][unitPrice][currency]=EUR" \\\n    -d "lines[0][unitPrice][value]=10.00" \\\n    -d "lines[0][totalAmount][currency]=EUR" \\\n    -d "lines[0][totalAmount][value]=10.00" \\\n    -d "payment[webhookUrl]=https://webshop.example.org/payments/webhook/" \\\n    -d "redirectUrl=https://webshop.example.org/order/12345/" \\\n    -d "metadata={\\"order_id\\": \\"12345\\"}"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreatePaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$session = $mollie->send(\n    new CreateSessionRequest(\n        description: "Order #12345",\n        amount: new Money(currency: "EUR", value: "10.00"),\n        lines: [\n            [\n                "description" => "T-shirt",\n                "quantity" => 1,\n                "unitPrice" => new Money(currency: "EUR", value: "10.00"),\n                "totalAmount" => new Money(currency: "EUR", value: "10.00"),\n            ],\n        ],\n        redirectUrl: "https://webshop.example.org/order/12345/",\n        payment: [\n            "webhookUrl" => "https://webshop.example.org/payments/webhook/",\n        ],\n        metadata: [\n            "order_id" => "12345",\n        ]\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.create({\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  lines: [\n    {\n      description: 'T-shirt',\n      quantity: 1,\n      unitPrice: {\n        currency: 'EUR',\n        value: '10.00'\n      },\n      totalAmount: {\n        currency: 'EUR',\n        value: '10.00'\n      }\n    }\n  ],\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  payment: {\n    webhookUrl: 'https://webshop.example.org/payments/webhook/'\n  },\n  metadata: {\n    order_id: '12345'\n  }\n});",
+                                "language": "node",
+                            },
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -216,6 +237,27 @@ class Sessions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sessions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=10.00" \\\n    -d "description=Order #12345" \\\n    -d "lines[0][description]=T-shirt" \\\n    -d "lines[0][quantity]=1" \\\n    -d "lines[0][unitPrice][currency]=EUR" \\\n    -d "lines[0][unitPrice][value]=10.00" \\\n    -d "lines[0][totalAmount][currency]=EUR" \\\n    -d "lines[0][totalAmount][value]=10.00" \\\n    -d "payment[webhookUrl]=https://webshop.example.org/payments/webhook/" \\\n    -d "redirectUrl=https://webshop.example.org/order/12345/" \\\n    -d "metadata={\\"order_id\\": \\"12345\\"}"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreatePaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$session = $mollie->send(\n    new CreateSessionRequest(\n        description: "Order #12345",\n        amount: new Money(currency: "EUR", value: "10.00"),\n        lines: [\n            [\n                "description" => "T-shirt",\n                "quantity" => 1,\n                "unitPrice" => new Money(currency: "EUR", value: "10.00"),\n                "totalAmount" => new Money(currency: "EUR", value: "10.00"),\n            ],\n        ],\n        redirectUrl: "https://webshop.example.org/order/12345/",\n        payment: [\n            "webhookUrl" => "https://webshop.example.org/payments/webhook/",\n        ],\n        metadata: [\n            "order_id" => "12345",\n        ]\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.create({\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  lines: [\n    {\n      description: 'T-shirt',\n      quantity: 1,\n      unitPrice: {\n        currency: 'EUR',\n        value: '10.00'\n      },\n      totalAmount: {\n        currency: 'EUR',\n        value: '10.00'\n      }\n    }\n  ],\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  payment: {\n    webhookUrl: 'https://webshop.example.org/payments/webhook/'\n  },\n  metadata: {\n    order_id: '12345'\n  }\n});",
+                                "language": "node",
+                            },
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -318,6 +360,27 @@ class Sessions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sessions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/sessions/sess_CQBQJqxubaq4w6oresxMJ \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetSessionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$session = $mollie->send(\n    new GetSessionRequest(id: "sess_CQBQJqxubaq4w6oresxMJ")\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.get('sess_CQBQJqxubaq4w6oresxMJ');",
+                                "language": "node",
+                            },
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -420,6 +483,27 @@ class Sessions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sessions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/sessions/sess_CQBQJqxubaq4w6oresxMJ \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetSessionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$session = $mollie->send(\n    new GetSessionRequest(id: "sess_CQBQJqxubaq4w6oresxMJ")\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.get('sess_CQBQJqxubaq4w6oresxMJ');",
+                                "language": "node",
+                            },
+                            {"code": "No example available.", "language": "python"},
+                            {"code": "No example available.", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

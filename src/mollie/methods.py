@@ -165,6 +165,33 @@ class Methods(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/methods \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetEnabledMethodsRequest;\nuse Mollie\\Api\\Types\\MethodQuery;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n// Methods for the Payments API\n$methods = $mollie->send(\n    new GetEnabledMethodsRequest(\n        resource: MethodQuery::RESOURCE_PAYMENTS\n    )\n);\n\n// Methods for the Orders API\n$methods = $mollie->send(\n    new GetEnabledMethodsRequest(\n        resource: MethodQuery::RESOURCE_ORDERS\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\n# Methods for the Payments API\nmethods = mollie_client.methods.list()\n\n# Methods for the Orders API\nmethods = mollie_client.methods.list(resource="orders")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\n# Methods for the Payments API\nmethods = Mollie::Method.all\n\n# Methods for the Orders API\nmethods = Mollie::Method.all(resource: 'orders')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -340,6 +367,33 @@ class Methods(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/methods \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetEnabledMethodsRequest;\nuse Mollie\\Api\\Types\\MethodQuery;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n// Methods for the Payments API\n$methods = $mollie->send(\n    new GetEnabledMethodsRequest(\n        resource: MethodQuery::RESOURCE_PAYMENTS\n    )\n);\n\n// Methods for the Orders API\n$methods = $mollie->send(\n    new GetEnabledMethodsRequest(\n        resource: MethodQuery::RESOURCE_ORDERS\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\n# Methods for the Payments API\nmethods = mollie_client.methods.list()\n\n# Methods for the Orders API\nmethods = mollie_client.methods.list(resource="orders")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\n# Methods for the Payments API\nmethods = Mollie::Method.all\n\n# Methods for the Orders API\nmethods = Mollie::Method.all(resource: 'orders')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -479,6 +533,30 @@ class Methods(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/methods/all \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetAllMethodsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$methods = $mollie->send(new GetAllMethodsRequest());',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nmethods = mollie_client.methods.all()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nmethods = Mollie::Method.all_available",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -618,6 +696,30 @@ class Methods(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/methods/all \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetAllMethodsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$methods = $mollie->send(new GetAllMethodsRequest());',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nmethods = mollie_client.methods.all()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nmethods = Mollie::Method.all_available",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -763,6 +865,33 @@ class Methods(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/methods \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetEnabledMethodsRequest;\nuse Mollie\\Api\\Types\\MethodQuery;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n// Methods for the Payments API\n$methods = $mollie->send(\n    new GetEnabledMethodsRequest(\n        resource: MethodQuery::RESOURCE_PAYMENTS\n    )\n);\n\n// Methods for the Orders API\n$methods = $mollie->send(\n    new GetEnabledMethodsRequest(\n        resource: MethodQuery::RESOURCE_ORDERS\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\n# Methods for the Payments API\nmethods = mollie_client.methods.list()\n\n# Methods for the Orders API\nmethods = mollie_client.methods.list(resource="orders")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\n# Methods for the Payments API\nmethods = Mollie::Method.all\n\n# Methods for the Orders API\nmethods = Mollie::Method.all(resource: 'orders')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -910,6 +1039,33 @@ class Methods(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/methods \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetEnabledMethodsRequest;\nuse Mollie\\Api\\Types\\MethodQuery;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n// Methods for the Payments API\n$methods = $mollie->send(\n    new GetEnabledMethodsRequest(\n        resource: MethodQuery::RESOURCE_PAYMENTS\n    )\n);\n\n// Methods for the Orders API\n$methods = $mollie->send(\n    new GetEnabledMethodsRequest(\n        resource: MethodQuery::RESOURCE_ORDERS\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\n# Methods for the Payments API\nmethods = mollie_client.methods.list()\n\n# Methods for the Orders API\nmethods = mollie_client.methods.list(resource="orders")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\n# Methods for the Payments API\nmethods = Mollie::Method.all\n\n# Methods for the Orders API\nmethods = Mollie::Method.all(resource: 'orders')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

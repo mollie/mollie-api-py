@@ -110,6 +110,27 @@ class Captures(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Captures API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/captures \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "description=Capture for cart #12345" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=35.95"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": 'use Mollie\\Api\\Http\\Requests\\CreatePaymentCaptureRequest;\nuse Mollie\\Api\\Http\\Data\\Money;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$capture = $mollie->send(\n    new CreatePaymentCaptureRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo",\n        description: "Capture for cart #12345",\n        amount: new Money(currency: "EUR", value: "35.95"),\n        metadata: [\n            "bookkeeping_id" => 12345,\n        ]\n    )\n);',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo", embed="captures")\ncapture = payment.captures.create({\n  "amount": {\n    "currency": "EUR",\n    "value": "35.95",\n  },\n  "description": "Capture for cart #12345",\n  "metadata": {\n    "bookkeeping_id": 12345,\n  }\n})',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -231,6 +252,27 @@ class Captures(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Captures API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/captures \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "description=Capture for cart #12345" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=35.95"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": 'use Mollie\\Api\\Http\\Requests\\CreatePaymentCaptureRequest;\nuse Mollie\\Api\\Http\\Data\\Money;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$capture = $mollie->send(\n    new CreatePaymentCaptureRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo",\n        description: "Capture for cart #12345",\n        amount: new Money(currency: "EUR", value: "35.95"),\n        metadata: [\n            "bookkeeping_id" => 12345,\n        ]\n    )\n);',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo", embed="captures")\ncapture = payment.captures.create({\n  "amount": {\n    "currency": "EUR",\n    "value": "35.95",\n  },\n  "description": "Capture for cart #12345",\n  "metadata": {\n    "bookkeeping_id": 12345,\n  }\n})',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -356,6 +398,33 @@ class Captures(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Captures API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/captures \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedPaymentCapturesRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$captures = $mollie->send(\n    new GetPaginatedPaymentCapturesRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst captures = mollieClient.paymentCaptures.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo")\ncaptures = payment.captures.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncaptures = Mollie::Payment::Capture.all(payment_id: 'tr_5B8cwPMGnU6qLbRvo7qEZo')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -515,6 +584,33 @@ class Captures(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Captures API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/captures \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedPaymentCapturesRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$captures = $mollie->send(\n    new GetPaginatedPaymentCapturesRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst captures = mollieClient.paymentCaptures.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo")\ncaptures = payment.captures.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncaptures = Mollie::Payment::Capture.all(payment_id: 'tr_5B8cwPMGnU6qLbRvo7qEZo')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -670,6 +766,33 @@ class Captures(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Captures API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/captures/cpt_vytxeTZskVKR7C7WgdSP3d \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaymentCaptureRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$capture = $mollie->send(\n    new GetPaymentCaptureRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo",\n        captureId: "cpt_vytxeTZskVKR7C7WgdSP3d"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst capture = await mollieClient.paymentCaptures.get('cpt_vytxeTZskVKR7C7WgdSP3d', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo")\ncapture = payment.captures.get("cpt_vytxeTZskVKR7C7WgdSP3d")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncapture = Mollie::Payment::Capture.get(\n  'cpt_vytxeTZskVKR7C7WgdSP3d',\n  payment_id: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -786,6 +909,33 @@ class Captures(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Captures API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/captures/cpt_vytxeTZskVKR7C7WgdSP3d \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaymentCaptureRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$capture = $mollie->send(\n    new GetPaymentCaptureRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo",\n        captureId: "cpt_vytxeTZskVKR7C7WgdSP3d"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst capture = await mollieClient.paymentCaptures.get('cpt_vytxeTZskVKR7C7WgdSP3d', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo")\ncapture = payment.captures.get("cpt_vytxeTZskVKR7C7WgdSP3d")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncapture = Mollie::Payment::Capture.get(\n  'cpt_vytxeTZskVKR7C7WgdSP3d',\n  payment_id: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

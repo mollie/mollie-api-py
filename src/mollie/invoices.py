@@ -109,6 +109,30 @@ class Invoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/invoices \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedInvoiceRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$invoices = $mollie->send(new GetPaginatedInvoiceRequest());',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\ninvoices = mollie_client.invoices.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\ninvoices = Mollie::invoice.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -263,6 +287,30 @@ class Invoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/invoices \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedInvoiceRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$invoices = $mollie->send(new GetPaginatedInvoiceRequest());',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\ninvoices = mollie_client.invoices.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\ninvoices = Mollie::invoice.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -403,6 +451,30 @@ class Invoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/invoices/inv_xBEbP9rvAq \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetInvoiceRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$invoice = $mollie->send(new GetInvoiceRequest("inv_xBEbP9rvAq"));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\ninvoice = mollie_client.invoices.get("inv_xBEbP9rvAq")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\ninvoice = Mollie::invoice.get('inv_xBEbP9rvAq')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -504,6 +576,30 @@ class Invoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/invoices/inv_xBEbP9rvAq \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetInvoiceRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$invoice = $mollie->send(new GetInvoiceRequest("inv_xBEbP9rvAq"));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\ninvoice = mollie_client.invoices.get("inv_xBEbP9rvAq")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\ninvoice = Mollie::invoice.get('inv_xBEbP9rvAq')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

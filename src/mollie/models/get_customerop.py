@@ -2,14 +2,7 @@
 # @generated-id: c9807b300253
 
 from __future__ import annotations
-from .entity_event import EntityEvent, EntityEventTypedDict
-from .locale_response import LocaleResponse
-from .metadata import Metadata, MetadataTypedDict
-from .mode import Mode
-from .url import URL, URLTypedDict
-from .url_nullable import URLNullable, URLNullableTypedDict
-from mollie import models
-from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from mollie.types import BaseModel, UNSET_SENTINEL
 from mollie.utils import (
     FieldMetadata,
     HeaderMetadata,
@@ -17,8 +10,8 @@ from mollie.utils import (
     QueryParamMetadata,
 )
 import pydantic
-from pydantic import field_serializer, model_serializer
-from typing import List, Optional
+from pydantic import model_serializer
+from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -64,8 +57,6 @@ class GetCustomerGlobals(BaseModel):
 class GetCustomerRequestTypedDict(TypedDict):
     customer_id: str
     r"""Provide the ID of the related customer."""
-    include: NotRequired[Nullable[str]]
-    r"""This endpoint allows you to include additional information via the `include` query string parameter."""
     testmode: NotRequired[bool]
     r"""Most API credentials are specifically created for either live mode or test mode. In those cases the `testmode` query
     parameter must not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by
@@ -84,12 +75,6 @@ class GetCustomerRequest(BaseModel):
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
     r"""Provide the ID of the related customer."""
-
-    include: Annotated[
-        OptionalNullable[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = UNSET
-    r"""This endpoint allows you to include additional information via the `include` query string parameter."""
 
     testmode: Annotated[
         Optional[bool],
@@ -111,209 +96,16 @@ class GetCustomerRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["include", "testmode", "idempotency-key"])
-        nullable_fields = set(["include"])
+        optional_fields = set(["testmode", "idempotency-key"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
-            is_nullable_and_explicitly_set = (
-                k in nullable_fields
-                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
-            )
 
             if val != UNSET_SENTINEL:
-                if (
-                    val is not None
-                    or k not in optional_fields
-                    or is_nullable_and_explicitly_set
-                ):
+                if val is not None or k not in optional_fields:
                     m[k] = val
 
         return m
-
-
-class GetCustomerLinksTypedDict(TypedDict):
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-
-    self_: URLTypedDict
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    dashboard: URLTypedDict
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    documentation: URLTypedDict
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    payments: NotRequired[Nullable[URLNullableTypedDict]]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    mandates: NotRequired[Nullable[URLNullableTypedDict]]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    subscriptions: NotRequired[Nullable[URLNullableTypedDict]]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-
-class GetCustomerLinks(BaseModel):
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-
-    self_: Annotated[URL, pydantic.Field(alias="self")]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    dashboard: URL
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    documentation: URL
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    payments: OptionalNullable[URLNullable] = UNSET
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    mandates: OptionalNullable[URLNullable] = UNSET
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    subscriptions: OptionalNullable[URLNullable] = UNSET
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["payments", "mandates", "subscriptions"])
-        nullable_fields = set(["payments", "mandates", "subscriptions"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-            is_nullable_and_explicitly_set = (
-                k in nullable_fields
-                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
-            )
-
-            if val != UNSET_SENTINEL:
-                if (
-                    val is not None
-                    or k not in optional_fields
-                    or is_nullable_and_explicitly_set
-                ):
-                    m[k] = val
-
-        return m
-
-
-class GetCustomerResponseTypedDict(TypedDict):
-    r"""The customer object."""
-
-    resource: str
-    r"""Indicates the response contains a customer object. Will always contain the string `customer` for this endpoint."""
-    id: str
-    r"""The identifier uniquely referring to this customer. Example: `cst_vsKJpSsabw`."""
-    mode: Mode
-    r"""Whether this entity was created in live mode or in test mode."""
-    name: Nullable[str]
-    r"""The full name of the customer."""
-    email: Nullable[str]
-    r"""The email address of the customer.
-
-    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
-    """
-    locale: Nullable[LocaleResponse]
-    r"""Sets the language for customer-facing content and communications."""
-    metadata: Nullable[MetadataTypedDict]
-    r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
-    you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
-    """
-    created_at: str
-    r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
-    links: GetCustomerLinksTypedDict
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-    events: NotRequired[List[EntityEventTypedDict]]
-
-
-class GetCustomerResponse(BaseModel):
-    r"""The customer object."""
-
-    resource: str
-    r"""Indicates the response contains a customer object. Will always contain the string `customer` for this endpoint."""
-
-    id: str
-    r"""The identifier uniquely referring to this customer. Example: `cst_vsKJpSsabw`."""
-
-    mode: Mode
-    r"""Whether this entity was created in live mode or in test mode."""
-
-    name: Nullable[str]
-    r"""The full name of the customer."""
-
-    email: Nullable[str]
-    r"""The email address of the customer.
-
-    If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
-    """
-
-    locale: Nullable[LocaleResponse]
-    r"""Sets the language for customer-facing content and communications."""
-
-    metadata: Nullable[Metadata]
-    r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
-    you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
-    """
-
-    created_at: Annotated[str, pydantic.Field(alias="createdAt")]
-    r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
-
-    links: Annotated[GetCustomerLinks, pydantic.Field(alias="_links")]
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-
-    events: Optional[List[EntityEvent]] = None
-
-    @field_serializer("mode")
-    def serialize_mode(self, value):
-        if isinstance(value, str):
-            try:
-                return models.Mode(value)
-            except ValueError:
-                return value
-        return value
-
-    @field_serializer("locale")
-    def serialize_locale(self, value):
-        if isinstance(value, str):
-            try:
-                return models.LocaleResponse(value)
-            except ValueError:
-                return value
-        return value
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["events"])
-        nullable_fields = set(["name", "email", "locale", "metadata"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-            is_nullable_and_explicitly_set = (
-                k in nullable_fields
-                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
-            )
-
-            if val != UNSET_SENTINEL:
-                if (
-                    val is not None
-                    or k not in optional_fields
-                    or is_nullable_and_explicitly_set
-                ):
-                    m[k] = val
-
-        return m
-
-
-try:
-    GetCustomerLinks.model_rebuild()
-except NameError:
-    pass
-try:
-    GetCustomerResponse.model_rebuild()
-except NameError:
-    pass

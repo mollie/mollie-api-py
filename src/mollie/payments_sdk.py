@@ -114,6 +114,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=10.00" \\\n    -d "description=Order #12345" \\\n    -d "redirectUrl=https://webshop.example.org/order/12345/" \\\n    -d "webhookUrl=https://webshop.example.org/payments/webhook/" \\\n    -d "metadata={\\"order_id\\": \\"12345\\"}"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreatePaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payment = $mollie->send(\n    new CreatePaymentRequest(\n        description: "Order #12345",\n        amount: new Money(currency: "EUR", value: "10.00"),\n        redirectUrl: "https://webshop.example.org/order/12345/",\n        webhookUrl: "https://webshop.example.org/payments/webhook/",\n        metadata: [\n            "order_id" => "12345",\n        ]\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.payments.create({\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  webhookUrl: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.create({\n    "amount": {\n        "currency": "EUR",\n        "value": "10.00",\n    },\n    "description": "Order #12345",\n    "redirectUrl": "https://webshop.example.org/order/12345/",\n    "webhookUrl": "https://webshop.example.org/payments/webhook/",\n    "metadata": {\n        "order_id": "12345",\n    }\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayment = Mollie::Payment.create(\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirect_url: 'https://webshop.example.org/order/12345/',\n  webhook_url: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -240,6 +267,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=10.00" \\\n    -d "description=Order #12345" \\\n    -d "redirectUrl=https://webshop.example.org/order/12345/" \\\n    -d "webhookUrl=https://webshop.example.org/payments/webhook/" \\\n    -d "metadata={\\"order_id\\": \\"12345\\"}"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreatePaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payment = $mollie->send(\n    new CreatePaymentRequest(\n        description: "Order #12345",\n        amount: new Money(currency: "EUR", value: "10.00"),\n        redirectUrl: "https://webshop.example.org/order/12345/",\n        webhookUrl: "https://webshop.example.org/payments/webhook/",\n        metadata: [\n            "order_id" => "12345",\n        ]\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.payments.create({\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  webhookUrl: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.create({\n    "amount": {\n        "currency": "EUR",\n        "value": "10.00",\n    },\n    "description": "Order #12345",\n    "redirectUrl": "https://webshop.example.org/order/12345/",\n    "webhookUrl": "https://webshop.example.org/payments/webhook/",\n    "metadata": {\n        "order_id": "12345",\n    }\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayment = Mollie::Payment.create(\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirect_url: 'https://webshop.example.org/order/12345/',\n  webhook_url: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -371,6 +425,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments?limit=5 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedPaymentsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payments = $mollie->send(new GetPaginatedPaymentsRequest());\n\n// get the next page\n$next_payments = $payments->next();',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payments = mollieClient.payments.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayments = mollie_client.payments.list()\n\n# Get the next page\nnext_payments = payments.get_next()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayments = Mollie::Payment.all\n\n# get the next page\nnext_payments = payments.next",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -533,6 +614,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments?limit=5 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedPaymentsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payments = $mollie->send(new GetPaginatedPaymentsRequest());\n\n// get the next page\n$next_payments = $payments->next();',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payments = mollieClient.payments.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayments = mollie_client.payments.list()\n\n# Get the next page\nnext_payments = payments.get_next()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayments = Mollie::Payment.all\n\n# get the next page\nnext_payments = payments.next",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -685,6 +793,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payment = $mollie->send(\n    new GetPaymentRequest(id: "tr_5B8cwPMGnU6qLbRvo7qEZo")\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.payments.get('tr_5B8cwPMGnU6qLbRvo7qEZo');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get(\n    "tr_5B8cwPMGnU6qLbRvo7qEZo",\n    embed="refunds,chargebacks",\n    include="details.qrCode"\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayment = Mollie::Payment.get('tr_5B8cwPMGnU6qLbRvo7qEZo')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -800,6 +935,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payment = $mollie->send(\n    new GetPaymentRequest(id: "tr_5B8cwPMGnU6qLbRvo7qEZo")\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.payments.get('tr_5B8cwPMGnU6qLbRvo7qEZo');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get(\n    "tr_5B8cwPMGnU6qLbRvo7qEZo",\n    embed="refunds,chargebacks",\n    include="details.qrCode"\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayment = Mollie::Payment.get('tr_5B8cwPMGnU6qLbRvo7qEZo')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -917,6 +1079,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "description=Order #98765" \\\n    -d "redirectUrl=https://example.org/webshop/order/98765/" \\\n    -d "webhookUrl=https://example.org/webshop/payments/webhook/" \\\n    -d "metadata={\\"order_id\\": \\"98765\\"}"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\UpdatePaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payment = $mollie->send(\n    new UpdatePaymentRequest(\n        id: "tr_5B8cwPMGnU6qLbRvo7qEZo",\n        description: "Order #98765",\n        redirectUrl: "https://example.org/webshop/order/98765/",\n        webhookUrl: "https://example.org/webshop/payments/webhook/",\n        metadata: ["order_id" => "98765"]\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = mollieClient.payments.update('tr_5B8cwPMGnU6qLbRvo7qEZo', {\n  description: 'Order #98765',\n  redirect_url: 'https://webshop.example.org/webshop/order/98765/',\n  webhook_url: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '98765'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.update(\n    "tr_5B8cwPMGnU6qLbRvo7qEZo",\n    {\n        "description": "Order #98765",\n        "redirectUrl": "https://webshop.example.org/order/98765/",\n        "webhookUrl": "https://webshop.example.org/payments/webhook/",\n        "metadata": {\n            "order_id": "98765",\n        }\n    }\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayment = Mollie::Payment.update(\n  'tr_5B8cwPMGnU6qLbRvo7qEZo',\n  description: 'Order #98765',\n  redirect_url: 'https://example.org/webshop/order/98765/',\n  webhook_url: 'https://example.org/webshop/payments/webhook/',\n  metadata: {\n    order_id: '98765'\n  }\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1036,6 +1225,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "description=Order #98765" \\\n    -d "redirectUrl=https://example.org/webshop/order/98765/" \\\n    -d "webhookUrl=https://example.org/webshop/payments/webhook/" \\\n    -d "metadata={\\"order_id\\": \\"98765\\"}"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\UpdatePaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payment = $mollie->send(\n    new UpdatePaymentRequest(\n        id: "tr_5B8cwPMGnU6qLbRvo7qEZo",\n        description: "Order #98765",\n        redirectUrl: "https://example.org/webshop/order/98765/",\n        webhookUrl: "https://example.org/webshop/payments/webhook/",\n        metadata: ["order_id" => "98765"]\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'test_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = mollieClient.payments.update('tr_5B8cwPMGnU6qLbRvo7qEZo', {\n  description: 'Order #98765',\n  redirect_url: 'https://webshop.example.org/webshop/order/98765/',\n  webhook_url: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '98765'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.update(\n    "tr_5B8cwPMGnU6qLbRvo7qEZo",\n    {\n        "description": "Order #98765",\n        "redirectUrl": "https://webshop.example.org/order/98765/",\n        "webhookUrl": "https://webshop.example.org/payments/webhook/",\n        "metadata": {\n            "order_id": "98765",\n        }\n    }\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayment = Mollie::Payment.update(\n  'tr_5B8cwPMGnU6qLbRvo7qEZo',\n  description: 'Order #98765',\n  redirect_url: 'https://example.org/webshop/order/98765/',\n  webhook_url: 'https://example.org/webshop/payments/webhook/',\n  metadata: {\n    order_id: '98765'\n  }\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1158,6 +1374,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/payments/tr_WDqYK6vllg \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CancelPaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$canceledPayment = $mollie->send(\n    new CancelPaymentRequest(id: "tr_WDqYK6vllg")\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst canceledPayment = await mollieClient.payments.cancel('tr_Eq8xzWUPA4');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncanceled_payment = mollie_client.payments.delete("tr_WDqYK6vllg")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncanceled_payment = Mollie::Payment.cancel('tr_WDqYK6vllg')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1280,6 +1523,33 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/payments/tr_WDqYK6vllg \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CancelPaymentRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$canceledPayment = $mollie->send(\n    new CancelPaymentRequest(id: "tr_WDqYK6vllg")\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst canceledPayment = await mollieClient.payments.cancel('tr_Eq8xzWUPA4');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncanceled_payment = mollie_client.payments.delete("tr_WDqYK6vllg")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncanceled_payment = Mollie::Payment.cancel('tr_WDqYK6vllg')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1404,6 +1674,24 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments/tr_WDqYK6vllg/release-authorization \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\ReleasePaymentAuthorizationRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(\n    new ReleasePaymentAuthorizationRequest(paymentId: "tr_WDqYK6vllg")\n);',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1528,6 +1816,24 @@ class PaymentsSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payments API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments/tr_WDqYK6vllg/release-authorization \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\ReleasePaymentAuthorizationRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(\n    new ReleasePaymentAuthorizationRequest(paymentId: "tr_WDqYK6vllg")\n);',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

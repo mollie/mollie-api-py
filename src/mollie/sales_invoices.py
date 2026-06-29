@@ -104,6 +104,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/sales-invoices \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "profileId=pfl_QkEhN94Ba" \\\n    -d "currency=EUR" \\\n    -d "paymentTerm=30 days" \\\n    -d "status=draft" \\\n    -d "recipientIdentifier=customer-12354123" \\\n    -d "recipient[type]=consumer" \\\n    -d "recipient[givenName]=Given" \\\n    -d "recipient[familyName]=Family" \\\n    -d "recipient[email]=given.family@mollie.com" \\\n    -d "recipient[postalCode]=1000 AA" \\\n    -d "recipient[streetAndNumber]=Street 1" \\\n    -d "recipient[city]=Amsterdam" \\\n    -d "recipient[country]=nl" \\\n    -d "recipient[locale]=nl_NL" \\\n    -d "lines[0][description]=Product number 1" \\\n    -d "lines[0][quantity]=1" \\\n    -d "lines[0][vatRate]=21.00" \\\n    -d "lines[0][unitPrice][currency]=EUR" \\\n    -d "lines[0][unitPrice][value]=12.50" \\\n    -d "isEInvoice=false"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\CreateSalesInvoiceRequest;\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Data\\Recipient;\nuse Mollie\\Api\\Http\\Data\\InvoiceLine;\nuse Mollie\\Api\\Http\\Data\\DataCollection;\nuse Mollie\\Api\\Types\\RecipientType;\nuse Mollie\\Api\\Types\\VatScheme;\nuse Mollie\\Api\\Types\\VatMode;\nuse Mollie\\Api\\Types\\PaymentTerm;\nuse Mollie\\Api\\Types\\SalesInvoiceStatus;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$recipient = new Recipient(\n    type: RecipientType::CONSUMER,\n    email: 'given.family@mollie.com',\n    streetAndNumber: 'Street 1',\n    postalCode: '1000 AA',\n    city: 'Amsterdam',\n    country: 'NL',\n    locale: 'nl_NL',\n    givenName: 'Given',\n    familyName: 'Family'\n);\n\n$invoiceLines = new DataCollection([\n    new InvoiceLine(\n        description: 'Product number 1',\n        quantity: 1,\n        vatRate: '21.00',\n        unitPrice: new Money(currency: 'EUR', value: '12.50')\n    )\n]);\n\n$request = new CreateSalesInvoiceRequest(\n    currency: 'EUR',\n    status: SalesInvoiceStatus::DRAFT,\n    vatScheme: VatScheme::STANDARD,\n    vatMode: VatMode::INCLUSIVE,\n    paymentTerm: PaymentTerm::DAYS_30,\n    recipientIdentifier: 'customer-12354123',\n    recipient: $recipient,\n    lines: $invoiceLines,\n    profileId: 'pfl_QkEhN94Ba',\n    isEInvoice: false\n);\n\n$salesInvoice = $mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -219,6 +250,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/sales-invoices \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "profileId=pfl_QkEhN94Ba" \\\n    -d "currency=EUR" \\\n    -d "paymentTerm=30 days" \\\n    -d "status=draft" \\\n    -d "recipientIdentifier=customer-12354123" \\\n    -d "recipient[type]=consumer" \\\n    -d "recipient[givenName]=Given" \\\n    -d "recipient[familyName]=Family" \\\n    -d "recipient[email]=given.family@mollie.com" \\\n    -d "recipient[postalCode]=1000 AA" \\\n    -d "recipient[streetAndNumber]=Street 1" \\\n    -d "recipient[city]=Amsterdam" \\\n    -d "recipient[country]=nl" \\\n    -d "recipient[locale]=nl_NL" \\\n    -d "lines[0][description]=Product number 1" \\\n    -d "lines[0][quantity]=1" \\\n    -d "lines[0][vatRate]=21.00" \\\n    -d "lines[0][unitPrice][currency]=EUR" \\\n    -d "lines[0][unitPrice][value]=12.50" \\\n    -d "isEInvoice=false"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\CreateSalesInvoiceRequest;\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Data\\Recipient;\nuse Mollie\\Api\\Http\\Data\\InvoiceLine;\nuse Mollie\\Api\\Http\\Data\\DataCollection;\nuse Mollie\\Api\\Types\\RecipientType;\nuse Mollie\\Api\\Types\\VatScheme;\nuse Mollie\\Api\\Types\\VatMode;\nuse Mollie\\Api\\Types\\PaymentTerm;\nuse Mollie\\Api\\Types\\SalesInvoiceStatus;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$recipient = new Recipient(\n    type: RecipientType::CONSUMER,\n    email: 'given.family@mollie.com',\n    streetAndNumber: 'Street 1',\n    postalCode: '1000 AA',\n    city: 'Amsterdam',\n    country: 'NL',\n    locale: 'nl_NL',\n    givenName: 'Given',\n    familyName: 'Family'\n);\n\n$invoiceLines = new DataCollection([\n    new InvoiceLine(\n        description: 'Product number 1',\n        quantity: 1,\n        vatRate: '21.00',\n        unitPrice: new Money(currency: 'EUR', value: '12.50')\n    )\n]);\n\n$request = new CreateSalesInvoiceRequest(\n    currency: 'EUR',\n    status: SalesInvoiceStatus::DRAFT,\n    vatScheme: VatScheme::STANDARD,\n    vatMode: VatMode::INCLUSIVE,\n    paymentTerm: PaymentTerm::DAYS_30,\n    recipientIdentifier: 'customer-12354123',\n    recipient: $recipient,\n    lines: $invoiceLines,\n    profileId: 'pfl_QkEhN94Ba',\n    isEInvoice: false\n);\n\n$salesInvoice = $mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -341,6 +403,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/sales-invoices \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSalesInvoicesRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new GetPaginatedSalesInvoicesRequest();\n\n$salesInvoices = $mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -493,6 +586,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/sales-invoices \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSalesInvoicesRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new GetPaginatedSalesInvoicesRequest();\n\n$salesInvoices = $mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -640,6 +764,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/sales-invoices/invoice_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetSalesInvoiceRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new GetSalesInvoiceRequest('invoice_4Y0eZitmBnQ6IDoMqZQKh');\n\n$salesInvoice = $mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -752,6 +907,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/sales-invoices/invoice_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetSalesInvoiceRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new GetSalesInvoiceRequest('invoice_4Y0eZitmBnQ6IDoMqZQKh');\n\n$salesInvoice = $mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -873,6 +1059,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/sales-invoices/invoice_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "paymentTerm=14 days"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\UpdateSalesInvoiceRequest;\nuse Mollie\\Api\\Types\\PaymentTerm;\nuse Mollie\\Api\\Types\\SalesInvoiceStatus;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new UpdateSalesInvoiceRequest(\n    id: 'invoice_4Y0eZitmBnQ6IDoMqZQKh',\n    status: SalesInvoiceStatus::DRAFT,\n    recipientIdentifier: 'customer-12354123',\n    paymentTerm: PaymentTerm::DAYS_14,\n    isEInvoice: false\n);\n\n$salesInvoice = $mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "/*\nWe don't have a Node.js code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n*/",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "'''\nWe don't have a Python code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n'''",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -996,6 +1213,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/sales-invoices/invoice_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "paymentTerm=14 days"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\UpdateSalesInvoiceRequest;\nuse Mollie\\Api\\Types\\PaymentTerm;\nuse Mollie\\Api\\Types\\SalesInvoiceStatus;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new UpdateSalesInvoiceRequest(\n    id: 'invoice_4Y0eZitmBnQ6IDoMqZQKh',\n    status: SalesInvoiceStatus::DRAFT,\n    recipientIdentifier: 'customer-12354123',\n    paymentTerm: PaymentTerm::DAYS_14,\n    isEInvoice: false\n);\n\n$salesInvoice = $mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "/*\nWe don't have a Node.js code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n*/",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "'''\nWe don't have a Python code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n'''",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1118,6 +1366,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/sales-invoices/invoice_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\DeleteSalesInvoiceRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new DeleteSalesInvoiceRequest('invoice_4Y0eZitmBnQ6IDoMqZQKh');\n\n$mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "/*\nWe don't have a Node.js code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n*/",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "'''\nWe don't have a Python code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n'''",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1240,6 +1519,37 @@ class SalesInvoices(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Sales Invoices API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/sales-invoices/invoice_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\DeleteSalesInvoiceRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new DeleteSalesInvoiceRequest('invoice_4Y0eZitmBnQ6IDoMqZQKh');\n\n$mollie->send($request);",
+                                "install": "composer require mollie/mollie-api-php",
+                                "language": "php",
+                            },
+                            {
+                                "code": "/*\nWe don't have a Node.js code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n*/",
+                                "install": "npm install @mollie/api-client",
+                                "language": "node",
+                            },
+                            {
+                                "code": "'''\nWe don't have a Python code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n'''",
+                                "install": "pip install mollie-api-python",
+                                "language": "python",
+                            },
+                            {
+                                "code": "# We don't have a Ruby code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
+                                "install": "gem install mollie-api-ruby",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

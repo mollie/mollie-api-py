@@ -103,6 +103,21 @@ class BalanceTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Balance Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/connect/balance-transfers \\\n  -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n  -H "Content-Type: application/json" \\\n  -d "amount[currency]=EUR" \\\n  -d "amount[value]=10.00" \\\n  -d "description=Invoice #12345" \\\n  -d "source[type]=organization" \\\n  -d "source[id]=org_123" \\\n  -d "source[description]=Invoice fee #12345" \\\n  -d "destination[type]=organization" \\\n  -d "destination[id]=org_456" \\\n  -d "destination[description]=Invoice fee retrieval #12345"\n  -d "metadata[order_id]=12345" \\\n  -d "metadata[customer_id]=9876"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -217,6 +232,21 @@ class BalanceTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Balance Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/connect/balance-transfers \\\n  -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n  -H "Content-Type: application/json" \\\n  -d "amount[currency]=EUR" \\\n  -d "amount[value]=10.00" \\\n  -d "description=Invoice #12345" \\\n  -d "source[type]=organization" \\\n  -d "source[id]=org_123" \\\n  -d "source[description]=Invoice fee #12345" \\\n  -d "destination[type]=organization" \\\n  -d "destination[id]=org_456" \\\n  -d "destination[description]=Invoice fee retrieval #12345"\n  -d "metadata[order_id]=12345" \\\n  -d "metadata[customer_id]=9876"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -335,6 +365,21 @@ class BalanceTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Balance Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/connect/balance-transfers?limit=5 \\\n  -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -484,6 +529,21 @@ class BalanceTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Balance Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/connect/balance-transfers?limit=5 \\\n  -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -628,6 +688,25 @@ class BalanceTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Balance Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/connect/balance-transfers/cbtr_j8NvRAM2WNZtsykpLEX8J \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "",
+                                "install": "composer require mollie/oauth2-mollie-php",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -736,6 +815,25 @@ class BalanceTransfers(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Balance Transfers API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/connect/balance-transfers/cbtr_j8NvRAM2WNZtsykpLEX8J \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "",
+                                "install": "composer require mollie/oauth2-mollie-php",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

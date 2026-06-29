@@ -107,6 +107,25 @@ class Oauth(BaseSDK):
                 operation_id="oauth-generate-tokens",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(security, models.Security),
+                tags=["OAuth API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": '# Create tokens request\ncurl -X POST https://api.mollie.com/oauth2/tokens \\\n    -u app_j9Pakf56Ajta6Y65AkdTtAv:S5lTvMDTjl95HGnwYmsszDtbMp8QBE2lLcRJbD7I\n    -d "grant_type=authorization_code" \\\n    -d "code=auth_IbyEKUrXmGW1J8hPg6Ciyo4aaU6OAu"\n\n# Refresh tokens request\ncurl -X POST https://api.mollie.com/oauth2/tokens \\\n    -u app_j9Pakf56Ajta6Y65AkdTtAv:S5lTvMDTjl95HGnwYmsszDtbMp8QBE2lLcRJbD7I\n    -d "grant_type=refresh_token" \\\n    -d "refresh_token=refresh_FS4xc3Mgci2xQ5s5DzaLXh3HhaTZOP"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "",
+                                "install": "composer require mollie/oauth2-mollie-php",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -224,6 +243,25 @@ class Oauth(BaseSDK):
                 operation_id="oauth-generate-tokens",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(security, models.Security),
+                tags=["OAuth API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": '# Create tokens request\ncurl -X POST https://api.mollie.com/oauth2/tokens \\\n    -u app_j9Pakf56Ajta6Y65AkdTtAv:S5lTvMDTjl95HGnwYmsszDtbMp8QBE2lLcRJbD7I\n    -d "grant_type=authorization_code" \\\n    -d "code=auth_IbyEKUrXmGW1J8hPg6Ciyo4aaU6OAu"\n\n# Refresh tokens request\ncurl -X POST https://api.mollie.com/oauth2/tokens \\\n    -u app_j9Pakf56Ajta6Y65AkdTtAv:S5lTvMDTjl95HGnwYmsszDtbMp8QBE2lLcRJbD7I\n    -d "grant_type=refresh_token" \\\n    -d "refresh_token=refresh_FS4xc3Mgci2xQ5s5DzaLXh3HhaTZOP"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "",
+                                "install": "composer require mollie/oauth2-mollie-php",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -341,6 +379,25 @@ class Oauth(BaseSDK):
                 operation_id="oauth-revoke-tokens",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(security, models.Security),
+                tags=["OAuth API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/oauth2/tokens \\\n    -u app_j9Pakf56Ajta6Y65AkdTtAv:S5lTvMDTjl95HGnwYmsszDtbMp8QBE2lLcRJbD7I\n    -d "token_type_hint=refresh_token" \\\n    -d "token=refresh_FS4xc3Mgci2xQ5s5DzaLXh3HhaTZOP"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "",
+                                "install": "composer require mollie/oauth2-mollie-php",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -458,6 +515,25 @@ class Oauth(BaseSDK):
                 operation_id="oauth-revoke-tokens",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(security, models.Security),
+                tags=["OAuth API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/oauth2/tokens \\\n    -u app_j9Pakf56Ajta6Y65AkdTtAv:S5lTvMDTjl95HGnwYmsszDtbMp8QBE2lLcRJbD7I\n    -d "token_type_hint=refresh_token" \\\n    -d "token=refresh_FS4xc3Mgci2xQ5s5DzaLXh3HhaTZOP"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "",
+                                "install": "composer require mollie/oauth2-mollie-php",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

@@ -110,6 +110,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementsRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementsRequest();\n\n$settlements = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlements = await mollieClient.settlements.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlements = mollie_client.settlements.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nsettlements = Mollie::settlement.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -266,6 +293,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementsRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementsRequest();\n\n$settlements = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlements = await mollieClient.settlements.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlements = mollie_client.settlements.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nsettlements = Mollie::settlement.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -415,6 +469,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetSettlementRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetSettlementRequest('stl_jDk30akdN');\n\n$settlement = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.get('stl_jDk30akdN');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nsettlement = Mollie::settlement.get('stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -524,6 +605,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetSettlementRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetSettlementRequest('stl_jDk30akdN');\n\n$settlement = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.get('stl_jDk30akdN');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nsettlement = Mollie::settlement.get('stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -626,6 +734,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/open \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetSettlementRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetSettlementRequest('open');\n\n$settlement = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getOpen();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("open")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nsettlement = Mollie::Settlement.open",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -728,6 +863,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/open \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetSettlementRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetSettlementRequest('open');\n\n$settlement = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getOpen();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("open")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nsettlement = Mollie::Settlement.open",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -829,6 +991,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/next \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetSettlementRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetSettlementRequest('next');\n\n$settlement = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getNext();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("next")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nsettlement = Mollie::Settlement.next",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -930,6 +1119,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/next \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetSettlementRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetSettlementRequest('next');\n\n$settlement = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getNext();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("next")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nsettlement = Mollie::Settlement.next",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1056,6 +1272,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN/payments \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementPaymentsRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementPaymentsRequest('stl_jDk30akdN');\n\n$payments = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementPayments.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")\npayments = settlement.payments.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\npayments = Mollie::Settlement::Payment.all(settlement_id: 'stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1216,6 +1459,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN/payments \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementPaymentsRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementPaymentsRequest('stl_jDk30akdN');\n\n$payments = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementPayments.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")\npayments = settlement.payments.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\npayments = Mollie::Settlement::Payment.all(settlement_id: 'stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1366,6 +1636,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN/captures \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementCapturesRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementCapturesRequest('stl_jDk30akdN');\n\n$captures = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementCaptures.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")\ncaptures = settlement.captures.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\ncaptures = Mollie::Settlement::Capture.all(settlement_id: 'stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1514,6 +1811,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN/captures \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementCapturesRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementCapturesRequest('stl_jDk30akdN');\n\n$captures = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementCaptures.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")\ncaptures = settlement.captures.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\ncaptures = Mollie::Settlement::Capture.all(settlement_id: 'stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1665,6 +1989,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN/refunds \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementRefundsRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementRefundsRequest('stl_jDk30akdN');\n\n$refunds = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementRefunds.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")\nrefunds = settlement.refunds.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nrefunds = Mollie::Settlement::Refund.all(settlement_id: 'stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1813,6 +2164,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN/refunds \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementRefundsRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementRefundsRequest('stl_jDk30akdN');\n\n$refunds = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementRefunds.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")\nrefunds = settlement.refunds.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nrefunds = Mollie::Settlement::Refund.all(settlement_id: 'stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1973,6 +2351,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN/chargebacks \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementChargebacksRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementChargebacksRequest('stl_jDk30akdN');\n\n$chargebacks = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementChargebacks.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")\nchargebacks = settlement.chargebacks.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nchargebacks = Mollie::Settlement::Chargeback.all(settlement_id: 'stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -2131,6 +2536,33 @@ class Settlements(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Settlements API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/settlements/stl_jDk30akdN/chargebacks \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSettlementChargebacksRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$request = new GetPaginatedSettlementChargebacksRequest('stl_jDk30akdN');\n\n$chargebacks = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementChargebacks.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nsettlement = mollie_client.settlements.get("stl_jDk30akdN")\nchargebacks = settlement.chargebacks.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nchargebacks = Mollie::Settlement::Chargeback.all(settlement_id: 'stl_jDk30akdN')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

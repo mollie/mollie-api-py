@@ -151,6 +151,27 @@ class ClientLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Client Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/client-links \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -d "owner[email]=info@example.org" \\\n    -d "owner[givenName]=Chuck" \\\n    -d "owner[familyName]=Norris" \\\n    -d "address[country]=NL" \\\n    -d "name=Mollie B.V." \\\n    -d "registrationNumber=30204462" \\\n    -d "vatNumber=NL815839091B01"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Data\\Owner;\nuse Mollie\\Api\\Http\\Data\\OwnerAddress;\nuse Mollie\\Api\\Http\\Requests\\CreateClientLinkRequest;\n\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$clientLink = $mollie->send(\n    new CreateClientLinkRequest(\n        owner: new Owner(\n            email: 'info@example.org',\n            givenName: 'Chuck',\n            familyName: 'Norris'\n        ),\n        name: 'Mollie B.V.',\n        address: new OwnerAddress(countryCode: 'NL'),\n        registrationNumber: '30204462',\n        vatNumber: 'NL815839091B01'\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nclient = Client()\nauthorized, authorization_url = client.setup_oauth(...)\n\nprint("authorized", authorized)\nprint("authorization_url", authorization_url)\n\nclient_link = client.client_links.create(\n  {\n    "owner[email]": "info@example.org",\n    "owner[givenName]": "Chuck",\n    "owner[familyName]": "Norris",\n    "address[country]": "NL",\n    "name": "Mollie B.V.",\n    "registrationNumber": 30204462,\n    "vatNumber": "NL815839091B01",\n  }\n)',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -314,6 +335,27 @@ class ClientLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Client Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/client-links \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -d "owner[email]=info@example.org" \\\n    -d "owner[givenName]=Chuck" \\\n    -d "owner[familyName]=Norris" \\\n    -d "address[country]=NL" \\\n    -d "name=Mollie B.V." \\\n    -d "registrationNumber=30204462" \\\n    -d "vatNumber=NL815839091B01"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Data\\Owner;\nuse Mollie\\Api\\Http\\Data\\OwnerAddress;\nuse Mollie\\Api\\Http\\Requests\\CreateClientLinkRequest;\n\n$mollie->setAccessToken('access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ');\n\n$clientLink = $mollie->send(\n    new CreateClientLinkRequest(\n        owner: new Owner(\n            email: 'info@example.org',\n            givenName: 'Chuck',\n            familyName: 'Norris'\n        ),\n        name: 'Mollie B.V.',\n        address: new OwnerAddress(countryCode: 'NL'),\n        registrationNumber: '30204462',\n        vatNumber: 'NL815839091B01'\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nclient = Client()\nauthorized, authorization_url = client.setup_oauth(...)\n\nprint("authorized", authorized)\nprint("authorization_url", authorization_url)\n\nclient_link = client.client_links.create(\n  {\n    "owner[email]": "info@example.org",\n    "owner[givenName]": "Chuck",\n    "owner[familyName]": "Norris",\n    "address[country]": "NL",\n    "name": "Mollie B.V.",\n    "registrationNumber": 30204462,\n    "vatNumber": "NL815839091B01",\n  }\n)',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
