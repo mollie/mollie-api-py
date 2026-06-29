@@ -107,6 +107,33 @@ class Mandates(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Mandates API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/customers/cst_4qqhO89gsT/mandates \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "method=directdebit" \\\n    -d "consumerName=John Doe" \\\n    -d "consumerAccount=NL55INGB0000000000" \\\n    -d "consumerBic=INGBNL2A" \\\n    -d "signatureDate=2023-05-07" \\\n    -d "mandateReference=EXAMPLE-CORP-MD13804"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateMandateRequest;\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Types\\MandateMethod;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mandate = $mollie->send(new CreateMandateRequest(\n    customerId: "cst_4qqhO89gsT",\n    method: MandateMethod::DIRECTDEBIT,\n    consumerName: "John Doe",\n    consumerAccount: "NL55INGB0000000000",\n    consumerBic: "INGBNL2A",\n    signatureDate: "2023-05-07",\n    mandateReference: "EXAMPLE-CORP-MD13804"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.create({\n  customerId: 'cst_4qqhO89gsT',\n  method: 'directdebit',\n  consumerName: 'John Doe',\n  consumerAccount: 'NL55INGB0000000000',\n  consumerBic: 'INGBNL2A',\n  signatureDate: '2023-05-07',\n  mandateReference: 'EXAMPLE-CORP-MD13804'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_4qqhO89gsT")\nmandate = customer.mandates.create({\n    "method": "directdebit",\n    "consumerName": "John Doe",\n    "consumerAccount": "NL55INGB0000000000",\n    "consumerBic": "INGBNL2A",\n    "signatureDate": "2023-05-07",\n    "mandateReference": "EXAMPLE-CORP-MD13804",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nmandate = Mollie::Customer::Mandate.create(\n  customer_id: 'cst_4qqhO89gsT',\n  method: 'directdebit',\n  consumer_name: 'John Doe',\n  consumer_account: 'NL55INGB0000000000',\n  consumer_bic: 'INGBNL2A',\n  signature_date: '2023-05-07',\n  mandate_reference: 'EXAMPLE-CORP-MD13804'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -223,6 +250,33 @@ class Mandates(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Mandates API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/customers/cst_4qqhO89gsT/mandates \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "method=directdebit" \\\n    -d "consumerName=John Doe" \\\n    -d "consumerAccount=NL55INGB0000000000" \\\n    -d "consumerBic=INGBNL2A" \\\n    -d "signatureDate=2023-05-07" \\\n    -d "mandateReference=EXAMPLE-CORP-MD13804"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateMandateRequest;\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Types\\MandateMethod;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mandate = $mollie->send(new CreateMandateRequest(\n    customerId: "cst_4qqhO89gsT",\n    method: MandateMethod::DIRECTDEBIT,\n    consumerName: "John Doe",\n    consumerAccount: "NL55INGB0000000000",\n    consumerBic: "INGBNL2A",\n    signatureDate: "2023-05-07",\n    mandateReference: "EXAMPLE-CORP-MD13804"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.create({\n  customerId: 'cst_4qqhO89gsT',\n  method: 'directdebit',\n  consumerName: 'John Doe',\n  consumerAccount: 'NL55INGB0000000000',\n  consumerBic: 'INGBNL2A',\n  signatureDate: '2023-05-07',\n  mandateReference: 'EXAMPLE-CORP-MD13804'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_4qqhO89gsT")\nmandate = customer.mandates.create({\n    "method": "directdebit",\n    "consumerName": "John Doe",\n    "consumerAccount": "NL55INGB0000000000",\n    "consumerBic": "INGBNL2A",\n    "signatureDate": "2023-05-07",\n    "mandateReference": "EXAMPLE-CORP-MD13804",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nmandate = Mollie::Customer::Mandate.create(\n  customer_id: 'cst_4qqhO89gsT',\n  method: 'directdebit',\n  consumer_name: 'John Doe',\n  consumer_account: 'NL55INGB0000000000',\n  consumer_bic: 'INGBNL2A',\n  signature_date: '2023-05-07',\n  mandate_reference: 'EXAMPLE-CORP-MD13804'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -349,6 +403,33 @@ class Mandates(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Mandates API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_8wmqcHMN4U/mandates \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedMandateRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mandates = $mollie->send(new GetPaginatedMandateRequest(\n    customerId: "cst_4qqhO89gsT"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandates = mollieClient.customerMandates.iterate({ customerId: 'cst_4qqhO89gsT' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_4qqhO89gsT")\nmandates = customer.mandates.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.get('cst_4qqhO89gsT')\nmandates = customer.mandates",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -512,6 +593,33 @@ class Mandates(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Mandates API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_8wmqcHMN4U/mandates \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedMandateRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mandates = $mollie->send(new GetPaginatedMandateRequest(\n    customerId: "cst_4qqhO89gsT"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandates = mollieClient.customerMandates.iterate({ customerId: 'cst_4qqhO89gsT' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_4qqhO89gsT")\nmandates = customer.mandates.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.get('cst_4qqhO89gsT')\nmandates = customer.mandates",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -664,6 +772,33 @@ class Mandates(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Mandates API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_4qqhO89gsT/mandates/mdt_h3gAaD5zP \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetMandateRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mandate = $mollie->send(new GetMandateRequest(\n    customerId: "cst_4qqhO89gsT",\n    mandateId: "mdt_h3gAaD5zP"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.get('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_4qqhO89gsT")\nmandate = customer.mandates.get("mdt_h3gAaD5zP")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nmandate = Mollie::Customer::Mandate.get('mdt_h3gAaD5zP', customer_id: 'cst_4qqhO89gsT')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -776,6 +911,33 @@ class Mandates(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Mandates API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_4qqhO89gsT/mandates/mdt_h3gAaD5zP \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetMandateRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mandate = $mollie->send(new GetMandateRequest(\n    customerId: "cst_4qqhO89gsT",\n    mandateId: "mdt_h3gAaD5zP"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.get('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_4qqhO89gsT")\nmandate = customer.mandates.get("mdt_h3gAaD5zP")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nmandate = Mollie::Customer::Mandate.get('mdt_h3gAaD5zP', customer_id: 'cst_4qqhO89gsT')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -895,6 +1057,33 @@ class Mandates(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Mandates API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/customers/cst_4qqhO89gsT/mandates/mdt_h3gAaD5zP \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\RevokeMandateRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(new RevokeMandateRequest(\n    customerId: "cst_4qqhO89gsT",\n    mandateId: "mdt_h3gAaD5zP"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.customerMandates.revoke('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_4qqhO89gsT")\ncustomer.mandates.delete("mdt_h3gAaD5zP")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nMollie::Customer::Mandate.delete('mdt_h3gAaD5zP', customer_id: 'cst_4qqhO89gsT')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1014,6 +1203,33 @@ class Mandates(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Mandates API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/customers/cst_4qqhO89gsT/mandates/mdt_h3gAaD5zP \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\RevokeMandateRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(new RevokeMandateRequest(\n    customerId: "cst_4qqhO89gsT",\n    mandateId: "mdt_h3gAaD5zP"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.customerMandates.revoke('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_4qqhO89gsT")\ncustomer.mandates.delete("mdt_h3gAaD5zP")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nMollie::Customer::Mandate.delete('mdt_h3gAaD5zP', customer_id: 'cst_4qqhO89gsT')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

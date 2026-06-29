@@ -105,6 +105,30 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payment-links \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "description=Bicycle tires" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=24.95" \\\n    -d "minimumAmount[currency]=null" \\\n    -d "minimumAmount[value]=null" \\\n    -d "redirectUrl=https://webshop.example.org/thanks" \\\n    -d "webhookUrl=https://webshop.example.org/payment-links/webhook" \\\n    -d "expiresAt=2023-06-06T11:00:00+00:00"\n    -d "reusable=false"\n    -d "allowedMethods[]=ideal"\n    -d "sequenceType=first"\n    -d "customerId=cst_vsKJpSsabw"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreatePaymentLinkRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$paymentLink = $mollie->send(new CreatePaymentLinkRequest(\n  description: "Bicycle tires",\n  amount: new Money(currency: "EUR", value: "24.95"),\n  redirectUrl: "https://webshop.example.org/thanks",\n  webhookUrl: "https://webshop.example.org/payment-links/webhook/",\n  expiresAt: "2023-06-06T11:00:00+00:00",\n  reusable: false,\n  allowedMethods: ["ideal"],\n  sequenceType: "first",\n  customerId: "cst_vsKJpSsabw"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.create({\n  amount: {\n    currency: 'EUR',\n    value: '24.95'\n  },\n  description: 'Bicycle tires',\n  redirectUrl: 'https://webshop.example.org/thanks',\n  webhookUrl: 'https://webshop.example.org/payment-links/webhook/',\n  expiresAt: '2023-06-06T11:00:00+00:00',\n  reusable: false,\n  allowedMethods: ['ideal'],\n  sequenceType: 'first',\n  customerId: 'cst_vsKJpSsabw'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment_link = mollie_client.payment_links.create({\n  "description": "Bicycle tires",\n  "amount": {\n    "currency": "EUR",\n    "value": "24.95"\n  },\n  "minimumAmount": null,\n  "webhookUrl": "https://webshop.example.org/payment-links/webhook/",\n  "redirectUrl": "https://webshop.example.org/thanks",\n  "expiresAt": "2023-06-06T11:00:00+00:00",\n  "reusable": false,\n  "allowedMethods": ["ideal"],\n  "sequenceType": "first",\n  "customerId": "cst_vsKJpSsabw"\n})',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -221,6 +245,30 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payment-links \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "description=Bicycle tires" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=24.95" \\\n    -d "minimumAmount[currency]=null" \\\n    -d "minimumAmount[value]=null" \\\n    -d "redirectUrl=https://webshop.example.org/thanks" \\\n    -d "webhookUrl=https://webshop.example.org/payment-links/webhook" \\\n    -d "expiresAt=2023-06-06T11:00:00+00:00"\n    -d "reusable=false"\n    -d "allowedMethods[]=ideal"\n    -d "sequenceType=first"\n    -d "customerId=cst_vsKJpSsabw"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreatePaymentLinkRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$paymentLink = $mollie->send(new CreatePaymentLinkRequest(\n  description: "Bicycle tires",\n  amount: new Money(currency: "EUR", value: "24.95"),\n  redirectUrl: "https://webshop.example.org/thanks",\n  webhookUrl: "https://webshop.example.org/payment-links/webhook/",\n  expiresAt: "2023-06-06T11:00:00+00:00",\n  reusable: false,\n  allowedMethods: ["ideal"],\n  sequenceType: "first",\n  customerId: "cst_vsKJpSsabw"\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.create({\n  amount: {\n    currency: 'EUR',\n    value: '24.95'\n  },\n  description: 'Bicycle tires',\n  redirectUrl: 'https://webshop.example.org/thanks',\n  webhookUrl: 'https://webshop.example.org/payment-links/webhook/',\n  expiresAt: '2023-06-06T11:00:00+00:00',\n  reusable: false,\n  allowedMethods: ['ideal'],\n  sequenceType: 'first',\n  customerId: 'cst_vsKJpSsabw'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment_link = mollie_client.payment_links.create({\n  "description": "Bicycle tires",\n  "amount": {\n    "currency": "EUR",\n    "value": "24.95"\n  },\n  "minimumAmount": null,\n  "webhookUrl": "https://webshop.example.org/payment-links/webhook/",\n  "redirectUrl": "https://webshop.example.org/thanks",\n  "expiresAt": "2023-06-06T11:00:00+00:00",\n  "reusable": false,\n  "allowedMethods": ["ideal"],\n  "sequenceType": "first",\n  "customerId": "cst_vsKJpSsabw"\n})',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -339,6 +387,30 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payment-links \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedPaymentLinksRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$paymentLinks = $mollie->send(new GetPaginatedPaymentLinksRequest(\n  from: null,\n  limit: 5\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLinks = await mollieClient.paymentLinks.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment_links = mollie_client.payment_links.list()',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -487,6 +559,30 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payment-links \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedPaymentLinksRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$paymentLinks = $mollie->send(new GetPaginatedPaymentLinksRequest(\n  from: null,\n  limit: 5\n));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLinks = await mollieClient.paymentLinks.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment_links = mollie_client.payment_links.list()',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -630,6 +726,30 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payment-links/pl_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaymentLinkRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$paymentLink = $mollie->send(new GetPaymentLinkRequest("pl_4Y0eZitmBnQ6IDoMqZQKh"));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.get('pl_4Y0eZitmBnQ6IDoMqZQKh');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment_link = mollie_client.payment_links.get("pl_4Y0eZitmBnQ6IDoMqZQKh")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -738,6 +858,30 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payment-links/pl_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaymentLinkRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$paymentLink = $mollie->send(new GetPaymentLinkRequest("pl_4Y0eZitmBnQ6IDoMqZQKh"));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.get('pl_4Y0eZitmBnQ6IDoMqZQKh');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment_link = mollie_client.payment_links.get("pl_4Y0eZitmBnQ6IDoMqZQKh")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -853,6 +997,24 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/payment-links/pl_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "description=Bicycle tires" \\\n    -d "minimumAmount[currency]=EUR" \\\n    -d "minimumAmount[value]=24.95" \\\n    -d "archived=true" \\\n    -d "allowedMethods[]=creditcard"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\UpdatePaymentLinkRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$paymentLink = $mollie->send(new UpdatePaymentLinkRequest(\n    "pl_4Y0eZitmBnQ6IDoMqZQKh",\n    description: "Bicycle tires",\n    archived: true,\n    allowedMethods: ["creditcard"]\n));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -970,6 +1132,24 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/payment-links/pl_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "description=Bicycle tires" \\\n    -d "minimumAmount[currency]=EUR" \\\n    -d "minimumAmount[value]=24.95" \\\n    -d "archived=true" \\\n    -d "allowedMethods[]=creditcard"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\UpdatePaymentLinkRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$paymentLink = $mollie->send(new UpdatePaymentLinkRequest(\n    "pl_4Y0eZitmBnQ6IDoMqZQKh",\n    description: "Bicycle tires",\n    archived: true,\n    allowedMethods: ["creditcard"]\n));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1093,6 +1273,24 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/payment-links/pl_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DeletePaymentLinkRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(new DeletePaymentLinkRequest("pl_4Y0eZitmBnQ6IDoMqZQKh"));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1216,6 +1414,24 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/payment-links/pl_4Y0eZitmBnQ6IDoMqZQKh \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DeletePaymentLinkRequest;\nuse Mollie\\Api\\MollieApiClient;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(new DeletePaymentLinkRequest("pl_4Y0eZitmBnQ6IDoMqZQKh"));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1341,6 +1557,21 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payment-links/pl_4Y0eZitmBnQ6IDoMqZQKh/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1498,6 +1729,21 @@ class PaymentLinks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payment Links API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payment-links/pl_4Y0eZitmBnQ6IDoMqZQKh/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

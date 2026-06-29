@@ -121,6 +121,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=25.00" \\\n    -d "times=4" \\\n    -d "interval=3 months" \\\n    -d "startDate=2023-06-01" \\\n    -d "description=Quarterly payment" \\\n    -d "webhookUrl=https://webshop.example.org/subscriptions/webhook/"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreateSubscriptionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscription = $mollie->send(\n    new CreateSubscriptionRequest(\n        customerId: "cst_stTC2WHAuS",\n        amount: new Money(currency: "EUR", value: "25.00"),\n        interval: "3 months",\n        description: "Quarterly payment",\n        times: 4,\n        startDate: "2023-06-01",\n        webhookUrl: "https://webshop.example.org/subscriptions/webhook/"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.create({\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '25.00'\n  },\n  times: 4,\n  interval: '3 months',\n  startDate: '2023-06-01',\n  description: 'Quarterly payment',\n  webhookUrl: 'https://webshop.example.org/subscriptions/webhook/'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscription = customer.subscriptions.create({\n    "amount": {\n        "currency": "EUR",\n        "value": "25.00",\n    },\n    "times": 4,\n    "interval": "3 months",\n    "startDate": "2023-06-01",\n    "description": "Quarterly payment",\n    "webhookUrl": "https://webshop.example.org/subscriptions/webhook/",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nsubscription = Mollie::Customer::Subscription.create(\n  customer_id: 'cst_stTC2WHAuS',\n  amount: { value: '25.00', currency: 'EUR' },\n  times: 4,\n  interval: '3 months',\n  start_date: '2023-06-01',\n  description: 'Quarterly payment',\n  webhook_url: 'https://webshop.example.org/subscriptions/webhook/'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -251,6 +278,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=25.00" \\\n    -d "times=4" \\\n    -d "interval=3 months" \\\n    -d "startDate=2023-06-01" \\\n    -d "description=Quarterly payment" \\\n    -d "webhookUrl=https://webshop.example.org/subscriptions/webhook/"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreateSubscriptionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscription = $mollie->send(\n    new CreateSubscriptionRequest(\n        customerId: "cst_stTC2WHAuS",\n        amount: new Money(currency: "EUR", value: "25.00"),\n        interval: "3 months",\n        description: "Quarterly payment",\n        times: 4,\n        startDate: "2023-06-01",\n        webhookUrl: "https://webshop.example.org/subscriptions/webhook/"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.create({\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '25.00'\n  },\n  times: 4,\n  interval: '3 months',\n  startDate: '2023-06-01',\n  description: 'Quarterly payment',\n  webhookUrl: 'https://webshop.example.org/subscriptions/webhook/'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscription = customer.subscriptions.create({\n    "amount": {\n        "currency": "EUR",\n        "value": "25.00",\n    },\n    "times": 4,\n    "interval": "3 months",\n    "startDate": "2023-06-01",\n    "description": "Quarterly payment",\n    "webhookUrl": "https://webshop.example.org/subscriptions/webhook/",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nsubscription = Mollie::Customer::Subscription.create(\n  customer_id: 'cst_stTC2WHAuS',\n  amount: { value: '25.00', currency: 'EUR' },\n  times: 4,\n  interval: '3 months',\n  start_date: '2023-06-01',\n  description: 'Quarterly payment',\n  webhook_url: 'https://webshop.example.org/subscriptions/webhook/'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -374,6 +428,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSubscriptionsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscriptions = $mollie->send(\n    new GetPaginatedSubscriptionsRequest(\n        customerId: "cst_stTC2WHAuS"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = await mollieClient.customerSubscriptions.all({ customerId: 'cst_stTC2WHAuS' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscriptions = customer.subscriptions.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.get('cst_stTC2WHAuS')\nsubscriptions = customer.subscriptions",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -533,6 +614,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSubscriptionsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscriptions = $mollie->send(\n    new GetPaginatedSubscriptionsRequest(\n        customerId: "cst_stTC2WHAuS"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = await mollieClient.customerSubscriptions.all({ customerId: 'cst_stTC2WHAuS' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscriptions = customer.subscriptions.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\ncustomer = Mollie::Customer.get('cst_stTC2WHAuS')\nsubscriptions = customer.subscriptions",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -683,6 +791,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions/sub_rVKGtNd6s3 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetSubscriptionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscription = $mollie->send(\n    new GetSubscriptionRequest(\n        customerId: "cst_stTC2WHAuS",\n        id: "sub_rVKGtNd6s3"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.get('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscription = customer.subscriptions.get("sub_rVKGtNd6s3")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nsubscription = Mollie::Customer::Subscription.get(\n  'sub_rVKGtNd6s3',\n  customer_id: 'cst_stTC2WHAuS'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -794,6 +929,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions/sub_rVKGtNd6s3 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetSubscriptionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscription = $mollie->send(\n    new GetSubscriptionRequest(\n        customerId: "cst_stTC2WHAuS",\n        id: "sub_rVKGtNd6s3"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.get('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscription = customer.subscriptions.get("sub_rVKGtNd6s3")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nsubscription = Mollie::Customer::Subscription.get(\n  'sub_rVKGtNd6s3',\n  customer_id: 'cst_stTC2WHAuS'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -916,6 +1078,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions/sub_rVKGtNd6s3 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=10.00" \\\n    -d "times=10"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\UpdateSubscriptionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscription = $mollie->send(\n    new UpdateSubscriptionRequest(\n        customerId: "cst_stTC2WHAuS",\n        subscriptionId: "sub_rVKGtNd6s3",\n        amount: new Money(currency: "EUR", value: "10.00"),\n        times: 10\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.update('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  times: 10\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscription = customer.subscriptions.update(\n    "sub_rVKGtNd6s3",\n    {\n        "amount": {\n            "currency": "EUR",\n            "value": "10.00",\n        },\n        "times": 10,\n    },\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nsubscription = Mollie::Customer::Subscription.update(\n  'sub_rVKGtNd6s3',\n  customer_id: 'cst_stTC2WHAuS',\n  amount: { value: '10.00', currency: 'EUR' },\n  times: 10\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1038,6 +1227,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions/sub_rVKGtNd6s3 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=10.00" \\\n    -d "times=10"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\UpdateSubscriptionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscription = $mollie->send(\n    new UpdateSubscriptionRequest(\n        customerId: "cst_stTC2WHAuS",\n        subscriptionId: "sub_rVKGtNd6s3",\n        amount: new Money(currency: "EUR", value: "10.00"),\n        times: 10\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.update('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  times: 10\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscription = customer.subscriptions.update(\n    "sub_rVKGtNd6s3",\n    {\n        "amount": {\n            "currency": "EUR",\n            "value": "10.00",\n        },\n        "times": 10,\n    },\n)',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nsubscription = Mollie::Customer::Subscription.update(\n  'sub_rVKGtNd6s3',\n  customer_id: 'cst_stTC2WHAuS',\n  amount: { value: '10.00', currency: 'EUR' },\n  times: 10\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1156,6 +1372,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions/sub_rVKGtNd6s3 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CancelSubscriptionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscription = $mollie->send(\n    new CancelSubscriptionRequest(\n        customerId: "cst_stTC2WHAuS",\n        subscriptionId: "sub_rVKGtNd6s3"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = mollieClient.customerSubscriptions.delete('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\ncustomer.subscriptions.delete("sub_rVKGtNd6s3")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nMollie::Customer::Subscription.delete(\n  'sub_rVKGtNd6s3',\n  customer_id: 'cst_stTC2WHAuS'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1274,6 +1517,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions/sub_rVKGtNd6s3 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CancelSubscriptionRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscription = $mollie->send(\n    new CancelSubscriptionRequest(\n        customerId: "cst_stTC2WHAuS",\n        subscriptionId: "sub_rVKGtNd6s3"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = mollieClient.customerSubscriptions.delete('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\ncustomer.subscriptions.delete("sub_rVKGtNd6s3")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nMollie::Customer::Subscription.delete(\n  'sub_rVKGtNd6s3',\n  customer_id: 'cst_stTC2WHAuS'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1399,6 +1669,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/subscriptions \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetAllPaginatedSubscriptionsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscriptions = $mollie->send(\n    new GetAllPaginatedSubscriptionsRequest()\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = mollieClient.subscriptions.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nsubscriptions = mollie_client.subscriptions.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nsubscriptions = Mollie::Subscription.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1559,6 +1856,33 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/subscriptions \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetAllPaginatedSubscriptionsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$subscriptions = $mollie->send(\n    new GetAllPaginatedSubscriptionsRequest()\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = mollieClient.subscriptions.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nsubscriptions = mollie_client.subscriptions.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nsubscriptions = Mollie::Subscription.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1731,6 +2055,30 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions/sub_8JfGzs6v3K/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSubscriptionPaymentsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payments = $mollie->send(\n    new GetPaginatedSubscriptionPaymentsRequest(\n        customerId: "cst_stTC2WHAuS",\n        subscriptionId: "sub_8JfGzs6v3K"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.subscriptionPayments.iterate({\n  customerId: 'cst_stTC2WHAuS',\n  subscriptionId: 'sub_8JfGzs6v3K'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscription = customer.subscriptions.get("sub_8JfGzs6v3K")\npayments = subscription.payments.list()',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1901,6 +2249,30 @@ class Subscriptions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Subscriptions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/customers/cst_stTC2WHAuS/subscriptions/sub_8JfGzs6v3K/payments \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedSubscriptionPaymentsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payments = $mollie->send(\n    new GetPaginatedSubscriptionPaymentsRequest(\n        customerId: "cst_stTC2WHAuS",\n        subscriptionId: "sub_8JfGzs6v3K"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.subscriptionPayments.iterate({\n  customerId: 'cst_stTC2WHAuS',\n  subscriptionId: 'sub_8JfGzs6v3K'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\ncustomer = mollie_client.customers.get("cst_stTC2WHAuS")\nsubscription = customer.subscriptions.get("sub_8JfGzs6v3K")\npayments = subscription.payments.list()',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

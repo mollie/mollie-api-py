@@ -334,12 +334,6 @@ if TYPE_CHECKING:
         EntityChargebackTypedDict,
     )
     from .entity_customer import EntityCustomer, EntityCustomerTypedDict
-    from .entity_event import (
-        EntityEvent,
-        EntityEventLinks,
-        EntityEventLinksTypedDict,
-        EntityEventTypedDict,
-    )
     from .entity_invoice import (
         EntityInvoice,
         EntityInvoiceGrossAmount,
@@ -566,12 +560,8 @@ if TYPE_CHECKING:
     from .get_customerop import (
         GetCustomerGlobals,
         GetCustomerGlobalsTypedDict,
-        GetCustomerLinks,
-        GetCustomerLinksTypedDict,
         GetCustomerRequest,
         GetCustomerRequestTypedDict,
-        GetCustomerResponse,
-        GetCustomerResponseTypedDict,
     )
     from .get_invoiceop import GetInvoiceRequest, GetInvoiceRequestTypedDict
     from .get_mandateop import (
@@ -2166,10 +2156,6 @@ __all__ = [
     "EntityChargebackTypedDict",
     "EntityCustomer",
     "EntityCustomerTypedDict",
-    "EntityEvent",
-    "EntityEventLinks",
-    "EntityEventLinksTypedDict",
-    "EntityEventTypedDict",
     "EntityInvoice",
     "EntityInvoiceGrossAmount",
     "EntityInvoiceGrossAmountTypedDict",
@@ -2346,12 +2332,8 @@ __all__ = [
     "GetCurrentProfileRequestTypedDict",
     "GetCustomerGlobals",
     "GetCustomerGlobalsTypedDict",
-    "GetCustomerLinks",
-    "GetCustomerLinksTypedDict",
     "GetCustomerRequest",
     "GetCustomerRequestTypedDict",
-    "GetCustomerResponse",
-    "GetCustomerResponseTypedDict",
     "GetInvoiceRequest",
     "GetInvoiceRequestTypedDict",
     "GetMandateGlobals",
@@ -3773,10 +3755,6 @@ _dynamic_imports: dict[str, str] = {
     "EntityChargebackTypedDict": ".entity_chargeback",
     "EntityCustomer": ".entity_customer",
     "EntityCustomerTypedDict": ".entity_customer",
-    "EntityEvent": ".entity_event",
-    "EntityEventLinks": ".entity_event",
-    "EntityEventLinksTypedDict": ".entity_event",
-    "EntityEventTypedDict": ".entity_event",
     "EntityInvoice": ".entity_invoice",
     "EntityInvoiceGrossAmount": ".entity_invoice",
     "EntityInvoiceGrossAmountTypedDict": ".entity_invoice",
@@ -3950,12 +3928,8 @@ _dynamic_imports: dict[str, str] = {
     "GetCurrentProfileRequestTypedDict": ".get_current_profileop",
     "GetCustomerGlobals": ".get_customerop",
     "GetCustomerGlobalsTypedDict": ".get_customerop",
-    "GetCustomerLinks": ".get_customerop",
-    "GetCustomerLinksTypedDict": ".get_customerop",
     "GetCustomerRequest": ".get_customerop",
     "GetCustomerRequestTypedDict": ".get_customerop",
-    "GetCustomerResponse": ".get_customerop",
-    "GetCustomerResponseTypedDict": ".get_customerop",
     "GetInvoiceRequest": ".get_invoiceop",
     "GetInvoiceRequestTypedDict": ".get_invoiceop",
     "GetMandateGlobals": ".get_mandateop",

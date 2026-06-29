@@ -120,6 +120,24 @@ class Wallets(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Wallets API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/wallets/applepay/sessions \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "domain=pay.mywebshop.com" \\\n    -d "validationUrl=https://apple-pay-gateway-cert.apple.com/paymentservices/paymentSession"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\ApplePayPaymentSessionRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new ApplePayPaymentSessionRequest(\n    domain: 'pay.example.org',\n    validationUrl: 'https://apple-pay-gateway-cert.apple.com/paymentservices/paymentSession'\n);\n\n$session = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -250,6 +268,24 @@ class Wallets(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Wallets API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/wallets/applepay/sessions \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "domain=pay.mywebshop.com" \\\n    -d "validationUrl=https://apple-pay-gateway-cert.apple.com/paymentservices/paymentSession"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\MollieApiClient;\nuse Mollie\\Api\\Http\\Requests\\ApplePayPaymentSessionRequest;\n\n$mollie = new MollieApiClient();\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$request = new ApplePayPaymentSessionRequest(\n    domain: 'pay.example.org',\n    validationUrl: 'https://apple-pay-gateway-cert.apple.com/paymentservices/paymentSession'\n);\n\n$session = $mollie->send($request);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

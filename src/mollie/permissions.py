@@ -87,6 +87,33 @@ class Permissions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Permissions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/permissions \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$permissions = $mollie->permissions->all();',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permissions = await mollieClient.permissions.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\npermissions = mollie_client.permissions.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\npermissions = Mollie::Permission.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -184,6 +211,33 @@ class Permissions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Permissions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/permissions \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$permissions = $mollie->permissions->all();',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permissions = await mollieClient.permissions.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\npermissions = mollie_client.permissions.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\npermissions = Mollie::Permission.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -290,6 +344,33 @@ class Permissions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Permissions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/permissions/payments.read \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$permission = $mollie->permissions->get("payments.read");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permission = await mollieClient.permissions.get('payments.read');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\npermission = mollie_client.permissions.get("payments.read")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\npermission = Mollie::Permission.get('payments.read')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -396,6 +477,33 @@ class Permissions(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Permissions API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/permissions/payments.read \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$permission = $mollie->permissions->get("payments.read");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permission = await mollieClient.permissions.get('payments.read');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\npermission = mollie_client.permissions.get("payments.read")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\npermission = Mollie::Permission.get('payments.read')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

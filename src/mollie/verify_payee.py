@@ -124,6 +124,33 @@ class VerifyPayee(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Verify Payee API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/business-accounts/payee-verifications \\\n  -H \'Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM\' \\\n  -H \'Content-Type: application/json\' \\\n  -d \'{\n    "creditorBankAccount": {\n      "accountHolderName": "Jan Jansen",\n      "format": "iban",\n      "accountNumber": "NL02ABNA0123456789"\n    }\n  }\'',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$verification = $mollie->businessAccountPayeeVerifications->create([\n    "creditorBankAccount" => [\n        "accountHolderName" => "Jan Jansen",\n        "format" => "iban",\n        "accountNumber" => "NL02ABNA0123456789",\n    ],\n]);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst verification = await mollieClient.businessAccountPayeeVerifications.create({\n  creditorBankAccount: {\n    accountHolderName: 'Jan Jansen',\n    format: 'iban',\n    accountNumber: 'NL02ABNA0123456789'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nverification = mollie_client.business_account_payee_verifications.create({\n    "creditorBankAccount": {\n        "accountHolderName": "Jan Jansen",\n        "format": "iban",\n        "accountNumber": "NL02ABNA0123456789",\n    },\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nverification = Mollie::BusinessAccount::PayeeVerification.create(\n  creditor_bank_account: {\n    account_holder_name: 'Jan Jansen',\n    format: 'iban',\n    account_number: 'NL02ABNA0123456789'\n  }\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -261,6 +288,33 @@ class VerifyPayee(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Verify Payee API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/business-accounts/payee-verifications \\\n  -H \'Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM\' \\\n  -H \'Content-Type: application/json\' \\\n  -d \'{\n    "creditorBankAccount": {\n      "accountHolderName": "Jan Jansen",\n      "format": "iban",\n      "accountNumber": "NL02ABNA0123456789"\n    }\n  }\'',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$verification = $mollie->businessAccountPayeeVerifications->create([\n    "creditorBankAccount" => [\n        "accountHolderName" => "Jan Jansen",\n        "format" => "iban",\n        "accountNumber" => "NL02ABNA0123456789",\n    ],\n]);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst verification = await mollieClient.businessAccountPayeeVerifications.create({\n  creditorBankAccount: {\n    accountHolderName: 'Jan Jansen',\n    format: 'iban',\n    accountNumber: 'NL02ABNA0123456789'\n  }\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nverification = mollie_client.business_account_payee_verifications.create({\n    "creditorBankAccount": {\n        "accountHolderName": "Jan Jansen",\n        "format": "iban",\n        "accountNumber": "NL02ABNA0123456789",\n    },\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nverification = Mollie::BusinessAccount::PayeeVerification.create(\n  creditor_bank_account: {\n    account_holder_name: 'Jan Jansen',\n    format: 'iban',\n    account_number: 'NL02ABNA0123456789'\n  }\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

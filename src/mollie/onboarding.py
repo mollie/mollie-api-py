@@ -85,6 +85,30 @@ class Onboarding(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Onboarding API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET  https://api.mollie.com/v2/onboarding/me \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetOnboardingStatusRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$onboarding = $mollie->send(new GetOnboardingStatusRequest());',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nonboarding = mollie_client.onboarding.get("me")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nonboarding = Mollie::Onboarding.me",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -180,6 +204,30 @@ class Onboarding(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Onboarding API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET  https://api.mollie.com/v2/onboarding/me \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetOnboardingStatusRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$onboarding = $mollie->send(new GetOnboardingStatusRequest());',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nonboarding = mollie_client.onboarding.get("me")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nonboarding = Mollie::Onboarding.me",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -297,6 +345,30 @@ class Onboarding(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Onboarding API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/onboarding/me \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "organization[name]=Mollie B.V." \\\n    -d "organization[address][streetAndNumber]=Keizersgracht 126" \\\n    -d "organization[address][postalCode]=1015 CW" \\\n    -d "organization[address][city]=Amsterdam" \\\n    -d "organization[address][country]=NL" \\\n    -d "organization[registrationNumber]=30204462" \\\n    -d "organization[vatNumber]=NL815839091B01" \\\n    -d "profile[name]=Mollie" \\\n    -d "profile[url]=https://www.mollie.com" \\\n    -d "profile[email]=info@mollie.com" \\\n    -d "profile[phone]=+31208202070" \\\n    -d "profile[businessCategory]=MONEY_SERVICES"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DynamicPostRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$mollie->send(new DynamicPostRequest(\n    url: "onboarding/me",\n    payload: [\n        "organization" => [\n            "name" => "Mollie B.V.",\n            "address" => [\n                "streetAndNumber" => "Keizersgracht 126",\n                "postalCode" => "1015 CW",\n                "city" => "Amsterdam",\n                "country" => "NL",\n            ],\n            "registrationNumber" => "30204462",\n            "vatNumber" => "NL815839091B01",\n        ],\n        "profile" => [\n            "name" => "Mollie",\n            "url" => "https://www.mollie.com",\n            "email" => "info@mollie.com",\n            "phone" => "+31208202070",\n            "businessCategory" => "MONEY_SERVICES",\n        ],\n    ]\n));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nmollie_client.onboarding.create({\n  "organization": {\n    "name": "Mollie B.V.",\n    "address": {\n      "streetAndNumber": "Keizersgracht 126",\n      "postalCode": "1015 CW",\n      "city": "Amsterdam",\n      "country": "NL",\n    },\n    "registrationNumber": "30204462",\n    "vatNumber": "NL815839091B01",\n  },\n  "profile": {\n    "name": "Mollie",\n    "url": "https://www.mollie.com",\n    "email": "info@mollie.com",\n    "phone": "+31208202070",\n    "categoryCode": 6012,\n  },\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": 'require \'mollie-api-ruby\'\n\nMollie::Client.configure do |config|\n  config.api_key = \'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ\'\nend\n\nMollie::Onboarding.submit(\n  organization: {\n    name: "Mollie B.V.",\n    address: {\n      streetAndNumber: "Keizersgracht 126",\n      postalCode: "1015 CW",\n      city: "Amsterdam",\n      country: "NL"\n    },\n    registrationNumber: "30204462",\n    vatNumber: "NL815839091B01"\n  },\n  profile: {\n    name: "Mollie",\n    url: "https://www.mollie.com",\n    email: "info@mollie.com",\n    phone: "+31208202070",\n    businessCategory: "MONEY_SERVICES"\n  }\n)',
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -414,6 +486,30 @@ class Onboarding(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Onboarding API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/onboarding/me \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "organization[name]=Mollie B.V." \\\n    -d "organization[address][streetAndNumber]=Keizersgracht 126" \\\n    -d "organization[address][postalCode]=1015 CW" \\\n    -d "organization[address][city]=Amsterdam" \\\n    -d "organization[address][country]=NL" \\\n    -d "organization[registrationNumber]=30204462" \\\n    -d "organization[vatNumber]=NL815839091B01" \\\n    -d "profile[name]=Mollie" \\\n    -d "profile[url]=https://www.mollie.com" \\\n    -d "profile[email]=info@mollie.com" \\\n    -d "profile[phone]=+31208202070" \\\n    -d "profile[businessCategory]=MONEY_SERVICES"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DynamicPostRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$mollie->send(new DynamicPostRequest(\n    url: "onboarding/me",\n    payload: [\n        "organization" => [\n            "name" => "Mollie B.V.",\n            "address" => [\n                "streetAndNumber" => "Keizersgracht 126",\n                "postalCode" => "1015 CW",\n                "city" => "Amsterdam",\n                "country" => "NL",\n            ],\n            "registrationNumber" => "30204462",\n            "vatNumber" => "NL815839091B01",\n        ],\n        "profile" => [\n            "name" => "Mollie",\n            "url" => "https://www.mollie.com",\n            "email" => "info@mollie.com",\n            "phone" => "+31208202070",\n            "businessCategory" => "MONEY_SERVICES",\n        ],\n    ]\n));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nmollie_client.onboarding.create({\n  "organization": {\n    "name": "Mollie B.V.",\n    "address": {\n      "streetAndNumber": "Keizersgracht 126",\n      "postalCode": "1015 CW",\n      "city": "Amsterdam",\n      "country": "NL",\n    },\n    "registrationNumber": "30204462",\n    "vatNumber": "NL815839091B01",\n  },\n  "profile": {\n    "name": "Mollie",\n    "url": "https://www.mollie.com",\n    "email": "info@mollie.com",\n    "phone": "+31208202070",\n    "categoryCode": 6012,\n  },\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": 'require \'mollie-api-ruby\'\n\nMollie::Client.configure do |config|\n  config.api_key = \'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ\'\nend\n\nMollie::Onboarding.submit(\n  organization: {\n    name: "Mollie B.V.",\n    address: {\n      streetAndNumber: "Keizersgracht 126",\n      postalCode: "1015 CW",\n      city: "Amsterdam",\n      country: "NL"\n    },\n    registrationNumber: "30204462",\n    vatNumber: "NL815839091B01"\n  },\n  profile: {\n    name: "Mollie",\n    url: "https://www.mollie.com",\n    email: "info@mollie.com",\n    phone: "+31208202070",\n    businessCategory: "MONEY_SERVICES"\n  }\n)',
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

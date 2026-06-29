@@ -113,6 +113,33 @@ class ChargebacksSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Chargebacks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/chargebacks?limit=5 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedPaymentChargebacksRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$chargebacks = $mollie->send(\n    new GetPaginatedPaymentChargebacksRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.paymentChargebacks.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo")\nchargebacks = payment.chargebacks.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nchargebacks = Mollie::Payment.get('tr_5B8cwPMGnU6qLbRvo7qEZo').chargebacks",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -271,6 +298,33 @@ class ChargebacksSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Chargebacks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/chargebacks?limit=5 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedPaymentChargebacksRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$chargebacks = $mollie->send(\n    new GetPaginatedPaymentChargebacksRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.paymentChargebacks.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo")\nchargebacks = payment.chargebacks.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nchargebacks = Mollie::Payment.get('tr_5B8cwPMGnU6qLbRvo7qEZo').chargebacks",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -424,6 +478,33 @@ class ChargebacksSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Chargebacks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/chargebacks/chb_xFzwUN4ci8HAmSGUACS4J \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaymentChargebackRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$chargeback = $mollie->send(\n    new GetPaymentChargebackRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo",\n        chargebackId: "chb_xFzwUN4ci8HAmSGUACS4J"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargeback = await mollieClient.paymentChargebacks.get('chb_xFzwUN4ci8HAmSGUACS4J', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo")\nchargeback = payment.chargebacks.get("chb_xFzwUN4ci8HAmSGUACS4J")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nchargeback = Mollie::Payment::Chargeback.get(\n  'chb_xFzwUN4ci8HAmSGUACS4J',\n  payment_id: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -538,6 +619,33 @@ class ChargebacksSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Chargebacks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/chargebacks/chb_xFzwUN4ci8HAmSGUACS4J \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaymentChargebackRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$chargeback = $mollie->send(\n    new GetPaymentChargebackRequest(\n        paymentId: "tr_5B8cwPMGnU6qLbRvo7qEZo",\n        chargebackId: "chb_xFzwUN4ci8HAmSGUACS4J"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargeback = await mollieClient.paymentChargebacks.get('chb_xFzwUN4ci8HAmSGUACS4J', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayment = mollie_client.payments.get("tr_5B8cwPMGnU6qLbRvo7qEZo")\nchargeback = payment.chargebacks.get("chb_xFzwUN4ci8HAmSGUACS4J")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nchargeback = Mollie::Payment::Chargeback.get(\n  'chb_xFzwUN4ci8HAmSGUACS4J',\n  payment_id: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -673,6 +781,33 @@ class ChargebacksSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Chargebacks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/chargebacks?limit=5 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedChargebacksRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$chargebacks = $mollie->send(\n    new GetPaginatedChargebacksRequest()\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.chargebacks.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nchargebacks = mollie_client.chargebacks.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nchargebacks = Mollie::Chargeback.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -845,6 +980,33 @@ class ChargebacksSDK(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Chargebacks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/chargebacks?limit=5 \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedChargebacksRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$chargebacks = $mollie->send(\n    new GetPaginatedChargebacksRequest()\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.chargebacks.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nchargebacks = mollie_client.chargebacks.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nchargebacks = Mollie::Chargeback.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

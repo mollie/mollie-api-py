@@ -103,6 +103,24 @@ class DelayedRouting(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Delayed Routing API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/routes \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=5.95" \\\n    -d "description=Order #12345"\n    -d "destination[type]=organization"\n    -d "destination[organizationId]=org_123"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreateDelayedPaymentRouteRequest;\n\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$route = $mollie->send(\n    new CreateDelayedPaymentRouteRequest(\n        paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo',\n        amount: new Money(currency: 'EUR', value: '5.95'),\n        destination: [\n            'type' => 'organization',\n            'organizationId' => 'org_123'\n        ]\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -216,6 +234,24 @@ class DelayedRouting(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Delayed Routing API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/routes \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "amount[currency]=EUR" \\\n    -d "amount[value]=5.95" \\\n    -d "description=Order #12345"\n    -d "destination[type]=organization"\n    -d "destination[organizationId]=org_123"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Data\\Money;\nuse Mollie\\Api\\Http\\Requests\\CreateDelayedPaymentRouteRequest;\n\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$route = $mollie->send(\n    new CreateDelayedPaymentRouteRequest(\n        paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo',\n        amount: new Money(currency: 'EUR', value: '5.95'),\n        destination: [\n            'type' => 'organization',\n            'organizationId' => 'org_123'\n        ]\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -324,6 +360,24 @@ class DelayedRouting(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Delayed Routing API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/routes \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\ListPaymentRoutesRequest;\n\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$routes = $mollie->send(\n    new ListPaymentRoutesRequest(\n        paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -432,6 +486,24 @@ class DelayedRouting(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Delayed Routing API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/routes \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\ListPaymentRoutesRequest;\n\n$mollie->setApiKey('live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM');\n\n$routes = $mollie->send(\n    new ListPaymentRoutesRequest(\n        paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -533,6 +605,21 @@ class DelayedRouting(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Delayed Routing API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/routes \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -634,6 +721,21 @@ class DelayedRouting(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Delayed Routing API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo/routes \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

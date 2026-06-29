@@ -129,6 +129,33 @@ class Payouts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payouts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -i -X POST \\\nhttps://api.mollie.com/v2/payouts \\\n-H \'Authorization: Bearer <YOUR_TOKEN_HERE>\' \\\n-H \'Content-Type: application/json\' \\\n  -d \'{\n      "balanceId": "bal_gVMhHKqSSRYJyPsuoPNFH",\n      "amount": {\n        "currency": "EUR",\n        "value": "10.00"\n      },\n      "description": "My payout description"\n    }\'',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payout = $mollie->payouts->create([\n    "balanceId" => "bal_gVMhHKqSSRYJyPsuoPNFH",\n    "amount" => [\n        "currency" => "EUR",\n        "value" => "10.00",\n    ],\n    "description" => "My payout description",\n]);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.create({\n  balanceId: 'bal_gVMhHKqSSRYJyPsuoPNFH',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'My payout description'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayout = mollie_client.payouts.create({\n    "balanceId": "bal_gVMhHKqSSRYJyPsuoPNFH",\n    "amount": {\n        "currency": "EUR",\n        "value": "10.00",\n    },\n    "description": "My payout description",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayout = Mollie::Payout.create(\n  balance_id: 'bal_gVMhHKqSSRYJyPsuoPNFH',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'My payout description'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -267,6 +294,33 @@ class Payouts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payouts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -i -X POST \\\nhttps://api.mollie.com/v2/payouts \\\n-H \'Authorization: Bearer <YOUR_TOKEN_HERE>\' \\\n-H \'Content-Type: application/json\' \\\n  -d \'{\n      "balanceId": "bal_gVMhHKqSSRYJyPsuoPNFH",\n      "amount": {\n        "currency": "EUR",\n        "value": "10.00"\n      },\n      "description": "My payout description"\n    }\'',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payout = $mollie->payouts->create([\n    "balanceId" => "bal_gVMhHKqSSRYJyPsuoPNFH",\n    "amount" => [\n        "currency" => "EUR",\n        "value" => "10.00",\n    ],\n    "description" => "My payout description",\n]);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.create({\n  balanceId: 'bal_gVMhHKqSSRYJyPsuoPNFH',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'My payout description'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayout = mollie_client.payouts.create({\n    "balanceId": "bal_gVMhHKqSSRYJyPsuoPNFH",\n    "amount": {\n        "currency": "EUR",\n        "value": "10.00",\n    },\n    "description": "My payout description",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayout = Mollie::Payout.create(\n  balance_id: 'bal_gVMhHKqSSRYJyPsuoPNFH',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'My payout description'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -395,6 +449,33 @@ class Payouts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payouts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl https://api.mollie.com/v2/payouts \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payouts = $mollie->payouts->page();',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payouts = await mollieClient.payouts.page();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayouts = mollie_client.payouts.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayouts = Mollie::Payout.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -557,6 +638,33 @@ class Payouts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payouts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl https://api.mollie.com/v2/payouts \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payouts = $mollie->payouts->page();',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payouts = await mollieClient.payouts.page();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayouts = mollie_client.payouts.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayouts = Mollie::Payout.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -702,6 +810,33 @@ class Payouts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payouts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl https://api.mollie.com/v2/payouts/payout_j8NvRAM2WNZtsykpLEX8J \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payout = $mollie->payouts->get("payout_j8NvRAM2WNZtsykpLEX8J");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.get('payout_j8NvRAM2WNZtsykpLEX8J');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayout = mollie_client.payouts.get("payout_j8NvRAM2WNZtsykpLEX8J")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayout = Mollie::Payout.get('payout_j8NvRAM2WNZtsykpLEX8J')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -810,6 +945,33 @@ class Payouts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payouts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl https://api.mollie.com/v2/payouts/payout_j8NvRAM2WNZtsykpLEX8J \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payout = $mollie->payouts->get("payout_j8NvRAM2WNZtsykpLEX8J");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.get('payout_j8NvRAM2WNZtsykpLEX8J');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayout = mollie_client.payouts.get("payout_j8NvRAM2WNZtsykpLEX8J")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayout = Mollie::Payout.get('payout_j8NvRAM2WNZtsykpLEX8J')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -921,6 +1083,33 @@ class Payouts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payouts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/payouts/payout_j8NvRAM2WNZtsykpLEX8J \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payout = $mollie->payouts->cancel("payout_j8NvRAM2WNZtsykpLEX8J");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.cancel('payout_j8NvRAM2WNZtsykpLEX8J');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayout = mollie_client.payouts.cancel("payout_j8NvRAM2WNZtsykpLEX8J")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayout = Mollie::Payout.cancel('payout_j8NvRAM2WNZtsykpLEX8J')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1034,6 +1223,33 @@ class Payouts(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Payouts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/payouts/payout_j8NvRAM2WNZtsykpLEX8J \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$payout = $mollie->payouts->cancel("payout_j8NvRAM2WNZtsykpLEX8J");',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.cancel('payout_j8NvRAM2WNZtsykpLEX8J');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\npayout = mollie_client.payouts.cancel("payout_j8NvRAM2WNZtsykpLEX8J")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\npayout = Mollie::Payout.cancel('payout_j8NvRAM2WNZtsykpLEX8J')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

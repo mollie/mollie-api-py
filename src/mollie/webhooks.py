@@ -103,6 +103,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/webhooks \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH" \\\n    -d "name=Payment notification" \\\n    -d "url=https://mollie.com" \\\n    -d "eventTypes=payments.read"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\CreateWebhookRequest;\nuse Mollie\\Api\\Types\\WebhookEventType;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhook = $mollie->send(\n    new CreateWebhookRequest(\n        url: 'https://mollie.com',\n        name: 'Payment notification',\n        eventTypes: 'payments.read'\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -215,6 +233,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/webhooks \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH" \\\n    -d "name=Payment notification" \\\n    -d "url=https://mollie.com" \\\n    -d "eventTypes=payments.read"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\CreateWebhookRequest;\nuse Mollie\\Api\\Types\\WebhookEventType;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhook = $mollie->send(\n    new CreateWebhookRequest(\n        url: 'https://mollie.com',\n        name: 'Payment notification',\n        eventTypes: 'payments.read'\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -334,6 +370,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\GetWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhook = $mollie->send(\n    new GetWebhookRequest(id: 'hook_B2EyhTH5N4KWUnoYPcgiH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -487,6 +541,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\GetWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhook = $mollie->send(\n    new GetWebhookRequest(id: 'hook_B2EyhTH5N4KWUnoYPcgiH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -639,6 +711,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH" \\\n    -d "name=Payment notification" \\\n    -d "url=https://mollie.com" \\\n    -d "eventTypes=payments.read"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\UpdateWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhook = $mollie->send(\n    new UpdateWebhookRequest(\n        id: 'hook_B2EyhTH5N4KWUnoYPcgiH',\n        url: 'https://mollie.com',\n        name: 'Payment notification',\n        eventTypes: 'payments.read'\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -756,6 +846,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH" \\\n    -d "name=Payment notification" \\\n    -d "url=https://mollie.com" \\\n    -d "eventTypes=payments.read"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\UpdateWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhook = $mollie->send(\n    new UpdateWebhookRequest(\n        id: 'hook_B2EyhTH5N4KWUnoYPcgiH',\n        url: 'https://mollie.com',\n        name: 'Payment notification',\n        eventTypes: 'payments.read'\n    )\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -864,6 +972,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\GetWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhook = $mollie->send(\n    new GetWebhookRequest(id: 'hook_B2EyhTH5N4KWUnoYPcgiH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -972,6 +1098,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\GetWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$webhook = $mollie->send(\n    new GetWebhookRequest(id: 'hook_B2EyhTH5N4KWUnoYPcgiH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1089,6 +1233,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\DeleteWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$mollie->send(\n    new DeleteWebhookRequest(id: 'hook_B2EyhTH5N4KWUnoYPcgiH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1206,6 +1368,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\DeleteWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$mollie->send(\n    new DeleteWebhookRequest(id: 'hook_B2EyhTH5N4KWUnoYPcgiH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1320,6 +1500,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH/ping \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\TestWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$result = $mollie->send(\n    new TestWebhookRequest(id: 'hook_B2EyhTH5N4KWUnoYPcgiH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1434,6 +1632,24 @@ class Webhooks(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Webhooks API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/webhooks/hook_B2EyhTH5N4KWUnoYPcgiH/ping \\\n    -H "Authorization: Bearer access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": "<?php\nuse Mollie\\Api\\Http\\Requests\\TestWebhookRequest;\n\n$mollie->setAccessToken('access_UsJwq8nzcHbSrDuh82pyjjEaTbd5SAPtVebEJ5BH');\n\n$result = $mollie->send(\n    new TestWebhookRequest(id: 'hook_B2EyhTH5N4KWUnoYPcgiH')\n);",
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

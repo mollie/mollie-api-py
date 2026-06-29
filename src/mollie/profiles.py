@@ -97,6 +97,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/profiles \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -d "name=My website name" \\\n    -d "website=https://shop.example.org" \\\n    -d "email=info@example.org" \\\n    -d "phone=+31208202070" \\\n    -d "businessCategory=OTHER_MERCHANDISE" \\\n    -d "mode=live"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$profile = $mollie->send(\n    new CreateProfileRequest(\n        name: "My website name",\n        website: "https://shop.example.org",\n        email: "info@example.org",\n        phone: "+31208202070",\n        businessCategory: "OTHER_MERCHANDISE"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.create({\n  name: 'My website name',\n  website: 'https://shop.example.org',\n  email: 'info@example.org',\n  phone: '+31208202070',\n  businessCategory: 'OTHER_MERCHANDISE',\n  mode: 'live'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nprofile = mollie_client.profiles.create({\n    "name": "My website name",\n    "website": "https://shop.example.org",\n    "email": "info@example.org",\n    "phone": "+31208202070",\n    "businessCategory": "OTHER_MERCHANDISE",\n    "mode": "live",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nprofile = Mollie::Profile.create(\n  name: 'My website name',\n  website: 'https://shop.example.org',\n  email: 'info@example.org',\n  phone: '+31208202070',\n  businessCategory: 'OTHER_MERCHANDISE',\n  mode: 'live'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -205,6 +232,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/profiles \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -d "name=My website name" \\\n    -d "website=https://shop.example.org" \\\n    -d "email=info@example.org" \\\n    -d "phone=+31208202070" \\\n    -d "businessCategory=OTHER_MERCHANDISE" \\\n    -d "mode=live"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$profile = $mollie->send(\n    new CreateProfileRequest(\n        name: "My website name",\n        website: "https://shop.example.org",\n        email: "info@example.org",\n        phone: "+31208202070",\n        businessCategory: "OTHER_MERCHANDISE"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.create({\n  name: 'My website name',\n  website: 'https://shop.example.org',\n  email: 'info@example.org',\n  phone: '+31208202070',\n  businessCategory: 'OTHER_MERCHANDISE',\n  mode: 'live'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nprofile = mollie_client.profiles.create({\n    "name": "My website name",\n    "website": "https://shop.example.org",\n    "email": "info@example.org",\n    "phone": "+31208202070",\n    "businessCategory": "OTHER_MERCHANDISE",\n    "mode": "live",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nprofile = Mollie::Profile.create(\n  name: 'My website name',\n  website: 'https://shop.example.org',\n  email: 'info@example.org',\n  phone: '+31208202070',\n  businessCategory: 'OTHER_MERCHANDISE',\n  mode: 'live'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -313,6 +367,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/profiles \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedProfilesRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$profiles = $mollie->send(new GetPaginatedProfilesRequest());',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profiles = await mollieClient.profiles.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nprofiles = mollie_client.profiles.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nprofiles = Mollie::Profile.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -450,6 +531,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/profiles \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedProfilesRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$profiles = $mollie->send(new GetPaginatedProfilesRequest());',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profiles = await mollieClient.profiles.iterate();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nprofiles = mollie_client.profiles.list()',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nprofiles = Mollie::Profile.all",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -590,6 +698,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$profile = $mollie->send(new GetProfileRequest("pfl_QkEhN94Ba"));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.get('pfl_QkEhN94Ba');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nprofile = Mollie::Profile.get('pfl_QkEhN94Ba')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -698,6 +833,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$profile = $mollie->send(new GetProfileRequest("pfl_QkEhN94Ba"));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.get('pfl_QkEhN94Ba');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nprofile = Mollie::Profile.get('pfl_QkEhN94Ba')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -815,6 +977,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -d "name=My updated website name" \\\n    -d "website=https://updated.example.org"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\UpdateProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$profile = $mollie->send(\n    new UpdateProfileRequest(\n        id: "pfl_QkEhN94Ba",\n        name: "My updated website name",\n        website: "https://updated.example.org"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nawait mollieClient.profiles.update('pfl_QkEhN94Ba', {\n  name: 'My updated website name',\n  website: 'https://updated.example.org'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nprofile = mollie_client.profiles.update("pfl_QkEhN94Ba", {\n    "name": "My updated website name",\n    "website": "https://updated.example.org"\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nprofile = Mollie::profile.update(\n  'pfl_QkEhN94Ba',\n  name: 'My updated website name',\n  website: 'https://updated.example.org'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -932,6 +1121,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X PATCH https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -d "name=My updated website name" \\\n    -d "website=https://updated.example.org"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\UpdateProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$profile = $mollie->send(\n    new UpdateProfileRequest(\n        id: "pfl_QkEhN94Ba",\n        name: "My updated website name",\n        website: "https://updated.example.org"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nawait mollieClient.profiles.update('pfl_QkEhN94Ba', {\n  name: 'My updated website name',\n  website: 'https://updated.example.org'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nprofile = mollie_client.profiles.update("pfl_QkEhN94Ba", {\n    "name": "My updated website name",\n    "website": "https://updated.example.org"\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nprofile = Mollie::profile.update(\n  'pfl_QkEhN94Ba',\n  name: 'My updated website name',\n  website: 'https://updated.example.org'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1032,6 +1248,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DeleteProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$mollie->send(new DeleteProfileRequest("pfl_QkEhN94Ba"));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.delete('pfl_QkEhN94Ba');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nmollie_client.profiles.delete("pfl_QkEhN94Ba")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nMollie::Profile.delete('pfl_QkEhN94Ba')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1132,6 +1375,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DeleteProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ");\n\n$mollie->send(new DeleteProfileRequest("pfl_QkEhN94Ba"));',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.delete('pfl_QkEhN94Ba');",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ")\n\nmollie_client.profiles.delete("pfl_QkEhN94Ba")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ'\nend\n\nMollie::Profile.delete('pfl_QkEhN94Ba')",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1233,6 +1503,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/profiles/me \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetCurrentProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$profile = $mollie->send(new GetCurrentProfileRequest());',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst profile = await mollieClient.profiles.getCurrent();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("me")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nprofile = Mollie::Profile.current",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1332,6 +1629,33 @@ class Profiles(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Profiles API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/profiles/me \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetCurrentProfileRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$profile = $mollie->send(new GetCurrentProfileRequest());',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst profile = await mollieClient.profiles.getCurrent();",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("me")',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\nprofile = Mollie::Profile.current",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),

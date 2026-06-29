@@ -111,6 +111,27 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/terminals \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedTerminalsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$terminals = $mollie->send(new GetPaginatedTerminalsRequest(limit: 5));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nterminals = mollie_client.terminals.list()',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -264,6 +285,27 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/terminals \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetPaginatedTerminalsRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$terminals = $mollie->send(new GetPaginatedTerminalsRequest(limit: 5));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nterminals = mollie_client.terminals.list()',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -408,6 +450,27 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/terminals/term_7MgL4wea46qkRcoTZjWEH \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetTerminalRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$terminal = $mollie->send(new GetTerminalRequest(id: "term_7MgL4wea46qkRcoTZjWEH"));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nterminal = mollie_client.terminals.get("term_7MgL4wea46qkRcoTZjWEH")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -516,6 +579,27 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/terminals/term_7MgL4wea46qkRcoTZjWEH \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\GetTerminalRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$terminal = $mollie->send(new GetTerminalRequest(id: "term_7MgL4wea46qkRcoTZjWEH"));',
+                                "language": "php",
+                            },
+                            {"code": "", "language": "node"},
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nterminal = mollie_client.terminals.get("term_7MgL4wea46qkRcoTZjWEH")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -640,6 +724,21 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/terminals/pairing-codes?include=details.qrCode \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n          "profileId": "pfl_jA9bC4DkFj3G"\n        }\'',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -764,6 +863,21 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/terminals/pairing-codes?include=details.qrCode \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n          "profileId": "pfl_jA9bC4DkFj3G"\n        }\'',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -880,6 +994,21 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/terminals/pairing-codes \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -H "Content-Type: application/json"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -998,6 +1127,21 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/terminals/pairing-codes \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -H "Content-Type: application/json"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1108,6 +1252,21 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/terminals/pairing-codes/termpc_R7gX5Ea9bC4DkFj3G?include=details.qrCode \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -H "Content-Type: application/json"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1216,6 +1375,21 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X GET https://api.mollie.com/v2/terminals/pairing-codes/termpc_R7gX5Ea9bC4DkFj3G?include=details.qrCode \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -H "Content-Type: application/json"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1320,6 +1494,21 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/terminals/pairing-codes/termpc_R7gX5Ea9bC4DkFj3G \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -H "Content-Type: application/json"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
@@ -1426,6 +1615,21 @@ class Terminals(BaseSDK):
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
+                tags=["Terminals API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/terminals/pairing-codes/termpc_R7gX5Ea9bC4DkFj3G \\\n    -H "Authorization: Bearer access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ" \\\n    -H "Content-Type: application/json"',
+                                "language": "shell",
+                            },
+                            {"code": "", "language": "php"},
+                            {"code": "", "language": "node"},
+                            {"code": "", "language": "python"},
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
             ),
             request=req,
             is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
