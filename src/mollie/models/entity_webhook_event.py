@@ -2,6 +2,8 @@
 # @generated-id: 2db7196b42ba
 
 from __future__ import annotations
+from .capture_response import CaptureResponse, CaptureResponseTypedDict
+from .entity_chargeback import EntityChargeback, EntityChargebackTypedDict
 from .entity_payout_response import EntityPayoutResponse, EntityPayoutResponseTypedDict
 from .entity_refund_response import EntityRefundResponse, EntityRefundResponseTypedDict
 from .payment_link_response import PaymentLinkResponse, PaymentLinkResponseTypedDict
@@ -35,6 +37,10 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
     REFUND_REFUNDED = "refund.refunded"
     REFUND_FAILED = "refund.failed"
     REFUND_CANCELED = "refund.canceled"
+    CHARGEBACK_RECEIVED = "chargeback.received"
+    CHARGEBACK_REVERSED = "chargeback.reversed"
+    CAPTURE_SUCCEEDED = "capture.succeeded"
+    CAPTURE_FAILED = "capture.failed"
     PAYMENT_LINK_PAID = "payment-link.paid"
     BALANCE_TRANSACTION_CREATED = "balance-transaction.created"
     PAYOUT_INITIATED = "payout.initiated"
@@ -63,6 +69,8 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
 EntityTypedDict = TypeAliasType(
     "EntityTypedDict",
     Union[
+        EntityChargebackTypedDict,
+        CaptureResponseTypedDict,
         EntityRefundResponseTypedDict,
         EntityPayoutResponseTypedDict,
         TransferResponseTypedDict,
@@ -76,6 +84,8 @@ EntityTypedDict = TypeAliasType(
 Entity = TypeAliasType(
     "Entity",
     Union[
+        EntityChargeback,
+        CaptureResponse,
         EntityRefundResponse,
         EntityPayoutResponse,
         TransferResponse,
