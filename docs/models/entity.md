@@ -15,6 +15,18 @@ value: models.PaymentResponse = /* values here */
 value: models.EntityRefundResponse = /* values here */
 ```
 
+### `models.EntityChargeback`
+
+```python
+value: models.EntityChargeback = /* values here */
+```
+
+### `models.CaptureResponse`
+
+```python
+value: models.CaptureResponse = /* values here */
+```
+
 ### `models.PaymentLinkResponse`
 
 ```python
