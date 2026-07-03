@@ -29,3 +29,4 @@ value = EntityBalanceCurrency.EUR
 | `HUF` | HUF   |
 | `AUD` | AUD   |
 | `CAD` | CAD   |
+| `RON` | RON   |

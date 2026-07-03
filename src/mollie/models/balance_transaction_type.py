@@ -46,3 +46,6 @@ class BalanceTransactionType(str, Enum, metaclass=utils.OpenEnumMeta):
     TO_BE_RELEASED_ROLLING_RESERVE = "to-be-released-rolling-reserve"
     HELD_ROLLING_RESERVE = "held-rolling-reserve"
     RELEASED_ROLLING_RESERVE = "released-rolling-reserve"
+    MOVEMENT = "movement"
+    INVOICE_COMPENSATION = "invoice-compensation"
+    TOPUP = "topup"

@@ -2,7 +2,7 @@
 # @generated-id: 17e80f45d2db
 
 from __future__ import annotations
-from mollie.types import BaseModel, UNSET_SENTINEL
+from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
 from typing import List, Optional
@@ -31,7 +31,7 @@ class ProfileRequestTypedDict(TypedDict):
     r"""A list of countries where you expect that the majority of the profile's customers reside,
     in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
     """
-    business_category: NotRequired[str]
+    business_category: NotRequired[Nullable[str]]
     r"""The industry associated with the profile's trade name or brand. Please refer to the
     [business category list](common-data-types#business-category) for all possible options.
     """
@@ -68,8 +68,8 @@ class ProfileRequest(BaseModel):
     """
 
     business_category: Annotated[
-        Optional[str], pydantic.Field(alias="businessCategory")
-    ] = None
+        OptionalNullable[str], pydantic.Field(alias="businessCategory")
+    ] = UNSET
     r"""The industry associated with the profile's trade name or brand. Please refer to the
     [business category list](common-data-types#business-category) for all possible options.
     """
@@ -79,15 +79,24 @@ class ProfileRequest(BaseModel):
         optional_fields = set(
             ["description", "countriesOfActivity", "businessCategory"]
         )
+        nullable_fields = set(["businessCategory"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m
