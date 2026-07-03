@@ -27,3 +27,4 @@ value = Currencies.EUR
 | `HUF` | HUF   |
 | `AUD` | AUD   |
 | `CAD` | CAD   |
+| `RON` | RON   |

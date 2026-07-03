@@ -29,3 +29,4 @@ value = ListEntityBalanceCurrency.EUR
 | `HUF` | HUF   |
 | `AUD` | AUD   |
 | `CAD` | CAD   |
+| `RON` | RON   |

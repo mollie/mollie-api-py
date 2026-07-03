@@ -29,6 +29,7 @@ class ListEntityBalanceCurrency(str, Enum, metaclass=utils.OpenEnumMeta):
     HUF = "HUF"
     AUD = "AUD"
     CAD = "CAD"
+    RON = "RON"
 
 
 class ListEntityBalanceStatus(str, Enum, metaclass=utils.OpenEnumMeta):

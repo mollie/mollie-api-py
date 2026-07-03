@@ -19,3 +19,4 @@ class Currencies(str, Enum, metaclass=utils.OpenEnumMeta):
     HUF = "HUF"
     AUD = "AUD"
     CAD = "CAD"
+    RON = "RON"

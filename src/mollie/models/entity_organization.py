@@ -102,7 +102,7 @@ class EntityOrganizationTypedDict(TypedDict):
     links: EntityOrganizationLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
     address: NotRequired[AddressTypedDict]
-    registration_number: NotRequired[str]
+    registration_number: NotRequired[Nullable[str]]
     r"""The registration number of the organization at their local chamber of commerce."""
     vat_number: NotRequired[Nullable[str]]
     r"""The VAT number of the organization, if based in the European Union or in The United Kingdom. VAT numbers are
@@ -144,8 +144,8 @@ class EntityOrganization(BaseModel):
     address: Optional[Address] = None
 
     registration_number: Annotated[
-        Optional[str], pydantic.Field(alias="registrationNumber")
-    ] = None
+        OptionalNullable[str], pydantic.Field(alias="registrationNumber")
+    ] = UNSET
     r"""The registration number of the organization at their local chamber of commerce."""
 
     vat_number: Annotated[OptionalNullable[str], pydantic.Field(alias="vatNumber")] = (
@@ -190,7 +190,9 @@ class EntityOrganization(BaseModel):
         optional_fields = set(
             ["address", "registrationNumber", "vatNumber", "vatRegulation"]
         )
-        nullable_fields = set(["locale", "vatNumber", "vatRegulation"])
+        nullable_fields = set(
+            ["locale", "registrationNumber", "vatNumber", "vatRegulation"]
+        )
         serialized = handler(self)
         m = {}
 
