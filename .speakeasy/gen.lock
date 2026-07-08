@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: f37c11e53508ebd367999b108a7ca00f
+  docChecksum: 8593aecb906dbab90ddb6a74d1fe8078
   docVersion: 1.0.0
-  speakeasyVersion: 1.788.0
-  generationVersion: 2.915.0
-  releaseVersion: 1.9.2
-  configChecksum: 7c0d1e3bcf9c43e3b793b21a79a363cd
+  speakeasyVersion: 1.789.0
+  generationVersion: 2.916.2
+  releaseVersion: 1.9.3
+  configChecksum: 3b1f9629b25e42512c7a3f9b2aa25e44
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 29cec168-a50d-4266-aa9e-9cf94ad92cc6
-  pristine_commit_hash: 25a2dcd1186aafb4751781c2339442387fce54aa
-  pristine_tree_hash: 1c4374a89bf3b279facf59d62673f046fd1c3a0d
+  generation_id: c58b4281-ec11-449e-9ec1-471137877e23
+  pristine_commit_hash: e6f744287a659da1aef5650f68edf6fe6d286b18
+  pristine_tree_hash: eaf5f84635a70d3b26e88cda645f7f16b0001eb3
 features:
   python:
     additionalDependencies: 1.1.0
@@ -672,8 +672,8 @@ trackedFiles:
     pristine_git_object: 7d9c8ebd8420952143cf5a30bfae069d70b821ec
   docs/models/entityorganizationlocale.md:
     id: 76cae378d0be
-    last_write_checksum: sha1:54dc13b31dde022aebfd1bfb345d2e4ea1fee02d
-    pristine_git_object: 3f219a93d6183156d0b13c42ee534b8388754dc0
+    last_write_checksum: sha1:5c31d46605a2896300bff7ef6c737f4a4928f2b6
+    pristine_git_object: a0af39f2f303209e6a18c7023ac02fc599aa0d3e
   docs/models/entitypairingcode.md:
     id: cdba5fd25288
     last_write_checksum: sha1:102dfc3c9eaa632e92b40072c56589ff14f4d3c2
@@ -2344,12 +2344,12 @@ trackedFiles:
     pristine_git_object: 90e331bb0328a0bc8076e22773847a6d8229136b
   docs/models/locale.md:
     id: 8fb97659a46c
-    last_write_checksum: sha1:cde7137bb14d802f6c56dfd6f1b16f358f2d9533
-    pristine_git_object: 5a37392218c5ed3ab37f5bf20cba5a96fd9e1e78
+    last_write_checksum: sha1:864e3eb7ad63b4738a9ec666d6c80c0ff98b3ccd
+    pristine_git_object: 6143e9a44fac51b2077951164e0d6e96404f3fc7
   docs/models/localeresponse.md:
     id: cadd4514d964
-    last_write_checksum: sha1:8d3b0061e7a2bbe419e9ce8beb11b3f7e5a40367
-    pristine_git_object: 646a7efb74ea60bfb8143dbb0423f6bc1b76be92
+    last_write_checksum: sha1:5b64956061edf908ef750c8cab436558b4d67f14
+    pristine_git_object: d70a8b70e2349c1bdd578290437cdec2dd0df049
   docs/models/managedfee.md:
     id: 8253e7b3026a
     last_write_checksum: sha1:6d6d337a6f1c14830d9efb844f078cefe868e07c
@@ -3600,8 +3600,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:d1293acd1ee2f68f8f68e52524cb8224b98cffa8
-    pristine_git_object: 57febe68fc98d415597d70a251b179910bb25685
+    last_write_checksum: sha1:6e6a59912d627248e45e91339507b1e6335a0221
+    pristine_git_object: 26674100f6772907d811e408b896f54c16aa006c
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3628,8 +3628,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:a9a726a2ab2d25c57fa98a3b798775d07b2dba80
-    pristine_git_object: cd1676c3c764d438bdd7a5558fc01e5c56ad1383
+    last_write_checksum: sha1:dd7dba878f98d837668e263f9eaa229836badcbc
+    pristine_git_object: 825857585c646bcbe8e05c5a6736e528b2d8df97
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:221f6cb08c38e444dac1dc270c32117a046f7f06
@@ -4028,8 +4028,8 @@ trackedFiles:
     pristine_git_object: 6dfc92c1729b77965a61d9ccca415de65b4b634b
   src/mollie/models/entity_organization.py:
     id: 118cba023c53
-    last_write_checksum: sha1:cf3d7d7385f4f32550467b989aae589a24cf6f14
-    pristine_git_object: baa41dc6c4d708fd1aac2333bd58d23ec61cb16f
+    last_write_checksum: sha1:86d77b4d98c6eab07d580e2a2d8edd845420d458
+    pristine_git_object: d0a4ca6a2f08057b11f802445a6e2706a14142d0
   src/mollie/models/entity_pairing_code.py:
     id: 330a16854c16
     last_write_checksum: sha1:e440a48df81aa20ab7d6a74f30b109fb5a9153a9
@@ -4480,12 +4480,12 @@ trackedFiles:
     pristine_git_object: 14973c55c10c96f9c1a5d8d57195e5a9cbd6844b
   src/mollie/models/locale.py:
     id: f7df9ed73c3a
-    last_write_checksum: sha1:b8cace08f51362c5ea94feaf05c442eea4c0b2b6
-    pristine_git_object: 0156a72a6ab337cb7d1826f0cc0110ddaf53d623
+    last_write_checksum: sha1:e10ea6a7ca004cf9ad935e9de28c22aec7522ad0
+    pristine_git_object: 8ae29c0299a99ae8382ff3ad78f52f241593a4f0
   src/mollie/models/locale_response.py:
     id: ceaa630d8772
-    last_write_checksum: sha1:b9c1e1160d935dbb12111e99a3f5721b5e65dcf0
-    pristine_git_object: af9fca329fececd1ed7de5aa1012d5d83541f3fc
+    last_write_checksum: sha1:158d50f6825afcf02bc0a380f43146edfc7e7c14
+    pristine_git_object: d87ca7c510e6b66cbe242af749f8f08b72cdd04f
   src/mollie/models/mandate_details_card_label_response.py:
     id: 4e95454ad240
     last_write_checksum: sha1:4761a757f8b1a114f244d2bbb2c3cfac35db81f8
@@ -5208,16 +5208,16 @@ trackedFiles:
     pristine_git_object: 79c9c3c71d8b48142fa97ec7c78c3e0db33614ef
   src/mollie/utils/__init__.py:
     id: d78503be995a
-    last_write_checksum: sha1:81385e8eaeb45116467c07e3bdb3c3d339ff5598
-    pristine_git_object: 1365b737425abbe17e11fc5fa5494040ddf57fd5
+    last_write_checksum: sha1:b03166ea93b9298c63b68de7a85820fb9d2075fc
+    pristine_git_object: 30344f31647ed92d0ffa893e19bf331426881022
   src/mollie/utils/annotations.py:
     id: a8178f6e8738
     last_write_checksum: sha1:9c6da78c03480b1b4158159138c636741b686183
     pristine_git_object: 0244ed83f3d6289dcbb173cbdd982a2b9068beea
   src/mollie/utils/datetimes.py:
     id: 1f02aa402710
-    last_write_checksum: sha1:498b1563bf84e420fb79d600d531da6c30af0f7c
-    pristine_git_object: 1f2d3a58c75f27d8c697d370c75deb5b12d51e94
+    last_write_checksum: sha1:b10042398c8e8d8e311346f4f3c0c7183007d8aa
+    pristine_git_object: cdaf2617a357c7a053e8acd02f57d9387b26b49c
   src/mollie/utils/dynamic_imports.py:
     id: b54354c7e030
     last_write_checksum: sha1:20e2d28f8668eff186a85375e14b169454bdabf6
@@ -8829,4 +8829,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.profiles.create()`: \n  *  `request.profile_request.business_category` **Changed**\n  *  `response.business_category` **Changed** (Breaking ⚠️)\n* `client.clients.get()`:  `response._embedded.organization.registration_number` **Changed** (Breaking ⚠️)\n* `client.clients.list()`:  `response._embedded.clients[]._embedded.organization.registration_number` **Changed** (Breaking ⚠️)\n* `client.profiles.get_current()`:  `response.business_category` **Changed** (Breaking ⚠️)\n* `client.profiles.update()`:  `response.business_category` **Changed** (Breaking ⚠️)\n* `client.profiles.get()`:  `response.business_category` **Changed** (Breaking ⚠️)\n* `client.profiles.list()`:  `response._embedded.profiles[].business_category` **Changed** (Breaking ⚠️)\n* `client.organizations.get()`:  `response.registration_number` **Changed** (Breaking ⚠️)\n* `client.organizations.get_current()`:  `response.registration_number` **Changed** (Breaking ⚠️)\n* `client.settlements.list_payments()`:  `response._embedded.payments[].details.fee_region` **Changed**\n* `client.payments.list()`:  `response._embedded.payments[].details.fee_region` **Changed**\n* `client.settlements.list()`:  `request.currencies` **Changed**\n* `client.balances.list_transactions()`:  `response._embedded.balance_transactions[].type` **Changed**\n* `client.balances.get_report()`:  `response.totals.pending_balance.open.subtotals[].sub_totals[].transaction_type` **Changed**\n* `client.balances.get_primary()`:  `response.currency.enum(ron)` **Added**\n* `client.balances.get()`:  `response.currency.enum(ron)` **Added**\n* `client.webhook_events.get()`:  `response._embedded.entity.union(payment-response).details.fee_region` **Changed**\n* `client.payments.create()`:  `response.details.fee_region` **Changed**\n* `client.balances.list()`:  `response._embedded.balances[].currency.enum(ron)` **Added**\n* `client.payments.get()`:  `response.details.fee_region` **Changed**\n* `client.payments.update()`:  `response.details.fee_region` **Changed**\n* `client.payments.cancel()`:  `response.details.fee_region` **Changed**\n* `client.payment_links.list_payments()`:  `response._embedded.payments[].details.fee_region` **Changed**\n* `client.customers.create_payment()`:  `response.details.fee_region` **Changed**\n* `client.customers.list_payments()`:  `response._embedded.payments[].details.fee_region` **Changed**\n* `client.subscriptions.list_payments()`:  `response._embedded.payments[].details.fee_region` **Changed**\n"
+releaseNotes: "## Python SDK Changes:\n* `client.settlements.list_payments()`:  `response._embedded.payments[].locale` **Changed**\n* `client.organizations.get()`:  `response.locale` **Changed**\n* `client.organizations.get_current()`:  `response.locale` **Changed**\n* `client.clients.list()`:  `response._embedded.clients[]._embedded.organization.locale` **Changed**\n* `client.clients.get()`:  `response._embedded.organization.locale` **Changed**\n* `client.client_links.create()`: \n  *  `request.client_link_request.owner.locale` **Changed**\n* `client.webhook_events.get()`:  `response._embedded.entity.union(payment-response).locale` **Changed**\n* `client.payments.create()`: \n  *  `request.payment_request.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.payments.list()`:  `response._embedded.payments[].locale` **Changed**\n* `client.payments.get()`:  `response.locale` **Changed**\n* `client.payments.update()`: \n  *  `request_body.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.payments.cancel()`:  `response.locale` **Changed**\n* `client.methods.list()`:  `request.locale` **Changed**\n* `client.methods.all()`:  `request.locale` **Changed**\n* `client.methods.get()`:  `request.locale` **Changed**\n* `client.payment_links.list_payments()`:  `response._embedded.payments[].locale` **Changed**\n* `client.customers.create()`: \n  *  `request.entity_customer.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.customers.list()`:  `response._embedded.customers[].locale` **Changed**\n* `client.customers.get()`:  `response.locale` **Changed**\n* `client.customers.update()`: \n  *  `request_body.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.customers.create_payment()`: \n  *  `request.payment_request.locale` **Changed**\n  *  `response.locale` **Changed**\n* `client.customers.list_payments()`:  `response._embedded.payments[].locale` **Changed**\n* `client.subscriptions.list_payments()`:  `response._embedded.payments[].locale` **Changed**\n"

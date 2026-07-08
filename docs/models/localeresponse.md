@@ -7,7 +7,7 @@ Sets the language for customer-facing content and communications.
 ```python
 from mollie.models import LocaleResponse
 
-value = LocaleResponse.EN_US
+value = LocaleResponse.CA_ES
 
 # Open enum: unrecognized values are captured as UnrecognizedStr
 ```
@@ -17,28 +17,30 @@ value = LocaleResponse.EN_US
 
 | Name    | Value   |
 | ------- | ------- |
-| `EN_US` | en_US   |
-| `EN_GB` | en_GB   |
-| `NL_NL` | nl_NL   |
-| `NL_BE` | nl_BE   |
-| `DE_DE` | de_DE   |
+| `CA_ES` | ca_ES   |
+| `CS_CZ` | cs_CZ   |
+| `DA_DK` | da_DK   |
 | `DE_AT` | de_AT   |
 | `DE_CH` | de_CH   |
+| `DE_DE` | de_DE   |
 | `DE_LU` | de_LU   |
-| `FR_FR` | fr_FR   |
-| `FR_BE` | fr_BE   |
-| `FR_LU` | fr_LU   |
+| `EN_GB` | en_GB   |
+| `EN_US` | en_US   |
 | `ES_ES` | es_ES   |
-| `CA_ES` | ca_ES   |
-| `PT_PT` | pt_PT   |
-| `IT_IT` | it_IT   |
-| `NB_NO` | nb_NO   |
-| `SV_SE` | sv_SE   |
 | `FI_FI` | fi_FI   |
-| `DA_DK` | da_DK   |
-| `IS_IS` | is_IS   |
+| `FR_BE` | fr_BE   |
+| `FR_FR` | fr_FR   |
+| `FR_LU` | fr_LU   |
 | `HU_HU` | hu_HU   |
-| `PL_PL` | pl_PL   |
-| `LV_LV` | lv_LV   |
+| `IS_IS` | is_IS   |
+| `IT_IT` | it_IT   |
 | `LT_LT` | lt_LT   |
+| `LV_LV` | lv_LV   |
+| `NB_NO` | nb_NO   |
+| `NL_BE` | nl_BE   |
+| `NL_NL` | nl_NL   |
+| `PL_PL` | pl_PL   |
+| `PT_PT` | pt_PT   |
+| `SK_SK` | sk_SK   |
+| `SV_SE` | sv_SE   |
 | `NULL`  | null    |
