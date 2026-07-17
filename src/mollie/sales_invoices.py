@@ -26,10 +26,6 @@ class SalesInvoices(BaseSDK):
     ) -> models.SalesInvoiceResponse:
         r"""Create sales invoice
 
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
-
         With the Sales Invoice API you can generate sales invoices to send to your customers.
 
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
@@ -171,10 +167,6 @@ class SalesInvoices(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.SalesInvoiceResponse:
         r"""Create sales invoice
-
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
 
         With the Sales Invoice API you can generate sales invoices to send to your customers.
 
@@ -318,10 +310,6 @@ class SalesInvoices(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSalesInvoicesResponse]:
         r"""List sales invoices
-
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
 
         Retrieve a list of all sales invoices created through the API.
 
@@ -501,10 +489,6 @@ class SalesInvoices(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListSalesInvoicesResponse]:
         r"""List sales invoices
-
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
 
         Retrieve a list of all sales invoices created through the API.
 
@@ -686,10 +670,6 @@ class SalesInvoices(BaseSDK):
     ) -> models.SalesInvoiceResponse:
         r"""Get sales invoice
 
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
-
         Retrieve a single sales invoice by its ID.
 
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
@@ -828,10 +808,6 @@ class SalesInvoices(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.SalesInvoiceResponse:
         r"""Get sales invoice
-
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
 
         Retrieve a single sales invoice by its ID.
 
@@ -976,10 +952,6 @@ class SalesInvoices(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.SalesInvoiceResponse:
         r"""Update sales invoice
-
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
 
         Certain details of an existing sales invoice can be updated. For `draft` it is all values listed below, but for
         statuses `paid` and `issued` there are certain additional requirements (`paymentDetails` and `emailDetails`,
@@ -1131,10 +1103,6 @@ class SalesInvoices(BaseSDK):
     ) -> models.SalesInvoiceResponse:
         r"""Update sales invoice
 
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
-
         Certain details of an existing sales invoice can be updated. For `draft` it is all values listed below, but for
         statuses `paid` and `issued` there are certain additional requirements (`paymentDetails` and `emailDetails`,
         respectively).
@@ -1285,10 +1253,6 @@ class SalesInvoices(BaseSDK):
     ):
         r"""Delete sales invoice
 
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
-
         Sales invoices which are in status `draft` can be deleted. For all other statuses, please use the
         [Update sales invoice](update-sales-invoice) endpoint instead.
 
@@ -1437,10 +1401,6 @@ class SalesInvoices(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ):
         r"""Delete sales invoice
-
-        > 🚧 Beta feature
-        >
-        > This feature is currently in beta testing, and the final specification may still change.
 
         Sales invoices which are in status `draft` can be deleted. For all other statuses, please use the
         [Update sales invoice](update-sales-invoice) endpoint instead.
