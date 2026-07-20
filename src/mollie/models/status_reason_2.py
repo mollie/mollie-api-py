@@ -4,7 +4,7 @@
 from __future__ import annotations
 from .status_reason_code_response import StatusReasonCodeResponse
 from mollie import models
-from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from mollie.types import BaseModel, UNSET_SENTINEL
 from pydantic import field_serializer, model_serializer
 from typing import Optional
 from typing_extensions import NotRequired, TypedDict
@@ -19,7 +19,7 @@ class StatusReason2TypedDict(TypedDict):
 
     code: NotRequired[StatusReasonCodeResponse]
     r"""A machine-readable code indicating the reason for the transfer's terminal status."""
-    message: NotRequired[Nullable[str]]
+    message: NotRequired[str]
     r"""Provides further details about failure indicated. This field is only populated if the`code` field is set to `error`."""
 
 
@@ -33,7 +33,7 @@ class StatusReason2(BaseModel):
     code: Optional[StatusReasonCodeResponse] = None
     r"""A machine-readable code indicating the reason for the transfer's terminal status."""
 
-    message: OptionalNullable[str] = UNSET
+    message: Optional[str] = None
     r"""Provides further details about failure indicated. This field is only populated if the`code` field is set to `error`."""
 
     @field_serializer("code")
@@ -48,24 +48,15 @@ class StatusReason2(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(["code", "message"])
-        nullable_fields = set(["message"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k, serialized.get(n))
-            is_nullable_and_explicitly_set = (
-                k in nullable_fields
-                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
-            )
 
             if val != UNSET_SENTINEL:
-                if (
-                    val is not None
-                    or k not in optional_fields
-                    or is_nullable_and_explicitly_set
-                ):
+                if val is not None or k not in optional_fields:
                     m[k] = val
 
         return m

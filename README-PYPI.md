@@ -386,6 +386,13 @@ client = ClientSDK(
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md#list) - List payment routes
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/delayedrouting/README.md#get) - Get a delayed route
 
+### [DraftTransfers](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/drafttransfers/README.md)
+
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/drafttransfers/README.md#create) - Create draft transfer
+* [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/drafttransfers/README.md#list) - List draft transfers
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/drafttransfers/README.md#get) - Get draft transfer
+* [cancel](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/drafttransfers/README.md#cancel) - Cancel draft transfer
+
 ### [Invoices](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/invoices/README.md)
 
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/invoices/README.md#list) - List invoices
