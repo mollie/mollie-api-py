@@ -26,6 +26,7 @@ if TYPE_CHECKING:
     from mollie.clients import Clients
     from mollie.customers import Customers
     from mollie.delayed_routing import DelayedRouting
+    from mollie.draft_transfers import DraftTransfers
     from mollie.invoices import Invoices
     from mollie.mandates import Mandates
     from mollie.methods import Methods
@@ -83,6 +84,7 @@ class ClientSDK(BaseSDK):
     sales_invoices: "SalesInvoices"
     accounts: "Accounts"
     transfers: "TransfersSDK"
+    draft_transfers: "DraftTransfers"
     verify_payee: "VerifyPayee"
     payouts: "Payouts"
     _sub_sdk_map = {
@@ -120,6 +122,7 @@ class ClientSDK(BaseSDK):
         "sales_invoices": ("mollie.sales_invoices", "SalesInvoices"),
         "accounts": ("mollie.accounts", "Accounts"),
         "transfers": ("mollie.transfers_sdk", "TransfersSDK"),
+        "draft_transfers": ("mollie.draft_transfers", "DraftTransfers"),
         "verify_payee": ("mollie.verify_payee", "VerifyPayee"),
         "payouts": ("mollie.payouts", "Payouts"),
     }
