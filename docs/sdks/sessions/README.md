@@ -38,6 +38,9 @@ with ClientSDK(
         description="Order #12345",
         lines=[],
         redirect_url="https://example.org/redirect",
+        required_customer_details=[
+            mollie.SessionRequiredCustomerDetails.BILLING_ADDRESS,
+        ],
         billing_address=mollie.PaymentAddress(
             title="Mr.",
             given_name="Piet",

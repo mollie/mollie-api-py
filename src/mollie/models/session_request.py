@@ -5,6 +5,7 @@ from __future__ import annotations
 from .amount import Amount, AmountTypedDict
 from .payment_address import PaymentAddress, PaymentAddressTypedDict
 from .session_line_item import SessionLineItem, SessionLineItemTypedDict
+from .session_required_customer_details import SessionRequiredCustomerDetails
 from .session_sequence_type import SessionSequenceType
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
@@ -65,6 +66,14 @@ class SessionRequestTypedDict(TypedDict):
     It could make sense for the redirectUrl to contain a unique identifier – like your order ID – so you can show the
     right page referencing the order when your customer returns.
     """
+    required_customer_details: NotRequired[List[SessionRequiredCustomerDetails]]
+    r"""> 🚧 Private beta
+    >
+    > This property is currently in private beta, and the final specification may still change.
+
+    Declare which customer details should be collected during checkout. Mollie can collect these details for you
+    with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
+    """
     billing_address: NotRequired[PaymentAddressTypedDict]
     shipping_address: NotRequired[PaymentAddressTypedDict]
     customer_id: NotRequired[str]
@@ -116,6 +125,18 @@ class SessionRequest(BaseModel):
     right page referencing the order when your customer returns.
     """
 
+    required_customer_details: Annotated[
+        Optional[List[SessionRequiredCustomerDetails]],
+        pydantic.Field(alias="requiredCustomerDetails"),
+    ] = None
+    r"""> 🚧 Private beta
+    >
+    > This property is currently in private beta, and the final specification may still change.
+
+    Declare which customer details should be collected during checkout. Mollie can collect these details for you
+    with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
+    """
+
     billing_address: Annotated[
         Optional[PaymentAddress], pydantic.Field(alias="billingAddress")
     ] = None
@@ -159,6 +180,7 @@ class SessionRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "requiredCustomerDetails",
                 "billingAddress",
                 "shippingAddress",
                 "customerId",
