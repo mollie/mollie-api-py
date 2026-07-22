@@ -1788,6 +1788,10 @@ if TYPE_CHECKING:
         SessionRequestPaymentTypedDict,
         SessionRequestTypedDict,
     )
+    from .session_required_customer_details import SessionRequiredCustomerDetails
+    from .session_required_customer_details_response import (
+        SessionRequiredCustomerDetailsResponse,
+    )
     from .session_response import (
         SessionResponse,
         SessionResponseLinks,
@@ -3423,6 +3427,8 @@ __all__ = [
     "SessionRequestPayment",
     "SessionRequestPaymentTypedDict",
     "SessionRequestTypedDict",
+    "SessionRequiredCustomerDetails",
+    "SessionRequiredCustomerDetailsResponse",
     "SessionResponse",
     "SessionResponseLinks",
     "SessionResponseLinksTypedDict",
@@ -5029,6 +5035,8 @@ _dynamic_imports: dict[str, str] = {
     "SessionRequestPayment": ".session_request",
     "SessionRequestPaymentTypedDict": ".session_request",
     "SessionRequestTypedDict": ".session_request",
+    "SessionRequiredCustomerDetails": ".session_required_customer_details",
+    "SessionRequiredCustomerDetailsResponse": ".session_required_customer_details_response",
     "SessionResponse": ".session_response",
     "SessionResponseLinks": ".session_response",
     "SessionResponseLinksTypedDict": ".session_response",

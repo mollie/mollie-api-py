@@ -9,6 +9,9 @@ from .session_line_item_response import (
     SessionLineItemResponse,
     SessionLineItemResponseTypedDict,
 )
+from .session_required_customer_details_response import (
+    SessionRequiredCustomerDetailsResponse,
+)
 from .session_sequence_type_response import SessionSequenceTypeResponse
 from .url import URL, URLTypedDict
 from enum import Enum
@@ -116,6 +119,14 @@ class SessionResponseTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: SessionResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+    required_customer_details: NotRequired[List[SessionRequiredCustomerDetailsResponse]]
+    r"""> 🚧 Private beta
+    >
+    > This property is currently in private beta, and the final specification may still change.
+
+    Declare which customer details should be collected during checkout. Mollie can collect these details for you
+    with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
+    """
     billing_address: NotRequired[PaymentAddressTypedDict]
     shipping_address: NotRequired[PaymentAddressTypedDict]
     customer_id: NotRequired[str]
@@ -191,6 +202,18 @@ class SessionResponse(BaseModel):
     links: Annotated[SessionResponseLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
+    required_customer_details: Annotated[
+        Optional[List[SessionRequiredCustomerDetailsResponse]],
+        pydantic.Field(alias="requiredCustomerDetails"),
+    ] = None
+    r"""> 🚧 Private beta
+    >
+    > This property is currently in private beta, and the final specification may still change.
+
+    Declare which customer details should be collected during checkout. Mollie can collect these details for you
+    with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
+    """
+
     billing_address: Annotated[
         Optional[PaymentAddress], pydantic.Field(alias="billingAddress")
     ] = None
@@ -259,6 +282,7 @@ class SessionResponse(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "requiredCustomerDetails",
                 "billingAddress",
                 "shippingAddress",
                 "customerId",
