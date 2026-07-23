@@ -39,7 +39,7 @@ class TransferResponseAccount(BaseModel):
     r"""The IBAN (International Bank Account Number) of the account holder."""
 
 
-class TransferResponseDebtorTypedDict(TypedDict):
+class DebtorTypedDict(TypedDict):
     r"""The debtor (sender) of the transfer, including their name and account details."""
 
     full_name: str
@@ -48,7 +48,7 @@ class TransferResponseDebtorTypedDict(TypedDict):
     r"""The bank account details of the party."""
 
 
-class TransferResponseDebtor(BaseModel):
+class Debtor(BaseModel):
     r"""The debtor (sender) of the transfer, including their name and account details."""
 
     full_name: Annotated[str, pydantic.Field(alias="fullName")]
@@ -67,7 +67,7 @@ class TransferResponseTypedDict(TypedDict):
     r"""The identifier uniquely referring to this transfer. Mollie assigns this identifier at transfer creation time."""
     mode: Mode
     r"""Whether this entity was created in live mode or in test mode."""
-    debtor: TransferResponseDebtorTypedDict
+    debtor: DebtorTypedDict
     r"""The debtor (sender) of the transfer, including their name and account details."""
     creditor: TransferPartyTypedDict
     r"""A party involved in the transfer, representing either the debtor (sender) or creditor (recipient).
@@ -121,7 +121,7 @@ class TransferResponse(BaseModel):
     mode: Mode
     r"""Whether this entity was created in live mode or in test mode."""
 
-    debtor: TransferResponseDebtor
+    debtor: Debtor
     r"""The debtor (sender) of the transfer, including their name and account details."""
 
     creditor: TransferParty
@@ -237,7 +237,7 @@ class TransferResponse(BaseModel):
 
 
 try:
-    TransferResponseDebtor.model_rebuild()
+    Debtor.model_rebuild()
 except NameError:
     pass
 try:
