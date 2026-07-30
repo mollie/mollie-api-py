@@ -16,7 +16,7 @@ class BillingAddressTypedDict(TypedDict):
     Should include `email` or a valid postal address consisting of `streetAndNumber`, `postalCode`, `city` and
     `country`.
 
-    Required for payment method `alma`, `in3`, `klarna`, `billie` and `riverty`.
+    Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
 
     title: NotRequired[str]
@@ -83,7 +83,7 @@ class BillingAddress(BaseModel):
     Should include `email` or a valid postal address consisting of `streetAndNumber`, `postalCode`, `city` and
     `country`.
 
-    Required for payment method `alma`, `in3`, `klarna`, `billie` and `riverty`.
+    Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
 
     title: Optional[str] = None
