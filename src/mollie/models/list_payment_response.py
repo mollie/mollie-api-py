@@ -250,7 +250,7 @@ class ListPaymentResponseBillingAddressTypedDict(TypedDict):
     Should include `email` or a valid postal address consisting of `streetAndNumber`, `postalCode`, `city` and
     `country`.
 
-    Required for payment method `alma`, `in3`, `klarna`, `billie` and `riverty`.
+    Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
 
     title: NotRequired[str]
@@ -317,7 +317,7 @@ class ListPaymentResponseBillingAddress(BaseModel):
     Should include `email` or a valid postal address consisting of `streetAndNumber`, `postalCode`, `city` and
     `country`.
 
-    Required for payment method `alma`, `in3`, `klarna`, `billie` and `riverty`.
+    Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
 
     title: Optional[str] = None
@@ -702,7 +702,7 @@ class ListPaymentResponseTypedDict(TypedDict):
 
     All lines must have the same currency as the payment.
 
-    Required for payment methods `billie`, `in3`, `klarna`, `riverty` and `voucher`.
+    Required for payment methods `billie`, `billink`, `in3`, `klarna`, `riverty` and `voucher`.
     """
     billing_address: NotRequired[ListPaymentResponseBillingAddressTypedDict]
     r"""The customer's billing address details. We advise to provide these details to improve fraud protection and
@@ -711,7 +711,7 @@ class ListPaymentResponseTypedDict(TypedDict):
     Should include `email` or a valid postal address consisting of `streetAndNumber`, `postalCode`, `city` and
     `country`.
 
-    Required for payment method `alma`, `in3`, `klarna`, `billie` and `riverty`.
+    Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
     shipping_address: NotRequired[PaymentAddressTypedDict]
     locale: NotRequired[Nullable[LocaleResponse]]
@@ -951,7 +951,7 @@ class ListPaymentResponse(BaseModel):
 
     All lines must have the same currency as the payment.
 
-    Required for payment methods `billie`, `in3`, `klarna`, `riverty` and `voucher`.
+    Required for payment methods `billie`, `billink`, `in3`, `klarna`, `riverty` and `voucher`.
     """
 
     billing_address: Annotated[
@@ -964,7 +964,7 @@ class ListPaymentResponse(BaseModel):
     Should include `email` or a valid postal address consisting of `streetAndNumber`, `postalCode`, `city` and
     `country`.
 
-    Required for payment method `alma`, `in3`, `klarna`, `billie` and `riverty`.
+    Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
 
     shipping_address: Annotated[

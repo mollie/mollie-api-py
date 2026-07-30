@@ -17,6 +17,7 @@ class PaymentMethod(str, Enum, metaclass=utils.OpenEnumMeta):
     BANKTRANSFER = "banktransfer"
     BELFIUS = "belfius"
     BILLIE = "billie"
+    BILLINK = "billink"
     BIZUM = "bizum"
     BITCOIN = "bitcoin"
     BLIK = "blik"

@@ -26,6 +26,7 @@ value = ListEntityMethodID.ALMA
 | `BANKTRANSFER` | banktransfer   |
 | `BELFIUS`      | belfius        |
 | `BILLIE`       | billie         |
+| `BILLINK`      | billink        |
 | `BIZUM`        | bizum          |
 | `BLIK`         | blik           |
 | `CREDITCARD`   | creditcard     |
