@@ -73,8 +73,10 @@ class UpdatePaymentRequestBodyTypedDict(TypedDict):
     """
     locale: NotRequired[Nullable[Locale]]
     r"""Sets the language for customer-facing content and communications."""
-    due_date: NotRequired[str]
-    r"""The date by which the payment should be completed in `YYYY-MM-DD` format"""
+    due_date: NotRequired[Nullable[str]]
+    r"""The date by which the payment should be completed in `YYYY-MM-DD` format. Sending `null` has the same effect
+    as omitting the field.
+    """
     restrict_payment_methods_to_country: NotRequired[Nullable[str]]
     r"""For digital goods in most jurisdictions, you must apply the VAT rate from your customer's country. Choose the VAT
     rates you have used for the order to ensure your customer's country matches the VAT country.
@@ -188,8 +190,10 @@ class UpdatePaymentRequestBody(BaseModel):
     locale: OptionalNullable[Locale] = UNSET
     r"""Sets the language for customer-facing content and communications."""
 
-    due_date: Annotated[Optional[str], pydantic.Field(alias="dueDate")] = None
-    r"""The date by which the payment should be completed in `YYYY-MM-DD` format"""
+    due_date: Annotated[OptionalNullable[str], pydantic.Field(alias="dueDate")] = UNSET
+    r"""The date by which the payment should be completed in `YYYY-MM-DD` format. Sending `null` has the same effect
+    as omitting the field.
+    """
 
     restrict_payment_methods_to_country: Annotated[
         OptionalNullable[str], pydantic.Field(alias="restrictPaymentMethodsToCountry")
@@ -276,6 +280,7 @@ class UpdatePaymentRequestBody(BaseModel):
                 "metadata",
                 "method",
                 "locale",
+                "dueDate",
                 "restrictPaymentMethodsToCountry",
                 "issuer",
             ]

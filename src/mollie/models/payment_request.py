@@ -626,9 +626,9 @@ class PaymentRequestTypedDict(TypedDict):
     request. For organization-level credentials such as OAuth access tokens however, the `profileId` parameter is
     required.
     """
-    due_date: NotRequired[str]
+    due_date: NotRequired[Nullable[str]]
     r"""The date the bank transfer payment should expire, in `YYYY-MM-DD` format. The minimum date is tomorrow, and the
-    maximum date is 100 days after tomorrow.
+    maximum date is 100 days after tomorrow. Sending `null` has the same effect as omitting the field.
 
     After you created the payment, you can still update the `dueDate` via [Update payment](update-payment).
 
@@ -929,9 +929,9 @@ class PaymentRequest(BaseModel):
     required.
     """
 
-    due_date: Annotated[Optional[str], pydantic.Field(alias="dueDate")] = None
+    due_date: Annotated[OptionalNullable[str], pydantic.Field(alias="dueDate")] = UNSET
     r"""The date the bank transfer payment should expire, in `YYYY-MM-DD` format. The minimum date is tomorrow, and the
-    maximum date is 100 days after tomorrow.
+    maximum date is 100 days after tomorrow. Sending `null` has the same effect as omitting the field.
 
     After you created the payment, you can still update the `dueDate` via [Update payment](update-payment).
 
@@ -1108,6 +1108,7 @@ class PaymentRequest(BaseModel):
                 "applicationFee",
                 "routing",
                 "mandateId",
+                "dueDate",
                 "testmode",
             ]
         )
