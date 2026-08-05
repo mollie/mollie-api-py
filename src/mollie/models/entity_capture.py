@@ -19,6 +19,13 @@ class EntityCaptureTypedDict(TypedDict):
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
+    testmode: NotRequired[Nullable[bool]]
+    r"""Whether to create the entity in test mode or live mode.
+
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
+    """
 
 
 class EntityCapture(BaseModel):
@@ -33,10 +40,18 @@ class EntityCapture(BaseModel):
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
 
+    testmode: OptionalNullable[bool] = UNSET
+    r"""Whether to create the entity in test mode or live mode.
+
+    Most API credentials are specifically created for either live mode or test mode, in which case this parameter must
+    not be sent. For organization-level credentials such as OAuth access tokens, you can enable test mode by setting
+    `testmode` to `true`.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["description", "amount", "metadata"])
-        nullable_fields = set(["amount", "metadata"])
+        optional_fields = set(["description", "amount", "metadata", "testmode"])
+        nullable_fields = set(["amount", "metadata", "testmode"])
         serialized = handler(self)
         m = {}
 

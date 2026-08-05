@@ -1,24 +1,24 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 5c818dcc3ed578a9c854103dd3395794
+  docChecksum: 72505fd7786203d39c9eed008dc2dbcd
   docVersion: 1.0.0
-  speakeasyVersion: 1.791.0
-  generationVersion: 2.924.0
-  releaseVersion: 1.9.8
-  configChecksum: b43bfe9e5e306052babd08a80d4a19aa
+  speakeasyVersion: 1.791.3
+  generationVersion: 2.926.2
+  releaseVersion: 1.9.9
+  configChecksum: f6b4ad51049cb005e2e0c57437c50c2f
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 1f876d3a-b96a-422c-9423-5849dd505394
-  pristine_commit_hash: 1facd720c16f4d7be9f2d71e1918341f2a43998d
-  pristine_tree_hash: 9c6ba6fd1106892758a19664d0fdc84807c1f2c0
+  generation_id: 239d1ae4-8c8d-42e8-b266-115053fafa86
+  pristine_commit_hash: 6bb99d801b87459b20c0b9b60fca03666b39fccd
+  pristine_tree_hash: d6afd75543a3479f2c38384774a982617dc11cc1
 features:
   python:
     additionalDependencies: 1.1.0
     configurableModuleName: 0.2.0
-    core: 6.0.34
+    core: 6.0.35
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -40,7 +40,7 @@ features:
     responseFormat: 1.1.0
     retries: 3.0.7
     sdkHooks: 1.3.0
-    unions: 3.1.7
+    unions: 3.1.8
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
@@ -136,8 +136,8 @@ trackedFiles:
     pristine_git_object: 10c6706e754a37abc7f354a3178711ebf9a7d537
   docs/models/balancetransactiontype.md:
     id: 8862608ef04a
-    last_write_checksum: sha1:d2749be9d7e4f2180e36c3425bda1443d7efdd3d
-    pristine_git_object: 9b4c24c4c0e0dbfc4209f8a59098e491011c632f
+    last_write_checksum: sha1:5bf2baafae5e8e91b45beaf7782958557432ce52
+    pristine_git_object: e2fdf60a5a39ffe1bac78208f446567ac3dd2166
   docs/models/balancetransfercategory.md:
     id: b9019fc76df0
     last_write_checksum: sha1:ad62009956818fdb3c29f01976b3263e26ebb3e7
@@ -572,8 +572,8 @@ trackedFiles:
     pristine_git_object: 9e54c75c43da26466432cc171d2539255b3ff674
   docs/models/entitycapture.md:
     id: 19664d9dba53
-    last_write_checksum: sha1:e3d8a76d5d76640abdd32be04279e9cc02fc2cbc
-    pristine_git_object: cf4529e6b670b5accca0dd1c7386284c991c9e87
+    last_write_checksum: sha1:3882b05719ed93a51b92a61445f8182df716811b
+    pristine_git_object: 7ca9a8859f05ab3813de6fe91325292212d324f7
   docs/models/entitychargeback.md:
     id: 27d9340a10f8
     last_write_checksum: sha1:06b0372a8e143f953611f946f9fc72a18c0fd5ae
@@ -3480,8 +3480,8 @@ trackedFiles:
     pristine_git_object: e1287ad7c6f87a7871664b4149a01f962e6430f1
   docs/sdks/captures/README.md:
     id: 7598191d8c6a
-    last_write_checksum: sha1:1051105622e0715a5fe56b3f28889ce81a5df767
-    pristine_git_object: 493b573ac5892cbdab3df25f4a82be66af4b5a8e
+    last_write_checksum: sha1:a5e05bcd771f515bd362188a1909cdfb75d918a9
+    pristine_git_object: 19a3cbbf2a93271ca67020db6aebd10f4e4f1cee
   docs/sdks/chargebackssdk/README.md:
     id: f80c4a789a4c
     last_write_checksum: sha1:a21c38d2a89e59de7df911b403b2636a7fd18b89
@@ -3608,8 +3608,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:e6eedaf5d8a40c097011bf8e741e7226067afc1d
-    pristine_git_object: 13b612a41f24c5ee31a8d5599baa9dec9457a952
+    last_write_checksum: sha1:0084926036764307f0bc1c6e5b9fe6bf81cf0952
+    pristine_git_object: 19839fa678df5cba087f149ca67e85337b76991f
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3636,8 +3636,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:690efc726da1938c4b34850eb74ea0b373f831b1
-    pristine_git_object: 6b4c10f90c17d42fe09cfea34c138564d2a490af
+    last_write_checksum: sha1:54972836c302f678fd03ffd0d24843b0f99d562a
+    pristine_git_object: 78dea1133177848472e62a23665842f90e965982
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:221f6cb08c38e444dac1dc270c32117a046f7f06
@@ -3768,8 +3768,8 @@ trackedFiles:
     pristine_git_object: e0d1cd72e41b73b79e642b568a93d4f2e23893d7
   src/mollie/models/balance_transaction_type.py:
     id: beb2f7649874
-    last_write_checksum: sha1:2f48f1d60cac4858f7cfb4608c02a4efcfb5615f
-    pristine_git_object: a18dee9415f537376502aadb52a26023be90f795
+    last_write_checksum: sha1:da5fd80ac3f1c6569e28950bcfc040a3974930b7
+    pristine_git_object: 4f482218161c8547232ab1d6e85ad3b2c9008199
   src/mollie/models/balance_transfer_category.py:
     id: f2284fa7999b
     last_write_checksum: sha1:f4058915c6cb49bf1f49fe4c523feecfc3bf61fa
@@ -4012,8 +4012,8 @@ trackedFiles:
     pristine_git_object: 054559b73cae4a9d37d6138f67e2493e8f5cd60f
   src/mollie/models/entity_capture.py:
     id: b966952e00d8
-    last_write_checksum: sha1:94ce55c0c2cfa56ee569339103903bb1917b0b3f
-    pristine_git_object: 9307b5c64d84d8f7924eeaedc4914d1fcb193535
+    last_write_checksum: sha1:bfe73d6f292773e97ab8cb65b170bcb2a9e0f329
+    pristine_git_object: 01caa27cc50b8508b64929fc02aeec6bb4abc42c
   src/mollie/models/entity_chargeback.py:
     id: 83dec36c7e59
     last_write_checksum: sha1:6e2ffcbc278ec2dfe80d81f84a0893dd53176cdf
@@ -7218,7 +7218,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Capture for cart #12345", "amount": {"currency": "EUR", "value": "10.00"}}
+        application/json: {"description": "Capture for cart #12345", "amount": {"currency": "EUR", "value": "10.00"}, "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "capture", "id": "cpt_vytxeTZskVKR7C7WgdSP3d", "mode": "live", "description": "Capture for cart #12345", "amount": {"currency": "EUR", "value": "35.95"}, "status": "pending", "metadata": "{\"bookkeeping_id\":12345}", "paymentId": "tr_5B8cwPMGnU6qLbRvo7qEZo", "createdAt": "2023-08-02T09:29:56+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -7229,7 +7229,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Capture for cart #12345", "amount": {"currency": "EUR", "value": "10.00"}}
+        application/json: {"description": "Capture for cart #12345", "amount": {"currency": "EUR", "value": "10.00"}, "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "capture", "id": "cpt_vytxeTZskVKR7C7WgdSP3d", "mode": "test", "amount": {"currency": "EUR", "value": "467.92"}, "status": "pending", "paymentId": "tr_V9kqkGtyUH", "shipmentId": "shp_5x4xQJDWGNcY3tKGL7X5J", "createdAt": "2021-06-03T11:50:58+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://api.mollie.com/v2/payments/tr_V9kqkGtyUH", "type": "application/hal+json"}, "shipment": {"href": "https://api.mollie.com/v2/orders/ord_uvpptr/shipments/shp_5x4xQJDWGNcY3tKGL7X5J", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -7240,7 +7240,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Capture for cart #12345", "amount": {"currency": "EUR", "value": "10.00"}}
+        application/json: {"description": "Capture for cart #12345", "amount": {"currency": "EUR", "value": "10.00"}, "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "capture", "id": "cpt_vytxeTZskVKR7C7WgdSP3d", "mode": "live", "description": "Capture for cart #12345", "amount": {"currency": "EUR", "value": "10.00"}, "status": "succeeded", "paymentId": "tr_5B8cwPMGnU", "shipmentId": "shp_5x4xQJDWGNcY3tKGL7X5J", "settlementId": "stl_5B8cwPMGnU", "createdAt": "2024-03-20T09:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://...", "type": "application/hal+json"}, "settlement": {"href": "https://...", "type": "application/hal+json"}, "shipment": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
@@ -8942,4 +8942,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.balances.get_report()`:  `response.totals.pending_balance.open.subtotals[].sub_totals[].method.enum(billink)` **Added**\n* `client.settlements.list()`:  `response._embedded.settlements[].periods.Map<Map<periods>>.Map<periods>.costs[].method.enum(billink)` **Added**\n* `client.settlements.get()`:  `response.periods.Map<Map<periods>>.Map<periods>.costs[].method.enum(billink)` **Added**\n* `client.settlements.get_open()`:  `response.periods.Map<Map<periods>>.Map<periods>.costs[].method.enum(billink)` **Added**\n* `client.settlements.get_next()`:  `response.periods.Map<Map<periods>>.Map<periods>.costs[].method.enum(billink)` **Added**\n* `client.settlements.list_payments()`:  `response._embedded.payments[].method.enum(billink)` **Added**\n* `client.webhook_events.get()`:  `response._embedded.entity.union(payment-response).method.enum(billink)` **Added**\n* `client.payments.create()`: \n  *  `request.payment_request.method.union(method).enum(billink)` **Added**\n  *  `response.method.enum(billink)` **Added**\n* `client.payments.list()`:  `response._embedded.payments[].method.enum(billink)` **Added**\n* `client.payments.get()`:  `response.method.enum(billink)` **Added**\n* `client.payments.update()`: \n  *  `request_body.method.union(method).enum(billink)` **Added**\n  *  `response.method.enum(billink)` **Added**\n* `client.payments.cancel()`:  `response.method.enum(billink)` **Added**\n* `client.methods.list()`:  `response._embedded.methods[].id.enum(billink)` **Added**\n* `client.methods.all()`:  `response._embedded.methods[].id.enum(billink)` **Added**\n* `client.methods.get()`: \n  *  `request.method_id` **Changed**\n  *  `response.id.enum(billink)` **Added**\n* `client.payment_links.list_payments()`:  `response._embedded.payments[].method.enum(billink)` **Added**\n* `client.customers.create_payment()`: \n  *  `request.payment_request.method.union(method).enum(billink)` **Added**\n  *  `response.method.enum(billink)` **Added**\n* `client.customers.list_payments()`:  `response._embedded.payments[].method.enum(billink)` **Added**\n* `client.subscriptions.list_payments()`:  `response._embedded.payments[].method.enum(billink)` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `client.balances.get_report()`:  `response.totals.pending_balance.open.subtotals[].sub_totals[].transaction_type` **Changed** (Breaking ⚠️)\n* `client.balances.list_transactions()`:  `response._embedded.balance_transactions[].type` **Changed** (Breaking ⚠️)\n* `client.captures.create()`: \n  *  `request.entity_capture.testmode` **Added**\n"
