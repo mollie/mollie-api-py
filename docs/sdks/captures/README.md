@@ -40,6 +40,7 @@ with ClientSDK(
             "currency": "EUR",
             "value": "10.00",
         },
+        "testmode": False,
     })
 
     # Handle response
@@ -67,6 +68,7 @@ with ClientSDK(
             "currency": "EUR",
             "value": "10.00",
         },
+        "testmode": False,
     })
 
     # Handle response
