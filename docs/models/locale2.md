@@ -1,15 +1,13 @@
-# LocaleResponse
+# Locale2
 
 Sets the language for customer-facing content and communications.
 
 ## Example Usage
 
 ```python
-from mollie.models import LocaleResponse
+from mollie.models import Locale2
 
-value = LocaleResponse.CA_ES
-
-# Open enum: unrecognized values are captured as UnrecognizedStr
+value = Locale2.CA_ES
 ```
 
 

@@ -4,7 +4,6 @@
 from __future__ import annotations
 from .amount import Amount, AmountTypedDict
 from .mode import Mode
-from .payment_address import PaymentAddress, PaymentAddressTypedDict
 from .session_line_item_response import (
     SessionLineItemResponse,
     SessionLineItemResponseTypedDict,
@@ -13,6 +12,7 @@ from .session_required_customer_details_response import (
     SessionRequiredCustomerDetailsResponse,
 )
 from .session_sequence_type_response import SessionSequenceTypeResponse
+from .shippingaddress import ShippingAddress, ShippingAddressTypedDict
 from .url import URL, URLTypedDict
 from enum import Enum
 from mollie import models, utils
@@ -127,8 +127,8 @@ class SessionResponseTypedDict(TypedDict):
     Declare which customer details should be collected during checkout. Mollie can collect these details for you
     with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
     """
-    billing_address: NotRequired[PaymentAddressTypedDict]
-    shipping_address: NotRequired[PaymentAddressTypedDict]
+    billing_address: NotRequired[ShippingAddressTypedDict]
+    shipping_address: NotRequired[ShippingAddressTypedDict]
     customer_id: NotRequired[str]
     sequence_type: NotRequired[SessionSequenceTypeResponse]
     metadata: NotRequired[Dict[str, Any]]
@@ -215,11 +215,11 @@ class SessionResponse(BaseModel):
     """
 
     billing_address: Annotated[
-        Optional[PaymentAddress], pydantic.Field(alias="billingAddress")
+        Optional[ShippingAddress], pydantic.Field(alias="billingAddress")
     ] = None
 
     shipping_address: Annotated[
-        Optional[PaymentAddress], pydantic.Field(alias="shippingAddress")
+        Optional[ShippingAddress], pydantic.Field(alias="shippingAddress")
     ] = None
 
     customer_id: Annotated[Optional[str], pydantic.Field(alias="customerId")] = None

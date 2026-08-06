@@ -5,13 +5,13 @@ from __future__ import annotations
 from .amount import Amount, AmountTypedDict
 from .amount_nullable import AmountNullable, AmountNullableTypedDict
 from .mode import Mode
-from .payment_address import PaymentAddress, PaymentAddressTypedDict
 from .payment_line_item_response import (
     PaymentLineItemResponse,
     PaymentLineItemResponseTypedDict,
 )
 from .payment_link_method_response import PaymentLinkMethodResponse
 from .payment_link_sequence_type_response import PaymentLinkSequenceTypeResponse
+from .shippingaddress import ShippingAddress, ShippingAddressTypedDict
 from .url import URL, URLTypedDict
 from mollie import models
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
@@ -143,8 +143,8 @@ class PaymentLinkResponseTypedDict(TypedDict):
 
     Required for payment methods `billie`, `in3`, `klarna`, `riverty` and `voucher`.
     """
-    billing_address: NotRequired[PaymentAddressTypedDict]
-    shipping_address: NotRequired[PaymentAddressTypedDict]
+    billing_address: NotRequired[ShippingAddressTypedDict]
+    shipping_address: NotRequired[ShippingAddressTypedDict]
     application_fee: NotRequired[PaymentLinkResponseApplicationFeeTypedDict]
     r"""With Mollie Connect you can charge fees on payment links that your app is processing on behalf of other Mollie
     merchants.
@@ -254,11 +254,11 @@ class PaymentLinkResponse(BaseModel):
     """
 
     billing_address: Annotated[
-        Optional[PaymentAddress], pydantic.Field(alias="billingAddress")
+        Optional[ShippingAddress], pydantic.Field(alias="billingAddress")
     ] = None
 
     shipping_address: Annotated[
-        Optional[PaymentAddress], pydantic.Field(alias="shippingAddress")
+        Optional[ShippingAddress], pydantic.Field(alias="shippingAddress")
     ] = None
 
     application_fee: Annotated[

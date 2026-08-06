@@ -41,7 +41,7 @@ with ClientSDK(
         required_customer_details=[
             mollie.SessionRequiredCustomerDetails.BILLING_ADDRESS,
         ],
-        billing_address=mollie.PaymentAddress(
+        billing_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -55,7 +55,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",

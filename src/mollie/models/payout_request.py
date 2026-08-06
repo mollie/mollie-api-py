@@ -6,7 +6,6 @@ from .amount_nullable import AmountNullable, AmountNullableTypedDict
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
-from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -15,7 +14,7 @@ class PayoutRequestTypedDict(TypedDict):
     r"""The identifier of the balance that will be paid out. Example: `bal_gVMhHKqSSRYJyPsuoPNFH`."""
     amount: NotRequired[Nullable[AmountNullableTypedDict]]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    description: NotRequired[str]
+    description: NotRequired[Nullable[str]]
     r"""The description that will appear on the bank statement for this payout."""
     testmode: NotRequired[Nullable[bool]]
     r"""Whether to create the entity in test mode or live mode.
@@ -33,7 +32,7 @@ class PayoutRequest(BaseModel):
     amount: OptionalNullable[AmountNullable] = UNSET
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    description: Optional[str] = None
+    description: OptionalNullable[str] = UNSET
     r"""The description that will appear on the bank statement for this payout."""
 
     testmode: OptionalNullable[bool] = UNSET
@@ -47,7 +46,7 @@ class PayoutRequest(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(["amount", "description", "testmode"])
-        nullable_fields = set(["amount", "testmode"])
+        nullable_fields = set(["amount", "description", "testmode"])
         serialized = handler(self)
         m = {}
 

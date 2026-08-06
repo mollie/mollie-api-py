@@ -53,7 +53,7 @@ class EntityPayoutResponseTypedDict(TypedDict):
     r"""Whether this entity was created in live mode or in test mode."""
     amount: NotRequired[Nullable[AmountNullableTypedDict]]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    description: NotRequired[str]
+    description: NotRequired[Nullable[str]]
     r"""The description that will appear on the bank statement for this payout."""
     initiated_at: NotRequired[Nullable[str]]
     r"""The date and time the payout was initiated, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
@@ -98,7 +98,7 @@ class EntityPayoutResponse(BaseModel):
     amount: OptionalNullable[AmountNullable] = UNSET
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    description: Optional[str] = None
+    description: OptionalNullable[str] = UNSET
     r"""The description that will appear on the bank statement for this payout."""
 
     initiated_at: Annotated[
@@ -157,7 +157,9 @@ class EntityPayoutResponse(BaseModel):
                 "_links",
             ]
         )
-        nullable_fields = set(["amount", "initiatedAt", "completedAt", "canceledAt"])
+        nullable_fields = set(
+            ["amount", "description", "initiatedAt", "completedAt", "canceledAt"]
+        )
         serialized = handler(self)
         m = {}
 

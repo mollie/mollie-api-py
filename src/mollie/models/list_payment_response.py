@@ -13,11 +13,11 @@ from .locale_response import LocaleResponse
 from .metadata import Metadata, MetadataTypedDict
 from .method_response import MethodResponse
 from .mode import Mode
-from .payment_address import PaymentAddress, PaymentAddressTypedDict
 from .payment_details import PaymentDetails, PaymentDetailsTypedDict
 from .payment_line_type_response import PaymentLineTypeResponse
 from .recurring_line_item import RecurringLineItem, RecurringLineItemTypedDict
 from .sequence_type_response import SequenceTypeResponse
+from .shippingaddress import ShippingAddress, ShippingAddressTypedDict
 from .status_reason import StatusReason, StatusReasonTypedDict
 from .url import URL, URLTypedDict
 from .url_nullable import URLNullable, URLNullableTypedDict
@@ -713,7 +713,7 @@ class ListPaymentResponseTypedDict(TypedDict):
 
     Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
-    shipping_address: NotRequired[PaymentAddressTypedDict]
+    shipping_address: NotRequired[ShippingAddressTypedDict]
     locale: NotRequired[Nullable[LocaleResponse]]
     r"""Sets the language for customer-facing content and communications."""
     country_code: NotRequired[Nullable[str]]
@@ -968,7 +968,7 @@ class ListPaymentResponse(BaseModel):
     """
 
     shipping_address: Annotated[
-        Optional[PaymentAddress], pydantic.Field(alias="shippingAddress")
+        Optional[ShippingAddress], pydantic.Field(alias="shippingAddress")
     ] = None
 
     locale: OptionalNullable[LocaleResponse] = UNSET

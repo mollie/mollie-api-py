@@ -381,7 +381,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -395,7 +395,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -527,7 +527,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -541,7 +541,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -673,7 +673,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -687,7 +687,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -819,7 +819,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -833,7 +833,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -965,7 +965,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -979,7 +979,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1111,7 +1111,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1125,7 +1125,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1257,7 +1257,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1271,7 +1271,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1403,7 +1403,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1417,7 +1417,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1549,7 +1549,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1563,7 +1563,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1695,7 +1695,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1709,7 +1709,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1841,7 +1841,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1855,7 +1855,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1987,7 +1987,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -2001,7 +2001,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -2133,7 +2133,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -2147,7 +2147,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",

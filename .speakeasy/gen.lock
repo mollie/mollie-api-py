@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: ad0e397466169d90d8f0bd1d986219c0
+  docChecksum: de39f64574612890345a01af918538cb
   docVersion: 1.0.0
-  speakeasyVersion: 1.791.3
-  generationVersion: 2.926.2
-  releaseVersion: 1.9.10
-  configChecksum: 4d16406f7317ee087b6406a9ddb5d86e
+  speakeasyVersion: 1.791.4
+  generationVersion: 2.926.8
+  releaseVersion: 1.9.11
+  configChecksum: e71a7dd81fc1b8fc01a112d4a723244b
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 69b682cf-e91c-491c-875d-59e501f2d957
-  pristine_commit_hash: 2f8586ac745d9f2b9f2ebce0611a61d957da9fba
-  pristine_tree_hash: 81e34f450ce2844e9621a8dffcb1fd02d31ab40b
+  generation_id: d9f11709-84ad-416b-91a9-7e7cb84799ba
+  pristine_commit_hash: 014f0640fb81e0fed0aa3bdaf0205021b7b5e6ff
+  pristine_tree_hash: c1411759f0cfcde00aae7a18c99c7aa812e28385
 features:
   python:
     additionalDependencies: 1.1.0
@@ -672,8 +672,8 @@ trackedFiles:
     pristine_git_object: 7d9c8ebd8420952143cf5a30bfae069d70b821ec
   docs/models/entityorganizationlocale.md:
     id: 76cae378d0be
-    last_write_checksum: sha1:5c31d46605a2896300bff7ef6c737f4a4928f2b6
-    pristine_git_object: a0af39f2f303209e6a18c7023ac02fc599aa0d3e
+    last_write_checksum: sha1:b88fbeeeb136f6d8a1b5bdbe8c6a9b299fc25666
+    pristine_git_object: 99ae8de3fb96667c11b8a6926f97895f12117798
   docs/models/entitypairingcode.md:
     id: cdba5fd25288
     last_write_checksum: sha1:102dfc3c9eaa632e92b40072c56589ff14f4d3c2
@@ -716,8 +716,8 @@ trackedFiles:
     pristine_git_object: 0758417e654d9ab4b7529492cf097d241b9de1b0
   docs/models/entitypayoutresponse.md:
     id: 9a7dd012daca
-    last_write_checksum: sha1:fce7763753675b582e826c515f65afa01c61f016
-    pristine_git_object: df2fcfa82acd52d437078663e7743787383efbb1
+    last_write_checksum: sha1:8df2a6519444dee2bed47862667fb6aa06baa50f
+    pristine_git_object: 2ebcf08d88475eacfb061d611bf468cd0f4b5042
   docs/models/entitypayoutresponselinks.md:
     id: 526c77626671
     last_write_checksum: sha1:91f32875cc26909bf024d83c62d03923036b1d17
@@ -1628,8 +1628,8 @@ trackedFiles:
     pristine_git_object: 78a8cf2df1f6e69241595cfb5356cee8ddcae026
   docs/models/listentitypayout.md:
     id: 4f55d23ff0c9
-    last_write_checksum: sha1:f9f656ea2a3b4bced130154e08fa0d2a1b4bb8fd
-    pristine_git_object: bd9103623de12ae4110fad98bef336f2a069e266
+    last_write_checksum: sha1:1af55b81530cef285faca2766a0beaa7d3e4d9da
+    pristine_git_object: 4c0dde50bce9bf7364a2cf60020a0744efbb6264
   docs/models/listentitypayoutlinks.md:
     id: 2897ef8e4c65
     last_write_checksum: sha1:e7c5bff39b3b58c81f60a64f727302fe63edd261
@@ -1844,8 +1844,8 @@ trackedFiles:
     pristine_git_object: 69fa8ca45cff2bc4b0ec425f5e7eae6388d36781
   docs/models/listpaymentresponse.md:
     id: f3d4bb2c8ff9
-    last_write_checksum: sha1:79db2c92a86e1ca94ef1a32363e80056e946d638
-    pristine_git_object: a4a0274f1b05975f8d1092d98c83b58742c1951f
+    last_write_checksum: sha1:c65ef94b891b19f614405987c0cfb1eacdbfd514
+    pristine_git_object: 6f48dea0bc799ac4f0eae042dca2920521e76692
   docs/models/listpaymentresponseamountcaptured.md:
     id: 780e0576bc50
     last_write_checksum: sha1:e46e00c35eb7e646d4770dfb5264a2624b4e3920
@@ -2116,8 +2116,8 @@ trackedFiles:
     pristine_git_object: efc1b9ba76250cd2d8535631ecd7a101d50aacf4
   docs/models/listsettlementpaymentresponse.md:
     id: 24c08bbd7f37
-    last_write_checksum: sha1:03d54e6c2853747ed65d918736a0403177a13503
-    pristine_git_object: a55594e443507a52b311d2ca0508e5a7d4a706bf
+    last_write_checksum: sha1:91ff20a779955f5b80d2ea2a4d9d8cead1339c8c
+    pristine_git_object: 1c634f9ec010b513b212b3fd183891f285910735
   docs/models/listsettlementpaymentresponseamountcaptured.md:
     id: bd7534632d3a
     last_write_checksum: sha1:21e3c1fe029b26ea804a2f8b3523dfb6b0439ea5
@@ -2344,12 +2344,16 @@ trackedFiles:
     pristine_git_object: 90e331bb0328a0bc8076e22773847a6d8229136b
   docs/models/locale.md:
     id: 8fb97659a46c
-    last_write_checksum: sha1:864e3eb7ad63b4738a9ec666d6c80c0ff98b3ccd
-    pristine_git_object: 6143e9a44fac51b2077951164e0d6e96404f3fc7
+    last_write_checksum: sha1:44bddadf4041832bf045bb47878317d412c76051
+    pristine_git_object: bfb3e13ef85fef5e2c55bae55bd1a0d11e25006e
+  docs/models/locale2.md:
+    id: f1539e96005b
+    last_write_checksum: sha1:84822db7159d20e2867a21ea4345e304fd04013f
+    pristine_git_object: deb5baf4da8b990cb60546bb7026bef6e56d9d9b
   docs/models/localeresponse.md:
     id: cadd4514d964
-    last_write_checksum: sha1:5b64956061edf908ef750c8cab436558b4d67f14
-    pristine_git_object: d70a8b70e2349c1bdd578290437cdec2dd0df049
+    last_write_checksum: sha1:6ef1bde2952c75cedbfd4e53076e102bbdbef8b6
+    pristine_git_object: 1b928cebbfdc2bc1776e415e42413b3ff00e06d7
   docs/models/managedfee.md:
     id: 8253e7b3026a
     last_write_checksum: sha1:6d6d337a6f1c14830d9efb844f078cefe868e07c
@@ -2592,8 +2596,8 @@ trackedFiles:
     pristine_git_object: aafc4caef1672b39ddc69851121e18bc00b0d3bf
   docs/models/paymentlinkresponse.md:
     id: 38052451cf9e
-    last_write_checksum: sha1:9805f8616633965d74bbec8f60d70cafccbba944
-    pristine_git_object: cf5c265a98cf5d8d7691e04cf51ddc9a0ee04bee
+    last_write_checksum: sha1:77cc944f6189d34d40fa6c7778351fe03b9c3d0b
+    pristine_git_object: b8dd9b9d5a66f9c2fbdc5fd70838795bc45c397d
   docs/models/paymentlinkresponseapplicationfee.md:
     id: ebe7f230c71b
     last_write_checksum: sha1:fe1079b65da293aed22cb59c5a7a23481dce6359
@@ -2636,8 +2640,8 @@ trackedFiles:
     pristine_git_object: 361a19d8c3274defc578ab315e3ba8f1bb987026
   docs/models/paymentrequest.md:
     id: 0e4e917b7d33
-    last_write_checksum: sha1:a9f6a74322226ec60944a7ec12cddaa1f20b69b8
-    pristine_git_object: 3d8356138e41cfa15fea32fb2d1656e88f4875f3
+    last_write_checksum: sha1:13b48eadfbbfb997968ada0e1f2f8c5f52372467
+    pristine_git_object: f4afebd4e260e7100cd5dfb5551f31988ca24329
   docs/models/paymentrequestapplicationfee.md:
     id: fceb80514e24
     last_write_checksum: sha1:c3307a06ff2e62e6fc8746d243163cbc8135147d
@@ -2652,8 +2656,8 @@ trackedFiles:
     pristine_git_object: 2986874b0af9e27eeb1af5e498cbf04296ce48e0
   docs/models/paymentresponse.md:
     id: 735e1813b9a0
-    last_write_checksum: sha1:97917af44317aa2acd75d19ab6a559289a0c02b4
-    pristine_git_object: cee329930922511cdcada46c6fa34ebbf02de485
+    last_write_checksum: sha1:ad719d8119ed49350ce1c2b416827f08aa93a26d
+    pristine_git_object: b940c19a93143762b07f6cc754cc870c60e5f4d3
   docs/models/paymentresponseamountcaptured.md:
     id: de97b7763ecf
     last_write_checksum: sha1:5992aea059e64684523754141b7bdbe206080394
@@ -2696,8 +2700,8 @@ trackedFiles:
     pristine_git_object: c5ff51ff06d47369df129b1fe1c17674121dea89
   docs/models/payoutrequest.md:
     id: c6d690df34d7
-    last_write_checksum: sha1:e9e855eb79de12555006c95e70780dc69263c131
-    pristine_git_object: 364342d1186f4cecc562791c029bf1814c2922fb
+    last_write_checksum: sha1:7194896544f94f762c3a4560d08c0918cd2c1604
+    pristine_git_object: 26d4d32f9704256f409d893fbadfa06d5e021ba4
   docs/models/payoutstatus.md:
     id: ecf0eb9e68eb
     last_write_checksum: sha1:2c12e66735264dafdd3170b8a1ed18dbb078c9c2
@@ -3060,8 +3064,8 @@ trackedFiles:
     pristine_git_object: 7c4392bc92a9e0acfe7f1257309d91724089f962
   docs/models/sessionrequest.md:
     id: ead7c6de038e
-    last_write_checksum: sha1:467cd83705c24bf6e90aa34a87784c7ec931d1ad
-    pristine_git_object: f828dfdbc0b23a2ac5e2feb20c91050ab3104400
+    last_write_checksum: sha1:5edb121c23d6caa55366dfc8f471a5f6d1b4982d
+    pristine_git_object: 840b845274d81769246d0a183191ee913aa27372
   docs/models/sessionrequestpayment.md:
     id: 8585f12f9a97
     last_write_checksum: sha1:b1937e006b4a524aa553968ac9f3e5555846edbb
@@ -3076,8 +3080,8 @@ trackedFiles:
     pristine_git_object: f2fb1b705ea1a8dce506f0852f80add5cdc69c1d
   docs/models/sessionresponse.md:
     id: 6ef4cd3d1a91
-    last_write_checksum: sha1:71decd51c42bb74ba5ba9bcb379bb40c44b96cd8
-    pristine_git_object: e8b64f36ca02af86fc8e42021a6ccb2450beb4d8
+    last_write_checksum: sha1:5ead0b6d69fe26122f494d4c6c4dbb4fe99809dc
+    pristine_git_object: 2b26e91deef7528b783fde07207c824aa960de59
   docs/models/sessionresponselinks.md:
     id: effa29b72675
     last_write_checksum: sha1:f6b3da58a63090506d561cfad5a91033e0a000c5
@@ -3114,6 +3118,10 @@ trackedFiles:
     id: d3f2eb2a98b1
     last_write_checksum: sha1:9dceed263a9a74823767e9dc60d20a8f2852864d
     pristine_git_object: 12428f7b65ac9e7876713897fef09b8eeb74492d
+  docs/models/shippingaddress.md:
+    id: 8dde3d9fbebb
+    last_write_checksum: sha1:93784a15fbce299f1f40cda2091b9b409a69aac1
+    pristine_git_object: 8718e5bb8b692adc9f8f32b8a771ce87097eaf64
   docs/models/sorting.md:
     id: 7bf68aa553c8
     last_write_checksum: sha1:6a1767706b651e4917cc45c0349adf688e6454e8
@@ -3380,8 +3388,8 @@ trackedFiles:
     pristine_git_object: fc2a2edf7b64f90d7e6f4f00bbfb78d8a820dc0d
   docs/models/updatepaymentrequestbody.md:
     id: 38294e4df37e
-    last_write_checksum: sha1:7270c706b63309ff58f23d5e3573940640bd6686
-    pristine_git_object: 762d541abe9dfbcd5d874007109491e219e12030
+    last_write_checksum: sha1:2141113b7dc6b7824dbdf3b55d23deedd5de7b67
+    pristine_git_object: 5420f9159cddc1e0d3a4da9a232188d413e72a0e
   docs/models/updateprofilerequest.md:
     id: b6e6102977b1
     last_write_checksum: sha1:a5329a1535411f7df2a5570509979e172f8f43b2
@@ -3496,8 +3504,8 @@ trackedFiles:
     pristine_git_object: 1cd61d49e44b11874571d67b91cb826f1f4e9737
   docs/sdks/customers/README.md:
     id: 9332759cffc2
-    last_write_checksum: sha1:37eb70dad886ba5443dd61f99affa4046ce2a017
-    pristine_git_object: 1e54706b9f608e7b727fcb02ddcb776a6594a980
+    last_write_checksum: sha1:f6561b8c9941f02d4d68777909af67a78c0c27fd
+    pristine_git_object: 1c811c9769c817f9090cee4fe29b358c983d64d8
   docs/sdks/delayedrouting/README.md:
     id: a720b5755911
     last_write_checksum: sha1:a986fecac611408c120b986d0fd924f5c8132df7
@@ -3532,8 +3540,8 @@ trackedFiles:
     pristine_git_object: 0feb052bcd8e8df4cc120e4b4c0f32b5ba227eeb
   docs/sdks/paymentssdk/README.md:
     id: 2d135e36b175
-    last_write_checksum: sha1:c97efe4a6278281a8c71cf402f20157bb7685df4
-    pristine_git_object: 23e19d7427acb86c212075e4da32368eb3aa87bc
+    last_write_checksum: sha1:d3c3f6dee9d1a59830ec1bd7406aec27164dae27
+    pristine_git_object: 98f1dc0035a481a35df209d1b26a17548f2e9a97
   docs/sdks/payouts/README.md:
     id: 184ed4a74471
     last_write_checksum: sha1:380c99a99666b4a04ca8c1651cade1c1d209f35c
@@ -3556,8 +3564,8 @@ trackedFiles:
     pristine_git_object: 25747fc11086df5256cab6a305f0bfbd9364443c
   docs/sdks/sessions/README.md:
     id: 57ad62844f79
-    last_write_checksum: sha1:bbe98b0ddb727545f641c3b5135d2a5efe87f48f
-    pristine_git_object: e081fd470f200cf2ac3789dee048ae922bcabcd6
+    last_write_checksum: sha1:2693eac51e6c6ec62e699d713517d7d4ba38df33
+    pristine_git_object: 334299e329615736316a72538b1b94dacbeaf739
   docs/sdks/settlements/README.md:
     id: c0b0673bed80
     last_write_checksum: sha1:e02f317d071fe4925f8dab868816ee0d1bb639df
@@ -3608,8 +3616,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:0670168c2f4cb7a77376bdabacdc644980e7865a
-    pristine_git_object: 7d34c9bff90390fca07b4148656ca84d038017d3
+    last_write_checksum: sha1:80d0c6e3124ffe454fb0802334a0a27086afd7a0
+    pristine_git_object: 297a9cad72e5303a839dce9d00c11dbc6591413d
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3636,8 +3644,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:f97697ca801bb5afa01225845c16bca0461e1bec
-    pristine_git_object: 86a67361c22e2a16f6068cbd0301f4b9773f6c98
+    last_write_checksum: sha1:032e876caaf26fcd9781b593badb3fb09ca7a8f6
+    pristine_git_object: 4c7ef1ebb6c076b53f60885603b79e500ea7218f
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:221f6cb08c38e444dac1dc270c32117a046f7f06
@@ -3700,8 +3708,8 @@ trackedFiles:
     pristine_git_object: 83ac28ec8bfe6e4685b6a484e727887920c8afe2
   src/mollie/models/__init__.py:
     id: 6afa296e99ce
-    last_write_checksum: sha1:2b63803093774bd4cb14463aaeca8b8fdccae94d
-    pristine_git_object: a2a3b9888b0a6b0acee1c41c8189dbae2197168e
+    last_write_checksum: sha1:67efbf944baf2b9e511e3c3d3116ee497c1e5159
+    pristine_git_object: 84bbec027f6753633d03e5cc91c73c949322a88d
   src/mollie/models/account_details.py:
     id: 6afe7b95a53c
     last_write_checksum: sha1:5e913925526b8d6032b89c3eac8c9b2f2207de93
@@ -4036,8 +4044,8 @@ trackedFiles:
     pristine_git_object: 6dfc92c1729b77965a61d9ccca415de65b4b634b
   src/mollie/models/entity_organization.py:
     id: 118cba023c53
-    last_write_checksum: sha1:86d77b4d98c6eab07d580e2a2d8edd845420d458
-    pristine_git_object: d0a4ca6a2f08057b11f802445a6e2706a14142d0
+    last_write_checksum: sha1:889a4bdf9e0b38cdb27cd443773874f2df2157f4
+    pristine_git_object: 5344598657e183770451c52d4b88bac67c161336
   src/mollie/models/entity_pairing_code.py:
     id: 330a16854c16
     last_write_checksum: sha1:e440a48df81aa20ab7d6a74f30b109fb5a9153a9
@@ -4052,8 +4060,8 @@ trackedFiles:
     pristine_git_object: 371e17552df0a81bbb40f577986c59c48c77eacf
   src/mollie/models/entity_payout_response.py:
     id: 1ead327fa5c7
-    last_write_checksum: sha1:d57c13a1d79e1bf28206b673405972c549113fe6
-    pristine_git_object: 60be20a8a6b76e504c62e67f81270137cd8f3d35
+    last_write_checksum: sha1:2a806cfbc16d3cf22df38913e89349fb17e943f8
+    pristine_git_object: 4b926337f2c6952bab1e7c364f69efd6088eb9b8
   src/mollie/models/entity_permission.py:
     id: a00740a13c3f
     last_write_checksum: sha1:a98675b40f3045de7c7fa3b30e32626a43edf386
@@ -4336,8 +4344,8 @@ trackedFiles:
     pristine_git_object: f4b10e60d596d9b97b456bf474f15f4013914547
   src/mollie/models/list_entity_payout.py:
     id: c6238d21f82e
-    last_write_checksum: sha1:eeecbd6c973d23a95006695fe50eed1dd57f9745
-    pristine_git_object: 4fbddcf99a01d6a2ab70c22419898029321a6eaa
+    last_write_checksum: sha1:c8b937574804b2abe6ecb3572b8e024cb4a31118
+    pristine_git_object: 9c61d17b699668c1916d466e84ee52b7b2f63a1e
   src/mollie/models/list_entity_permission.py:
     id: d0a366e4eef7
     last_write_checksum: sha1:eb1f0103fe059849ae40872119bf010543dd90f5
@@ -4388,8 +4396,8 @@ trackedFiles:
     pristine_git_object: 5b76e40a408b6225336c9eb74beb0f0c89bf142d
   src/mollie/models/list_payment_response.py:
     id: 5337b06d4aa2
-    last_write_checksum: sha1:c35a099f59a027d0a8e9999fa64504d98ed4c439
-    pristine_git_object: 67ae8e2affd4e7f656ef76dd801e32e5fccb1ea7
+    last_write_checksum: sha1:244a6604763836cd9ec14c59d04321ead5ddaf22
+    pristine_git_object: baf9296160a6414c47eb4dc0e44e8efb6fe947a7
   src/mollie/models/list_paymentsop.py:
     id: dcc69a79a9ed
     last_write_checksum: sha1:14fea9e93fa2636e0b2479e3357408f880bc071e
@@ -4444,8 +4452,8 @@ trackedFiles:
     pristine_git_object: ed825e0cb246cbcc401110097e154a83281329c6
   src/mollie/models/list_settlement_payment_response.py:
     id: dfd107bd75dd
-    last_write_checksum: sha1:ff0d6b698ab17368318782377d9f863c7db1f4a3
-    pristine_git_object: 9a0da2c384618e1a4f6de4e83268adc03dadc457
+    last_write_checksum: sha1:0b76ef3e842541d8819d644bcdae64d2c1184299
+    pristine_git_object: 47fd7dab322f3e50fdd06727fe8e49b312ea3301
   src/mollie/models/list_settlement_paymentsop.py:
     id: 99127edcc0cf
     last_write_checksum: sha1:7a7a3f7edaa6e1845e889c2b0f519791a0e02a57
@@ -4488,12 +4496,16 @@ trackedFiles:
     pristine_git_object: 14973c55c10c96f9c1a5d8d57195e5a9cbd6844b
   src/mollie/models/locale.py:
     id: f7df9ed73c3a
-    last_write_checksum: sha1:e10ea6a7ca004cf9ad935e9de28c22aec7522ad0
-    pristine_git_object: 8ae29c0299a99ae8382ff3ad78f52f241593a4f0
+    last_write_checksum: sha1:6007e72a7f5dbcc2eed3ad5b71b7a37bd5f252ff
+    pristine_git_object: 606309d8cd17ba910778cf18f5eae2b14d1a4368
+  src/mollie/models/locale_2.py:
+    id: 0cd6e522e0bd
+    last_write_checksum: sha1:4499c82ea4f635c525207abc95d86b1667986e7e
+    pristine_git_object: 968a9adb68c2855744dec483c20def4cb7d73c5f
   src/mollie/models/locale_response.py:
     id: ceaa630d8772
-    last_write_checksum: sha1:158d50f6825afcf02bc0a380f43146edfc7e7c14
-    pristine_git_object: d87ca7c510e6b66cbe242af749f8f08b72cdd04f
+    last_write_checksum: sha1:1aed5c4601a43280a8ae85c2e5e1274aa328b06b
+    pristine_git_object: 5893a09b18642ca36b67e207b195c25c0fb87e1c
   src/mollie/models/mandate_details_card_label_response.py:
     id: 4e95454ad240
     last_write_checksum: sha1:4761a757f8b1a114f244d2bbb2c3cfac35db81f8
@@ -4664,8 +4676,8 @@ trackedFiles:
     pristine_git_object: 5c66bc5b79a2e63c589b38c14c0dd5e2b64b86c6
   src/mollie/models/payment_link_response.py:
     id: 92da5dec2fb6
-    last_write_checksum: sha1:95ee0e59669a7d0e15e461a727db37af3ea98161
-    pristine_git_object: 5c2fce0c8f7bc319636092e71d3ca8d1f09c03ec
+    last_write_checksum: sha1:cba462631a45a9b2ba95433b1c33767979d5220a
+    pristine_git_object: 8d90969650acf3750206b34066a081be90d00242
   src/mollie/models/payment_link_sequence_type.py:
     id: 53703d41d8c1
     last_write_checksum: sha1:d27443bcbe1f29180f133f6d8056941eadc1f1af
@@ -4684,16 +4696,16 @@ trackedFiles:
     pristine_git_object: 526df5480a155818e5a7dae44fbad07ab5f5ca8d
   src/mollie/models/payment_request.py:
     id: 261522a57b3b
-    last_write_checksum: sha1:615fe7e977159839aa7fdb86f237101eff4a2649
-    pristine_git_object: 49dcfce63a58e54907d7db7d832a52a21e8545d5
+    last_write_checksum: sha1:e033456acedee52a00c8dbfd439e84cf4ffe8a7b
+    pristine_git_object: 9a064b1a85e47dd680373e5cc33444b4de1ca8cf
   src/mollie/models/payment_response.py:
     id: b84539114322
-    last_write_checksum: sha1:7045ca954435e7360bc9043ed2dc964bb2a4d4d4
-    pristine_git_object: ae36d5cde9669e7850b509d7a8e18a2200a3b748
+    last_write_checksum: sha1:8c67c4ea62e90503a21d106d3e829849e4b13ef7
+    pristine_git_object: ffb1ae11ed88821e81b688c8f11e6130a48c01ba
   src/mollie/models/payout_request.py:
     id: 16a84e419317
-    last_write_checksum: sha1:6fefc48959487239f4d85f4aec7cdeb734499f43
-    pristine_git_object: b85f8b8f6d446456030894954c53e53fd1059f69
+    last_write_checksum: sha1:96e11552d221668dc8ea1ca1d5aca86b33c69633
+    pristine_git_object: 44558214499c761dbdaa55cac742a4f7925a5666
   src/mollie/models/payout_status.py:
     id: 711b4c2c9362
     last_write_checksum: sha1:189075ca80f8e04af81ed61c45324669662f67c9
@@ -4904,8 +4916,8 @@ trackedFiles:
     pristine_git_object: 9a664292f3c69c9dbb90e65f7738ebd562c5f50d
   src/mollie/models/session_request.py:
     id: 4fe3d3aad273
-    last_write_checksum: sha1:5ef9f4e954483614208654c175328dddcd21d0c5
-    pristine_git_object: e3964d3c7a28a3b2eddf65e386fc740bcc010e46
+    last_write_checksum: sha1:daad3bcbc62e7b7e22df931fdb1852ce2cd83d4d
+    pristine_git_object: 7c5f33a7df6eb72c0566800585ece09e9f4ed3e4
   src/mollie/models/session_required_customer_details.py:
     id: e7761c1af3c3
     last_write_checksum: sha1:bb91c32e3eb6539f2678dcf5534acdb81c047ae8
@@ -4916,8 +4928,8 @@ trackedFiles:
     pristine_git_object: e8003cc240cb9e896e1c1b7af073ac9a30ad8e75
   src/mollie/models/session_response.py:
     id: d7d239315f2f
-    last_write_checksum: sha1:91d8f458f61fb14146143720a24d4b408fbb6d27
-    pristine_git_object: 022fa78a82c54f4588747537404acef0c3b8238c
+    last_write_checksum: sha1:838dca0caa1ac3c319264428f9d44f0eaa258a5f
+    pristine_git_object: 41dd9340ea41afd22c0c700ef686954ac02a3d08
   src/mollie/models/session_sequence_type.py:
     id: 6a131ef7b508
     last_write_checksum: sha1:e9000e7606a8d3d175075538e9db345da5acba54
@@ -4942,6 +4954,10 @@ trackedFiles:
     id: 7679aeb6b4f9
     last_write_checksum: sha1:64995e2c7025ae437a3a4ab2bd5366297e6739c2
     pristine_git_object: d81fe5a8bd43db25d04f67c9b90b96e876caaeed
+  src/mollie/models/shippingaddress.py:
+    id: b972f45fb114
+    last_write_checksum: sha1:6a969bcc759a832103ac3cec8fd1c9ed5ff9a37b
+    pristine_git_object: 49e6a7d4c0f2f565240f104bc9107683d2f8182f
   src/mollie/models/sorting.py:
     id: 4f253362d58f
     last_write_checksum: sha1:b645ddb9702bff01bf7e7e165c85b44108ce621c
@@ -5084,8 +5100,8 @@ trackedFiles:
     pristine_git_object: a0c4eb86ec50c3d514275ce3d01d920c3240986d
   src/mollie/models/update_paymentop.py:
     id: 5f35bfe45385
-    last_write_checksum: sha1:c70a8f23ca2f2a0b4cd212e75745342cde0ee08b
-    pristine_git_object: 5bfd7af220001d031107f76af0618895a0398c7c
+    last_write_checksum: sha1:2526bbc9c1e359e2e92dafade25de02396963b5f
+    pristine_git_object: 76d2c0295967ef25826a192aa9448d54bd745cc3
   src/mollie/models/update_profileop.py:
     id: 20c1ad3a48c6
     last_write_checksum: sha1:5213f9ce12e010bc07d9b2ee3fed8fd711968b68
@@ -8942,4 +8958,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.payments.create()`: \n  *  `request.payment_request.due_date` **Changed**\n* `client.payments.update()`: \n  *  `request_body.due_date` **Changed**\n* `client.customers.create_payment()`: \n  *  `request.payment_request.due_date` **Changed**\n"
+releaseNotes: "## Python SDK Changes:\n* `client.settlements.list_payments()`:  `response._embedded.payments[].locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.organizations.get()`:  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.organizations.get_current()`:  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.clients.list()`:  `response._embedded.clients[]._embedded.organization.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.clients.get()`:  `response._embedded.organization.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.client_links.create()`: \n  *  `request.client_link_request.owner.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.webhook_events.get()`:  `response._embedded.entity` **Changed** (Breaking ⚠️)\n* `client.payments.create()`: \n  *  `request.payment_request.locale.enum(null)` **Removed** (Breaking ⚠️)\n  *  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.payments.list()`:  `response._embedded.payments[].locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.payments.get()`:  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.payments.update()`: \n  *  `request_body.locale.enum(null)` **Removed** (Breaking ⚠️)\n  *  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.payments.cancel()`:  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.methods.list()`:  `request.locale` **Changed** (Breaking ⚠️)\n* `client.methods.all()`:  `request.locale` **Changed** (Breaking ⚠️)\n* `client.methods.get()`:  `request.locale` **Changed** (Breaking ⚠️)\n* `client.payment_links.list_payments()`:  `response._embedded.payments[].locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.customers.create()`: \n  *  `request.entity_customer.locale.enum(null)` **Removed** (Breaking ⚠️)\n  *  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.customers.list()`:  `response._embedded.customers[].locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.customers.get()`:  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.customers.update()`: \n  *  `request_body.locale.enum(null)` **Removed** (Breaking ⚠️)\n  *  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.customers.create_payment()`: \n  *  `request.payment_request.locale.enum(null)` **Removed** (Breaking ⚠️)\n  *  `response.locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.customers.list_payments()`:  `response._embedded.payments[].locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.subscriptions.list_payments()`:  `response._embedded.payments[].locale.enum(null)` **Removed** (Breaking ⚠️)\n* `client.payouts.create()`: \n  *  `request.payout_request.description` **Changed**\n  *  `response.description` **Changed** (Breaking ⚠️)\n* `client.payouts.list()`:  `response._embedded.payouts[].description` **Changed** (Breaking ⚠️)\n* `client.payouts.get()`:  `response.description` **Changed** (Breaking ⚠️)\n* `client.payouts.cancel()`:  `response.description` **Changed** (Breaking ⚠️)\n"
