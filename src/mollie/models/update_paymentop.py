@@ -3,10 +3,10 @@
 
 from __future__ import annotations
 from .billingaddress import BillingAddress, BillingAddressTypedDict
-from .locale import Locale
+from .locale_2 import Locale2
 from .metadata import Metadata, MetadataTypedDict
 from .method_request import MethodRequest, MethodRequestTypedDict
-from .payment_address import PaymentAddress, PaymentAddressTypedDict
+from .shippingaddress import ShippingAddress, ShippingAddressTypedDict
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import (
     FieldMetadata,
@@ -71,7 +71,7 @@ class UpdatePaymentRequestBodyTypedDict(TypedDict):
     but will only show the methods specified in the array. For example, you can use this functionality to only show
     payment methods from a specific country to your customer `['bancontact', 'belfius']`.
     """
-    locale: NotRequired[Nullable[Locale]]
+    locale: NotRequired[Nullable[Locale2]]
     r"""Sets the language for customer-facing content and communications."""
     due_date: NotRequired[Nullable[str]]
     r"""The date by which the payment should be completed in `YYYY-MM-DD` format. Sending `null` has the same effect
@@ -120,7 +120,7 @@ class UpdatePaymentRequestBodyTypedDict(TypedDict):
 
     Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
-    shipping_address: NotRequired[PaymentAddressTypedDict]
+    shipping_address: NotRequired[ShippingAddressTypedDict]
     billing_email: NotRequired[str]
 
 
@@ -187,7 +187,7 @@ class UpdatePaymentRequestBody(BaseModel):
     payment methods from a specific country to your customer `['bancontact', 'belfius']`.
     """
 
-    locale: OptionalNullable[Locale] = UNSET
+    locale: OptionalNullable[Locale2] = UNSET
     r"""Sets the language for customer-facing content and communications."""
 
     due_date: Annotated[OptionalNullable[str], pydantic.Field(alias="dueDate")] = UNSET
@@ -247,7 +247,7 @@ class UpdatePaymentRequestBody(BaseModel):
     """
 
     shipping_address: Annotated[
-        Optional[PaymentAddress], pydantic.Field(alias="shippingAddress")
+        Optional[ShippingAddress], pydantic.Field(alias="shippingAddress")
     ] = None
 
     billing_email: Annotated[Optional[str], pydantic.Field(alias="billingEmail")] = None

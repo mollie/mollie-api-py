@@ -1398,6 +1398,7 @@ if TYPE_CHECKING:
         ListWebhooksResponseTypedDict,
     )
     from .locale import Locale
+    from .locale_2 import Locale2
     from .locale_response import LocaleResponse
     from .mandate_details_card_label_response import MandateDetailsCardLabelResponse
     from .mandate_method import MandateMethod
@@ -1738,6 +1739,7 @@ if TYPE_CHECKING:
     from .settlement_mode import SettlementMode
     from .settlement_payment_status import SettlementPaymentStatus
     from .settlement_refund_status import SettlementRefundStatus
+    from .shippingaddress import ShippingAddress, ShippingAddressTypedDict
     from .sorting import Sorting
     from .status_history_entry_response import (
         StatusHistoryEntryResponse,
@@ -3010,6 +3012,7 @@ __all__ = [
     "ListWebhooksResponseBodyTypedDict",
     "ListWebhooksResponseTypedDict",
     "Locale",
+    "Locale2",
     "LocaleResponse",
     "ManagedFee",
     "ManagedFeeTypedDict",
@@ -3324,6 +3327,8 @@ __all__ = [
     "SettlementMode",
     "SettlementPaymentStatus",
     "SettlementRefundStatus",
+    "ShippingAddress",
+    "ShippingAddressTypedDict",
     "Sorting",
     "SplitPayment",
     "SplitPaymentTypedDict",
@@ -4613,6 +4618,7 @@ _dynamic_imports: dict[str, str] = {
     "ListWebhooksResponseBodyTypedDict": ".list_webhooksop",
     "ListWebhooksResponseTypedDict": ".list_webhooksop",
     "Locale": ".locale",
+    "Locale2": ".locale_2",
     "LocaleResponse": ".locale_response",
     "MandateDetailsCardLabelResponse": ".mandate_details_card_label_response",
     "MandateMethod": ".mandate_method",
@@ -4879,6 +4885,8 @@ _dynamic_imports: dict[str, str] = {
     "SettlementMode": ".settlement_mode",
     "SettlementPaymentStatus": ".settlement_payment_status",
     "SettlementRefundStatus": ".settlement_refund_status",
+    "ShippingAddress": ".shippingaddress",
+    "ShippingAddressTypedDict": ".shippingaddress",
     "Sorting": ".sorting",
     "StatusHistoryEntryResponse": ".status_history_entry_response",
     "StatusHistoryEntryResponseTypedDict": ".status_history_entry_response",

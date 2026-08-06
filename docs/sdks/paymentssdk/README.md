@@ -106,7 +106,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -120,7 +120,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -252,7 +252,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -266,7 +266,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -398,7 +398,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -412,7 +412,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -544,7 +544,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -558,7 +558,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -690,7 +690,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -704,7 +704,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -836,7 +836,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -850,7 +850,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -982,7 +982,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -996,7 +996,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1128,7 +1128,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1142,7 +1142,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1274,7 +1274,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1288,7 +1288,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1420,7 +1420,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1434,7 +1434,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1566,7 +1566,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1580,7 +1580,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1712,7 +1712,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1726,7 +1726,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -1858,7 +1858,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        shipping_address=mollie.PaymentAddress(
+        shipping_address=mollie.ShippingAddress(
             title="Mr.",
             given_name="Piet",
             family_name="Mondriaan",
@@ -1872,7 +1872,7 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
-        locale=mollie.Locale.EN_US,
+        locale=mollie.Locale2.EN_US,
         method=mollie.MethodEnum.IDEAL,
         issuer="ideal_INGBNL2A",
         restrict_payment_methods_to_country="NL",
@@ -2171,7 +2171,7 @@ with ClientSDK(
         "cancel_url": "https://example.org/cancel",
         "webhook_url": "https://example.org/webhooks",
         "method": mollie.MethodEnum.IDEAL,
-        "locale": mollie.Locale.EN_US,
+        "locale": mollie.Locale2.EN_US,
         "due_date": "2025-01-01",
         "restrict_payment_methods_to_country": "NL",
         "testmode": False,
@@ -2231,7 +2231,7 @@ with ClientSDK(
         "cancel_url": "https://example.org/cancel",
         "webhook_url": "https://example.org/webhooks",
         "method": mollie.MethodEnum.IDEAL,
-        "locale": mollie.Locale.EN_US,
+        "locale": mollie.Locale2.EN_US,
         "due_date": "2025-01-01",
         "restrict_payment_methods_to_country": "NL",
         "testmode": False,
@@ -2291,7 +2291,7 @@ with ClientSDK(
         "cancel_url": "https://example.org/cancel",
         "webhook_url": "https://example.org/webhooks",
         "method": mollie.MethodEnum.IDEAL,
-        "locale": mollie.Locale.EN_US,
+        "locale": mollie.Locale2.EN_US,
         "due_date": "2025-01-01",
         "restrict_payment_methods_to_country": "NL",
         "testmode": False,

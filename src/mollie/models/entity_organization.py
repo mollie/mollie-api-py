@@ -43,7 +43,6 @@ class EntityOrganizationLocale(str, Enum, metaclass=utils.OpenEnumMeta):
     PT_PT = "pt_PT"
     SK_SK = "sk_SK"
     SV_SE = "sv_SE"
-    NULL = "null"
 
 
 class EntityOrganizationLinksTypedDict(TypedDict):

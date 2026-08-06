@@ -6,13 +6,13 @@ from .amount import Amount, AmountTypedDict
 from .capture_mode import CaptureMode
 from .entity_payment_route import EntityPaymentRoute, EntityPaymentRouteTypedDict
 from .line_categories import LineCategories
-from .locale import Locale
+from .locale_2 import Locale2
 from .metadata import Metadata, MetadataTypedDict
 from .method_enum import MethodEnum
-from .payment_address import PaymentAddress, PaymentAddressTypedDict
 from .payment_line_type import PaymentLineType
 from .recurring_line_item import RecurringLineItem, RecurringLineItemTypedDict
 from .sequence_type import SequenceType
+from .shippingaddress import ShippingAddress, ShippingAddressTypedDict
 from datetime import date
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
@@ -517,8 +517,8 @@ class PaymentRequestTypedDict(TypedDict):
 
     Required for payment method `alma`, `in3`, `klarna`, `billie`, `billink` and `riverty`.
     """
-    shipping_address: NotRequired[PaymentAddressTypedDict]
-    locale: NotRequired[Nullable[Locale]]
+    shipping_address: NotRequired[ShippingAddressTypedDict]
+    locale: NotRequired[Nullable[Locale2]]
     r"""Sets the language for customer-facing content and communications."""
     method: NotRequired[Nullable[MethodTypedDict]]
     r"""Normally, a payment method screen is shown. However, when using this parameter, you can choose a specific
@@ -792,10 +792,10 @@ class PaymentRequest(BaseModel):
     """
 
     shipping_address: Annotated[
-        Optional[PaymentAddress], pydantic.Field(alias="shippingAddress")
+        Optional[ShippingAddress], pydantic.Field(alias="shippingAddress")
     ] = None
 
-    locale: OptionalNullable[Locale] = UNSET
+    locale: OptionalNullable[Locale2] = UNSET
     r"""Sets the language for customer-facing content and communications."""
 
     method: OptionalNullable[Method] = UNSET

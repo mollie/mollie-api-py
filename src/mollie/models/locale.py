@@ -34,4 +34,3 @@ class Locale(str, Enum):
     PT_PT = "pt_PT"
     SK_SK = "sk_SK"
     SV_SE = "sv_SE"
-    NULL = "null"
