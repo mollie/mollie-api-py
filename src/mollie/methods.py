@@ -1088,3 +1088,1093 @@ class Methods(BaseSDK):
             raise models.APIError("API error occurred", http_res, http_res_text)
 
         raise models.APIError("Unexpected response received", http_res)
+
+    def enable(
+        self,
+        *,
+        profile_id: str,
+        method_id: Nullable[models.MethodEnum],
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EntityMethodGet:
+        r"""Enable payment method
+
+        Enable a payment method on a specific profile.
+
+        When using a profile-specific API credential, the alias `me` can be used
+        instead of the profile ID to refer to the current profile.
+
+        Some payment methods require extra steps in order to be activated. In cases
+        where a step at the payment method provider needs to be completed first, the status will be set to
+        `pending-external` and the response will contain a link to complete the activation at the provider.
+
+        To enable voucher or gift card issuers, refer to the [Enable payment method issuer](enable-method-issuer) endpoint.
+
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
+        :param profile_id: Provide the ID of the related profile.
+        :param method_id: Provide the ID of the related payment method.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.EnableMethodRequest(
+            profile_id=profile_id,
+            method_id=method_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/v2/profiles/{profileId}/methods/{methodId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="enable-method",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba/methods/ideal \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\EnableMethodRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n// Enable on a specific profile\n$method = $mollie->send(\n    new EnableMethodRequest(\n        profileId: "pfl_QkEhN94Ba",\n        methodId: "ideal"\n    )\n);\n\n// Enable on the current profile\n$method = $mollie->send(\n    new EnableMethodRequest(\n        profileId: "me",\n        methodId: "ideal"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.enable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")\nmethod = profile.methods.enable("ideal")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.EntityMethodGet, http_res)
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def enable_async(
+        self,
+        *,
+        profile_id: str,
+        method_id: Nullable[models.MethodEnum],
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EntityMethodGet:
+        r"""Enable payment method
+
+        Enable a payment method on a specific profile.
+
+        When using a profile-specific API credential, the alias `me` can be used
+        instead of the profile ID to refer to the current profile.
+
+        Some payment methods require extra steps in order to be activated. In cases
+        where a step at the payment method provider needs to be completed first, the status will be set to
+        `pending-external` and the response will contain a link to complete the activation at the provider.
+
+        To enable voucher or gift card issuers, refer to the [Enable payment method issuer](enable-method-issuer) endpoint.
+
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
+        :param profile_id: Provide the ID of the related profile.
+        :param method_id: Provide the ID of the related payment method.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.EnableMethodRequest(
+            profile_id=profile_id,
+            method_id=method_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/v2/profiles/{profileId}/methods/{methodId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="enable-method",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba/methods/ideal \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\EnableMethodRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n// Enable on a specific profile\n$method = $mollie->send(\n    new EnableMethodRequest(\n        profileId: "pfl_QkEhN94Ba",\n        methodId: "ideal"\n    )\n);\n\n// Enable on the current profile\n$method = $mollie->send(\n    new EnableMethodRequest(\n        profileId: "me",\n        methodId: "ideal"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.enable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")\nmethod = profile.methods.enable("ideal")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.EntityMethodGet, http_res)
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    def disable(
+        self,
+        *,
+        profile_id: str,
+        method_id: Nullable[models.MethodEnum],
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ):
+        r"""Disable payment method
+
+        Disable a payment method on a specific profile.
+
+        When using a profile-specific API credential, the alias `me` can be used
+        instead of the profile ID to refer to the current profile.
+
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
+        :param profile_id: Provide the ID of the related profile.
+        :param method_id: Provide the ID of the related payment method.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DisableMethodRequest(
+            profile_id=profile_id,
+            method_id=method_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request(
+            method="DELETE",
+            path="/v2/profiles/{profileId}/methods/{methodId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="disable-method",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba/methods/ideal \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DisableMethodRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n// Disable on a specific profile\n$mollie->send(\n    new DisableMethodRequest(\n        profileId: "pfl_QkEhN94Ba",\n        methodId: "ideal"\n    )\n);\n\n// Disable on the current profile\n$mollie->send(\n    new DisableMethodRequest(\n        profileId: "me",\n        methodId: "ideal"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.disable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")\nprofile.methods.delete("ideal")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "204", "*"):
+            return
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def disable_async(
+        self,
+        *,
+        profile_id: str,
+        method_id: Nullable[models.MethodEnum],
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ):
+        r"""Disable payment method
+
+        Disable a payment method on a specific profile.
+
+        When using a profile-specific API credential, the alias `me` can be used
+        instead of the profile ID to refer to the current profile.
+
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
+        :param profile_id: Provide the ID of the related profile.
+        :param method_id: Provide the ID of the related payment method.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DisableMethodRequest(
+            profile_id=profile_id,
+            method_id=method_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request_async(
+            method="DELETE",
+            path="/v2/profiles/{profileId}/methods/{methodId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="disable-method",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba/methods/ideal \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DisableMethodRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n// Disable on a specific profile\n$mollie->send(\n    new DisableMethodRequest(\n        profileId: "pfl_QkEhN94Ba",\n        methodId: "ideal"\n    )\n);\n\n// Disable on the current profile\n$mollie->send(\n    new DisableMethodRequest(\n        profileId: "me",\n        methodId: "ideal"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.disable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")\nprofile.methods.delete("ideal")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "204", "*"):
+            return
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    def enable_issuer(
+        self,
+        *,
+        profile_id: str,
+        method_id: models.MethodIDWithIssuer,
+        issuer_id: str,
+        idempotency_key: Optional[str] = None,
+        request_body: Optional[
+            Union[
+                models.EnableMethodIssuerRequestBody,
+                models.EnableMethodIssuerRequestBodyTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EnableMethodIssuerResponse:
+        r"""Enable payment method issuer
+
+        Enable an issuer for a payment method on a specific profile.
+
+        Currently only the payment methods `voucher` and `giftcard` are supported.
+
+        When using a profile-specific API credential, the alias `me` can be used instead of the profile ID to refer to the
+        current profile.
+
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
+        :param profile_id: Provide the ID of the related profile.
+        :param method_id: Provide the ID of the related payment method.
+        :param issuer_id: Provide the ID of the related issuer.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param request_body:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.EnableMethodIssuerRequest(
+            profile_id=profile_id,
+            method_id=method_id,
+            issuer_id=issuer_id,
+            idempotency_key=idempotency_key,
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.EnableMethodIssuerRequestBody]
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/v2/profiles/{profileId}/methods/{methodId}/issuers/{issuerId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.request_body if request is not None else None,
+                False,
+                True,
+                "json",
+                Optional[models.EnableMethodIssuerRequestBody],
+            ),
+            allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="enable-method-issuer",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba/methods/giftcard/issuers/festivalcadeau \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\EnableMethodIssuerRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$issuer = $mollie->send(\n    new EnableMethodIssuerRequest(\n        profileId: "pfl_QkEhN94Ba",\n        methodId: "giftcard",\n        issuerId: "festivalcadeau"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.enable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")\nissuer = profile.methods.enable_issuer("giftcard", "festivalcadeau")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.EnableMethodIssuerResponse, http_res)
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def enable_issuer_async(
+        self,
+        *,
+        profile_id: str,
+        method_id: models.MethodIDWithIssuer,
+        issuer_id: str,
+        idempotency_key: Optional[str] = None,
+        request_body: Optional[
+            Union[
+                models.EnableMethodIssuerRequestBody,
+                models.EnableMethodIssuerRequestBodyTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.EnableMethodIssuerResponse:
+        r"""Enable payment method issuer
+
+        Enable an issuer for a payment method on a specific profile.
+
+        Currently only the payment methods `voucher` and `giftcard` are supported.
+
+        When using a profile-specific API credential, the alias `me` can be used instead of the profile ID to refer to the
+        current profile.
+
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
+        :param profile_id: Provide the ID of the related profile.
+        :param method_id: Provide the ID of the related payment method.
+        :param issuer_id: Provide the ID of the related issuer.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param request_body:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.EnableMethodIssuerRequest(
+            profile_id=profile_id,
+            method_id=method_id,
+            issuer_id=issuer_id,
+            idempotency_key=idempotency_key,
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.EnableMethodIssuerRequestBody]
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/v2/profiles/{profileId}/methods/{methodId}/issuers/{issuerId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.request_body if request is not None else None,
+                False,
+                True,
+                "json",
+                Optional[models.EnableMethodIssuerRequestBody],
+            ),
+            allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="enable-method-issuer",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba/methods/giftcard/issuers/festivalcadeau \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\EnableMethodIssuerRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$issuer = $mollie->send(\n    new EnableMethodIssuerRequest(\n        profileId: "pfl_QkEhN94Ba",\n        methodId: "giftcard",\n        issuerId: "festivalcadeau"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.enable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")\nissuer = profile.methods.enable_issuer("giftcard", "festivalcadeau")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/hal+json"):
+            return unmarshal_json_response(models.EnableMethodIssuerResponse, http_res)
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    def disable_issuer(
+        self,
+        *,
+        profile_id: str,
+        method_id: models.MethodIDWithIssuer,
+        issuer_id: str,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ):
+        r"""Disable payment method issuer
+
+        Disable an issuer for a payment method on a specific profile.
+
+        Currently only the payment methods `voucher` and `giftcard` are supported.
+
+        When using a profile-specific API credential, the alias `me` can be used instead of the profile ID to refer to the
+        current profile.
+
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
+        :param profile_id: Provide the ID of the related profile.
+        :param method_id: Provide the ID of the related payment method.
+        :param issuer_id: Provide the ID of the related issuer.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DisableMethodIssuerRequest(
+            profile_id=profile_id,
+            method_id=method_id,
+            issuer_id=issuer_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request(
+            method="DELETE",
+            path="/v2/profiles/{profileId}/methods/{methodId}/issuers/{issuerId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="disable-method-issuer",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba/methods/giftcard/issuers/festivalcadeau \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DisableMethodIssuerRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(\n    new DisableMethodIssuerRequest(\n        profileId: "pfl_QkEhN94Ba",\n        methodId: "giftcard",\n        issuerId: "festivalcadeau"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.disable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")\nprofile.methods.disable_issuer("giftcard", "festivalcadeau")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "204", "*"):
+            return
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def disable_issuer_async(
+        self,
+        *,
+        profile_id: str,
+        method_id: models.MethodIDWithIssuer,
+        issuer_id: str,
+        idempotency_key: Optional[str] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ):
+        r"""Disable payment method issuer
+
+        Disable an issuer for a payment method on a specific profile.
+
+        Currently only the payment methods `voucher` and `giftcard` are supported.
+
+        When using a profile-specific API credential, the alias `me` can be used instead of the profile ID to refer to the
+        current profile.
+
+        If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
+
+        :param profile_id: Provide the ID of the related profile.
+        :param method_id: Provide the ID of the related payment method.
+        :param issuer_id: Provide the ID of the related issuer.
+        :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DisableMethodIssuerRequest(
+            profile_id=profile_id,
+            method_id=method_id,
+            issuer_id=issuer_id,
+            idempotency_key=idempotency_key,
+        )
+
+        req = self._build_request_async(
+            method="DELETE",
+            path="/v2/profiles/{profileId}/methods/{methodId}/issuers/{issuerId}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            allow_empty_value=None,
+            allowed_fields=["api_key", "advanced_access_token", "o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="disable-method-issuer",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Methods API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X DELETE https://api.mollie.com/v2/profiles/pfl_QkEhN94Ba/methods/giftcard/issuers/festivalcadeau \\\n    -H "Authorization: Bearer live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM"',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\DisableMethodIssuerRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setApiKey("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$mollie->send(\n    new DisableMethodIssuerRequest(\n        profileId: "pfl_QkEhN94Ba",\n        methodId: "giftcard",\n        issuerId: "festivalcadeau"\n    )\n);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.disable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_api_key("live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\nprofile = mollie_client.profiles.get("pfl_QkEhN94Ba")\nprofile.methods.disable_issuer("giftcard", "festivalcadeau")',
+                                "language": "python",
+                            },
+                            {"code": "", "language": "ruby"},
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "204", "*"):
+            return
+        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)

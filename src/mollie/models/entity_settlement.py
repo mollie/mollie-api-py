@@ -5,8 +5,7 @@ from __future__ import annotations
 from .amount import Amount, AmountTypedDict
 from .amount_nullable import AmountNullable, AmountNullableTypedDict
 from .payment_method import PaymentMethod
-from .url import URL, URLTypedDict
-from .url_nullable import URLNullable, URLNullableTypedDict
+from .settlement_links import SettlementLinks, SettlementLinksTypedDict
 from enum import Enum
 from mollie import models, utils
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
@@ -45,7 +44,7 @@ class EntitySettlementAmount(BaseModel):
     r"""A string containing an exact monetary amount in the given currency."""
 
 
-class EntitySettlementRateTypedDict(TypedDict):
+class RateTypedDict(TypedDict):
     r"""The service rates, further divided into `fixed` and `percentage` costs."""
 
     fixed: NotRequired[AmountTypedDict]
@@ -53,7 +52,7 @@ class EntitySettlementRateTypedDict(TypedDict):
     percentage: NotRequired[str]
 
 
-class EntitySettlementRate(BaseModel):
+class Rate(BaseModel):
     r"""The service rates, further divided into `fixed` and `percentage` costs."""
 
     fixed: Optional[Amount] = None
@@ -78,14 +77,14 @@ class EntitySettlementRate(BaseModel):
         return m
 
 
-class EntitySettlementCostTypedDict(TypedDict):
+class CostTypedDict(TypedDict):
     description: str
     r"""A description of the cost subtotal"""
     method: Nullable[PaymentMethod]
     r"""The payment method, if applicable"""
     count: int
     r"""The number of fees"""
-    rate: EntitySettlementRateTypedDict
+    rate: RateTypedDict
     r"""The service rates, further divided into `fixed` and `percentage` costs."""
     amount_net: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
@@ -95,7 +94,7 @@ class EntitySettlementCostTypedDict(TypedDict):
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
 
-class EntitySettlementCost(BaseModel):
+class Cost(BaseModel):
     description: str
     r"""A description of the cost subtotal"""
 
@@ -105,7 +104,7 @@ class EntitySettlementCost(BaseModel):
     count: int
     r"""The number of fees"""
 
-    rate: EntitySettlementRate
+    rate: Rate
     r"""The service rates, further divided into `fixed` and `percentage` costs."""
 
     amount_net: Annotated[Amount, pydantic.Field(alias="amountNet")]
@@ -141,7 +140,7 @@ class EntitySettlementCost(BaseModel):
         return m
 
 
-class EntitySettlementRevenueTypedDict(TypedDict):
+class RevenueTypedDict(TypedDict):
     description: str
     r"""A description of the revenue subtotal"""
     method: Nullable[PaymentMethod]
@@ -156,7 +155,7 @@ class EntitySettlementRevenueTypedDict(TypedDict):
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
 
-class EntitySettlementRevenue(BaseModel):
+class Revenue(BaseModel):
     description: str
     r"""A description of the revenue subtotal"""
 
@@ -199,21 +198,21 @@ class EntitySettlementRevenue(BaseModel):
         return m
 
 
-class EntitySettlementPeriodsTypedDict(TypedDict):
-    costs: NotRequired[List[EntitySettlementCostTypedDict]]
+class PeriodsTypedDict(TypedDict):
+    costs: NotRequired[List[CostTypedDict]]
     r"""An array of cost objects, describing the fees withheld for each payment method during this period."""
-    revenue: NotRequired[List[EntitySettlementRevenueTypedDict]]
+    revenue: NotRequired[List[RevenueTypedDict]]
     r"""An array of revenue objects containing the total revenue for each payment method during this period."""
     invoice_id: NotRequired[str]
     invoice_reference: NotRequired[Nullable[str]]
     r"""The invoice reference, if the invoice has been created already."""
 
 
-class EntitySettlementPeriods(BaseModel):
-    costs: Optional[List[EntitySettlementCost]] = None
+class Periods(BaseModel):
+    costs: Optional[List[Cost]] = None
     r"""An array of cost objects, describing the fees withheld for each payment method during this period."""
 
-    revenue: Optional[List[EntitySettlementRevenue]] = None
+    revenue: Optional[List[Revenue]] = None
     r"""An array of revenue objects containing the total revenue for each payment method during this period."""
 
     invoice_id: Annotated[Optional[str], pydantic.Field(alias="invoiceId")] = None
@@ -249,84 +248,6 @@ class EntitySettlementPeriods(BaseModel):
         return m
 
 
-class EntitySettlementLinksTypedDict(TypedDict):
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-
-    self_: URLTypedDict
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    payments: NotRequired[URLTypedDict]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    captures: NotRequired[URLTypedDict]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    refunds: NotRequired[URLTypedDict]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    chargebacks: NotRequired[URLTypedDict]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    invoice: NotRequired[Nullable[URLNullableTypedDict]]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-    documentation: NotRequired[URLTypedDict]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-
-class EntitySettlementLinks(BaseModel):
-    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-
-    self_: Annotated[URL, pydantic.Field(alias="self")]
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    payments: Optional[URL] = None
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    captures: Optional[URL] = None
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    refunds: Optional[URL] = None
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    chargebacks: Optional[URL] = None
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    invoice: OptionalNullable[URLNullable] = UNSET
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    documentation: Optional[URL] = None
-    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(
-            [
-                "payments",
-                "captures",
-                "refunds",
-                "chargebacks",
-                "invoice",
-                "documentation",
-            ]
-        )
-        nullable_fields = set(["invoice"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-            is_nullable_and_explicitly_set = (
-                k in nullable_fields
-                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
-            )
-
-            if val != UNSET_SENTINEL:
-                if (
-                    val is not None
-                    or k not in optional_fields
-                    or is_nullable_and_explicitly_set
-                ):
-                    m[k] = val
-
-        return m
-
-
 class EntitySettlementTypedDict(TypedDict):
     resource: str
     r"""Indicates the response contains a settlement object. Will always contain the string `settlement` for this
@@ -338,7 +259,7 @@ class EntitySettlementTypedDict(TypedDict):
     amount: EntitySettlementAmountTypedDict
     balance_id: str
     r"""The balance token that the settlement was settled to."""
-    links: EntitySettlementLinksTypedDict
+    links: SettlementLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
     created_at: NotRequired[str]
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
@@ -352,7 +273,7 @@ class EntitySettlementTypedDict(TypedDict):
     """
     invoice_id: NotRequired[Nullable[str]]
     r"""The ID of the oldest invoice created for all the periods, if the invoice has been created yet."""
-    periods: NotRequired[Dict[str, Dict[str, EntitySettlementPeriodsTypedDict]]]
+    periods: NotRequired[Dict[str, Dict[str, PeriodsTypedDict]]]
     r"""For bookkeeping purposes, the settlement includes an overview of transactions included in the settlement. These
     transactions are grouped into 'period' objects — one for each calendar month.
 
@@ -382,7 +303,7 @@ class EntitySettlement(BaseModel):
     balance_id: Annotated[str, pydantic.Field(alias="balanceId")]
     r"""The balance token that the settlement was settled to."""
 
-    links: Annotated[EntitySettlementLinks, pydantic.Field(alias="_links")]
+    links: Annotated[SettlementLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
     created_at: Annotated[Optional[str], pydantic.Field(alias="createdAt")] = None
@@ -405,7 +326,7 @@ class EntitySettlement(BaseModel):
     )
     r"""The ID of the oldest invoice created for all the periods, if the invoice has been created yet."""
 
-    periods: Optional[Dict[str, Dict[str, EntitySettlementPeriods]]] = None
+    periods: Optional[Dict[str, Dict[str, Periods]]] = None
     r"""For bookkeeping purposes, the settlement includes an overview of transactions included in the settlement. These
     transactions are grouped into 'period' objects — one for each calendar month.
 
@@ -456,19 +377,15 @@ class EntitySettlement(BaseModel):
 
 
 try:
-    EntitySettlementCost.model_rebuild()
+    Cost.model_rebuild()
 except NameError:
     pass
 try:
-    EntitySettlementRevenue.model_rebuild()
+    Revenue.model_rebuild()
 except NameError:
     pass
 try:
-    EntitySettlementPeriods.model_rebuild()
-except NameError:
-    pass
-try:
-    EntitySettlementLinks.model_rebuild()
+    Periods.model_rebuild()
 except NameError:
     pass
 try:

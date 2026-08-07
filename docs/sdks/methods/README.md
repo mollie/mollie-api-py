@@ -7,6 +7,10 @@
 * [list](#list) - List payment methods
 * [all](#all) - List all payment methods
 * [get](#get) - Get payment method
+* [enable](#enable) - Enable payment method
+* [disable](#disable) - Disable payment method
+* [enable_issuer](#enable_issuer) - Enable payment method issuer
+* [disable_issuer](#disable_issuer) - Disable payment method issuer
 
 ## list
 
@@ -338,4 +342,247 @@ with ClientSDK(
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
 | models.ErrorResponse | 400, 404, 429        | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
+
+## enable
+
+Enable a payment method on a specific profile.
+
+When using a profile-specific API credential, the alias `me` can be used
+instead of the profile ID to refer to the current profile.
+
+Some payment methods require extra steps in order to be activated. In cases
+where a step at the payment method provider needs to be completed first, the status will be set to
+`pending-external` and the response will contain a link to complete the activation at the provider.
+
+To enable voucher or gift card issuers, refer to the [Enable payment method issuer](enable-method-issuer) endpoint.
+
+### Example Usage: enable-method-200-1
+
+<!-- UsageSnippet language="python" operationID="enable-method" method="post" path="/v2/profiles/{profileId}/methods/{methodId}" example="enable-method-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.methods.enable(profile_id="pfl_5B8cwPMGnU", method_id=mollie.MethodEnum.IDEAL, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: enable-method-200-2
+
+<!-- UsageSnippet language="python" operationID="enable-method" method="post" path="/v2/profiles/{profileId}/methods/{methodId}" example="enable-method-200-2" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.methods.enable(profile_id="pfl_5B8cwPMGnU", method_id=mollie.MethodEnum.IDEAL, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: enable-method-200-3
+
+<!-- UsageSnippet language="python" operationID="enable-method" method="post" path="/v2/profiles/{profileId}/methods/{methodId}" example="enable-method-200-3" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.methods.enable(profile_id="pfl_5B8cwPMGnU", method_id=mollie.MethodEnum.IDEAL, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `profile_id`                                                                     | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the related profile.                                           | pfl_5B8cwPMGnU                                                                   |
+| `method_id`                                                                      | [Nullable[models.MethodEnum]](../../models/methodenum.md)                        | :heavy_check_mark:                                                               | Provide the ID of the related payment method.                                    | ideal                                                                            |
+| `idempotency_key`                                                                | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | A unique key to ensure idempotent requests. This key should be a UUID v4 string. | 123e4567-e89b-12d3-a456-426                                                      |
+| `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
+
+### Response
+
+**[models.EntityMethodGet](../../models/entitymethodget.md)**
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 404, 429             | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
+
+## disable
+
+Disable a payment method on a specific profile.
+
+When using a profile-specific API credential, the alias `me` can be used
+instead of the profile ID to refer to the current profile.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="disable-method" method="delete" path="/v2/profiles/{profileId}/methods/{methodId}" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    client_sdk.methods.disable(profile_id="pfl_5B8cwPMGnU", method_id=mollie.MethodEnum.IDEAL, idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Use the SDK ...
+
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `profile_id`                                                                     | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the related profile.                                           | pfl_5B8cwPMGnU                                                                   |
+| `method_id`                                                                      | [Nullable[models.MethodEnum]](../../models/methodenum.md)                        | :heavy_check_mark:                                                               | Provide the ID of the related payment method.                                    | ideal                                                                            |
+| `idempotency_key`                                                                | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | A unique key to ensure idempotent requests. This key should be a UUID v4 string. | 123e4567-e89b-12d3-a456-426                                                      |
+| `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 404, 429             | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
+
+## enable_issuer
+
+Enable an issuer for a payment method on a specific profile.
+
+Currently only the payment methods `voucher` and `giftcard` are supported.
+
+When using a profile-specific API credential, the alias `me` can be used instead of the profile ID to refer to the
+current profile.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="enable-method-issuer" method="post" path="/v2/profiles/{profileId}/methods/{methodId}/issuers/{issuerId}" example="enable-method-issuer-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.methods.enable_issuer(profile_id="pfl_5B8cwPMGnU", method_id=mollie.MethodIDWithIssuer.VOUCHER, issuer_id="edenred-france-sports", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "contract_id": "ideal",
+    })
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `profile_id`                                                                                    | *str*                                                                                           | :heavy_check_mark:                                                                              | Provide the ID of the related profile.                                                          | pfl_5B8cwPMGnU                                                                                  |
+| `method_id`                                                                                     | [models.MethodIDWithIssuer](../../models/methodidwithissuer.md)                                 | :heavy_check_mark:                                                                              | Provide the ID of the related payment method.                                                   | voucher                                                                                         |
+| `issuer_id`                                                                                     | *str*                                                                                           | :heavy_check_mark:                                                                              | Provide the ID of the related issuer.                                                           | edenred-france-sports                                                                           |
+| `idempotency_key`                                                                               | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | A unique key to ensure idempotent requests. This key should be a UUID v4 string.                | 123e4567-e89b-12d3-a456-426                                                                     |
+| `request_body`                                                                                  | [Optional[models.EnableMethodIssuerRequestBody]](../../models/enablemethodissuerrequestbody.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
+| `retries`                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                | :heavy_minus_sign:                                                                              | Configuration to override the default retry behavior of the client.                             |                                                                                                 |
+
+### Response
+
+**[models.EnableMethodIssuerResponse](../../models/enablemethodissuerresponse.md)**
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 404, 429             | application/hal+json |
+| models.APIError      | 4XX, 5XX             | \*/\*                |
+
+## disable_issuer
+
+Disable an issuer for a payment method on a specific profile.
+
+Currently only the payment methods `voucher` and `giftcard` are supported.
+
+When using a profile-specific API credential, the alias `me` can be used instead of the profile ID to refer to the
+current profile.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="disable-method-issuer" method="delete" path="/v2/profiles/{profileId}/methods/{methodId}/issuers/{issuerId}" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        api_key=os.getenv("CLIENT_API_KEY", ""),
+    ),
+) as client_sdk:
+
+    client_sdk.methods.disable_issuer(profile_id="pfl_5B8cwPMGnU", method_id=mollie.MethodIDWithIssuer.VOUCHER, issuer_id="edenred-france-sports", idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Use the SDK ...
+
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `profile_id`                                                                     | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the related profile.                                           | pfl_5B8cwPMGnU                                                                   |
+| `method_id`                                                                      | [models.MethodIDWithIssuer](../../models/methodidwithissuer.md)                  | :heavy_check_mark:                                                               | Provide the ID of the related payment method.                                    | voucher                                                                          |
+| `issuer_id`                                                                      | *str*                                                                            | :heavy_check_mark:                                                               | Provide the ID of the related issuer.                                            | edenred-france-sports                                                            |
+| `idempotency_key`                                                                | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | A unique key to ensure idempotent requests. This key should be a UUID v4 string. | 123e4567-e89b-12d3-a456-426                                                      |
+| `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
+
+### Errors
+
+| Error Type           | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| models.ErrorResponse | 404, 429             | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |

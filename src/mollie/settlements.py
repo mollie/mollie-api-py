@@ -661,7 +661,7 @@ class Settlements(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.EntitySettlement:
+    ) -> models.GetOpenSettlementResponse:
         r"""Get open settlement
 
         Retrieve the details of the open balance of the organization. This will return a settlement object representing your
@@ -769,7 +769,7 @@ class Settlements(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
-            return unmarshal_json_response(models.EntitySettlement, http_res)
+            return unmarshal_json_response(models.GetOpenSettlementResponse, http_res)
         if utils.match_response(http_res, "429", "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
@@ -790,7 +790,7 @@ class Settlements(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.EntitySettlement:
+    ) -> models.GetOpenSettlementResponse:
         r"""Get open settlement
 
         Retrieve the details of the open balance of the organization. This will return a settlement object representing your
@@ -898,7 +898,7 @@ class Settlements(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
-            return unmarshal_json_response(models.EntitySettlement, http_res)
+            return unmarshal_json_response(models.GetOpenSettlementResponse, http_res)
         if utils.match_response(http_res, "429", "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
@@ -919,7 +919,7 @@ class Settlements(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.EntitySettlement:
+    ) -> models.GetNextSettlementResponse:
         r"""Get next settlement
 
         Retrieve the details of the current settlement, that has not yet been paid out.
@@ -1026,7 +1026,7 @@ class Settlements(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
-            return unmarshal_json_response(models.EntitySettlement, http_res)
+            return unmarshal_json_response(models.GetNextSettlementResponse, http_res)
         if utils.match_response(http_res, "429", "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
@@ -1047,7 +1047,7 @@ class Settlements(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.EntitySettlement:
+    ) -> models.GetNextSettlementResponse:
         r"""Get next settlement
 
         Retrieve the details of the current settlement, that has not yet been paid out.
@@ -1154,7 +1154,7 @@ class Settlements(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
-            return unmarshal_json_response(models.EntitySettlement, http_res)
+            return unmarshal_json_response(models.GetNextSettlementResponse, http_res)
         if utils.match_response(http_res, "429", "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)

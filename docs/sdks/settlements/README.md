@@ -134,7 +134,28 @@ documentation.
 For more accurate bookkeeping, refer to the [balance report](get-balance-report) endpoint or the
 [balance transactions](list-balance-transactions) endpoint.
 
-### Example Usage
+### Example Usage: get-open-settlement-200-1
+
+<!-- UsageSnippet language="python" operationID="get-open-settlement" method="get" path="/v2/settlements/open" example="get-open-settlement-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.get_open(idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: get-settlement-200-1
 
 <!-- UsageSnippet language="python" operationID="get-open-settlement" method="get" path="/v2/settlements/open" example="get-settlement-200-1" -->
 ```python
@@ -165,7 +186,7 @@ with ClientSDK(
 
 ### Response
 
-**[models.EntitySettlement](../../models/entitysettlement.md)**
+**[models.GetOpenSettlementResponse](../../models/getopensettlementresponse.md)**
 
 ### Errors
 
@@ -184,7 +205,28 @@ documentation.
 For more accurate bookkeeping, refer to the [balance report](get-balance-report) endpoint or the
 [balance transactions](list-balance-transactions) endpoint.
 
-### Example Usage
+### Example Usage: get-next-settlement-200-1
+
+<!-- UsageSnippet language="python" operationID="get-next-settlement" method="get" path="/v2/settlements/next" example="get-next-settlement-200-1" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.settlements.get_next(idempotency_key="123e4567-e89b-12d3-a456-426")
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: get-settlement-200-1
 
 <!-- UsageSnippet language="python" operationID="get-next-settlement" method="get" path="/v2/settlements/next" example="get-settlement-200-1" -->
 ```python
@@ -215,7 +257,7 @@ with ClientSDK(
 
 ### Response
 
-**[models.EntitySettlement](../../models/entitysettlement.md)**
+**[models.GetNextSettlementResponse](../../models/getnextsettlementresponse.md)**
 
 ### Errors
 
