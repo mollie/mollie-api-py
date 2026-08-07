@@ -1,13 +1,13 @@
-# ListEntitySettlementStatus
+# GetNextSettlementStatus
 
 The status of the settlement.
 
 ## Example Usage
 
 ```python
-from mollie.models import ListEntitySettlementStatus
+from mollie.models import GetNextSettlementStatus
 
-value = ListEntitySettlementStatus.OPEN
+value = GetNextSettlementStatus.OPEN
 
 # Open enum: unrecognized values are captured as UnrecognizedStr
 ```

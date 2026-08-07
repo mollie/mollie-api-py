@@ -2,11 +2,21 @@
 # @generated-id: 17b2798a279d
 
 from __future__ import annotations
-from mollie.types import BaseModel, UNSET_SENTINEL
+from .amount import Amount, AmountTypedDict
+from .amount_nullable import AmountNullable, AmountNullableTypedDict
+from .next_settlement_id import NextSettlementID
+from .payment_method import PaymentMethod
+from .settlement_convenience_links import (
+    SettlementConvenienceLinks,
+    SettlementConvenienceLinksTypedDict,
+)
+from enum import Enum
+from mollie import models, utils
+from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import FieldMetadata, HeaderMetadata
 import pydantic
-from pydantic import model_serializer
-from typing import Optional
+from pydantic import field_serializer, model_serializer
+from typing import Dict, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -38,3 +48,405 @@ class GetNextSettlementRequest(BaseModel):
                     m[k] = val
 
         return m
+
+
+class GetNextSettlementStatus(str, Enum, metaclass=utils.OpenEnumMeta):
+    r"""The status of the settlement."""
+
+    OPEN = "open"
+    PENDING = "pending"
+    PROCESSING_AT_BANK = "processing-at-bank"
+    PAIDOUT = "paidout"
+    FAILED = "failed"
+
+
+class GetNextSettlementAmountTypedDict(TypedDict):
+    r"""The total amount of the settlement."""
+
+    currency: str
+    r"""A three-character ISO 4217 currency code."""
+    value: str
+    r"""A string containing an exact monetary amount in the given currency."""
+
+
+class GetNextSettlementAmount(BaseModel):
+    r"""The total amount of the settlement."""
+
+    currency: str
+    r"""A three-character ISO 4217 currency code."""
+
+    value: str
+    r"""A string containing an exact monetary amount in the given currency."""
+
+
+class GetNextSettlementRateTypedDict(TypedDict):
+    r"""The service rates, further divided into `fixed` and `percentage` costs."""
+
+    fixed: NotRequired[AmountTypedDict]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    percentage: NotRequired[str]
+
+
+class GetNextSettlementRate(BaseModel):
+    r"""The service rates, further divided into `fixed` and `percentage` costs."""
+
+    fixed: Optional[Amount] = None
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    percentage: Optional[str] = None
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["fixed", "percentage"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+class GetNextSettlementCostTypedDict(TypedDict):
+    description: str
+    r"""A description of the cost subtotal"""
+    method: Nullable[PaymentMethod]
+    r"""The payment method, if applicable"""
+    count: int
+    r"""The number of fees"""
+    rate: GetNextSettlementRateTypedDict
+    r"""The service rates, further divided into `fixed` and `percentage` costs."""
+    amount_net: AmountTypedDict
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    amount_vat: Nullable[AmountNullableTypedDict]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    amount_gross: AmountTypedDict
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+
+class GetNextSettlementCost(BaseModel):
+    description: str
+    r"""A description of the cost subtotal"""
+
+    method: Nullable[PaymentMethod]
+    r"""The payment method, if applicable"""
+
+    count: int
+    r"""The number of fees"""
+
+    rate: GetNextSettlementRate
+    r"""The service rates, further divided into `fixed` and `percentage` costs."""
+
+    amount_net: Annotated[Amount, pydantic.Field(alias="amountNet")]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    amount_vat: Annotated[Nullable[AmountNullable], pydantic.Field(alias="amountVat")]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    amount_gross: Annotated[Amount, pydantic.Field(alias="amountGross")]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    @field_serializer("method")
+    def serialize_method(self, value):
+        if isinstance(value, str):
+            try:
+                return models.PaymentMethod(value)
+            except ValueError:
+                return value
+        return value
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                m[k] = val
+
+        return m
+
+
+class GetNextSettlementRevenueTypedDict(TypedDict):
+    description: str
+    r"""A description of the revenue subtotal"""
+    method: Nullable[PaymentMethod]
+    r"""The payment method, if applicable"""
+    count: int
+    r"""The number of payments"""
+    amount_net: AmountTypedDict
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    amount_vat: Nullable[AmountNullableTypedDict]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+    amount_gross: AmountTypedDict
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+
+class GetNextSettlementRevenue(BaseModel):
+    description: str
+    r"""A description of the revenue subtotal"""
+
+    method: Nullable[PaymentMethod]
+    r"""The payment method, if applicable"""
+
+    count: int
+    r"""The number of payments"""
+
+    amount_net: Annotated[Amount, pydantic.Field(alias="amountNet")]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    amount_vat: Annotated[Nullable[AmountNullable], pydantic.Field(alias="amountVat")]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    amount_gross: Annotated[Amount, pydantic.Field(alias="amountGross")]
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+    @field_serializer("method")
+    def serialize_method(self, value):
+        if isinstance(value, str):
+            try:
+                return models.PaymentMethod(value)
+            except ValueError:
+                return value
+        return value
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                m[k] = val
+
+        return m
+
+
+class GetNextSettlementPeriodsTypedDict(TypedDict):
+    costs: NotRequired[List[GetNextSettlementCostTypedDict]]
+    r"""An array of cost objects, describing the fees withheld for each payment method during this period."""
+    revenue: NotRequired[List[GetNextSettlementRevenueTypedDict]]
+    r"""An array of revenue objects containing the total revenue for each payment method during this period."""
+    invoice_id: NotRequired[str]
+    invoice_reference: NotRequired[Nullable[str]]
+    r"""The invoice reference, if the invoice has been created already."""
+
+
+class GetNextSettlementPeriods(BaseModel):
+    costs: Optional[List[GetNextSettlementCost]] = None
+    r"""An array of cost objects, describing the fees withheld for each payment method during this period."""
+
+    revenue: Optional[List[GetNextSettlementRevenue]] = None
+    r"""An array of revenue objects containing the total revenue for each payment method during this period."""
+
+    invoice_id: Annotated[Optional[str], pydantic.Field(alias="invoiceId")] = None
+
+    invoice_reference: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="invoiceReference")
+    ] = UNSET
+    r"""The invoice reference, if the invoice has been created already."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["costs", "revenue", "invoiceId", "invoiceReference"])
+        nullable_fields = set(["invoiceReference"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
+
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
+
+        return m
+
+
+class GetNextSettlementResponseTypedDict(TypedDict):
+    r"""The next settlement object. For a complete reference of the settlement object, refer to the
+    [Get settlement](get-settlement) endpoint documentation.
+    """
+
+    resource: str
+    r"""Indicates the response contains a settlement object. Will always contain the string `settlement` for this
+    endpoint.
+    """
+    id: NextSettlementID
+    status: GetNextSettlementStatus
+    amount: GetNextSettlementAmountTypedDict
+    balance_id: str
+    r"""The balance token that the settlement was settled to."""
+    links: SettlementConvenienceLinksTypedDict
+    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field.
+
+    This endpoint always points to your organization's current open or next settlement rather than one specific
+    settlement, so it doesn't return links to that settlement's payments, captures, refunds, chargebacks, or invoice.
+    """
+    created_at: NotRequired[str]
+    r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
+    reference: NotRequired[Nullable[str]]
+    r"""The settlement's bank reference, as found in your Mollie account and on your bank statement."""
+    settled_at: NotRequired[Nullable[str]]
+    r"""The date on which the settlement was settled, in ISO 8601 format.
+
+    For an [open settlement](get-open-settlement) or for the [next settlement](get-next-settlement), no settlement
+    date is available.
+    """
+    invoice_id: NotRequired[Nullable[str]]
+    r"""The ID of the oldest invoice created for all the periods, if the invoice has been created yet."""
+    periods: NotRequired[Dict[str, Dict[str, GetNextSettlementPeriodsTypedDict]]]
+    r"""For bookkeeping purposes, the settlement includes an overview of transactions included in the settlement. These
+    transactions are grouped into 'period' objects — one for each calendar month.
+
+    For example, if a settlement includes funds from 15 April until 4 May, it will include two period objects. One for
+    all transactions processed between 15 April and 30 April, and one for all transactions between 1 May and 4 May.
+
+    Period objects are grouped by year, and then by month. So in the above example, the full `periods` collection will
+    look as follows: `{\"2024\": {\"04\": {...}, \"05\": {...}}}`. The year and month in this documentation are referred as `<year>` and `<month>`.
+
+    The example response should give a good idea of what this looks like in practise.
+    """
+
+
+class GetNextSettlementResponse(BaseModel):
+    r"""The next settlement object. For a complete reference of the settlement object, refer to the
+    [Get settlement](get-settlement) endpoint documentation.
+    """
+
+    resource: str
+    r"""Indicates the response contains a settlement object. Will always contain the string `settlement` for this
+    endpoint.
+    """
+
+    id: NextSettlementID
+
+    status: GetNextSettlementStatus
+
+    amount: GetNextSettlementAmount
+
+    balance_id: Annotated[str, pydantic.Field(alias="balanceId")]
+    r"""The balance token that the settlement was settled to."""
+
+    links: Annotated[SettlementConvenienceLinks, pydantic.Field(alias="_links")]
+    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field.
+
+    This endpoint always points to your organization's current open or next settlement rather than one specific
+    settlement, so it doesn't return links to that settlement's payments, captures, refunds, chargebacks, or invoice.
+    """
+
+    created_at: Annotated[Optional[str], pydantic.Field(alias="createdAt")] = None
+    r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
+
+    reference: OptionalNullable[str] = UNSET
+    r"""The settlement's bank reference, as found in your Mollie account and on your bank statement."""
+
+    settled_at: Annotated[OptionalNullable[str], pydantic.Field(alias="settledAt")] = (
+        UNSET
+    )
+    r"""The date on which the settlement was settled, in ISO 8601 format.
+
+    For an [open settlement](get-open-settlement) or for the [next settlement](get-next-settlement), no settlement
+    date is available.
+    """
+
+    invoice_id: Annotated[OptionalNullable[str], pydantic.Field(alias="invoiceId")] = (
+        UNSET
+    )
+    r"""The ID of the oldest invoice created for all the periods, if the invoice has been created yet."""
+
+    periods: Optional[Dict[str, Dict[str, GetNextSettlementPeriods]]] = None
+    r"""For bookkeeping purposes, the settlement includes an overview of transactions included in the settlement. These
+    transactions are grouped into 'period' objects — one for each calendar month.
+
+    For example, if a settlement includes funds from 15 April until 4 May, it will include two period objects. One for
+    all transactions processed between 15 April and 30 April, and one for all transactions between 1 May and 4 May.
+
+    Period objects are grouped by year, and then by month. So in the above example, the full `periods` collection will
+    look as follows: `{\"2024\": {\"04\": {...}, \"05\": {...}}}`. The year and month in this documentation are referred as `<year>` and `<month>`.
+
+    The example response should give a good idea of what this looks like in practise.
+    """
+
+    @field_serializer("id")
+    def serialize_id(self, value):
+        if isinstance(value, str):
+            try:
+                return models.NextSettlementID(value)
+            except ValueError:
+                return value
+        return value
+
+    @field_serializer("status")
+    def serialize_status(self, value):
+        if isinstance(value, str):
+            try:
+                return models.GetNextSettlementStatus(value)
+            except ValueError:
+                return value
+        return value
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(
+            ["createdAt", "reference", "settledAt", "invoiceId", "periods"]
+        )
+        nullable_fields = set(["reference", "settledAt", "invoiceId"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
+
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
+
+        return m
+
+
+try:
+    GetNextSettlementCost.model_rebuild()
+except NameError:
+    pass
+try:
+    GetNextSettlementRevenue.model_rebuild()
+except NameError:
+    pass
+try:
+    GetNextSettlementPeriods.model_rebuild()
+except NameError:
+    pass
+try:
+    GetNextSettlementResponse.model_rebuild()
+except NameError:
+    pass

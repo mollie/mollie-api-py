@@ -1,4 +1,4 @@
-# ListEntitySettlementLinks
+# SettlementLinks
 
 An object with several relevant URLs. Every URL object will contain an `href` and a `type` field.
 
@@ -13,3 +13,4 @@ An object with several relevant URLs. Every URL object will contain an `href` an
 | `refunds`                                                                                  | [Optional[models.URL]](../models/url.md)                                                   | :heavy_minus_sign:                                                                         | In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field. |
 | `chargebacks`                                                                              | [Optional[models.URL]](../models/url.md)                                                   | :heavy_minus_sign:                                                                         | In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field. |
 | `invoice`                                                                                  | [OptionalNullable[models.URLNullable]](../models/urlnullable.md)                           | :heavy_minus_sign:                                                                         | In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field. |
+| `documentation`                                                                            | [Optional[models.URL]](../models/url.md)                                                   | :heavy_minus_sign:                                                                         | In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field. |

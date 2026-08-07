@@ -403,6 +403,10 @@ client = ClientSDK(
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#list) - List payment methods
 * [all](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#all) - List all payment methods
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#get) - Get payment method
+* [enable](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#enable) - Enable payment method
+* [disable](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#disable) - Disable payment method
+* [enable_issuer](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#enable_issuer) - Enable payment method issuer
+* [disable_issuer](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/methods/README.md#disable_issuer) - Disable payment method issuer
 
 ### [Oauth](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/oauth/README.md)
 

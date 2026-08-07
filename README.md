@@ -403,6 +403,10 @@ client = ClientSDK(
 * [list](docs/sdks/methods/README.md#list) - List payment methods
 * [all](docs/sdks/methods/README.md#all) - List all payment methods
 * [get](docs/sdks/methods/README.md#get) - Get payment method
+* [enable](docs/sdks/methods/README.md#enable) - Enable payment method
+* [disable](docs/sdks/methods/README.md#disable) - Disable payment method
+* [enable_issuer](docs/sdks/methods/README.md#enable_issuer) - Enable payment method issuer
+* [disable_issuer](docs/sdks/methods/README.md#disable_issuer) - Disable payment method issuer
 
 ### [Oauth](docs/sdks/oauth/README.md)
 
