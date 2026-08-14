@@ -748,7 +748,9 @@ class Terminals(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.EntityPairingCode, http_res)
-        if utils.match_response(http_res, ["422", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["403", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -887,7 +889,9 @@ class Terminals(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.EntityPairingCode, http_res)
-        if utils.match_response(http_res, ["422", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["403", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -918,7 +922,10 @@ class Terminals(BaseSDK):
         >
         > This endpoint currently does not support test mode yet.
 
-        Returns all pairing codes: `active`, `expired`, and `revoked`. Results are paginated.
+        Returns your pairing codes: `active`, `expired`, and `revoked`. Results are paginated.
+
+        We keep a pairing code for one month after it is revoked or expires, then delete it. Deleted codes drop out of
+        this list. Active pairing codes are never deleted.
 
         If set, this operation will use either `api_key` or `o_auth` from the global security.
 
@@ -1051,7 +1058,10 @@ class Terminals(BaseSDK):
         >
         > This endpoint currently does not support test mode yet.
 
-        Returns all pairing codes: `active`, `expired`, and `revoked`. Results are paginated.
+        Returns your pairing codes: `active`, `expired`, and `revoked`. Results are paginated.
+
+        We keep a pairing code for one month after it is revoked or expires, then delete it. Deleted codes drop out of
+        this list. Active pairing codes are never deleted.
 
         If set, this operation will use either `api_key` or `o_auth` from the global security.
 
@@ -1187,6 +1197,9 @@ class Terminals(BaseSDK):
         The response includes a human-readable `code` for manual entry on the terminal and, optionally, a QR Code as a
         base64 encoded SVG data URI when you use the `include` query parameter with value `details.qrCode`.
 
+        We keep a pairing code for one month after it is revoked or expires, then delete it. Once deleted, this endpoint
+        returns a 404. Active pairing codes are never deleted.
+
         If set, this operation will use either `api_key` or `o_auth` from the global security.
 
         :param pairing_code_id: Provide the ID of the terminal pairing code.
@@ -1310,6 +1323,9 @@ class Terminals(BaseSDK):
         The response includes a human-readable `code` for manual entry on the terminal and, optionally, a QR Code as a
         base64 encoded SVG data URI when you use the `include` query parameter with value `details.qrCode`.
 
+        We keep a pairing code for one month after it is revoked or expires, then delete it. Once deleted, this endpoint
+        returns a 404. Active pairing codes are never deleted.
+
         If set, this operation will use either `api_key` or `o_auth` from the global security.
 
         :param pairing_code_id: Provide the ID of the terminal pairing code.
@@ -1431,6 +1447,8 @@ class Terminals(BaseSDK):
 
         Terminals that have already paired with this code are not affected.
 
+        We keep a revoked pairing code for one month, then delete it. Once deleted, this endpoint returns a 404.
+
         If set, this operation will use either `api_key` or `o_auth` from the global security.
 
         :param pairing_code_id: Provide the ID of the terminal pairing code.
@@ -1551,6 +1569,8 @@ class Terminals(BaseSDK):
         Revoke a pairing code, preventing the onboarding of new point-of-sale terminals.
 
         Terminals that have already paired with this code are not affected.
+
+        We keep a revoked pairing code for one month, then delete it. Once deleted, this endpoint returns a 404.
 
         If set, this operation will use either `api_key` or `o_auth` from the global security.
 
