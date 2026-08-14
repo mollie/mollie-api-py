@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 026c1f55dc079ec7865433150d1186ab
+  docChecksum: da3c7906c3501bcf695d51c94bab8c9e
   docVersion: 1.0.0
-  speakeasyVersion: 1.791.4
-  generationVersion: 2.926.8
-  releaseVersion: 1.9.13
-  configChecksum: e52b4494bae9921421b2daf202e1fdf4
+  speakeasyVersion: 1.793.2
+  generationVersion: 2.928.0
+  releaseVersion: 1.9.14
+  configChecksum: 0dcd9b2c4e0a8e6cd838e3f9c8914d50
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: d5cc28bc-f3b7-407a-9306-2c737a595528
-  pristine_commit_hash: 414ccbc1421d3fa9cc2f888705c2db56ad5e8fe5
-  pristine_tree_hash: a4967cb7074edaf8ba30ff17f4fb0d8c24b43359
+  generation_id: 30feba2f-a129-4048-b034-8262c98f3540
+  pristine_commit_hash: ebdc5ecb26213257ac6a3409eb3f560f4dac42f6
+  pristine_tree_hash: 3288c2a98b7ca9b6c7d9e58a7c3fec23cd768b80
 features:
   python:
     additionalDependencies: 1.1.0
@@ -3672,8 +3672,8 @@ trackedFiles:
     pristine_git_object: 2f1514024cef4c8ac7bcd0733537b238b9d82ed6
   docs/sdks/terminals/README.md:
     id: 4b9f7986e224
-    last_write_checksum: sha1:034e9b7bd5f92127c866a8f2e56321aed6528839
-    pristine_git_object: c4207fb1febb004739ac41a94d485d7ae5f87cd3
+    last_write_checksum: sha1:d83e7543f3843175600e13c2a9e8ffcacd4e2329
+    pristine_git_object: 2c012234e6bad76dcea72f52d754534967317e7b
   docs/sdks/transferssdk/README.md:
     id: e0495ca8de20
     last_write_checksum: sha1:253714e3091db9088701846cd7e9a001e9747329
@@ -3712,8 +3712,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:1d20df2cabfd2758dbd4ed0b2d61706012e98828
-    pristine_git_object: 025196773f859c78a8e9be9b4034c3588babe6ad
+    last_write_checksum: sha1:1754cd15548377435cf1486ed178ce6847d22bf8
+    pristine_git_object: bcfc6acf7c00e6d29201b025cf3123470da8492e
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3740,8 +3740,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:26e175dd3ea938fa4bc57064cfe5964431000867
-    pristine_git_object: 06c41e9d47e9433f68a28c82411211b6a6dc35a6
+    last_write_checksum: sha1:151d3d982d6607f6feb43802f6558f90585b9336
+    pristine_git_object: 6b3a15afbdc5cbbe728035828f4b5b4c6c101b2d
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:221f6cb08c38e444dac1dc270c32117a046f7f06
@@ -5352,8 +5352,8 @@ trackedFiles:
     pristine_git_object: 003f92afd7232c071e9032bc3ba8cc5ed7e07873
   src/mollie/terminals.py:
     id: 4ca0266eee84
-    last_write_checksum: sha1:148dc3ccfa79043ff523360b2a88a9bb5c3b1926
-    pristine_git_object: c348179a4e4ff0f97dd976a43bd86c971628bae1
+    last_write_checksum: sha1:7076d12240491c5387af7183686dbcef6f5e3d70
+    pristine_git_object: cc7124e2d9f712ce0958f9e835311f92e740c72c
   src/mollie/transfers_sdk.py:
     id: 0040e1e52add
     last_write_checksum: sha1:0ea34d4c6b3a1df5aa1778745c9b4ecdb9c2b955
@@ -8972,6 +8972,8 @@ examples:
           application/hal+json: {"resource": "terminal-pairing-code", "id": "termpc_R7gX5Ea9bC4DkFj3G", "mode": "live", "code": "20eb5ca1f78b48ae9e2b", "profileId": "pfl_jA9bC4DkFj3G", "status": "active", "details": {"qrCode": {"height": 256, "width": 256, "src": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4w..."}}, "expiresAt": "2025-12-10T10:15:00+00:00", "revokedAt": "2025-12-10T10:03:23+00:00", "createdAt": "2024-03-20T09:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "profile": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
         "422":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
+        "403":
+          application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
   terminals-list-pairing-codes:
     speakeasy-default-terminals-list-pairing-codes:
       parameters:
@@ -9205,10 +9207,4 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `client.settlements.get_open()`:  `response` **Changed** (Breaking ⚠️)
-  * `client.settlements.get_next()`:  `response` **Changed** (Breaking ⚠️)
-  * `client.methods.enable()`: **Added**
-  * `client.methods.disable()`: **Added**
-  * `client.methods.enable_issuer()`: **Added**
-  * `client.methods.disable_issuer()`: **Added**
-  * `client.settlements.list()`:  `response._embedded.settlements[]._links.documentation` **Added**
+  * `client.terminals.terminals_request_pairing_code()`:  `error.status[403]` **Added**
