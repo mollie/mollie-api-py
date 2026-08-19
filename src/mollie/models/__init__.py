@@ -1772,6 +1772,7 @@ if TYPE_CHECKING:
         SettlementConvenienceLinksTypedDict,
     )
     from .settlement_links import SettlementLinks, SettlementLinksTypedDict
+    from .settlement_method import SettlementMethod
     from .settlement_mode import SettlementMode
     from .settlement_payment_status import SettlementPaymentStatus
     from .settlement_refund_status import SettlementRefundStatus
@@ -3406,6 +3407,7 @@ __all__ = [
     "SettlementConvenienceLinksTypedDict",
     "SettlementLinks",
     "SettlementLinksTypedDict",
+    "SettlementMethod",
     "SettlementMode",
     "SettlementPaymentStatus",
     "SettlementRefundStatus",
@@ -5004,6 +5006,7 @@ _dynamic_imports: dict[str, str] = {
     "SettlementConvenienceLinksTypedDict": ".settlement_convenience_links",
     "SettlementLinks": ".settlement_links",
     "SettlementLinksTypedDict": ".settlement_links",
+    "SettlementMethod": ".settlement_method",
     "SettlementMode": ".settlement_mode",
     "SettlementPaymentStatus": ".settlement_payment_status",
     "SettlementRefundStatus": ".settlement_refund_status",

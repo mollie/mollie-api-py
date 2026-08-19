@@ -4,8 +4,8 @@
 from __future__ import annotations
 from .amount import Amount, AmountTypedDict
 from .amount_nullable import AmountNullable, AmountNullableTypedDict
-from .payment_method import PaymentMethod
 from .settlement_links import SettlementLinks, SettlementLinksTypedDict
+from .settlement_method import SettlementMethod
 from enum import Enum
 from mollie import models, utils
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
@@ -80,8 +80,10 @@ class Rate(BaseModel):
 class CostTypedDict(TypedDict):
     description: str
     r"""A description of the cost subtotal"""
-    method: Nullable[PaymentMethod]
-    r"""The payment method, if applicable"""
+    method: Nullable[SettlementMethod]
+    r"""The method the cost or revenue subtotal applies to. This is usually a payment method, but can also represent a
+    correction or transaction type that is not tied to a specific payment method.
+    """
     count: int
     r"""The number of fees"""
     rate: RateTypedDict
@@ -98,8 +100,10 @@ class Cost(BaseModel):
     description: str
     r"""A description of the cost subtotal"""
 
-    method: Nullable[PaymentMethod]
-    r"""The payment method, if applicable"""
+    method: Nullable[SettlementMethod]
+    r"""The method the cost or revenue subtotal applies to. This is usually a payment method, but can also represent a
+    correction or transaction type that is not tied to a specific payment method.
+    """
 
     count: int
     r"""The number of fees"""
@@ -115,15 +119,6 @@ class Cost(BaseModel):
 
     amount_gross: Annotated[Amount, pydantic.Field(alias="amountGross")]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-
-    @field_serializer("method")
-    def serialize_method(self, value):
-        if isinstance(value, str):
-            try:
-                return models.PaymentMethod(value)
-            except ValueError:
-                return value
-        return value
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
@@ -143,8 +138,10 @@ class Cost(BaseModel):
 class RevenueTypedDict(TypedDict):
     description: str
     r"""A description of the revenue subtotal"""
-    method: Nullable[PaymentMethod]
-    r"""The payment method, if applicable"""
+    method: Nullable[SettlementMethod]
+    r"""The method the cost or revenue subtotal applies to. This is usually a payment method, but can also represent a
+    correction or transaction type that is not tied to a specific payment method.
+    """
     count: int
     r"""The number of payments"""
     amount_net: AmountTypedDict
@@ -159,8 +156,10 @@ class Revenue(BaseModel):
     description: str
     r"""A description of the revenue subtotal"""
 
-    method: Nullable[PaymentMethod]
-    r"""The payment method, if applicable"""
+    method: Nullable[SettlementMethod]
+    r"""The method the cost or revenue subtotal applies to. This is usually a payment method, but can also represent a
+    correction or transaction type that is not tied to a specific payment method.
+    """
 
     count: int
     r"""The number of payments"""
@@ -173,15 +172,6 @@ class Revenue(BaseModel):
 
     amount_gross: Annotated[Amount, pydantic.Field(alias="amountGross")]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-
-    @field_serializer("method")
-    def serialize_method(self, value):
-        if isinstance(value, str):
-            try:
-                return models.PaymentMethod(value)
-            except ValueError:
-                return value
-        return value
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
