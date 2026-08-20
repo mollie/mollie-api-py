@@ -386,6 +386,13 @@ client = ClientSDK(
 * [list](docs/sdks/delayedrouting/README.md#list) - List payment routes
 * [get](docs/sdks/delayedrouting/README.md#get) - Get a delayed route
 
+### [DraftTransfers](docs/sdks/drafttransfers/README.md)
+
+* [create](docs/sdks/drafttransfers/README.md#create) - Create draft transfer
+* [list](docs/sdks/drafttransfers/README.md#list) - List draft transfers
+* [get](docs/sdks/drafttransfers/README.md#get) - Get draft transfer
+* [cancel](docs/sdks/drafttransfers/README.md#cancel) - Cancel draft transfer
+
 ### [Invoices](docs/sdks/invoices/README.md)
 
 * [list](docs/sdks/invoices/README.md#list) - List invoices
