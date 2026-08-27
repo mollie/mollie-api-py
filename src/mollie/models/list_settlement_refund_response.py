@@ -216,7 +216,9 @@ class ListSettlementRefundResponseTypedDict(TypedDict):
     The full payment object can be retrieved via the payment URL in the `_links` object.
     """
     status: SettlementRefundStatus
-    r"""The refund's status. Settlement refunds always have a status of `refunded`."""
+    r"""The refund's status. Settlement refunds are normally `refunded`, but can be `failed` if the refund
+    could not be processed.
+    """
     created_at: str
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: ListSettlementRefundResponseLinksTypedDict
@@ -277,7 +279,9 @@ class ListSettlementRefundResponse(BaseModel):
     """
 
     status: SettlementRefundStatus
-    r"""The refund's status. Settlement refunds always have a status of `refunded`."""
+    r"""The refund's status. Settlement refunds are normally `refunded`, but can be `failed` if the refund
+    could not be processed.
+    """
 
     created_at: Annotated[str, pydantic.Field(alias="createdAt")]
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
