@@ -5,7 +5,7 @@
 ```python
 from mollie.models import BalanceTransactionType
 
-value = BalanceTransactionType.APPLICATION_FEE
+value = BalanceTransactionType.API_PAYMENT_ROLLING_RESERVE_RELEASE
 
 # Open enum: unrecognized values are captured as UnrecognizedStr
 ```
@@ -15,6 +15,7 @@ value = BalanceTransactionType.APPLICATION_FEE
 
 | Name                                   | Value                                  |
 | -------------------------------------- | -------------------------------------- |
+| `API_PAYMENT_ROLLING_RESERVE_RELEASE`  | api-payment-rolling-reserve-release    |
 | `APPLICATION_FEE`                      | application-fee                        |
 | `BALANCE_CHARGE_FEE`                   | balance-charge-fee                     |
 | `BALANCE_CORRECTION`                   | balance-correction                     |
@@ -45,6 +46,7 @@ value = BalanceTransactionType.APPLICATION_FEE
 | `PENDING_ROLLING_RESERVE`              | pending-rolling-reserve                |
 | `PLATFORM_PAYMENT_CHARGEBACK`          | platform-payment-chargeback            |
 | `PLATFORM_PAYMENT_REFUND`              | platform-payment-refund                |
+| `POST_PAYMENT_SPLIT_PAYMENT`           | post-payment-split-payment             |
 | `REFUND`                               | refund                                 |
 | `REFUND_COMPENSATION`                  | refund-compensation                    |
 | `RELEASED_ROLLING_RESERVE`             | released-rolling-reserve               |

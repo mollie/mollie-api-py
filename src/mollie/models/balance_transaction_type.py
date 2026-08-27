@@ -7,6 +7,7 @@ from mollie import utils
 
 
 class BalanceTransactionType(str, Enum, metaclass=utils.OpenEnumMeta):
+    API_PAYMENT_ROLLING_RESERVE_RELEASE = "api-payment-rolling-reserve-release"
     APPLICATION_FEE = "application-fee"
     BALANCE_CHARGE_FEE = "balance-charge-fee"
     BALANCE_CORRECTION = "balance-correction"
@@ -37,6 +38,7 @@ class BalanceTransactionType(str, Enum, metaclass=utils.OpenEnumMeta):
     PENDING_ROLLING_RESERVE = "pending-rolling-reserve"
     PLATFORM_PAYMENT_CHARGEBACK = "platform-payment-chargeback"
     PLATFORM_PAYMENT_REFUND = "platform-payment-refund"
+    POST_PAYMENT_SPLIT_PAYMENT = "post-payment-split-payment"
     REFUND = "refund"
     REFUND_COMPENSATION = "refund-compensation"
     RELEASED_ROLLING_RESERVE = "released-rolling-reserve"
