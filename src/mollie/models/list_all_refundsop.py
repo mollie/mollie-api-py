@@ -2,8 +2,8 @@
 # @generated-id: 28bc891142f6
 
 from __future__ import annotations
-from .list_entity_refund import ListEntityRefund, ListEntityRefundTypedDict
 from .list_links import ListLinks, ListLinksTypedDict
+from .list_refund_response import ListRefundResponse, ListRefundResponseTypedDict
 from .sorting import Sorting
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
@@ -203,12 +203,12 @@ class ListAllRefundsRequest(BaseModel):
 
 
 class ListAllRefundsEmbeddedTypedDict(TypedDict):
-    refunds: List[ListEntityRefundTypedDict]
+    refunds: List[ListRefundResponseTypedDict]
     r"""An array of refund objects."""
 
 
 class ListAllRefundsEmbedded(BaseModel):
-    refunds: List[ListEntityRefund]
+    refunds: List[ListRefundResponse]
     r"""An array of refund objects."""
 
 

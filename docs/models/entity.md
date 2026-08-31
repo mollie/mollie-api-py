@@ -9,10 +9,10 @@
 value: models.PaymentResponse = /* values here */
 ```
 
-### `models.EntityRefundResponse`
+### `models.RefundResponse`
 
 ```python
-value: models.EntityRefundResponse = /* values here */
+value: models.RefundResponse = /* values here */
 ```
 
 ### `models.EntityChargeback`

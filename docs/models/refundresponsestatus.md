@@ -1,11 +1,11 @@
-# ListEntityRefundStatus
+# RefundResponseStatus
 
 ## Example Usage
 
 ```python
-from mollie.models import ListEntityRefundStatus
+from mollie.models import RefundResponseStatus
 
-value = ListEntityRefundStatus.QUEUED
+value = RefundResponseStatus.QUEUED
 
 # Open enum: unrecognized values are captured as UnrecognizedStr
 ```

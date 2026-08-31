@@ -24,7 +24,7 @@ class RefundsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.EntityRefundResponse:
+    ) -> models.RefundResponse:
         r"""Create payment refund
 
         Creates a refund for a specific payment. The refunded amount is credited to your customer usually either via a bank
@@ -139,7 +139,7 @@ class RefundsSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
-            return unmarshal_json_response(models.EntityRefundResponse, http_res)
+            return unmarshal_json_response(models.RefundResponse, http_res)
         if utils.match_response(
             http_res, ["404", "409", "422", "429"], "application/hal+json"
         ):
@@ -166,7 +166,7 @@ class RefundsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.EntityRefundResponse:
+    ) -> models.RefundResponse:
         r"""Create payment refund
 
         Creates a refund for a specific payment. The refunded amount is credited to your customer usually either via a bank
@@ -281,7 +281,7 @@ class RefundsSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
-            return unmarshal_json_response(models.EntityRefundResponse, http_res)
+            return unmarshal_json_response(models.RefundResponse, http_res)
         if utils.match_response(
             http_res, ["404", "409", "422", "429"], "application/hal+json"
         ):
@@ -683,7 +683,7 @@ class RefundsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.EntityRefundResponse:
+    ) -> models.RefundResponse:
         r"""Get payment refund
 
         Retrieve a single payment refund by its ID and the ID of its parent payment.
@@ -800,7 +800,7 @@ class RefundsSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
-            return unmarshal_json_response(models.EntityRefundResponse, http_res)
+            return unmarshal_json_response(models.RefundResponse, http_res)
         if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
@@ -825,7 +825,7 @@ class RefundsSDK(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.EntityRefundResponse:
+    ) -> models.RefundResponse:
         r"""Get payment refund
 
         Retrieve a single payment refund by its ID and the ID of its parent payment.
@@ -942,7 +942,7 @@ class RefundsSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
-            return unmarshal_json_response(models.EntityRefundResponse, http_res)
+            return unmarshal_json_response(models.RefundResponse, http_res)
         if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)

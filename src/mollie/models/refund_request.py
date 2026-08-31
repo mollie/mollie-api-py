@@ -115,11 +115,11 @@ class RefundRequestRoutingReversal(BaseModel):
 
 
 class RefundRequestTypedDict(TypedDict):
-    description: str
-    r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    metadata: Nullable[MetadataTypedDict]
+    description: NotRequired[str]
+    r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
+    metadata: NotRequired[Nullable[MetadataTypedDict]]
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
@@ -159,13 +159,13 @@ class RefundRequestTypedDict(TypedDict):
 
 
 class RefundRequest(BaseModel):
-    description: str
-    r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
-
     amount: Amount
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    metadata: Nullable[Metadata]
+    description: Optional[str] = None
+    r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
+
+    metadata: OptionalNullable[Metadata] = UNSET
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
@@ -216,7 +216,14 @@ class RefundRequest(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["externalReference", "reverseRouting", "routingReversals", "testmode"]
+            [
+                "description",
+                "metadata",
+                "externalReference",
+                "reverseRouting",
+                "routingReversals",
+                "testmode",
+            ]
         )
         nullable_fields = set(
             ["metadata", "reverseRouting", "routingReversals", "testmode"]
