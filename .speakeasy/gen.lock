@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 4cb8175c75ae161c5b97463c88ff628e
+  docChecksum: a17e4eb9f8dced190787adbc4ed6aba3
   docVersion: 1.0.0
-  speakeasyVersion: 1.796.0
-  generationVersion: 2.932.15
-  releaseVersion: 1.10.2
-  configChecksum: c1765d58bc2b340cd71f013217b238a0
+  speakeasyVersion: 1.796.2
+  generationVersion: 2.933.0
+  releaseVersion: 1.10.3
+  configChecksum: f9c7435ca505dba5775c995c78284bee
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: fe0496d4-19b2-4d1d-92ec-b8631e1dde28
-  pristine_commit_hash: 4d0db296451872d9914969009f4f067529edcb9e
-  pristine_tree_hash: 97c1089a4ada4c22c02d91b9a6b7d04047c8c519
+  generation_id: 9cf78ebd-5526-4191-8e5a-e56ddd2e5b76
+  pristine_commit_hash: 02decc0e528c10f9c214778223a2ffd8c0f9e936
+  pristine_tree_hash: a2e31555723bbf863537b8cc12c886ac9d6c8551
 features:
   python:
     additionalDependencies: 1.1.0
@@ -572,8 +572,8 @@ trackedFiles:
     pristine_git_object: c66c722e258af3dcf4250377a2f4d87da0679782
   docs/models/entity.md:
     id: 903c73579a5c
-    last_write_checksum: sha1:7506343cdcc7c2e5f5b8efb865c7f4b52de8aad1
-    pristine_git_object: 33b9fb56e3e302f7291f2e5a9137d7de640d23cd
+    last_write_checksum: sha1:850563651548fe9d3ea6cccde903321de90b72ab
+    pristine_git_object: 38457ee430835466a2604dee153ebd152d34eb75
   docs/models/entitybalance.md:
     id: aa9b25037f5a
     last_write_checksum: sha1:c3961942149e135de00a4ad4965647e357df814a
@@ -822,30 +822,6 @@ trackedFiles:
     id: 08597b2ee202
     last_write_checksum: sha1:cca0bcb9fe5dd39aae2c013bafd09834e9f2b60c
     pristine_git_object: bc4780dd529700ef0e33f5630abfcabf8ed25eb2
-  docs/models/entityrefundresponse.md:
-    id: db6ae7674688
-    last_write_checksum: sha1:387374a527dc63dc3a639f7b305656816b98bde1
-    pristine_git_object: dce3cff260e70bb0e1eb803a4579f5b0bcb66548
-  docs/models/entityrefundresponseexternalreference.md:
-    id: bb63400e831c
-    last_write_checksum: sha1:73bf4538fe8899b980afa235f097c939c5dfe731
-    pristine_git_object: b2b66fb9cf78aabfa893bf83756a7f12d25d430d
-  docs/models/entityrefundresponselinks.md:
-    id: 901ab20f4159
-    last_write_checksum: sha1:5e318e5b9f2779e466c90376962fcfa58fce60c0
-    pristine_git_object: 672a29dd52e6cb91a9aec4f59a2f64e36388d3be
-  docs/models/entityrefundresponseroutingreversal.md:
-    id: 38791506de5a
-    last_write_checksum: sha1:ca134c68410beafc3bdc35b24b240ede631d0eba
-    pristine_git_object: a164780c5255d51d1c74f1c47a50753911554e6d
-  docs/models/entityrefundresponsesource.md:
-    id: ec8bf7ddf134
-    last_write_checksum: sha1:c27b6ec037e91444926d176567e28ed284147c82
-    pristine_git_object: db9e18c53c0413961161dc719c9f21279799b505
-  docs/models/entityrefundresponsestatus.md:
-    id: c163a8c4728b
-    last_write_checksum: sha1:92e075b444c472d23d0bc3b264593ae618b95be4
-    pristine_git_object: d98b4dd2f269cfde75ad3232802b24350522079e
   docs/models/entitysettlement.md:
     id: 742b14f02a3c
     last_write_checksum: sha1:d9acbe4fae7f4e57b1fe73b96dfccf2988f43415
@@ -1352,8 +1328,8 @@ trackedFiles:
     pristine_git_object: aa749fe900932d162e3b4137b4be1f787fa8263c
   docs/models/listallrefundsembedded.md:
     id: db7ffa7f3ee3
-    last_write_checksum: sha1:d5c181a3de8c27197a7bce5b3598aabf7daa2340
-    pristine_git_object: 1ab7d17b18e8ac545a1d98d77fe598b453454bda
+    last_write_checksum: sha1:562d8cd50fc9a8c63a4c0ee82ee37d5740b7766d
+    pristine_git_object: faa64220ebbfc020849bd1935806ccb74630ae68
   docs/models/listallrefundsglobals.md:
     id: 0efd1ca47500
     last_write_checksum: sha1:0c65c5d07f965634cecfd1334ea90891d1d8cf47
@@ -1834,30 +1810,6 @@ trackedFiles:
     id: d955c4cd7673
     last_write_checksum: sha1:f5d2f96e2bf367aee78e2a4b5ff3b1191a563ddf
     pristine_git_object: 81a6a5b23845f0c07d4dddeb7c100345acd0a439
-  docs/models/listentityrefund.md:
-    id: 6222910ae8df
-    last_write_checksum: sha1:df452cb542947dbd61d63545a275a93e7ff041fd
-    pristine_git_object: f9d46b1694f2ca28f2933d930c87dd4737959a42
-  docs/models/listentityrefundexternalreference.md:
-    id: 9d7656c82669
-    last_write_checksum: sha1:9f93458539f4962c4340015fdeee73ae85490a72
-    pristine_git_object: b632ce045de9df9cdab66cd223969ae6cdaa4329
-  docs/models/listentityrefundlinks.md:
-    id: 2c4caeaae83c
-    last_write_checksum: sha1:95d61574674445ad2610693f94f6306e6d75eec3
-    pristine_git_object: 0be22483d9b99eb03041ace0e692025b4e8d261d
-  docs/models/listentityrefundroutingreversal.md:
-    id: fc27b84f6d54
-    last_write_checksum: sha1:a9fe1486803d03b06de1ad48aaec822171e3668c
-    pristine_git_object: 265a0e3de532d414d4706b1838d0d65e176ca90e
-  docs/models/listentityrefundsource.md:
-    id: 9f8287f3c85c
-    last_write_checksum: sha1:4aca22ac42fc88ff5cfd5c72121d2fdfe3e9607f
-    pristine_git_object: b26f230fee8ca745f6f4c9baf5c8d6a65ce65144
-  docs/models/listentityrefundstatus.md:
-    id: 0cc875a9d0eb
-    last_write_checksum: sha1:3dcae05c61074f8a8e026026c6346df8e773a8fe
-    pristine_git_object: f54bce76e1833b966c318be331519a55e165c469
   docs/models/listentityterminal.md:
     id: 7c4ee43386f9
     last_write_checksum: sha1:90994aa81f4ef47f7ff41d57b6ddbca27e9e79ae
@@ -2130,10 +2082,34 @@ trackedFiles:
     id: 0afcd1418aab
     last_write_checksum: sha1:6b2d5561d413d13897fa8d3e4ef76454f79c6ed6
     pristine_git_object: dc8adcfe49a6479db366e0b862fa5f7e6dc10eea
+  docs/models/listrefundresponse.md:
+    id: b09a6429e38e
+    last_write_checksum: sha1:d6c46c0f9c6ec210edd334d2bef1e59143ba2fb7
+    pristine_git_object: f52560bd4f40a3c4e7f803c2e3a5e7c91195266a
+  docs/models/listrefundresponseexternalreference.md:
+    id: 5d5cff565d0b
+    last_write_checksum: sha1:73d2fccc8ead15eaf7149c633cc72a180f37b564
+    pristine_git_object: 7efcd4daf0889059b3af5201a6a0d33578363c9c
+  docs/models/listrefundresponselinks.md:
+    id: 60732a959da2
+    last_write_checksum: sha1:4c0e95d47b84cdb425c7c80f132df779fba10f8e
+    pristine_git_object: 6d84e55d388d47addae548031c772fc0bc396585
+  docs/models/listrefundresponseroutingreversal.md:
+    id: aa9bb1b373c8
+    last_write_checksum: sha1:b9afcdc1fa90ac1ed6b615589a4f7b353ff8c263
+    pristine_git_object: 234ef7b179f613e8a28a02cbb391d37d169b014e
+  docs/models/listrefundresponsesource.md:
+    id: 35ffd56798ae
+    last_write_checksum: sha1:f94d597818512f70e9cf3cacbaf3718c2363b26e
+    pristine_git_object: 2be7e661a6c7da3033911245124dc0ddda4f785b
+  docs/models/listrefundresponsestatus.md:
+    id: a6645f48ceb5
+    last_write_checksum: sha1:07c51e13d8082436961a965e15b6befd888680a4
+    pristine_git_object: 869d2eb3be7657cd0fd52c919ddeb37b218f782c
   docs/models/listrefundsembedded.md:
     id: 2455ef4ff1ca
-    last_write_checksum: sha1:5f9639705c56f8287ed8d5d00383ff0b5d472929
-    pristine_git_object: 93c3892344082f7ce0f8fe638223a108a0c20666
+    last_write_checksum: sha1:d0e3a23b569f504a716f0ada41ebd2a5a8db0d1d
+    pristine_git_object: 8417dc3b8176d9b856da67b68cf653e7100c747e
   docs/models/listrefundsglobals.md:
     id: 43ca94da2429
     last_write_checksum: sha1:02ffa482793c7c2b456aee31abd1ec1a8d6a9ffa
@@ -2164,8 +2140,8 @@ trackedFiles:
     pristine_git_object: e726a7b53966e7e568ffba6cebd65db610d3591d
   docs/models/listsalesinvoiceresponse.md:
     id: 2ada6412e409
-    last_write_checksum: sha1:14f63f647ac754a487173b7175f59fde80f07ef7
-    pristine_git_object: 05c2ee782bc063354f30f27ff18f37399f49da07
+    last_write_checksum: sha1:584a0d1c6aae5c02a7c024cf6e781fad443ada11
+    pristine_git_object: 976d467a07468a6416ca50241f10fd81e4f9621b
   docs/models/listsalesinvoiceresponseamountdue.md:
     id: c28bcd3f7af5
     last_write_checksum: sha1:bdd3bf026aa88986e464f322b156c21815ab42b7
@@ -2968,8 +2944,8 @@ trackedFiles:
     pristine_git_object: bfee6f1989b63c6808bda8f06df52fb2c96b49b1
   docs/models/refundrequest.md:
     id: 7215e3ce7967
-    last_write_checksum: sha1:efafa68affe535c78d118ccff58e442e7fffcea2
-    pristine_git_object: ccd03455cb99645f25ebb52d1075b4bec603b19c
+    last_write_checksum: sha1:7ce4087c17392ba2dec94523d7596ea8ab02eaf7
+    pristine_git_object: 09a1628683bcaa63078063765a8ef99d2561d5df
   docs/models/refundrequestexternalreference.md:
     id: 4bbca8be420b
     last_write_checksum: sha1:b458c1b87b3320f073b17dd08cad8c1f1c349e35
@@ -2982,6 +2958,30 @@ trackedFiles:
     id: 9307109de674
     last_write_checksum: sha1:c19d679707f270145a842399fcedc205ea63ca2c
     pristine_git_object: 92f80b63ed25930bb13ec923280eece62eb1ff4e
+  docs/models/refundresponse.md:
+    id: b81ffbbfbe9b
+    last_write_checksum: sha1:2149ee5df4e03e242ff83246fcde77d9db824ddc
+    pristine_git_object: fdee2f22b581b110aafee7372bd5c565355883d0
+  docs/models/refundresponseexternalreference.md:
+    id: b8dab9b3d4bb
+    last_write_checksum: sha1:266ee6b846788042d1711ba434573baa6ba47ac8
+    pristine_git_object: 52f0632ecc9e9ec6cc8e06afd335eff9aa84bde7
+  docs/models/refundresponselinks.md:
+    id: cf272b5694b7
+    last_write_checksum: sha1:0b5d23985830a994aaa1a5d71c6c799e01154b8d
+    pristine_git_object: d5e62dfbd9a72fcede5865053d834c5267ab2569
+  docs/models/refundresponseroutingreversal.md:
+    id: f6c1edbde89e
+    last_write_checksum: sha1:c065eae7a3c38437973a1c19a2d188b009d7f822
+    pristine_git_object: 3ea313e1ff0faed2e83c0a3feb643a16da068627
+  docs/models/refundresponsesource.md:
+    id: 813d44fb6b70
+    last_write_checksum: sha1:ad4c4ebaea67bb0ac7ddf283eac32f9ac1f7a57d
+    pristine_git_object: 84e17428763f09da31e1a99a137f12c4b76ef651
+  docs/models/refundresponsestatus.md:
+    id: cbb7ea2af15f
+    last_write_checksum: sha1:cb9d1f7bcdd6b980460945e03535b917c6a61077
+    pristine_git_object: 9c7fa4819152fe5213cef2ef357f47943cbabf81
   docs/models/refunds.md:
     id: 56cad80f02e4
     last_write_checksum: sha1:7b5da336dcb9de18309f2b340bb459349bdb70e1
@@ -3168,12 +3168,12 @@ trackedFiles:
     pristine_git_object: 4550900218520d0d124ff0b3c77b3209af6d1640
   docs/models/salesinvoicerequest.md:
     id: 18e85e8752ca
-    last_write_checksum: sha1:29aa18017775f8e9b2d9f509439d51cd6b0dc907
-    pristine_git_object: b7fcf3dba902bc8289622dcd7e6f5555978aa750
+    last_write_checksum: sha1:e89272d9a6414fb146f0677ed012b66130c497a2
+    pristine_git_object: 88206293ba4f61c8ad8a76db4e626382bf63a438
   docs/models/salesinvoiceresponse.md:
     id: 6fb13c2c4f42
-    last_write_checksum: sha1:0d1ddf0bb0ce4ae1f10c21ff0cedb13d73783112
-    pristine_git_object: 194b25f721565d93e81094409760cd4c51e8fa95
+    last_write_checksum: sha1:2493ddba6253e7be6bd50120a0d67002bdf571c1
+    pristine_git_object: 7c893c5b5e5e0bbde7e619f4e58728df28a8c29d
   docs/models/salesinvoiceresponseamountdue.md:
     id: 7bae083fa5f9
     last_write_checksum: sha1:fc062736b28fec84113ea7aa513182e2314da2f7
@@ -3604,8 +3604,8 @@ trackedFiles:
     pristine_git_object: 158a8928de5d82cbabb781b8fff13f1cac19e2f0
   docs/models/updatesalesinvoicerequestbody.md:
     id: 4b2708780296
-    last_write_checksum: sha1:c4e1db173134f977a512accd3e024255d41a201a
-    pristine_git_object: 1f000d4111c37f46b83ec30ef5e31a1b061d7b6a
+    last_write_checksum: sha1:92927b54828b7ba55919a98793342323eddccc24
+    pristine_git_object: 50371f0cc1cae7b30a092ed30cc6dc7e3e97e44c
   docs/models/updatesubscriptionrequest.md:
     id: ced5f0dce2be
     last_write_checksum: sha1:4402fa3730d129cc7e2400a1fc5aa35a8016edba
@@ -3776,8 +3776,8 @@ trackedFiles:
     pristine_git_object: c56bc52e6bd281eda0898020a7c187f3d3c05c07
   docs/sdks/refundssdk/README.md:
     id: a95d23651926
-    last_write_checksum: sha1:cde0a701e3e0e69bde0cadc32a0a7c2ef71bbedc
-    pristine_git_object: 22af7287ee35b0cc93eb545e3edd896fea6ca5a5
+    last_write_checksum: sha1:956d41902512818195d22c00e9b152b748041152
+    pristine_git_object: a2326c7d7c04e7386c335b344211551db7e4fe74
   docs/sdks/salesinvoices/README.md:
     id: 7b2a80290a07
     last_write_checksum: sha1:d46d04ddda136a5f1b0a8e0cb65d7027d89450ea
@@ -3836,8 +3836,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:f0f32d072289915d895011acfaf8b1522d9fc8f2
-    pristine_git_object: 1e43b0954d9416db6e2ff54dec7d2f85dd88a845
+    last_write_checksum: sha1:51ca4f2abf79a783e1d4dedff172ca66dcd6e670
+    pristine_git_object: 305ab6fa093a50afe7b04ea9867cbb5373a8f973
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3864,8 +3864,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:99386f60bd8199a3aa6803563eb4a24b79d8e5da
-    pristine_git_object: 9154d4a6e88e1957be2bcac5e9b8081686b0dd53
+    last_write_checksum: sha1:31a53ae2537407dffa26fd62ae09494454e5f22f
+    pristine_git_object: 8acf6d2b5341cf45e9e10b939888f9c9131f120c
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:221f6cb08c38e444dac1dc270c32117a046f7f06
@@ -3932,8 +3932,8 @@ trackedFiles:
     pristine_git_object: d72af0e911456c3311d964b96265b296270d0a1e
   src/mollie/models/__init__.py:
     id: 6afa296e99ce
-    last_write_checksum: sha1:952522d794ee2c1afd2b9a46ddf2d1e21e11e69d
-    pristine_git_object: d2d7f6cb70d47c5974d6057cff4138678b12e664
+    last_write_checksum: sha1:cd8eccf39adf4c4b7c0894f064e32a656867feb6
+    pristine_git_object: 88438fd7634928fee27482fbb084ace162dc9dcb
   src/mollie/models/account_details.py:
     id: 6afe7b95a53c
     last_write_checksum: sha1:5e913925526b8d6032b89c3eac8c9b2f2207de93
@@ -4338,10 +4338,6 @@ trackedFiles:
     id: a00740a13c3f
     last_write_checksum: sha1:a98675b40f3045de7c7fa3b30e32626a43edf386
     pristine_git_object: 3dbb4fe22cb1badca640a3582f255f173aa3d659
-  src/mollie/models/entity_refund_response.py:
-    id: aa94a7969a24
-    last_write_checksum: sha1:d433b1753efd1dad16faab3fb8e47a888fdc3b8e
-    pristine_git_object: 4fde621a429578e2826c85bc26ab68b053edbdda
   src/mollie/models/entity_settlement.py:
     id: 59d05b1038b3
     last_write_checksum: sha1:27ae8495ade1f7b547f51f2bfb66822c3c8ad54b
@@ -4360,8 +4356,8 @@ trackedFiles:
     pristine_git_object: 9d3f1e1dd25375df0e6966544e9479f64f41e92c
   src/mollie/models/entity_webhook_event.py:
     id: 2db7196b42ba
-    last_write_checksum: sha1:5229ad5995f77b775ca0510512165242c8c51931
-    pristine_git_object: f33eff88d8e9df3f5882bf0effe90f116c97c532
+    last_write_checksum: sha1:48c5c548a022e1447a090539e8b9ed6604aa410c
+    pristine_git_object: 6cae10709c1a03ed3ca9a9a5d3d704a049ec77b5
   src/mollie/models/error_response.py:
     id: db6489b710b3
     last_write_checksum: sha1:9a442cfe8e30760f983793aa1fc784d3e2c1481e
@@ -4544,8 +4540,8 @@ trackedFiles:
     pristine_git_object: 8c680eae21ecfa94476fcd00c95741698142c3aa
   src/mollie/models/list_all_refundsop.py:
     id: 28bc891142f6
-    last_write_checksum: sha1:7efd9ca7cb37b302a096ac3e1b5c939c55796350
-    pristine_git_object: 8538b7d61dd4e5a03190121d0268eefd9314ee07
+    last_write_checksum: sha1:1e8314ad912f2b9586b1968406390fe092a95b3e
+    pristine_git_object: 5b4bb75efe604b396f82cf9ca9209275091866be
   src/mollie/models/list_all_subscriptionsop.py:
     id: 15d1f4eab63c
     last_write_checksum: sha1:8181ed77d72ab9adc134c3190dfbea0fa40365cd
@@ -4638,10 +4634,6 @@ trackedFiles:
     id: d0a366e4eef7
     last_write_checksum: sha1:eb1f0103fe059849ae40872119bf010543dd90f5
     pristine_git_object: 9430d32c1b941d2bfde27ddd1c3b7cd670e067fd
-  src/mollie/models/list_entity_refund.py:
-    id: 8e11d5ecb1c4
-    last_write_checksum: sha1:b4c670148a014c956b0626783b86bfc5dbf3d1e8
-    pristine_git_object: 2eed5c50b16c2b362bf436b2fdd56157a9ef7ae5
   src/mollie/models/list_entity_terminal.py:
     id: 486fbe5d6fe3
     last_write_checksum: sha1:0191bf8ac067c6e246923c07a9d017de4c39c2ec
@@ -4702,18 +4694,22 @@ trackedFiles:
     id: acb428390000
     last_write_checksum: sha1:d3fb42398b366994a10206f3289d9faa944fea3f
     pristine_git_object: 54657cba2dc1d0571d8d2c64721fe9490f5446e0
+  src/mollie/models/list_refund_response.py:
+    id: 0ddb5ff41501
+    last_write_checksum: sha1:a19eaf110aa97fae14066b4579dcd9608b2a767b
+    pristine_git_object: d09a7f362d4c6c8bf03d1359225bd499014ee7ba
   src/mollie/models/list_refundsop.py:
     id: 1453976a10d1
-    last_write_checksum: sha1:dec2f942e32a863959cbd85861f31a19e50bbe85
-    pristine_git_object: 25ba98c54d71a442b82f884c5ab88e04b7e3f604
+    last_write_checksum: sha1:72b92e7070f1643539f597fee98d8bc47905c92b
+    pristine_git_object: 3a19ad84dfae99d5cba561c4c6ac965a8eb44b20
   src/mollie/models/list_route_get_response.py:
     id: 08ad38bd207a
     last_write_checksum: sha1:d880e0325bed1bc66125fa5567c6690c42bca446
     pristine_git_object: 53950a57d0bc1aa17a5700ecbf325e0e1b89cd50
   src/mollie/models/list_sales_invoice_response.py:
     id: ebc52c8aa67f
-    last_write_checksum: sha1:13d8ea0bdc03fb185593de2d4993b82f5f690b1b
-    pristine_git_object: 4fe9b858a089caf6e578f8d2aeafc5515d7a8072
+    last_write_checksum: sha1:621d11d65eb21a31564ef80f141508d6bebe76dd
+    pristine_git_object: 55e0f72ddc9dffcc5bc8c6435b4bc43a1a8b3e35
   src/mollie/models/list_sales_invoicesop.py:
     id: 1d35824f6978
     last_write_checksum: sha1:a0ac17041800873308ce94c725c4c7d635f66031
@@ -5040,8 +5036,12 @@ trackedFiles:
     pristine_git_object: a613fc89c433f8139881ecf12483cb6cdec9bec8
   src/mollie/models/refund_request.py:
     id: 97bd738628a4
-    last_write_checksum: sha1:00bc6178ac6c625e7b161a05ca95e4e3b7dad709
-    pristine_git_object: fed49f16266d9d41abd56d59c42868aa636e3b87
+    last_write_checksum: sha1:eb574c82b3371d2bbf7b4ba8b7682c6b5e17cca1
+    pristine_git_object: f4000ca56940dda52cf527f0b920c0de142f97a4
+  src/mollie/models/refund_response.py:
+    id: 40a5d6596d95
+    last_write_checksum: sha1:f9feba8337728e8323a1083670f78690e59d5308
+    pristine_git_object: 979ca9a443d716b3413944871f0b85e3d4d84649
   src/mollie/models/release_authorizationop.py:
     id: 8c555b129716
     last_write_checksum: sha1:af6a3c98a8269a861c678c9afb0d7ec850b055aa
@@ -5156,12 +5156,12 @@ trackedFiles:
     pristine_git_object: 7518f214a5c17160ae40883dc1849ffe60cc912a
   src/mollie/models/sales_invoice_request.py:
     id: d37f8e03053f
-    last_write_checksum: sha1:4d07041cab5ebbc55489c8a547bffd9bb183e0fe
-    pristine_git_object: 32e230b1437dd1b15944232904cd1879e9e75732
+    last_write_checksum: sha1:508ef401882911d30ab0e9e39b55ea1229e7cd33
+    pristine_git_object: 2fe7420281e3cd4e648a7c80a6f2e3a869c7514b
   src/mollie/models/sales_invoice_response.py:
     id: 126e45e1d0b8
-    last_write_checksum: sha1:c65f44d0dbf94c5f59533d3668479818707378bd
-    pristine_git_object: 22007ec581f95927d90ac0e2086f01eea4f6b104
+    last_write_checksum: sha1:8bdbec1cb7dcb4cec08308e0163fcd7fa8e83f0c
+    pristine_git_object: 098442362784cb34e52f74329e79843b1cced557
   src/mollie/models/sales_invoice_status.py:
     id: 3b90fa6e0b53
     last_write_checksum: sha1:1be3e9d033c02979603ab65edb7a6339ef9b0142
@@ -5416,8 +5416,8 @@ trackedFiles:
     pristine_git_object: 49b75c33074e8ae6c380078d75e998a79bf32501
   src/mollie/models/update_sales_invoiceop.py:
     id: e6e53b895cf6
-    last_write_checksum: sha1:0f02f9903d81b9e0a0ac250a1e9f4f3d8dbbd9d6
-    pristine_git_object: f29c6590bdc77fd7183e799539f7373d13b21eb4
+    last_write_checksum: sha1:c53269734e2bb4748631c873141ae409891cca5c
+    pristine_git_object: 14887c8a2a352d87537f5ebee0d40ada241db78e
   src/mollie/models/update_subscriptionop.py:
     id: c407f3650d62
     last_write_checksum: sha1:e5c1401441f565577f3c62ec876ce0cd725368bc
@@ -5500,8 +5500,8 @@ trackedFiles:
     pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   src/mollie/refunds_sdk.py:
     id: 049b771f577a
-    last_write_checksum: sha1:17dfb032b4758a6d1f9dda37264454cbfea51bee
-    pristine_git_object: 7724888d59b3327f3e98977fb4dac7cb6b0e3d6e
+    last_write_checksum: sha1:23061ae758d81a81c4dae58c75f8315457f3868a
+    pristine_git_object: dd3048f358ad505dbcfe7afbbd3f13d337fa7049
   src/mollie/sales_invoices.py:
     id: dde27618d36e
     last_write_checksum: sha1:7fbb5553efabe370ee8888ea55e8be800d661584
@@ -7307,7 +7307,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "metadata": {"0": "<value 1>", "1": "<value 2>"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
+        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "refund", "id": "re_4qqhO89gsT", "mode": "live", "description": "Order", "amount": {"currency": "EUR", "value": "5.95"}, "metadata": "{\"bookkeeping_id\":12345}", "paymentId": "tr_5B8cwPMGnU6qLbRvo7qEZo", "status": "pending", "createdAt": "2023-03-14T17:09:02+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -7318,7 +7318,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "metadata": {"0": "<value 1>", "1": "<value 2>"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
+        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "refund", "id": "re_GKQYmNNAfL", "mode": "live", "description": "Refund description of example payment", "amount": {"currency": "EUR", "value": "10.00"}, "metadata": null, "paymentId": "tr_aZm7dgj5zs", "status": "pending", "createdAt": "2023-02-06T15:55:57+00:00", "routingReversals": [{"amount": {"currency": "EUR", "value": "7.50"}, "source": {"organizationId": "org_7049691"}}], "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://api.mollie.com/v2/payments/tr_aZm7dgj5zs?testmode=true", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -7329,7 +7329,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "metadata": {"0": "<value 1>", "1": "<value 2>"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
+        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "refund", "id": "re_5B8cwPMGnU", "mode": "live", "description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "metadata": "<value>", "paymentId": "tr_5B8cwPMGnU", "settlementId": "stl_5B8cwPMGnU", "status": "queued", "createdAt": "2024-03-20T09:13:37+00:00", "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"organizationId": "org_1234567"}}], "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://...", "type": "application/hal+json"}, "settlement": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
@@ -9405,17 +9405,5 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `client.balances.get_report()`:  `response.totals.pending_balance.open.subtotals[].sub_totals[].transaction_type` **Changed**
-  * `client.balances.list_transactions()`:  `response._embedded.balance_transactions[].type` **Changed**
-  * `client.settlements.list_payments()`:  `response._embedded.payments[].details` **Changed**
-  * `client.settlements.list_refunds()`:  `response._embedded.refunds[].status.enum(failed)` **Added**
-  * `client.webhook_events.get()`:  `response._embedded.entity.union(payment-response).details` **Changed**
-  * `client.payments.create()`:  `response.details` **Changed**
-  * `client.payments.list()`:  `response._embedded.payments[].details` **Changed**
-  * `client.payments.get()`:  `response.details` **Changed**
-  * `client.payments.update()`:  `response.details` **Changed**
-  * `client.payments.cancel()`:  `response.details` **Changed**
-  * `client.payment_links.list_payments()`:  `response._embedded.payments[].details` **Changed**
-  * `client.customers.create_payment()`:  `response.details` **Changed**
-  * `client.customers.list_payments()`:  `response._embedded.payments[].details` **Changed**
-  * `client.subscriptions.list_payments()`:  `response._embedded.payments[].details` **Changed**
+  * `client.webhook_events.get()`:  `response._embedded.entity` **Changed** (Breaking ⚠️)
+  * `client.refunds.create()`:  `request.refund_request` **Changed**

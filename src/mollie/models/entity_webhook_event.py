@@ -5,9 +5,9 @@ from __future__ import annotations
 from .capture_response import CaptureResponse, CaptureResponseTypedDict
 from .entity_chargeback import EntityChargeback, EntityChargebackTypedDict
 from .entity_payout_response import EntityPayoutResponse, EntityPayoutResponseTypedDict
-from .entity_refund_response import EntityRefundResponse, EntityRefundResponseTypedDict
 from .payment_link_response import PaymentLinkResponse, PaymentLinkResponseTypedDict
 from .payment_response import PaymentResponse, PaymentResponseTypedDict
+from .refund_response import RefundResponse, RefundResponseTypedDict
 from .sales_invoice_response import SalesInvoiceResponse, SalesInvoiceResponseTypedDict
 from .transfer_response import TransferResponse, TransferResponseTypedDict
 from .url import URL, URLTypedDict
@@ -71,7 +71,7 @@ EntityTypedDict = TypeAliasType(
     Union[
         EntityChargebackTypedDict,
         CaptureResponseTypedDict,
-        EntityRefundResponseTypedDict,
+        RefundResponseTypedDict,
         EntityPayoutResponseTypedDict,
         TransferResponseTypedDict,
         PaymentLinkResponseTypedDict,
@@ -86,7 +86,7 @@ Entity = TypeAliasType(
     Union[
         EntityChargeback,
         CaptureResponse,
-        EntityRefundResponse,
+        RefundResponse,
         EntityPayoutResponse,
         TransferResponse,
         PaymentLinkResponse,

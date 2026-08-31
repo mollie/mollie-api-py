@@ -36,10 +36,6 @@ with ClientSDK(
             "currency": "EUR",
             "value": "10.00",
         },
-        "metadata": {
-            "0": "<value 1>",
-            "1": "<value 2>",
-        },
         "external_reference": {
             "type": mollie.RefundExternalReferenceType.ACQUIRER_REFERENCE,
             "id": "123456789012345",
@@ -85,10 +81,6 @@ with ClientSDK(
             "currency": "EUR",
             "value": "10.00",
         },
-        "metadata": {
-            "0": "<value 1>",
-            "1": "<value 2>",
-        },
         "external_reference": {
             "type": mollie.RefundExternalReferenceType.ACQUIRER_REFERENCE,
             "id": "123456789012345",
@@ -125,7 +117,7 @@ with ClientSDK(
 
 ### Response
 
-**[models.EntityRefundResponse](../../models/entityrefundresponse.md)**
+**[models.RefundResponse](../../models/refundresponse.md)**
 
 ### Errors
 
@@ -228,7 +220,7 @@ with ClientSDK(
 
 ### Response
 
-**[models.EntityRefundResponse](../../models/entityrefundresponse.md)**
+**[models.RefundResponse](../../models/refundresponse.md)**
 
 ### Errors
 
