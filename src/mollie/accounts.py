@@ -28,6 +28,10 @@ class Accounts(BaseSDK):
     ) -> Optional[models.ListBusinessAccountsResponse]:
         r"""List business accounts
 
+        > 🔒 Restricted access
+        >
+        > This API is only available to Mollie partners with a signed agreement for Business Accounts. [Get in touch](https://www.mollie.com/contact) if you'd like to integrate with it.
+
         Retrieve all business accounts for the authenticated organization.
 
         The results are paginated.
@@ -207,6 +211,10 @@ class Accounts(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListBusinessAccountsResponse]:
         r"""List business accounts
+
+        > 🔒 Restricted access
+        >
+        > This API is only available to Mollie partners with a signed agreement for Business Accounts. [Get in touch](https://www.mollie.com/contact) if you'd like to integrate with it.
 
         Retrieve all business accounts for the authenticated organization.
 
@@ -388,6 +396,10 @@ class Accounts(BaseSDK):
     ) -> models.BusinessAccountResponse:
         r"""Get business account
 
+        > 🔒 Restricted access
+        >
+        > This API is only available to Mollie partners with a signed agreement for Business Accounts. [Get in touch](https://www.mollie.com/contact) if you'd like to integrate with it.
+
         Retrieve a single business account object by its account ID. This allows you to check the current status,
         balance, and account details.
 
@@ -523,6 +535,10 @@ class Accounts(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.BusinessAccountResponse:
         r"""Get business account
+
+        > 🔒 Restricted access
+        >
+        > This API is only available to Mollie partners with a signed agreement for Business Accounts. [Get in touch](https://www.mollie.com/contact) if you'd like to integrate with it.
 
         Retrieve a single business account object by its account ID. This allows you to check the current status,
         balance, and account details.
@@ -663,6 +679,10 @@ class Accounts(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListBusinessAccountTransactionsResponse]:
         r"""List transactions
+
+        > 🔒 Restricted access
+        >
+        > This API is only available to Mollie partners with a signed agreement for Business Accounts. [Get in touch](https://www.mollie.com/contact) if you'd like to integrate with it.
 
         Retrieve all transactions for a specific business account.
 
@@ -847,6 +867,10 @@ class Accounts(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListBusinessAccountTransactionsResponse]:
         r"""List transactions
+
+        > 🔒 Restricted access
+        >
+        > This API is only available to Mollie partners with a signed agreement for Business Accounts. [Get in touch](https://www.mollie.com/contact) if you'd like to integrate with it.
 
         Retrieve all transactions for a specific business account.
 
@@ -1034,6 +1058,10 @@ class Accounts(BaseSDK):
     ) -> models.TransactionResponse:
         r"""Get transaction
 
+        > 🔒 Restricted access
+        >
+        > This API is only available to Mollie partners with a signed agreement for Business Accounts. [Get in touch](https://www.mollie.com/contact) if you'd like to integrate with it.
+
         Retrieve a single transaction object by its transaction ID. This allows you to check the details,
         amount, counterparty, and balance impact of a specific transaction.
 
@@ -1172,6 +1200,10 @@ class Accounts(BaseSDK):
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.TransactionResponse:
         r"""Get transaction
+
+        > 🔒 Restricted access
+        >
+        > This API is only available to Mollie partners with a signed agreement for Business Accounts. [Get in touch](https://www.mollie.com/contact) if you'd like to integrate with it.
 
         Retrieve a single transaction object by its transaction ID. This allows you to check the details,
         amount, counterparty, and balance impact of a specific transaction.

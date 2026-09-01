@@ -361,6 +361,11 @@ client = ClientSDK(
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/chargebackssdk/README.md#get) - Get payment chargeback
 * [all](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/chargebackssdk/README.md#all) - List all chargebacks
 
+### [CheckoutSessions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/checkoutsessions/README.md)
+
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/checkoutsessions/README.md#create) - Create Checkout Session
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/checkoutsessions/README.md#get) - Get Checkout Session
+
 ### [ClientLinks](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clientlinks/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/clientlinks/README.md#create) - Create client link
@@ -485,11 +490,6 @@ client = ClientSDK(
 * [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#get) - Get sales invoice
 * [update](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#update) - Update sales invoice
 * [delete](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#delete) - Delete sales invoice
-
-### [Sessions](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md)
-
-* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#create) - Create session
-* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/sessions/README.md#get) - Get session
 
 ### [Settlements](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/settlements/README.md)
 
