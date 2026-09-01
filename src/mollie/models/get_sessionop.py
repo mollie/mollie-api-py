@@ -12,7 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class GetSessionRequestTypedDict(TypedDict):
     session_id: str
-    r"""Provide the ID of the related session."""
+    r"""Provide the ID of the related Checkout Session."""
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
@@ -23,7 +23,7 @@ class GetSessionRequest(BaseModel):
         pydantic.Field(alias="sessionId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
-    r"""Provide the ID of the related session."""
+    r"""Provide the ID of the related Checkout Session."""
 
     idempotency_key: Annotated[
         Optional[str],

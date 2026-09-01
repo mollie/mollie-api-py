@@ -22,6 +22,7 @@ if TYPE_CHECKING:
     from mollie.capabilities import Capabilities
     from mollie.captures import Captures
     from mollie.chargebacks_sdk import ChargebacksSDK
+    from mollie.checkout_sessions import CheckoutSessions
     from mollie.client_links import ClientLinks
     from mollie.clients import Clients
     from mollie.customers import Customers
@@ -40,7 +41,6 @@ if TYPE_CHECKING:
     from mollie.profiles import Profiles
     from mollie.refunds_sdk import RefundsSDK
     from mollie.sales_invoices import SalesInvoices
-    from mollie.sessions import Sessions
     from mollie.settlements import Settlements
     from mollie.subscriptions import Subscriptions
     from mollie.terminals import Terminals
@@ -69,7 +69,7 @@ class ClientSDK(BaseSDK):
     balance_transfers: "BalanceTransfers"
     payments: "PaymentsSDK"
     unmatched_credit_transfers: "UnmatchedCreditTransfers"
-    sessions: "Sessions"
+    checkout_sessions: "CheckoutSessions"
     methods: "Methods"
     refunds: "RefundsSDK"
     chargebacks: "ChargebacksSDK"
@@ -107,7 +107,7 @@ class ClientSDK(BaseSDK):
             "mollie.unmatched_credit_transfers",
             "UnmatchedCreditTransfers",
         ),
-        "sessions": ("mollie.sessions", "Sessions"),
+        "checkout_sessions": ("mollie.checkout_sessions", "CheckoutSessions"),
         "methods": ("mollie.methods", "Methods"),
         "refunds": ("mollie.refunds_sdk", "RefundsSDK"),
         "chargebacks": ("mollie.chargebacks_sdk", "ChargebacksSDK"),

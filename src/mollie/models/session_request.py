@@ -18,7 +18,7 @@ class SessionRequestPaymentTypedDict(TypedDict):
     webhook_url: NotRequired[str]
     r"""The webhook URL where we will send payment status updates to.
 
-    This URL will be automatically set as the webhook URL for all payments created for this session.
+    This URL will be automatically set as the webhook URL for all payments created for this Checkout Session.
     """
 
 
@@ -26,7 +26,7 @@ class SessionRequestPayment(BaseModel):
     webhook_url: Annotated[Optional[str], pydantic.Field(alias="webhookUrl")] = None
     r"""The webhook URL where we will send payment status updates to.
 
-    This URL will be automatically set as the webhook URL for all payments created for this session.
+    This URL will be automatically set as the webhook URL for all payments created for this Checkout Session.
     """
 
     @model_serializer(mode="wrap")
@@ -50,15 +50,15 @@ class SessionRequestTypedDict(TypedDict):
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
     description: str
-    r"""A user-friendly description of the session that may be shown to the customer during the checkout process.
+    r"""A user-friendly description of the Checkout Session that may be shown to the customer during the checkout process.
 
-    Any payment created for the session will use the same description.
+    Any payment created for the Checkout Session will use the same description.
     """
     lines: List[SessionLineItemTypedDict]
-    r"""List of items the customer will pay for in this session. The sum of all line items must equal the
-    session's amount.
+    r"""List of items the customer will pay for in this Checkout Session. The sum of all line items must equal the
+    Checkout Session's amount.
 
-    All lines must have the same currency as the session.
+    All lines must have the same currency as the Checkout Session.
     """
     redirect_url: str
     r"""The URL your customer will be redirected to after the payment process.
@@ -72,7 +72,8 @@ class SessionRequestTypedDict(TypedDict):
     > This property is currently in private beta, and the final specification may still change.
 
     Declare which customer details should be collected during checkout. Mollie can collect these details for you
-    with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
+    with the Express Component and returns them on the Checkout Session's and payment's `billingAddress` and
+    `shippingAddress`.
     """
     billing_address: NotRequired[ShippingAddressTypedDict]
     shipping_address: NotRequired[ShippingAddressTypedDict]
@@ -82,7 +83,7 @@ class SessionRequestTypedDict(TypedDict):
     r"""Provide any data you like in a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
 
-    Any payment created for the session will use the same metadata.
+    Any payment created for the Checkout Session will use the same metadata.
     """
     payment: NotRequired[SessionRequestPaymentTypedDict]
     profile_id: NotRequired[str]
@@ -106,16 +107,16 @@ class SessionRequest(BaseModel):
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
     description: str
-    r"""A user-friendly description of the session that may be shown to the customer during the checkout process.
+    r"""A user-friendly description of the Checkout Session that may be shown to the customer during the checkout process.
 
-    Any payment created for the session will use the same description.
+    Any payment created for the Checkout Session will use the same description.
     """
 
     lines: List[SessionLineItem]
-    r"""List of items the customer will pay for in this session. The sum of all line items must equal the
-    session's amount.
+    r"""List of items the customer will pay for in this Checkout Session. The sum of all line items must equal the
+    Checkout Session's amount.
 
-    All lines must have the same currency as the session.
+    All lines must have the same currency as the Checkout Session.
     """
 
     redirect_url: Annotated[str, pydantic.Field(alias="redirectUrl")]
@@ -134,7 +135,8 @@ class SessionRequest(BaseModel):
     > This property is currently in private beta, and the final specification may still change.
 
     Declare which customer details should be collected during checkout. Mollie can collect these details for you
-    with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
+    with the Express Component and returns them on the Checkout Session's and payment's `billingAddress` and
+    `shippingAddress`.
     """
 
     billing_address: Annotated[
@@ -155,7 +157,7 @@ class SessionRequest(BaseModel):
     r"""Provide any data you like in a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
 
-    Any payment created for the session will use the same metadata.
+    Any payment created for the Checkout Session will use the same metadata.
     """
 
     payment: Optional[SessionRequestPayment] = None

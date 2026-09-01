@@ -24,7 +24,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class SessionResponseStatus(str, Enum, metaclass=utils.OpenEnumMeta):
-    r"""The session's status."""
+    r"""The Checkout Session's status."""
 
     OPEN = "open"
     COMPLETED = "completed"
@@ -35,7 +35,7 @@ class SessionResponsePaymentTypedDict(TypedDict):
     webhook_url: NotRequired[str]
     r"""The webhook URL where we will send payment status updates to.
 
-    This URL will be automatically set as the webhook URL for all payments created for this session.
+    This URL will be automatically set as the webhook URL for all payments created for this Checkout Session.
     """
 
 
@@ -43,7 +43,7 @@ class SessionResponsePayment(BaseModel):
     webhook_url: Annotated[Optional[str], pydantic.Field(alias="webhookUrl")] = None
     r"""The webhook URL where we will send payment status updates to.
 
-    This URL will be automatically set as the webhook URL for all payments created for this session.
+    This URL will be automatically set as the webhook URL for all payments created for this Checkout Session.
     """
 
     @model_serializer(mode="wrap")
@@ -81,26 +81,27 @@ class SessionResponseTypedDict(TypedDict):
     resource: str
     r"""The resource type of the object."""
     id: str
-    r"""The identifier uniquely referring to this session. Mollie assigns this identifier at session creation time. Mollie
-    will always refer to the session by this ID. Example: `sess_5B8cwPMGnU6qLbRvo7qEZo`.
+    r"""The identifier uniquely referring to this Checkout Session. Mollie assigns this identifier at Checkout
+    Session creation time. Mollie will always refer to the Checkout Session by this ID. Example:
+    `sess_5B8cwPMGnU6qLbRvo7qEZo`.
     """
     mode: Mode
     r"""Whether this entity was created in live mode or in test mode."""
     client_access_token: str
-    r"""The client access token for the session. Use the client access token to initialize Mollie Components."""
+    r"""The client access token for the Checkout Session. Use the client access token to initialize Mollie Components."""
     status: SessionResponseStatus
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
     description: str
-    r"""A user-friendly description of the session that may be shown to the customer during the checkout process.
+    r"""A user-friendly description of the Checkout Session that may be shown to the customer during the checkout process.
 
-    Any payment created for the session will use the same description.
+    Any payment created for the Checkout Session will use the same description.
     """
     lines: List[SessionLineItemResponseTypedDict]
-    r"""List of items the customer will pay for in this session. The sum of all line items must equal the
-    session's amount.
+    r"""List of items the customer will pay for in this Checkout Session. The sum of all line items must equal the
+    Checkout Session's amount.
 
-    All lines must have the same currency as the session.
+    All lines must have the same currency as the Checkout Session.
     """
     redirect_url: str
     r"""The URL your customer will be redirected to after the payment process.
@@ -125,7 +126,8 @@ class SessionResponseTypedDict(TypedDict):
     > This property is currently in private beta, and the final specification may still change.
 
     Declare which customer details should be collected during checkout. Mollie can collect these details for you
-    with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
+    with the Express Component and returns them on the Checkout Session's and payment's `billingAddress` and
+    `shippingAddress`.
     """
     billing_address: NotRequired[ShippingAddressTypedDict]
     shipping_address: NotRequired[ShippingAddressTypedDict]
@@ -135,16 +137,16 @@ class SessionResponseTypedDict(TypedDict):
     r"""Provide any data you like in a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
 
-    Any payment created for the session will use the same metadata.
+    Any payment created for the Checkout Session will use the same metadata.
     """
     payment: NotRequired[SessionResponsePaymentTypedDict]
     expired_at: NotRequired[Nullable[str]]
-    r"""The date and time the session expired, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    Omitted if the session has not expired.
+    r"""The date and time the Checkout Session expired, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    Omitted if the Checkout Session has not expired.
     """
     completed_at: NotRequired[Nullable[str]]
-    r"""The date and time the session was completed, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    Omitted if the session has not been completed.
+    r"""The date and time the Checkout Session was completed, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+    format. Omitted if the Checkout Session has not been completed.
     """
 
 
@@ -153,15 +155,16 @@ class SessionResponse(BaseModel):
     r"""The resource type of the object."""
 
     id: str
-    r"""The identifier uniquely referring to this session. Mollie assigns this identifier at session creation time. Mollie
-    will always refer to the session by this ID. Example: `sess_5B8cwPMGnU6qLbRvo7qEZo`.
+    r"""The identifier uniquely referring to this Checkout Session. Mollie assigns this identifier at Checkout
+    Session creation time. Mollie will always refer to the Checkout Session by this ID. Example:
+    `sess_5B8cwPMGnU6qLbRvo7qEZo`.
     """
 
     mode: Mode
     r"""Whether this entity was created in live mode or in test mode."""
 
     client_access_token: Annotated[str, pydantic.Field(alias="clientAccessToken")]
-    r"""The client access token for the session. Use the client access token to initialize Mollie Components."""
+    r"""The client access token for the Checkout Session. Use the client access token to initialize Mollie Components."""
 
     status: SessionResponseStatus
 
@@ -169,16 +172,16 @@ class SessionResponse(BaseModel):
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
     description: str
-    r"""A user-friendly description of the session that may be shown to the customer during the checkout process.
+    r"""A user-friendly description of the Checkout Session that may be shown to the customer during the checkout process.
 
-    Any payment created for the session will use the same description.
+    Any payment created for the Checkout Session will use the same description.
     """
 
     lines: List[SessionLineItemResponse]
-    r"""List of items the customer will pay for in this session. The sum of all line items must equal the
-    session's amount.
+    r"""List of items the customer will pay for in this Checkout Session. The sum of all line items must equal the
+    Checkout Session's amount.
 
-    All lines must have the same currency as the session.
+    All lines must have the same currency as the Checkout Session.
     """
 
     redirect_url: Annotated[str, pydantic.Field(alias="redirectUrl")]
@@ -211,7 +214,8 @@ class SessionResponse(BaseModel):
     > This property is currently in private beta, and the final specification may still change.
 
     Declare which customer details should be collected during checkout. Mollie can collect these details for you
-    with the Express Component and returns them on the session's and payment's `billingAddress` and `shippingAddress`.
+    with the Express Component and returns them on the Checkout Session's and payment's `billingAddress` and
+    `shippingAddress`.
     """
 
     billing_address: Annotated[
@@ -232,7 +236,7 @@ class SessionResponse(BaseModel):
     r"""Provide any data you like in a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
 
-    Any payment created for the session will use the same metadata.
+    Any payment created for the Checkout Session will use the same metadata.
     """
 
     payment: Optional[SessionResponsePayment] = None
@@ -240,15 +244,15 @@ class SessionResponse(BaseModel):
     expired_at: Annotated[OptionalNullable[str], pydantic.Field(alias="expiredAt")] = (
         UNSET
     )
-    r"""The date and time the session expired, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    Omitted if the session has not expired.
+    r"""The date and time the Checkout Session expired, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    Omitted if the Checkout Session has not expired.
     """
 
     completed_at: Annotated[
         OptionalNullable[str], pydantic.Field(alias="completedAt")
     ] = UNSET
-    r"""The date and time the session was completed, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-    Omitted if the session has not been completed.
+    r"""The date and time the Checkout Session was completed, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
+    format. Omitted if the Checkout Session has not been completed.
     """
 
     @field_serializer("mode")
