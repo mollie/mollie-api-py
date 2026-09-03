@@ -25,13 +25,13 @@ class BillingAddressTypedDict(TypedDict):
     r"""The given name (first name) of the person should be at least two characters and cannot contain only
     numbers.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
     family_name: NotRequired[str]
     r"""The given family name (surname) of the person should be at least two characters and cannot contain only
     numbers.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
     organization_name: NotRequired[Any]
     r"""The name of the organization, in case the addressee is an organization.
@@ -41,14 +41,14 @@ class BillingAddressTypedDict(TypedDict):
     street_and_number: NotRequired[str]
     r"""A street and street number.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
     street_additional: NotRequired[str]
     r"""Any additional addressing details, for example an apartment number."""
     postal_code: NotRequired[str]
     r"""A postal code. This field may be required if the provided country has a postal code system.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
     email: NotRequired[str]
     r"""A valid e-mail address.
@@ -56,7 +56,7 @@ class BillingAddressTypedDict(TypedDict):
     If you provide the email address for a `banktransfer` payment, we will automatically send the instructions
     email upon payment creation. The language of the email will follow the locale parameter of the payment.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
 
     If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
     """
@@ -65,14 +65,14 @@ class BillingAddressTypedDict(TypedDict):
     city: NotRequired[str]
     r"""A city name.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
     region: NotRequired[str]
     r"""The top-level administrative subdivision of the country. For example: Noord-Holland."""
     country: NotRequired[str]
     r"""A country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
 
 
@@ -93,14 +93,14 @@ class BillingAddress(BaseModel):
     r"""The given name (first name) of the person should be at least two characters and cannot contain only
     numbers.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
 
     family_name: Annotated[Optional[str], pydantic.Field(alias="familyName")] = None
     r"""The given family name (surname) of the person should be at least two characters and cannot contain only
     numbers.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
 
     organization_name: Annotated[
@@ -116,7 +116,7 @@ class BillingAddress(BaseModel):
     ] = None
     r"""A street and street number.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
 
     street_additional: Annotated[
@@ -127,7 +127,7 @@ class BillingAddress(BaseModel):
     postal_code: Annotated[Optional[str], pydantic.Field(alias="postalCode")] = None
     r"""A postal code. This field may be required if the provided country has a postal code system.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
 
     email: Optional[str] = None
@@ -136,7 +136,7 @@ class BillingAddress(BaseModel):
     If you provide the email address for a `banktransfer` payment, we will automatically send the instructions
     email upon payment creation. The language of the email will follow the locale parameter of the payment.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
 
     If the domain contains non-ASCII characters, encode it as Punycode per [RFC 3492](https://www.rfc-editor.org/rfc/rfc3492).
     """
@@ -147,7 +147,7 @@ class BillingAddress(BaseModel):
     city: Optional[str] = None
     r"""A city name.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
 
     region: Optional[str] = None
@@ -156,7 +156,7 @@ class BillingAddress(BaseModel):
     country: Optional[str] = None
     r"""A country code in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
 
-    Required for payment methods `billie`, `in3`, `klarna` and `riverty`.
+    Required for payment methods `alma`, `billie`, `in3`, `klarna` and `riverty`.
     """
 
     @model_serializer(mode="wrap")
