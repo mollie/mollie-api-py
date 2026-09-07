@@ -53,3 +53,4 @@ value = ListEntityMethodAllID.ALMA
 | `TWINT`        | twint          |
 | `VIPPS`        | vipps          |
 | `VOUCHER`      | voucher        |
+| `WERO`         | wero           |

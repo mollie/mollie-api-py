@@ -66,3 +66,4 @@ value = SettlementMethod.ALMA
 | `TWINT`                 | twint                   |
 | `VIPPS`                 | vipps                   |
 | `VOUCHER`               | voucher                 |
+| `WERO`                  | wero                    |

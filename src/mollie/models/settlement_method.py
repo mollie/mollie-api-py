@@ -60,3 +60,4 @@ class SettlementMethod(str, Enum):
     TWINT = "twint"
     VIPPS = "vipps"
     VOUCHER = "voucher"
+    WERO = "wero"

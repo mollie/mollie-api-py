@@ -42,3 +42,4 @@ value = PaymentLinkMethod.APPLEPAY
 | `TRUSTLY`      | trustly        |
 | `TWINT`        | twint          |
 | `VOUCHER`      | voucher        |
+| `WERO`         | wero           |

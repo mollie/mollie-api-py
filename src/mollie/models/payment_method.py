@@ -53,3 +53,4 @@ class PaymentMethod(str, Enum, metaclass=utils.OpenEnumMeta):
     TWINT = "twint"
     VIPPS = "vipps"
     VOUCHER = "voucher"
+    WERO = "wero"

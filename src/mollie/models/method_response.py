@@ -42,6 +42,7 @@ class MethodResponse(str, Enum, metaclass=utils.OpenEnumMeta):
     TWINT = "twint"
     VIPPS = "vipps"
     VOUCHER = "voucher"
+    WERO = "wero"
     # Deprecated, use 'klarna' instead
     KLARNAPAYLATER = "klarnapaylater"
     # Deprecated, use 'klarna' instead

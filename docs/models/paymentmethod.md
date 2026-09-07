@@ -61,3 +61,4 @@ value = PaymentMethod.ALMA
 | `TWINT`             | twint               |
 | `VIPPS`             | vipps               |
 | `VOUCHER`           | voucher             |
+| `WERO`              | wero                |
