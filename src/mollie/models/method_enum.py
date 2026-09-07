@@ -41,3 +41,4 @@ class MethodEnum(str, Enum):
     TWINT = "twint"
     VIPPS = "vipps"
     VOUCHER = "voucher"
+    WERO = "wero"

@@ -50,6 +50,7 @@ value = MethodResponse.ALMA
 | `TWINT`          | twint            |
 | `VIPPS`          | vipps            |
 | `VOUCHER`        | voucher          |
+| `WERO`           | wero             |
 | `KLARNAPAYLATER` | klarnapaylater   |
 | `KLARNAPAYNOW`   | klarnapaynow     |
 | `KLARNASLICEIT`  | klarnasliceit    |

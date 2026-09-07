@@ -53,6 +53,7 @@ class ListEntityMethodID(str, Enum, metaclass=utils.OpenEnumMeta):
     TWINT = "twint"
     VIPPS = "vipps"
     VOUCHER = "voucher"
+    WERO = "wero"
 
 
 class ListEntityMethodMinimumAmountTypedDict(TypedDict):

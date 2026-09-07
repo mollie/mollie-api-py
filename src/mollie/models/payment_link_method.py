@@ -35,3 +35,4 @@ class PaymentLinkMethod(str, Enum):
     TRUSTLY = "trustly"
     TWINT = "twint"
     VOUCHER = "voucher"
+    WERO = "wero"

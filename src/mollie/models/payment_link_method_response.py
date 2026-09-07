@@ -36,3 +36,4 @@ class PaymentLinkMethodResponse(str, Enum, metaclass=utils.OpenEnumMeta):
     TRUSTLY = "trustly"
     TWINT = "twint"
     VOUCHER = "voucher"
+    WERO = "wero"
