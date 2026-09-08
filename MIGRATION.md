@@ -139,7 +139,7 @@ client_sdk = ClientSDK(security=mollie.Security(o_auth="Bearer eyJ..."))
 
 ### Global defaults (`profile_id`, `testmode`)
 
-The old SDK only had `set_testmode(True)` (and it raised if you weren't using an access token or OAuth); there was no built-in concept of a global `profile_id`. The new SDK configures both once on the client:
+The old SDK only had `set_testmode(True)` (and it raised if you weren't using an access token or OAuth); there was no built-in concept of a global `profile_id`. The new SDK configures both once on the client. As before, `testmode` and `profile_id` (globally or per request) only work with an Advanced Access Token or OAuth — they are rejected when authenticating with a plain API key:
 
 ```
 -mollie_client = Client()
@@ -236,7 +236,7 @@ The new SDK drops the object-traversal step entirely: every nested operation liv
 | `mollie_client.customers.get(cid).mandates.revoke(mandate_id)`-style call | `client_sdk.mandates.revoke(customer_id=customer_id, mandate_id=mandate_id)` |
 | `customer.subscriptions.create(body)` | `client_sdk.subscriptions.create(customer_id=customer_id, subscription_request=...)` |
 | `payment.refunds.create(body)` | `client_sdk.refunds.create(payment_id=payment_id, refund_request=...)` |
-| `payment.chargebacks.list()` | `client_sdk.chargebacks_sdk.list(payment_id=payment_id)` |
+| `payment.chargebacks.list()` | `client_sdk.chargebacks.list(payment_id=payment_id)` |
 | `payment.captures.list()` | `client_sdk.captures.list(payment_id=payment_id)` |
 
 ---
@@ -305,13 +305,13 @@ The response object itself exposes a `next()` method that fetches the next page,
 res = client_sdk.payments.list(limit=50)
 
 while res is not None:
-    for payment in res.result:
+    for payment in res.result.embedded.payments:
         ...  # handle item
 
     res = res.next()
 ```
 
-An `async` equivalent is available via `list_async(...)` and `await res.next_async()`.
+An `async` equivalent is available via `list_async(...)`; the response's `next` is awaitable in that case — `await res.next()`.
 
 ---
 
@@ -454,7 +454,7 @@ Or set the `CLIENT_DEBUG` environment variable to enable a default debug logger.
 | --- | --- |
 | `payments` | `payments` |
 | `payment.refunds` (via parent object) | `refunds` (pass `payment_id`) |
-| `payment.chargebacks` (via parent object) | `chargebacks_sdk` (pass `payment_id`) |
+| `payment.chargebacks` (via parent object) | `chargebacks` (pass `payment_id`) |
 | `payment.captures` (via parent object) | `captures` (pass `payment_id`) |
 | `methods` | `methods` |
 | `customers` | `customers` |
@@ -485,11 +485,12 @@ Or set the `CLIENT_DEBUG` environment variable to enable a default debug logger.
 | `delayed_routing` | Delayed payment routing rules |
 | `payouts` | Payout management |
 | `sales_invoices` | Sales invoice management |
-| `sessions` | Payment sessions |
-| `transfers_sdk` | Transfer management |
+| `checkout_sessions` | Checkout sessions |
+| `transfers` | Transfer management |
 | `unmatched_credit_transfers` | Unmatched credit transfer handling |
 | `verify_payee` | Payee verification |
 | `webhooks` | Webhook management |
 | `webhook_events` | Webhook event retrieval |
+| `draft_transfers` | Draft transfer management |
 
 For a complete list of all resources and operations with usage examples, see the [Available Resources and Operations](https://github.com/mollie/mollie-api-py#available-resources-and-operations) section in the SDK's README.
