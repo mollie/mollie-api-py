@@ -438,7 +438,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 429             | application/hal+json |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## disable
@@ -537,7 +537,7 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 429             | application/hal+json |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |
 
 ## disable_issuer
@@ -584,5 +584,5 @@ with ClientSDK(
 
 | Error Type           | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
-| models.ErrorResponse | 404, 429             | application/hal+json |
+| models.ErrorResponse | 404, 422, 429        | application/hal+json |
 | models.APIError      | 4XX, 5XX             | \*/\*                |

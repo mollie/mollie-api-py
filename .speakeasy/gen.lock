@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 01b2c06ebf08384b41d6c8ab8abbf0a4
+  docChecksum: 4e022a1ea0c7e846a75d0e4005d1a651
   docVersion: 1.0.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 1.10.7
-  configChecksum: 30dbb99b69a3ef37d8038d724803a76a
+  releaseVersion: 1.10.8
+  configChecksum: 5d380973e136f2c35c4b043979dd15ca
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 4d76726b-6da3-4de7-89ad-c58c6751ba64
-  pristine_commit_hash: 1a7e5d5bacee70c3f2d3a83d8584d2e0ebf593ab
-  pristine_tree_hash: eb745bd81e4d5549998f09a0762d6f26909364e1
+  generation_id: b670e1a5-ecd1-4389-8e20-1f7e8cd2aa9c
+  pristine_commit_hash: d2cebfb0c8bf0db56e97ccde864364d1d87ef7fe
+  pristine_tree_hash: ff52e8669fac84f785ce6b2bb5bed6dfbea55972
 features:
   python:
     additionalDependencies: 1.1.0
@@ -3744,8 +3744,8 @@ trackedFiles:
     pristine_git_object: e0de04e96a682277cf00e362812d38f3ed9a0640
   docs/sdks/methods/README.md:
     id: 430c1db41d45
-    last_write_checksum: sha1:b85d1e8d9471e01d9650dfcec5d9f662f962fdd3
-    pristine_git_object: 9725a64be4347d7c9007f15e0c51fd6ca2bf3c13
+    last_write_checksum: sha1:e00dce5774a19acb6fd91c4aa6bb90d31bd5f7d8
+    pristine_git_object: 15fcafe03b6ede908ebcb32ede0f65e919ecb701
   docs/sdks/oauth/README.md:
     id: 80ad2c1a7b62
     last_write_checksum: sha1:bdbf749341cda5d4d958068c3eeb676dd01cdb15
@@ -3836,8 +3836,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:81431e53b8dadca5d646a36246aaaa1493232986
-    pristine_git_object: dd95113219b8629d2c8fc7db69d27f5f609d814a
+    last_write_checksum: sha1:dac6da158d084f5569e7672baca12103fd856096
+    pristine_git_object: 4285f34239c134339b55b33c7bd47e168dbdd590
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3864,8 +3864,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:db7e3e033c2c632b73e3117ddbb2c92d7d376c29
-    pristine_git_object: efcea01f6a9cb952bc3661f63a3015325b4b29d4
+    last_write_checksum: sha1:e0272b4e93db16690064568195e9eee7936bc5e3
+    pristine_git_object: c8472f168ab14cd9a70990cde98b8afdfce07192
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:70ed3253bd435df49837f5f7bdcdd379c1c811c4
@@ -3932,8 +3932,8 @@ trackedFiles:
     pristine_git_object: f11a788411a4b88caece694817aaad886bd6a6b8
   src/mollie/methods.py:
     id: 29a56c8fab24
-    last_write_checksum: sha1:cfdbe9c9405ca1c5a4bc8cbe68825649ea1bc908
-    pristine_git_object: d72af0e911456c3311d964b96265b296270d0a1e
+    last_write_checksum: sha1:732dd92abbed187ed7698bb3b3769995fc89648b
+    pristine_git_object: a5b4d7daaf6873fe6e3f0b4e55b9df2930c0b78b
   src/mollie/models/__init__.py:
     id: 6afa296e99ce
     last_write_checksum: sha1:cd8eccf39adf4c4b7c0894f064e32a656867feb6
@@ -9344,6 +9344,8 @@ examples:
       responses:
         "200":
           application/hal+json: {"resource": "method", "id": "ideal", "description": "iDEAL", "minimumAmount": {"currency": "EUR", "value": "0.01"}, "maximumAmount": {"currency": "EUR", "value": "50000.00"}, "image": {"size1x": "https://mollie.com/external/icons/payment-methods/ideal.png", "size2x": "https://mollie.com/external/icons/payment-methods/ideal%402x.png", "svg": "https://mollie.com/external/icons/payment-methods/ideal.svg"}, "status": "activated", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
+        "201":
+          application/hal+json: {"resource": "method", "id": "ideal", "description": "iDEAL", "minimumAmount": {"currency": "EUR", "value": "0.01"}, "maximumAmount": {"currency": "EUR", "value": "50000.00"}, "image": {"size1x": "https://mollie.com/external/icons/payment-methods/ideal.png", "size2x": "https://mollie.com/external/icons/payment-methods/ideal%402x.png", "svg": "https://mollie.com/external/icons/payment-methods/ideal.svg"}, "status": "activated", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
     enable-method-200-2:
       parameters:
         path:
@@ -9354,6 +9356,8 @@ examples:
       responses:
         "200":
           application/hal+json: {"resource": "method", "id": "creditcard", "description": "Credit card", "minimumAmount": {"currency": "EUR", "value": "0.01"}, "maximumAmount": {"currency": "EUR", "value": "500.00"}, "image": {"size1x": "https://www.mollie.com/external/icons/payment-methods/creditcard.png", "size2x": "https://www.mollie.com/external/icons/payment-methods/creditcard%402x.png", "svg": "https://www.mollie.com/external/icons/payment-methods/creditcard.svg"}, "status": "pending-review", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
+        "201":
+          application/hal+json: {"resource": "method", "id": "creditcard", "description": "Credit card", "minimumAmount": {"currency": "EUR", "value": "0.01"}, "maximumAmount": {"currency": "EUR", "value": "500.00"}, "image": {"size1x": "https://www.mollie.com/external/icons/payment-methods/creditcard.png", "size2x": "https://www.mollie.com/external/icons/payment-methods/creditcard%402x.png", "svg": "https://www.mollie.com/external/icons/payment-methods/creditcard.svg"}, "status": "pending-review", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
     enable-method-200-3:
       parameters:
         path:
@@ -9363,6 +9367,8 @@ examples:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       responses:
         "200":
+          application/hal+json: {"resource": "method", "id": "ideal", "description": "iDEAL", "minimumAmount": {"currency": "EUR", "value": "0.01"}, "maximumAmount": {"currency": "EUR", "value": "50000.00"}, "image": {"size1x": "https://www.mollie.com/external/icons/payment-methods/ideal.png", "size2x": "https://www.mollie.com/external/icons/payment-methods/ideal%402x.png", "svg": "https://www.mollie.com/external/icons/payment-methods/ideal.svg"}, "status": "pending-review", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
+        "201":
           application/hal+json: {"resource": "method", "id": "ideal", "description": "iDEAL", "minimumAmount": {"currency": "EUR", "value": "0.01"}, "maximumAmount": {"currency": "EUR", "value": "50000.00"}, "image": {"size1x": "https://www.mollie.com/external/icons/payment-methods/ideal.png", "size2x": "https://www.mollie.com/external/icons/payment-methods/ideal%402x.png", "svg": "https://www.mollie.com/external/icons/payment-methods/ideal.svg"}, "status": "pending-review", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
     speakeasy-default-enable-method:
       parameters:
@@ -9376,6 +9382,8 @@ examples:
           application/hal+json: {"resource": "method", "id": "ideal", "description": "iDeal", "minimumAmount": {"currency": "EUR", "value": "10.00"}, "maximumAmount": null, "image": {"size1x": "https://...", "size2x": "https://...", "svg": "https://..."}, "status": "activated", "issuers": [{"resource": "issuer", "id": "ideal_ABNANL2A", "name": "ING Bank", "image": {"size1x": "https://...", "size2x": "https://...", "svg": "https://..."}}], "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
         "404":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
+        "201":
+          application/hal+json: {"resource": "method", "id": "ideal", "description": "iDeal", "minimumAmount": {"currency": "EUR", "value": "10.00"}, "maximumAmount": null, "image": {"size1x": "https://...", "size2x": "https://...", "svg": "https://..."}, "status": "activated", "issuers": [{"resource": "issuer", "id": "ideal_ABNANL2A", "name": "ING Bank", "image": {"size1x": "https://...", "size2x": "https://...", "svg": "https://..."}}], "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
   disable-method:
     speakeasy-default-disable-method:
       parameters:
@@ -9401,6 +9409,8 @@ examples:
       responses:
         "200":
           application/hal+json: {"resource": "issuer", "id": "festivalcadeau", "description": "FestivalCadeau Giftcard", "status": "pending-issuer", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
+        "201":
+          application/hal+json: {"resource": "issuer", "id": "festivalcadeau", "description": "FestivalCadeau Giftcard", "status": "pending-issuer", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
     speakeasy-default-enable-method-issuer:
       parameters:
         path:
@@ -9416,6 +9426,8 @@ examples:
           application/hal+json: {"resource": "issuer", "id": "festivalcadeau", "description": "FestivalCadeau Giftcard", "status": "activated", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
         "404":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
+        "201":
+          application/hal+json: {"resource": "issuer", "id": "festivalcadeau", "description": "FestivalCadeau Giftcard", "status": "activated", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
   disable-method-issuer:
     speakeasy-default-disable-method-issuer:
       parameters:
@@ -9430,4 +9442,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.settlements.get_next()`:  `response.periods.Map<Map<periods>>.Map<periods>.costs[].method.enum(wero)` **Added** (Breaking ⚠️)\n* `client.settlements.list()`:  `response._embedded.settlements[].periods.Map<Map<periods>>.Map<periods>.costs[].method.enum(wero)` **Added** (Breaking ⚠️)\n* `client.settlements.get()`:  `response.periods.Map<Map<periods>>.Map<periods>.costs[].method.enum(wero)` **Added** (Breaking ⚠️)\n* `client.settlements.get_open()`:  `response.periods.Map<Map<periods>>.Map<periods>.costs[].method.enum(wero)` **Added** (Breaking ⚠️)\n* `client.methods.list()`:  `response._embedded.methods[].id.enum(wero)` **Added**\n* `client.settlements.list_payments()`:  `response._embedded.payments[].method.enum(wero)` **Added**\n* `client.webhook_events.get()`:  `response._embedded.entity` **Changed**\n* `client.payments.create()`: \n  *  `request.payment_request.method.union(method).enum(wero)` **Added**\n  *  `response.method.enum(wero)` **Added**\n* `client.payments.list()`:  `response._embedded.payments[].method.enum(wero)` **Added**\n* `client.payments.get()`:  `response.method.enum(wero)` **Added**\n* `client.payments.update()`: \n  *  `request_body.method.union(method).enum(wero)` **Added**\n  *  `response.method.enum(wero)` **Added**\n* `client.payments.cancel()`:  `response.method.enum(wero)` **Added**\n* `client.balances.get_report()`:  `response.totals.pending_balance.open.subtotals[].sub_totals[].method.enum(wero)` **Added**\n* `client.methods.all()`:  `response._embedded.methods[].id.enum(wero)` **Added**\n* `client.methods.get()`: \n  *  `request.method_id` **Changed**\n  *  `response.id.enum(wero)` **Added**\n* `client.methods.enable()`: \n  *  `request.method_id` **Changed**\n  *  `response.id.enum(wero)` **Added**\n* `client.methods.disable()`:  `request.method_id` **Changed**\n* `client.payment_links.create()`: \n  *  `request_body.allowed_methods[].enum(wero)` **Added**\n  *  `response.allowed_methods[].enum(wero)` **Added**\n* `client.payment_links.list()`:  `response._embedded.payment_links[].allowed_methods[].enum(wero)` **Added**\n* `client.payment_links.get()`:  `response.allowed_methods[].enum(wero)` **Added**\n* `client.payment_links.update()`: \n  *  `request_body.allowed_methods[].enum(wero)` **Added**\n  *  `response.allowed_methods[].enum(wero)` **Added**\n* `client.payment_links.list_payments()`:  `response._embedded.payments[].method.enum(wero)` **Added**\n* `client.customers.create_payment()`: \n  *  `request.payment_request.method.union(method).enum(wero)` **Added**\n  *  `response.method.enum(wero)` **Added**\n* `client.customers.list_payments()`:  `response._embedded.payments[].method.enum(wero)` **Added**\n* `client.subscriptions.list_payments()`:  `response._embedded.payments[].method.enum(wero)` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `client.methods.enable()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[422]` **Added**\n* `client.methods.enable_issuer()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.status[422]` **Added**\n* `client.methods.disable_issuer()`:  `error.status[422]` **Added**\n"

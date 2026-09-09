@@ -1209,9 +1209,11 @@ class Methods(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/hal+json"):
+        if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.EntityMethodGet, http_res)
-        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1343,9 +1345,11 @@ class Methods(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/hal+json"):
+        if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.EntityMethodGet, http_res)
-        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1749,9 +1753,11 @@ class Methods(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/hal+json"):
+        if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.EnableMethodIssuerResponse, http_res)
-        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -1899,9 +1905,11 @@ class Methods(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/hal+json"):
+        if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.EnableMethodIssuerResponse, http_res)
-        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2034,7 +2042,9 @@ class Methods(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "204", "*"):
             return
-        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -2167,7 +2177,9 @@ class Methods(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "204", "*"):
             return
-        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["404", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
