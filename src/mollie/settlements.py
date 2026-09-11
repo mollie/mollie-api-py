@@ -123,7 +123,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlements = await mollieClient.settlements.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlements = await mollieClient.settlements.iterate();",
                                 "language": "node",
                             },
                             {
@@ -306,7 +306,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlements = await mollieClient.settlements.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlements = await mollieClient.settlements.iterate();",
                                 "language": "node",
                             },
                             {
@@ -482,7 +482,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.get('stl_jDk30akdN');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.get('stl_jDk30akdN');",
                                 "language": "node",
                             },
                             {
@@ -618,7 +618,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.get('stl_jDk30akdN');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.get('stl_jDk30akdN');",
                                 "language": "node",
                             },
                             {
@@ -747,7 +747,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getOpen();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getOpen();",
                                 "language": "node",
                             },
                             {
@@ -876,7 +876,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getOpen();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getOpen();",
                                 "language": "node",
                             },
                             {
@@ -1004,7 +1004,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getNext();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getNext();",
                                 "language": "node",
                             },
                             {
@@ -1132,7 +1132,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getNext();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlements.getNext();",
                                 "language": "node",
                             },
                             {
@@ -1285,7 +1285,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementPayments.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementPayments.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
                                 "language": "node",
                             },
                             {
@@ -1472,7 +1472,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementPayments.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementPayments.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
                                 "language": "node",
                             },
                             {
@@ -1649,7 +1649,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementCaptures.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementCaptures.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
                                 "language": "node",
                             },
                             {
@@ -1824,7 +1824,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementCaptures.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementCaptures.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
                                 "language": "node",
                             },
                             {
@@ -2002,7 +2002,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementRefunds.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementRefunds.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
                                 "language": "node",
                             },
                             {
@@ -2177,7 +2177,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementRefunds.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementRefunds.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
                                 "language": "node",
                             },
                             {
@@ -2364,7 +2364,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementChargebacks.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementChargebacks.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
                                 "language": "node",
                             },
                             {
@@ -2549,7 +2549,7 @@ class Settlements(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementChargebacks.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.settlementChargebacks.iterate({\n  settlementId: 'stl_jDk30akdN'\n});",
                                 "language": "node",
                             },
                             {

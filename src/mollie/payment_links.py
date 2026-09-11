@@ -118,7 +118,7 @@ class PaymentLinks(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.create({\n  amount: {\n    currency: 'EUR',\n    value: '24.95'\n  },\n  description: 'Bicycle tires',\n  redirectUrl: 'https://webshop.example.org/thanks',\n  webhookUrl: 'https://webshop.example.org/payment-links/webhook/',\n  expiresAt: '2023-06-06T11:00:00+00:00',\n  reusable: false,\n  allowedMethods: ['ideal'],\n  sequenceType: 'first',\n  customerId: 'cst_vsKJpSsabw'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.create({\n  amount: {\n    currency: 'EUR',\n    value: '24.95'\n  },\n  description: 'Bicycle tires',\n  redirectUrl: 'https://webshop.example.org/thanks',\n  webhookUrl: 'https://webshop.example.org/payment-links/webhook/',\n  expiresAt: '2023-06-06T11:00:00+00:00',\n  reusable: false,\n  allowedMethods: ['ideal'],\n  sequenceType: 'first',\n  customerId: 'cst_vsKJpSsabw'\n});",
                                 "language": "node",
                             },
                             {
@@ -258,7 +258,7 @@ class PaymentLinks(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.create({\n  amount: {\n    currency: 'EUR',\n    value: '24.95'\n  },\n  description: 'Bicycle tires',\n  redirectUrl: 'https://webshop.example.org/thanks',\n  webhookUrl: 'https://webshop.example.org/payment-links/webhook/',\n  expiresAt: '2023-06-06T11:00:00+00:00',\n  reusable: false,\n  allowedMethods: ['ideal'],\n  sequenceType: 'first',\n  customerId: 'cst_vsKJpSsabw'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.create({\n  amount: {\n    currency: 'EUR',\n    value: '24.95'\n  },\n  description: 'Bicycle tires',\n  redirectUrl: 'https://webshop.example.org/thanks',\n  webhookUrl: 'https://webshop.example.org/payment-links/webhook/',\n  expiresAt: '2023-06-06T11:00:00+00:00',\n  reusable: false,\n  allowedMethods: ['ideal'],\n  sequenceType: 'first',\n  customerId: 'cst_vsKJpSsabw'\n});",
                                 "language": "node",
                             },
                             {
@@ -400,7 +400,7 @@ class PaymentLinks(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLinks = await mollieClient.paymentLinks.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLinks = await mollieClient.paymentLinks.iterate();",
                                 "language": "node",
                             },
                             {
@@ -572,7 +572,7 @@ class PaymentLinks(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLinks = await mollieClient.paymentLinks.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLinks = await mollieClient.paymentLinks.iterate();",
                                 "language": "node",
                             },
                             {
@@ -739,7 +739,7 @@ class PaymentLinks(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.get('pl_4Y0eZitmBnQ6IDoMqZQKh');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.get('pl_4Y0eZitmBnQ6IDoMqZQKh');",
                                 "language": "node",
                             },
                             {
@@ -871,7 +871,7 @@ class PaymentLinks(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.get('pl_4Y0eZitmBnQ6IDoMqZQKh');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst paymentLink = await mollieClient.paymentLinks.get('pl_4Y0eZitmBnQ6IDoMqZQKh');",
                                 "language": "node",
                             },
                             {

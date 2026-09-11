@@ -137,7 +137,7 @@ class VerifyPayee(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst verification = await mollieClient.businessAccountPayeeVerifications.create({\n  creditorBankAccount: {\n    accountHolderName: 'Jan Jansen',\n    format: 'iban',\n    accountNumber: 'NL02ABNA0123456789'\n  }\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst verification = await mollieClient.businessAccountPayeeVerifications.create({\n  creditorBankAccount: {\n    accountHolderName: 'Jan Jansen',\n    format: 'iban',\n    accountNumber: 'NL02ABNA0123456789'\n  }\n});",
                                 "language": "node",
                             },
                             {
@@ -301,7 +301,7 @@ class VerifyPayee(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst verification = await mollieClient.businessAccountPayeeVerifications.create({\n  creditorBankAccount: {\n    accountHolderName: 'Jan Jansen',\n    format: 'iban',\n    accountNumber: 'NL02ABNA0123456789'\n  }\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst verification = await mollieClient.businessAccountPayeeVerifications.create({\n  creditorBankAccount: {\n    accountHolderName: 'Jan Jansen',\n    format: 'iban',\n    accountNumber: 'NL02ABNA0123456789'\n  }\n});",
                                 "language": "node",
                             },
                             {

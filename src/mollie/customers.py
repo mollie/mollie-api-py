@@ -116,7 +116,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.create({\n  name: 'John Doe',\n  email: 'customer@example.org'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.create({\n  name: 'John Doe',\n  email: 'customer@example.org'\n});",
                                 "language": "node",
                             },
                             {
@@ -255,7 +255,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.create({\n  name: 'John Doe',\n  email: 'customer@example.org'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.create({\n  name: 'John Doe',\n  email: 'customer@example.org'\n});",
                                 "language": "node",
                             },
                             {
@@ -402,7 +402,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customers = mollieClient.customers.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customers = mollieClient.customers.iterate();",
                                 "language": "node",
                             },
                             {
@@ -584,7 +584,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customers = mollieClient.customers.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customers = mollieClient.customers.iterate();",
                                 "language": "node",
                             },
                             {
@@ -757,7 +757,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.get('cst_8wmqcHMN4U');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.get('cst_8wmqcHMN4U');",
                                 "language": "node",
                             },
                             {
@@ -892,7 +892,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.get('cst_8wmqcHMN4U');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.get('cst_8wmqcHMN4U');",
                                 "language": "node",
                             },
                             {
@@ -1036,7 +1036,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.update('cst_8wmqcHMN4U', {\n  name: 'Jane Doe',\n  email: 'jane@example.org'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.update('cst_8wmqcHMN4U', {\n  name: 'Jane Doe',\n  email: 'jane@example.org'\n});",
                                 "language": "node",
                             },
                             {
@@ -1180,7 +1180,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.update('cst_8wmqcHMN4U', {\n  name: 'Jane Doe',\n  email: 'jane@example.org'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.update('cst_8wmqcHMN4U', {\n  name: 'Jane Doe',\n  email: 'jane@example.org'\n});",
                                 "language": "node",
                             },
                             {
@@ -1322,7 +1322,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.delete('cst_8wmqcHMN4U');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.delete('cst_8wmqcHMN4U');",
                                 "language": "node",
                             },
                             {
@@ -1464,7 +1464,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.delete('cst_8wmqcHMN4U');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst customer = await mollieClient.customers.delete('cst_8wmqcHMN4U');",
                                 "language": "node",
                             },
                             {
@@ -1613,7 +1613,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.customerPayments.create({\n  customerId: 'cst_8wmqcHMN4U',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  webhookUrl: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.customerPayments.create({\n  customerId: 'cst_8wmqcHMN4U',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  webhookUrl: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n});",
                                 "language": "node",
                             },
                             {
@@ -1765,7 +1765,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.customerPayments.create({\n  customerId: 'cst_8wmqcHMN4U',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  webhookUrl: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.customerPayments.create({\n  customerId: 'cst_8wmqcHMN4U',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  redirectUrl: 'https://webshop.example.org/order/12345/',\n  webhookUrl: 'https://webshop.example.org/payments/webhook/',\n  metadata: {\n    order_id: '12345'\n  }\n});",
                                 "language": "node",
                             },
                             {
@@ -1924,7 +1924,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payments = mollieClient.customerPayments.iterate({ customerId: 'cst_8wmqcHMN4U' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payments = mollieClient.customerPayments.iterate({ customerId: 'cst_8wmqcHMN4U' });",
                                 "language": "node",
                             },
                             {
@@ -2115,7 +2115,7 @@ class Customers(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payments = mollieClient.customerPayments.iterate({ customerId: 'cst_8wmqcHMN4U' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payments = mollieClient.customerPayments.iterate({ customerId: 'cst_8wmqcHMN4U' });",
                                 "language": "node",
                             },
                             {

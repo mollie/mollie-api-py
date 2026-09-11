@@ -126,7 +126,7 @@ class ChargebacksSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.paymentChargebacks.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.paymentChargebacks.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
                                 "language": "node",
                             },
                             {
@@ -311,7 +311,7 @@ class ChargebacksSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.paymentChargebacks.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.paymentChargebacks.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
                                 "language": "node",
                             },
                             {
@@ -491,7 +491,7 @@ class ChargebacksSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargeback = await mollieClient.paymentChargebacks.get('chb_xFzwUN4ci8HAmSGUACS4J', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargeback = await mollieClient.paymentChargebacks.get('chb_xFzwUN4ci8HAmSGUACS4J', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
                                 "language": "node",
                             },
                             {
@@ -632,7 +632,7 @@ class ChargebacksSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargeback = await mollieClient.paymentChargebacks.get('chb_xFzwUN4ci8HAmSGUACS4J', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargeback = await mollieClient.paymentChargebacks.get('chb_xFzwUN4ci8HAmSGUACS4J', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
                                 "language": "node",
                             },
                             {
@@ -794,7 +794,7 @@ class ChargebacksSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.chargebacks.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.chargebacks.iterate();",
                                 "language": "node",
                             },
                             {
@@ -993,7 +993,7 @@ class ChargebacksSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.chargebacks.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst chargebacks = mollieClient.chargebacks.iterate();",
                                 "language": "node",
                             },
                             {

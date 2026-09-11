@@ -128,7 +128,7 @@ class Accounts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst accounts = await mollieClient.businessAccounts.list();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst accounts = await mollieClient.businessAccounts.list();",
                                 "language": "node",
                             },
                             {
@@ -312,7 +312,7 @@ class Accounts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst accounts = await mollieClient.businessAccounts.list();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst accounts = await mollieClient.businessAccounts.list();",
                                 "language": "node",
                             },
                             {
@@ -488,7 +488,7 @@ class Accounts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst account = await mollieClient.businessAccounts.get('ba_nopqrstuvwxyz23456789A');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst account = await mollieClient.businessAccounts.get('ba_nopqrstuvwxyz23456789A');",
                                 "language": "node",
                             },
                             {
@@ -628,7 +628,7 @@ class Accounts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst account = await mollieClient.businessAccounts.get('ba_nopqrstuvwxyz23456789A');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst account = await mollieClient.businessAccounts.get('ba_nopqrstuvwxyz23456789A');",
                                 "language": "node",
                             },
                             {
@@ -782,7 +782,7 @@ class Accounts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transactions = await mollieClient.businessAccountTransactions.list({\n  businessAccountId: 'ba_nopqrstuvwxyz23456789A'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transactions = await mollieClient.businessAccountTransactions.list({\n  businessAccountId: 'ba_nopqrstuvwxyz23456789A'\n});",
                                 "language": "node",
                             },
                             {
@@ -970,7 +970,7 @@ class Accounts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transactions = await mollieClient.businessAccountTransactions.list({\n  businessAccountId: 'ba_nopqrstuvwxyz23456789A'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transactions = await mollieClient.businessAccountTransactions.list({\n  businessAccountId: 'ba_nopqrstuvwxyz23456789A'\n});",
                                 "language": "node",
                             },
                             {
@@ -1152,7 +1152,7 @@ class Accounts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transaction = await mollieClient.businessAccountTransactions.get(\n  'batr_jzQPWFaiDhzpkBcAeKEZH',\n  { businessAccountId: 'ba_nopqrstuvwxyz23456789A' }\n);",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transaction = await mollieClient.businessAccountTransactions.get(\n  'batr_jzQPWFaiDhzpkBcAeKEZH',\n  { businessAccountId: 'ba_nopqrstuvwxyz23456789A' }\n);",
                                 "language": "node",
                             },
                             {
@@ -1295,7 +1295,7 @@ class Accounts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transaction = await mollieClient.businessAccountTransactions.get(\n  'batr_jzQPWFaiDhzpkBcAeKEZH',\n  { businessAccountId: 'ba_nopqrstuvwxyz23456789A' }\n);",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transaction = await mollieClient.businessAccountTransactions.get(\n  'batr_jzQPWFaiDhzpkBcAeKEZH',\n  { businessAccountId: 'ba_nopqrstuvwxyz23456789A' }\n);",
                                 "language": "node",
                             },
                             {

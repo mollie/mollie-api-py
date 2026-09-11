@@ -142,7 +142,7 @@ class Payouts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.create({\n  balanceId: 'bal_gVMhHKqSSRYJyPsuoPNFH',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'My payout description'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.create({\n  balanceId: 'bal_gVMhHKqSSRYJyPsuoPNFH',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'My payout description'\n});",
                                 "language": "node",
                             },
                             {
@@ -307,7 +307,7 @@ class Payouts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.create({\n  balanceId: 'bal_gVMhHKqSSRYJyPsuoPNFH',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'My payout description'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.create({\n  balanceId: 'bal_gVMhHKqSSRYJyPsuoPNFH',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'My payout description'\n});",
                                 "language": "node",
                             },
                             {
@@ -462,7 +462,7 @@ class Payouts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payouts = await mollieClient.payouts.page();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payouts = await mollieClient.payouts.page();",
                                 "language": "node",
                             },
                             {
@@ -651,7 +651,7 @@ class Payouts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payouts = await mollieClient.payouts.page();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payouts = await mollieClient.payouts.page();",
                                 "language": "node",
                             },
                             {
@@ -823,7 +823,7 @@ class Payouts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.get('payout_j8NvRAM2WNZtsykpLEX8J');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.get('payout_j8NvRAM2WNZtsykpLEX8J');",
                                 "language": "node",
                             },
                             {
@@ -958,7 +958,7 @@ class Payouts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.get('payout_j8NvRAM2WNZtsykpLEX8J');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.get('payout_j8NvRAM2WNZtsykpLEX8J');",
                                 "language": "node",
                             },
                             {
@@ -1096,7 +1096,7 @@ class Payouts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.cancel('payout_j8NvRAM2WNZtsykpLEX8J');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.cancel('payout_j8NvRAM2WNZtsykpLEX8J');",
                                 "language": "node",
                             },
                             {
@@ -1236,7 +1236,7 @@ class Payouts(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.cancel('payout_j8NvRAM2WNZtsykpLEX8J');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payout = await mollieClient.payouts.cancel('payout_j8NvRAM2WNZtsykpLEX8J');",
                                 "language": "node",
                             },
                             {

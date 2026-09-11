@@ -178,7 +178,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
                                 "language": "node",
                             },
                             {
@@ -380,7 +380,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
                                 "language": "node",
                             },
                             {
@@ -878,7 +878,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
                                 "language": "node",
                             },
                             {
@@ -1052,7 +1052,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\n// Methods for the Payments API\nlet methods = await mollieClient.methods.list();\n\n// Methods for the Orders API\nmethods = await mollieClient.methods.list({ resource: 'orders' });",
                                 "language": "node",
                             },
                             {
@@ -1191,7 +1191,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.enable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.enable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
                                 "language": "node",
                             },
                             {
@@ -1327,7 +1327,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.enable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.enable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
                                 "language": "node",
                             },
                             {
@@ -1457,7 +1457,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.disable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.disable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
                                 "language": "node",
                             },
                             {
@@ -1585,7 +1585,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.disable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst method = await mollieClient.methods.disable({\n  id: 'ideal',\n  profileId: 'pfl_QkEhN94Ba'\n});",
                                 "language": "node",
                             },
                             {
@@ -1735,7 +1735,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.enable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.enable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
                                 "language": "node",
                             },
                             {
@@ -1887,7 +1887,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.enable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.enable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
                                 "language": "node",
                             },
                             {
@@ -2022,7 +2022,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.disable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.disable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
                                 "language": "node",
                             },
                             {
@@ -2157,7 +2157,7 @@ class Methods(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.disable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst payment = await mollieClient.profileGiftcardIssuers.disable({\n  id: 'festivalcadeau',\n  profileId: 'pfl_QkEhN94Ba'\n});\n\n// For vouchers, use `MollieClient.profileVoucherIssuers`",
                                 "language": "node",
                             },
                             {

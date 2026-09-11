@@ -116,7 +116,7 @@ class CheckoutSessions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.create({\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  lines: [\n    {\n      description: 'T-shirt',\n      quantity: 1,\n      unitPrice: {\n        currency: 'EUR',\n        value: '10.00'\n      },\n      totalAmount: {\n        currency: 'EUR',\n        value: '10.00'\n      }\n    }\n  ],\n  redirectUrl: 'https://webshop.example.org/order/12345/'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.create({\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  lines: [\n    {\n      description: 'T-shirt',\n      quantity: 1,\n      unitPrice: {\n        currency: 'EUR',\n        value: '10.00'\n      },\n      totalAmount: {\n        currency: 'EUR',\n        value: '10.00'\n      }\n    }\n  ],\n  redirectUrl: 'https://webshop.example.org/order/12345/'\n});",
                                 "language": "node",
                             },
                             {
@@ -253,7 +253,7 @@ class CheckoutSessions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.create({\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  lines: [\n    {\n      description: 'T-shirt',\n      quantity: 1,\n      unitPrice: {\n        currency: 'EUR',\n        value: '10.00'\n      },\n      totalAmount: {\n        currency: 'EUR',\n        value: '10.00'\n      }\n    }\n  ],\n  redirectUrl: 'https://webshop.example.org/order/12345/'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.create({\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  description: 'Order #12345',\n  lines: [\n    {\n      description: 'T-shirt',\n      quantity: 1,\n      unitPrice: {\n        currency: 'EUR',\n        value: '10.00'\n      },\n      totalAmount: {\n        currency: 'EUR',\n        value: '10.00'\n      }\n    }\n  ],\n  redirectUrl: 'https://webshop.example.org/order/12345/'\n});",
                                 "language": "node",
                             },
                             {
@@ -379,7 +379,7 @@ class CheckoutSessions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.get('sess_CQBQJqxubaq4w6oresxMJ');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.get('sess_CQBQJqxubaq4w6oresxMJ');",
                                 "language": "node",
                             },
                             {"code": "No example available.", "language": "python"},
@@ -502,7 +502,7 @@ class CheckoutSessions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.get('sess_CQBQJqxubaq4w6oresxMJ');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst session = await mollieClient.sessions.get('sess_CQBQJqxubaq4w6oresxMJ');",
                                 "language": "node",
                             },
                             {"code": "No example available.", "language": "python"},

@@ -117,7 +117,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refund = await mollieClient.paymentRefunds.create({\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo',\n  amount: {\n    currency: 'EUR',\n    value: '5.95'\n  },\n  metadata: {\n    bookkeeping_id: 12345\n  }\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refund = await mollieClient.paymentRefunds.create({\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo',\n  amount: {\n    currency: 'EUR',\n    value: '5.95'\n  },\n  metadata: {\n    bookkeeping_id: 12345\n  }\n});",
                                 "language": "node",
                             },
                             {
@@ -259,7 +259,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refund = await mollieClient.paymentRefunds.create({\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo',\n  amount: {\n    currency: 'EUR',\n    value: '5.95'\n  },\n  metadata: {\n    bookkeeping_id: 12345\n  }\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refund = await mollieClient.paymentRefunds.create({\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo',\n  amount: {\n    currency: 'EUR',\n    value: '5.95'\n  },\n  metadata: {\n    bookkeeping_id: 12345\n  }\n});",
                                 "language": "node",
                             },
                             {
@@ -411,7 +411,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refunds = mollieClient.paymentRefunds.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refunds = mollieClient.paymentRefunds.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
                                 "language": "node",
                             },
                             {
@@ -597,7 +597,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refunds = mollieClient.paymentRefunds.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refunds = mollieClient.paymentRefunds.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
                                 "language": "node",
                             },
                             {
@@ -778,7 +778,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refund = await mollieClient.paymentRefunds.get('re_4qqhO89gsT', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refund = await mollieClient.paymentRefunds.get('re_4qqhO89gsT', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
                                 "language": "node",
                             },
                             {
@@ -920,7 +920,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refund = await mollieClient.paymentRefunds.get('re_4qqhO89gsT', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refund = await mollieClient.paymentRefunds.get('re_4qqhO89gsT', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
                                 "language": "node",
                             },
                             {
@@ -1062,7 +1062,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.paymentRefunds.cancel('re_4qqhO89gsT', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.paymentRefunds.cancel('re_4qqhO89gsT', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
                                 "language": "node",
                             },
                             {
@@ -1204,7 +1204,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.paymentRefunds.cancel('re_4qqhO89gsT', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.paymentRefunds.cancel('re_4qqhO89gsT', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
                                 "language": "node",
                             },
                             {
@@ -1363,7 +1363,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refunds = mollieClient.refunds.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refunds = mollieClient.refunds.iterate();",
                                 "language": "node",
                             },
                             {
@@ -1557,7 +1557,7 @@ class RefundsSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refunds = mollieClient.refunds.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst refunds = mollieClient.refunds.iterate();",
                                 "language": "node",
                             },
                             {

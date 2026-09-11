@@ -110,7 +110,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.create({\n  name: 'My website name',\n  website: 'https://shop.example.org',\n  email: 'info@example.org',\n  phone: '+31208202070',\n  businessCategory: 'OTHER_MERCHANDISE',\n  mode: 'live'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.create({\n  name: 'My website name',\n  website: 'https://shop.example.org',\n  email: 'info@example.org',\n  phone: '+31208202070',\n  businessCategory: 'OTHER_MERCHANDISE',\n  mode: 'live'\n});",
                                 "language": "node",
                             },
                             {
@@ -245,7 +245,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.create({\n  name: 'My website name',\n  website: 'https://shop.example.org',\n  email: 'info@example.org',\n  phone: '+31208202070',\n  businessCategory: 'OTHER_MERCHANDISE',\n  mode: 'live'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.create({\n  name: 'My website name',\n  website: 'https://shop.example.org',\n  email: 'info@example.org',\n  phone: '+31208202070',\n  businessCategory: 'OTHER_MERCHANDISE',\n  mode: 'live'\n});",
                                 "language": "node",
                             },
                             {
@@ -380,7 +380,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profiles = await mollieClient.profiles.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profiles = await mollieClient.profiles.iterate();",
                                 "language": "node",
                             },
                             {
@@ -544,7 +544,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profiles = await mollieClient.profiles.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profiles = await mollieClient.profiles.iterate();",
                                 "language": "node",
                             },
                             {
@@ -711,7 +711,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.get('pfl_QkEhN94Ba');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.get('pfl_QkEhN94Ba');",
                                 "language": "node",
                             },
                             {
@@ -846,7 +846,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.get('pfl_QkEhN94Ba');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.get('pfl_QkEhN94Ba');",
                                 "language": "node",
                             },
                             {
@@ -990,7 +990,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nawait mollieClient.profiles.update('pfl_QkEhN94Ba', {\n  name: 'My updated website name',\n  website: 'https://updated.example.org'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nawait mollieClient.profiles.update('pfl_QkEhN94Ba', {\n  name: 'My updated website name',\n  website: 'https://updated.example.org'\n});",
                                 "language": "node",
                             },
                             {
@@ -1134,7 +1134,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nawait mollieClient.profiles.update('pfl_QkEhN94Ba', {\n  name: 'My updated website name',\n  website: 'https://updated.example.org'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nawait mollieClient.profiles.update('pfl_QkEhN94Ba', {\n  name: 'My updated website name',\n  website: 'https://updated.example.org'\n});",
                                 "language": "node",
                             },
                             {
@@ -1261,7 +1261,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.delete('pfl_QkEhN94Ba');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.delete('pfl_QkEhN94Ba');",
                                 "language": "node",
                             },
                             {
@@ -1388,7 +1388,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.delete('pfl_QkEhN94Ba');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst profile = await mollieClient.profiles.delete('pfl_QkEhN94Ba');",
                                 "language": "node",
                             },
                             {
@@ -1516,7 +1516,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst profile = await mollieClient.profiles.getCurrent();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst profile = await mollieClient.profiles.getCurrent();",
                                 "language": "node",
                             },
                             {
@@ -1642,7 +1642,7 @@ class Profiles(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst profile = await mollieClient.profiles.getCurrent();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst profile = await mollieClient.profiles.getCurrent();",
                                 "language": "node",
                             },
                             {
