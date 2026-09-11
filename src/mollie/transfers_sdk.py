@@ -151,7 +151,7 @@ class TransfersSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.create({\n  transferScheme: {\n    type: 'sepa-credit-inst'\n  },\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  debtorIban: 'NL55MLLE0123456789',\n  creditor: {\n    fullName: 'Jan Jansen',\n    account: {\n      iban: 'NL02ABNA0123456789'\n    }\n  },\n  description: 'Invoice 12345',\n  metadata: {\n    order_id: '12345',\n    customer_reference: 'cust_001'\n  }\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.create({\n  transferScheme: {\n    type: 'sepa-credit-inst'\n  },\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  debtorIban: 'NL55MLLE0123456789',\n  creditor: {\n    fullName: 'Jan Jansen',\n    account: {\n      iban: 'NL02ABNA0123456789'\n    }\n  },\n  description: 'Invoice 12345',\n  metadata: {\n    order_id: '12345',\n    customer_reference: 'cust_001'\n  }\n});",
                                 "language": "node",
                             },
                             {
@@ -329,7 +329,7 @@ class TransfersSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.create({\n  transferScheme: {\n    type: 'sepa-credit-inst'\n  },\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  debtorIban: 'NL55MLLE0123456789',\n  creditor: {\n    fullName: 'Jan Jansen',\n    account: {\n      iban: 'NL02ABNA0123456789'\n    }\n  },\n  description: 'Invoice 12345',\n  metadata: {\n    order_id: '12345',\n    customer_reference: 'cust_001'\n  }\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.create({\n  transferScheme: {\n    type: 'sepa-credit-inst'\n  },\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  debtorIban: 'NL55MLLE0123456789',\n  creditor: {\n    fullName: 'Jan Jansen',\n    account: {\n      iban: 'NL02ABNA0123456789'\n    }\n  },\n  description: 'Invoice 12345',\n  metadata: {\n    order_id: '12345',\n    customer_reference: 'cust_001'\n  }\n});",
                                 "language": "node",
                             },
                             {
@@ -472,7 +472,7 @@ class TransfersSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.get('batrf_87GByBuj4UCcUTEbs6aGJ');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.get('batrf_87GByBuj4UCcUTEbs6aGJ');",
                                 "language": "node",
                             },
                             {
@@ -612,7 +612,7 @@ class TransfersSDK(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.get('batrf_87GByBuj4UCcUTEbs6aGJ');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst transfer = await mollieClient.businessAccountTransfers.get('batrf_87GByBuj4UCcUTEbs6aGJ');",
                                 "language": "node",
                             },
                             {

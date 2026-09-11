@@ -411,7 +411,7 @@ class Captures(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst captures = mollieClient.paymentCaptures.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst captures = mollieClient.paymentCaptures.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
                                 "language": "node",
                             },
                             {
@@ -597,7 +597,7 @@ class Captures(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst captures = mollieClient.paymentCaptures.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst captures = mollieClient.paymentCaptures.iterate({ paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo' });",
                                 "language": "node",
                             },
                             {
@@ -779,7 +779,7 @@ class Captures(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst capture = await mollieClient.paymentCaptures.get('cpt_vytxeTZskVKR7C7WgdSP3d', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst capture = await mollieClient.paymentCaptures.get('cpt_vytxeTZskVKR7C7WgdSP3d', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
                                 "language": "node",
                             },
                             {
@@ -922,7 +922,7 @@ class Captures(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst capture = await mollieClient.paymentCaptures.get('cpt_vytxeTZskVKR7C7WgdSP3d', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst capture = await mollieClient.paymentCaptures.get('cpt_vytxeTZskVKR7C7WgdSP3d', {\n  paymentId: 'tr_5B8cwPMGnU6qLbRvo7qEZo'\n});",
                                 "language": "node",
                             },
                             {

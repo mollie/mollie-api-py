@@ -115,12 +115,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -257,12 +257,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -406,12 +406,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -585,12 +585,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -759,12 +759,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -898,12 +898,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "# We don't have a Node.js code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "# We don't have a Python code example for this\n# API call yet.\n#\n# If you have some time to spare, feel free to\n# share suggestions on our Discord:\n# https://discord.gg/VaTVkXB4aQ",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -1046,12 +1046,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "/*\nWe don't have a Node.js code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n*/",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "'''\nWe don't have a Python code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n'''",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -1196,12 +1196,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "/*\nWe don't have a Node.js code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n*/",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "'''\nWe don't have a Python code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n'''",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -1345,12 +1345,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "/*\nWe don't have a Node.js code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n*/",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "'''\nWe don't have a Python code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n'''",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {
@@ -1494,12 +1494,12 @@ class SalesInvoices(BaseSDK):
                             },
                             {
                                 "code": "/*\nWe don't have a Node.js code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n*/",
-                                "install": "npm install @mollie/api-client",
+                                "install": "npm install mollie-api-typescript",
                                 "language": "node",
                             },
                             {
                                 "code": "'''\nWe don't have a Python code example for this\nAPI call yet.\n\nIf you have some time to spare, feel free to\nshare suggestions on our Discord:\nhttps://discord.gg/VaTVkXB4aQ\n'''",
-                                "install": "pip install mollie-api-python",
+                                "install": "pip install mollie-api-py",
                                 "language": "python",
                             },
                             {

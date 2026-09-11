@@ -120,7 +120,7 @@ class Mandates(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.create({\n  customerId: 'cst_4qqhO89gsT',\n  method: 'directdebit',\n  consumerName: 'John Doe',\n  consumerAccount: 'NL55INGB0000000000',\n  consumerBic: 'INGBNL2A',\n  signatureDate: '2023-05-07',\n  mandateReference: 'EXAMPLE-CORP-MD13804'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.create({\n  customerId: 'cst_4qqhO89gsT',\n  method: 'directdebit',\n  consumerName: 'John Doe',\n  consumerAccount: 'NL55INGB0000000000',\n  consumerBic: 'INGBNL2A',\n  signatureDate: '2023-05-07',\n  mandateReference: 'EXAMPLE-CORP-MD13804'\n});",
                                 "language": "node",
                             },
                             {
@@ -263,7 +263,7 @@ class Mandates(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.create({\n  customerId: 'cst_4qqhO89gsT',\n  method: 'directdebit',\n  consumerName: 'John Doe',\n  consumerAccount: 'NL55INGB0000000000',\n  consumerBic: 'INGBNL2A',\n  signatureDate: '2023-05-07',\n  mandateReference: 'EXAMPLE-CORP-MD13804'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.create({\n  customerId: 'cst_4qqhO89gsT',\n  method: 'directdebit',\n  consumerName: 'John Doe',\n  consumerAccount: 'NL55INGB0000000000',\n  consumerBic: 'INGBNL2A',\n  signatureDate: '2023-05-07',\n  mandateReference: 'EXAMPLE-CORP-MD13804'\n});",
                                 "language": "node",
                             },
                             {
@@ -416,7 +416,7 @@ class Mandates(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandates = mollieClient.customerMandates.iterate({ customerId: 'cst_4qqhO89gsT' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandates = mollieClient.customerMandates.iterate({ customerId: 'cst_4qqhO89gsT' });",
                                 "language": "node",
                             },
                             {
@@ -606,7 +606,7 @@ class Mandates(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandates = mollieClient.customerMandates.iterate({ customerId: 'cst_4qqhO89gsT' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandates = mollieClient.customerMandates.iterate({ customerId: 'cst_4qqhO89gsT' });",
                                 "language": "node",
                             },
                             {
@@ -785,7 +785,7 @@ class Mandates(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.get('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.get('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
                                 "language": "node",
                             },
                             {
@@ -924,7 +924,7 @@ class Mandates(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.get('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst mandate = await mollieClient.customerMandates.get('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
                                 "language": "node",
                             },
                             {
@@ -1070,7 +1070,7 @@ class Mandates(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.customerMandates.revoke('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.customerMandates.revoke('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
                                 "language": "node",
                             },
                             {
@@ -1216,7 +1216,7 @@ class Mandates(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.customerMandates.revoke('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nawait mollieClient.customerMandates.revoke('mdt_h3gAaD5zP', {\n  customerId: 'cst_4qqhO89gsT'\n});",
                                 "language": "node",
                             },
                             {

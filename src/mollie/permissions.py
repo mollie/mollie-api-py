@@ -100,7 +100,7 @@ class Permissions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permissions = await mollieClient.permissions.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permissions = await mollieClient.permissions.iterate();",
                                 "language": "node",
                             },
                             {
@@ -224,7 +224,7 @@ class Permissions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permissions = await mollieClient.permissions.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permissions = await mollieClient.permissions.iterate();",
                                 "language": "node",
                             },
                             {
@@ -357,7 +357,7 @@ class Permissions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permission = await mollieClient.permissions.get('payments.read');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permission = await mollieClient.permissions.get('payments.read');",
                                 "language": "node",
                             },
                             {
@@ -490,7 +490,7 @@ class Permissions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permission = await mollieClient.permissions.get('payments.read');",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst permission = await mollieClient.permissions.get('payments.read');",
                                 "language": "node",
                             },
                             {

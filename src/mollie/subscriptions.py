@@ -134,7 +134,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.create({\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '25.00'\n  },\n  times: 4,\n  interval: '3 months',\n  startDate: '2023-06-01',\n  description: 'Quarterly payment',\n  webhookUrl: 'https://webshop.example.org/subscriptions/webhook/'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.create({\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '25.00'\n  },\n  times: 4,\n  interval: '3 months',\n  startDate: '2023-06-01',\n  description: 'Quarterly payment',\n  webhookUrl: 'https://webshop.example.org/subscriptions/webhook/'\n});",
                                 "language": "node",
                             },
                             {
@@ -291,7 +291,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.create({\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '25.00'\n  },\n  times: 4,\n  interval: '3 months',\n  startDate: '2023-06-01',\n  description: 'Quarterly payment',\n  webhookUrl: 'https://webshop.example.org/subscriptions/webhook/'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.create({\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '25.00'\n  },\n  times: 4,\n  interval: '3 months',\n  startDate: '2023-06-01',\n  description: 'Quarterly payment',\n  webhookUrl: 'https://webshop.example.org/subscriptions/webhook/'\n});",
                                 "language": "node",
                             },
                             {
@@ -441,7 +441,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = await mollieClient.customerSubscriptions.all({ customerId: 'cst_stTC2WHAuS' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = await mollieClient.customerSubscriptions.all({ customerId: 'cst_stTC2WHAuS' });",
                                 "language": "node",
                             },
                             {
@@ -627,7 +627,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = await mollieClient.customerSubscriptions.all({ customerId: 'cst_stTC2WHAuS' });",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = await mollieClient.customerSubscriptions.all({ customerId: 'cst_stTC2WHAuS' });",
                                 "language": "node",
                             },
                             {
@@ -804,7 +804,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.get('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.get('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS'\n});",
                                 "language": "node",
                             },
                             {
@@ -942,7 +942,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.get('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.get('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS'\n});",
                                 "language": "node",
                             },
                             {
@@ -1091,7 +1091,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.update('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  times: 10\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.update('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  times: 10\n});",
                                 "language": "node",
                             },
                             {
@@ -1240,7 +1240,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.update('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  times: 10\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = await mollieClient.customerSubscriptions.update('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n  amount: {\n    currency: 'EUR',\n    value: '10.00'\n  },\n  times: 10\n});",
                                 "language": "node",
                             },
                             {
@@ -1385,7 +1385,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = mollieClient.customerSubscriptions.delete('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = mollieClient.customerSubscriptions.delete('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n});",
                                 "language": "node",
                             },
                             {
@@ -1530,7 +1530,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = mollieClient.customerSubscriptions.delete('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscription = mollieClient.customerSubscriptions.delete('sub_rVKGtNd6s3', {\n  customerId: 'cst_stTC2WHAuS',\n});",
                                 "language": "node",
                             },
                             {
@@ -1682,7 +1682,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = mollieClient.subscriptions.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = mollieClient.subscriptions.iterate();",
                                 "language": "node",
                             },
                             {
@@ -1869,7 +1869,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = mollieClient.subscriptions.iterate();",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'live_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst subscriptions = mollieClient.subscriptions.iterate();",
                                 "language": "node",
                             },
                             {
@@ -2068,7 +2068,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.subscriptionPayments.iterate({\n  customerId: 'cst_stTC2WHAuS',\n  subscriptionId: 'sub_8JfGzs6v3K'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.subscriptionPayments.iterate({\n  customerId: 'cst_stTC2WHAuS',\n  subscriptionId: 'sub_8JfGzs6v3K'\n});",
                                 "language": "node",
                             },
                             {
@@ -2262,7 +2262,7 @@ class Subscriptions(BaseSDK):
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('@mollie/api-client');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.subscriptionPayments.iterate({\n  customerId: 'cst_stTC2WHAuS',\n  subscriptionId: 'sub_8JfGzs6v3K'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_Wwvu7egPcJLLJ9Kb7J632x8wJ2zMeJ' });\n\nconst settlement = await mollieClient.subscriptionPayments.iterate({\n  customerId: 'cst_stTC2WHAuS',\n  subscriptionId: 'sub_8JfGzs6v3K'\n});",
                                 "language": "node",
                             },
                             {
