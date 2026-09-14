@@ -39,15 +39,17 @@ class DraftTransfers(BaseSDK):
 
         ### Test mode
 
-        Creating a draft transfer always returns a synthetic draft in `pending-review`, using synthetic data,
+        Creating a draft transfer always returns a synthetic draft in `pending-review` status, using synthetic data,
         same as in live mode. No real funds move and nothing is sent to Mollie Apps.
 
-        Shortly after, you can simulate the initiator's decision by adjusting the transfer amount:
+        Editing a draft transfer after creation is not supported via the API. Instead, depending on the amount, you
+        can simulate different outcomes for the initiator's decision at creation time:
 
         | Amount  | Simulated outcome                                    | Webhook sequence                                                                                  |
         |---------|-------------------------------------------------------|----------------------------------------------------------------------------------------------------|
         | `13.00` | Declined by the initiator, with a free-text reason     | `business-account-draft-transfer.created` → `business-account-draft-transfer.declined`             |
-        | Other   | Approved by the initiator                              | `business-account-draft-transfer.created` → `business-account-draft-transfer.approved`              |
+        | `14.00` | Approved                                               | `business-account-draft-transfer.created` → `business-account-draft-transfer.approved`             |
+        | Other   | Default behavior (pending review)                      | `business-account-draft-transfer.created`                                                          |
 
         The webhooks fire asynchronously, with a short delay between them to mimic real timing. [Get](get-draft-transfer)
         and [list](list-draft-transfers) reflect the simulated outcome once it lands.
@@ -133,7 +135,7 @@ class DraftTransfers(BaseSDK):
                     "x-readme": {
                         "code-samples": [
                             {
-                                "code": 'curl -X POST https://api.mollie.com/v2/business-accounts/draft-transfers \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n          "creditor": {\n            "fullName": "Jan Jansen",\n            "account": { "iban": "NL02ABNA0123456789" }\n          },\n          "amount": { "currency": "EUR", "value": "100.00" },\n          "description": "Invoice 12345",\n          "scheduledExecutionDate": "2025-03-01"\n        }\'',
+                                "code": 'curl -X POST https://api.mollie.com/v2/business-accounts/draft-transfers \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n          "debtorIban": "NL55MLLE0123456789",\n          "creditor": {\n            "fullName": "Jan Jansen",\n            "account": { "iban": "NL02ABNA0123456789" }\n          },\n          "amount": { "currency": "EUR", "value": "100.00" },\n          "description": "Invoice 12345",\n          "scheduledExecutionDate": "2025-03-01"\n        }\'',
                                 "language": "shell",
                             },
                             {"code": "No example available.", "language": "php"},
@@ -152,7 +154,9 @@ class DraftTransfers(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.DraftTransferResponse, http_res)
-        if utils.match_response(http_res, ["422", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["400", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -191,15 +195,17 @@ class DraftTransfers(BaseSDK):
 
         ### Test mode
 
-        Creating a draft transfer always returns a synthetic draft in `pending-review`, using synthetic data,
+        Creating a draft transfer always returns a synthetic draft in `pending-review` status, using synthetic data,
         same as in live mode. No real funds move and nothing is sent to Mollie Apps.
 
-        Shortly after, you can simulate the initiator's decision by adjusting the transfer amount:
+        Editing a draft transfer after creation is not supported via the API. Instead, depending on the amount, you
+        can simulate different outcomes for the initiator's decision at creation time:
 
         | Amount  | Simulated outcome                                    | Webhook sequence                                                                                  |
         |---------|-------------------------------------------------------|----------------------------------------------------------------------------------------------------|
         | `13.00` | Declined by the initiator, with a free-text reason     | `business-account-draft-transfer.created` → `business-account-draft-transfer.declined`             |
-        | Other   | Approved by the initiator                              | `business-account-draft-transfer.created` → `business-account-draft-transfer.approved`              |
+        | `14.00` | Approved                                               | `business-account-draft-transfer.created` → `business-account-draft-transfer.approved`             |
+        | Other   | Default behavior (pending review)                      | `business-account-draft-transfer.created`                                                          |
 
         The webhooks fire asynchronously, with a short delay between them to mimic real timing. [Get](get-draft-transfer)
         and [list](list-draft-transfers) reflect the simulated outcome once it lands.
@@ -285,7 +291,7 @@ class DraftTransfers(BaseSDK):
                     "x-readme": {
                         "code-samples": [
                             {
-                                "code": 'curl -X POST https://api.mollie.com/v2/business-accounts/draft-transfers \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n          "creditor": {\n            "fullName": "Jan Jansen",\n            "account": { "iban": "NL02ABNA0123456789" }\n          },\n          "amount": { "currency": "EUR", "value": "100.00" },\n          "description": "Invoice 12345",\n          "scheduledExecutionDate": "2025-03-01"\n        }\'',
+                                "code": 'curl -X POST https://api.mollie.com/v2/business-accounts/draft-transfers \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n          "debtorIban": "NL55MLLE0123456789",\n          "creditor": {\n            "fullName": "Jan Jansen",\n            "account": { "iban": "NL02ABNA0123456789" }\n          },\n          "amount": { "currency": "EUR", "value": "100.00" },\n          "description": "Invoice 12345",\n          "scheduledExecutionDate": "2025-03-01"\n        }\'',
                                 "language": "shell",
                             },
                             {"code": "No example available.", "language": "php"},
@@ -304,7 +310,9 @@ class DraftTransfers(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/hal+json"):
             return unmarshal_json_response(models.DraftTransferResponse, http_res)
-        if utils.match_response(http_res, ["422", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["400", "422", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -340,8 +348,7 @@ class DraftTransfers(BaseSDK):
 
         The results are paginated.
 
-        In test mode, this returns synthetic draft transfers only, not your real data. See [Create draft
-        transfer](create-draft-transfer) for how to simulate `approved` and `declined` outcomes.
+        In test mode, this returns synthetic draft transfers only, not your real data.
 
         If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
@@ -514,8 +521,7 @@ class DraftTransfers(BaseSDK):
 
         The results are paginated.
 
-        In test mode, this returns synthetic draft transfers only, not your real data. See [Create draft
-        transfer](create-draft-transfer) for how to simulate `approved` and `declined` outcomes.
+        In test mode, this returns synthetic draft transfers only, not your real data.
 
         If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 

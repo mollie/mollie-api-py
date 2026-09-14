@@ -8,11 +8,12 @@ from datetime import date
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
-from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class CreateDraftTransferRequestTypedDict(TypedDict):
+    debtor_iban: str
+    r"""The IBAN of the debtor's (sender) Mollie Business Account."""
     creditor: DraftTransferPartyTypedDict
     r"""A party involved in the draft transfer, representing either the debtor (sender) or creditor
     (recipient). Contains the party's name and account details.
@@ -22,10 +23,6 @@ class CreateDraftTransferRequestTypedDict(TypedDict):
     description: Nullable[str]
     r"""A short description of the draft transfer. Once approved, this will appear on the bank statement of both
     the debtor and creditor.
-    """
-    debtor_iban: NotRequired[str]
-    r"""The IBAN of the debtor's (sender) Mollie Business Account. Defaults to your organization's primary account
-    if omitted.
     """
     scheduled_execution_date: NotRequired[Nullable[date]]
     r"""The date on which the resulting transfer will be executed, once approved. Defaults to same-day if omitted,
@@ -41,6 +38,9 @@ class CreateDraftTransferRequestTypedDict(TypedDict):
 
 
 class CreateDraftTransferRequest(BaseModel):
+    debtor_iban: Annotated[str, pydantic.Field(alias="debtorIban")]
+    r"""The IBAN of the debtor's (sender) Mollie Business Account."""
+
     creditor: DraftTransferParty
     r"""A party involved in the draft transfer, representing either the debtor (sender) or creditor
     (recipient). Contains the party's name and account details.
@@ -52,11 +52,6 @@ class CreateDraftTransferRequest(BaseModel):
     description: Nullable[str]
     r"""A short description of the draft transfer. Once approved, this will appear on the bank statement of both
     the debtor and creditor.
-    """
-
-    debtor_iban: Annotated[Optional[str], pydantic.Field(alias="debtorIban")] = None
-    r"""The IBAN of the debtor's (sender) Mollie Business Account. Defaults to your organization's primary account
-    if omitted.
     """
 
     scheduled_execution_date: Annotated[
@@ -76,7 +71,7 @@ class CreateDraftTransferRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["debtorIban", "scheduledExecutionDate", "testmode"])
+        optional_fields = set(["scheduledExecutionDate", "testmode"])
         nullable_fields = set(["description", "scheduledExecutionDate", "testmode"])
         serialized = handler(self)
         m = {}

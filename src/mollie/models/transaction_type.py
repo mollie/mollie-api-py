@@ -22,3 +22,4 @@ class TransactionType(str, Enum, metaclass=utils.OpenEnumMeta):
     CORRECTION = "correction"
     DIRECT_DEBIT = "direct-debit"
     DIRECT_DEBIT_REFUND = "direct-debit-refund"
+    REWARDS_PAYOUT = "rewards-payout"

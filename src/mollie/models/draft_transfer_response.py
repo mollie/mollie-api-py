@@ -91,44 +91,11 @@ class DraftTransferResponseSelf(BaseModel):
         return m
 
 
-class DraftTransferResponseDocumentationTypedDict(TypedDict):
-    r"""The URL to the documentation of this endpoint."""
-
-    href: NotRequired[str]
-    type: NotRequired[str]
-
-
-class DraftTransferResponseDocumentation(BaseModel):
-    r"""The URL to the documentation of this endpoint."""
-
-    href: Optional[str] = None
-
-    type: Optional[str] = None
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["href", "type"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
-
-
 class DraftTransferResponseLinksTypedDict(TypedDict):
     r"""Links to related resources."""
 
     self_: DraftTransferResponseSelfTypedDict
     r"""The URL to this draft transfer."""
-    documentation: NotRequired[DraftTransferResponseDocumentationTypedDict]
-    r"""The URL to the documentation of this endpoint."""
 
 
 class DraftTransferResponseLinks(BaseModel):
@@ -136,25 +103,6 @@ class DraftTransferResponseLinks(BaseModel):
 
     self_: Annotated[DraftTransferResponseSelf, pydantic.Field(alias="self")]
     r"""The URL to this draft transfer."""
-
-    documentation: Optional[DraftTransferResponseDocumentation] = None
-    r"""The URL to the documentation of this endpoint."""
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["documentation"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
 
 
 class DraftTransferResponseTypedDict(TypedDict):

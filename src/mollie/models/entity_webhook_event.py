@@ -3,6 +3,10 @@
 
 from __future__ import annotations
 from .capture_response import CaptureResponse, CaptureResponseTypedDict
+from .draft_transfer_response import (
+    DraftTransferResponse,
+    DraftTransferResponseTypedDict,
+)
 from .entity_chargeback import EntityChargeback, EntityChargebackTypedDict
 from .entity_payout_response import EntityPayoutResponse, EntityPayoutResponseTypedDict
 from .payment_link_response import PaymentLinkResponse, PaymentLinkResponseTypedDict
@@ -63,6 +67,13 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
     BUSINESS_ACCOUNT_TRANSFER_FAILED = "business-account-transfer.failed"
     BUSINESS_ACCOUNT_TRANSFER_BLOCKED = "business-account-transfer.blocked"
     BUSINESS_ACCOUNT_TRANSFER_RETURNED = "business-account-transfer.returned"
+    BUSINESS_ACCOUNT_DRAFT_TRANSFER_CREATED = "business-account-draft-transfer.created"
+    BUSINESS_ACCOUNT_DRAFT_TRANSFER_APPROVED = (
+        "business-account-draft-transfer.approved"
+    )
+    BUSINESS_ACCOUNT_DRAFT_TRANSFER_DECLINED = (
+        "business-account-draft-transfer.declined"
+    )
     WILDCARD_ = "*"
 
 
@@ -74,6 +85,7 @@ EntityTypedDict = TypeAliasType(
         RefundResponseTypedDict,
         EntityPayoutResponseTypedDict,
         TransferResponseTypedDict,
+        DraftTransferResponseTypedDict,
         PaymentLinkResponseTypedDict,
         SalesInvoiceResponseTypedDict,
         PaymentResponseTypedDict,
@@ -89,6 +101,7 @@ Entity = TypeAliasType(
         RefundResponse,
         EntityPayoutResponse,
         TransferResponse,
+        DraftTransferResponse,
         PaymentLinkResponse,
         SalesInvoiceResponse,
         PaymentResponse,

@@ -2,6 +2,7 @@
 # @generated-id: 83fe34bf1ba6
 
 from .basesdk import BaseSDK
+from datetime import datetime
 from jsonpath import JSONPath
 from mollie import models, utils
 from mollie._hooks import HookContext
@@ -15,6 +16,7 @@ class Accounts(BaseSDK):
     def list_accounts(
         self,
         *,
+        iban: Optional[str] = None,
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
@@ -38,6 +40,7 @@ class Accounts(BaseSDK):
 
         If set, this operation will use `o_auth` from the global security.
 
+        :param iban: Filter the results by IBAN. Only the business account with an exact match is returned.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -65,6 +68,7 @@ class Accounts(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListBusinessAccountsRequest(
+            iban=iban,
             from_=from_,
             limit=limit,
             sort=sort,
@@ -164,6 +168,7 @@ class Accounts(BaseSDK):
                 next_url = url + next_url
 
             return self.list_accounts(
+                iban=iban,
                 from_=from_,
                 limit=limit,
                 sort=sort,
@@ -199,6 +204,7 @@ class Accounts(BaseSDK):
     async def list_accounts_async(
         self,
         *,
+        iban: Optional[str] = None,
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
@@ -222,6 +228,7 @@ class Accounts(BaseSDK):
 
         If set, this operation will use `o_auth` from the global security.
 
+        :param iban: Filter the results by IBAN. Only the business account with an exact match is returned.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
@@ -249,6 +256,7 @@ class Accounts(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListBusinessAccountsRequest(
+            iban=iban,
             from_=from_,
             limit=limit,
             sort=sort,
@@ -351,6 +359,7 @@ class Accounts(BaseSDK):
                 next_url = url + next_url
 
             return self.list_accounts_async(
+                iban=iban,
                 from_=from_,
                 limit=limit,
                 sort=sort,
@@ -667,6 +676,9 @@ class Accounts(BaseSDK):
         self,
         *,
         business_account_id: str,
+        credit_debit_indicator: Optional[models.CreditDebitIndicator] = None,
+        processed_after: Optional[datetime] = None,
+        processed_before: Optional[datetime] = None,
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
@@ -691,8 +703,19 @@ class Accounts(BaseSDK):
         If set, this operation will use `o_auth` from the global security.
 
         :param business_account_id: Provide the ID of the related business account.
+        :param credit_debit_indicator: Filter the transactions by whether they credited or debited the account balance.
+        :param processed_after: Filter the transactions to only include those processed on or after this date and time. Filters on the
+            `processedAt` property.
+
+            Cannot be combined with `from`.
+        :param processed_before: Filter the transactions to only include those processed on or before this date and time. Filters on the
+            `processedAt` property.
+
+            Cannot be combined with `from`.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
+
+            Cannot be combined with `processedAfter` or `processedBefore`.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param sort: Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from
             newest to oldest.
@@ -719,6 +742,9 @@ class Accounts(BaseSDK):
 
         request = models.ListBusinessAccountTransactionsRequest(
             business_account_id=business_account_id,
+            credit_debit_indicator=credit_debit_indicator,
+            processed_after=processed_after,
+            processed_before=processed_before,
             from_=from_,
             limit=limit,
             sort=sort,
@@ -819,6 +845,9 @@ class Accounts(BaseSDK):
 
             return self.list(
                 business_account_id=business_account_id,
+                credit_debit_indicator=credit_debit_indicator,
+                processed_after=processed_after,
+                processed_before=processed_before,
                 from_=from_,
                 limit=limit,
                 sort=sort,
@@ -855,6 +884,9 @@ class Accounts(BaseSDK):
         self,
         *,
         business_account_id: str,
+        credit_debit_indicator: Optional[models.CreditDebitIndicator] = None,
+        processed_after: Optional[datetime] = None,
+        processed_before: Optional[datetime] = None,
         from_: Optional[str] = None,
         limit: OptionalNullable[int] = UNSET,
         sort: Optional[models.Sorting] = None,
@@ -879,8 +911,19 @@ class Accounts(BaseSDK):
         If set, this operation will use `o_auth` from the global security.
 
         :param business_account_id: Provide the ID of the related business account.
+        :param credit_debit_indicator: Filter the transactions by whether they credited or debited the account balance.
+        :param processed_after: Filter the transactions to only include those processed on or after this date and time. Filters on the
+            `processedAt` property.
+
+            Cannot be combined with `from`.
+        :param processed_before: Filter the transactions to only include those processed on or before this date and time. Filters on the
+            `processedAt` property.
+
+            Cannot be combined with `from`.
         :param from_: Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
             the result set.
+
+            Cannot be combined with `processedAfter` or `processedBefore`.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param sort: Used for setting the direction of the result set. Defaults to descending order, meaning the results are ordered from
             newest to oldest.
@@ -907,6 +950,9 @@ class Accounts(BaseSDK):
 
         request = models.ListBusinessAccountTransactionsRequest(
             business_account_id=business_account_id,
+            credit_debit_indicator=credit_debit_indicator,
+            processed_after=processed_after,
+            processed_before=processed_before,
             from_=from_,
             limit=limit,
             sort=sort,
@@ -1012,6 +1058,9 @@ class Accounts(BaseSDK):
 
             return self.list_async(
                 business_account_id=business_account_id,
+                credit_debit_indicator=credit_debit_indicator,
+                processed_after=processed_after,
+                processed_before=processed_before,
                 from_=from_,
                 limit=limit,
                 sort=sort,

@@ -29,3 +29,4 @@ value = TransactionType.CARD_PAYMENT
 | `CORRECTION`          | correction            |
 | `DIRECT_DEBIT`        | direct-debit          |
 | `DIRECT_DEBIT_REFUND` | direct-debit-refund   |
+| `REWARDS_PAYOUT`      | rewards-payout        |

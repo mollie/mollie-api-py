@@ -2,11 +2,11 @@
 # @generated-id: a696d0e26742
 
 from __future__ import annotations
-from .draft_transfer_status import DraftTransferStatus
-from .list_draft_transfer_response import (
-    ListDraftTransferResponse,
-    ListDraftTransferResponseTypedDict,
+from .draft_transfer_response import (
+    DraftTransferResponse,
+    DraftTransferResponseTypedDict,
 )
+from .draft_transfer_status import DraftTransferStatus
 from .list_links import ListLinks, ListLinksTypedDict
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
@@ -144,12 +144,12 @@ class ListDraftTransfersRequest(BaseModel):
 
 
 class ListDraftTransfersEmbeddedTypedDict(TypedDict):
-    draft_transfers: List[ListDraftTransferResponseTypedDict]
+    draft_transfers: List[DraftTransferResponseTypedDict]
     r"""An array of draft transfer objects."""
 
 
 class ListDraftTransfersEmbedded(BaseModel):
-    draft_transfers: List[ListDraftTransferResponse]
+    draft_transfers: List[DraftTransferResponse]
     r"""An array of draft transfer objects."""
 
 
