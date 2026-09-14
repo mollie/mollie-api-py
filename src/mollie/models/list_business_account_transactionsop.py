@@ -2,8 +2,11 @@
 # @generated-id: 1421097ebb17
 
 from __future__ import annotations
+from .credit_debit_indicator import CreditDebitIndicator
 from .sorting import Sorting
 from .transaction_response import TransactionResponse, TransactionResponseTypedDict
+from datetime import datetime
+from mollie import models
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from mollie.utils import (
     FieldMetadata,
@@ -12,7 +15,7 @@ from mollie.utils import (
     QueryParamMetadata,
 )
 import pydantic
-from pydantic import model_serializer
+from pydantic import field_serializer, model_serializer
 from typing import Awaitable, Callable, List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -59,9 +62,25 @@ class ListBusinessAccountTransactionsGlobals(BaseModel):
 class ListBusinessAccountTransactionsRequestTypedDict(TypedDict):
     business_account_id: str
     r"""Provide the ID of the related business account."""
+    credit_debit_indicator: NotRequired[CreditDebitIndicator]
+    r"""Filter the transactions by whether they credited or debited the account balance."""
+    processed_after: NotRequired[datetime]
+    r"""Filter the transactions to only include those processed on or after this date and time. Filters on the
+    `processedAt` property.
+
+    Cannot be combined with `from`.
+    """
+    processed_before: NotRequired[datetime]
+    r"""Filter the transactions to only include those processed on or before this date and time. Filters on the
+    `processedAt` property.
+
+    Cannot be combined with `from`.
+    """
     from_: NotRequired[str]
     r"""Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
     the result set.
+
+    Cannot be combined with `processedAfter` or `processedBefore`.
     """
     limit: NotRequired[Nullable[int]]
     r"""The maximum number of items to return. Defaults to 50 items."""
@@ -88,6 +107,35 @@ class ListBusinessAccountTransactionsRequest(BaseModel):
     ]
     r"""Provide the ID of the related business account."""
 
+    credit_debit_indicator: Annotated[
+        Optional[CreditDebitIndicator],
+        pydantic.Field(alias="creditDebitIndicator"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""Filter the transactions by whether they credited or debited the account balance."""
+
+    processed_after: Annotated[
+        Optional[datetime],
+        pydantic.Field(alias="processedAfter"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""Filter the transactions to only include those processed on or after this date and time. Filters on the
+    `processedAt` property.
+
+    Cannot be combined with `from`.
+    """
+
+    processed_before: Annotated[
+        Optional[datetime],
+        pydantic.Field(alias="processedBefore"),
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""Filter the transactions to only include those processed on or before this date and time. Filters on the
+    `processedAt` property.
+
+    Cannot be combined with `from`.
+    """
+
     from_: Annotated[
         Optional[str],
         pydantic.Field(alias="from"),
@@ -95,6 +143,8 @@ class ListBusinessAccountTransactionsRequest(BaseModel):
     ] = None
     r"""Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
     the result set.
+
+    Cannot be combined with `processedAfter` or `processedBefore`.
     """
 
     limit: Annotated[
@@ -129,9 +179,29 @@ class ListBusinessAccountTransactionsRequest(BaseModel):
     ] = None
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
+    @field_serializer("credit_debit_indicator")
+    def serialize_credit_debit_indicator(self, value):
+        if isinstance(value, str):
+            try:
+                return models.CreditDebitIndicator(value)
+            except ValueError:
+                return value
+        return value
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["from", "limit", "sort", "testmode", "idempotency-key"])
+        optional_fields = set(
+            [
+                "creditDebitIndicator",
+                "processedAfter",
+                "processedBefore",
+                "from",
+                "limit",
+                "sort",
+                "testmode",
+                "idempotency-key",
+            ]
+        )
         nullable_fields = set(["limit"])
         serialized = handler(self)
         m = {}

@@ -55,6 +55,8 @@ class ListBusinessAccountsGlobals(BaseModel):
 
 
 class ListBusinessAccountsRequestTypedDict(TypedDict):
+    iban: NotRequired[str]
+    r"""Filter the results by IBAN. Only the business account with an exact match is returned."""
     from_: NotRequired[str]
     r"""Provide an ID to start the result set from the item with the given ID and onwards. This allows you to paginate
     the result set.
@@ -77,6 +79,12 @@ class ListBusinessAccountsRequestTypedDict(TypedDict):
 
 
 class ListBusinessAccountsRequest(BaseModel):
+    iban: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = None
+    r"""Filter the results by IBAN. Only the business account with an exact match is returned."""
+
     from_: Annotated[
         Optional[str],
         pydantic.Field(alias="from"),
@@ -120,7 +128,9 @@ class ListBusinessAccountsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["from", "limit", "sort", "testmode", "idempotency-key"])
+        optional_fields = set(
+            ["iban", "from", "limit", "sort", "testmode", "idempotency-key"]
+        )
         nullable_fields = set(["limit"])
         serialized = handler(self)
         m = {}
