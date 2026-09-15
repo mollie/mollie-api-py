@@ -474,7 +474,7 @@ class PaymentRequestTypedDict(TypedDict):
     """
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    redirect_url: Nullable[str]
+    redirect_url: NotRequired[Nullable[str]]
     r"""The URL your customer will be redirected to after the payment process.
 
     It could make sense for the redirectUrl to contain a unique identifier – like your order ID – so you can show the
@@ -737,7 +737,9 @@ class PaymentRequest(BaseModel):
     amount: Amount
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    redirect_url: Annotated[Nullable[str], pydantic.Field(alias="redirectUrl")]
+    redirect_url: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="redirectUrl")
+    ] = UNSET
     r"""The URL your customer will be redirected to after the payment process.
 
     It could make sense for the redirectUrl to contain a unique identifier – like your order ID – so you can show the
@@ -1057,6 +1059,7 @@ class PaymentRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "redirectUrl",
                 "cancelUrl",
                 "webhookUrl",
                 "lines",

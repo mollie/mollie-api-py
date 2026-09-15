@@ -20,6 +20,7 @@ class EntitySettlementStatus(str, Enum, metaclass=utils.OpenEnumMeta):
 
     OPEN = "open"
     PENDING = "pending"
+    PROCESSING = "processing"
     PROCESSING_AT_BANK = "processing-at-bank"
     PAIDOUT = "paidout"
     FAILED = "failed"

@@ -210,17 +210,7 @@ class SalesInvoiceResponseTypedDict(TypedDict):
     required.
     """
     status: NotRequired[SalesInvoiceStatusResponse]
-    r"""The status for the invoice to end up in.
-
-    A `draft` invoice is not paid or not sent and can be updated after creation. Setting it to `issued` sends it to
-    the recipient so they may then pay through our payment system. To skip our payment process, set this to `paid` to
-    mark it as paid. It can then subsequently be sent as well, same as with `issued`.
-
-    Dependent parameters:
-    - `paymentDetails` is required if invoice should be set directly to `paid`
-    - `customerId` and `mandateId` are required if a recurring payment should be used to set the invoice to `paid`
-    - `emailDetails` optional for `issued` and `paid` to send the invoice by email
-    """
+    r"""The current status of the invoice."""
     e_invoice_status: NotRequired[SalesInvoiceEInvoiceStatus]
     r"""The e-invoice submission status for the invoice, if it was configured to be an e-invoice."""
     vat_scheme: NotRequired[SalesInvoiceVatSchemeResponse]
@@ -329,17 +319,7 @@ class SalesInvoiceResponse(BaseModel):
     """
 
     status: Optional[SalesInvoiceStatusResponse] = None
-    r"""The status for the invoice to end up in.
-
-    A `draft` invoice is not paid or not sent and can be updated after creation. Setting it to `issued` sends it to
-    the recipient so they may then pay through our payment system. To skip our payment process, set this to `paid` to
-    mark it as paid. It can then subsequently be sent as well, same as with `issued`.
-
-    Dependent parameters:
-    - `paymentDetails` is required if invoice should be set directly to `paid`
-    - `customerId` and `mandateId` are required if a recurring payment should be used to set the invoice to `paid`
-    - `emailDetails` optional for `issued` and `paid` to send the invoice by email
-    """
+    r"""The current status of the invoice."""
 
     e_invoice_status: Annotated[
         Optional[SalesInvoiceEInvoiceStatus], pydantic.Field(alias="eInvoiceStatus")
