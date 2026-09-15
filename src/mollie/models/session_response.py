@@ -97,12 +97,6 @@ class SessionResponseTypedDict(TypedDict):
 
     Any payment created for the Checkout Session will use the same description.
     """
-    lines: List[SessionLineItemResponseTypedDict]
-    r"""List of items the customer will pay for in this Checkout Session. The sum of all line items must equal the
-    Checkout Session's amount.
-
-    All lines must have the same currency as the Checkout Session.
-    """
     redirect_url: str
     r"""The URL your customer will be redirected to after the payment process.
 
@@ -120,6 +114,12 @@ class SessionResponseTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: SessionResponseLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+    lines: NotRequired[List[SessionLineItemResponseTypedDict]]
+    r"""List of items the customer will pay for in this Checkout Session. The sum of all line items must equal the
+    Checkout Session's amount.
+
+    All lines must have the same currency as the Checkout Session.
+    """
     required_customer_details: NotRequired[List[SessionRequiredCustomerDetailsResponse]]
     r"""> 🚧 Private beta
     >
@@ -177,13 +177,6 @@ class SessionResponse(BaseModel):
     Any payment created for the Checkout Session will use the same description.
     """
 
-    lines: List[SessionLineItemResponse]
-    r"""List of items the customer will pay for in this Checkout Session. The sum of all line items must equal the
-    Checkout Session's amount.
-
-    All lines must have the same currency as the Checkout Session.
-    """
-
     redirect_url: Annotated[str, pydantic.Field(alias="redirectUrl")]
     r"""The URL your customer will be redirected to after the payment process.
 
@@ -204,6 +197,13 @@ class SessionResponse(BaseModel):
 
     links: Annotated[SessionResponseLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+
+    lines: Optional[List[SessionLineItemResponse]] = None
+    r"""List of items the customer will pay for in this Checkout Session. The sum of all line items must equal the
+    Checkout Session's amount.
+
+    All lines must have the same currency as the Checkout Session.
+    """
 
     required_customer_details: Annotated[
         Optional[List[SessionRequiredCustomerDetailsResponse]],
@@ -286,6 +286,7 @@ class SessionResponse(BaseModel):
     def serialize_model(self, handler):
         optional_fields = set(
             [
+                "lines",
                 "requiredCustomerDetails",
                 "billingAddress",
                 "shippingAddress",
