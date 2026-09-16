@@ -203,7 +203,7 @@ class ListSettlementRefundResponseTypedDict(TypedDict):
     """
     mode: SettlementMode
     r"""Whether this entity was created in live mode or in test mode. Settlements are always in live mode."""
-    description: str
+    description: Nullable[str]
     r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
@@ -262,7 +262,7 @@ class ListSettlementRefundResponse(BaseModel):
     mode: SettlementMode
     r"""Whether this entity was created in live mode or in test mode. Settlements are always in live mode."""
 
-    description: str
+    description: Nullable[str]
     r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
 
     amount: Amount
@@ -352,7 +352,13 @@ class ListSettlementRefundResponse(BaseModel):
             ]
         )
         nullable_fields = set(
-            ["metadata", "settlementId", "routingReversals", "settlementAmount"]
+            [
+                "description",
+                "metadata",
+                "settlementId",
+                "routingReversals",
+                "settlementAmount",
+            ]
         )
         serialized = handler(self)
         m = {}

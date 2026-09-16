@@ -185,7 +185,7 @@ class ListRefundResponseTypedDict(TypedDict):
     """
     mode: Mode
     r"""Whether this entity was created in live mode or in test mode."""
-    description: str
+    description: Nullable[str]
     r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
@@ -231,7 +231,7 @@ class ListRefundResponse(BaseModel):
     mode: Mode
     r"""Whether this entity was created in live mode or in test mode."""
 
-    description: str
+    description: Nullable[str]
     r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
 
     amount: Amount
@@ -300,7 +300,9 @@ class ListRefundResponse(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(["settlementId", "externalReference", "routingReversals"])
-        nullable_fields = set(["metadata", "settlementId", "routingReversals"])
+        nullable_fields = set(
+            ["description", "metadata", "settlementId", "routingReversals"]
+        )
         serialized = handler(self)
         m = {}
 

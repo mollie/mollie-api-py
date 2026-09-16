@@ -24,6 +24,7 @@ class EntityOrganizationLocale(str, Enum, metaclass=utils.OpenEnumMeta):
     DE_CH = "de_CH"
     DE_DE = "de_DE"
     DE_LU = "de_LU"
+    EL_GR = "el_GR"
     EN_BE = "en_BE"
     EN_GB = "en_GB"
     EN_NL = "en_NL"
@@ -44,7 +45,9 @@ class EntityOrganizationLocale(str, Enum, metaclass=utils.OpenEnumMeta):
     PL_PL = "pl_PL"
     PT_PT = "pt_PT"
     SK_SK = "sk_SK"
+    SL_SI = "sl_SI"
     SV_SE = "sv_SE"
+    TR_TR = "tr_TR"
 
 
 class EntityOrganizationLinksTypedDict(TypedDict):
