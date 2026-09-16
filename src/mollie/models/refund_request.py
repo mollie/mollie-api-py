@@ -117,7 +117,7 @@ class RefundRequestRoutingReversal(BaseModel):
 class RefundRequestTypedDict(TypedDict):
     amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    description: NotRequired[str]
+    description: NotRequired[Nullable[str]]
     r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
     metadata: NotRequired[Nullable[MetadataTypedDict]]
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
@@ -162,7 +162,7 @@ class RefundRequest(BaseModel):
     amount: Amount
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    description: Optional[str] = None
+    description: OptionalNullable[str] = UNSET
     r"""The description of the refund that may be shown to your customer, depending on the payment method used."""
 
     metadata: OptionalNullable[Metadata] = UNSET
@@ -226,7 +226,13 @@ class RefundRequest(BaseModel):
             ]
         )
         nullable_fields = set(
-            ["metadata", "reverseRouting", "routingReversals", "testmode"]
+            [
+                "description",
+                "metadata",
+                "reverseRouting",
+                "routingReversals",
+                "testmode",
+            ]
         )
         serialized = handler(self)
         m = {}
