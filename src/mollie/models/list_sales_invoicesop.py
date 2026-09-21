@@ -133,21 +133,21 @@ class ListSalesInvoicesRequest(BaseModel):
 
 
 class ListSalesInvoicesEmbeddedTypedDict(TypedDict):
-    sales_invoices: NotRequired[List[ListSalesInvoiceResponseTypedDict]]
+    invoices: NotRequired[List[ListSalesInvoiceResponseTypedDict]]
     r"""An array of sales invoice objects. For a complete reference of the sales invoice object, refer to
     the [Get sales invoice endpoint](get-sales-invoice) documentation.
     """
 
 
 class ListSalesInvoicesEmbedded(BaseModel):
-    sales_invoices: Optional[List[ListSalesInvoiceResponse]] = None
+    invoices: Optional[List[ListSalesInvoiceResponse]] = None
     r"""An array of sales invoice objects. For a complete reference of the sales invoice object, refer to
     the [Get sales invoice endpoint](get-sales-invoice) documentation.
     """
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["sales_invoices"])
+        optional_fields = set(["invoices"])
         serialized = handler(self)
         m = {}
 
