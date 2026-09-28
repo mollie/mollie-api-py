@@ -1,3 +1,7 @@
+> **Mollie is transitioning to new, automatically generated SDKs.**  
+>
+> As a part of this transition, new features will be developed exclusively for the [new Python SDK](https://github.com/mollie/mollie-api-py). We encourage you to migrate to this version by 23 October 2026, after which the legacy SDK will enter maintenance mode and receive no further updates.
+
 # mollie-api-py
 
 Developer-friendly & type-safe Python SDK specifically catered to leverage *mollie-api-py* API.
