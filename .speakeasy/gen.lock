@@ -1,24 +1,24 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 490963247baa188088c58efdd5aa66cf
+  docChecksum: d8846114d07d626600714fb13726ea4a
   docVersion: 1.0.0
-  speakeasyVersion: 1.798.0
-  generationVersion: 2.938.0
-  releaseVersion: 1.10.13
-  configChecksum: 2de70f3c01f3f7fe444c264884ca0f1d
+  speakeasyVersion: 1.800.1
+  generationVersion: 2.943.0
+  releaseVersion: 1.10.14
+  configChecksum: f199fa2efb9c79fbb337fc37f27eafbe
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 79dfb4ef-69a4-4d67-a53b-4d9b8459485b
-  pristine_commit_hash: 1d6180345715f8bcec0a8e3341eaaafd09c58f03
-  pristine_tree_hash: 3b4263b0154d497e3a1ad5d25011a21abe805c01
+  generation_id: 3cc03e70-26e0-4598-84a9-29552d4be7c9
+  pristine_commit_hash: 254b58bda881d57491f85adc641376b7946a25bf
+  pristine_tree_hash: 83dd150694688eea4a9a97f8c4619fec9cc6dc58
 features:
   python:
     additionalDependencies: 1.1.0
     configurableModuleName: 0.2.0
-    core: 6.1.2
+    core: 6.1.3
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -40,7 +40,7 @@ features:
     responseFormat: 1.1.0
     retries: 3.1.2
     sdkHooks: 1.3.0
-    unions: 3.1.10
+    unions: 3.1.12
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
@@ -2906,22 +2906,14 @@ trackedFiles:
     id: 07b4d0d6f2a3
     last_write_checksum: sha1:8fb779fcf29f3632d9659cdf17e7385980fb8366
     pristine_git_object: 4e41be1ab60e68298f19bc174cb491ef70f5754a
-  docs/models/refundexternalreferencetype.md:
-    id: c5ee79604338
-    last_write_checksum: sha1:6e5cdb5e154e48692845ce1457b3c39c43530b38
-    pristine_git_object: 4c8844e41917bfafe91ac57a34b93bd2987ffe3e
   docs/models/refundexternalreferencetyperesponse.md:
     id: 03d8a12cb34d
     last_write_checksum: sha1:e620b30b71118c44550e17e795e6c4953f83e8c8
     pristine_git_object: bfee6f1989b63c6808bda8f06df52fb2c96b49b1
   docs/models/refundrequest.md:
     id: 7215e3ce7967
-    last_write_checksum: sha1:4c993fbed12b2d105108d4423bb485c63ca98efa
-    pristine_git_object: 204e247579b5e28ba86a04d88ed512be86d504ca
-  docs/models/refundrequestexternalreference.md:
-    id: 4bbca8be420b
-    last_write_checksum: sha1:b458c1b87b3320f073b17dd08cad8c1f1c349e35
-    pristine_git_object: f5e6a454cbd7e48d27d1f27f9fd0cf6f613fd251
+    last_write_checksum: sha1:010793f289655e1b5e4b6d027728451ffbc68057
+    pristine_git_object: 1855a3adbfa956a850b5fffb58ebf0d9c5e3e21c
   docs/models/refundrequestroutingreversal.md:
     id: d10cd757deee
     last_write_checksum: sha1:73a0c206094eac6f3d45a06e7430b6031d543128
@@ -3752,8 +3744,8 @@ trackedFiles:
     pristine_git_object: c56bc52e6bd281eda0898020a7c187f3d3c05c07
   docs/sdks/refundssdk/README.md:
     id: a95d23651926
-    last_write_checksum: sha1:956d41902512818195d22c00e9b152b748041152
-    pristine_git_object: a2326c7d7c04e7386c335b344211551db7e4fe74
+    last_write_checksum: sha1:5d542452e8f4d2f2318955a4a3f9d1dba1716d98
+    pristine_git_object: 0cbf59eb1e1c4fdd5000881269c6ddb773659015
   docs/sdks/salesinvoices/README.md:
     id: 7b2a80290a07
     last_write_checksum: sha1:d46d04ddda136a5f1b0a8e0cb65d7027d89450ea
@@ -3808,8 +3800,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:49040f43ae4b355c6619e510c4669fc3414543ef
-    pristine_git_object: 94fa069ac855016b237c2dad3556ca1ac8e245a3
+    last_write_checksum: sha1:681de54d37c020089400a5628bf065cb72122a17
+    pristine_git_object: 71879f4606eb9aeb964cc18840d9da2b34b86276
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3836,8 +3828,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:a658c13ceb44f384dfff2926a0826355505116f2
-    pristine_git_object: 10523d4736455a6b6f789c52c4838bf001f7eafd
+    last_write_checksum: sha1:b7e6ce1a35d4148aa6310e83cd8a0d744cf4ea83
+    pristine_git_object: 06ab36184179689f58f4615945fd7c05f99ccbca
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:cede7b105a3b8d228d44014e1ac997d786046fc2
@@ -3908,8 +3900,8 @@ trackedFiles:
     pristine_git_object: e568ddf42adfc31d67f7e79f703d6a518d4ec3a7
   src/mollie/models/__init__.py:
     id: 6afa296e99ce
-    last_write_checksum: sha1:b9a8ec090dd499ca50e1708674089b94408c5061
-    pristine_git_object: 1dd91806b556ac5534b4eaecf07a1a6fc9c3212f
+    last_write_checksum: sha1:4ab01a69456025c484b290a0f9d53b31ec7fcfda
+    pristine_git_object: 781cd4e0565bf20dfe30851570250371a29b2684
   src/mollie/models/account_details.py:
     id: 6afe7b95a53c
     last_write_checksum: sha1:5e913925526b8d6032b89c3eac8c9b2f2207de93
@@ -4998,18 +4990,14 @@ trackedFiles:
     id: 80bafc9c98ee
     last_write_checksum: sha1:80289fc44f854ef3a701fa4f5cf07a8eb15b6681
     pristine_git_object: d25438471006523fe32993189ffb3368c5f6d9d5
-  src/mollie/models/refund_external_reference_type.py:
-    id: 001af0875f6e
-    last_write_checksum: sha1:6902607ce5e92c20393cd9358656aed46a8a9061
-    pristine_git_object: f85c1543117a2a787a7540322a8072e8dc380158
   src/mollie/models/refund_external_reference_type_response.py:
     id: a050e0645735
     last_write_checksum: sha1:0dca817b97c81c365b0eab35a2101ca98630a20c
     pristine_git_object: a613fc89c433f8139881ecf12483cb6cdec9bec8
   src/mollie/models/refund_request.py:
     id: 97bd738628a4
-    last_write_checksum: sha1:b8387a7fbcce63fbf901e19bda5d67bacf4ecc52
-    pristine_git_object: 908401c78a77ed32d39fbe9c1599eb251a4e62be
+    last_write_checksum: sha1:00ab8bb81f69de144610d64f70bec4229c241804
+    pristine_git_object: 6f505be2b4c42289b1ea61be5d133fbfda81bae0
   src/mollie/models/refund_response.py:
     id: 40a5d6596d95
     last_write_checksum: sha1:fc71cd58920038f2a50a315b993e6874f4de817c
@@ -5528,8 +5516,8 @@ trackedFiles:
     pristine_git_object: 0244ed83f3d6289dcbb173cbdd982a2b9068beea
   src/mollie/utils/datetimes.py:
     id: 1f02aa402710
-    last_write_checksum: sha1:b10042398c8e8d8e311346f4f3c0c7183007d8aa
-    pristine_git_object: cdaf2617a357c7a053e8acd02f57d9387b26b49c
+    last_write_checksum: sha1:bd1cae4167ab9f935305cf5f4383cb0b9821a03d
+    pristine_git_object: d31e3732d58d6a9bd6adc741779017fdfcd2311a
   src/mollie/utils/dynamic_imports.py:
     id: b54354c7e030
     last_write_checksum: sha1:20e2d28f8668eff186a85375e14b169454bdabf6
@@ -5584,12 +5572,12 @@ trackedFiles:
     pristine_git_object: 27e3d303f7d3b2c41fc1a1bc4df0913cd1d544f0
   src/mollie/utils/url.py:
     id: 3e2a266ddc88
-    last_write_checksum: sha1:efb6051cceb17ddef50d7232c36a555bba23f653
-    pristine_git_object: d286f9dd6ca41eaa8283b31c06ed44ff1022485f
+    last_write_checksum: sha1:bfb278c1bcff354521a75f3aa2d981a3fb8b5ea1
+    pristine_git_object: e10c44d055a18ce9ac569c7e946716cf9992a969
   src/mollie/utils/values.py:
     id: 579f47decc82
-    last_write_checksum: sha1:b2c376f9164a5bcfc05b198e73be3774a7e580fa
-    pristine_git_object: e328dfa4accacfe8994480663b8f592db05f744f
+    last_write_checksum: sha1:0f773b421b5b42d879a1b2b193cba8010fcd14bc
+    pristine_git_object: 071b532bb3f3e5dec06ecffebe054ddc39f7e12c
   src/mollie/verify_payee.py:
     id: 5671e75c673e
     last_write_checksum: sha1:44fcb9657e7a43e9be70f17ff622ac1e881241cd
@@ -7302,7 +7290,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
+        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "refund", "id": "re_4qqhO89gsT", "mode": "live", "description": "Order", "amount": {"currency": "EUR", "value": "5.95"}, "metadata": "{\"bookkeeping_id\":12345}", "paymentId": "tr_5B8cwPMGnU6qLbRvo7qEZo", "status": "pending", "createdAt": "2023-03-14T17:09:02+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://api.mollie.com/v2/payments/tr_5B8cwPMGnU6qLbRvo7qEZo", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -7313,7 +7301,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
+        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "refund", "id": "re_GKQYmNNAfL", "mode": "live", "description": "Refund description of example payment", "amount": {"currency": "EUR", "value": "10.00"}, "metadata": null, "paymentId": "tr_aZm7dgj5zs", "status": "pending", "createdAt": "2023-02-06T15:55:57+00:00", "routingReversals": [{"amount": {"currency": "EUR", "value": "7.50"}, "source": {"organizationId": "org_7049691"}}], "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://api.mollie.com/v2/payments/tr_aZm7dgj5zs?testmode=true", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "text/html"}}}
@@ -7324,7 +7312,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
+        application/json: {"description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "reverseRouting": false, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"type": "organization", "organizationId": "org_1234567"}}], "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "refund", "id": "re_5B8cwPMGnU", "mode": "live", "description": "Refunding a Chess Board", "amount": {"currency": "EUR", "value": "10.00"}, "metadata": "<value>", "paymentId": "tr_5B8cwPMGnU", "settlementId": "stl_5B8cwPMGnU", "status": "queued", "createdAt": "2024-03-20T09:13:37+00:00", "externalReference": {"type": "acquirer-reference", "id": "123456789012345"}, "routingReversals": [{"amount": {"currency": "EUR", "value": "10.00"}, "source": {"organizationId": "org_1234567"}}], "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "payment": {"href": "https://...", "type": "application/hal+json"}, "settlement": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
@@ -9420,6 +9408,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `client.sales_invoices.list()`:  `response._embedded` **Changed** (Breaking ⚠️)
+releaseNotes: "## Python SDK Changes:\n* `client.refunds.create()`: \n  *  `request.refund_request.external_reference` **Removed** (Breaking ⚠️)\n"

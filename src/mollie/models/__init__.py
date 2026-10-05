@@ -1649,14 +1649,11 @@ if TYPE_CHECKING:
     )
     from .profile_review_status_response import ProfileReviewStatusResponse
     from .recurring_line_item import RecurringLineItem, RecurringLineItemTypedDict
-    from .refund_external_reference_type import RefundExternalReferenceType
     from .refund_external_reference_type_response import (
         RefundExternalReferenceTypeResponse,
     )
     from .refund_request import (
         RefundRequest,
-        RefundRequestExternalReference,
-        RefundRequestExternalReferenceTypedDict,
         RefundRequestRoutingReversal,
         RefundRequestRoutingReversalTypedDict,
         RefundRequestSource,
@@ -3351,11 +3348,8 @@ __all__ = [
     "Refund",
     "RefundCompensation",
     "RefundCompensationTypedDict",
-    "RefundExternalReferenceType",
     "RefundExternalReferenceTypeResponse",
     "RefundRequest",
-    "RefundRequestExternalReference",
-    "RefundRequestExternalReferenceTypedDict",
     "RefundRequestRoutingReversal",
     "RefundRequestRoutingReversalTypedDict",
     "RefundRequestSource",
@@ -5013,11 +5007,8 @@ _dynamic_imports: dict[str, str] = {
     "ProfileReviewStatusResponse": ".profile_review_status_response",
     "RecurringLineItem": ".recurring_line_item",
     "RecurringLineItemTypedDict": ".recurring_line_item",
-    "RefundExternalReferenceType": ".refund_external_reference_type",
     "RefundExternalReferenceTypeResponse": ".refund_external_reference_type_response",
     "RefundRequest": ".refund_request",
-    "RefundRequestExternalReference": ".refund_request",
-    "RefundRequestExternalReferenceTypedDict": ".refund_request",
     "RefundRequestRoutingReversal": ".refund_request",
     "RefundRequestRoutingReversalTypedDict": ".refund_request",
     "RefundRequestSource": ".refund_request",

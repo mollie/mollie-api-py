@@ -4,44 +4,12 @@
 from __future__ import annotations
 from .amount import Amount, AmountTypedDict
 from .metadata import Metadata, MetadataTypedDict
-from .refund_external_reference_type import RefundExternalReferenceType
 from enum import Enum
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
 from typing import List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-
-
-class RefundRequestExternalReferenceTypedDict(TypedDict):
-    type: NotRequired[RefundExternalReferenceType]
-    r"""Specifies the reference type"""
-    id: NotRequired[str]
-    r"""Unique reference from the payment provider"""
-
-
-class RefundRequestExternalReference(BaseModel):
-    type: Optional[RefundExternalReferenceType] = None
-    r"""Specifies the reference type"""
-
-    id: Optional[str] = None
-    r"""Unique reference from the payment provider"""
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["type", "id"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
 
 
 class Type(str, Enum):
@@ -123,7 +91,6 @@ class RefundRequestTypedDict(TypedDict):
     r"""Provide any data you like, for example a string or a JSON object. We will save the data alongside the entity. Whenever
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
-    external_reference: NotRequired[RefundRequestExternalReferenceTypedDict]
     reverse_routing: NotRequired[Nullable[bool]]
     r"""*This feature is only available to marketplace operators.*
 
@@ -170,11 +137,6 @@ class RefundRequest(BaseModel):
     you fetch the entity with our API, we will also include the metadata. You can use up to approximately 1kB.
     """
 
-    external_reference: Annotated[
-        Optional[RefundRequestExternalReference],
-        pydantic.Field(alias="externalReference"),
-    ] = None
-
     reverse_routing: Annotated[
         OptionalNullable[bool], pydantic.Field(alias="reverseRouting")
     ] = UNSET
@@ -219,7 +181,6 @@ class RefundRequest(BaseModel):
             [
                 "description",
                 "metadata",
-                "externalReference",
                 "reverseRouting",
                 "routingReversals",
                 "testmode",
