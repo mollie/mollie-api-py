@@ -36,10 +36,6 @@ with ClientSDK(
             "currency": "EUR",
             "value": "10.00",
         },
-        "external_reference": {
-            "type": mollie.RefundExternalReferenceType.ACQUIRER_REFERENCE,
-            "id": "123456789012345",
-        },
         "reverse_routing": False,
         "routing_reversals": [
             {
@@ -80,10 +76,6 @@ with ClientSDK(
         "amount": {
             "currency": "EUR",
             "value": "10.00",
-        },
-        "external_reference": {
-            "type": mollie.RefundExternalReferenceType.ACQUIRER_REFERENCE,
-            "id": "123456789012345",
         },
         "reverse_routing": False,
         "routing_reversals": [
