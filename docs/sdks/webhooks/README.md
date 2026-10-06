@@ -117,9 +117,61 @@ with ClientSDK(
 
 Updates the webhook. You may edit the name, url and the list of subscribed event types.
 
-### Example Usage
+### Example Usage: create-webhook-200
 
 <!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/v2/webhooks/{webhookId}" example="create-webhook-200" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.webhooks.update(webhook_id="hook_1234567890", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "name": "Webhook #1",
+        "url": "https://mollie.com/",
+        "event_types": mollie.WebhookEventTypes.PAYMENT_LINK_PAID,
+        "testmode": False,
+    })
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: get-webhook-200
+
+<!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/v2/webhooks/{webhookId}" example="get-webhook-200" -->
+```python
+import mollie
+from mollie import ClientSDK
+import os
+
+
+with ClientSDK(
+    security=mollie.Security(
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
+    ),
+) as client_sdk:
+
+    res = client_sdk.webhooks.update(webhook_id="hook_1234567890", idempotency_key="123e4567-e89b-12d3-a456-426", request_body={
+        "name": "Webhook #1",
+        "url": "https://mollie.com/",
+        "event_types": mollie.WebhookEventTypes.PAYMENT_LINK_PAID,
+        "testmode": False,
+    })
+
+    # Handle response
+    print(res)
+
+```
+### Example Usage: get-webhook-200-1
+
+<!-- UsageSnippet language="python" operationID="update-webhook" method="patch" path="/v2/webhooks/{webhookId}" example="get-webhook-200-1" -->
 ```python
 import mollie
 from mollie import ClientSDK

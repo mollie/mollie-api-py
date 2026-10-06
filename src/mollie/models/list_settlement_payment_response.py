@@ -437,9 +437,9 @@ class ListSettlementPaymentResponseApplicationFeeTypedDict(TypedDict):
     `routing` parameter.
     """
 
-    amount: NotRequired[AmountTypedDict]
+    amount: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    description: NotRequired[str]
+    description: str
     r"""The description of the application fee. This will appear on settlement reports towards both you and the
     connected merchant.
     """
@@ -457,29 +457,13 @@ class ListSettlementPaymentResponseApplicationFee(BaseModel):
     `routing` parameter.
     """
 
-    amount: Optional[Amount] = None
+    amount: Amount
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    description: Optional[str] = None
+    description: str
     r"""The description of the application fee. This will appear on settlement reports towards both you and the
     connected merchant.
     """
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(["amount", "description"])
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-
-            if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
-
-        return m
 
 
 class ListSettlementPaymentResponseLinksTypedDict(TypedDict):
