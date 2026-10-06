@@ -54,9 +54,6 @@ class OauthGenerateTokensRequestBodyTypedDict(TypedDict):
     redirect_uri: NotRequired[str]
     r"""The URL the merchant is sent back to once the request has been authorized. It must match the URL you set
     when registering your app.
-
-    For consecutive refresh token requests, this parameter is required only if the initial authorization
-    code grant request also contained a `redirect_uri`.
     """
 
 
@@ -76,9 +73,6 @@ class OauthGenerateTokensRequestBody(BaseModel):
     redirect_uri: Optional[str] = None
     r"""The URL the merchant is sent back to once the request has been authorized. It must match the URL you set
     when registering your app.
-
-    For consecutive refresh token requests, this parameter is required only if the initial authorization
-    code grant request also contained a `redirect_uri`.
     """
 
     @model_serializer(mode="wrap")
