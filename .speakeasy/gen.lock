@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 69ca0b6c28d8128776123a004b1539eb
+  docChecksum: 2637169b4e228c5594545e36e2c73a33
   docVersion: 1.0.0
   speakeasyVersion: 1.800.1
   generationVersion: 2.943.0
-  releaseVersion: 1.10.15
-  configChecksum: f778030f508e333f40071b4d883bd7cf
+  releaseVersion: 1.10.16
+  configChecksum: 62eeb6fb880bc90fbbc468f1dfb6cfcb
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: ab1e8fc0-f3c8-4a48-8888-db7f24eec09b
-  pristine_commit_hash: 9222414b5a4184aa19e8a201404189850a00ddbb
-  pristine_tree_hash: 4ec36e91d198132a22394a6122eacc1817396439
+  generation_id: f36269cd-bd25-4c61-90ee-423029e7d85c
+  pristine_commit_hash: 2a9b2a9944eabb3c00329adaa570bf81d964e2fc
+  pristine_tree_hash: db40e18b0b8204df9927c132f8c2a81e2b6ee312
 features:
   python:
     additionalDependencies: 1.1.0
@@ -3212,12 +3212,32 @@ trackedFiles:
     pristine_git_object: 7c4392bc92a9e0acfe7f1257309d91724089f962
   docs/models/sessionrequest.md:
     id: ead7c6de038e
-    last_write_checksum: sha1:c9f6f19e1b4a5be11674404a9d781f2abe37a0f9
-    pristine_git_object: f308c0a8a7a8fece4bbee4d1d97fcc358ab9c9a2
+    last_write_checksum: sha1:af2beccc9c7ef27f4f45c7d76c2356a8db397762
+    pristine_git_object: b24732d08d6a76e5801acb594b409b7e597c2711
+  docs/models/sessionrequestoption1.md:
+    id: 31ab3242d568
+    last_write_checksum: sha1:a80e0ad6cb184b68b1f9b7d239a7335dfa26cf97
+    pristine_git_object: ef9a09876fc675b754f2abd8bf9d2f3669f64d00
+  docs/models/sessionrequestoption2.md:
+    id: e6da626b0885
+    last_write_checksum: sha1:f19d2a7155aeeb8651b10c89dd4213984a41cc68
+    pristine_git_object: 56d0bc309a30ed5960aff276d0019727911f1b1d
   docs/models/sessionrequestpayment.md:
     id: 8585f12f9a97
     last_write_checksum: sha1:c988b5dca3fba14549da82b3d01d57c27149bab3
     pristine_git_object: fad14e5014983832c2cdc9c0f0eba1ece550559a
+  docs/models/sessionrequestshipping1.md:
+    id: 7d79be012941
+    last_write_checksum: sha1:842738f151c6e60b25a22035a40c3c0fb09b3548
+    pristine_git_object: 8800bff89ff9d751a95c9e039718777eeaab88d2
+  docs/models/sessionrequestshipping2.md:
+    id: 80c649b06133
+    last_write_checksum: sha1:8b4cad8f664dea6604947d97754ad097722ed7c2
+    pristine_git_object: b10488567dca912aaff3036849088f40ba92882d
+  docs/models/sessionrequestshippingunion.md:
+    id: dcdf62fade87
+    last_write_checksum: sha1:03a14ac2f8eef803c618802dd916e5c5a1961709
+    pristine_git_object: a1f5a94a2803be975cff130e9db9fcd0e0e83a04
   docs/models/sessionrequiredcustomerdetails.md:
     id: a2b4c7a1321a
     last_write_checksum: sha1:fe8d8270a992b299a9cfdd51e995140290346fe0
@@ -3228,16 +3248,36 @@ trackedFiles:
     pristine_git_object: f2fb1b705ea1a8dce506f0852f80add5cdc69c1d
   docs/models/sessionresponse.md:
     id: 6ef4cd3d1a91
-    last_write_checksum: sha1:45a39b2c3e36784ab3da127524d130c587e42089
-    pristine_git_object: acdc580357be1e94daba5d3e4e2a1a2e7e6c6f70
+    last_write_checksum: sha1:b017a751f6d12c9e04f0996983b90bd9b8172bba
+    pristine_git_object: 8350d310b07aa91f36b20d66734b01067a7ff7de
   docs/models/sessionresponselinks.md:
     id: effa29b72675
     last_write_checksum: sha1:f6b3da58a63090506d561cfad5a91033e0a000c5
     pristine_git_object: 59a8bf383229a4796e79a99ad33ed862f9e3ab26
+  docs/models/sessionresponseoption1.md:
+    id: 8b224808f86a
+    last_write_checksum: sha1:01c8c9f56df0ee57dd0f2cad08982e363410366a
+    pristine_git_object: 39d8bff725bb2737c37ee65c43c5a0fd1454902f
+  docs/models/sessionresponseoption2.md:
+    id: 0da864c50f6c
+    last_write_checksum: sha1:f60533bc6154e04e49cba8e84af24763b0a91694
+    pristine_git_object: 9a6718508e8832633ed4d5cecfb7938a940bd711
   docs/models/sessionresponsepayment.md:
     id: 5f5b5d598141
     last_write_checksum: sha1:42f770676107aa86ab1b82586b15c44bc2002908
     pristine_git_object: 3a8e79ccd79b9ff9eed60781dc18c0eea84de604
+  docs/models/sessionresponseshipping1.md:
+    id: 718863af40b8
+    last_write_checksum: sha1:95cb727a75834e1c295bf9fe73e74d9c57a1f772
+    pristine_git_object: c37db9e3c92a72f1bfe06797039461c1a27a0401
+  docs/models/sessionresponseshipping2.md:
+    id: d43145458d03
+    last_write_checksum: sha1:245aeda15a5bff2b39123d81dc3ed0b6e8cd66c5
+    pristine_git_object: aaeaa683f67f3accaffb3632447c8c624ffbbc34
+  docs/models/sessionresponseshippingunion.md:
+    id: 1f3f8b73004b
+    last_write_checksum: sha1:83ed9eb483fd7b20fc445acf5cd58a2699c75131
+    pristine_git_object: c61b13116ce9a975d3832c8f2ea28eae566b71fc
   docs/models/sessionresponsestatus.md:
     id: 8abf54bc3e3b
     last_write_checksum: sha1:4b5b53c95afe738ec3592262e168690d355e86d9
@@ -3676,8 +3716,8 @@ trackedFiles:
     pristine_git_object: 1471b0ce331077bdce899d1d1e30e79456beeda8
   docs/sdks/checkoutsessions/README.md:
     id: 093cc3fe624c
-    last_write_checksum: sha1:5b3039f5599d5662db159757b458b1275673f521
-    pristine_git_object: 7e27b452da6863f939fd0314d7980b7cc87712d8
+    last_write_checksum: sha1:3a10591b9819786f9fb941e72d312b0ab47fb895
+    pristine_git_object: fc31f38c2ac137704dc8092d71ce797e9e031a3b
   docs/sdks/clientlinks/README.md:
     id: 74ba097043d3
     last_write_checksum: sha1:ecf022219b6a02107b3748f031708464aff34426
@@ -3800,8 +3840,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:6bd4ef97df35bb10a91abb550f7a64d99251eed9
-    pristine_git_object: 7855cb9bfb6479a0f663a2f6941e0645f02894bf
+    last_write_checksum: sha1:bf85b3673859e67340763b1ea4957342abe91a27
+    pristine_git_object: 9307a66b36553928eda7d865ea628e742c0d39d3
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3828,8 +3868,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:ffb480b8783ecf02539f06cec317b848c352797f
-    pristine_git_object: 5db68828f3c32bf898df8ecc084c3521c875c1aa
+    last_write_checksum: sha1:c1b2c704acf7066eb6b62c1c74665a7e16420dc4
+    pristine_git_object: 2694e743616d3f33743cbcfe3e02ea0e3410e96f
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:cede7b105a3b8d228d44014e1ac997d786046fc2
@@ -3900,8 +3940,8 @@ trackedFiles:
     pristine_git_object: e568ddf42adfc31d67f7e79f703d6a518d4ec3a7
   src/mollie/models/__init__.py:
     id: 6afa296e99ce
-    last_write_checksum: sha1:4ab01a69456025c484b290a0f9d53b31ec7fcfda
-    pristine_git_object: 781cd4e0565bf20dfe30851570250371a29b2684
+    last_write_checksum: sha1:abdd023baaab2177c0e1ea5aa65606959831ab04
+    pristine_git_object: 932f9ef101ffda4edcc953277a65caee0d59f1d3
   src/mollie/models/account_details.py:
     id: 6afe7b95a53c
     last_write_checksum: sha1:5e913925526b8d6032b89c3eac8c9b2f2207de93
@@ -5172,8 +5212,8 @@ trackedFiles:
     pristine_git_object: 9a664292f3c69c9dbb90e65f7738ebd562c5f50d
   src/mollie/models/session_request.py:
     id: 4fe3d3aad273
-    last_write_checksum: sha1:a8edf587949177750862fb0960f0ebd1be529a1a
-    pristine_git_object: 6d12f78040c217b9c2931be2f800e6e052fb58f5
+    last_write_checksum: sha1:615caab4a8bd062474ae111a2e8fa851795d2d65
+    pristine_git_object: 8ff8d665eabf1ab2d0e2ac02555e96f2d87a3f98
   src/mollie/models/session_required_customer_details.py:
     id: e7761c1af3c3
     last_write_checksum: sha1:bb91c32e3eb6539f2678dcf5534acdb81c047ae8
@@ -5184,8 +5224,8 @@ trackedFiles:
     pristine_git_object: e8003cc240cb9e896e1c1b7af073ac9a30ad8e75
   src/mollie/models/session_response.py:
     id: d7d239315f2f
-    last_write_checksum: sha1:806762706347bd9a5e4ec567a2060f80427e8be7
-    pristine_git_object: 706ba2e0f22ac3c3e14cefaa60ad47fffbe2aea6
+    last_write_checksum: sha1:1dc6bf0464cb07c5fcba9bf335511f835d7de432
+    pristine_git_object: 7c318fb6c4c2ec2ed1ba880e59ca50dc85671394
   src/mollie/models/session_sequence_type.py:
     id: 6a131ef7b508
     last_write_checksum: sha1:e9000e7606a8d3d175075538e9db345da5acba54
@@ -7095,7 +7135,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
+        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shipping": {"options": [{"description": "Next day delivery", "reference": "express", "amount": {"currency": "EUR", "value": "10.00"}}], "callbackUrl": "https://example.org/shipping-options"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "session", "id": "sess_CQBQJqxubaq4w6oresxMJ", "mode": "live", "clientAccessToken": "ewogICJzZXNzaW9uVG9rZW4iOiAic2Vzc19DUUJRSnF4dWJhcTR3Nm9yZXN4TUoiLAogICJzZWNyZXQiOiAiaGFja2Vycy1iZS1uaWNlIiwKICAidGVzdG1vZGUiOiBmYWxzZSwKICAicHJvZmlsZVRva2VuIjogInBmbF9Ra0VoTjk0QmEiLAogICJhdmFpbGFibGVQYXltZW50TWV0aG9kcyI6IFsKICAgICJpZGVhbCIsCiAgICAiY3JlZGl0Y2FyZCIsCiAgICAicGF5cGFsIiwKICAgICJwYXlieWJhbmsiLAogICAgImJhbmNvbnRhY3QiLAogICAgImFwcGxlcGF5IiwKICAgICJnb29nbGVwYXkiCiAgXSwKICAiYXZhaWxhYmxlQXV0aGVudGljYXRpb25NZXRob2RzIjogewogICAgImJhbmNvbnRhY3QiOiBbCiAgICAgICJtb2JpbGUiLAogICAgICAiY2FyZCIKICAgIF0KICB9LAogICJvcmdhbml6YXRpb25Db3VudHJ5Q29kZSI6ICJOTCIsCiAgIm1lcmNoYW50UHJvZmlsZU5hbWUiOiAiTW9sbGllIFN3YWcgU2hvcCIKfQ==", "status": "open", "amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [{"description": "T-shirt", "quantity": 1, "unitPrice": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}}], "redirectUrl": "https://webshop.example.org/order/12345/", "requiredCustomerDetails": ["email", "billing-address", "shipping-address"], "billingAddress": {"givenName": "Piet", "familyName": "Mondriaan", "streetAndNumber": "Keizersgracht 126", "postalCode": "1015 CW", "email": "piet@example.org", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"givenName": "Piet", "familyName": "Mondriaan", "streetAndNumber": "Keizersgracht 126", "postalCode": "1015 CW", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "sequenceType": "oneoff", "metadata": {"order_id": "12345"}, "payment": {"webhookUrl": "https://webshop.example.org/payments/webhook/"}, "profileId": "pfl_QkEhN94Ba", "createdAt": "2024-03-20T09:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}}}
@@ -7104,10 +7144,10 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
+        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shipping": {"options": [{"description": "Next day delivery", "reference": "express", "amount": {"currency": "EUR", "value": "10.00"}}], "callbackUrl": "https://example.org/shipping-options"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
       responses:
         "201":
-          application/hal+json: {"resource": "session", "id": "sess_82jFYDTrLcCQV68NLDvMJ", "mode": "live", "clientAccessToken": "ewogICJzZXNzaW9uVG9rZW4i...", "status": "open", "amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [{"type": "physical", "description": "LEGO 4440 Forest Police Station", "quantity": 1, "quantityUnit": "pcs", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discountAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "vatRate": "21.00", "vatAmount": {"currency": "EUR", "value": "10.00"}, "sku": "9780241661628", "imageUrl": "https://...", "productUrl": "https://..."}], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "createdAt": "2024-03-20T09:13:37+00:00", "expiredAt": "2024-03-20T10:13:37+00:00", "completedAt": "2024-03-20T11:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}}}
+          application/hal+json: {"resource": "session", "id": "sess_82jFYDTrLcCQV68NLDvMJ", "mode": "live", "clientAccessToken": "ewogICJzZXNzaW9uVG9rZW4i...", "status": "open", "amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [{"type": "physical", "description": "LEGO 4440 Forest Police Station", "quantity": 1, "quantityUnit": "pcs", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discountAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "vatRate": "21.00", "vatAmount": {"currency": "EUR", "value": "10.00"}, "sku": "9780241661628", "imageUrl": "https://...", "productUrl": "https://..."}], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shipping": {"options": [{"description": "Next day delivery", "reference": "express", "amount": {"currency": "EUR", "value": "10.00"}}], "callbackUrl": "https://example.org/shipping-options"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "createdAt": "2024-03-20T09:13:37+00:00", "expiredAt": "2024-03-20T10:13:37+00:00", "completedAt": "2024-03-20T11:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}}}
         "422":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
     create-session-201-2:
@@ -7115,7 +7155,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
+        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shipping": {"options": [{"description": "Next day delivery", "reference": "express", "amount": {"currency": "EUR", "value": "10.00"}}], "callbackUrl": "https://example.org/shipping-options"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "session", "id": "sess_hJT2ZmqxL8vN4wRfy76sPq", "mode": "live", "clientAccessToken": "ewogICJzZXNzaW9uVG9rZW4iOiAic2Vzc19oSlQyWm1xeEw4dk40d1JmeTc2c1BxIiwKICAic2VjcmV0IjogImhhY2tlcnMtYmUtbmljZSIsCiAgInRlc3Rtb2RlIjogZmFsc2UsCiAgInByb2ZpbGVUb2tlbiI6ICJwZmxfUWtFaE45NEJhIiwKICAiYXZhaWxhYmxlUGF5bWVudE1ldGhvZHMiOiBbCiAgICAiaWRlYWwiLAogICAgImNyZWRpdGNhcmQiLAogICAgInBheXBhbCIKICBdCn0=", "status": "open", "amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [{"description": "T-shirt", "quantity": 1, "unitPrice": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}}], "redirectUrl": "https://webshop.example.org/order/12345/", "sequenceType": "oneoff", "profileId": "pfl_QkEhN94Ba", "createdAt": "2024-03-20T09:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}}}
@@ -7124,7 +7164,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
+        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shipping": {"options": [{"description": "Next day delivery", "reference": "express", "amount": {"currency": "EUR", "value": "10.00"}}], "callbackUrl": "https://example.org/shipping-options"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "session", "id": "sess_9wR4Kq6ZxJ8vNfT2ymLpBq", "mode": "live", "clientAccessToken": "ewogICJzZXNzaW9uVG9rZW4iOiAic2Vzc185d1I0S3E2WnhKOHZOZlQyeW1McEJxIiwKICAic2VjcmV0IjogImhhY2tlcnMtYmUtbmljZSIsCiAgInRlc3Rtb2RlIjogZmFsc2UsCiAgInByb2ZpbGVUb2tlbiI6ICJwZmxfUWtFaE45NEJhIiwKICAiYXZhaWxhYmxlUGF5bWVudE1ldGhvZHMiOiBbCiAgICAiaWRlYWwiLAogICAgImNyZWRpdGNhcmQiLAogICAgInBheXBhbCIKICBdCn0=", "status": "open", "amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [{"description": "T-shirt", "quantity": 1, "unitPrice": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}}], "redirectUrl": "https://webshop.example.org/order/12345/", "billingAddress": {"givenName": "Piet", "familyName": "Mondriaan", "streetAndNumber": "Keizersgracht 126", "postalCode": "1015 CW", "email": "piet@example.org", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"givenName": "Piet", "familyName": "Mondriaan", "streetAndNumber": "Keizersgracht 126", "postalCode": "1015 CW", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "sequenceType": "oneoff", "profileId": "pfl_QkEhN94Ba", "createdAt": "2024-03-20T09:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}}}
@@ -7133,7 +7173,7 @@ examples:
         header:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       requestBody:
-        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
+        application/json: {"amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shipping": {"options": [{"description": "Next day delivery", "reference": "express", "amount": {"currency": "EUR", "value": "10.00"}}], "callbackUrl": "https://example.org/shipping-options"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "testmode": false}
       responses:
         "201":
           application/hal+json: {"resource": "session", "id": "sess_3vTq7NxKm9RfY4wZbL2sJp", "mode": "live", "clientAccessToken": "ewogICJzZXNzaW9uVG9rZW4iOiAic2Vzc18zdlRxN054S205UmZZNHdaYkwyc0pwIiwKICAic2VjcmV0IjogImhhY2tlcnMtYmUtbmljZSIsCiAgInRlc3Rtb2RlIjogZmFsc2UsCiAgInByb2ZpbGVUb2tlbiI6ICJwZmxfUWtFaE45NEJhIiwKICAiYXZhaWxhYmxlUGF5bWVudE1ldGhvZHMiOiBbCiAgICAiaWRlYWwiLAogICAgImNyZWRpdGNhcmQiLAogICAgInBheXBhbCIKICBdCn0=", "status": "open", "amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [{"description": "T-shirt", "quantity": 1, "unitPrice": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}}], "redirectUrl": "https://webshop.example.org/order/12345/", "customerId": "cst_tKt44u85MM", "sequenceType": "first", "profileId": "pfl_QkEhN94Ba", "createdAt": "2024-03-20T09:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}}}
@@ -7155,7 +7195,7 @@ examples:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       responses:
         "200":
-          application/hal+json: {"resource": "session", "id": "sess_82jFYDTrLcCQV68NLDvMJ", "mode": "live", "clientAccessToken": "ewogICJzZXNzaW9uVG9rZW4i...", "status": "open", "amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [{"type": "physical", "description": "LEGO 4440 Forest Police Station", "quantity": 1, "quantityUnit": "pcs", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discountAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "vatRate": "21.00", "vatAmount": {"currency": "EUR", "value": "10.00"}, "sku": "9780241661628", "imageUrl": "https://...", "productUrl": "https://..."}], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "createdAt": "2024-03-20T09:13:37+00:00", "expiredAt": "2024-03-20T10:13:37+00:00", "completedAt": "2024-03-20T11:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}}}
+          application/hal+json: {"resource": "session", "id": "sess_82jFYDTrLcCQV68NLDvMJ", "mode": "live", "clientAccessToken": "ewogICJzZXNzaW9uVG9rZW4i...", "status": "open", "amount": {"currency": "EUR", "value": "10.00"}, "description": "Order #12345", "lines": [{"type": "physical", "description": "LEGO 4440 Forest Police Station", "quantity": 1, "quantityUnit": "pcs", "unitPrice": {"currency": "EUR", "value": "10.00"}, "discountAmount": {"currency": "EUR", "value": "10.00"}, "totalAmount": {"currency": "EUR", "value": "10.00"}, "vatRate": "21.00", "vatAmount": {"currency": "EUR", "value": "10.00"}, "sku": "9780241661628", "imageUrl": "https://...", "productUrl": "https://..."}], "redirectUrl": "https://example.org/redirect", "requiredCustomerDetails": ["billing-address"], "billingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shippingAddress": {"title": "Mr.", "givenName": "Piet", "familyName": "Mondriaan", "organizationName": "Mollie B.V.", "streetAndNumber": "Keizersgracht 126", "streetAdditional": "Apt. 1", "postalCode": "1234AB", "email": "piet@example.org", "phone": "31208202070", "city": "Amsterdam", "region": "Noord-Holland", "country": "NL"}, "shipping": {"options": [{"description": "Next day delivery", "reference": "express", "amount": {"currency": "EUR", "value": "10.00"}}], "callbackUrl": "https://example.org/shipping-options"}, "customerId": "cst_5B8cwPMGnU", "sequenceType": "oneoff", "payment": {"webhookUrl": "https://example.org/webhook"}, "profileId": "pfl_5B8cwPMGnU", "createdAt": "2024-03-20T09:13:37+00:00", "expiredAt": "2024-03-20T10:13:37+00:00", "completedAt": "2024-03-20T11:13:37+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}}}
         "429":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
   list-methods:
@@ -9430,4 +9470,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.payments.create()`: \n  *  `request.payment_request.application_fee` **Changed** (Breaking ⚠️)\n  *  `response.application_fee` **Changed**\n* `client.customers.create_payment()`: \n  *  `request.payment_request.application_fee` **Changed** (Breaking ⚠️)\n  *  `response.application_fee` **Changed**\n* `client.settlements.list_payments()`:  `response._embedded.payments[].application_fee` **Changed**\n* `client.webhook_events.get()`:  `response._embedded.entity.union(payment-response).application_fee` **Changed**\n* `client.payments.list()`:  `response._embedded.payments[].application_fee` **Changed**\n* `client.payments.get()`:  `response.application_fee` **Changed**\n* `client.payments.update()`:  `response.application_fee` **Changed**\n* `client.payments.cancel()`:  `response.application_fee` **Changed**\n* `client.payment_links.list_payments()`:  `response._embedded.payments[].application_fee` **Changed**\n* `client.customers.list_payments()`:  `response._embedded.payments[].application_fee` **Changed**\n* `client.subscriptions.list_payments()`:  `response._embedded.payments[].application_fee` **Changed**\n"
+releaseNotes: "## Python SDK Changes:\n* `client.checkout_sessions.create()`: \n  *  `request.session_request.shipping` **Added**\n  *  `response.shipping` **Added**\n* `client.checkout_sessions.get()`:  `response.shipping` **Added**\n"

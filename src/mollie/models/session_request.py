@@ -10,8 +10,168 @@ from .shippingaddress import ShippingAddress, ShippingAddressTypedDict
 from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
-from typing import Any, Dict, List, Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing import Any, Dict, List, Optional, Union
+from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
+
+
+class SessionRequestOption2TypedDict(TypedDict):
+    description: str
+    r"""The name of the shipping option, as shown to your customer."""
+    reference: str
+    r"""Your own identifier for the shipping option."""
+    amount: AmountTypedDict
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+
+class SessionRequestOption2(BaseModel):
+    description: str
+    r"""The name of the shipping option, as shown to your customer."""
+
+    reference: str
+    r"""Your own identifier for the shipping option."""
+
+    amount: Amount
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+
+class SessionRequestShipping2TypedDict(TypedDict):
+    callback_url: str
+    r"""The URL Mollie calls to retrieve shipping options whenever your customer selects or changes their shipping
+    address. Requires `https://` for live mode. In test mode, `http://` is also allowed.
+
+    See the [shipping options guide](https://docs.mollie.com/docs/handle-shipping-options-with-express-component)
+    for the callback request and response.
+    """
+    options: NotRequired[List[SessionRequestOption2TypedDict]]
+    r"""A fixed list of shipping options to show your customer during checkout. Use `callbackUrl` instead if your
+    options depend on the customer's shipping address.
+    """
+
+
+class SessionRequestShipping2(BaseModel):
+    callback_url: Annotated[str, pydantic.Field(alias="callbackUrl")]
+    r"""The URL Mollie calls to retrieve shipping options whenever your customer selects or changes their shipping
+    address. Requires `https://` for live mode. In test mode, `http://` is also allowed.
+
+    See the [shipping options guide](https://docs.mollie.com/docs/handle-shipping-options-with-express-component)
+    for the callback request and response.
+    """
+
+    options: Optional[List[SessionRequestOption2]] = None
+    r"""A fixed list of shipping options to show your customer during checkout. Use `callbackUrl` instead if your
+    options depend on the customer's shipping address.
+    """
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["options"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+class SessionRequestOption1TypedDict(TypedDict):
+    description: str
+    r"""The name of the shipping option, as shown to your customer."""
+    reference: str
+    r"""Your own identifier for the shipping option."""
+    amount: AmountTypedDict
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+
+class SessionRequestOption1(BaseModel):
+    description: str
+    r"""The name of the shipping option, as shown to your customer."""
+
+    reference: str
+    r"""Your own identifier for the shipping option."""
+
+    amount: Amount
+    r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
+
+
+class SessionRequestShipping1TypedDict(TypedDict):
+    options: List[SessionRequestOption1TypedDict]
+    r"""A fixed list of shipping options to show your customer during checkout. Use `callbackUrl` instead if your
+    options depend on the customer's shipping address.
+    """
+    callback_url: NotRequired[str]
+    r"""The URL Mollie calls to retrieve shipping options whenever your customer selects or changes their shipping
+    address. Requires `https://` for live mode. In test mode, `http://` is also allowed.
+
+    See the [shipping options guide](https://docs.mollie.com/docs/handle-shipping-options-with-express-component)
+    for the callback request and response.
+    """
+
+
+class SessionRequestShipping1(BaseModel):
+    options: List[SessionRequestOption1]
+    r"""A fixed list of shipping options to show your customer during checkout. Use `callbackUrl` instead if your
+    options depend on the customer's shipping address.
+    """
+
+    callback_url: Annotated[Optional[str], pydantic.Field(alias="callbackUrl")] = None
+    r"""The URL Mollie calls to retrieve shipping options whenever your customer selects or changes their shipping
+    address. Requires `https://` for live mode. In test mode, `http://` is also allowed.
+
+    See the [shipping options guide](https://docs.mollie.com/docs/handle-shipping-options-with-express-component)
+    for the callback request and response.
+    """
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["callbackUrl"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k, serialized.get(n))
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
+
+SessionRequestShippingUnionTypedDict = TypeAliasType(
+    "SessionRequestShippingUnionTypedDict",
+    Union[SessionRequestShipping1TypedDict, SessionRequestShipping2TypedDict],
+)
+r"""> 🚧 Private beta
+>
+> This property is currently in private beta, and the final specification may still change.
+
+Shipping information for the Checkout Session. Provide either `options` or `callbackUrl`, not both.
+
+The `lines` of the Checkout Session must not contain a line with type `shipping_fee`. When `shipping` is set,
+`requiredCustomerDetails` must contain `shipping-address`.
+"""
+
+
+SessionRequestShippingUnion = TypeAliasType(
+    "SessionRequestShippingUnion",
+    Union[SessionRequestShipping1, SessionRequestShipping2],
+)
+r"""> 🚧 Private beta
+>
+> This property is currently in private beta, and the final specification may still change.
+
+Shipping information for the Checkout Session. Provide either `options` or `callbackUrl`, not both.
+
+The `lines` of the Checkout Session must not contain a line with type `shipping_fee`. When `shipping` is set,
+`requiredCustomerDetails` must contain `shipping-address`.
+"""
 
 
 class SessionRequestPaymentTypedDict(TypedDict):
@@ -77,6 +237,16 @@ class SessionRequestTypedDict(TypedDict):
     """
     billing_address: NotRequired[ShippingAddressTypedDict]
     shipping_address: NotRequired[ShippingAddressTypedDict]
+    shipping: NotRequired[SessionRequestShippingUnionTypedDict]
+    r"""> 🚧 Private beta
+    >
+    > This property is currently in private beta, and the final specification may still change.
+
+    Shipping information for the Checkout Session. Provide either `options` or `callbackUrl`, not both.
+
+    The `lines` of the Checkout Session must not contain a line with type `shipping_fee`. When `shipping` is set,
+    `requiredCustomerDetails` must contain `shipping-address`.
+    """
     customer_id: NotRequired[str]
     sequence_type: NotRequired[SessionSequenceType]
     metadata: NotRequired[Dict[str, Any]]
@@ -147,6 +317,17 @@ class SessionRequest(BaseModel):
         Optional[ShippingAddress], pydantic.Field(alias="shippingAddress")
     ] = None
 
+    shipping: Optional[SessionRequestShippingUnion] = None
+    r"""> 🚧 Private beta
+    >
+    > This property is currently in private beta, and the final specification may still change.
+
+    Shipping information for the Checkout Session. Provide either `options` or `callbackUrl`, not both.
+
+    The `lines` of the Checkout Session must not contain a line with type `shipping_fee`. When `shipping` is set,
+    `requiredCustomerDetails` must contain `shipping-address`.
+    """
+
     customer_id: Annotated[Optional[str], pydantic.Field(alias="customerId")] = None
 
     sequence_type: Annotated[
@@ -185,6 +366,7 @@ class SessionRequest(BaseModel):
                 "requiredCustomerDetails",
                 "billingAddress",
                 "shippingAddress",
+                "shipping",
                 "customerId",
                 "sequenceType",
                 "metadata",
@@ -216,6 +398,14 @@ class SessionRequest(BaseModel):
         return m
 
 
+try:
+    SessionRequestShipping2.model_rebuild()
+except NameError:
+    pass
+try:
+    SessionRequestShipping1.model_rebuild()
+except NameError:
+    pass
 try:
     SessionRequestPayment.model_rebuild()
 except NameError:

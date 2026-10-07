@@ -69,6 +69,19 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
+        shipping=mollie.SessionRequestShipping1(
+            options=[
+                mollie.SessionRequestOption1(
+                    description="Next day delivery",
+                    reference="express",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                ),
+            ],
+            callback_url="https://example.org/shipping-options",
+        ),
         customer_id="cst_5B8cwPMGnU",
         sequence_type=mollie.SessionSequenceType.ONEOFF,
         payment=mollie.SessionRequestPayment(
@@ -135,6 +148,19 @@ with ClientSDK(
             city="Amsterdam",
             region="Noord-Holland",
             country="NL",
+        ),
+        shipping=mollie.SessionRequestShipping1(
+            options=[
+                mollie.SessionRequestOption1(
+                    description="Next day delivery",
+                    reference="express",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                ),
+            ],
+            callback_url="https://example.org/shipping-options",
         ),
         customer_id="cst_5B8cwPMGnU",
         sequence_type=mollie.SessionSequenceType.ONEOFF,
@@ -203,6 +229,19 @@ with ClientSDK(
             region="Noord-Holland",
             country="NL",
         ),
+        shipping=mollie.SessionRequestShipping1(
+            options=[
+                mollie.SessionRequestOption1(
+                    description="Next day delivery",
+                    reference="express",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                ),
+            ],
+            callback_url="https://example.org/shipping-options",
+        ),
         customer_id="cst_5B8cwPMGnU",
         sequence_type=mollie.SessionSequenceType.ONEOFF,
         payment=mollie.SessionRequestPayment(
@@ -269,6 +308,19 @@ with ClientSDK(
             city="Amsterdam",
             region="Noord-Holland",
             country="NL",
+        ),
+        shipping=mollie.SessionRequestShipping1(
+            options=[
+                mollie.SessionRequestOption1(
+                    description="Next day delivery",
+                    reference="express",
+                    amount=mollie.Amount(
+                        currency="EUR",
+                        value="10.00",
+                    ),
+                ),
+            ],
+            callback_url="https://example.org/shipping-options",
         ),
         customer_id="cst_5B8cwPMGnU",
         sequence_type=mollie.SessionSequenceType.ONEOFF,
