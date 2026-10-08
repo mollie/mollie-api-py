@@ -1537,8 +1537,6 @@ if TYPE_CHECKING:
         PaymentDetailsQrCode,
         PaymentDetailsQrCodeTypedDict,
         PaymentDetailsTypedDict,
-        Receipt,
-        ReceiptTypedDict,
     )
     from .payment_details_card_audition_response import (
         PaymentDetailsCardAuditionResponse,
@@ -1552,12 +1550,6 @@ if TYPE_CHECKING:
         PaymentDetailsFailureReasonResponse,
     )
     from .payment_details_fee_region_response import PaymentDetailsFeeRegionResponse
-    from .payment_details_receipt_card_read_method_response import (
-        PaymentDetailsReceiptCardReadMethodResponse,
-    )
-    from .payment_details_receipt_card_verification_method_response import (
-        PaymentDetailsReceiptCardVerificationMethodResponse,
-    )
     from .payment_details_seller_protection_response import (
         PaymentDetailsSellerProtectionResponse,
     )
@@ -3264,8 +3256,6 @@ __all__ = [
     "PaymentDetailsFeeRegionResponse",
     "PaymentDetailsQrCode",
     "PaymentDetailsQrCodeTypedDict",
-    "PaymentDetailsReceiptCardReadMethodResponse",
-    "PaymentDetailsReceiptCardVerificationMethodResponse",
     "PaymentDetailsSellerProtectionResponse",
     "PaymentDetailsTypedDict",
     "PaymentDetailsWalletResponse",
@@ -3361,8 +3351,6 @@ __all__ = [
     "ProfileTypedDict",
     "Rate",
     "RateTypedDict",
-    "Receipt",
-    "ReceiptTypedDict",
     "RecurringLineItem",
     "RecurringLineItemTypedDict",
     "Refund",
@@ -4957,16 +4945,12 @@ _dynamic_imports: dict[str, str] = {
     "PaymentDetailsQrCode": ".payment_details",
     "PaymentDetailsQrCodeTypedDict": ".payment_details",
     "PaymentDetailsTypedDict": ".payment_details",
-    "Receipt": ".payment_details",
-    "ReceiptTypedDict": ".payment_details",
     "PaymentDetailsCardAuditionResponse": ".payment_details_card_audition_response",
     "PaymentDetailsCardFundingResponse": ".payment_details_card_funding_response",
     "PaymentDetailsCardLabelResponse": ".payment_details_card_label_response",
     "PaymentDetailsCardSecurityResponse": ".payment_details_card_security_response",
     "PaymentDetailsFailureReasonResponse": ".payment_details_failure_reason_response",
     "PaymentDetailsFeeRegionResponse": ".payment_details_fee_region_response",
-    "PaymentDetailsReceiptCardReadMethodResponse": ".payment_details_receipt_card_read_method_response",
-    "PaymentDetailsReceiptCardVerificationMethodResponse": ".payment_details_receipt_card_verification_method_response",
     "PaymentDetailsSellerProtectionResponse": ".payment_details_seller_protection_response",
     "PaymentDetailsWalletResponse": ".payment_details_wallet_response",
     "PaymentGetRouteRequest": ".payment_get_routeop",
