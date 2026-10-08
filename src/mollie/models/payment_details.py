@@ -10,12 +10,6 @@ from .payment_details_card_label_response import PaymentDetailsCardLabelResponse
 from .payment_details_card_security_response import PaymentDetailsCardSecurityResponse
 from .payment_details_failure_reason_response import PaymentDetailsFailureReasonResponse
 from .payment_details_fee_region_response import PaymentDetailsFeeRegionResponse
-from .payment_details_receipt_card_read_method_response import (
-    PaymentDetailsReceiptCardReadMethodResponse,
-)
-from .payment_details_receipt_card_verification_method_response import (
-    PaymentDetailsReceiptCardVerificationMethodResponse,
-)
 from .payment_details_seller_protection_response import (
     PaymentDetailsSellerProtectionResponse,
 )
@@ -27,126 +21,6 @@ import pydantic
 from pydantic import field_serializer, model_serializer
 from typing import Any, Dict, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-
-
-class ReceiptTypedDict(TypedDict):
-    r"""The Point of sale receipt object.
-
-    * `authorizationCode` _string|null_ - a unique code provided by the cardholder's bank to confirm that the
-    transaction was successfully approved.
-    * `applicationIdentifier` _string|null_ - the unique number that identifies a specific payment application
-    on a chip card.
-    * `cardReadMethod` _string|null_ - the method by which the card was read by the terminal. Possible values:
-    `chip` | `magnetic-stripe` | `near-field-communication` | `contactless` | `moto`.
-    * `cardVerificationMethod` _string|null_ - the method used to verify the cardholder's identity. Possible
-    values: `no-cvm-required` | `online-pin` | `offline-pin` | `consumer-device` | `signature` |
-    `signature-and-online-pin` | `online-pin-and-signature` | `none` | `failed`.
-    """
-
-    authorization_code: NotRequired[Nullable[str]]
-    r"""A unique code provided by the cardholder's bank to confirm that the transaction was successfully approved."""
-    application_identifier: NotRequired[Nullable[str]]
-    r"""The unique number that identifies a specific payment application on a chip card."""
-    card_read_method: NotRequired[Nullable[PaymentDetailsReceiptCardReadMethodResponse]]
-    r"""The method by which the card was read by the terminal."""
-    card_verification_method: NotRequired[
-        Nullable[PaymentDetailsReceiptCardVerificationMethodResponse]
-    ]
-    r"""The method used to verify the cardholder's identity."""
-
-
-class Receipt(BaseModel):
-    r"""The Point of sale receipt object.
-
-    * `authorizationCode` _string|null_ - a unique code provided by the cardholder's bank to confirm that the
-    transaction was successfully approved.
-    * `applicationIdentifier` _string|null_ - the unique number that identifies a specific payment application
-    on a chip card.
-    * `cardReadMethod` _string|null_ - the method by which the card was read by the terminal. Possible values:
-    `chip` | `magnetic-stripe` | `near-field-communication` | `contactless` | `moto`.
-    * `cardVerificationMethod` _string|null_ - the method used to verify the cardholder's identity. Possible
-    values: `no-cvm-required` | `online-pin` | `offline-pin` | `consumer-device` | `signature` |
-    `signature-and-online-pin` | `online-pin-and-signature` | `none` | `failed`.
-    """
-
-    authorization_code: Annotated[
-        OptionalNullable[str], pydantic.Field(alias="authorizationCode")
-    ] = UNSET
-    r"""A unique code provided by the cardholder's bank to confirm that the transaction was successfully approved."""
-
-    application_identifier: Annotated[
-        OptionalNullable[str], pydantic.Field(alias="applicationIdentifier")
-    ] = UNSET
-    r"""The unique number that identifies a specific payment application on a chip card."""
-
-    card_read_method: Annotated[
-        OptionalNullable[PaymentDetailsReceiptCardReadMethodResponse],
-        pydantic.Field(alias="cardReadMethod"),
-    ] = UNSET
-    r"""The method by which the card was read by the terminal."""
-
-    card_verification_method: Annotated[
-        OptionalNullable[PaymentDetailsReceiptCardVerificationMethodResponse],
-        pydantic.Field(alias="cardVerificationMethod"),
-    ] = UNSET
-    r"""The method used to verify the cardholder's identity."""
-
-    @field_serializer("card_read_method")
-    def serialize_card_read_method(self, value):
-        if isinstance(value, str):
-            try:
-                return models.PaymentDetailsReceiptCardReadMethodResponse(value)
-            except ValueError:
-                return value
-        return value
-
-    @field_serializer("card_verification_method")
-    def serialize_card_verification_method(self, value):
-        if isinstance(value, str):
-            try:
-                return models.PaymentDetailsReceiptCardVerificationMethodResponse(value)
-            except ValueError:
-                return value
-        return value
-
-    @model_serializer(mode="wrap")
-    def serialize_model(self, handler):
-        optional_fields = set(
-            [
-                "authorizationCode",
-                "applicationIdentifier",
-                "cardReadMethod",
-                "cardVerificationMethod",
-            ]
-        )
-        nullable_fields = set(
-            [
-                "authorizationCode",
-                "applicationIdentifier",
-                "cardReadMethod",
-                "cardVerificationMethod",
-            ]
-        )
-        serialized = handler(self)
-        m = {}
-
-        for n, f in type(self).model_fields.items():
-            k = f.alias or n
-            val = serialized.get(k, serialized.get(n))
-            is_nullable_and_explicitly_set = (
-                k in nullable_fields
-                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
-            )
-
-            if val != UNSET_SENTINEL:
-                if (
-                    val is not None
-                    or k not in optional_fields
-                    or is_nullable_and_explicitly_set
-                ):
-                    m[k] = val
-
-        return m
 
 
 class PaymentDetailsQrCodeTypedDict(TypedDict):
@@ -299,19 +173,6 @@ class PaymentDetailsTypedDict(TypedDict):
     r"""The ID of the terminal device where the payment took place on."""
     masked_number: NotRequired[Nullable[str]]
     r"""The first 6 digits & last 4 digits of the customer's masked card number."""
-    receipt: NotRequired[ReceiptTypedDict]
-    r"""The Point of sale receipt object.
-
-    * `authorizationCode` _string|null_ - a unique code provided by the cardholder's bank to confirm that the
-    transaction was successfully approved.
-    * `applicationIdentifier` _string|null_ - the unique number that identifies a specific payment application
-    on a chip card.
-    * `cardReadMethod` _string|null_ - the method by which the card was read by the terminal. Possible values:
-    `chip` | `magnetic-stripe` | `near-field-communication` | `contactless` | `moto`.
-    * `cardVerificationMethod` _string|null_ - the method used to verify the cardholder's identity. Possible
-    values: `no-cvm-required` | `online-pin` | `offline-pin` | `consumer-device` | `signature` |
-    `signature-and-online-pin` | `online-pin-and-signature` | `none` | `failed`.
-    """
     creditor_identifier: NotRequired[Nullable[str]]
     r"""The creditor identifier indicates who is authorized to execute the payment. In this case, it is a reference
     to Mollie.
@@ -555,20 +416,6 @@ class PaymentDetails(BaseModel):
     ] = UNSET
     r"""The first 6 digits & last 4 digits of the customer's masked card number."""
 
-    receipt: Optional[Receipt] = None
-    r"""The Point of sale receipt object.
-
-    * `authorizationCode` _string|null_ - a unique code provided by the cardholder's bank to confirm that the
-    transaction was successfully approved.
-    * `applicationIdentifier` _string|null_ - the unique number that identifies a specific payment application
-    on a chip card.
-    * `cardReadMethod` _string|null_ - the method by which the card was read by the terminal. Possible values:
-    `chip` | `magnetic-stripe` | `near-field-communication` | `contactless` | `moto`.
-    * `cardVerificationMethod` _string|null_ - the method used to verify the cardholder's identity. Possible
-    values: `no-cvm-required` | `online-pin` | `offline-pin` | `consumer-device` | `signature` |
-    `signature-and-online-pin` | `online-pin-and-signature` | `none` | `failed`.
-    """
-
     creditor_identifier: Annotated[
         OptionalNullable[str], pydantic.Field(alias="creditorIdentifier")
     ] = UNSET
@@ -772,7 +619,6 @@ class PaymentDetails(BaseModel):
                 "customerReference",
                 "terminalId",
                 "maskedNumber",
-                "receipt",
                 "creditorIdentifier",
                 "dueDate",
                 "signatureDate",
@@ -857,10 +703,6 @@ class PaymentDetails(BaseModel):
         return m
 
 
-try:
-    Receipt.model_rebuild()
-except NameError:
-    pass
 try:
     PaymentDetails.model_rebuild()
 except NameError:
