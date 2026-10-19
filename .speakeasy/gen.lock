@@ -1,24 +1,24 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: f0d36ca4c49ab7e7ff7e07aa80093d9c
+  docChecksum: 73b84c34b41d3207af209021bf73c6e0
   docVersion: 1.0.0
-  speakeasyVersion: 1.801.0
-  generationVersion: 2.946.0
-  releaseVersion: 1.10.17
-  configChecksum: 8b19a0146bdda0b9d3e5de40bc049bd5
+  speakeasyVersion: 1.802.0
+  generationVersion: 2.948.4
+  releaseVersion: 1.10.18
+  configChecksum: f354a813d15a3440b29a6e10613e0bb6
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 28a70840-b6ce-4e12-96ac-d47f09e8317e
-  pristine_commit_hash: f2e4c96b3eec2d7f37496f8b5381105705765ecb
-  pristine_tree_hash: e35449f85301339678ef8f557ee85e928e231710
+  generation_id: 1e4b5182-7031-4979-93f6-1ed394d61d17
+  pristine_commit_hash: b440f4ad5b8d02df4b64e7eac3678204cd25716d
+  pristine_tree_hash: c3ed5aaa19add6c23313ea2b1b71169275cd7cf2
 features:
   python:
     additionalDependencies: 1.1.0
     configurableModuleName: 0.2.0
-    core: 6.1.3
+    core: 6.1.4
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     devContainers: 3.0.0
@@ -3704,8 +3704,8 @@ trackedFiles:
     pristine_git_object: 1471b0ce331077bdce899d1d1e30e79456beeda8
   docs/sdks/checkoutsessions/README.md:
     id: 093cc3fe624c
-    last_write_checksum: sha1:3a10591b9819786f9fb941e72d312b0ab47fb895
-    pristine_git_object: fc31f38c2ac137704dc8092d71ce797e9e031a3b
+    last_write_checksum: sha1:2a7b600debe4cbcaeeadd01c035aa9c39e8486c4
+    pristine_git_object: b6b93339a2fb4038f2c8b56eaf68f277220de44d
   docs/sdks/clientlinks/README.md:
     id: 74ba097043d3
     last_write_checksum: sha1:ecf022219b6a02107b3748f031708464aff34426
@@ -3828,8 +3828,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:5333f4934e100ca89f761948509980191a851063
-    pristine_git_object: 6be9cb756acee7853e40c6b7ad49861db98254df
+    last_write_checksum: sha1:754df1e5d9b8443c8fdf71df7b4894145963b2f6
+    pristine_git_object: f86aec9871af3c79bebd32beb2d4b9efe62a573f
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3856,8 +3856,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:def3bbd3ea4db786c6517de92a3c5267c5597a6c
-    pristine_git_object: 3a4dbe3315450100d09a3b30fff64fe45118fca2
+    last_write_checksum: sha1:987a7a5a5428720e7d40ae86d436c21db6b8102d
+    pristine_git_object: 08eea3a40aa4f9c20f4bdd3b6ccee78e2c5e2afb
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:cede7b105a3b8d228d44014e1ac997d786046fc2
@@ -3888,8 +3888,8 @@ trackedFiles:
     pristine_git_object: f63eb68c18b7e99ab5ef8f6bc78e6ac2e9ce4bfc
   src/mollie/checkout_sessions.py:
     id: 05c4b409f4c3
-    last_write_checksum: sha1:2775ca9c0415e7c1137034a0c39dfdf679ec391b
-    pristine_git_object: 7dd83702744e2641fe3cf691032ef9b511ed0b6f
+    last_write_checksum: sha1:0f79b6b320adbeb6ea3ee19e006e0c68d2d7909f
+    pristine_git_object: 2c944d60d5432453ad60488db0caab72e6c50879
   src/mollie/client_links.py:
     id: ec1eb717d206
     last_write_checksum: sha1:d12249f6cc9d34ba6dc14e15fdda490a6fb95bf1
@@ -5536,8 +5536,8 @@ trackedFiles:
     pristine_git_object: 0244ed83f3d6289dcbb173cbdd982a2b9068beea
   src/mollie/utils/datetimes.py:
     id: 1f02aa402710
-    last_write_checksum: sha1:bd1cae4167ab9f935305cf5f4383cb0b9821a03d
-    pristine_git_object: d31e3732d58d6a9bd6adc741779017fdfcd2311a
+    last_write_checksum: sha1:b7c694cb84eb2d726a5b7e7a64e7a1d430b49240
+    pristine_git_object: 033e65f8d05a733888e1338ecbf09000632c19f9
   src/mollie/utils/dynamic_imports.py:
     id: b54354c7e030
     last_write_checksum: sha1:20e2d28f8668eff186a85375e14b169454bdabf6
@@ -9450,16 +9450,3 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `client.settlements.list_payments()`:  `response._embedded.payments[].details.receipt` **Removed** (Breaking ⚠️)
-  * `client.webhook_events.get()`:  `response._embedded.entity.union(payment-response).details.receipt` **Removed** (Breaking ⚠️)
-  * `client.payments.create()`:  `response.details.receipt` **Removed** (Breaking ⚠️)
-  * `client.payments.list()`:  `response._embedded.payments[].details.receipt` **Removed** (Breaking ⚠️)
-  * `client.payments.get()`:  `response.details.receipt` **Removed** (Breaking ⚠️)
-  * `client.payments.update()`:  `response.details.receipt` **Removed** (Breaking ⚠️)
-  * `client.payments.cancel()`:  `response.details.receipt` **Removed** (Breaking ⚠️)
-  * `client.payment_links.list_payments()`:  `response._embedded.payments[].details.receipt` **Removed** (Breaking ⚠️)
-  * `client.customers.create_payment()`:  `response.details.receipt` **Removed** (Breaking ⚠️)
-  * `client.customers.list_payments()`:  `response._embedded.payments[].details.receipt` **Removed** (Breaking ⚠️)
-  * `client.subscriptions.list_payments()`:  `response._embedded.payments[].details.receipt` **Removed** (Breaking ⚠️)
