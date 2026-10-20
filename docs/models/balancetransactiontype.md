@@ -22,6 +22,7 @@ value = BalanceTransactionType.API_PAYMENT_ROLLING_RESERVE_RELEASE
 | `BALANCE_RESERVE`                      | balance-reserve                        |
 | `BALANCE_RESERVE_RETURN`               | balance-reserve-return                 |
 | `BALANCE_TOPUP`                        | balance-topup                          |
+| `BANK_CHARGED_FAILURE_FEE`             | bank-charged-failure-fee               |
 | `CANCELED_TRANSFER`                    | canceled-transfer                      |
 | `CAPTURE`                              | capture                                |
 | `CASH_COLLATERAL_ISSUANCE`             | cash-collateral-issuance               |
@@ -30,6 +31,7 @@ value = BalanceTransactionType.API_PAYMENT_ROLLING_RESERVE_RELEASE
 | `CHARGEBACK_COMPENSATION`              | chargeback-compensation                |
 | `CHARGEBACK_REVERSAL`                  | chargeback-reversal                    |
 | `FAILED_PAYMENT`                       | failed-payment                         |
+| `FAILED_PAYMENT_FEE`                   | failed-payment-fee                     |
 | `FAILED_PLATFORM_SPLIT_PAYMENT`        | failed-platform-split-payment          |
 | `FAILED_SPLIT_PAYMENT_COMPENSATION`    | failed-split-payment-compensation      |
 | `FEE_PREPAYMENT`                       | fee-prepayment                         |
