@@ -22,3 +22,4 @@ class SalesInvoiceStatusUpdate(str, Enum):
     ISSUED = "issued"
     PAID = "paid"
     CANCELLED = "cancelled"
+    PAYMENT_REVERSED = "payment_reversed"
