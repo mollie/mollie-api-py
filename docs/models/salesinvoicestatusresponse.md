@@ -23,7 +23,7 @@ value = SalesInvoiceStatusResponse.DRAFT
 | `PENDING_PAYMENT`  | pending-payment    |
 | `PAID`             | paid               |
 | `OVERDUE`          | overdue            |
-| `PAYMENT_REVERSED` | payment_reversed   |
+| `PAYMENT_REVERSED` | payment-reversed   |
 | `CANCELLED`        | cancelled          |
 | `EXPIRED`          | expired            |
 | `FAILED`           | failed             |

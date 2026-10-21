@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 91150334105ebd8973b60bf680b8e5e4
+  docChecksum: 693e92eeef422ee7b8c54afd390dea7a
   docVersion: 1.0.0
   speakeasyVersion: 1.803.0
   generationVersion: 2.950.2
-  releaseVersion: 1.10.19
-  configChecksum: 300d1e6e0bef8ec86948e283d054ebfa
+  releaseVersion: 1.10.20
+  configChecksum: 51bcc3fa494e735dd333a194b1970905
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 616b83e4-2ecc-4d19-af2b-eb6a6655f1b7
-  pristine_commit_hash: 531e3b3d2d4ff2cb1936d53f504e974b802a2465
-  pristine_tree_hash: 137b09377ddd5a5637784a44ba293e2499c67ad5
+  generation_id: 9c261c60-f571-4e07-8ce6-ad783879b3b8
+  pristine_commit_hash: 14d1919977a782e181e84522a9aeb44658e8c071
+  pristine_tree_hash: 0f45b64d66077fb86b8e94081f74f3146f89162f
 features:
   python:
     additionalDependencies: 1.1.0
@@ -3156,12 +3156,12 @@ trackedFiles:
     pristine_git_object: 7fe7b43c8ef03fe28d3a05ffa8f194dd1942b711
   docs/models/salesinvoicestatusresponse.md:
     id: c8ef2fca67ad
-    last_write_checksum: sha1:42df963a34ec67f005069f470e501a99a853eae5
-    pristine_git_object: 76a244b81e06fae2d687882edc2dd6cb5a57f633
+    last_write_checksum: sha1:777eff103b09b38888d86480da35359498755dd4
+    pristine_git_object: af9eeeb96701359df23368885304401f8f0b776d
   docs/models/salesinvoicestatusupdate.md:
     id: 3c28c3295e78
-    last_write_checksum: sha1:4c2aa4ee7cb98f3c36d24e5b33beac9097fee176
-    pristine_git_object: ad368b7531d84a26ccf80c7f8e8c885db7982488
+    last_write_checksum: sha1:d9448dbd8f14ec9101191c225761410ddd2ae7d3
+    pristine_git_object: 6470de863b74636aadffc4a368aa87e74cdfccc2
   docs/models/salesinvoicevatmode.md:
     id: 87e75ce8bdf5
     last_write_checksum: sha1:b967f01f507455632bc0ec467744618cb23084a2
@@ -3828,8 +3828,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:e5027ffa9502c45206f405bf30af792166c3ac48
-    pristine_git_object: f70168a42c1918790c972c52554f5346e6c423af
+    last_write_checksum: sha1:021483583c1171f8df9cf96b79ff1c0d744c771b
+    pristine_git_object: 767b6b2aec511f5666a8f0bb71fed56c2acc6e27
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3856,8 +3856,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:17e54b3320c3af7ec7a68e1f53e8e61d66a5e634
-    pristine_git_object: cb6dfb041f23d091106ad272e50341c8df500354
+    last_write_checksum: sha1:853b29b29bc50e0440d429056396d3688b1a9045
+    pristine_git_object: fb465f65a01258e3c1999408630bacdfdea8ae5c
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:cede7b105a3b8d228d44014e1ac997d786046fc2
@@ -5148,12 +5148,12 @@ trackedFiles:
     pristine_git_object: 10ce697563d86fd2f547391dacfe36498ffd4dbe
   src/mollie/models/sales_invoice_status_response.py:
     id: 3dad581931c2
-    last_write_checksum: sha1:5064661151de7c5bbb0fd3eaac7c14d721bde241
-    pristine_git_object: 5066df12257af98857c04bef4db38ca3aedde318
+    last_write_checksum: sha1:43447f5fe9b71327ca50c80475b57bcc0109b3fb
+    pristine_git_object: 968d8e035a805f77c864264029fd5d8d86daa183
   src/mollie/models/sales_invoice_status_update.py:
     id: e5a59c0eb36c
-    last_write_checksum: sha1:850df5821785633d970d240d70ee753b964e389e
-    pristine_git_object: 8d39d5e5d47c8a422a1baffd6f0c03f63ddcca47
+    last_write_checksum: sha1:64600f888b52526cbb5f7662a940cbe3f4928706
+    pristine_git_object: 11d8bf2f687c0e60f0c5d94eb533f5526265f39c
   src/mollie/models/sales_invoice_vat_mode.py:
     id: ed89386c0ab6
     last_write_checksum: sha1:d6ad66abf07333bd2e04b8c3706b5aaeb9ecbb28
@@ -9450,4 +9450,4 @@ examples:
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.balances.get_report()`:  `response.totals.pending_balance.open.subtotals[].sub_totals[].transaction_type` **Changed**\n* `client.balances.list_transactions()`:  `response._embedded.balance_transactions[].type` **Changed**\n* `client.sales_invoices.update()`: \n  *  `request_body.status.enum(payment_reversed)` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `client.webhook_events.get()`:  `response._embedded.entity.union(sales-invoice-response).status` **Changed** (Breaking ⚠️)\n* `client.sales_invoices.create()`:  `response.status` **Changed** (Breaking ⚠️)\n* `client.sales_invoices.list()`:  `response._embedded.invoices[].status` **Changed** (Breaking ⚠️)\n* `client.sales_invoices.get()`:  `response.status` **Changed** (Breaking ⚠️)\n* `client.sales_invoices.update()`: \n  *  `request_body.status` **Changed** (Breaking ⚠️)\n  *  `response.status` **Changed** (Breaking ⚠️)\n"
