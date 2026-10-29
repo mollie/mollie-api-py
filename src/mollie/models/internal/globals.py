@@ -2,7 +2,12 @@
 # @generated-id: b10356b6397b
 
 from __future__ import annotations
-from mollie.types import BaseModel, UNSET_SENTINEL
+from mollie.types import (
+    BaseModel,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
 from mollie.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
@@ -61,13 +66,19 @@ class Globals(BaseModel):
     r"""Custom user agent string to be appended to the default Mollie SDK user agent."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["profileId", "testmode", "customUserAgent"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:

@@ -6,7 +6,15 @@ from .amount import Amount, AmountTypedDict
 from .amount_nullable import AmountNullable, AmountNullableTypedDict
 from .balance_transaction_type import BalanceTransactionType
 from mollie import models
-from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from mollie.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
 import pydantic
 from pydantic import field_serializer, model_serializer
 from typing import Optional
@@ -46,14 +54,20 @@ class DeductionDetails(BaseModel):
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["fees", "commissions", "repayments", "reservations"])
         nullable_fields = set(["fees", "commissions", "repayments", "reservations"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -84,13 +98,19 @@ class EntityBalanceTransactionPayment(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -121,15 +141,21 @@ class Capture(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "captureId", "captureDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -160,15 +186,21 @@ class CaptureCommision(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "captureId", "captureDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -199,15 +231,21 @@ class CaptureRollingReserveRelease(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "captureId", "captureDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -230,13 +268,19 @@ class UnauthorizedDirectDebit(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -259,13 +303,19 @@ class FailedPayment(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -296,15 +346,21 @@ class Refund(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "refundId", "refundDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -335,15 +391,21 @@ class RefundCompensation(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "refundId", "refundDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -374,15 +436,21 @@ class ReturnedRefund(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "refundId", "refundDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -413,15 +481,21 @@ class ReturnedRefundCompensation(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "refundId", "refundDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -452,15 +526,21 @@ class Chargeback(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "chargebackId", "chargebackDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -491,15 +571,21 @@ class ChargebackReversal(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "chargebackId", "chargebackDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -530,15 +616,21 @@ class ChargebackCompensation(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "chargebackId", "chargebackDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -569,15 +661,21 @@ class ReversedChargebackCompensation(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "chargebackId", "chargebackDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -598,13 +696,19 @@ class OutgoingTransfer(BaseModel):
     settlement_id: Annotated[Optional[str], pydantic.Field(alias="settlementId")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["transferId", "settlementId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -625,13 +729,19 @@ class CanceledOutgoingTransfer(BaseModel):
     settlement_id: Annotated[Optional[str], pydantic.Field(alias="settlementId")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["transferId", "settlementId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -652,13 +762,19 @@ class ReturnedTransfer(BaseModel):
     settlement_id: Annotated[Optional[str], pydantic.Field(alias="settlementId")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["transferId", "settlementId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -676,13 +792,19 @@ class InvoiceCompensation(BaseModel):
     invoice_id: Annotated[Optional[str], pydantic.Field(alias="invoiceId")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["invoiceId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -708,13 +830,19 @@ class EntityBalanceTransactionApplicationFee(BaseModel):
     paying_owner: Annotated[Optional[str], pydantic.Field(alias="payingOwner")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription", "payingOwner"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -740,13 +868,19 @@ class SplitPayment(BaseModel):
     payment_onwer: Annotated[Optional[str], pydantic.Field(alias="paymentOnwer")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription", "paymentOnwer"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -777,15 +911,21 @@ class PlatformPaymentRefund(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "refundId", "refundDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -816,15 +956,21 @@ class ReturnedPlatformPaymentRefund(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "refundId", "refundDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -855,15 +1001,21 @@ class PlatformPaymentChargeback(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "chargebackId", "chargebackDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -894,15 +1046,21 @@ class ReversedPlatformPaymentChargeback(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["paymentId", "paymentDescription", "chargebackId", "chargebackDescription"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -930,13 +1088,19 @@ class PaymentCommission(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription", "organizationId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -959,13 +1123,19 @@ class ReimbursementFee(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -988,13 +1158,19 @@ class FailedPaymentFee(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1017,13 +1193,19 @@ class PaymentFee(BaseModel):
     ] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId", "paymentDescription"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1044,13 +1226,19 @@ class ManagedFee(BaseModel):
     fee_id: Annotated[Optional[str], pydantic.Field(alias="feeId")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["feeType", "feeId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1071,13 +1259,19 @@ class ReturnedManagedFee(BaseModel):
     fee_id: Annotated[Optional[str], pydantic.Field(alias="feeId")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["feeType", "feeId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1095,13 +1289,19 @@ class PostPaymentSplitPayment(BaseModel):
     payment_id: Annotated[Optional[str], pydantic.Field(alias="paymentId")] = None
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["paymentId"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -1389,6 +1589,9 @@ class Context(BaseModel):
     ] = UNSET
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -1460,11 +1663,14 @@ class Context(BaseModel):
                 "post-payment-split-payment",
             ]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -1641,14 +1847,20 @@ class EntityBalanceTransaction(BaseModel):
         return value
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["deductions", "deductionDetails", "context"])
         nullable_fields = set(["deductions", "deductionDetails", "context"])
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
