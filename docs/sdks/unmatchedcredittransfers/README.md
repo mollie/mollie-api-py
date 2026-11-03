@@ -30,7 +30,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        api_key=os.getenv("CLIENT_API_KEY"),
     ),
 ) as client_sdk:
 
@@ -82,7 +82,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        api_key=os.getenv("CLIENT_API_KEY"),
     ),
 ) as client_sdk:
 
@@ -131,7 +131,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        api_key=os.getenv("CLIENT_API_KEY"),
     ),
 ) as client_sdk:
 
@@ -185,7 +185,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        api_key=os.getenv("CLIENT_API_KEY"),
     ),
 ) as client_sdk:
 
