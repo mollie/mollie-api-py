@@ -22,7 +22,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN"),
     ),
 ) as client_sdk:
 
@@ -71,7 +71,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN"),
     ),
 ) as client_sdk:
 
