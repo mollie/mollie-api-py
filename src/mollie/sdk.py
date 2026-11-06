@@ -40,6 +40,7 @@ if TYPE_CHECKING:
     from mollie.permissions import Permissions
     from mollie.profiles import Profiles
     from mollie.refunds_sdk import RefundsSDK
+    from mollie.reports import Reports
     from mollie.sales_invoices import SalesInvoices
     from mollie.settlements import Settlements
     from mollie.subscriptions import Subscriptions
@@ -55,6 +56,7 @@ if TYPE_CHECKING:
 class ClientSDK(BaseSDK):
     oauth: "Oauth"
     balances: "Balances"
+    reports: "Reports"
     settlements: "Settlements"
     invoices: "Invoices"
     permissions: "Permissions"
@@ -90,6 +92,7 @@ class ClientSDK(BaseSDK):
     _sub_sdk_map = {
         "oauth": ("mollie.oauth", "Oauth"),
         "balances": ("mollie.balances", "Balances"),
+        "reports": ("mollie.reports", "Reports"),
         "settlements": ("mollie.settlements", "Settlements"),
         "invoices": ("mollie.invoices", "Invoices"),
         "permissions": ("mollie.permissions", "Permissions"),

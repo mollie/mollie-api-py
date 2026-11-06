@@ -130,6 +130,11 @@ if TYPE_CHECKING:
     from .create_payoutop import CreatePayoutRequest, CreatePayoutRequestTypedDict
     from .create_profileop import CreateProfileRequest, CreateProfileRequestTypedDict
     from .create_refundop import CreateRefundRequest, CreateRefundRequestTypedDict
+    from .create_report_request import CreateReportRequest, CreateReportRequestTypedDict
+    from .create_reportop import (
+        CreateReportRequestRequest,
+        CreateReportRequestRequestTypedDict,
+    )
     from .create_sales_invoiceop import (
         CreateSalesInvoiceRequest,
         CreateSalesInvoiceRequestTypedDict,
@@ -472,6 +477,13 @@ if TYPE_CHECKING:
         EntityPermissionLinksTypedDict,
         EntityPermissionTypedDict,
     )
+    from .entity_report import (
+        EntityReport,
+        EntityReportLinks,
+        EntityReportLinksTypedDict,
+        EntityReportStatus,
+        EntityReportTypedDict,
+    )
     from .entity_settlement import (
         Cost,
         CostTypedDict,
@@ -729,6 +741,7 @@ if TYPE_CHECKING:
         GetRefundRequest,
         GetRefundRequestTypedDict,
     )
+    from .get_reportop import GetReportRequest, GetReportRequestTypedDict
     from .get_sales_invoiceop import (
         GetSalesInvoiceGlobals,
         GetSalesInvoiceGlobalsTypedDict,
@@ -1672,6 +1685,9 @@ if TYPE_CHECKING:
         ReleaseAuthorizationRequestBodyTypedDict,
         ReleaseAuthorizationRequestTypedDict,
     )
+    from .report_status_reason import ReportStatusReason, ReportStatusReasonTypedDict
+    from .report_type import ReportType
+    from .report_type_response import ReportTypeResponse
     from .request_apple_pay_payment_sessionop import (
         RequestApplePayPaymentSessionRequest,
         RequestApplePayPaymentSessionRequestBody,
@@ -2186,6 +2202,10 @@ __all__ = [
     "CreateProfileRequestTypedDict",
     "CreateRefundRequest",
     "CreateRefundRequestTypedDict",
+    "CreateReportRequest",
+    "CreateReportRequestRequest",
+    "CreateReportRequestRequestTypedDict",
+    "CreateReportRequestTypedDict",
     "CreateSalesInvoiceRequest",
     "CreateSalesInvoiceRequestTypedDict",
     "CreateSessionRequest",
@@ -2384,6 +2404,11 @@ __all__ = [
     "EntityPermissionLinks",
     "EntityPermissionLinksTypedDict",
     "EntityPermissionTypedDict",
+    "EntityReport",
+    "EntityReportLinks",
+    "EntityReportLinksTypedDict",
+    "EntityReportStatus",
+    "EntityReportTypedDict",
     "EntitySettlement",
     "EntitySettlementAmount",
     "EntitySettlementAmountTypedDict",
@@ -2568,6 +2593,8 @@ __all__ = [
     "GetRefundGlobalsTypedDict",
     "GetRefundRequest",
     "GetRefundRequestTypedDict",
+    "GetReportRequest",
+    "GetReportRequestTypedDict",
     "GetSalesInvoiceGlobals",
     "GetSalesInvoiceGlobalsTypedDict",
     "GetSalesInvoiceRequest",
@@ -3383,6 +3410,10 @@ __all__ = [
     "ReleaseAuthorizationRequestBody",
     "ReleaseAuthorizationRequestBodyTypedDict",
     "ReleaseAuthorizationRequestTypedDict",
+    "ReportStatusReason",
+    "ReportStatusReasonTypedDict",
+    "ReportType",
+    "ReportTypeResponse",
     "RequestApplePayPaymentSessionRequest",
     "RequestApplePayPaymentSessionRequestBody",
     "RequestApplePayPaymentSessionRequestBodyTypedDict",
@@ -3802,6 +3833,10 @@ _dynamic_imports: dict[str, str] = {
     "CreateProfileRequestTypedDict": ".create_profileop",
     "CreateRefundRequest": ".create_refundop",
     "CreateRefundRequestTypedDict": ".create_refundop",
+    "CreateReportRequest": ".create_report_request",
+    "CreateReportRequestTypedDict": ".create_report_request",
+    "CreateReportRequestRequest": ".create_reportop",
+    "CreateReportRequestRequestTypedDict": ".create_reportop",
     "CreateSalesInvoiceRequest": ".create_sales_invoiceop",
     "CreateSalesInvoiceRequestTypedDict": ".create_sales_invoiceop",
     "CreateSessionRequest": ".create_sessionop",
@@ -4083,6 +4118,11 @@ _dynamic_imports: dict[str, str] = {
     "EntityPermissionLinks": ".entity_permission",
     "EntityPermissionLinksTypedDict": ".entity_permission",
     "EntityPermissionTypedDict": ".entity_permission",
+    "EntityReport": ".entity_report",
+    "EntityReportLinks": ".entity_report",
+    "EntityReportLinksTypedDict": ".entity_report",
+    "EntityReportStatus": ".entity_report",
+    "EntityReportTypedDict": ".entity_report",
     "Cost": ".entity_settlement",
     "CostTypedDict": ".entity_settlement",
     "EntitySettlement": ".entity_settlement",
@@ -4275,6 +4315,8 @@ _dynamic_imports: dict[str, str] = {
     "GetRefundGlobalsTypedDict": ".get_refundop",
     "GetRefundRequest": ".get_refundop",
     "GetRefundRequestTypedDict": ".get_refundop",
+    "GetReportRequest": ".get_reportop",
+    "GetReportRequestTypedDict": ".get_reportop",
     "GetSalesInvoiceGlobals": ".get_sales_invoiceop",
     "GetSalesInvoiceGlobalsTypedDict": ".get_sales_invoiceop",
     "GetSalesInvoiceRequest": ".get_sales_invoiceop",
@@ -5054,6 +5096,10 @@ _dynamic_imports: dict[str, str] = {
     "ReleaseAuthorizationRequestBody": ".release_authorizationop",
     "ReleaseAuthorizationRequestBodyTypedDict": ".release_authorizationop",
     "ReleaseAuthorizationRequestTypedDict": ".release_authorizationop",
+    "ReportStatusReason": ".report_status_reason",
+    "ReportStatusReasonTypedDict": ".report_status_reason",
+    "ReportType": ".report_type",
+    "ReportTypeResponse": ".report_type_response",
     "RequestApplePayPaymentSessionRequest": ".request_apple_pay_payment_sessionop",
     "RequestApplePayPaymentSessionRequestBody": ".request_apple_pay_payment_sessionop",
     "RequestApplePayPaymentSessionRequestBodyTypedDict": ".request_apple_pay_payment_sessionop",

@@ -67,4 +67,6 @@ class WebhookEventTypes(str, Enum):
         "unmatched-credit-transfer.return.completed"
     )
     UNMATCHED_CREDIT_TRANSFER_RETURN_FAILED = "unmatched-credit-transfer.return.failed"
+    REPORT_COMPLETED = "report.completed"
+    REPORT_FAILED = "report.failed"
     WILDCARD_ = "*"

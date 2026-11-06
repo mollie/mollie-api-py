@@ -8,7 +8,16 @@ from .settlement_links import SettlementLinks, SettlementLinksTypedDict
 from .settlement_method import SettlementMethod
 from enum import Enum
 from mollie import models, utils
-from mollie.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from mollie.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from mollie.types.basemodel import current_filtered_dump
 import pydantic
 from pydantic import field_serializer, model_serializer
 from typing import Dict, List, Optional
@@ -46,34 +55,47 @@ class EntitySettlementAmount(BaseModel):
 
 
 class RateTypedDict(TypedDict):
-    r"""The service rates, further divided into `fixed` and `percentage` costs."""
+    r"""The service rates, further divided into `fixed` and `percentage` costs.
 
-    fixed: NotRequired[AmountTypedDict]
+    For pass-through fees, which are charged by an external party rather than at an agreed Mollie
+    rate, both `fixed` and `percentage` are `null`.
+    """
+
+    fixed: Nullable[AmountNullableTypedDict]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
-    percentage: NotRequired[str]
+    percentage: Nullable[str]
 
 
 class Rate(BaseModel):
-    r"""The service rates, further divided into `fixed` and `percentage` costs."""
+    r"""The service rates, further divided into `fixed` and `percentage` costs.
 
-    fixed: Optional[Amount] = None
+    For pass-through fees, which are charged by an external party rather than at an agreed Mollie
+    rate, both `fixed` and `percentage` are `null`.
+    """
+
+    fixed: Nullable[AmountNullable]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
-    percentage: Optional[str] = None
+    percentage: Nullable[str]
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
-        optional_fields = set(["fixed", "percentage"])
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
-                    m[k] = val
+                m[k] = val
 
         return m
 
@@ -88,7 +110,11 @@ class CostTypedDict(TypedDict):
     count: int
     r"""The number of fees"""
     rate: RateTypedDict
-    r"""The service rates, further divided into `fixed` and `percentage` costs."""
+    r"""The service rates, further divided into `fixed` and `percentage` costs.
+
+    For pass-through fees, which are charged by an external party rather than at an agreed Mollie
+    rate, both `fixed` and `percentage` are `null`.
+    """
     amount_net: AmountTypedDict
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
     amount_vat: Nullable[AmountNullableTypedDict]
@@ -110,7 +136,11 @@ class Cost(BaseModel):
     r"""The number of fees"""
 
     rate: Rate
-    r"""The service rates, further divided into `fixed` and `percentage` costs."""
+    r"""The service rates, further divided into `fixed` and `percentage` costs.
+
+    For pass-through fees, which are charged by an external party rather than at an agreed Mollie
+    rate, both `fixed` and `percentage` are `null`.
+    """
 
     amount_net: Annotated[Amount, pydantic.Field(alias="amountNet")]
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
@@ -122,12 +152,19 @@ class Cost(BaseModel):
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -175,12 +212,19 @@ class Revenue(BaseModel):
     r"""In v2 endpoints, monetary amounts are represented as objects with a `currency` and `value` field."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
@@ -214,14 +258,21 @@ class Periods(BaseModel):
     r"""The invoice reference, if the invoice has been created already."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["costs", "revenue", "invoiceId", "invoiceReference"])
         nullable_fields = set(["invoiceReference"])
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
@@ -340,16 +391,23 @@ class EntitySettlement(BaseModel):
         return value
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["createdAt", "reference", "settledAt", "invoiceId", "periods"]
         )
         nullable_fields = set(["reference", "settledAt", "invoiceId"])
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
