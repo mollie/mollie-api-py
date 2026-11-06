@@ -205,7 +205,7 @@ import os
 
 with ClientSDK(
     security=mollie.Security(
-        api_key=os.getenv("CLIENT_API_KEY", ""),
+        api_key=os.getenv("CLIENT_API_KEY"),
     ),
     testmode=True,
 ) as client_sdk:
@@ -487,6 +487,11 @@ client = ClientSDK(
 * [cancel](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/refundssdk/README.md#cancel) - Cancel payment refund
 * [all](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/refundssdk/README.md#all) - List all refunds
 
+### [Reports](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/reports/README.md)
+
+* [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/reports/README.md#create) - Create report
+* [get](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/reports/README.md#get) - Get report
+
 ### [SalesInvoices](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md)
 
 * [create](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/salesinvoices/README.md#create) - Create sales invoice
@@ -593,7 +598,7 @@ with ClientSDK(
     profile_id="<id>",
     custom_user_agent="<value>",
     security=mollie.Security(
-        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN"),
     ),
 ) as client_sdk:
 
@@ -624,7 +629,7 @@ import os
 with ClientSDK(
     testmode=True,
     security=mollie.Security(
-        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN", ""),
+        advanced_access_token=os.getenv("CLIENT_ADVANCED_ACCESS_TOKEN"),
     ),
 ) as client_sdk:
 
@@ -960,6 +965,7 @@ def main():
 
     with ClientSDK() as client_sdk:
         # Rest of application here...
+        pass
 
 
 # Or when using async:
@@ -967,6 +973,7 @@ async def amain():
 
     async with ClientSDK() as client_sdk:
         # Rest of application here...
+        pass
 ```
 <!-- End Resource Management [resource-management] -->
 
