@@ -2,7 +2,8 @@
 # @generated-id: 4fa26770da31
 
 from __future__ import annotations
-from .method_enum import MethodEnum
+from .method_id import MethodID
+from mollie import models
 from mollie.types import (
     BaseModel,
     Nullable,
@@ -13,7 +14,7 @@ from mollie.types import (
 from mollie.types.basemodel import current_filtered_dump
 from mollie.utils import FieldMetadata, HeaderMetadata, PathParamMetadata
 import pydantic
-from pydantic import model_serializer
+from pydantic import field_serializer, model_serializer
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -21,7 +22,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class DisableMethodRequestTypedDict(TypedDict):
     profile_id: str
     r"""Provide the ID of the related profile."""
-    method_id: Nullable[MethodEnum]
+    method_id: Nullable[MethodID]
     r"""Provide the ID of the related payment method."""
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
@@ -36,7 +37,7 @@ class DisableMethodRequest(BaseModel):
     r"""Provide the ID of the related profile."""
 
     method_id: Annotated[
-        Nullable[MethodEnum],
+        Nullable[MethodID],
         pydantic.Field(alias="methodId"),
         FieldMetadata(path=PathParamMetadata(style="simple", explode=False)),
     ]
@@ -48,6 +49,15 @@ class DisableMethodRequest(BaseModel):
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
+
+    @field_serializer("method_id")
+    def serialize_method_id(self, value):
+        if isinstance(value, str):
+            try:
+                return models.MethodID(value)
+            except ValueError:
+                return value
+        return value
 
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):

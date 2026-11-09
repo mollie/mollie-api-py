@@ -52,6 +52,7 @@ class ListEntityMethodID(str, Enum, metaclass=utils.OpenEnumMeta):
     PAYBYBANK = "paybybank"
     PAYPAL = "paypal"
     PAYSAFECARD = "paysafecard"
+    POINTOFSALE = "pointofsale"
     PRZELEWY24 = "przelewy24"
     RIVERTY = "riverty"
     SATISPAY = "satispay"
