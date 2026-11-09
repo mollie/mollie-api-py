@@ -40,6 +40,7 @@ class EntityMethodGetID(str, Enum, metaclass=utils.OpenEnumMeta):
     DIRECTDEBIT = "directdebit"
     EPS = "eps"
     GIFTCARD = "giftcard"
+    GOOGLEPAY = "googlepay"
     IDEAL = "ideal"
     IN3 = "in3"
     KBC = "kbc"
@@ -61,14 +62,6 @@ class EntityMethodGetID(str, Enum, metaclass=utils.OpenEnumMeta):
     VIPPS = "vipps"
     VOUCHER = "voucher"
     WERO = "wero"
-    # Deprecated, use 'klarna' instead
-    KLARNAPAYLATER = "klarnapaylater"
-    # Deprecated, use 'klarna' instead
-    KLARNAPAYNOW = "klarnapaynow"
-    # Deprecated, use 'klarna' instead
-    KLARNASLICEIT = "klarnasliceit"
-    # No longer available
-    PAYCONIQ = "payconiq"
 
 
 class EntityMethodGetMinimumAmountTypedDict(TypedDict):
