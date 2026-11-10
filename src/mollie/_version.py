@@ -4,10 +4,10 @@
 import importlib.metadata
 
 __title__: str = "mollie-api-py"
-__version__: str = "1.10.22"
+__version__: str = "1.10.23"
 __openapi_doc_version__: str = "1.0.0"
-__gen_version__: str = "2.956.1"
-__user_agent__: str = "speakeasy-sdk/python 1.10.22 2.956.1 1.0.0 mollie-api-py"
+__gen_version__: str = "2.960.7"
+__user_agent__: str = "speakeasy-sdk/python 1.10.23 2.960.7 1.0.0 mollie-api-py"
 
 try:
     if __package__ is not None:
