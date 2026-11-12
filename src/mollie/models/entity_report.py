@@ -10,9 +10,6 @@ from enum import Enum
 from mollie import models, utils
 from mollie.types import (
     BaseModel,
-    Nullable,
-    OptionalNullable,
-    UNSET,
     UNSET_SENTINEL,
     current_exclude_none,
     serialize_with_info,
@@ -92,21 +89,21 @@ class EntityReportTypedDict(TypedDict):
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
     links: EntityReportLinksTypedDict
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
-    from_date: NotRequired[Nullable[date]]
-    r"""The start date of the report period. Set for date-range report types, `null` otherwise."""
-    until_date: NotRequired[Nullable[date]]
-    r"""The end date of the report period. Set for date-range report types, `null` otherwise."""
-    status_reason: NotRequired[Nullable[ReportStatusReasonTypedDict]]
+    from_date: NotRequired[date]
+    r"""The start date of the report period. Only present for date-range report types."""
+    until_date: NotRequired[date]
+    r"""The end date of the report period. Only present for date-range report types."""
+    status_reason: NotRequired[ReportStatusReasonTypedDict]
     r"""Present when `status` is `failed`. Explains what went wrong."""
-    completed_at: NotRequired[Nullable[datetime]]
+    completed_at: NotRequired[datetime]
     r"""The date and time the report finished generating, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     format. Only present once `status` is `completed`.
     """
-    failed_at: NotRequired[Nullable[datetime]]
+    failed_at: NotRequired[datetime]
     r"""The date and time the report failed to generate, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     format. Only present once `status` is `failed`.
     """
-    download_expires_at: NotRequired[Nullable[datetime]]
+    download_expires_at: NotRequired[datetime]
     r"""The date and time the `_links.download` link expires, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     format. We issue a fresh link and expiry on every call to [Get report](get-report), so just call it
     again once this one expires.
@@ -134,38 +131,32 @@ class EntityReport(BaseModel):
     links: Annotated[EntityReportLinks, pydantic.Field(alias="_links")]
     r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
-    from_date: Annotated[OptionalNullable[date], pydantic.Field(alias="fromDate")] = (
-        UNSET
-    )
-    r"""The start date of the report period. Set for date-range report types, `null` otherwise."""
+    from_date: Annotated[Optional[date], pydantic.Field(alias="fromDate")] = None
+    r"""The start date of the report period. Only present for date-range report types."""
 
-    until_date: Annotated[OptionalNullable[date], pydantic.Field(alias="untilDate")] = (
-        UNSET
-    )
-    r"""The end date of the report period. Set for date-range report types, `null` otherwise."""
+    until_date: Annotated[Optional[date], pydantic.Field(alias="untilDate")] = None
+    r"""The end date of the report period. Only present for date-range report types."""
 
     status_reason: Annotated[
-        OptionalNullable[ReportStatusReason], pydantic.Field(alias="statusReason")
-    ] = UNSET
+        Optional[ReportStatusReason], pydantic.Field(alias="statusReason")
+    ] = None
     r"""Present when `status` is `failed`. Explains what went wrong."""
 
-    completed_at: Annotated[
-        OptionalNullable[datetime], pydantic.Field(alias="completedAt")
-    ] = UNSET
+    completed_at: Annotated[Optional[datetime], pydantic.Field(alias="completedAt")] = (
+        None
+    )
     r"""The date and time the report finished generating, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     format. Only present once `status` is `completed`.
     """
 
-    failed_at: Annotated[
-        OptionalNullable[datetime], pydantic.Field(alias="failedAt")
-    ] = UNSET
+    failed_at: Annotated[Optional[datetime], pydantic.Field(alias="failedAt")] = None
     r"""The date and time the report failed to generate, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     format. Only present once `status` is `failed`.
     """
 
     download_expires_at: Annotated[
-        OptionalNullable[datetime], pydantic.Field(alias="downloadExpiresAt")
-    ] = UNSET
+        Optional[datetime], pydantic.Field(alias="downloadExpiresAt")
+    ] = None
     r"""The date and time the `_links.download` link expires, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
     format. We issue a fresh link and expiry on every call to [Get report](get-report), so just call it
     again once this one expires.
@@ -204,16 +195,6 @@ class EntityReport(BaseModel):
                 "downloadExpiresAt",
             ]
         )
-        nullable_fields = set(
-            [
-                "fromDate",
-                "untilDate",
-                "statusReason",
-                "completedAt",
-                "failedAt",
-                "downloadExpiresAt",
-            ]
-        )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
@@ -224,17 +205,9 @@ class EntityReport(BaseModel):
             if k not in serialized and n not in serialized and skip_filtered:
                 continue
             val = serialized.get(k, serialized.get(n))
-            is_nullable_and_explicitly_set = (
-                k in nullable_fields
-                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
-            )
 
             if val != UNSET_SENTINEL:
-                if (
-                    val is not None
-                    or k not in optional_fields
-                    or is_nullable_and_explicitly_set
-                ):
+                if val is not None or k not in optional_fields:
                     m[k] = val
 
         return m

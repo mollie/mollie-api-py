@@ -10,4 +10,4 @@ class ReportType(str, Enum):
     on the resulting report.
     """
 
-    TRANSACTION_MARGIN = "transaction_margin"
+    TRANSACTION_MARGIN = "transaction-margin"

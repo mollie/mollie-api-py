@@ -34,11 +34,6 @@ class Reports(BaseSDK):
 
         Poll [Get report](get-report) to check on progress, and grab a download link once it's ready.
 
-        This needs an organization access token. A token scoped to a single website profile can't be used,
-        since report data spans the whole organization.
-
-        Test mode credentials are rejected, since report data has no live/test distinction.
-
         Creating a report with the exact same parameters while one is already pending or completed doesn't create
         a new one. You get the existing report back instead, whatever status it currently has.
 
@@ -119,15 +114,15 @@ class Reports(BaseSDK):
                     "x-readme": {
                         "code-samples": [
                             {
-                                "code": 'curl -X POST https://api.mollie.com/v2/reports \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "reportType=transaction_margin" \\\n    -d "fromDate=2026-08-01" \\\n    -d "untilDate=2026-08-31"',
+                                "code": 'curl -X POST https://api.mollie.com/v2/reports \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n      "reportType": "transaction-margin",\n      "fromDate": "2026-08-01",\n      "untilDate": "2026-08-31"\n    }\'',
                                 "language": "shell",
                             },
                             {
-                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateReportRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$report = $mollie->send(\n    new CreateReportRequest(\n        reportType: "transaction_margin",\n        fromDate: "2026-08-01",\n        untilDate: "2026-08-31",\n    )\n);',
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateReportRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$report = $mollie->send(\n    new CreateReportRequest(\n        reportType: "transaction-margin",\n        fromDate: "2026-08-01",\n        untilDate: "2026-08-31",\n    )\n);',
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst report = await mollieClient.reports.create({\n  reportType: 'transaction_margin',\n  fromDate: '2026-08-01',\n  untilDate: '2026-08-31'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst report = await mollieClient.reports.create({\n  reportType: 'transaction-margin',\n  fromDate: '2026-08-01',\n  untilDate: '2026-08-31'\n});",
                                 "language": "node",
                             },
                             {"code": "No example available.", "language": "python"},
@@ -180,11 +175,6 @@ class Reports(BaseSDK):
         Create a report. Mollie generates it in the background, so you get a `pending` status back right away.
 
         Poll [Get report](get-report) to check on progress, and grab a download link once it's ready.
-
-        This needs an organization access token. A token scoped to a single website profile can't be used,
-        since report data spans the whole organization.
-
-        Test mode credentials are rejected, since report data has no live/test distinction.
 
         Creating a report with the exact same parameters while one is already pending or completed doesn't create
         a new one. You get the existing report back instead, whatever status it currently has.
@@ -266,15 +256,15 @@ class Reports(BaseSDK):
                     "x-readme": {
                         "code-samples": [
                             {
-                                "code": 'curl -X POST https://api.mollie.com/v2/reports \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -d "reportType=transaction_margin" \\\n    -d "fromDate=2026-08-01" \\\n    -d "untilDate=2026-08-31"',
+                                "code": 'curl -X POST https://api.mollie.com/v2/reports \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n      "reportType": "transaction-margin",\n      "fromDate": "2026-08-01",\n      "untilDate": "2026-08-31"\n    }\'',
                                 "language": "shell",
                             },
                             {
-                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateReportRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$report = $mollie->send(\n    new CreateReportRequest(\n        reportType: "transaction_margin",\n        fromDate: "2026-08-01",\n        untilDate: "2026-08-31",\n    )\n);',
+                                "code": '<?php\nuse Mollie\\Api\\Http\\Requests\\CreateReportRequest;\n\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$report = $mollie->send(\n    new CreateReportRequest(\n        reportType: "transaction-margin",\n        fromDate: "2026-08-01",\n        untilDate: "2026-08-31",\n    )\n);',
                                 "language": "php",
                             },
                             {
-                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst report = await mollieClient.reports.create({\n  reportType: 'transaction_margin',\n  fromDate: '2026-08-01',\n  untilDate: '2026-08-31'\n});",
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ accessToken: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst report = await mollieClient.reports.create({\n  reportType: 'transaction-margin',\n  fromDate: '2026-08-01',\n  untilDate: '2026-08-31'\n});",
                                 "language": "node",
                             },
                             {"code": "No example available.", "language": "python"},
@@ -329,11 +319,6 @@ class Reports(BaseSDK):
         it. If it expires before you download the file, just call this endpoint again for a new one. Expiry of
         the link doesn't affect the report itself.
 
-        A report that belongs to another organization gets a `404`, same as one that doesn't exist. The same goes
-        for a credential scoped to a single website profile, or a test mode credential. Reports are
-        organization-wide with no live/test distinction, so neither can ever own a real report. That keeps the
-        rule simple: any credential that can't own this report gets a `404`, and we never leak whether it exists.
-
         If set, this operation will use `advanced_access_token` from the global security.
 
         :param report_id: Provide the ID of the related report.
@@ -427,7 +412,9 @@ class Reports(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.EntityReport, http_res)
-        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["400", "403", "404", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
@@ -462,11 +449,6 @@ class Reports(BaseSDK):
         The download link is pre-signed and freshly generated on every call, and expires 15 minutes after you get
         it. If it expires before you download the file, just call this endpoint again for a new one. Expiry of
         the link doesn't affect the report itself.
-
-        A report that belongs to another organization gets a `404`, same as one that doesn't exist. The same goes
-        for a credential scoped to a single website profile, or a test mode credential. Reports are
-        organization-wide with no live/test distinction, so neither can ever own a real report. That keeps the
-        rule simple: any credential that can't own this report gets a `404`, and we never leak whether it exists.
 
         If set, this operation will use `advanced_access_token` from the global security.
 
@@ -561,7 +543,9 @@ class Reports(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/hal+json"):
             return unmarshal_json_response(models.EntityReport, http_res)
-        if utils.match_response(http_res, ["404", "429"], "application/hal+json"):
+        if utils.match_response(
+            http_res, ["400", "403", "404", "429"], "application/hal+json"
+        ):
             response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
             raise models.ErrorResponse(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
