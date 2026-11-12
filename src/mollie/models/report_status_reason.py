@@ -2,14 +2,17 @@
 # @generated-id: 5e2d6dd6dd12
 
 from __future__ import annotations
+from .report_status_reason_code import ReportStatusReasonCode
+from mollie import models
 from mollie.types import BaseModel
+from pydantic import field_serializer
 from typing_extensions import TypedDict
 
 
 class ReportStatusReasonTypedDict(TypedDict):
     r"""Present when `status` is `failed`. Explains what went wrong."""
 
-    code: str
+    code: ReportStatusReasonCode
     r"""A machine-readable code for the failure reason."""
     message: str
     r"""A human-readable explanation of why the report failed."""
@@ -18,8 +21,17 @@ class ReportStatusReasonTypedDict(TypedDict):
 class ReportStatusReason(BaseModel):
     r"""Present when `status` is `failed`. Explains what went wrong."""
 
-    code: str
+    code: ReportStatusReasonCode
     r"""A machine-readable code for the failure reason."""
 
     message: str
     r"""A human-readable explanation of why the report failed."""
+
+    @field_serializer("code")
+    def serialize_code(self, value):
+        if isinstance(value, str):
+            try:
+                return models.ReportStatusReasonCode(value)
+            except ValueError:
+                return value
+        return value

@@ -11,4 +11,4 @@ class ReportTypeResponse(str, Enum, metaclass=utils.OpenEnumMeta):
     on the resulting report.
     """
 
-    TRANSACTION_MARGIN = "transaction_margin"
+    TRANSACTION_MARGIN = "transaction-margin"

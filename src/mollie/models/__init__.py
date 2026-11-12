@@ -1625,6 +1625,7 @@ if TYPE_CHECKING:
         ReleaseAuthorizationRequestTypedDict,
     )
     from .report_status_reason import ReportStatusReason, ReportStatusReasonTypedDict
+    from .report_status_reason_code import ReportStatusReasonCode
     from .report_type import ReportType
     from .report_type_response import ReportTypeResponse
     from .request_apple_pay_payment_sessionop import (
@@ -3307,6 +3308,7 @@ __all__ = [
     "ReleaseAuthorizationRequestBodyTypedDict",
     "ReleaseAuthorizationRequestTypedDict",
     "ReportStatusReason",
+    "ReportStatusReasonCode",
     "ReportStatusReasonTypedDict",
     "ReportType",
     "ReportTypeResponse",
@@ -4915,6 +4917,7 @@ _dynamic_imports: dict[str, str] = {
     "ReleaseAuthorizationRequestTypedDict": ".release_authorizationop",
     "ReportStatusReason": ".report_status_reason",
     "ReportStatusReasonTypedDict": ".report_status_reason",
+    "ReportStatusReasonCode": ".report_status_reason_code",
     "ReportType": ".report_type",
     "ReportTypeResponse": ".report_type_response",
     "RequestApplePayPaymentSessionRequest": ".request_apple_pay_payment_sessionop",
