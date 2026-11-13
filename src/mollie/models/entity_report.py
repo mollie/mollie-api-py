@@ -97,16 +97,15 @@ class EntityReportTypedDict(TypedDict):
     r"""Present when `status` is `failed`. Explains what went wrong."""
     completed_at: NotRequired[datetime]
     r"""The date and time the report finished generating, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
-    format. Only present once `status` is `completed`.
+    format. Only present when `status` is `completed`.
     """
     failed_at: NotRequired[datetime]
     r"""The date and time the report failed to generate, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
-    format. Only present once `status` is `failed`.
+    format. Only present when `status` is `failed`.
     """
     download_expires_at: NotRequired[datetime]
     r"""The date and time the `_links.download` link expires, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
-    format. We issue a fresh link and expiry on every call to [Get report](get-report), so just call it
-    again once this one expires.
+    format. Only present when `status` is `completed`.
     """
 
 
@@ -146,20 +145,19 @@ class EntityReport(BaseModel):
         None
     )
     r"""The date and time the report finished generating, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
-    format. Only present once `status` is `completed`.
+    format. Only present when `status` is `completed`.
     """
 
     failed_at: Annotated[Optional[datetime], pydantic.Field(alias="failedAt")] = None
     r"""The date and time the report failed to generate, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
-    format. Only present once `status` is `failed`.
+    format. Only present when `status` is `failed`.
     """
 
     download_expires_at: Annotated[
         Optional[datetime], pydantic.Field(alias="downloadExpiresAt")
     ] = None
     r"""The date and time the `_links.download` link expires, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
-    format. We issue a fresh link and expiry on every call to [Get report](get-report), so just call it
-    again once this one expires.
+    format. Only present when `status` is `completed`.
     """
 
     @field_serializer("report_type")

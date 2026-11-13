@@ -10,5 +10,5 @@ class ReportStatusReasonCode(str, Enum, metaclass=utils.OpenEnumMeta):
     r"""A machine-readable code for the failure reason."""
 
     GENERATION_FAILED = "generation-failed"
+    VALIDATION_FAILED = "validation-failed"
     EMPTY_REPORT = "empty-report"
-    REPORT_VALIDATION_FAILED = "report-validation-failed"
