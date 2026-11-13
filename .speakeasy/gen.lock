@@ -1,19 +1,19 @@
 lockVersion: ""
 id: ""
 management:
-  docChecksum: 324dec8ae0ce5b77fbcbe920fc8e6877
+  docChecksum: 2a10a1ad200bf087fda261562c4f3940
   docVersion: 1.0.0
   speakeasyVersion: 1.808.1
   generationVersion: 2.960.8
-  releaseVersion: 1.10.23
-  configChecksum: 97e91e9e82d17e6900ce4ddfd9a47769
+  releaseVersion: 1.10.24
+  configChecksum: c44bcef4e3f3dd2f7c29a3916e36d69a
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: 423e8d25-e540-4849-997e-34b82c4ba4d4
-  pristine_commit_hash: 4bade09a025d2775a61a4f1e04691f89db160882
-  pristine_tree_hash: a36f1a69d3668b5a03742dce3387c88a0c01a2d3
+  generation_id: 9bf3ea50-c3ac-447b-86ca-0a9e6c773e60
+  pristine_commit_hash: b2eb9723c04465884eb6bb917671c115631a349f
+  pristine_tree_hash: 717a529dd178ae9a0091b8776312ceb488ccf1ae
 features:
   python:
     additionalDependencies: 1.1.0
@@ -792,8 +792,8 @@ trackedFiles:
     pristine_git_object: bc4780dd529700ef0e33f5630abfcabf8ed25eb2
   docs/models/entityreport.md:
     id: f493da255fc7
-    last_write_checksum: sha1:b87886ead399c025bcdb9794825f21d979e50fb0
-    pristine_git_object: 33d343b17bc6eb1b9c2460376b36bab1b2d5ec25
+    last_write_checksum: sha1:d60b4491ab1988e48f2ca02b7eee307bd186b10e
+    pristine_git_object: 4d65a962cb5dcd7caca2f34a8f5efd09cb2ca222
   docs/models/entityreportlinks.md:
     id: a399d85134a0
     last_write_checksum: sha1:718fe88efb562e7eff72eab35cea7bcf19500ce8
@@ -2716,8 +2716,8 @@ trackedFiles:
     pristine_git_object: 3be80eeadfdeec4941f4546df4e6c170dfcc268f
   docs/models/paymentrequest.md:
     id: 0e4e917b7d33
-    last_write_checksum: sha1:7d43e96e61b2627b241a4163ae6083154f911e47
-    pristine_git_object: 0b31778649934e3c1697ef909825d55f938d38f2
+    last_write_checksum: sha1:25ca53c78268d2639c71b71e30d93411becae21c
+    pristine_git_object: ac947c0cbc16243045a009b9e8039d4b061beaac
   docs/models/paymentrequestapplicationfee.md:
     id: fceb80514e24
     last_write_checksum: sha1:ac2460e0e2a1544f07dfb07c15d2be20fd2d777b
@@ -2896,8 +2896,8 @@ trackedFiles:
     pristine_git_object: c6cb47c9987e9be325e13af3ec4a622b2bc754e5
   docs/models/reportstatusreasoncode.md:
     id: c20e2850cb82
-    last_write_checksum: sha1:6f6de95172dc243f4fd20b5ce053035c2aa180c0
-    pristine_git_object: c5be2ed07e4cde4a294fd6d1c8f7f4ca979c6c06
+    last_write_checksum: sha1:c905aff605d1a7f6403886e262ad4f5874fe6dca
+    pristine_git_object: 469401a6078ddf79a4cb1635d9b68db253611c26
   docs/models/reporttype.md:
     id: 6d4acbf9a7c0
     last_write_checksum: sha1:079502f7e501bd69568fbe30b4521dbbf4823570
@@ -3752,8 +3752,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:c350f8164a5a1c472c7b5ef7abb8213920a37a43
-    pristine_git_object: 245a16ceb5aea88af4c1e2635c64075fe9360356
+    last_write_checksum: sha1:a190adae80cb0910c01c8d05eb172c2a546f7af6
+    pristine_git_object: 9e8af3ba7edeed67c1c70606f739981dc35a82be
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3780,8 +3780,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:d417b4168e711b8eaa237c5d4fec1285ddb02877
-    pristine_git_object: a7d3ef921eaca0cbb03bb094e253dfa5546b3c0d
+    last_write_checksum: sha1:9457a8340926bba07a0fdc0023f578917794aff5
+    pristine_git_object: 02d57c3020dc5f6b5517d084bd604a0509109f5f
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:cede7b105a3b8d228d44014e1ac997d786046fc2
@@ -4268,8 +4268,8 @@ trackedFiles:
     pristine_git_object: 3dbb4fe22cb1badca640a3582f255f173aa3d659
   src/mollie/models/entity_report.py:
     id: 3876f2176c27
-    last_write_checksum: sha1:27d0ae39f02d909a201bd6922513efd5e41ed023
-    pristine_git_object: e91856956f7f606eaf62f6a1b32aaa24dba1241f
+    last_write_checksum: sha1:0d2ccd26ba2d17ac611f49c3de7ae5275b686a53
+    pristine_git_object: b2a56a6ef81d18c74e1104a8f2ea9bb220eca06a
   src/mollie/models/entity_settlement.py:
     id: 59d05b1038b3
     last_write_checksum: sha1:60da4edb8a296e7ce72de5824843644f07b37585
@@ -4916,8 +4916,8 @@ trackedFiles:
     pristine_git_object: bc466f5de92fd312214c46446840a97acae94b48
   src/mollie/models/payment_request.py:
     id: 261522a57b3b
-    last_write_checksum: sha1:8a356adc34526bf913e134f4c0c5c4a3a9515a2f
-    pristine_git_object: fd01d5f36283f1fdec5547e5001828b93bbe24f2
+    last_write_checksum: sha1:5608919fe8d758faf626318762004f1bd092c1dd
+    pristine_git_object: 48ad8714e65aa6d253c998d2cc45fa5084039cf1
   src/mollie/models/payment_response.py:
     id: b84539114322
     last_write_checksum: sha1:20b2c963988951fc2d432838b02c636ac92f6d25
@@ -4976,8 +4976,8 @@ trackedFiles:
     pristine_git_object: 7c50bf63c1ed6ac0a767b55bb251e93d3895bba0
   src/mollie/models/report_status_reason_code.py:
     id: 91135d039fd5
-    last_write_checksum: sha1:7c77955739441ca562d626111be29a7e7c9aa216
-    pristine_git_object: 0aeab03debe2c0d16ad6cdd362857773e5dea657
+    last_write_checksum: sha1:4df84cced4b884268176b9a2ceff6490a5994f9e
+    pristine_git_object: 10da673dde5bc9f1ce0c9e479fd52b20ff2235f3
   src/mollie/models/report_type.py:
     id: 222ef97097a3
     last_write_checksum: sha1:bc2a5d8f98145a40c912f731bec5f4ae87661d7d
@@ -9458,11 +9458,13 @@ examples:
           idempotency-key: "123e4567-e89b-12d3-a456-426"
       responses:
         "200":
-          application/hal+json: {"resource": "report", "id": "rpt_XRAG3v9EUyCDcX99pJ2Vc", "reportType": "transaction-margin", "fromDate": "2026-08-01", "untilDate": "2026-08-31", "status": "completed", "statusReason": {"code": "report-validation-failed", "message": "Something went wrong while generating the report. Try again, or contact support if it keeps happening."}, "createdAt": "2024-03-20T09:13:37+00:00", "completedAt": "2026-09-01T09:01:12+00:00", "failedAt": "2026-09-01T09:03:00+00:00", "downloadExpiresAt": "2026-09-01T09:16:12+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "download": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
+          application/hal+json: {"resource": "report", "id": "rpt_XRAG3v9EUyCDcX99pJ2Vc", "reportType": "transaction-margin", "fromDate": "2026-08-01", "untilDate": "2026-08-31", "status": "completed", "statusReason": {"code": "empty-report", "message": "Something went wrong while generating the report. Try again, or contact support if it keeps happening."}, "createdAt": "2024-03-20T09:13:37+00:00", "completedAt": "2026-09-01T09:01:12+00:00", "failedAt": "2026-09-01T09:03:00+00:00", "downloadExpiresAt": "2026-09-01T09:16:12+00:00", "_links": {"self": {"href": "https://...", "type": "application/hal+json"}, "download": {"href": "https://...", "type": "application/hal+json"}, "documentation": {"href": "https://...", "type": "application/hal+json"}}}
         "404":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
         "400":
           application/hal+json: {"status": 404, "title": "Not Found", "detail": "The resource does not exist", "field": "description", "_links": {"documentation": {"href": "https://docs.mollie.com/errors", "type": "text/html"}}}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `client.reports.create()`: \n  *  `request.create_report_request.report_type` **Changed** (Breaking ⚠️)\n* `client.reports.get()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `client.reports.get()`:  `response.status_reason.code` **Changed** (Breaking ⚠️)
