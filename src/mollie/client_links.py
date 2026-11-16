@@ -15,6 +15,8 @@ class ClientLinks(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         client_link_request: Optional[
             Union[models.ClientLinkRequest, models.ClientLinkRequestTypedDict]
         ] = None,
@@ -82,6 +84,8 @@ class ClientLinks(BaseSDK):
         If set, this operation will use `advanced_access_token` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param client_link_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -100,6 +104,8 @@ class ClientLinks(BaseSDK):
 
         request = models.CreateClientLinkRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             client_link_request=utils.get_pydantic_model(
                 client_link_request, Optional[models.ClientLinkRequest]
             ),
@@ -199,6 +205,8 @@ class ClientLinks(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         client_link_request: Optional[
             Union[models.ClientLinkRequest, models.ClientLinkRequestTypedDict]
         ] = None,
@@ -266,6 +274,8 @@ class ClientLinks(BaseSDK):
         If set, this operation will use `advanced_access_token` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param client_link_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -284,6 +294,8 @@ class ClientLinks(BaseSDK):
 
         request = models.CreateClientLinkRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             client_link_request=utils.get_pydantic_model(
                 client_link_request, Optional[models.ClientLinkRequest]
             ),

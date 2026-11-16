@@ -16,6 +16,8 @@ class PaymentLinks(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.CreatePaymentLinkRequestBody,
@@ -36,6 +38,8 @@ class PaymentLinks(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -54,6 +58,8 @@ class PaymentLinks(BaseSDK):
 
         request = models.CreatePaymentLinkRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.CreatePaymentLinkRequestBody]
             ),
@@ -156,6 +162,8 @@ class PaymentLinks(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.CreatePaymentLinkRequestBody,
@@ -176,6 +184,8 @@ class PaymentLinks(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -194,6 +204,8 @@ class PaymentLinks(BaseSDK):
 
         request = models.CreatePaymentLinkRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.CreatePaymentLinkRequestBody]
             ),
@@ -299,6 +311,8 @@ class PaymentLinks(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -322,6 +336,8 @@ class PaymentLinks(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -342,6 +358,8 @@ class PaymentLinks(BaseSDK):
             limit=limit,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -437,6 +455,8 @@ class PaymentLinks(BaseSDK):
                 limit=limit,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -471,6 +491,8 @@ class PaymentLinks(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -494,6 +516,8 @@ class PaymentLinks(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -514,6 +538,8 @@ class PaymentLinks(BaseSDK):
             limit=limit,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -612,6 +638,8 @@ class PaymentLinks(BaseSDK):
                 limit=limit,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -645,6 +673,8 @@ class PaymentLinks(BaseSDK):
         payment_link_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -663,6 +693,8 @@ class PaymentLinks(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -682,6 +714,8 @@ class PaymentLinks(BaseSDK):
             payment_link_id=payment_link_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -777,6 +811,8 @@ class PaymentLinks(BaseSDK):
         payment_link_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -795,6 +831,8 @@ class PaymentLinks(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -814,6 +852,8 @@ class PaymentLinks(BaseSDK):
             payment_link_id=payment_link_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -908,6 +948,8 @@ class PaymentLinks(BaseSDK):
         *,
         payment_link_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.UpdatePaymentLinkRequestBody,
@@ -927,6 +969,8 @@ class PaymentLinks(BaseSDK):
 
         :param payment_link_id: Provide the ID of the related payment link.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -946,6 +990,8 @@ class PaymentLinks(BaseSDK):
         request = models.UpdatePaymentLinkRequest(
             payment_link_id=payment_link_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.UpdatePaymentLinkRequestBody]
             ),
@@ -1043,6 +1089,8 @@ class PaymentLinks(BaseSDK):
         *,
         payment_link_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.UpdatePaymentLinkRequestBody,
@@ -1062,6 +1110,8 @@ class PaymentLinks(BaseSDK):
 
         :param payment_link_id: Provide the ID of the related payment link.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1081,6 +1131,8 @@ class PaymentLinks(BaseSDK):
         request = models.UpdatePaymentLinkRequest(
             payment_link_id=payment_link_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.UpdatePaymentLinkRequestBody]
             ),
@@ -1178,6 +1230,8 @@ class PaymentLinks(BaseSDK):
         *,
         payment_link_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.DeletePaymentLinkRequestBody,
@@ -1203,6 +1257,8 @@ class PaymentLinks(BaseSDK):
 
         :param payment_link_id: Provide the ID of the related payment link.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1222,6 +1278,8 @@ class PaymentLinks(BaseSDK):
         request = models.DeletePaymentLinkRequest(
             payment_link_id=payment_link_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.DeletePaymentLinkRequestBody]
             ),
@@ -1319,6 +1377,8 @@ class PaymentLinks(BaseSDK):
         *,
         payment_link_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.DeletePaymentLinkRequestBody,
@@ -1344,6 +1404,8 @@ class PaymentLinks(BaseSDK):
 
         :param payment_link_id: Provide the ID of the related payment link.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1363,6 +1425,8 @@ class PaymentLinks(BaseSDK):
         request = models.DeletePaymentLinkRequest(
             payment_link_id=payment_link_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.DeletePaymentLinkRequestBody]
             ),
@@ -1464,6 +1528,8 @@ class PaymentLinks(BaseSDK):
         sort: Optional[models.Sorting] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1490,6 +1556,8 @@ class PaymentLinks(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1512,6 +1580,8 @@ class PaymentLinks(BaseSDK):
             sort=sort,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -1600,6 +1670,8 @@ class PaymentLinks(BaseSDK):
                 sort=sort,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -1636,6 +1708,8 @@ class PaymentLinks(BaseSDK):
         sort: Optional[models.Sorting] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1662,6 +1736,8 @@ class PaymentLinks(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1684,6 +1760,8 @@ class PaymentLinks(BaseSDK):
             sort=sort,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -1775,6 +1853,8 @@ class PaymentLinks(BaseSDK):
                 sort=sort,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,

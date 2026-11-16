@@ -130,6 +130,10 @@ class GetMethodRequestTypedDict(TypedDict):
     """
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
+    x_client_signature: NotRequired[str]
+    r"""A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration."""
+    x_client_signed_at: NotRequired[str]
+    r"""The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration."""
 
 
 class GetMethodRequest(BaseModel):
@@ -205,6 +209,20 @@ class GetMethodRequest(BaseModel):
     ] = None
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
+    x_client_signature: Annotated[
+        Optional[str],
+        pydantic.Field(alias="X-Client-Signature"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration."""
+
+    x_client_signed_at: Annotated[
+        Optional[str],
+        pydantic.Field(alias="X-Client-Signed-At"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration."""
+
     @field_serializer("method_id")
     def serialize_method_id(self, value):
         if isinstance(value, str):
@@ -228,6 +246,8 @@ class GetMethodRequest(BaseModel):
                 "sequenceType",
                 "testmode",
                 "idempotency-key",
+                "X-Client-Signature",
+                "X-Client-Signed-At",
             ]
         )
         nullable_fields = set(["methodId", "locale", "include"])

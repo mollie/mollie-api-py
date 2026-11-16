@@ -18,6 +18,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         from_: OptionalNullable[str] = UNSET,
         limit: OptionalNullable[int] = UNSET,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -40,6 +42,8 @@ class UnmatchedCreditTransfers(BaseSDK):
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -59,6 +63,8 @@ class UnmatchedCreditTransfers(BaseSDK):
             from_=from_,
             limit=limit,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -141,6 +147,8 @@ class UnmatchedCreditTransfers(BaseSDK):
                 from_=from_,
                 limit=limit,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -174,6 +182,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         from_: OptionalNullable[str] = UNSET,
         limit: OptionalNullable[int] = UNSET,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -196,6 +206,8 @@ class UnmatchedCreditTransfers(BaseSDK):
             result set.
         :param limit: The maximum number of items to return. Defaults to 50 items.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -215,6 +227,8 @@ class UnmatchedCreditTransfers(BaseSDK):
             from_=from_,
             limit=limit,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -302,6 +316,8 @@ class UnmatchedCreditTransfers(BaseSDK):
                 from_=from_,
                 limit=limit,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -334,6 +350,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         *,
         unmatched_credit_transfer_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -351,6 +369,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -369,6 +389,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         request = models.GetUnmatchedCreditTransferRequest(
             unmatched_credit_transfer_id=unmatched_credit_transfer_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -453,6 +475,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         *,
         unmatched_credit_transfer_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -470,6 +494,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -488,6 +514,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         request = models.GetUnmatchedCreditTransferRequest(
             unmatched_credit_transfer_id=unmatched_credit_transfer_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -572,6 +600,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         *,
         unmatched_credit_transfer_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         unmatched_credit_transfer_match_request: Optional[
             Union[
                 models.UnmatchedCreditTransferMatchRequest,
@@ -585,9 +615,9 @@ class UnmatchedCreditTransfers(BaseSDK):
     ) -> models.UnmatchedCreditTransferActionResponse:
         r"""Match unmatched credit transfer
 
-        > 🚧 Beta feature
+        > 🚧
         >
-        > This feature is currently in private beta, and the final specification may still change.
+        > To get access to this functionality, a virtual IBAN must be assigned to your webshop. We are currently rolling out virtual IBANs to our merchant base. Contact our support team or your account/sales manager to request access today.
 
         Matches an unmatched credit transfer to one or more payments, settling the funds accordingly.
 
@@ -595,6 +625,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param unmatched_credit_transfer_match_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -614,6 +646,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         request = models.MatchUnmatchedCreditTransferRequest(
             unmatched_credit_transfer_id=unmatched_credit_transfer_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             unmatched_credit_transfer_match_request=utils.get_pydantic_model(
                 unmatched_credit_transfer_match_request,
                 Optional[models.UnmatchedCreditTransferMatchRequest],
@@ -713,6 +747,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         *,
         unmatched_credit_transfer_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         unmatched_credit_transfer_match_request: Optional[
             Union[
                 models.UnmatchedCreditTransferMatchRequest,
@@ -726,9 +762,9 @@ class UnmatchedCreditTransfers(BaseSDK):
     ) -> models.UnmatchedCreditTransferActionResponse:
         r"""Match unmatched credit transfer
 
-        > 🚧 Beta feature
+        > 🚧
         >
-        > This feature is currently in private beta, and the final specification may still change.
+        > To get access to this functionality, a virtual IBAN must be assigned to your webshop. We are currently rolling out virtual IBANs to our merchant base. Contact our support team or your account/sales manager to request access today.
 
         Matches an unmatched credit transfer to one or more payments, settling the funds accordingly.
 
@@ -736,6 +772,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param unmatched_credit_transfer_match_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -755,6 +793,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         request = models.MatchUnmatchedCreditTransferRequest(
             unmatched_credit_transfer_id=unmatched_credit_transfer_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             unmatched_credit_transfer_match_request=utils.get_pydantic_model(
                 unmatched_credit_transfer_match_request,
                 Optional[models.UnmatchedCreditTransferMatchRequest],
@@ -854,6 +894,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         *,
         unmatched_credit_transfer_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -871,6 +913,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -889,6 +933,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         request = models.ReturnUnmatchedCreditTransferRequest(
             unmatched_credit_transfer_id=unmatched_credit_transfer_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -973,6 +1019,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         *,
         unmatched_credit_transfer_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -990,6 +1038,8 @@ class UnmatchedCreditTransfers(BaseSDK):
 
         :param unmatched_credit_transfer_id: Provide the ID of the related unmatched credit transfer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1008,6 +1058,8 @@ class UnmatchedCreditTransfers(BaseSDK):
         request = models.ReturnUnmatchedCreditTransferRequest(
             unmatched_credit_transfer_id=unmatched_credit_transfer_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(

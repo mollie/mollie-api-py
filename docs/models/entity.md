@@ -57,3 +57,9 @@ value: models.TransferResponse = /* values here */
 value: models.DraftTransferResponse = /* values here */
 ```
 
+### `models.BusinessAccountResponse`
+
+```python
+value: models.BusinessAccountResponse = /* values here */
+```
+

@@ -22,6 +22,8 @@ class Settlements(BaseSDK):
         month: OptionalNullable[str] = UNSET,
         currencies: Optional[models.Currencies] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -45,6 +47,8 @@ class Settlements(BaseSDK):
         :param month: Provide the month to query the settlements. Must be used combined with `year` parameter
         :param currencies: Provides the currencies to retrieve the settlements. It accepts multiple currencies in a comma-separated format.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -68,6 +72,8 @@ class Settlements(BaseSDK):
             month=month,
             currencies=currencies,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -166,6 +172,8 @@ class Settlements(BaseSDK):
                 month=month,
                 currencies=currencies,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -205,6 +213,8 @@ class Settlements(BaseSDK):
         month: OptionalNullable[str] = UNSET,
         currencies: Optional[models.Currencies] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -228,6 +238,8 @@ class Settlements(BaseSDK):
         :param month: Provide the month to query the settlements. Must be used combined with `year` parameter
         :param currencies: Provides the currencies to retrieve the settlements. It accepts multiple currencies in a comma-separated format.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -251,6 +263,8 @@ class Settlements(BaseSDK):
             month=month,
             currencies=currencies,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -352,6 +366,8 @@ class Settlements(BaseSDK):
                 month=month,
                 currencies=currencies,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -386,6 +402,8 @@ class Settlements(BaseSDK):
         *,
         settlement_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -410,6 +428,8 @@ class Settlements(BaseSDK):
 
         :param settlement_id: Provide the ID of the related settlement.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -428,6 +448,8 @@ class Settlements(BaseSDK):
         request = models.GetSettlementRequest(
             settlement_id=settlement_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -522,6 +544,8 @@ class Settlements(BaseSDK):
         *,
         settlement_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -546,6 +570,8 @@ class Settlements(BaseSDK):
 
         :param settlement_id: Provide the ID of the related settlement.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -564,6 +590,8 @@ class Settlements(BaseSDK):
         request = models.GetSettlementRequest(
             settlement_id=settlement_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -657,6 +685,8 @@ class Settlements(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -676,6 +706,8 @@ class Settlements(BaseSDK):
         If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -693,6 +725,8 @@ class Settlements(BaseSDK):
 
         request = models.GetOpenSettlementRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -786,6 +820,8 @@ class Settlements(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -805,6 +841,8 @@ class Settlements(BaseSDK):
         If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -822,6 +860,8 @@ class Settlements(BaseSDK):
 
         request = models.GetOpenSettlementRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -915,6 +955,8 @@ class Settlements(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -933,6 +975,8 @@ class Settlements(BaseSDK):
         If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -950,6 +994,8 @@ class Settlements(BaseSDK):
 
         request = models.GetNextSettlementRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -1043,6 +1089,8 @@ class Settlements(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1061,6 +1109,8 @@ class Settlements(BaseSDK):
         If set, this operation will use either `advanced_access_token` or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1078,6 +1128,8 @@ class Settlements(BaseSDK):
 
         request = models.GetNextSettlementRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -1176,6 +1228,8 @@ class Settlements(BaseSDK):
         sort: Optional[models.Sorting] = None,
         profile_id: Optional[str] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1205,6 +1259,8 @@ class Settlements(BaseSDK):
             Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
             organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1227,6 +1283,8 @@ class Settlements(BaseSDK):
             sort=sort,
             profile_id=profile_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -1327,6 +1385,8 @@ class Settlements(BaseSDK):
                 sort=sort,
                 profile_id=profile_id,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -1363,6 +1423,8 @@ class Settlements(BaseSDK):
         sort: Optional[models.Sorting] = None,
         profile_id: Optional[str] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1392,6 +1454,8 @@ class Settlements(BaseSDK):
             Most API credentials are linked to a single profile. In these cases the `profileId` must not be sent. For
             organization-level credentials such as OAuth access tokens however, the `profileId` parameter is required.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1414,6 +1478,8 @@ class Settlements(BaseSDK):
             sort=sort,
             profile_id=profile_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -1517,6 +1583,8 @@ class Settlements(BaseSDK):
                 sort=sort,
                 profile_id=profile_id,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -1552,6 +1620,8 @@ class Settlements(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         embed: OptionalNullable[str] = UNSET,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1573,6 +1643,8 @@ class Settlements(BaseSDK):
         :param embed: This endpoint allows you to embed additional resources via the
             `embed` query string parameter.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1594,6 +1666,8 @@ class Settlements(BaseSDK):
             limit=limit,
             embed=embed,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -1690,6 +1764,8 @@ class Settlements(BaseSDK):
                 limit=limit,
                 embed=embed,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -1727,6 +1803,8 @@ class Settlements(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         embed: OptionalNullable[str] = UNSET,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1748,6 +1826,8 @@ class Settlements(BaseSDK):
         :param embed: This endpoint allows you to embed additional resources via the
             `embed` query string parameter.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1769,6 +1849,8 @@ class Settlements(BaseSDK):
             limit=limit,
             embed=embed,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -1868,6 +1950,8 @@ class Settlements(BaseSDK):
                 limit=limit,
                 embed=embed,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -1905,6 +1989,8 @@ class Settlements(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         embed: OptionalNullable[str] = UNSET,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1926,6 +2012,8 @@ class Settlements(BaseSDK):
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string
             parameter.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1947,6 +2035,8 @@ class Settlements(BaseSDK):
             limit=limit,
             embed=embed,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -2043,6 +2133,8 @@ class Settlements(BaseSDK):
                 limit=limit,
                 embed=embed,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -2080,6 +2172,8 @@ class Settlements(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         embed: OptionalNullable[str] = UNSET,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -2101,6 +2195,8 @@ class Settlements(BaseSDK):
         :param embed: This endpoint allows embedding related API items by appending the following values via the `embed` query string
             parameter.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2122,6 +2218,8 @@ class Settlements(BaseSDK):
             limit=limit,
             embed=embed,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -2221,6 +2319,8 @@ class Settlements(BaseSDK):
                 limit=limit,
                 embed=embed,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -2259,6 +2359,8 @@ class Settlements(BaseSDK):
         embed: OptionalNullable[str] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -2284,6 +2386,8 @@ class Settlements(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2306,6 +2410,8 @@ class Settlements(BaseSDK):
             embed=embed,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -2406,6 +2512,8 @@ class Settlements(BaseSDK):
                 embed=embed,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -2444,6 +2552,8 @@ class Settlements(BaseSDK):
         embed: OptionalNullable[str] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -2469,6 +2579,8 @@ class Settlements(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2491,6 +2603,8 @@ class Settlements(BaseSDK):
             embed=embed,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -2596,6 +2710,8 @@ class Settlements(BaseSDK):
                 embed=embed,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,

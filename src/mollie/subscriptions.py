@@ -17,6 +17,8 @@ class Subscriptions(BaseSDK):
         *,
         customer_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         subscription_request: Optional[
             Union[models.SubscriptionRequest, models.SubscriptionRequestTypedDict]
         ] = None,
@@ -51,6 +53,8 @@ class Subscriptions(BaseSDK):
 
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param subscription_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -70,6 +74,8 @@ class Subscriptions(BaseSDK):
         request = models.CreateSubscriptionRequest(
             customer_id=customer_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             subscription_request=utils.get_pydantic_model(
                 subscription_request, Optional[models.SubscriptionRequest]
             ),
@@ -174,6 +180,8 @@ class Subscriptions(BaseSDK):
         *,
         customer_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         subscription_request: Optional[
             Union[models.SubscriptionRequest, models.SubscriptionRequestTypedDict]
         ] = None,
@@ -208,6 +216,8 @@ class Subscriptions(BaseSDK):
 
         :param customer_id: Provide the ID of the related customer.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param subscription_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -227,6 +237,8 @@ class Subscriptions(BaseSDK):
         request = models.CreateSubscriptionRequest(
             customer_id=customer_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             subscription_request=utils.get_pydantic_model(
                 subscription_request, Optional[models.SubscriptionRequest]
             ),
@@ -335,6 +347,8 @@ class Subscriptions(BaseSDK):
         sort: Optional[models.Sorting] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -361,6 +375,8 @@ class Subscriptions(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -383,6 +399,8 @@ class Subscriptions(BaseSDK):
             sort=sort,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -483,6 +501,8 @@ class Subscriptions(BaseSDK):
                 sort=sort,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -521,6 +541,8 @@ class Subscriptions(BaseSDK):
         sort: Optional[models.Sorting] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -547,6 +569,8 @@ class Subscriptions(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -569,6 +593,8 @@ class Subscriptions(BaseSDK):
             sort=sort,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -672,6 +698,8 @@ class Subscriptions(BaseSDK):
                 sort=sort,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -708,6 +736,8 @@ class Subscriptions(BaseSDK):
         subscription_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -727,6 +757,8 @@ class Subscriptions(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -747,6 +779,8 @@ class Subscriptions(BaseSDK):
             subscription_id=subscription_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -846,6 +880,8 @@ class Subscriptions(BaseSDK):
         subscription_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -865,6 +901,8 @@ class Subscriptions(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -885,6 +923,8 @@ class Subscriptions(BaseSDK):
             subscription_id=subscription_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -983,6 +1023,8 @@ class Subscriptions(BaseSDK):
         customer_id: str,
         subscription_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.UpdateSubscriptionRequestBody,
@@ -1007,6 +1049,8 @@ class Subscriptions(BaseSDK):
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1027,6 +1071,8 @@ class Subscriptions(BaseSDK):
             customer_id=customer_id,
             subscription_id=subscription_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.UpdateSubscriptionRequestBody]
             ),
@@ -1132,6 +1178,8 @@ class Subscriptions(BaseSDK):
         customer_id: str,
         subscription_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.UpdateSubscriptionRequestBody,
@@ -1156,6 +1204,8 @@ class Subscriptions(BaseSDK):
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1176,6 +1226,8 @@ class Subscriptions(BaseSDK):
             customer_id=customer_id,
             subscription_id=subscription_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.UpdateSubscriptionRequestBody]
             ),
@@ -1281,6 +1333,8 @@ class Subscriptions(BaseSDK):
         customer_id: str,
         subscription_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.CancelSubscriptionRequestBody,
@@ -1301,6 +1355,8 @@ class Subscriptions(BaseSDK):
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1321,6 +1377,8 @@ class Subscriptions(BaseSDK):
             customer_id=customer_id,
             subscription_id=subscription_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.CancelSubscriptionRequestBody]
             ),
@@ -1426,6 +1484,8 @@ class Subscriptions(BaseSDK):
         customer_id: str,
         subscription_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.CancelSubscriptionRequestBody,
@@ -1446,6 +1506,8 @@ class Subscriptions(BaseSDK):
         :param customer_id: Provide the ID of the related customer.
         :param subscription_id: Provide the ID of the related subscription.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1466,6 +1528,8 @@ class Subscriptions(BaseSDK):
             customer_id=customer_id,
             subscription_id=subscription_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.CancelSubscriptionRequestBody]
             ),
@@ -1573,6 +1637,8 @@ class Subscriptions(BaseSDK):
         profile_id: OptionalNullable[str] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1602,6 +1668,8 @@ class Subscriptions(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1623,6 +1691,8 @@ class Subscriptions(BaseSDK):
             profile_id=profile_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -1723,6 +1793,8 @@ class Subscriptions(BaseSDK):
                 profile_id=profile_id,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -1760,6 +1832,8 @@ class Subscriptions(BaseSDK):
         profile_id: OptionalNullable[str] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1789,6 +1863,8 @@ class Subscriptions(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1810,6 +1886,8 @@ class Subscriptions(BaseSDK):
             profile_id=profile_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -1913,6 +1991,8 @@ class Subscriptions(BaseSDK):
                 profile_id=profile_id,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -1953,6 +2033,8 @@ class Subscriptions(BaseSDK):
         profile_id: Optional[str] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -1985,6 +2067,8 @@ class Subscriptions(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2009,6 +2093,8 @@ class Subscriptions(BaseSDK):
             profile_id=profile_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -2109,6 +2195,8 @@ class Subscriptions(BaseSDK):
                 profile_id=profile_id,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -2147,6 +2235,8 @@ class Subscriptions(BaseSDK):
         profile_id: Optional[str] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -2179,6 +2269,8 @@ class Subscriptions(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2203,6 +2295,8 @@ class Subscriptions(BaseSDK):
             profile_id=profile_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -2306,6 +2400,8 @@ class Subscriptions(BaseSDK):
                 profile_id=profile_id,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,

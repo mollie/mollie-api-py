@@ -6,11 +6,31 @@ from .account_details import AccountDetails, AccountDetailsTypedDict
 from .account_status import AccountStatus
 from .balance import Balance, BalanceTypedDict
 from .mode import Mode
+from .url import URL, URLTypedDict
 from mollie import models
 from mollie.types import BaseModel
 import pydantic
 from pydantic import field_serializer
 from typing_extensions import Annotated, TypedDict
+
+
+class BusinessAccountResponseLinksTypedDict(TypedDict):
+    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+
+    self_: URLTypedDict
+    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
+    documentation: URLTypedDict
+    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
+
+
+class BusinessAccountResponseLinks(BaseModel):
+    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+
+    self_: Annotated[URL, pydantic.Field(alias="self")]
+    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
+
+    documentation: URL
+    r"""In v2 endpoints, URLs are commonly represented as objects with an `href` and `type` field."""
 
 
 class BusinessAccountResponseTypedDict(TypedDict):
@@ -32,6 +52,8 @@ class BusinessAccountResponseTypedDict(TypedDict):
     r"""Whether this entity was created in live mode or in test mode."""
     created_at: str
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
+    links: BusinessAccountResponseLinksTypedDict
+    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
 
 
 class BusinessAccountResponse(BaseModel):
@@ -60,6 +82,9 @@ class BusinessAccountResponse(BaseModel):
     created_at: Annotated[str, pydantic.Field(alias="createdAt")]
     r"""The entity's date and time of creation, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format."""
 
+    links: Annotated[BusinessAccountResponseLinks, pydantic.Field(alias="_links")]
+    r"""An object with several relevant URLs. Every URL object will contain an `href` and a `type` field."""
+
     @field_serializer("status")
     def serialize_status(self, value):
         if isinstance(value, str):
@@ -79,6 +104,10 @@ class BusinessAccountResponse(BaseModel):
         return value
 
 
+try:
+    BusinessAccountResponseLinks.model_rebuild()
+except NameError:
+    pass
 try:
     BusinessAccountResponse.model_rebuild()
 except NameError:

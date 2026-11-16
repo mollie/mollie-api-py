@@ -77,6 +77,10 @@ class GetOrganizationRequestTypedDict(TypedDict):
     """
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
+    x_client_signature: NotRequired[str]
+    r"""A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration."""
+    x_client_signed_at: NotRequired[str]
+    r"""The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration."""
 
 
 class GetOrganizationRequest(BaseModel):
@@ -103,12 +107,28 @@ class GetOrganizationRequest(BaseModel):
     ] = None
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
+    x_client_signature: Annotated[
+        Optional[str],
+        pydantic.Field(alias="X-Client-Signature"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration."""
+
+    x_client_signed_at: Annotated[
+        Optional[str],
+        pydantic.Field(alias="X-Client-Signed-At"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["testmode", "idempotency-key"])
+        optional_fields = set(
+            ["testmode", "idempotency-key", "X-Client-Signature", "X-Client-Signed-At"]
+        )
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

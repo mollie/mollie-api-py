@@ -16,6 +16,8 @@ class SalesInvoices(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         sales_invoice_request: Optional[
             Union[models.SalesInvoiceRequest, models.SalesInvoiceRequestTypedDict]
         ] = None,
@@ -31,6 +33,8 @@ class SalesInvoices(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param sales_invoice_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -49,6 +53,8 @@ class SalesInvoices(BaseSDK):
 
         request = models.CreateSalesInvoiceRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             sales_invoice_request=utils.get_pydantic_model(
                 sales_invoice_request, Optional[models.SalesInvoiceRequest]
             ),
@@ -158,6 +164,8 @@ class SalesInvoices(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         sales_invoice_request: Optional[
             Union[models.SalesInvoiceRequest, models.SalesInvoiceRequestTypedDict]
         ] = None,
@@ -173,6 +181,8 @@ class SalesInvoices(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param sales_invoice_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -191,6 +201,8 @@ class SalesInvoices(BaseSDK):
 
         request = models.CreateSalesInvoiceRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             sales_invoice_request=utils.get_pydantic_model(
                 sales_invoice_request, Optional[models.SalesInvoiceRequest]
             ),
@@ -303,6 +315,8 @@ class SalesInvoices(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -326,6 +340,8 @@ class SalesInvoices(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -346,6 +362,8 @@ class SalesInvoices(BaseSDK):
             limit=limit,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -448,6 +466,8 @@ class SalesInvoices(BaseSDK):
                 limit=limit,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -482,6 +502,8 @@ class SalesInvoices(BaseSDK):
         limit: OptionalNullable[int] = UNSET,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -505,6 +527,8 @@ class SalesInvoices(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -525,6 +549,8 @@ class SalesInvoices(BaseSDK):
             limit=limit,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -630,6 +656,8 @@ class SalesInvoices(BaseSDK):
                 limit=limit,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -663,6 +691,8 @@ class SalesInvoices(BaseSDK):
         sales_invoice_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -681,6 +711,8 @@ class SalesInvoices(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -700,6 +732,8 @@ class SalesInvoices(BaseSDK):
             sales_invoice_id=sales_invoice_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -802,6 +836,8 @@ class SalesInvoices(BaseSDK):
         sales_invoice_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -820,6 +856,8 @@ class SalesInvoices(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -839,6 +877,8 @@ class SalesInvoices(BaseSDK):
             sales_invoice_id=sales_invoice_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -940,6 +980,8 @@ class SalesInvoices(BaseSDK):
         *,
         sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.UpdateSalesInvoiceRequestBody,
@@ -961,6 +1003,8 @@ class SalesInvoices(BaseSDK):
 
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -980,6 +1024,8 @@ class SalesInvoices(BaseSDK):
         request = models.UpdateSalesInvoiceRequest(
             sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.UpdateSalesInvoiceRequestBody]
             ),
@@ -1090,6 +1136,8 @@ class SalesInvoices(BaseSDK):
         *,
         sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.UpdateSalesInvoiceRequestBody,
@@ -1111,6 +1159,8 @@ class SalesInvoices(BaseSDK):
 
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1130,6 +1180,8 @@ class SalesInvoices(BaseSDK):
         request = models.UpdateSalesInvoiceRequest(
             sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.UpdateSalesInvoiceRequestBody]
             ),
@@ -1240,6 +1292,8 @@ class SalesInvoices(BaseSDK):
         *,
         sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         delete_values_sales_invoice: Optional[
             Union[
                 models.DeleteValuesSalesInvoice,
@@ -1260,6 +1314,8 @@ class SalesInvoices(BaseSDK):
 
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param delete_values_sales_invoice:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1279,6 +1335,8 @@ class SalesInvoices(BaseSDK):
         request = models.DeleteSalesInvoiceRequest(
             sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             delete_values_sales_invoice=utils.get_pydantic_model(
                 delete_values_sales_invoice, Optional[models.DeleteValuesSalesInvoice]
             ),
@@ -1389,6 +1447,8 @@ class SalesInvoices(BaseSDK):
         *,
         sales_invoice_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         delete_values_sales_invoice: Optional[
             Union[
                 models.DeleteValuesSalesInvoice,
@@ -1409,6 +1469,8 @@ class SalesInvoices(BaseSDK):
 
         :param sales_invoice_id: Provide the ID of the related sales invoice.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param delete_values_sales_invoice:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1428,6 +1490,8 @@ class SalesInvoices(BaseSDK):
         request = models.DeleteSalesInvoiceRequest(
             sales_invoice_id=sales_invoice_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             delete_values_sales_invoice=utils.get_pydantic_model(
                 delete_values_sales_invoice, Optional[models.DeleteValuesSalesInvoice]
             ),

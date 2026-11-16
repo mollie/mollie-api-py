@@ -13,6 +13,328 @@ from typing import Any, Awaitable, Dict, List, Mapping, Optional, Union
 
 
 class Accounts(BaseSDK):
+    def create_account(
+        self,
+        *,
+        idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
+        request_body: Optional[
+            Union[
+                models.CreateBusinessAccountRequestBody,
+                models.CreateBusinessAccountRequestBodyTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.BusinessAccountResponse:
+        r"""Create business account
+
+        > 🔒 Restricted access
+        >
+        > This API is currently only available to Mollie's authorized partners via OAuth. Direct access for individual businesses isn't available yet, but it's on our roadmap — check back here for updates.
+
+        Create a new business account for the authenticated organization.
+
+        The response contains the newly created business account.
+
+        Each organization can have up to 5 active business accounts. Need more? [Contact us](https://www.mollie.com/contact)
+        and we'll help you out.
+
+        If set, this operation will use `o_auth` from the global security.
+
+        :param idempotency_key: A unique value that identifies this request, so you can safely retry it without creating a second account.
+            Retrying with the same key within one hour returns the original response. We recommend a UUIDv4.
+
+            Keys are tied to the credential that sent the original request, so a refreshed OAuth token won't match
+            earlier keys. View the [public documentation](https://docs.mollie.com/reference/api-idempotency) to learn
+            more.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
+        :param request_body:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.CreateBusinessAccountRequest(
+            idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.CreateBusinessAccountRequestBody]
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/v2/business-accounts/accounts",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.request_body if request is not None else None,
+                False,
+                True,
+                "json",
+                Optional[models.CreateBusinessAccountRequestBody],
+            ),
+            allow_empty_value=None,
+            allowed_fields=["o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="create-business-account",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/business-accounts/accounts \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n      "name": "Main Checking Account",\n      "currency": "EUR"\n    }\'',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$account = $mollie->businessAccounts->create([\n    "name" => "Main Checking Account",\n    "currency" => "EUR",\n]);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst account = await mollieClient.businessAccounts.create({\n  name: 'Main Checking Account',\n  currency: 'EUR',\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\naccount = mollie_client.business_accounts.create({\n    "name": "Main Checking Account",\n    "currency": "EUR",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\naccount = Mollie::BusinessAccount.create(\n  name: 'Main Checking Account',\n  currency: 'EUR'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "201", "application/hal+json"):
+            return unmarshal_json_response(models.BusinessAccountResponse, http_res)
+        if utils.match_response(
+            http_res, ["400", "409", "422", "429"], "application/hal+json"
+        ):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
+    async def create_account_async(
+        self,
+        *,
+        idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
+        request_body: Optional[
+            Union[
+                models.CreateBusinessAccountRequestBody,
+                models.CreateBusinessAccountRequestBodyTypedDict,
+            ]
+        ] = None,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.BusinessAccountResponse:
+        r"""Create business account
+
+        > 🔒 Restricted access
+        >
+        > This API is currently only available to Mollie's authorized partners via OAuth. Direct access for individual businesses isn't available yet, but it's on our roadmap — check back here for updates.
+
+        Create a new business account for the authenticated organization.
+
+        The response contains the newly created business account.
+
+        Each organization can have up to 5 active business accounts. Need more? [Contact us](https://www.mollie.com/contact)
+        and we'll help you out.
+
+        If set, this operation will use `o_auth` from the global security.
+
+        :param idempotency_key: A unique value that identifies this request, so you can safely retry it without creating a second account.
+            Retrying with the same key within one hour returns the original response. We recommend a UUIDv4.
+
+            Keys are tied to the credential that sent the original request, so a refreshed OAuth token won't match
+            earlier keys. View the [public documentation](https://docs.mollie.com/reference/api-idempotency) to learn
+            more.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
+        :param request_body:
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.CreateBusinessAccountRequest(
+            idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
+            request_body=utils.get_pydantic_model(
+                request_body, Optional[models.CreateBusinessAccountRequestBody]
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/v2/business-accounts/accounts",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/hal+json",
+            http_headers=http_headers,
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.request_body if request is not None else None,
+                False,
+                True,
+                "json",
+                Optional[models.CreateBusinessAccountRequestBody],
+            ),
+            allow_empty_value=None,
+            allowed_fields=["o_auth"],
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(500, 5000, 2, 7500), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "5xx"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="create-business-account",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+                tags=["Accounts API"],
+                extensions={
+                    "x-readme": {
+                        "code-samples": [
+                            {
+                                "code": 'curl -X POST https://api.mollie.com/v2/business-accounts/accounts \\\n    -H "Authorization: Bearer access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM" \\\n    -H "Content-Type: application/json" \\\n    -d \'{\n      "name": "Main Checking Account",\n      "currency": "EUR"\n    }\'',
+                                "language": "shell",
+                            },
+                            {
+                                "code": '<?php\n$mollie = new \\Mollie\\Api\\MollieApiClient();\n$mollie->setAccessToken("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM");\n\n$account = $mollie->businessAccounts->create([\n    "name" => "Main Checking Account",\n    "currency" => "EUR",\n]);',
+                                "language": "php",
+                            },
+                            {
+                                "code": "const { createMollieClient } = require('mollie-api-typescript');\nconst mollieClient = createMollieClient({ apiKey: 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM' });\n\nconst account = await mollieClient.businessAccounts.create({\n  name: 'Main Checking Account',\n  currency: 'EUR',\n});",
+                                "language": "node",
+                            },
+                            {
+                                "code": 'from mollie.api.client import Client\n\nmollie_client = Client()\nmollie_client.set_access_token("access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM")\n\naccount = mollie_client.business_accounts.create({\n    "name": "Main Checking Account",\n    "currency": "EUR",\n})',
+                                "language": "python",
+                            },
+                            {
+                                "code": "require 'mollie-api-ruby'\n\nMollie::Client.configure do |config|\n  config.api_key = 'access_dHar4XY7LxsDOtmnkVtjNVWXLSlXsM'\nend\n\naccount = Mollie::BusinessAccount.create(\n  name: 'Main Checking Account',\n  currency: 'EUR'\n)",
+                                "language": "ruby",
+                            },
+                        ]
+                    }
+                },
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "201", "application/hal+json"):
+            return unmarshal_json_response(models.BusinessAccountResponse, http_res)
+        if utils.match_response(
+            http_res, ["400", "409", "422", "429"], "application/hal+json"
+        ):
+            response_data = unmarshal_json_response(models.ErrorResponseData, http_res)
+            raise models.ErrorResponse(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise models.APIError("API error occurred", http_res, http_res_text)
+
+        raise models.APIError("Unexpected response received", http_res)
+
     def list_accounts(
         self,
         *,
@@ -22,6 +344,8 @@ class Accounts(BaseSDK):
         sort: Optional[models.Sorting] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -52,6 +376,8 @@ class Accounts(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -74,6 +400,8 @@ class Accounts(BaseSDK):
             sort=sort,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -174,6 +502,8 @@ class Accounts(BaseSDK):
                 sort=sort,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -210,6 +540,8 @@ class Accounts(BaseSDK):
         sort: Optional[models.Sorting] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -240,6 +572,8 @@ class Accounts(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -262,6 +596,8 @@ class Accounts(BaseSDK):
             sort=sort,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -365,6 +701,8 @@ class Accounts(BaseSDK):
                 sort=sort,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -398,6 +736,8 @@ class Accounts(BaseSDK):
         business_account_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -421,6 +761,8 @@ class Accounts(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -440,6 +782,8 @@ class Accounts(BaseSDK):
             business_account_id=business_account_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -538,6 +882,8 @@ class Accounts(BaseSDK):
         business_account_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -561,6 +907,8 @@ class Accounts(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -580,6 +928,8 @@ class Accounts(BaseSDK):
             business_account_id=business_account_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -684,6 +1034,8 @@ class Accounts(BaseSDK):
         sort: Optional[models.Sorting] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -725,6 +1077,8 @@ class Accounts(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -750,6 +1104,8 @@ class Accounts(BaseSDK):
             sort=sort,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -853,6 +1209,8 @@ class Accounts(BaseSDK):
                 sort=sort,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -892,6 +1250,8 @@ class Accounts(BaseSDK):
         sort: Optional[models.Sorting] = None,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         url_override: Optional[str] = None,
@@ -933,6 +1293,8 @@ class Accounts(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -958,6 +1320,8 @@ class Accounts(BaseSDK):
             sort=sort,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(
@@ -1066,6 +1430,8 @@ class Accounts(BaseSDK):
                 sort=sort,
                 testmode=testmode,
                 idempotency_key=idempotency_key,
+                x_client_signature=x_client_signature,
+                x_client_signed_at=x_client_signed_at,
                 retries=retries,
                 server_url=server_url,
                 timeout_ms=timeout_ms,
@@ -1100,6 +1466,8 @@ class Accounts(BaseSDK):
         transaction_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1124,6 +1492,8 @@ class Accounts(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1144,6 +1514,8 @@ class Accounts(BaseSDK):
             transaction_id=transaction_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -1243,6 +1615,8 @@ class Accounts(BaseSDK):
         transaction_id: str,
         testmode: Optional[bool] = None,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1267,6 +1641,8 @@ class Accounts(BaseSDK):
 
             Test entities cannot be retrieved when the endpoint is set to live mode, and vice versa.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1287,6 +1663,8 @@ class Accounts(BaseSDK):
             transaction_id=transaction_id,
             testmode=testmode,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(

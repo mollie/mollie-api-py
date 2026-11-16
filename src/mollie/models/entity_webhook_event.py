@@ -2,6 +2,10 @@
 # @generated-id: 2db7196b42ba
 
 from __future__ import annotations
+from .business_account_response import (
+    BusinessAccountResponse,
+    BusinessAccountResponseTypedDict,
+)
 from .capture_response import CaptureResponse, CaptureResponseTypedDict
 from .draft_transfer_response import (
     DraftTransferResponse,
@@ -83,6 +87,7 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
     BUSINESS_ACCOUNT_DRAFT_TRANSFER_DECLINED = (
         "business-account-draft-transfer.declined"
     )
+    BUSINESS_ACCOUNT_CREATED = "business-account.created"
     UNMATCHED_CREDIT_TRANSFER_RECEIVED = "unmatched-credit-transfer.received"
     UNMATCHED_CREDIT_TRANSFER_MATCHED = "unmatched-credit-transfer.matched"
     UNMATCHED_CREDIT_TRANSFER_RETURNED = "unmatched-credit-transfer.returned"
@@ -103,6 +108,7 @@ class EntityWebhookEventWebhookEventTypes(str, Enum, metaclass=utils.OpenEnumMet
 EntityTypedDict = TypeAliasType(
     "EntityTypedDict",
     Union[
+        BusinessAccountResponseTypedDict,
         EntityChargebackTypedDict,
         CaptureResponseTypedDict,
         RefundResponseTypedDict,
@@ -119,6 +125,7 @@ EntityTypedDict = TypeAliasType(
 Entity = TypeAliasType(
     "Entity",
     Union[
+        BusinessAccountResponse,
         EntityChargeback,
         CaptureResponse,
         RefundResponse,
