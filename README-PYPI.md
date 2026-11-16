@@ -210,7 +210,7 @@ with ClientSDK(
     testmode=True,
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426", x_client_signature="MEUCIQDx8sJvK3z...", x_client_signed_at="2025-01-01T12:00:00Z")
 
     while res is not None:
         # Handle items
@@ -330,6 +330,7 @@ client = ClientSDK(
 
 ### [Accounts](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md)
 
+* [create_account](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md#create_account) - Create business account
 * [list_accounts](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md#list_accounts) - List business accounts
 * [get_account](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md#get_account) - Get business account
 * [list](https://github.com/mollie/mollie-api-py/blob/master/docs/sdks/accounts/README.md#list) - List transactions
@@ -602,7 +603,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426", x_client_signature="MEUCIQDx8sJvK3z...", x_client_signed_at="2025-01-01T12:00:00Z")
 
     while res is not None:
         # Handle items
@@ -633,7 +634,7 @@ with ClientSDK(
     ),
 ) as client_sdk:
 
-    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426")
+    res = client_sdk.balances.list(currency="EUR", limit=50, idempotency_key="123e4567-e89b-12d3-a456-426", x_client_signature="MEUCIQDx8sJvK3z...", x_client_signed_at="2025-01-01T12:00:00Z")
 
     while res is not None:
         # Handle items

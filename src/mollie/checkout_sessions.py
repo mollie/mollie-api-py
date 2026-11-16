@@ -15,6 +15,8 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         session_request: Optional[
             Union[models.SessionRequest, models.SessionRequestTypedDict]
         ] = None,
@@ -36,6 +38,8 @@ class CheckoutSessions(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param session_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -54,6 +58,8 @@ class CheckoutSessions(BaseSDK):
 
         request = models.CreateSessionRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             session_request=utils.get_pydantic_model(
                 session_request, Optional[models.SessionRequest]
             ),
@@ -154,6 +160,8 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         session_request: Optional[
             Union[models.SessionRequest, models.SessionRequestTypedDict]
         ] = None,
@@ -175,6 +183,8 @@ class CheckoutSessions(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param session_request:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -193,6 +203,8 @@ class CheckoutSessions(BaseSDK):
 
         request = models.CreateSessionRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             session_request=utils.get_pydantic_model(
                 session_request, Optional[models.SessionRequest]
             ),
@@ -294,6 +306,8 @@ class CheckoutSessions(BaseSDK):
         *,
         session_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -313,6 +327,8 @@ class CheckoutSessions(BaseSDK):
 
         :param session_id: Provide the ID of the related Checkout Session.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -331,6 +347,8 @@ class CheckoutSessions(BaseSDK):
         request = models.GetSessionRequest(
             session_id=session_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request(
@@ -419,6 +437,8 @@ class CheckoutSessions(BaseSDK):
         *,
         session_id: str,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -438,6 +458,8 @@ class CheckoutSessions(BaseSDK):
 
         :param session_id: Provide the ID of the related Checkout Session.
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -456,6 +478,8 @@ class CheckoutSessions(BaseSDK):
         request = models.GetSessionRequest(
             session_id=session_id,
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
         )
 
         req = self._build_request_async(

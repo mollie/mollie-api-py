@@ -15,6 +15,8 @@ class Wallets(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.RequestApplePayPaymentSessionRequestBody,
@@ -51,6 +53,8 @@ class Wallets(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -69,6 +73,8 @@ class Wallets(BaseSDK):
 
         request = models.RequestApplePayPaymentSessionRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.RequestApplePayPaymentSessionRequestBody]
             ),
@@ -163,6 +169,8 @@ class Wallets(BaseSDK):
         self,
         *,
         idempotency_key: Optional[str] = None,
+        x_client_signature: Optional[str] = None,
+        x_client_signed_at: Optional[str] = None,
         request_body: Optional[
             Union[
                 models.RequestApplePayPaymentSessionRequestBody,
@@ -199,6 +207,8 @@ class Wallets(BaseSDK):
         If set, this operation will use one of `api_key`, `advanced_access_token`, or `o_auth` from the global security.
 
         :param idempotency_key: A unique key to ensure idempotent requests. This key should be a UUID v4 string.
+        :param x_client_signature: A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration.
+        :param x_client_signed_at: The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration.
         :param request_body:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -217,6 +227,8 @@ class Wallets(BaseSDK):
 
         request = models.RequestApplePayPaymentSessionRequest(
             idempotency_key=idempotency_key,
+            x_client_signature=x_client_signature,
+            x_client_signed_at=x_client_signed_at,
             request_body=utils.get_pydantic_model(
                 request_body, Optional[models.RequestApplePayPaymentSessionRequestBody]
             ),

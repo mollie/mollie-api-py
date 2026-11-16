@@ -32,8 +32,6 @@ class CreateTransferRequestTypedDict(TypedDict):
     View the [public documentation](https://docs.mollie.com/reference/api-idempotency#using-an-idempotency-key)
     to learn more.
     """
-    idempotency_key1: NotRequired[str]
-    r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
     transfer_request: NotRequired[TransferRequestTypedDict]
 
 
@@ -67,13 +65,6 @@ class CreateTransferRequest(BaseModel):
     to learn more.
     """
 
-    idempotency_key1: Annotated[
-        Optional[str],
-        pydantic.Field(alias="idempotency-key"),
-        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = None
-    r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
-
     transfer_request: Annotated[
         Optional[TransferRequest],
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
@@ -84,7 +75,7 @@ class CreateTransferRequest(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["idempotency-key1", "transfer-request"])
+        optional_fields = set(["transfer-request"])
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

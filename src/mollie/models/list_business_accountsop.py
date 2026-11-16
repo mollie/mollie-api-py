@@ -2,9 +2,9 @@
 # @generated-id: 0ef159957b5c
 
 from __future__ import annotations
-from .business_account_response import (
-    BusinessAccountResponse,
-    BusinessAccountResponseTypedDict,
+from .list_business_account_response import (
+    ListBusinessAccountResponse,
+    ListBusinessAccountResponseTypedDict,
 )
 from .sorting import Sorting
 from mollie.types import (
@@ -92,6 +92,10 @@ class ListBusinessAccountsRequestTypedDict(TypedDict):
     """
     idempotency_key: NotRequired[str]
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
+    x_client_signature: NotRequired[str]
+    r"""A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration."""
+    x_client_signed_at: NotRequired[str]
+    r"""The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration."""
 
 
 class ListBusinessAccountsRequest(BaseModel):
@@ -142,13 +146,36 @@ class ListBusinessAccountsRequest(BaseModel):
     ] = None
     r"""A unique key to ensure idempotent requests. This key should be a UUID v4 string."""
 
+    x_client_signature: Annotated[
+        Optional[str],
+        pydantic.Field(alias="X-Client-Signature"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""A cryptographic signature of the request, used to verify that it was sent by you and hasn't been tampered with. Required if you've enabled request signing for your integration."""
+
+    x_client_signed_at: Annotated[
+        Optional[str],
+        pydantic.Field(alias="X-Client-Signed-At"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""The timestamp, in ISO 8601 format, at which you generated the `X-Client-Signature`. Required together with `X-Client-Signature` if you've enabled request signing for your integration."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
         optional_fields = set(
-            ["iban", "from", "limit", "sort", "testmode", "idempotency-key"]
+            [
+                "iban",
+                "from",
+                "limit",
+                "sort",
+                "testmode",
+                "idempotency-key",
+                "X-Client-Signature",
+                "X-Client-Signed-At",
+            ]
         )
         nullable_fields = set(["limit"])
         exclude_none = current_exclude_none()
@@ -178,13 +205,13 @@ class ListBusinessAccountsRequest(BaseModel):
 
 
 class ListBusinessAccountsEmbeddedTypedDict(TypedDict):
-    business_accounts: NotRequired[List[BusinessAccountResponseTypedDict]]
+    business_accounts: NotRequired[List[ListBusinessAccountResponseTypedDict]]
     r"""An array of business account objects."""
 
 
 class ListBusinessAccountsEmbedded(BaseModel):
     business_accounts: Annotated[
-        Optional[List[BusinessAccountResponse]],
+        Optional[List[ListBusinessAccountResponse]],
         pydantic.Field(alias="businessAccounts"),
     ] = None
     r"""An array of business account objects."""
