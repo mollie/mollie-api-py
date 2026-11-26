@@ -11,7 +11,10 @@ from typing_extensions import TypeAliasType, TypeAlias
 
 class BaseModel(PydanticBaseModel):
     model_config = ConfigDict(
-        populate_by_name=True, arbitrary_types_allowed=True, protected_namespaces=()
+        populate_by_name=True,
+        arbitrary_types_allowed=True,
+        protected_namespaces=(),
+        use_attribute_docstrings=True,
     )
 
 
