@@ -3,17 +3,17 @@ id: ""
 management:
   docChecksum: 86a079bcb9815920b2c98ce12c82d44f
   docVersion: 1.0.0
-  speakeasyVersion: 1.811.0
+  speakeasyVersion: 1.812.0
   generationVersion: 2.968.1
-  releaseVersion: 1.10.27
-  configChecksum: 1f83296dbd1dbc3aa16641676b96dbb7
+  releaseVersion: 1.10.18
+  configChecksum: 0c9c56aed2468a38902754756136dd02
   repoURL: https://github.com/mollie/mollie-api-py.git
   installationURL: https://github.com/mollie/mollie-api-py.git
   published: true
 persistentEdits:
-  generation_id: b739a4a3-5d0b-4b3b-801b-56aea156407c
-  pristine_commit_hash: 84025cfb8c464070004d5714fcdea97b17cbf708
-  pristine_tree_hash: 57b413a3cf66e157b238abe48c11a3c7c66bdf7a
+  generation_id: 06825068-7dd7-4c30-8941-4cc5fcc621de
+  pristine_commit_hash: c6792a8fe242d7e95164b5bc031949e20781f640
+  pristine_tree_hash: 78afb378be01d1d650e2242cc9a7b4fedd09fea2
 features:
   python:
     additionalDependencies: 1.1.0
@@ -3776,8 +3776,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:7adb16fdb4d4a74c3bec1bd0504870442e2f0ee5
-    pristine_git_object: af5ace1359625bccee92bf36b7d418d717848c4f
+    last_write_checksum: sha1:754df1e5d9b8443c8fdf71df7b4894145963b2f6
+    pristine_git_object: f86aec9871af3c79bebd32beb2d4b9efe62a573f
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:17dcc3fb79415ed986719b824a6c91ba8b8d3d71
@@ -3804,8 +3804,8 @@ trackedFiles:
     pristine_git_object: e8d4d3154ec8db4ccf1d3cc59ac088776b37863d
   src/mollie/_version.py:
     id: 04555310b049
-    last_write_checksum: sha1:96ca1d7c34f90f87a90838312980967bc0080a37
-    pristine_git_object: 0e3ea2f398225825d158e7126cc926b65cd2e38d
+    last_write_checksum: sha1:971ac88ef4a0c3bf778746f4d19fdb7a7a1500cc
+    pristine_git_object: c29089e76a83b4c7efbb6fe4f09a2d10a2c8784e
   src/mollie/accounts.py:
     id: 83fe34bf1ba6
     last_write_checksum: sha1:1a617d257696ed511e5a4f25d9cf450f2b33aa16
@@ -5520,7 +5520,7 @@ trackedFiles:
     pristine_git_object: 6196ab0f55590d4d86d8f19531cc6b50469c0fd1
   src/mollie/types/basemodel.py:
     id: ce2bcbda94a3
-    last_write_checksum: sha1:d930d2547a7b38e99a226724bdd305b31a6cbc27
+    last_write_checksum: sha1:ebc016da47ecae13d6268c9261fe7935696d430e
     pristine_git_object: 731a7a4649ad2cdc52a7dde233db4ff46aa975df
   src/mollie/unmatched_credit_transfers.py:
     id: d177cfefe55e
